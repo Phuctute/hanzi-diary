@@ -1,0 +1,362 @@
+[
+  {
+    "tag_id": 1,
+    "tag_name": "Gia đình",
+    "tag_slug": "gia-dinh",
+    "icon_class": "fa-solid fa-people-roof",
+    "category": "doi-song",
+    "word_count": 48,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 2,
+    "tag_name": "Thời gian & Thời tiết",
+    "tag_slug": "thoi-gian-thoi-tiet",
+    "icon_class": "fa-solid fa-cloud-sun",
+    "category": "doi-song",
+    "word_count": 47,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 3,
+    "tag_name": "Thể thao",
+    "tag_slug": "the-thao",
+    "icon_class": "fa-solid fa-volleyball",
+    "category": "doi-song",
+    "word_count": 49,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 4,
+    "tag_name": "Món ăn & Trái cây",
+    "tag_slug": "mon-an-trai-cay",
+    "icon_class": "fa-solid fa-bowl-rice",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 5,
+    "tag_name": "Giao thông & Xe cộ",
+    "tag_slug": "giao-thong-xe-co",
+    "icon_class": "fa-solid fa-motorcycle",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 6,
+    "tag_name": "Thuê nhà",
+    "tag_slug": "thue-nha",
+    "icon_class": "fa-solid fa-house-chimney",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 7,
+    "tag_name": "Khám bệnh",
+    "tag_slug": "kham-benh",
+    "icon_class": "fa-solid fa-stethoscope",
+    "category": "doi-song",
+    "word_count": 50,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 8,
+    "tag_name": "Du lịch",
+    "tag_slug": "du-lich",
+    "icon_class": "fa-solid fa-suitcase-rolling",
+    "category": "doi-song",
+    "word_count": 52,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 9,
+    "tag_name": "Học bổng & Hồ sơ du học",
+    "tag_slug": "hoc-bong-ho-so",
+    "icon_class": "fa-solid fa-graduation-cap",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 10,
+    "tag_name": "Trường học & Dụng cụ",
+    "tag_slug": "truong-hoc-dung-cu",
+    "icon_class": "fa-solid fa-pen-ruler",
+    "category": "doi-song",
+    "word_count": 52,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 11,
+    "tag_name": "Động từ ly hợp",
+    "tag_slug": "dong-tu-ly-hop",
+    "icon_class": "fa-solid fa-arrows-split-up-and-left",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 12,
+    "tag_name": "Lượng từ",
+    "tag_slug": "luong-tu",
+    "icon_class": "fa-solid fa-ruler",
+    "category": "doi-song",
+    "word_count": 49,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 13,
+    "tag_name": "Phỏng vấn & Sơ yếu lý lịch",
+    "tag_slug": "phong-van-cv",
+    "icon_class": "fa-solid fa-file-signature",
+    "category": "doi-song",
+    "word_count": 56,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 14,
+    "tag_name": "Văn phòng phẩm",
+    "tag_slug": "van-phong-pham",
+    "icon_class": "fa-solid fa-briefcase",
+    "category": "doi-song",
+    "word_count": 47,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 15,
+    "tag_name": "Thương mại & Hợp đồng",
+    "tag_slug": "thuong-mai-hop-dong",
+    "icon_class": "fa-solid fa-file-contract",
+    "category": "doi-song",
+    "word_count": 54,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 16,
+    "tag_name": "Quảng cáo & Marketing",
+    "tag_slug": "quang-cao-marketing",
+    "icon_class": "fa-solid fa-bullhorn",
+    "category": "doi-song",
+    "word_count": 54,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 17,
+    "tag_name": "Xuất nhập cảnh & Cư trú",
+    "tag_slug": "xuat-nhap-canh-cu-tru",
+    "icon_class": "fa-solid fa-passport",
+    "category": "doi-song",
+    "word_count": 52,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 18,
+    "tag_name": "Ngôn ngữ mạng Đài Loan",
+    "tag_slug": "ngon-ngu-mang",
+    "icon_class": "fa-solid fa-hashtag",
+    "category": "doi-song",
+    "word_count": 64,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 19,
+    "tag_name": "Mua sắm online",
+    "tag_slug": "mua-sam-online",
+    "icon_class": "fa-solid fa-cart-shopping",
+    "category": "doi-song",
+    "word_count": 53,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 20,
+    "tag_name": "Mỹ phẩm & Spa",
+    "tag_slug": "my-pham-spa",
+    "icon_class": "fa-solid fa-spa",
+    "category": "doi-song",
+    "word_count": 48,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 111,
+    "tag_name": "Quần áo & Thời trang",
+    "tag_slug": "quan-ao-thoi-trang",
+    "icon_class": "fa-solid fa-shirt",
+    "category": "doi-song",
+    "word_count": 45,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 112,
+    "tag_name": "Tiền tệ & Ngân hàng",
+    "tag_slug": "tien-te-ngan-hang",
+    "icon_class": "fa-solid fa-money-bill-wave",
+    "category": "doi-song",
+    "word_count": 45,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 113,
+    "tag_name": "Lễ Tết & Ngày lễ Đài Loan",
+    "tag_slug": "le-tet-le-hoi",
+    "icon_class": "fa-solid fa-gift",
+    "category": "doi-song",
+    "word_count": 45,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 114,
+    "tag_name": "Phim ảnh & Giải trí",
+    "tag_slug": "phim-anh-giai-tri",
+    "icon_class": "fa-solid fa-film",
+    "category": "doi-song",
+    "word_count": 45,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 115,
+    "tag_name": "Âm nhạc & Ca khúc",
+    "tag_slug": "am-nhac-ca-khuc",
+    "icon_class": "fa-solid fa-music",
+    "category": "doi-song",
+    "word_count": 45,
+    "category_label": "Đời sống"
+  },
+  {
+    "tag_id": 41,
+    "tag_name": "Kinh doanh & Quản trị",
+    "tag_slug": "nganh-kinh-doanh-quan-tri",
+    "icon_class": "fa-solid fa-briefcase",
+    "category": "chuyen-nganh",
+    "word_count": 44,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 42,
+    "tag_name": "Công nghệ thông tin",
+    "tag_slug": "nganh-cong-nghe-thong-tin",
+    "icon_class": "fa-solid fa-laptop-code",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 43,
+    "tag_name": "Kỹ thuật cơ khí",
+    "tag_slug": "nganh-ky-thuat-co-khi",
+    "icon_class": "fa-solid fa-gears",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 44,
+    "tag_name": "Điện - Điện tử",
+    "tag_slug": "nganh-dien-dien-tu",
+    "icon_class": "fa-solid fa-microchip",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 45,
+    "tag_name": "Điều dưỡng & Y tế",
+    "tag_slug": "nganh-dieu-duong-y-te",
+    "icon_class": "fa-solid fa-kit-medical",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 46,
+    "tag_name": "Nhà hàng - Khách sạn",
+    "tag_slug": "nganh-nha-hang-khach-san",
+    "icon_class": "fa-solid fa-bell-concierge",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 47,
+    "tag_name": "Du lịch - Lữ hành",
+    "tag_slug": "nganh-du-lich-lu-hanh",
+    "icon_class": "fa-solid fa-map-location-dot",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 48,
+    "tag_name": "Thiết kế & Mỹ thuật",
+    "tag_slug": "nganh-thiet-ke-my-thuat",
+    "icon_class": "fa-solid fa-palette",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 49,
+    "tag_name": "Tài chính - Kế toán",
+    "tag_slug": "nganh-tai-chinh-ke-toan",
+    "icon_class": "fa-solid fa-file-invoice-dollar",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 50,
+    "tag_name": "Xây dựng - Kiến trúc",
+    "tag_slug": "nganh-xay-dung-kien-truc",
+    "icon_class": "fa-solid fa-drafting-compass",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 51,
+    "tag_name": "Cơ khí ô tô",
+    "tag_slug": "nganh-co-khi-o-to",
+    "icon_class": "fa-solid fa-car",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 52,
+    "tag_name": "Logistics - Vận tải",
+    "tag_slug": "nganh-logistics-van-tai",
+    "icon_class": "fa-solid fa-truck-fast",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 53,
+    "tag_name": "Nông nghiệp - Thực phẩm",
+    "tag_slug": "nganh-nong-nghiep-thuc-pham",
+    "icon_class": "fa-solid fa-seedling",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 54,
+    "tag_name": "Ngôn ngữ & Sư phạm",
+    "tag_slug": "nganh-ngon-ngu-su-pham",
+    "icon_class": "fa-solid fa-chalkboard-user",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  },
+  {
+    "tag_id": 55,
+    "tag_name": "Truyền thông & Marketing",
+    "tag_slug": "nganh-truyen-thong-marketing",
+    "icon_class": "fa-solid fa-bullhorn",
+    "category": "chuyen-nganh",
+    "word_count": 45,
+    "category_label": "Chuyên ngành"
+  }
+]

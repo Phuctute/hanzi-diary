@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Giáo trình Đương Đại",
+    "description": "Dành cho ôn thi TOCFL tiêu chuẩn",
+    "created_at": "2026-06-23 09:24:50"
+  },
+  {
+    "id": 2,
+    "name": "Giáo Trình Thời Đại",
+    "description": "",
+    "created_at": "2026-06-23 13:59:13"
+  },
+  {
+    "id": 3,
+    "name": "TOCFL",
+    "description": "Band A (Level 1-2, 500-1000 từ) · Band B (Level 3-4, đến 5000 từ) · Band C (Level 5-6, đến 10000+ từ)",
+    "created_at": "2026-07-05 23:55:25"
+  }
+]

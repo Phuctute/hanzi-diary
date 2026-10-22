@@ -1,0 +1,289 @@
+{
+  "groups": [
+    { "id": "chung",        "label": "Lượng từ chung",      "icon": "fa-star",          "desc": "Dùng được cho hầu hết danh từ khi chưa chắc lượng từ riêng." },
+    { "id": "nguoi",        "label": "Người",               "icon": "fa-user",          "desc": "Lượng từ dành cho người, có sắc thái lịch sự khác nhau." },
+    { "id": "dong-vat",     "label": "Động vật",            "icon": "fa-dog",           "desc": "Lượng từ chỉ động vật theo kích cỡ và hình dáng." },
+    { "id": "vat-det",      "label": "Vật dẹt / mỏng",      "icon": "fa-note-sticky",   "desc": "Dùng cho vật phẳng, mỏng, dạng tấm." },
+    { "id": "vat-dai",      "label": "Vật dài / cầm tay",   "icon": "fa-pen",           "desc": "Dùng cho vật thon dài hoặc có tay cầm." },
+    { "id": "sach-vo",      "label": "Sách vở",             "icon": "fa-book",          "desc": "Dùng cho sách, vở, ấn phẩm." },
+    { "id": "phuong-tien",  "label": "Phương tiện / máy móc","icon": "fa-car",          "desc": "Dùng cho xe cộ, thiết bị, máy móc." },
+    { "id": "an-uong",      "label": "Ăn uống",             "icon": "fa-mug-hot",       "desc": "Dùng cho đồ ăn thức uống theo vật đựng." },
+    { "id": "quan-ao",      "label": "Quần áo",             "icon": "fa-shirt",         "desc": "Dùng cho trang phục và phụ kiện mặc." },
+    { "id": "nha-cua",      "label": "Nhà cửa / khối",      "icon": "fa-house",         "desc": "Dùng cho phòng ốc, công trình, khối vật." },
+    { "id": "truu-tuong",   "label": "Trừu tượng / hành động","icon": "fa-repeat",      "desc": "Đếm số lần, loại, sự việc và hành động." }
+  ],
+  "words": [
+    {
+      "char": "個", "pinyin": "gè", "group": "chung", "meaning_vi": "cái, người (lượng từ vạn năng)",
+      "usage_vi": "Lượng từ phổ biến nhất, dùng cho người và phần lớn đồ vật khi không có lượng từ chuyên dụng.",
+      "examples": [
+        { "hanzi": "一個人", "pinyin": "yí gè rén", "vi": "một người" },
+        { "hanzi": "三個蘋果", "pinyin": "sān gè píngguǒ", "vi": "ba quả táo" }
+      ]
+    },
+    {
+      "char": "些", "pinyin": "xiē", "group": "chung", "meaning_vi": "một vài, một ít",
+      "usage_vi": "Chỉ số lượng không xác định, luôn đi sau 一 hoặc 這/那.",
+      "examples": [
+        { "hanzi": "一些書", "pinyin": "yìxiē shū", "vi": "một vài quyển sách" },
+        { "hanzi": "這些人", "pinyin": "zhèxiē rén", "vi": "những người này" }
+      ]
+    },
+    {
+      "char": "位", "pinyin": "wèi", "group": "nguoi", "meaning_vi": "vị (lịch sự, trang trọng)",
+      "usage_vi": "Dùng cho người một cách kính trọng: khách, thầy cô, người lớn tuổi.",
+      "examples": [
+        { "hanzi": "一位老師", "pinyin": "yí wèi lǎoshī", "vi": "một vị thầy/cô" },
+        { "hanzi": "兩位客人", "pinyin": "liǎng wèi kèrén", "vi": "hai vị khách" }
+      ]
+    },
+    {
+      "char": "名", "pinyin": "míng", "group": "nguoi", "meaning_vi": "người (theo chức danh)",
+      "usage_vi": "Dùng cho người gắn với nghề nghiệp hoặc vai trò, văn phong hơi trang trọng.",
+      "examples": [
+        { "hanzi": "一名醫生", "pinyin": "yì míng yīshēng", "vi": "một bác sĩ" },
+        { "hanzi": "五名學生", "pinyin": "wǔ míng xuéshēng", "vi": "năm học sinh" }
+      ]
+    },
+    {
+      "char": "口", "pinyin": "kǒu", "group": "nguoi", "meaning_vi": "khẩu (nhân khẩu gia đình)",
+      "usage_vi": "Dùng để đếm số nhân khẩu trong gia đình.",
+      "examples": [
+        { "hanzi": "一家五口", "pinyin": "yì jiā wǔ kǒu", "vi": "gia đình năm người" },
+        { "hanzi": "三口人", "pinyin": "sān kǒu rén", "vi": "ba nhân khẩu" }
+      ]
+    },
+    {
+      "char": "隻", "pinyin": "zhī", "group": "dong-vat", "meaning_vi": "con (động vật nhỏ)",
+      "usage_vi": "Dùng cho phần lớn động vật, đặc biệt con vật nhỏ và vật đi theo cặp.",
+      "examples": [
+        { "hanzi": "一隻貓", "pinyin": "yì zhī māo", "vi": "một con mèo" },
+        { "hanzi": "一隻手", "pinyin": "yì zhī shǒu", "vi": "một bàn tay" }
+      ]
+    },
+    {
+      "char": "頭", "pinyin": "tóu", "group": "dong-vat", "meaning_vi": "con (gia súc lớn)",
+      "usage_vi": "Dùng cho gia súc cỡ lớn như trâu, bò, lợn.",
+      "examples": [
+        { "hanzi": "一頭牛", "pinyin": "yì tóu niú", "vi": "một con bò" },
+        { "hanzi": "兩頭豬", "pinyin": "liǎng tóu zhū", "vi": "hai con lợn" }
+      ]
+    },
+    {
+      "char": "條", "pinyin": "tiáo", "group": "dong-vat", "meaning_vi": "con (vật thân dài)",
+      "usage_vi": "Dùng cho động vật thân dài và cả vật dài như cá, chó, sông, đường.",
+      "examples": [
+        { "hanzi": "一條魚", "pinyin": "yì tiáo yú", "vi": "một con cá" },
+        { "hanzi": "一條路", "pinyin": "yì tiáo lù", "vi": "một con đường" }
+      ]
+    },
+    {
+      "char": "匹", "pinyin": "pǐ", "group": "dong-vat", "meaning_vi": "con (ngựa, la)",
+      "usage_vi": "Chuyên dùng cho ngựa và các loài tương tự.",
+      "examples": [
+        { "hanzi": "一匹馬", "pinyin": "yì pǐ mǎ", "vi": "một con ngựa" },
+        { "hanzi": "兩匹馬", "pinyin": "liǎng pǐ mǎ", "vi": "hai con ngựa" }
+      ]
+    },
+    {
+      "char": "張", "pinyin": "zhāng", "group": "vat-det", "meaning_vi": "tờ, cái (vật phẳng)",
+      "usage_vi": "Dùng cho vật phẳng có bề mặt: giấy, bàn, vé, ảnh.",
+      "examples": [
+        { "hanzi": "一張紙", "pinyin": "yì zhāng zhǐ", "vi": "một tờ giấy" },
+        { "hanzi": "一張桌子", "pinyin": "yì zhāng zhuōzi", "vi": "một cái bàn" }
+      ]
+    },
+    {
+      "char": "片", "pinyin": "piàn", "group": "vat-det", "meaning_vi": "miếng, lát (vật mỏng)",
+      "usage_vi": "Dùng cho vật mỏng, dẹt, cắt thành lát.",
+      "examples": [
+        { "hanzi": "一片葉子", "pinyin": "yí piàn yèzi", "vi": "một chiếc lá" },
+        { "hanzi": "兩片麵包", "pinyin": "liǎng piàn miànbāo", "vi": "hai lát bánh mì" }
+      ]
+    },
+    {
+      "char": "支", "pinyin": "zhī", "group": "vat-dai", "meaning_vi": "cây (vật nhỏ dài, cầm tay)",
+      "usage_vi": "Dùng cho vật thon nhỏ cầm tay như bút, và (ở Đài Loan) cả điện thoại.",
+      "examples": [
+        { "hanzi": "一支筆", "pinyin": "yì zhī bǐ", "vi": "một cây bút" },
+        { "hanzi": "一支手機", "pinyin": "yì zhī shǒujī", "vi": "một chiếc điện thoại" }
+      ]
+    },
+    {
+      "char": "把", "pinyin": "bǎ", "group": "vat-dai", "meaning_vi": "cái (vật có cán / tay cầm)",
+      "usage_vi": "Dùng cho vật có tay cầm hoặc nắm gọn trong tay: ô, dao, ghế.",
+      "examples": [
+        { "hanzi": "一把傘", "pinyin": "yì bǎ sǎn", "vi": "một cái ô" },
+        { "hanzi": "一把刀", "pinyin": "yì bǎ dāo", "vi": "một con dao" }
+      ]
+    },
+    {
+      "char": "根", "pinyin": "gēn", "group": "vat-dai", "meaning_vi": "cái, cây (vật dài mảnh)",
+      "usage_vi": "Dùng cho vật dài, mảnh và cứng: sợi tóc, que, chuối.",
+      "examples": [
+        { "hanzi": "一根香蕉", "pinyin": "yì gēn xiāngjiāo", "vi": "một quả chuối" },
+        { "hanzi": "一根頭髮", "pinyin": "yì gēn tóufǎ", "vi": "một sợi tóc" }
+      ]
+    },
+    {
+      "char": "本", "pinyin": "běn", "group": "sach-vo", "meaning_vi": "quyển (sách vở)",
+      "usage_vi": "Lượng từ chuẩn cho sách, vở, tạp chí, tự điển.",
+      "examples": [
+        { "hanzi": "一本書", "pinyin": "yì běn shū", "vi": "một quyển sách" },
+        { "hanzi": "三本雜誌", "pinyin": "sān běn zázhì", "vi": "ba quyển tạp chí" }
+      ]
+    },
+    {
+      "char": "冊", "pinyin": "cè", "group": "sach-vo", "meaning_vi": "tập, cuốn (đóng thành tập)",
+      "usage_vi": "Dùng cho sách đóng thành tập, thường trang trọng hơn 本.",
+      "examples": [
+        { "hanzi": "一冊書", "pinyin": "yí cè shū", "vi": "một cuốn sách" },
+        { "hanzi": "三冊課本", "pinyin": "sān cè kèběn", "vi": "ba tập giáo trình" }
+      ]
+    },
+    {
+      "char": "輛", "pinyin": "liàng", "group": "phuong-tien", "meaning_vi": "chiếc (xe cộ)",
+      "usage_vi": "Dùng cho xe có bánh: ô tô, xe đạp, xe máy.",
+      "examples": [
+        { "hanzi": "一輛車", "pinyin": "yí liàng chē", "vi": "một chiếc xe" },
+        { "hanzi": "兩輛腳踏車", "pinyin": "liǎng liàng jiǎotàchē", "vi": "hai chiếc xe đạp" }
+      ]
+    },
+    {
+      "char": "台", "pinyin": "tái", "group": "phuong-tien", "meaning_vi": "chiếc, cái (máy móc)",
+      "usage_vi": "Dùng cho máy móc, thiết bị điện: máy tính, tivi, điều hoà.",
+      "examples": [
+        { "hanzi": "一台電腦", "pinyin": "yì tái diànnǎo", "vi": "một máy tính" },
+        { "hanzi": "一台電視", "pinyin": "yì tái diànshì", "vi": "một cái tivi" }
+      ]
+    },
+    {
+      "char": "架", "pinyin": "jià", "group": "phuong-tien", "meaning_vi": "chiếc (máy bay, khung giá)",
+      "usage_vi": "Dùng cho máy bay và vật có khung giá đỡ như đàn piano.",
+      "examples": [
+        { "hanzi": "一架飛機", "pinyin": "yí jià fēijī", "vi": "một chiếc máy bay" },
+        { "hanzi": "兩架鋼琴", "pinyin": "liǎng jià gāngqín", "vi": "hai cây đàn piano" }
+      ]
+    },
+    {
+      "char": "部", "pinyin": "bù", "group": "phuong-tien", "meaning_vi": "bộ, chiếc (máy móc, phim)",
+      "usage_vi": "Dùng cho phim ảnh, tác phẩm và một số thiết bị.",
+      "examples": [
+        { "hanzi": "一部電影", "pinyin": "yí bù diànyǐng", "vi": "một bộ phim" },
+        { "hanzi": "一部手機", "pinyin": "yí bù shǒujī", "vi": "một chiếc điện thoại" }
+      ]
+    },
+    {
+      "char": "杯", "pinyin": "bēi", "group": "an-uong", "meaning_vi": "cốc, ly",
+      "usage_vi": "Dùng cho đồ uống đựng trong cốc, ly.",
+      "examples": [
+        { "hanzi": "一杯水", "pinyin": "yì bēi shuǐ", "vi": "một cốc nước" },
+        { "hanzi": "一杯咖啡", "pinyin": "yì bēi kāfēi", "vi": "một ly cà phê" }
+      ]
+    },
+    {
+      "char": "碗", "pinyin": "wǎn", "group": "an-uong", "meaning_vi": "bát, tô",
+      "usage_vi": "Dùng cho món ăn đựng trong bát: cơm, mì, canh.",
+      "examples": [
+        { "hanzi": "一碗飯", "pinyin": "yì wǎn fàn", "vi": "một bát cơm" },
+        { "hanzi": "兩碗麵", "pinyin": "liǎng wǎn miàn", "vi": "hai bát mì" }
+      ]
+    },
+    {
+      "char": "瓶", "pinyin": "píng", "group": "an-uong", "meaning_vi": "chai",
+      "usage_vi": "Dùng cho chất lỏng đựng trong chai.",
+      "examples": [
+        { "hanzi": "一瓶水", "pinyin": "yì píng shuǐ", "vi": "một chai nước" },
+        { "hanzi": "一瓶牛奶", "pinyin": "yì píng niúnǎi", "vi": "một chai sữa" }
+      ]
+    },
+    {
+      "char": "盤", "pinyin": "pán", "group": "an-uong", "meaning_vi": "đĩa",
+      "usage_vi": "Dùng cho món ăn bày trên đĩa.",
+      "examples": [
+        { "hanzi": "一盤菜", "pinyin": "yì pán cài", "vi": "một đĩa thức ăn" },
+        { "hanzi": "兩盤水餃", "pinyin": "liǎng pán shuǐjiǎo", "vi": "hai đĩa sủi cảo" }
+      ]
+    },
+    {
+      "char": "件", "pinyin": "jiàn", "group": "quan-ao", "meaning_vi": "cái, chiếc (áo, đồ vật, việc)",
+      "usage_vi": "Dùng cho áo, đồ vật rời và cả sự việc trừu tượng.",
+      "examples": [
+        { "hanzi": "一件衣服", "pinyin": "yí jiàn yīfú", "vi": "một cái áo" },
+        { "hanzi": "一件事", "pinyin": "yí jiàn shì", "vi": "một việc" }
+      ]
+    },
+    {
+      "char": "頂", "pinyin": "dǐng", "group": "quan-ao", "meaning_vi": "cái (mũ, nón)",
+      "usage_vi": "Chuyên dùng cho mũ, nón và vật đội trên đầu.",
+      "examples": [
+        { "hanzi": "一頂帽子", "pinyin": "yì dǐng màozi", "vi": "một cái mũ" },
+        { "hanzi": "兩頂帽子", "pinyin": "liǎng dǐng màozi", "vi": "hai cái mũ" }
+      ]
+    },
+    {
+      "char": "雙", "pinyin": "shuāng", "group": "quan-ao", "meaning_vi": "đôi (vật theo cặp)",
+      "usage_vi": "Dùng cho vật đi theo cặp: giày, đũa, tất, găng tay.",
+      "examples": [
+        { "hanzi": "一雙鞋", "pinyin": "yì shuāng xié", "vi": "một đôi giày" },
+        { "hanzi": "一雙筷子", "pinyin": "yì shuāng kuàizi", "vi": "một đôi đũa" }
+      ]
+    },
+    {
+      "char": "間", "pinyin": "jiān", "group": "nha-cua", "meaning_vi": "gian, phòng",
+      "usage_vi": "Dùng cho phòng ốc và cửa hàng.",
+      "examples": [
+        { "hanzi": "一間房間", "pinyin": "yì jiān fángjiān", "vi": "một căn phòng" },
+        { "hanzi": "一間店", "pinyin": "yì jiān diàn", "vi": "một cửa hàng" }
+      ]
+    },
+    {
+      "char": "棟", "pinyin": "dòng", "group": "nha-cua", "meaning_vi": "toà (nhà lớn)",
+      "usage_vi": "Dùng cho toà nhà, công trình lớn.",
+      "examples": [
+        { "hanzi": "一棟大樓", "pinyin": "yí dòng dàlóu", "vi": "một toà nhà cao tầng" },
+        { "hanzi": "兩棟房子", "pinyin": "liǎng dòng fángzi", "vi": "hai toà nhà" }
+      ]
+    },
+    {
+      "char": "塊", "pinyin": "kuài", "group": "nha-cua", "meaning_vi": "cục, miếng, đồng (tiền)",
+      "usage_vi": "Dùng cho khối vật rắn và là lượng từ tiền tệ khẩu ngữ.",
+      "examples": [
+        { "hanzi": "一塊蛋糕", "pinyin": "yí kuài dàngāo", "vi": "một miếng bánh" },
+        { "hanzi": "十塊錢", "pinyin": "shí kuài qián", "vi": "mười đồng" }
+      ]
+    },
+    {
+      "char": "次", "pinyin": "cì", "group": "truu-tuong", "meaning_vi": "lần (số lần)",
+      "usage_vi": "Động lượng từ đếm số lần xảy ra của hành động.",
+      "examples": [
+        { "hanzi": "一次", "pinyin": "yí cì", "vi": "một lần" },
+        { "hanzi": "三次", "pinyin": "sān cì", "vi": "ba lần" }
+      ]
+    },
+    {
+      "char": "遍", "pinyin": "biàn", "group": "truu-tuong", "meaning_vi": "lượt (từ đầu đến cuối)",
+      "usage_vi": "Nhấn mạnh trọn vẹn một lượt hành động từ đầu đến cuối.",
+      "examples": [
+        { "hanzi": "看一遍", "pinyin": "kàn yí biàn", "vi": "xem một lượt" },
+        { "hanzi": "讀三遍", "pinyin": "dú sān biàn", "vi": "đọc ba lượt" }
+      ]
+    },
+    {
+      "char": "種", "pinyin": "zhǒng", "group": "truu-tuong", "meaning_vi": "loại, kiểu",
+      "usage_vi": "Dùng để phân loại sự vật thành các kiểu, loại khác nhau.",
+      "examples": [
+        { "hanzi": "一種方法", "pinyin": "yì zhǒng fāngfǎ", "vi": "một loại phương pháp" },
+        { "hanzi": "兩種顏色", "pinyin": "liǎng zhǒng yánsè", "vi": "hai loại màu" }
+      ]
+    },
+    {
+      "char": "場", "pinyin": "chǎng", "group": "truu-tuong", "meaning_vi": "trận, buổi (sự kiện)",
+      "usage_vi": "Dùng cho sự kiện diễn ra theo buổi: trận đấu, buổi biểu diễn.",
+      "examples": [
+        { "hanzi": "一場比賽", "pinyin": "yì chǎng bǐsài", "vi": "một trận đấu" },
+        { "hanzi": "一場電影", "pinyin": "yì chǎng diànyǐng", "vi": "một buổi chiếu phim" }
+      ]
+    }
+  ]
+}

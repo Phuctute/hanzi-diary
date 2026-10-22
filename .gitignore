@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+data/audio_cache/
+data/image_cache/
+data/shadowing_cache/
+.DS_Store

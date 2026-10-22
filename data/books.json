@@ -1,0 +1,114 @@
+[
+  {
+    "book_id": 1,
+    "book": "Đương Đại 1 | 當代中文課程 1",
+    "curriculum_type_id": 1,
+    "sort_order": 1,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 2,
+    "book": "Đương Đại 2 | 當代中文課程 2",
+    "curriculum_type_id": 1,
+    "sort_order": 2,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 3,
+    "book": "Đương Đại 3 | 當代中文課程 3",
+    "curriculum_type_id": 1,
+    "sort_order": 3,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 4,
+    "book": "Đương Đại 4 | 當代中文課程 4",
+    "curriculum_type_id": 1,
+    "sort_order": 4,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 5,
+    "book": "Đương Đại 5 | 當代中文課程 5",
+    "curriculum_type_id": 1,
+    "sort_order": 5,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 6,
+    "book": "Đương Đại 6 | 當代中文課程 6",
+    "curriculum_type_id": 1,
+    "sort_order": 6,
+    "curriculum_name": "Giáo trình Đương Đại"
+  },
+  {
+    "book_id": 7,
+    "book": "Thời Đại 1 | 時代華語 1",
+    "curriculum_type_id": 2,
+    "sort_order": 7,
+    "curriculum_name": "Giáo Trình Thời Đại"
+  },
+  {
+    "book_id": 8,
+    "book": "Thời Đại 2 | 時代華語 2",
+    "curriculum_type_id": 2,
+    "sort_order": 8,
+    "curriculum_name": "Giáo Trình Thời Đại"
+  },
+  {
+    "book_id": 9,
+    "book": "Thời Đại 3 | 時代華語 3",
+    "curriculum_type_id": 2,
+    "sort_order": 9,
+    "curriculum_name": "Giáo Trình Thời Đại"
+  },
+  {
+    "book_id": 10,
+    "book": "Thời Đại 4 | 時代華語 4",
+    "curriculum_type_id": 2,
+    "sort_order": 10,
+    "curriculum_name": "Giáo Trình Thời Đại"
+  },
+  {
+    "book_id": 11,
+    "book": "TOCFL Level 1 | Nhập môn (Band A)",
+    "curriculum_type_id": 3,
+    "sort_order": 11,
+    "curriculum_name": "TOCFL"
+  },
+  {
+    "book_id": 12,
+    "book": "TOCFL Level 2 | Cơ bản (Band A)",
+    "curriculum_type_id": 3,
+    "sort_order": 12,
+    "curriculum_name": "TOCFL"
+  },
+  {
+    "book_id": 13,
+    "book": "TOCFL Level 3 | Tiến cấp (Band B)",
+    "curriculum_type_id": 3,
+    "sort_order": 13,
+    "curriculum_name": "TOCFL"
+  },
+  {
+    "book_id": 14,
+    "book": "TOCFL Level 4 | Trung-Cao cấp (Band B)",
+    "curriculum_type_id": 3,
+    "sort_order": 14,
+    "curriculum_name": "TOCFL"
+  },
+  {
+    "book_id": 15,
+    "book": "TOCFL Level 5 | Lưu loát (Band C)",
+    "curriculum_type_id": 3,
+    "sort_order": 15,
+    "curriculum_name": "TOCFL"
+  },
+  {
+    "book_id": 16,
+    "book": "TOCFL Level 6 | Thông thạo (Band C)",
+    "curriculum_type_id": 3,
+    "sort_order": 16,
+    "curriculum_name": "TOCFL"
+  }
+]

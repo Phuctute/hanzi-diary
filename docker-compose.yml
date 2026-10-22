@@ -1,0 +1,12 @@
+services:
+  chinese:
+    build: .
+    container_name: chinese-learning
+    ports:
+      - "127.0.0.1:8910:8910"
+    volumes:
+      - ./data:/app/data
+      - ./templates:/app/templates
+      - ./static:/app/static
+      - ./app.py:/app/app.py
+    restart: unless-stopped

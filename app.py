@@ -1,5 +1,9 @@
 import os
+import re
 import json
+import unicodedata
+import hashlib
+import time
 import asyncio
 import urllib.request
 import subprocess
@@ -49,6 +53,91 @@ for lid, vlist in LESSON_VOCAB.items():
             if isinstance(w, dict) and "hanzi" in w:
                 ALL_VOCAB.append(w)
 print(f"Total vocabulary indexed: {len(ALL_VOCAB)} words.")
+CHAR_META = load_json("char_meta.json", {})
+RELATIONS = load_json("relations.json", {})
+VOCAB_BY_HANZI = {}
+for w in ALL_VOCAB:
+    hz = (w.get("hanzi") or "").split("/")[0].strip()
+    if hz and hz not in VOCAB_BY_HANZI:
+        VOCAB_BY_HANZI[hz] = w
+print(f"Loaded {len(CHAR_META)} char metadata, {len(RELATIONS)} relation entries, {len(VOCAB_BY_HANZI)} unique vocab words.")
+
+# OpenCC character mapping for Traditional <-> Simplified
+TS_MAP = {}
+ts_path = os.path.join(DATA_DIR, "TSCharacters.txt")
+if os.path.exists(ts_path):
+    with open(ts_path, "r", encoding="utf-8") as f:
+        for line in f:
+            parts = line.strip().split("	")
+            if len(parts) >= 2:
+                TS_MAP[parts[0]] = parts[1].split(" ")[0]
+
+ST_MAP = {}
+st_path = os.path.join(DATA_DIR, "STCharacters.txt")
+if os.path.exists(st_path):
+    with open(st_path, "r", encoding="utf-8") as f:
+        for line in f:
+            parts = line.strip().split("	")
+            if len(parts) >= 2:
+                ST_MAP[parts[0]] = parts[1].split(" ")[0]
+
+def to_simplified(s):
+    if not s: return ""
+    return "".join(TS_MAP.get(c, c) for c in s)
+
+def to_traditional(s):
+    if not s: return ""
+    return "".join(ST_MAP.get(c, c) for c in s)
+
+def remove_pinyin_tones(p):
+    if not p: return ""
+    p = p.lower().replace("ü", "v").replace("u:", "v")
+    p = unicodedata.normalize("NFD", p)
+    p = "".join(c for c in p if unicodedata.category(c) != "Mn")
+    return p.replace(" ", "").replace("-", "").replace("'", "")
+
+def remove_vn_tones(s):
+    if not s: return ""
+    s = s.lower()
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return s.replace("đ", "d")
+
+# Pre-computed deduplicated dictionary search index
+DICT_INDEX = []
+DICT_BY_ID = {}
+seen_did = set()
+for w in ALL_VOCAB:
+    did = w.get("dict_id") or w.get("vocab_id")
+    if not did or did in seen_did:
+        continue
+    seen_did.add(did)
+    hz = (w.get("hanzi") or "").strip()
+    simp = to_simplified(hz)
+    py = (w.get("pinyin") or "").strip()
+    defn = (w.get("definition") or "").strip()
+    first_vi = defn.split(";")[0].strip() if defn else ""
+    
+    first_c = hz[0] if hz else ""
+    cm = CHAR_META.get(first_c, {})
+    
+    item = {
+        "dict_id": did,
+        "hanzi": hz,
+        "hanzi_simplified": simp if simp != hz else None,
+        "pinyin": py,
+        "pinyin_clean": remove_pinyin_tones(py),
+        "definition": defn,
+        "first_meaning_vi": first_vi,
+        "vn_clean": remove_vn_tones(defn),
+        "radical": cm.get("radical") if len(hz) == 1 else None,
+        "stroke_count": cm.get("stroke_count") if len(hz) == 1 else None,
+        "tocfl_band": w.get("tocfl_band") if (w.get("tocfl_band") and w.get("tocfl_band") < 99) else None,
+        "ex_len": len(w.get("examples") or [])
+    }
+    DICT_INDEX.append(item)
+    DICT_BY_ID[str(did)] = item
+print(f"Compiled optimized DICT_INDEX with {len(DICT_INDEX)} unique entries.")
 
 @app.route("/")
 def index():
@@ -130,6 +219,121 @@ def save_notebook(nb):
     except Exception as e:
         print(f"Error saving notebook: {e}")
 
+DICT_CACHE_DIR = os.path.join(DATA_DIR, "dict_cache")
+os.makedirs(DICT_CACHE_DIR, exist_ok=True)
+
+def get_rich_dict_detail(did, hanzi=None):
+    cache_file = os.path.join(DICT_CACHE_DIR, f"{did}.json") if did else None
+    data = None
+    if cache_file and os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            pass
+
+    if not data and did:
+        try:
+            req_t = urllib.request.Request("https://zh.taiwandiary.vn/api.php?action=dict_search_token", headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Referer": "https://zh.taiwandiary.vn/"
+            })
+            resp_t = urllib.request.urlopen(req_t, timeout=4)
+            t_json = json.loads(resp_t.read().decode("utf-8"))
+            ts, token = t_json["ts"], t_json["token"]
+
+            url = f"https://zh.taiwandiary.vn/api.php?action=dict_lookup_detail&dict_id={did}&ts={ts}&token={token}"
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Referer": "https://zh.taiwandiary.vn/"
+            })
+            resp = urllib.request.urlopen(req, timeout=4)
+            res = json.loads(resp.read().decode("utf-8"))
+            if res.get("success") and res.get("data"):
+                data = res["data"]
+                if cache_file:
+                    with open(cache_file, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False)
+        except Exception as e:
+            print(f"Remote fetch for dict_id={did} failed: {e}")
+
+    if not data:
+        word = None
+        if did:
+            word = next((w for w in ALL_VOCAB if str(w.get("dict_id") or w.get("vocab_id") or w.get("id")) == str(did)), None)
+        if not word and hanzi:
+            word = next((w for w in ALL_VOCAB if (w.get("hanzi") or "").lower() == hanzi.lower()), None)
+        if word:
+            data = dict(word)
+            raw_examples = data.get("examples") or []
+            mapped_examples = []
+            for ex in raw_examples:
+                raw_hz = ex.get("examples_hanzi") or ex.get("example_zh") or ""
+                clean_hz = re.sub(r"^\[[^\]]+\]\s*", "", raw_hz)
+                py = ex.get("examples_pinyin") or ex.get("example_pinyin") or ""
+                vi = ex.get("examples_translation") or ex.get("example_vi") or ""
+                mapped_examples.append({
+                    "example_zh": clean_hz or raw_hz,
+                    "example_pinyin": py,
+                    "example_vi": vi
+                })
+            ex0 = mapped_examples[0] if mapped_examples else {}
+            pos_label = data.get("part_of_speech") or "Từ vựng"
+            data["senses"] = [{
+                "meaning_vi": data.get("definition", ""),
+                "pos": pos_label,
+                "source": "tocfl_textbook",
+                "register": "textbook",
+                "example_zh": ex0.get("example_zh", ""),
+                "example_pinyin": ex0.get("example_pinyin", ""),
+                "example_vi": ex0.get("example_vi", ""),
+                "examples": mapped_examples
+            }]
+            data["sense_groups"] = [{
+                "pos": pos_label,
+                "senses": data["senses"]
+            }]
+
+    if data:
+        hz = data.get("hanzi", "")
+        chars_info = []
+        for c in hz:
+            cm = CHAR_META.get(c, {})
+            chars_info.append({
+                "char": c,
+                "radical": cm.get("radical") or c,
+                "radical_name": cm.get("radical_name") or cm.get("radical") or c,
+                "stroke_count": cm.get("stroke_count"),
+                "han_viet": cm.get("han_viet") or "",
+                "decomposition": cm.get("decomposition") or ""
+            })
+        data["chars_info"] = chars_info
+        if not data.get("han_viet"):
+            data["han_viet"] = " ".join(c.get("han_viet", "").split(",")[0].strip() for c in chars_info if c.get("han_viet"))
+        first_c = chars_info[0] if chars_info else {}
+        if not data.get("radical"):
+            data["radical"] = first_c.get("radical")
+        if not data.get("stroke_count"):
+            data["stroke_count"] = first_c.get("stroke_count")
+            
+        if not data.get("related"):
+            hz_clean = hz.split("/")[0].strip()
+            related_words = []
+            for w in DICT_INDEX:
+                w_hz = w.get("hanzi") or ""
+                if hz_clean in w_hz and w_hz != hz_clean:
+                    related_words.append({
+                        "dict_id": w["dict_id"],
+                        "hanzi": w["hanzi"],
+                        "hanzi_simplified": w["hanzi_simplified"],
+                        "pinyin": w["pinyin"],
+                        "definition": w["first_meaning_vi"]
+                    })
+            related_words.sort(key=lambda r: (len(r["hanzi"]), r["hanzi"]))
+            data["related"] = related_words[:30]
+
+    return data
+
 @app.route("/api.php", methods=["GET", "POST"])
 def api_php():
     action = request.args.get("action") or request.form.get("action") or ""
@@ -167,8 +371,8 @@ def api_php():
         tid = request.args.get("tag_id")
         return jsonify({"success": True, "data": TAG_VOCAB.get(str(tid), []) if tid else []})
     elif action == "get_vocab_contexts":
-        vid = request.args.get("vocab_id")
-        word = next((w for w in ALL_VOCAB if str(w.get("vocab_id") or w.get("id") or w.get("dict_id")) == str(vid)), None)
+        vid = request.args.get("dict_id") or request.args.get("vocab_id") or request.args.get("id")
+        word = next((w for w in ALL_VOCAB if str(w.get("dict_id") or w.get("vocab_id") or w.get("id")) == str(vid)), None)
         contexts = []
         if word and word.get("hanzi"):
             hz = word["hanzi"].split("/")[0].strip()
@@ -179,12 +383,16 @@ def api_php():
                     if matching_lines:
                         contexts.append({
                             "hanzi": hz,
-                            "lesson_title": c.get("dropdown_option", f"Bài {lid}"),
+                            "title": c.get("dropdown_option") or f"Bài {lid}",
+                            "lesson_title": c.get("dropdown_option") or f"Bài {lid}",
+                            "book_id": c.get("book_id"),
+                            "lesson_id": c.get("lesson_id") or lid,
+                            "content_id": c.get("content_id") or c.get("id"),
                             "lines": [{"line": l} for l in matching_lines[:3]]
                         })
-                        if len(contexts) >= 3:
+                        if len(contexts) >= 5:
                             break
-                if len(contexts) >= 3:
+                if len(contexts) >= 5:
                     break
         return jsonify({"success": True, "data": contexts})
     elif action == "get_grammar_tags":
@@ -289,12 +497,99 @@ def api_php():
                 pass
         v_local = next((v for v in SHADOWING_VIDEOS if str(v.get("id")) == str(vid)), None)
         return jsonify({"success": True if v_local else False, "data": v_local or {}})
-    elif action in ("dict_lookup_search", "dict_search_token", "lookup_hanzi"):
-        q = (request.args.get("q") or request.args.get("keyword") or "").strip().lower()
+    elif action == "dict_search_token":
+        ts = int(time.time())
+        token = hashlib.sha256(f"dict_token_{ts}".encode()).hexdigest()[:16]
+        return jsonify({"success": True, "ts": ts, "token": token})
+    elif action in ("dict_lookup_search", "lookup_hanzi"):
+        q = (request.args.get("q") or request.args.get("keyword") or "").strip()
         if not q:
             return jsonify({"success": True, "data": []})
-        results = [w for w in ALL_VOCAB if q in (w.get("hanzi") or "").lower() or q in (w.get("pinyin") or "").lower() or q in (w.get("definition") or "").lower()]
-        return jsonify({"success": True, "data": results[:50]})
+        
+        q_raw = q.lower()
+        q_trad = to_traditional(q_raw)
+        q_py = remove_pinyin_tones(q_raw)
+        q_vn = remove_vn_tones(q_raw)
+        
+        matches = []
+        for item in DICT_INDEX:
+            score = 999
+            hz = item["hanzi"].lower()
+            simp = (item["hanzi_simplified"] or hz).lower()
+            py = item["pinyin"].lower()
+            py_c = item["pinyin_clean"]
+            defn = item["definition"].lower()
+            defn_c = item["vn_clean"]
+            
+            # 1. Exact Hanzi (traditional, simplified, or converted)
+            if hz == q_raw or simp == q_raw or hz == q_trad:
+                score = 0
+            # 2. Hanzi starts with
+            elif hz.startswith(q_raw) or simp.startswith(q_raw) or hz.startswith(q_trad):
+                score = 10 + len(hz)
+            # 3. Hanzi contains
+            elif q_raw in hz or q_raw in simp or q_trad in hz:
+                score = 20 + len(hz)
+            # 4. Exact pinyin match (with or without tones)
+            elif py == q_raw or (q_py and py_c == q_py):
+                score = 30 + (0 if item["tocfl_band"] and item["tocfl_band"] <= 2 else 5)
+            # 5. Pinyin starts with
+            elif q_py and py_c.startswith(q_py):
+                score = 40 + len(py_c)
+            # 6. Pinyin contains
+            elif q_py and q_py in py_c:
+                score = 50 + len(py_c)
+            # 7. Vietnamese meaning match (exact diacritics prioritized over unaccented)
+            elif q_raw in defn or (q_vn and q_vn in defn_c):
+                if defn == q_raw:
+                    score = 55
+                elif defn.startswith(q_raw) or re.search(r"" + re.escape(q_raw) + r"", defn):
+                    score = 60
+                elif q_raw in defn:
+                    score = 70
+                elif defn_c == q_vn:
+                    score = 75
+                elif defn_c.startswith(q_vn) or (q_vn and re.search(r"" + re.escape(q_vn) + r"", defn_c)):
+                    score = 80
+                else:
+                    score = 90
+            
+            if score < 999:
+                band = item["tocfl_band"] or 99
+                matches.append((score, band, -item["ex_len"], len(hz), item))
+                
+        matches.sort(key=lambda x: (x[0], x[1], x[2], x[3]))
+        
+        limit = 20
+        top_items = matches[:limit]
+        res_data = []
+        for idx, m in enumerate(top_items):
+            it = m[4]
+            res_data.append({
+                "dict_id": it["dict_id"],
+                "hanzi": it["hanzi"],
+                "pinyin": it["pinyin"],
+                "tocfl_band": it["tocfl_band"],
+                "radical": it["radical"],
+                "stroke_count": it["stroke_count"],
+                "weight": idx,
+                "first_meaning_vi": it["first_meaning_vi"],
+                "hanzi_simplified": it["hanzi_simplified"]
+            })
+            
+        return jsonify({
+            "success": True,
+            "data": res_data,
+            "ai_translation": {"hanzi": q, "source": "ai"} if not res_data else None
+        })
+    elif action in ("dict_lookup_detail", "get_vocab_detail"):
+        did = request.args.get("dict_id") or request.args.get("vocab_id") or request.args.get("id")
+        hanzi = (request.args.get("q") or request.args.get("hanzi") or "").strip()
+        data = get_rich_dict_detail(did, hanzi)
+        if data:
+            return jsonify({"success": True, "data": data})
+        return jsonify({"success": False, "data": None, "message": "Word not found"})
+
     elif action == "check_session":
         return jsonify({
             "success": True,
@@ -808,7 +1103,7 @@ def serve_page(page):
         "karaoke", "listening", "shadowing", "flashcard", 
         "vocab", "quiz", "tocfl", "dictation", "srs", 
         "dashboard", "grammar", "grammar-hub", "radicals", "bo-thu", 
-        "measure_words", "luong-tu", "vocab-notebook-hub", "calculator"
+        "measure_words", "luong-tu", "vocab-notebook-hub", "calculator", "dict-lookup", "dict_lookup.php"
     }
     if page in valid_pages:
         return render_template("index.html")

@@ -1564,6 +1564,7 @@ window.addEventListener('error', function(e) {
                 </button>
 
                 </div>
+            </div><!-- /flex items-center justify-between w-full md:w-auto -->
 
             <!-- Cụm search + avatar desktop: gộp chung 1 khối, đẩy sát mép phải bằng ml-auto
                  (không dùng order-* rời rạc — tránh bị justify-between của header dàn trải ra xa nhau). -->
@@ -1580,10 +1581,10 @@ window.addEventListener('error', function(e) {
                             oninput="dashDictSearchDebounced('header-dict-desktop-search','header-dict-desktop-dropdown')"
                             onkeydown="if(event.key==='Escape'){dashDictSearchClose('header-dict-desktop-dropdown');document.getElementById('header-dict-desktop-panel').classList.add('hidden');}"
                             placeholder="Nhập hanzi, pinyin hoặc nghĩa tiếng Việt..." autocomplete="off"
-                            class="w-full h-11 rounded-xl border-2 border-slate-200 bg-slate-50 pl-10 pr-3 text-sm font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                            class="w-full h-12 rounded-xl border-2 border-slate-200 bg-slate-50 pl-11 pr-3 text-base font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
                     </div>
-                    <div id="header-dict-desktop-dropdown" class="hidden mt-2 rounded-xl max-h-96 overflow-y-auto"></div>
+                    <div id="header-dict-desktop-dropdown" class="hidden mt-2 rounded-xl max-h-[60vh] overflow-y-auto"></div>
                 </div>
             </div>
 
@@ -1594,9 +1595,9 @@ window.addEventListener('error', function(e) {
 
             </div><!-- /#header-right-cluster-desktop -->
 
-            <div id="lesson-selectors" class="hidden flex-row items-center justify-end gap-2 md:gap-4 w-full md:w-auto order-1">
+            <div id="lesson-selectors" class="hidden flex-row items-center justify-end gap-2 md:gap-4 w-full md:w-auto order-1 md:order-2 md:ml-auto">
 
-                <div class="relative group w-1/2 md:w-auto md:min-w-[220px] lg:w-[260px]">
+                <div class="relative group flex-1 min-w-0 md:flex-initial md:w-auto md:min-w-[220px] lg:w-[260px]">
 
                     <select id="select-book" aria-label="Chọn giáo trình học tiếng Trung" onchange="loadLessons(this.value)" class="h-10 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-3 pr-8 md:pl-4 md:pr-10 text-[13px] md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
 
@@ -1614,7 +1615,7 @@ window.addEventListener('error', function(e) {
 
                 </div>
 
-                <div class="relative group w-1/2 md:w-auto md:min-w-[220px] lg:w-[260px]">
+                <div class="relative group flex-1 min-w-0 md:flex-initial md:w-auto md:min-w-[220px] lg:w-[260px]">
 
                     <select id="select-lesson" aria-label="Chọn bài học tiếng Trung" onchange="loadVocabulariesAndContent(this.value); if (typeof loadFcSrsPanel === 'function') loadFcSrsPanel();" class="h-10 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-3 pr-8 md:pl-4 md:pr-10 text-[13px] md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
 
@@ -3413,6 +3414,9 @@ window.addEventListener('error', function(e) {
     }
 
     function renderVocabList() {
+        if (typeof preloadAudio === 'function' && Array.isArray(filteredVocabData)) {
+            preloadAudio(filteredVocabData.slice(0, 10).map(v => ttsLocalPath(v.hanzi)));
+        }
         const container = document.getElementById('vocab-list-container');
         if (filteredVocabData.length === 0) {
             container.innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-folder-open text-3xl sm:text-4xl mb-3 sm:mb-4 text-slate-300"></i><p class="font-medium text-sm sm:text-lg">Không tìm thấy từ vựng nào.</p></div>`;
@@ -4182,6 +4186,10 @@ window.addEventListener('error', function(e) {
     }
 
     function updateFlashcardUI() {
+        if (typeof preloadAudio === 'function' && Array.isArray(vocabData)) {
+            const nextCards = vocabData.slice(currentFlashcardIdx + 1, currentFlashcardIdx + 5);
+            preloadAudio(nextCards.map(c => ttsLocalPath(c.hanzi)));
+        }
         document.getElementById('fc-face-front').style.boxShadow = '';
         if(vocabData.length === 0) return;
         const v = vocabData[currentFlashcardIdx];
@@ -4530,16 +4538,46 @@ window.addEventListener('error', function(e) {
 
 <script>
     function initQuiz() {
-        if(vocabData.length < 4) {
+        if (!vocabData || vocabData.length === 0) {
+            const les = document.getElementById('select-lesson');
+            const lid = les ? les.value : null;
+            if (lid && typeof loadVocabulariesAndContent === 'function') {
+                const qCont = document.getElementById('quiz-container');
+                if (qCont) {
+                    qCont.innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-3xl mb-4 text-primary"></i><p class="font-medium text-sm sm:text-base">Đang tải từ vựng cho bài học...</p></div>`;
+                }
+                loadVocabulariesAndContent(lid).then(() => initQuiz()).catch(() => initQuiz());
+                return;
+            }
+            const qCont = document.getElementById('quiz-container');
+            if (qCont) {
+                qCont.innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-3xl mb-4 text-primary"></i><p class="font-medium text-sm sm:text-base">Đang chuẩn bị câu hỏi...</p></div>`;
+            }
+            setTimeout(() => {
+                const retryLes = document.getElementById('select-lesson');
+                if (retryLes && retryLes.value) {
+                    if (typeof loadVocabulariesAndContent === 'function') {
+                        loadVocabulariesAndContent(retryLes.value).then(() => initQuiz());
+                    } else {
+                        initQuiz();
+                    }
+                } else if (vocabData && vocabData.length > 0) {
+                    initQuiz();
+                }
+            }, 600);
+            return;
+        }
+        if(!vocabData || vocabData.length < 2) {
             document.getElementById('quiz-header').classList.add('hidden');
-            document.getElementById('quiz-container').innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-triangle-exclamation text-3xl sm:text-4xl mb-3 sm:mb-4 text-td-yellow"></i><p class="font-medium text-sm sm:text-lg">Cần ít nhất 4 từ vựng trong bài để tạo trắc nghiệm.</p></div>`;
+            document.getElementById('quiz-container').innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-triangle-exclamation text-3xl sm:text-4xl mb-3 sm:mb-4 text-td-yellow"></i><p class="font-medium text-sm sm:text-lg">Cần ít nhất 2 từ vựng trong bài để tạo trắc nghiệm.</p></div>`;
             return;
         }
         document.getElementById('quiz-header').classList.remove('hidden');
         quizScore = 0; currentQuizIdx = 0;
         quizQuestions = [...vocabData].sort(() => 0.5 - Math.random());
-        restoreQuizProgress();
-        renderQuizQuestion();
+        restoreQuizProgress().finally(() => {
+            renderQuizQuestion();
+        });
     }
 
     // ------- LƯU / KHÔI PHỤC TIẾN TRÌNH QUIZ (báo lỗi #260) -------
@@ -4599,6 +4637,10 @@ window.addEventListener('error', function(e) {
     }
 
     function renderQuizQuestion() {
+        if (typeof preloadAudio === 'function' && typeof quizQuestions !== 'undefined' && Array.isArray(quizQuestions)) {
+            const nextQ = quizQuestions.slice(currentQuizIdx + 1, currentQuizIdx + 5);
+            preloadAudio(nextQ.map(q => typeof ttsLocalPath === 'function' ? ttsLocalPath(q.hanzi) : ''));
+        }
         if(currentQuizIdx >= quizQuestions.length) {
             clearQuizProgress();
             document.getElementById('quiz-header').classList.add('hidden');
@@ -4637,13 +4679,17 @@ window.addEventListener('error', function(e) {
         let wrongs = vocabData.filter(v => (v.vocab_id || v.id) !== currentVId
             && v.dict_id !== q.dict_id
             && v.definition !== q.definition).sort(() => 0.5 - Math.random()).slice(0, 3);
+        if (wrongs.length === 0) {
+            wrongs = vocabData.filter(v => (v.vocab_id || v.id) !== currentVId).slice(0, 3);
+        }
         let options = [q, ...wrongs].sort(() => 0.5 - Math.random());
 
         let optionsHtml = '';
         options.forEach((opt, idx) => {
             const optVId = opt.vocab_id || opt.id;
+            const isCorrect = (optVId === currentVId);
             optionsHtml += `
-                <button onclick="checkQuizAnswer(this, ${optVId === currentVId})" class="p-4 sm:p-5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-sm sm:text-base hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-3 sm:gap-4 group outline-none">
+                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="p-4 sm:p-5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-sm sm:text-base hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-3 sm:gap-4 group outline-none">
                     <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-xs sm:text-sm font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
                     <span class="leading-relaxed">${opt.definition}</span>
                 </button>`;
@@ -4756,12 +4802,14 @@ window.addEventListener('error', function(e) {
             letterSpan.classList.remove('group-hover:bg-primary');
             
             buttons.forEach(b => {
-                if (b.innerText.includes(currentQ.definition.trim())) {
+                if (b.dataset.correct === 'true' || (currentQ.definition && b.innerText.includes(currentQ.definition.trim()))) {
                     b.classList.replace('border-slate-100', 'border-td-green');
                     b.classList.add('bg-emerald-50', 'text-td-green', 'shadow-sm');
                     const s = b.querySelector('span:first-child');
-                    s.classList.replace('bg-slate-100', 'bg-td-green');
-                    s.classList.replace('text-slate-400', 'text-white');
+                    if (s) {
+                        s.classList.replace('bg-slate-100', 'bg-td-green');
+                        s.classList.replace('text-slate-400', 'text-white');
+                    }
                 }
             });
             
@@ -12489,6 +12537,17 @@ window.addEventListener('error', function(e) {
     }
 
     function renderExamQuestion(preserveState = false) {
+        if (typeof preloadAudio === 'function' && currentSkill === 'Listening' && Array.isArray(currentSkillQs)) {
+            const nextAudio = [];
+            for (let i = currentTestIdx + 1; i <= currentTestIdx + 2 && i < currentSkillQs.length; i++) {
+                const nq = currentSkillQs[i];
+                if (nq) {
+                    if (nq.question_audio_url) nextAudio.push(nq.question_audio_url);
+                    if (nq.shared_audio_url) nextAudio.push(nq.shared_audio_url);
+                }
+            }
+            if (nextAudio.length > 0) preloadAudio(nextAudio);
+        }
         if (window.isTogglingCharMode) preserveState = true;
 
         if (!preserveState) {
@@ -14344,6 +14403,7 @@ function dictDualOrtho(hanzi, simplified) {
 function renderDictLookupDetail(entry) {
     const box = document.getElementById('dict-lookup-detail');
     if (!entry) { box.innerHTML = '<p class="text-center text-slate-400 py-16">Không tìm thấy từ này.</p>'; return; }
+    window.dictCurrentCharsInfo = entry.chars_info || [];
 
     // Label pastel dưới chữ Hán: chủ đề (từ loại gộp), nguồn dữ liệu, cấp độ — kiểu Hanzii.
     // (Trước đây có thêm 1 badge "TOCFL cấp N" riêng biệt trùng với badge TOCFL trong pastelLabels
@@ -14403,8 +14463,9 @@ function renderDictLookupDetail(entry) {
             ${g.senses.map((s, i) => {
                 globalSenseIdx++;
                 const senseAnchorId = globalSenseIdx;
+                const sExamples = (s.examples && s.examples.length) ? s.examples : (s.example_zh ? [{example_zh: s.example_zh, example_vi: s.example_vi, example_pinyin: s.example_pinyin}] : []);
                 const hasExtra = gi === 0 && i === 0 && senseExtraExamples.length > 0;
-                const hasExample = !!s.example_zh || hasExtra;
+                const hasExample = sExamples.length > 0 || hasExtra;
                 return `
                 <div id="dict-sense-${senseAnchorId}" class="scroll-mt-24 ${i > 0 ? 'mt-6 pt-6 border-t border-slate-100' : ''} ${i >= SENSE_GROUP_VISIBLE ? 'dict-more-sense hidden' : ''}">
                     <div class="flex items-center gap-2 mb-2 flex-wrap">
@@ -14416,7 +14477,7 @@ function renderDictLookupDetail(entry) {
                     ${s.meaning_zh ? `<p class="text-slate-400 text-xs mb-3">${s.meaning_zh}</p>` : '<div class="mb-3"></div>'}
                     ${hasExample ? `<span class="dict-tag dict-tag-example mb-2 inline-block">Ví dụ minh họa</span>
                     <div class="space-y-3 mt-2">
-                        ${s.example_zh ? senseExampleHtml(s.example_zh, s.example_vi, false, s.example_pinyin) : ''}
+                        ${sExamples.map(ex => senseExampleHtml(ex.example_zh || ex.examples_hanzi, ex.example_vi || ex.examples_translation, false, ex.example_pinyin || ex.examples_pinyin)).join('')}
                         ${hasExtra ? senseExtraExamples.map(ex => senseExampleHtml(ex.zh, ex.vi, true, ex.py)).join('') : ''}
                     </div>` : ''}
                 </div>`;
@@ -14436,6 +14497,7 @@ function renderDictLookupDetail(entry) {
                 <span class="font-bold text-slate-800 group-hover:text-primary dict-hanzi-big text-hanzi-sm truncate">${dictDualOrtho(r.hanzi, r.hanzi_simplified)}</span>
             </div>
             <span class="block text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-wide mt-1 ml-8">${r.pinyin || ''}</span>
+            ${r.definition ? `<span class="block text-xs text-slate-600 truncate mt-0.5 ml-8">${r.definition}</span>` : ''}
         </button>`;
     const related = relatedItems.length
         ? `<div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">${relatedItems.map(relatedRow).join('')}</div>
@@ -14445,9 +14507,10 @@ function renderDictLookupDetail(entry) {
     // Từ đồng nghĩa / trái nghĩa: quan hệ đã được admin duyệt (DictionaryRelations), ẩn cả khối
     // nếu chưa có dữ liệu thay vì hiện khối rỗng.
     const relationChip = (r) => `
-        <button type="button" onclick="dictLookupOpenDetail(${r.dict_id})" class="group text-left bg-slate-50/70 hover:bg-primary/5 border border-slate-100 hover:border-primary/30 rounded-xl px-3.5 py-2 transition-colors">
+        <button type="button" onclick="${r.dict_id ? `dictLookupOpenDetail(${r.dict_id})` : `dictLookupOpenByHanzi('${r.hanzi}')`}" class="group text-left bg-slate-50/70 hover:bg-primary/5 border border-slate-100 hover:border-primary/30 rounded-xl px-3.5 py-2 transition-colors">
             <span class="font-bold text-slate-800 group-hover:text-primary dict-hanzi-big text-hanzi-sm">${dictDualOrtho(r.hanzi, r.hanzi_simplified)}</span>
             <span class="block text-[11px] font-bold text-slate-400 mt-0.5">${r.pinyin || ''}</span>
+            ${r.definition ? `<span class="block text-[10px] text-slate-500 truncate max-w-[130px]">${r.definition}</span>` : ''}
         </button>`;
     const synonymsList = entry.synonyms || [];
     const antonymsList = entry.antonyms || [];
@@ -14517,14 +14580,13 @@ function renderDictLookupDetail(entry) {
             <a href="#sec-tu-vung"      class="dict-nav-link active" onclick="dictNavClick(event,this)">Từ vựng</a>
             <a href="#sec-tu-ghep"      class="dict-nav-link" onclick="dictNavClick(event,this)">Từ ghép</a>
             <a href="#sec-dong-nghia"   class="dict-nav-link" onclick="dictNavClick(event,this)">Đồng nghĩa / Trái nghĩa</a>
-            <a href="#sec-gop-y"        class="dict-nav-link" onclick="dictNavClick(event,this)">Góp ý cộng đồng</a>
         </nav>`;
 
     // Cột phải: phân tích Hán tự + Nét bút/Tập viết tương tác (HanziWriter.js, đã load ở index.php).
     // Từ nhiều chữ có tab chuyển từng ký tự (giống ô "裝 修" của Hanzii).
     const strokeChars = Array.from(entry.hanzi);
     const charTabsHtml = strokeChars.length > 1
-        ? `<div class="flex gap-1.5 mb-3 flex-wrap justify-center">${strokeChars.map((c, i) => `<button type="button" data-char-idx="${i}" onclick="dictSwitchStrokeChar(this,'${c}')" class="dict-char-tab ${i === 0 ? 'active' : ''}">${c}</button>`).join('')}</div>`
+        ? `<div class="flex gap-1.5 mb-3 flex-wrap justify-center">${strokeChars.map((c, i) => `<button type="button" data-char-idx="${i}" onclick="dictSwitchStrokeChar(this,'${c}',${i})" class="dict-char-tab ${i === 0 ? 'active' : ''}">${c}</button>`).join('')}</div>`
         : '';
     const metaVal = (v) => v ? `<span class="font-bold text-slate-700">${v}</span>` : `<span class="text-slate-300 italic font-normal">Đang cập nhật</span>`;
     const charInfoHtml = `
@@ -14542,10 +14604,10 @@ function renderDictLookupDetail(entry) {
                 <i class="fa-solid fa-volume-high"></i> Nghe phát âm
             </button>
             <div class="w-full text-xs text-slate-500 space-y-2 mt-1 border-t border-slate-100 pt-3">
-                <div class="flex justify-between"><span class="text-slate-400">Pinyin</span>${metaVal(entry.pinyin)}</div>
-                <div class="flex justify-between"><span class="text-slate-400">Âm Hán Việt</span>${metaVal(entry.han_viet)}</div>
-                <div class="flex justify-between"><span class="text-slate-400">Bộ thủ</span>${metaVal(entry.radical)}</div>
-                <div class="flex justify-between"><span class="text-slate-400">Số nét</span>${metaVal(entry.stroke_count)}</div>
+                <div class="flex justify-between"><span class="text-slate-400">Pinyin</span><span id="dict-meta-pinyin">${metaVal(entry.pinyin)}</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Âm Hán Việt</span><span id="dict-meta-hanviet">${metaVal(entry.han_viet)}</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Bộ thủ</span><span id="dict-meta-radical">${metaVal(entry.radical)}</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Số nét</span><span id="dict-meta-strokes">${metaVal(entry.stroke_count ? (entry.stroke_count + ' nét') : null)}</span></div>
             </div>
         </aside>`;
 
@@ -14593,16 +14655,7 @@ function renderDictLookupDetail(entry) {
                 ${relationsHtml}
             </section>
 
-            <section id="sec-do-pho-bien" class="scroll-mt-24 bg-white rounded-3xl border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.015)] p-6 sm:p-8">
-                <div class="text-slate-300 text-xs font-bold uppercase tracking-wider mb-3">Độ phổ biến</div>
-                ${popularityHtml}
-            </section>
 
-            <section id="sec-gop-y" class="scroll-mt-24 bg-white rounded-3xl border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.015)] p-6 sm:p-8">
-                <div class="text-slate-300 text-xs font-bold uppercase tracking-wider mb-3">Góp ý cộng đồng</div>
-                <div>${feedbackList}</div>
-                ${feedbackComposer}
-            </section>
         </main>`;
 
     box.innerHTML = `
@@ -14692,6 +14745,7 @@ function dictInitStrokeWriter(char) {
     el.dataset.writerReady = '0';
 
     if (dictStrokeObserver) dictStrokeObserver.disconnect();
+    setTimeout(() => { if (el && el.dataset.writerReady === '0') dictRealizeStrokeWriter(el, char); }, 60);
     if (typeof IntersectionObserver === 'undefined') { dictRealizeStrokeWriter(el, char); return; }
     dictStrokeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -14724,10 +14778,49 @@ function dictRealizeStrokeWriter(el, char) {
     } catch (e) { dictCurrentWriter = null; }
 }
 
-function dictSwitchStrokeChar(btn, char) {
+function dictSwitchStrokeChar(btn, char, charIdx) {
     btn.parentElement.querySelectorAll('.dict-char-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     dictInitStrokeWriter(char);
+    if (window.dictCurrentCharsInfo && window.dictCurrentCharsInfo.length) {
+        const idx = (charIdx !== undefined) ? charIdx : parseInt(btn.dataset.charIdx || 0);
+        const cInfo = window.dictCurrentCharsInfo[idx] || window.dictCurrentCharsInfo.find(c => c.char === char);
+        if (cInfo) {
+            const radEl = document.getElementById('dict-meta-radical');
+            const strokeEl = document.getElementById('dict-meta-strokes');
+            const hvEl = document.getElementById('dict-meta-hanviet');
+            const metaVal = (v) => v ? `<span class="font-bold text-slate-700">${v}</span>` : `<span class="text-slate-300 italic font-normal">Đang cập nhật</span>`;
+            if (radEl) radEl.innerHTML = metaVal(cInfo.radical_name || cInfo.radical);
+            if (strokeEl) strokeEl.innerHTML = metaVal(cInfo.stroke_count ? (cInfo.stroke_count + ' nét') : null);
+            if (hvEl) hvEl.innerHTML = metaVal(cInfo.han_viet ? cInfo.han_viet.toUpperCase() : null);
+        }
+    }
+}
+
+async function dictLookupOpenByHanzi(hanzi) {
+    dictCloseDropdown();
+    const emptyBox = document.getElementById('dict-lookup-empty');
+    if (emptyBox) emptyBox.classList.add('hidden');
+    const box = document.getElementById('dict-lookup-detail');
+    if (box) {
+        box.classList.remove('hidden');
+        box.innerHTML = '<div class="text-center text-slate-400 py-16"><i class="fa-solid fa-spinner fa-spin text-2xl"></i></div>';
+    }
+    try {
+        const res = await dictAuthedFetch(`api.php?action=dict_lookup_detail&hanzi=${encodeURIComponent(hanzi)}`);
+        const json = await res.json();
+        if (json.success && json.data) {
+            renderDictLookupDetail(json.data);
+            if (json.data.dict_id) {
+                window.history.pushState({ tab: 'dict-lookup', dict_id: json.data.dict_id }, '', `/dict-lookup?dict_id=${json.data.dict_id}`);
+            }
+        } else {
+            const input = document.getElementById('dict-search-input');
+            if (input) { input.value = hanzi; dictSearchInputChanged(); }
+        }
+    } catch (e) {
+        if (box) box.innerHTML = '<div class="text-center text-slate-400 py-16">Không tìm thấy từ vựng</div>';
+    }
 }
 
 // Bấm nút trước khi canvas kịp lazy-init (VD vừa mở trang, observer chưa kịp bắn) — dựng ngay
@@ -15193,32 +15286,69 @@ document.addEventListener('click', (ev) => {
         /* Highlight từng chữ theo tiến độ audio (nội suy thời gian trong câu). */
         .sd-ch { transition: color .12s linear; }
         .sd-cue-active .sd-ch-on { color: #118DFF; }
+        .sd-cue-active {
+            border-color: #118DFF !important;
+            background-color: rgba(17, 141, 255, 0.08) !important;
+            box-shadow: 0 2px 8px rgba(17, 141, 255, 0.12);
+        }
+        .sd-cue-active .sd-ch { font-weight: 700; }
 
-        /* Layout trang chi tiết: điện thoại xếp dọc video -> control -> phụ đề -> mic;
-           từ tablet trở lên (>=768px) chuyển video+control+mic sang cột phải (sidebar riêng,
-           cao độc lập), cột trái chỉ còn phụ đề full-width. Ngưỡng 768 (md) thay vì 1024 (lg)
-           để tablet chia đôi màn hình (còn ~700-900px) không bị rơi vào layout điện thoại — xem
-           giải thích chi tiết ở #sd-title-bar phía trên (báo lỗi người dùng #3: video che phụ đề).
-           Dùng flex + display:contents (không dùng grid-template-areas trải nhiều dòng)
-           để chiều cao sidebar không bị "kéo giãn" theo chiều cao rất dài của danh sách phụ đề. */
+        /* Bố cục Studio 2 cột tối ưu cho Máy tính / Tablet (>=768px):
+           - Cột Trái (order: 1, 62-65%): Video Cinema 16:9 + Điều khiển + Studio Luyện Nói (Ghi âm & Kết quả song song)
+           - Cột Phải (order: 2, 35-38%): Bảng phụ đề đồng bộ (sticky toàn màn hình, cuộn mượt độc lập)
+           - Mobile (<768px): giữ nguyên luồng cuộn dọc media -> phụ đề -> ghi âm/kết quả. */
         .sd-detail-grid { display: flex; flex-direction: column; }
         .sd-sidebar { display: contents; }
         .sd-area-media { order: 1; }
         .sd-area-cues { order: 2; }
         .sd-area-extra { order: 3; }
         @media (min-width: 768px) {
-            .sd-detail-grid { flex-direction: row; align-items: flex-start; gap: 1.25rem; }
-            .sd-area-cues { order: 1; flex: 2 1 0%; min-width: 0; }
+            .sd-detail-grid {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
             .sd-sidebar {
                 display: flex;
                 flex-direction: column;
                 gap: 1.25rem;
-                flex: 1 1 0%;
-                min-width: 280px;
-                order: 2;
-                position: sticky;
-                top: 1rem;
+                flex: 1.45 1 0%;
+                min-width: 0;
+                order: 1;
             }
+            /* Trên Desktop/Tablet: Video KHÔNG cố định (static) để khi cuộn trang,
+               toàn bộ cột Studio (Video -> Ghi âm/Kết quả -> Bình luận) cuộn tự nhiên,
+               tránh việc video ghim cố định che khuất mất các nội dung bên dưới. */
+            #sd-media-sticky {
+                position: static !important;
+                background: transparent !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                z-index: auto !important;
+            }
+            .sd-area-cues {
+                order: 2;
+                flex: 1 1 0%;
+                min-width: 320px;
+                max-width: 480px;
+                position: sticky;
+                top: 0.5rem;
+                display: flex;
+                flex-direction: column;
+            }
+            .sd-area-extra {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                align-items: stretch;
+            }
+            .sd-extra-full {
+                grid-column: 1 / -1;
+            }
+        }
+        @media (min-width: 1280px) {
+            .sd-sidebar { flex: 1.6 1 0%; }
+            .sd-area-cues { flex: 1 1 0%; max-width: 520px; }
         }
     </style>
 
@@ -15249,24 +15379,32 @@ document.addEventListener('click', (ev) => {
                  Desktop: trở thành 1 cột riêng bên phải, cao độc lập với phụ đề (xem .sd-sidebar ở <style> đầu file). -->
             <div class="sd-sidebar">
             <!-- KHU VỰC MEDIA: video/audio + thanh điều khiển -->
-            <!-- Mobile: cố định (sticky) trên cùng. Desktop: nằm trên cùng của sidebar phải. -->
-            <!-- Nền phải ĐỤC hoàn toàn (không dùng /95 + backdrop-blur): nếu trong suốt một phần,
-                 phụ đề cuộn phía sau sẽ lộ ra ở mép trên tạo cảm giác "kẽ hở". pt-2 che nốt viền trên. -->
-            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:top-4 z-20 -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-2.5 bg-surface">
+            <!-- Mobile: cố định (sticky) trên cùng. Desktop: static tự nhiên trong sidebar trái (không che các khối nội dung bên dưới khi cuộn). -->
+            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:static z-20 md:z-auto -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
                     <!-- Thanh back + tiêu đề: đặt TRONG khối sticky nên luôn nhìn thấy dù đã cuộn phụ đề xuống sâu.
                          Tự thu gọn khi cuộn phụ đề xuống, hiện lại khi cuộn lên (xem #sd-title-bar trong <style>). -->
-                    <div id="sd-title-bar" class="flex items-center gap-2.5 mb-2">
-                        <button onclick="shadowBackToLibrary()" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-500 hover:text-primary hover:border-primary flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0">
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </button>
-                        <div class="min-w-0 flex-1">
-                            <h2 id="sd-title" class="font-black text-brandNavy text-sm sm:text-lg leading-tight truncate"></h2>
-                            <div class="flex items-center gap-2">
-                                <span id="sd-level" class="text-[10px] font-black px-2 py-0.5 rounded-md bg-accent/20 text-accentHover uppercase tracking-wide"></span>
-                                <span id="sd-topic" class="text-xs text-slate-500 truncate"></span>
+                    <div id="sd-title-bar" class="flex items-center justify-between gap-2.5 mb-2">
+                        <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                            <button onclick="shadowBackToLibrary()" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-500 hover:text-primary hover:border-primary flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0" title="Quay lại thư viện">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <div class="min-w-0 flex-1">
+                                <h2 id="sd-title" class="font-black text-brandNavy text-sm sm:text-lg leading-tight truncate"></h2>
+                                <div class="flex items-center gap-2">
+                                    <span id="sd-level" class="text-[10px] font-black px-2 py-0.5 rounded-md bg-accent/20 text-accentHover uppercase tracking-wide"></span>
+                                    <span id="sd-topic" class="text-xs text-slate-500 truncate"></span>
+                                </div>
                             </div>
                         </div>
+                        <!-- Phím tắt nhanh trên máy tính -->
+                        <div class="hidden xl:flex items-center gap-2 bg-white/80 border border-slate-200 rounded-full px-3 py-1 text-[11px] text-slate-500 shadow-2xs shrink-0 select-none">
+                            <span class="text-slate-400 font-bold"><i class="fa-regular fa-keyboard mr-1"></i>Phím tắt:</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">Space</kbd> Phát</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">R</kbd> Thu âm</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">←/→</kbd> Câu</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">L</kbd> Lặp</span>
                         </div>
+                    </div>
 
                     <!-- video (YouTube) -->
                     <div id="sd-video-wrap" class="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft bg-black ring-4 ring-td-lightBlue/25">
@@ -15358,7 +15496,13 @@ document.addEventListener('click', (ev) => {
                     <!-- 2. THẺ KẾT QUẢ: trống → sau khi thu âm hiện chữ đúng/sai -->
                     <div id="sd-result-card" class="bg-gradient-to-br from-[#eef8ff] to-td-lightBlue/20 border border-td-lightBlue/50 rounded-3xl p-5 shadow-soft">
                         <div class="flex items-center justify-between mb-3">
-                            <span id="sd-cur-idx" class="text-sm font-black text-primary">Câu #1</span>
+                            <div class="flex items-center gap-2">
+                                <span id="sd-cur-idx" class="text-sm font-black text-primary">Câu #1</span>
+                                <button onclick="shadowReplayCue()" class="px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary text-[11px] font-bold flex items-center gap-1.5 transition-all active:scale-95" title="Nghe lại câu mẫu (Phím tắt: Space hoặc L)">
+                                    <i class="fa-solid fa-volume-high text-xs"></i>
+                                    <span>Nghe câu mẫu</span>
+                                </button>
+                            </div>
                             <span id="sd-cur-total" class="text-xs font-bold text-slate-400"></span>
                         </div>
 
@@ -15373,18 +15517,18 @@ document.addEventListener('click', (ev) => {
 
                         <!-- kết quả -->
                         <div id="sd-result-filled" class="hidden">
-                            <div id="sd-cur-pinyin" class="text-[13px] text-td-blue font-semibold mb-2 leading-relaxed"></div>
-                            <div id="sd-rec-colored" class="font-tc text-[30px] sm:text-[34px] text-brandNavy leading-[1.4] mb-3"></div>
-                            <div id="sd-cur-vi" class="text-[13px] text-slate-500 leading-relaxed mb-3"></div>
+                            <div id="sd-cur-pinyin" class="text-[14px] sm:text-[15px] text-td-blue font-semibold mb-2 leading-relaxed"></div>
+                            <div id="sd-rec-colored" class="font-tc text-[32px] sm:text-[38px] font-bold text-brandNavy leading-[1.4] mb-3"></div>
+                            <div id="sd-cur-vi" class="text-[14px] sm:text-[15px] text-slate-600 leading-relaxed mb-3"></div>
                             <div class="pt-3 border-t border-td-lightBlue/40">
-                                <div class="text-[12px] text-slate-500">Bạn đã nói: <span id="sd-rec-heard" class="font-tc text-slate-700"></span></div>
+                                <div class="text-[13px] text-slate-600">Bạn đã nói: <span id="sd-rec-heard" class="font-tc text-slate-800 font-semibold"></span></div>
                                 <div class="text-[11px] text-slate-400 mt-1.5">Chữ <span class="text-emerald-600 font-bold">xanh</span> = đúng · <span class="text-td-red font-bold">đỏ</span> = sai/thiếu</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 3. TOP luyện nhiều -->
-                    <div class="bg-gradient-to-br from-white to-accent/10 border border-accent/30 rounded-3xl p-5 shadow-soft">
+                    <div class="sd-extra-full bg-gradient-to-br from-white to-accent/10 border border-accent/30 rounded-3xl p-5 shadow-soft">
                         <div class="flex items-center gap-2 mb-4">
                             <div class="w-8 h-8 rounded-xl bg-accent/25 text-accentHover flex items-center justify-center"><i class="fa-solid fa-fire text-sm"></i></div>
                             <h3 class="font-black text-brandNavy text-base">Top luyện nhiều nhất</h3>
@@ -15461,16 +15605,16 @@ document.addEventListener('click', (ev) => {
             if (/[一-龥]/.test(ch)) {
                 const py = withPinyin ? (pyArray[pyIdx++] || '') : '';
                 const pyLine = withPinyin
-                    ? `<span class="text-[12px] sm:text-[13px] text-td-blue font-medium font-sans mb-1 tracking-tighter">${esc(py)}</span>`
+                    ? `<span class="text-[14px] sm:text-[15px] text-td-blue font-semibold font-sans mb-1 tracking-tight">${esc(py)}</span>`
                     : '';
-                html += `<div class="inline-flex flex-col items-center mx-[1px]">
+                html += `<div class="inline-flex flex-col items-center mx-[1.5px]">
                     ${pyLine}
-                    <span class="sd-ch font-tc text-[24px] sm:text-[27px] text-brandNavy leading-none">${esc(ch)}</span>
+                    <span class="sd-ch font-tc text-[28px] sm:text-[32px] text-brandNavy leading-none">${esc(ch)}</span>
                 </div>`;
             } else {
-                html += `<div class="inline-flex flex-col items-center mx-[1px]">
-                    <span class="text-[12px] sm:text-[13px] mb-1 opacity-0 select-none">&nbsp;</span>
-                    <span class="text-[24px] sm:text-[27px] text-slate-700 leading-none">${esc(ch)}</span>
+                html += `<div class="inline-flex flex-col items-center mx-[1.5px]">
+                    <span class="text-[14px] sm:text-[15px] mb-1 opacity-0 select-none">&nbsp;</span>
+                    <span class="text-[28px] sm:text-[32px] text-slate-700 leading-none">${esc(ch)}</span>
                 </div>`;
             }
         }
@@ -15737,13 +15881,13 @@ document.addEventListener('click', (ev) => {
     // ---- danh sách phụ đề ----
     function cueItemHTML(c, i) {
         const active = i === curCueIdx;
-        const vi = showVi && c._vi ? `<div class="sd-ci-vi text-[13px] text-slate-500 mt-1.5 leading-relaxed">${esc(c._vi)}</div>` : '';
+        const vi = showVi && c._vi ? `<div class="sd-ci-vi text-[14px] sm:text-[16px] text-slate-600 font-medium mt-2 leading-relaxed">${esc(c._vi)}</div>` : '';
         // Pinyin per-chữ (kiểu Hội thoại) khi bật; tắt thì chỉ hiện Hán tự thuần, nhẹ hơn.
-        const body = `<div class="flex flex-wrap items-end gap-y-1">${cueCharsHTML(c.text, showPinyin)}</div>`;
-        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue text-left rounded-2xl border px-4 py-3 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
+        const body = `<div class="flex flex-wrap items-end gap-y-1.5">${cueCharsHTML(c.text, showPinyin)}</div>`;
+        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue text-left rounded-2xl border px-4 py-3.5 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
             <div class="flex items-start gap-3">
-                <span class="text-[11px] font-black text-slate-300 mt-2 shrink-0">#${i + 1}</span>
-                <div class="min-w-0">${body}${vi}</div>
+                <span class="text-[12px] font-black text-slate-300 mt-2 shrink-0">#${i + 1}</span>
+                <div class="min-w-0 flex-1">${body}${vi}</div>
             </div>
         </button>`;
     }
@@ -15775,15 +15919,22 @@ document.addEventListener('click', (ev) => {
         const isDesktop = window.matchMedia('(min-width: 768px)').matches;
         const appHeader = document.getElementById('main-app-header');
         const headerH = appHeader ? appHeader.getBoundingClientRect().height : 0;
-        // Từ tablet trở lên: video nằm ở cột phải nên không chiếm chỗ của phụ đề -> không trừ.
-        const mediaEl = document.getElementById('sd-media-sticky');
-        const mediaH = (!isDesktop && mediaEl) ? mediaEl.getBoundingClientRect().height : 0;
         const headEl = document.getElementById('sd-cue-head');
         const cueHeadH = headEl ? headEl.getBoundingClientRect().height : 0;
 
-        const chrome = 32; // padding của thẻ phụ đề + khoảng thở đáy (để nhỏ -> phụ đề cao hơn)
-        const h = window.innerHeight - headerH - mediaH - cueHeadH - chrome;
-        list.style.height = Math.max(240, h) + 'px';
+        if (isDesktop) {
+            const mc = document.getElementById('mainContent');
+            const containerH = mc ? mc.clientHeight : (window.innerHeight - headerH);
+            // 96px = padding top/bottom của mainContent (64px) + padding thẻ phụ đề (24px) + khoảng thở an toàn (8px)
+            const h = containerH - cueHeadH - 96;
+            list.style.height = Math.max(280, h) + 'px';
+        } else {
+            const mediaEl = document.getElementById('sd-media-sticky');
+            const mediaH = mediaEl ? mediaEl.getBoundingClientRect().height : 0;
+            const chrome = 32; // padding của thẻ phụ đề + khoảng thở đáy (để nhỏ -> phụ đề cao hơn)
+            const h = window.innerHeight - headerH - mediaH - cueHeadH - chrome;
+            list.style.height = Math.max(240, h) + 'px';
+        }
     }
 
     // (Đã bỏ tính năng "thu gọn video" — dọn cả localStorage cũ để người dùng
@@ -16233,6 +16384,42 @@ document.addEventListener('click', (ev) => {
     }
 
     document.addEventListener('visibilitychange', () => { if (document.hidden && media.ready()) { try { media.pause(); } catch (e) {} } });
+
+    // Hotkeys máy tính: Space (Phát/Dừng), R (Thu âm), ArrowLeft/Right (Đổi câu), L (Lặp), P (Nghe lại)
+    window.addEventListener('keydown', (e) => {
+        const view = document.getElementById('view-shadowing');
+        const detail = document.getElementById('shadow-detail');
+        if (!view || view.classList.contains('hidden') || !detail || detail.classList.contains('hidden')) return;
+
+        const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable)) return;
+
+        const k = (e.key || '').toLowerCase();
+        if (e.code === 'Space' || e.key === ' ') {
+            e.preventDefault();
+            if (typeof window.shadowTogglePlay === 'function') window.shadowTogglePlay();
+        } else if (e.code === 'KeyR' || k === 'r') {
+            e.preventDefault();
+            if (typeof window.shadowToggleRecord === 'function') window.shadowToggleRecord();
+        } else if (e.code === 'ArrowLeft' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            if (typeof window.shadowPrevCue === 'function') window.shadowPrevCue();
+        } else if (e.code === 'ArrowRight' || e.key === 'ArrowRight') {
+            e.preventDefault();
+            if (typeof window.shadowNextCue === 'function') window.shadowNextCue();
+        } else if (e.code === 'KeyL' || k === 'l') {
+            e.preventDefault();
+            if (typeof window.shadowToggleLoop === 'function') window.shadowToggleLoop();
+        } else if (e.code === 'KeyP' || k === 'p') {
+            e.preventDefault();
+            if (typeof window.shadowReplayCue === 'function') window.shadowReplayCue();
+        } else if (e.code === 'Escape' || e.key === 'Escape') {
+            if (recording && typeof window.shadowToggleRecord === 'function') {
+                e.preventDefault();
+                window.shadowToggleRecord();
+            }
+        }
+    });
 })();
 </script>
 <div id="view-dictation" class="hidden w-full animate-fade-in">
@@ -16905,30 +17092,59 @@ document.addEventListener('click', (ev) => {
   #hz-tip { transition: opacity .12s ease; }
   #hz-tip.hz-in { opacity: 1; }
 </style>
-<!-- Tooltip container (non-interactive, positioned near cụm chữ được chọn) -->
+<!-- Tooltip container (Hanzi lookup popup) -->
 <div id="hz-tip"
-     class="fixed hidden z-[700] max-w-xs bg-white rounded-xl shadow-xl border border-slate-200
-            px-3.5 py-2.5 pointer-events-none"
-     style="top:0;left:0;">
-  <div class="flex items-baseline justify-between gap-2">
-    <div class="flex items-baseline gap-2">
-      <span id="hz-tip-word" class="font-tc font-black text-primary text-xl leading-tight"></span>
-      <span id="hz-tip-py" class="text-xs text-slate-500 font-medium"></span>
+     class="fixed hidden z-[700] w-[300px] sm:w-[350px] bg-white rounded-2xl shadow-2xl border border-slate-200/90 p-4 transition-all duration-150 select-none pointer-events-auto"
+     style="top:0;left:0;" onclick="event.stopPropagation();">
+  <!-- Top row: Badge level & Action buttons -->
+  <div class="flex items-center justify-between gap-2 mb-2">
+    <div class="flex items-center gap-1.5 flex-wrap">
+      <span id="hz-tip-badge" class="hidden px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-50 text-amber-600 border border-amber-200"></span>
+      <span id="hz-tip-pos" class="hidden px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-100 text-slate-600"></span>
     </div>
-    <div class="flex items-center gap-2.5 shrink-0" style="pointer-events:auto;">
+    <div class="flex items-center gap-1 shrink-0">
       <button id="hz-tip-save" onclick="hzTipSaveToggle(event)"
-              class="hidden text-slate-300 hover:text-[#EAB942] transition-colors" title="Lưu vào sổ tay">
-        <i class="fa-regular fa-bookmark"></i>
+              class="hidden w-7 h-7 rounded-full flex items-center justify-center text-slate-400 hover:text-amber-500 hover:bg-amber-50 transition-colors" title="Lưu vào sổ tay">
+        <i class="fa-regular fa-bookmark text-xs"></i>
+      </button>
+      <button onclick="hzTipClose(event)" class="w-7 h-7 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Đóng">
+        <i class="fa-solid fa-xmark text-sm"></i>
       </button>
     </div>
   </div>
-  <div id="hz-tip-vi" class="mt-1 text-sm text-slate-800 leading-snug"></div>
-  <div id="hz-tip-ex" class="mt-1.5 text-xs text-slate-500 leading-snug hidden"></div>
-  <div class="mt-1.5 flex items-center justify-between gap-2">
-    <span id="hz-tip-src" class="text-[10px] uppercase tracking-wide text-slate-400"></span>
+
+  <!-- Main word, Pinyin & Audio -->
+  <div class="flex items-center justify-between gap-2">
+    <div class="flex items-baseline gap-2.5 flex-wrap">
+      <span id="hz-tip-word" class="font-tc font-black text-slate-800 text-2xl leading-none"></span>
+      <span id="hz-tip-py" class="text-xs sm:text-sm text-slate-500 font-medium"></span>
+    </div>
+    <button id="hz-tip-audio" onclick="hzTipPlayAudio(event)"
+            class="w-8 h-8 rounded-full bg-slate-50 hover:bg-primary hover:text-white border border-slate-200 text-slate-500 flex items-center justify-center transition-all shadow-sm shrink-0 active:scale-95" title="Nghe phát âm">
+      <i class="fa-solid fa-volume-high text-xs pointer-events-none"></i>
+    </button>
+  </div>
+
+  <!-- Meaning / Definition -->
+  <div id="hz-tip-vi" class="mt-2 text-sm font-semibold text-slate-800 leading-snug"></div>
+
+  <!-- Example box -->
+  <div id="hz-tip-ex-box" class="mt-2.5 p-2.5 bg-slate-50 rounded-xl border border-slate-100 hidden">
+    <div class="flex items-start justify-between gap-2">
+      <div id="hz-tip-ex-hanzi" class="font-tc text-xs font-bold text-slate-700 leading-relaxed"></div>
+      <button id="hz-tip-ex-audio" onclick="hzTipPlayExAudio(event)" class="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-slate-400 hover:text-primary transition-colors mt-0.5" title="Nghe câu ví dụ">
+        <i class="fa-solid fa-volume-high text-[11px] pointer-events-none"></i>
+      </button>
+    </div>
+    <div id="hz-tip-ex-vi" class="mt-1 text-[11px] text-slate-500 leading-snug"></div>
+  </div>
+
+  <!-- Footer row: Source & Detail link -->
+  <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
+    <span id="hz-tip-src" class="text-[10px] uppercase font-bold tracking-wider text-slate-400">TỪ BÀI HỌC</span>
     <button id="hz-tip-detail" onclick="hzTipOpenDetail(event)"
-            class="hidden text-[10px] font-bold text-primary hover:text-primary-dark transition-colors" style="pointer-events:auto;">
-      Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+            class="hidden text-xs font-bold text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5 cursor-pointer">
+      Xem chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i>
     </button>
   </div>
 </div>
@@ -16943,12 +17159,23 @@ document.addEventListener('click', (ev) => {
   var HAN_RE  = /[㐀-鿿豈-﫿]/;
   var HAN_NEG = /[^㐀-鿿豈-﫿]/g;
 
-  var tip   = document.getElementById('hz-tip');
-  var elWord = document.getElementById('hz-tip-word');
-  var elPy   = document.getElementById('hz-tip-py');
-  var elVi   = document.getElementById('hz-tip-vi');
-  var elEx   = document.getElementById('hz-tip-ex');
-  var elSrc  = document.getElementById('hz-tip-src');
+  var tip        = document.getElementById('hz-tip');
+  var elWord     = document.getElementById('hz-tip-word');
+  var elPy       = document.getElementById('hz-tip-py');
+  var elVi       = document.getElementById('hz-tip-vi');
+  var elBadge    = document.getElementById('hz-tip-badge');
+  var elPos      = document.getElementById('hz-tip-pos');
+  var elExBox    = document.getElementById('hz-tip-ex-box');
+  var elExHanzi  = document.getElementById('hz-tip-ex-hanzi');
+  var elExVi     = document.getElementById('hz-tip-ex-vi');
+  var elSrc      = document.getElementById('hz-tip-src');
+  var elSave     = document.getElementById('hz-tip-save');
+  var elDetail   = document.getElementById('hz-tip-detail');
+
+  window.__hzTipCurrentWord = '';
+  window.__hzTipCurrentEx = '';
+  window.__hzTipDictId = null;
+
   if (!tip) return;
   // Đưa tooltip ra body để không bị SPA ghi đè innerHTML của #mainContent
   if (tip.parentNode !== document.body) document.body.appendChild(tip);
@@ -16972,7 +17199,7 @@ document.addEventListener('click', (ev) => {
     vIndex = {};
     for (var i = 0; i < vd.length; i++) {
       var h = (vd[i].hanzi || '').trim();
-      if (h) vIndex[h] = { py: vd[i].pinyin || '', vi: vd[i].definition || '' };
+      if (h) vIndex[h] = { py: vd[i].pinyin || '', vi: vd[i].definition || '', tocfl_band: vd[i].tocfl_band, part_of_speech: vd[i].part_of_speech };
     }
     vIndexLen = vd.length;
     return vIndex;
@@ -16992,10 +17219,7 @@ document.addEventListener('click', (ev) => {
     return '';
   }
 
-  // ---- Tách từ theo TỪ ĐIỂN (longest-match) ----
-  // Bản UMD của pinyin-pro không kèm từ điển tách từ (luôn cắt từng chữ),
-  // nên ta tự ghép từ dựa trên chính từ điển nghĩa: quét quanh con trỏ,
-  // lấy từ DÀI NHẤT có trong vocabData / cn_vi.json bao trùm vị trí con trỏ.
+  // Cụm chữ dài nhất ưu tiên: quét độ dài từ 5 xuống 2, nếu có trong từ điển thì chọn
   var MAX_WORD = 5;
   function isKnown(sub) {
     var vi = vocabIndex();
@@ -17005,9 +17229,7 @@ document.addEventListener('click', (ev) => {
     if (dictCN && (dictCN[sub] || dictCN[t])) return true;
     return false;
   }
-  // Trả về {w, start}: từ chứa vị trí off, ghép dài nhất theo từ điển.
   function wordAt(text, off) {
-    // biên của cụm chữ Hán liên tiếp quanh off
     var s = off, e = off;
     while (s > 0 && HAN_RE.test(text.charAt(s - 1))) s--;
     while (e < text.length - 1 && HAN_RE.test(text.charAt(e + 1))) e++;
@@ -17022,7 +17244,6 @@ document.addEventListener('click', (ev) => {
     return { w: text.charAt(off), start: off };
   }
 
-  // Phương án 1: caret API (nhanh, cần text chọn được)
   function caretAt(x, y) {
     if (document.caretRangeFromPoint) {
       var r = document.caretRangeFromPoint(x, y);
@@ -17037,8 +17258,6 @@ document.addEventListener('click', (ev) => {
     return null;
   }
 
-  // Vị trí ký tự chính xác trong 1 text node bằng cách đo rect từng ký tự
-  // (hoạt động cả khi text có user-select:none)
   function charIndexInNode(node, x, y) {
     var t = node.nodeValue; if (!t) return -1;
     var range = document.createRange();
@@ -17053,7 +17272,6 @@ document.addEventListener('click', (ev) => {
     return -1;
   }
 
-  // Phương án 2: elementFromPoint + quét rect (dự phòng cho text khóa chọn)
   function scanAt(x, y) {
     var el = document.elementFromPoint(x, y);
     if (!el || el.closest('input, textarea, [contenteditable="true"], #hz-tip')) return null;
@@ -17062,28 +17280,24 @@ document.addEventListener('click', (ev) => {
     var n;
     while ((n = walker.nextNode())) {
       if (!HAN_RE.test(n.nodeValue || '')) continue;
-      // loại nhanh: điểm click nằm ngoài khung của cả text node
       range.selectNodeContents(n);
       var b = range.getBoundingClientRect();
       if (x < b.left || x > b.right || y < b.top || y > b.bottom) continue;
-      var idx = charIndexInNode(n, x, y); // vẫn phải trúng đúng ô chữ
+      var idx = charIndexInNode(n, x, y);
       if (idx >= 0) return { node: n, offset: idx };
     }
     return null;
   }
 
-  // Trả về {word, node, start} cho vị trí (x,y), hoặc null nếu KHÔNG click trúng ô chữ Hán.
-  // caretRangeFromPoint luôn bám ký tự GẦN NHẤT trên cùng dòng (kể cả click vào lề/khoảng
-  // trắng), nên phải kiểm chứng lại: điểm click có thật sự nằm trong ô chữ đó không.
   function wordUnderCursor(x, y) {
     var c = caretAt(x, y);
     if (c && c.node && c.node.nodeType === 3) {
-      var exact = charIndexInNode(c.node, x, y); // -1 nếu không rơi vào ô chữ nào
+      var exact = charIndexInNode(c.node, x, y);
       c = (exact >= 0) ? { node: c.node, offset: exact } : null;
     } else {
       c = null;
     }
-    if (!c) c = scanAt(x, y); // scanAt vốn đã đo rect chính xác
+    if (!c) c = scanAt(x, y);
     if (!c || !c.node || c.node.nodeType !== 3) return null;
 
     var host = c.node.parentElement;
@@ -17091,20 +17305,19 @@ document.addEventListener('click', (ev) => {
     var text = c.node.nodeValue || '';
     var off = c.offset;
     if (!text || off < 0 || off >= text.length) return null;
-    if (!HAN_RE.test(text.charAt(off))) return null; // click trúng ký tự nhưng không phải chữ Hán
+    if (!HAN_RE.test(text.charAt(off))) return null;
     var r = wordAt(text, off);
     return { word: r.w, node: c.node, start: r.start };
   }
 
-  // ---- Tra nghĩa tức thời từ nguồn client ----
   var resCache = {};
   function lookupInstant(word) {
     var trad = toTrad(word);
     if (resCache.hasOwnProperty(trad)) return resCache[trad];
     var out = null;
     var vi = vocabIndex();
-    if (vi[word]) out = { py: vi[word].py, vi: vi[word].vi, src: 'Từ bài học' };
-    else if (vi[trad]) out = { py: vi[trad].py, vi: vi[trad].vi, src: 'Từ bài học' };
+    if (vi[word]) out = { py: vi[word].py, vi: vi[word].vi, src: 'Từ bài học', tocfl_band: vi[word].tocfl_band, pos: vi[word].part_of_speech };
+    else if (vi[trad]) out = { py: vi[trad].py, vi: vi[trad].vi, src: 'Từ bài học', tocfl_band: vi[trad].tocfl_band, pos: vi[trad].part_of_speech };
     else if (dictCN && (dictCN[word] || dictCN[trad])) {
       var d = dictCN[word] || dictCN[trad];
       out = { py: d.py, vi: d.vi, src: 'Từ điển' };
@@ -17117,66 +17330,124 @@ document.addEventListener('click', (ev) => {
       if (ok) out = { py: '', vi: 'Âm Hán-Việt: ' + parts.join(' '), src: 'Âm Hán-Việt' };
     }
     if (out && !out.py) out.py = genPinyin(trad);
-    // chỉ cache khi từ điển đã tải xong để tránh cache "rỗng"
     if (dictCN && dictHV) resCache[trad] = out;
     return out;
   }
 
-  // ---- Tra DB toàn site qua API (cache) ----
   var apiCache = {};
   function lookupAPI(word, cb) {
     var trad = toTrad(word);
     if (apiCache.hasOwnProperty(trad)) { cb(apiCache[trad]); return; }
     fetch('api.php?action=lookup_hanzi&q=' + encodeURIComponent(trad))
       .then(function (r) { return r.json(); })
-      .then(function (j) { var d = (j && j.success) ? j.data : null; apiCache[trad] = d; cb(d); })
+      .then(function (j) {
+        var d = (j && j.success) ? j.data : null;
+        if (Array.isArray(d)) {
+          var match = d.find(function(it) {
+            return (it.hanzi === word || it.hanzi === trad);
+          }) || d[0] || null;
+          d = match;
+        }
+        apiCache[trad] = d;
+        cb(d);
+      })
       .catch(function () { apiCache[trad] = null; cb(null); });
   }
 
-  var elReport = document.getElementById('hz-tip-report');
-  var elSave = document.getElementById('hz-tip-save');
-  var elDetail = document.getElementById('hz-tip-detail');
-  function render(word, py, vi, src, example, dictId) {
+  function render(word, py, vi, src, exObj, dictId, tocflBand, pos) {
+    window.__hzTipCurrentWord = word;
     elWord.textContent = toDisplay(word);
     elPy.textContent = py || '';
     elVi.textContent = vi || '';
-    if (example) { elEx.textContent = example; elEx.classList.remove('hidden'); }
-    else elEx.classList.add('hidden');
-    elSrc.textContent = src || '';
+    elSrc.textContent = src || 'TỪ BÀI HỌC';
+
+    if (tocflBand) {
+      elBadge.textContent = 'TOCFL ' + tocflBand;
+      elBadge.classList.remove('hidden');
+    } else {
+      elBadge.classList.add('hidden');
+    }
+
+    if (pos) {
+      elPos.textContent = pos;
+      elPos.classList.remove('hidden');
+    } else {
+      elPos.classList.add('hidden');
+    }
+
+    if (exObj && (exObj.hanzi || exObj.vi)) {
+      elExHanzi.textContent = exObj.hanzi || '';
+      elExVi.textContent = exObj.vi || '';
+      window.__hzTipCurrentEx = exObj.hanzi || '';
+      elExBox.classList.remove('hidden');
+    } else {
+      window.__hzTipCurrentEx = '';
+      elExBox.classList.add('hidden');
+    }
+
     window.__hzTipDictId = dictId || null;
-    if (elReport) elReport.classList.toggle('hidden', !dictId || typeof openReportModal !== 'function');
     if (elDetail) elDetail.classList.toggle('hidden', !dictId);
     if (elSave) {
       elSave.classList.toggle('hidden', !dictId);
       var icon = elSave.querySelector('i');
-      icon.classList.remove('fa-solid'); icon.classList.add('fa-regular');
-      elSave.classList.remove('is-saved'); elSave.classList.add('text-slate-300');
+      if (icon) {
+        icon.classList.remove('fa-solid'); icon.classList.add('fa-regular');
+      }
+      elSave.classList.remove('is-saved', 'text-amber-500');
+      elSave.classList.add('text-slate-400');
     }
   }
 
+  window.hzTipPlayAudio = function (ev) {
+    if (ev) ev.stopPropagation();
+    var w = window.__hzTipCurrentWord || (elWord ? elWord.textContent : '');
+    if (w && typeof playTTS === 'function') {
+      playTTS(encodeURIComponent(w), ev);
+    }
+  };
+
+  window.hzTipPlayExAudio = function (ev) {
+    if (ev) ev.stopPropagation();
+    var ex = window.__hzTipCurrentEx || '';
+    if (ex && typeof playTTS === 'function') {
+      playTTS(encodeURIComponent(ex), ev);
+    }
+  };
+
+  window.hzTipClose = function (ev) {
+    if (ev) ev.stopPropagation();
+    hide();
+  };
+
   window.hzTipOpenDetail = function (ev) {
-    ev.stopPropagation();
+    if (ev) ev.stopPropagation();
     var dictId = window.__hzTipDictId;
-    if (!dictId) return;
-    if (typeof switchTab === 'function') switchTab('dict-lookup');
+    var currentWord = window.__hzTipCurrentWord;
+    hide();
+    if (typeof switchTab === 'function') {
+      switchTab('dict-lookup');
+    }
     setTimeout(function () {
-      window.dispatchEvent(new CustomEvent('dict-lookup-open', { detail: { dict_id: dictId } }));
-    }, 0);
+      if (dictId && typeof dictLookupOpenDetail === 'function') {
+        dictLookupOpenDetail(dictId);
+      } else if (currentWord) {
+        window.dispatchEvent(new CustomEvent('dict-lookup-open', { detail: { q: currentWord } }));
+      }
+    }, 50);
   };
 
   window.hzTipSaveToggle = function (ev) {
-    ev.stopPropagation();
+    if (ev) ev.stopPropagation();
     var dictId = window.__hzTipDictId;
     if (!dictId || typeof vnhOpenSaveModal !== 'function') return;
     var btn = document.getElementById('hz-tip-save');
     var icon = btn.querySelector('i');
     vnhOpenSaveModal(dictId, function () {
-      icon.classList.remove('fa-regular'); icon.classList.add('fa-solid');
-      btn.classList.remove('text-slate-300'); btn.classList.add('is-saved');
+      if (icon) { icon.classList.remove('fa-regular'); icon.classList.add('fa-solid'); }
+      btn.classList.remove('text-slate-400'); btn.classList.add('text-amber-500', 'is-saved');
     });
   };
 
-  // ---- Highlight cụm chữ đang chọn (vẽ overlay theo rect, chạy cả khi user-select:none) ----
   var hlBoxes = [];
   function clearHighlight() {
     for (var i = 0; i < hlBoxes.length; i++) hlBoxes[i].style.display = 'none';
@@ -17200,10 +17471,11 @@ document.addEventListener('click', (ev) => {
     return rects.length ? rects[0] : null;
   }
 
-  // Đặt tooltip ngay dưới cụm chữ được chọn (lật lên trên nếu chạm mép dưới)
   function positionTipAt(rect) {
     tip.classList.remove('hidden');
-    var w = tip.offsetWidth, h = tip.offsetHeight;
+    tip.style.opacity = '0';
+    tip.style.transform = 'translateY(4px)';
+    var w = tip.offsetWidth || 320, h = tip.offsetHeight || 160;
     var vw = window.innerWidth, vh = window.innerHeight;
     var left = rect.left;
     var top = rect.bottom + 8;
@@ -17213,12 +17485,17 @@ document.addEventListener('click', (ev) => {
     if (top < 8) top = 8;
     tip.style.left = left + 'px';
     tip.style.top = top + 'px';
-    requestAnimationFrame(function () { tip.classList.add('hz-in'); });
+    requestAnimationFrame(function () {
+      tip.style.opacity = '1';
+      tip.style.transform = 'translateY(0)';
+      tip.classList.add('hz-in');
+    });
   }
 
   function hide() {
     tip.classList.add('hidden');
     tip.classList.remove('hz-in');
+    tip.style.opacity = '0';
     clearHighlight();
     currentWord = '';
   }
@@ -17234,8 +17511,8 @@ document.addEventListener('click', (ev) => {
     currentWord = word;
 
     var inst = lookupInstant(word);
-    if (inst) render(word, inst.py, inst.vi, inst.src, null);
-    else render(word, genPinyin(toTrad(word)), 'Đang tra…', '', null);
+    if (inst) render(word, inst.py, inst.vi, inst.src, null, null, inst.tocfl_band, inst.pos);
+    else render(word, genPinyin(toTrad(word)), 'Đang tra…', '', null, null, null, null);
     positionTipAt(rect);
 
     if (apiTimer) clearTimeout(apiTimer);
@@ -17243,24 +17520,36 @@ document.addEventListener('click', (ev) => {
     apiTimer = setTimeout(function () {
       lookupAPI(snap, function (data) {
         if (currentWord !== snap || !data) return;
-        var ex = '';
+        var exObj = null;
         if (data.examples && data.examples.length) {
           var e = data.examples[0];
-          ex = (e.examples_hanzi || '') + (e.examples_translation ? ' — ' + e.examples_translation : '');
+          exObj = {
+            hanzi: e.examples_hanzi || '',
+            vi: e.examples_translation || ''
+          };
         }
-        render(snap, data.pinyin || genPinyin(toTrad(snap)), data.definition || '', 'Từ bài học', ex, data.dict_id);
+        var band = data.tocfl_band || (data.tocfl_level ? data.tocfl_level : null);
+        render(
+          snap,
+          data.pinyin || genPinyin(toTrad(snap)),
+          data.definition || '',
+          'Từ bài học',
+          exObj,
+          data.dict_id || data.vocab_id || data.id,
+          band,
+          data.part_of_speech
+        );
       });
-    }, 150);
+    }, 120);
     return true;
   }
 
-  // ---- Bôi đen 1 cụm/đoạn -> dịch cả đoạn qua Google Translate (server proxy) ----
   var SEL_TAG = 'SEL:';
   var transCache = {};
   function showTrans(text, vi, rect) {
     if (currentWord !== SEL_TAG + text) return;
     var disp = text.length > 24 ? text.slice(0, 24) + '…' : text;
-    render(disp, genPinyin(toTrad(text.replace(/\s+/g, ''))), vi || '(không dịch được)', 'Đoạn đã chọn', null);
+    render(disp, genPinyin(toTrad(text.replace(/\s+/g, ''))), vi || '(không dịch được)', 'Đoạn đã chọn', null, null, null, null);
     if (rect) positionTipAt(rect);
   }
   function translateSel(text, rect) {
@@ -17279,50 +17568,41 @@ document.addEventListener('click', (ev) => {
     if (host && host.closest && host.closest('input, textarea, [contenteditable="true"], #hz-tip')) return false;
     var rect = sel.getRangeAt(0).getBoundingClientRect();
     if (!rect || (!rect.width && !rect.height)) return false;
-    clearHighlight(); // dùng highlight gốc của trình duyệt cho vùng bôi đen
+    clearHighlight();
     currentWord = SEL_TAG + text;
     var disp = text.length > 24 ? text.slice(0, 24) + '…' : text;
-    // nếu cụm ngắn trùng 1 từ trong từ điển -> hiện nghĩa từ điển ngay, vẫn gọi API để dịch đầy đủ
     var inst = (text.length <= 6) ? lookupInstant(text.replace(/\s+/g, '')) : null;
-    if (inst) render(disp, inst.py, inst.vi, inst.src, null);
-    else render(disp, genPinyin(toTrad(text.replace(/\s+/g, ''))), 'Đang dịch…', 'Đoạn đã chọn', null);
+    if (inst) render(disp, inst.py, inst.vi, inst.src, null, null, inst.tocfl_band, inst.pos);
+    else render(disp, genPinyin(toTrad(text.replace(/\s+/g, ''))), 'Đang dịch…', 'Đoạn đã chọn', null, null, null, null);
     positionTipAt(rect);
     translateSel(text, rect);
     return true;
   }
 
-  // Tải sẵn từ điển để lần click đầu đã ghép từ đúng
   ensureDict();
 
   document.addEventListener('mouseup', function (e) {
     if (e.target && e.target.closest && e.target.closest('#hz-tip')) return;
-    // để trình duyệt cập nhật vùng chọn xong rồi mới đọc
     setTimeout(handleSelection, 0);
   });
 
-  // Bỏ qua click trên phần tử tương tác (nút/link/tab/input) để không hỏng chức năng trang
-  var INTERACTIVE = 'a, button, [role="button"], [role="tab"], input, select, textarea, label, summary, [onclick], .cursor-pointer';
+  var INTERACTIVE_CONTROLS = 'a, button, [role="button"], [role="tab"], input, select, textarea, label, summary, [onclick]';
   document.addEventListener('click', function (e) {
     var t = e.target;
     if (!t || !t.closest) return;
     if (t.closest('#hz-tip')) return;
-    if (t.closest(INTERACTIVE)) { hide(); return; }
-    // Đang có vùng bôi đen -> để cơ chế dịch cả đoạn xử lý, không tra từ đơn
+    if (t.closest(INTERACTIVE_CONTROLS)) { hide(); return; }
     var sel = window.getSelection && window.getSelection();
     if (sel && !sel.isCollapsed && sel.toString().trim()) return;
-    // Bắt ở pha capture: nếu tra được nghĩa từ -> chặn sự kiện lan tiếp lên các
-    // handler khác (vd. click phát audio câu hội thoại), tránh vừa xem nghĩa vừa chạy audio.
     if (selectAt(e.clientX, e.clientY)) e.stopPropagation();
   }, true);
 
-  // Ẩn khi cuộn / mất focus / nhấn Esc / thay đổi kích thước
   document.addEventListener('scroll', hide, { passive: true, capture: true });
   window.addEventListener('blur', hide);
   window.addEventListener('resize', hide);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
 })();
 </script>
-
 
 
         </main>
@@ -17987,29 +18267,115 @@ document.addEventListener('click', (ev) => {
 
 
         function handleKeyboardShortcuts(e) {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName) || e.target.isContentEditable) return;
+            const modalOpen = document.querySelector('#modal-container:not(.hidden), #notebook-group-modal:not(.hidden)');
+            if (modalOpen) return;
 
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            const key = e.key;
 
-            const flashcardView = document.getElementById('view-flashcard');
-
-            if (!flashcardView || flashcardView.classList.contains('hidden')) return;
-
-
-
-            switch(e.key) {
-
-                case 'ArrowLeft': e.preventDefault(); if(typeof navFlashcard === 'function') navFlashcard(-1); break;
-
-                case 'ArrowRight': e.preventDefault(); if(typeof navFlashcard === 'function') navFlashcard(1); break;
-
-                case ' ': case 'Spacebar': e.preventDefault(); if(typeof flipFlashcard === 'function') flipFlashcard(); break;
-
-                case 'Enter': e.preventDefault(); if(typeof handleFlashcardEnterAudio === 'function') handleFlashcardEnterAudio(); break;
-
-                case '1': case '2': case '3': case '4': e.preventDefault(); triggerSrsKey(parseInt(e.key, 10)); break;
-
+            // 1. TRONG THI THỬ TOCFL (khi exam đang chạy)
+            if (typeof isExamRunning !== 'undefined' && isExamRunning) {
+                const optMap = { '1': 0, '2': 1, '3': 2, '4': 3, 'a': 0, 'b': 1, 'c': 2, 'd': 3, 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
+                if (key in optMap) {
+                    e.preventDefault();
+                    const idx = optMap[key];
+                    const optBtns = document.querySelectorAll('#test-running-modal [onclick^="selectOption"]');
+                    if (optBtns && optBtns[idx]) optBtns[idx].click();
+                    return;
+                }
+                if (key === 'Enter' || key === 'ArrowRight') {
+                    e.preventDefault();
+                    const btnNext = document.getElementById('exam-btn-next');
+                    if (btnNext && !btnNext.classList.contains('pointer-events-none')) btnNext.click();
+                    return;
+                }
+                if (key === 'ArrowLeft') {
+                    e.preventDefault();
+                    const btnPrev = document.getElementById('exam-btn-prev');
+                    if (btnPrev && !btnPrev.classList.contains('pointer-events-none')) btnPrev.click();
+                    return;
+                }
+                return;
             }
 
+            // 2. TRONG TRẮC NGHIỆM (view-quiz đang hiện)
+            const quizView = document.getElementById('view-quiz');
+            if (quizView && !quizView.classList.contains('hidden')) {
+                const optMap = { '1': 0, '2': 1, '3': 2, '4': 3, 'a': 0, 'b': 1, 'c': 2, 'd': 3, 'A': 0, 'B': 1, 'C': 2, 'D': 3 };
+                if (key in optMap) {
+                    e.preventDefault();
+                    const idx = optMap[key];
+                    const qOpts = document.querySelectorAll('#quiz-options button');
+                    if (qOpts && qOpts[idx]) qOpts[idx].click();
+                    return;
+                }
+                if (key === 'Enter' || key === ' ') {
+                    e.preventDefault();
+                    const nextBtn = document.getElementById('quiz-next-btn');
+                    if (nextBtn && !nextBtn.classList.contains('hidden')) {
+                        nextBtn.click();
+                    } else if (typeof nextQuiz === 'function') {
+                        nextQuiz();
+                    }
+                    return;
+                }
+                if (key.toLowerCase() === 'r' || key.toLowerCase() === 'p') {
+                    e.preventDefault();
+                    const ttsBtn = document.querySelector('#quiz-container button[onclick*="playTTS"]');
+                    if (ttsBtn) ttsBtn.click();
+                    return;
+                }
+                return;
+            }
+
+            // 3. TRONG FLASHCARD (view-flashcard đang hiện)
+            const flashcardView = document.getElementById('view-flashcard');
+            if (flashcardView && !flashcardView.classList.contains('hidden')) {
+                switch(key) {
+                    case 'ArrowLeft': case 'a': case 'A':
+                        e.preventDefault();
+                        if (typeof navFlashcard === 'function') navFlashcard(-1);
+                        break;
+                    case 'ArrowRight': case 'd': case 'D':
+                        e.preventDefault();
+                        if (typeof navFlashcard === 'function') navFlashcard(1);
+                        break;
+                    case ' ': case 'Spacebar':
+                        e.preventDefault();
+                        if (typeof flipFlashcard === 'function') flipFlashcard();
+                        break;
+                    case 'Enter':
+                        e.preventDefault();
+                        if (typeof handleFlashcardEnterAudio === 'function') handleFlashcardEnterAudio();
+                        break;
+                    case 'r': case 'R': case 'p': case 'P':
+                        e.preventDefault();
+                        const fcAudio = document.getElementById('fc-audio-btn');
+                        if (fcAudio) fcAudio.click();
+                        break;
+                    case '1': case '2': case '3': case '4':
+                        e.preventDefault();
+                        triggerSrsKey(parseInt(key, 10));
+                        break;
+                }
+                return;
+            }
+
+            // 4. TRONG MODAL ÔN TẬP SRS (srs-review-modal đang hiện)
+            const srsReview = document.getElementById('srs-review-modal');
+            if (srsReview && !srsReview.classList.contains('hidden')) {
+                if (['1', '2', '3', '4'].includes(key)) {
+                    e.preventDefault();
+                    triggerSrsKey(parseInt(key, 10));
+                    return;
+                }
+                if (key === ' ' || key === 'Spacebar') {
+                    e.preventDefault();
+                    const flip = srsReview.querySelector('.srs-flip-btn');
+                    if (flip) flip.click();
+                    return;
+                }
+            }
         }
 
         // 1=Quên 2=Khó 3=Nhớ 4=Dễ — chỉ tác dụng khi bảng đánh giá SRS đang hiện
@@ -18166,20 +18532,19 @@ document.addEventListener('click', (ev) => {
 
             if (validViews.includes(currentPath)) {
 
-                window.history.replaceState({ tab: currentPath }, "", currentPath === 'dashboard' ? '/' : '/' + currentPath);
+                const searchParams = new URLSearchParams(window.location.search);
+                const dictIdParam = (currentPath === 'dict-lookup') ? searchParams.get('dict_id') : null;
+                const stateObj = { tab: currentPath };
+                if (dictIdParam) stateObj.dict_id = dictIdParam;
+                const targetUrl = currentPath === 'dashboard' ? '/' : ('/' + currentPath + (window.location.search || ''));
+                window.history.replaceState(stateObj, "", targetUrl);
 
                 setTimeout(() => {
 
                     switchTab(currentPath, false);
 
-                    // Deep-link riêng cho 1 từ: /dict-lookup?dict_id=123 mở thẳng trang chi tiết,
-                    // không dừng ở trang từ điển trống — hỗ trợ chia sẻ link + F5 không mất từ đang xem.
-                    if (currentPath === 'dict-lookup') {
-
-                        const dictIdParam = new URLSearchParams(window.location.search).get('dict_id');
-
-                        if (dictIdParam && typeof dictLookupOpenDetail === 'function') dictLookupOpenDetail(dictIdParam, false);
-
+                    if (currentPath === 'dict-lookup' && dictIdParam && typeof dictLookupOpenDetail === 'function') {
+                        dictLookupOpenDetail(dictIdParam, false);
                     }
 
                 }, 300);
@@ -19251,7 +19616,21 @@ document.addEventListener('click', (ev) => {
 
             if (tabName === 'listening' && typeof initWriting === 'function') initWriting();
 
-            if (tabName === 'quiz' && typeof initQuiz === 'function') initQuiz();
+            if (tabName === 'quiz') {
+                if (!vocabData || vocabData.length === 0) {
+                    const les = document.getElementById('select-lesson');
+                    const lid = les ? les.value : null;
+                    if (lid && typeof loadVocabulariesAndContent === 'function') {
+                        loadVocabulariesAndContent(lid).then(() => {
+                            if (typeof initQuiz === 'function') initQuiz();
+                        });
+                    } else if (typeof initQuiz === 'function') {
+                        initQuiz();
+                    }
+                } else if (typeof initQuiz === 'function') {
+                    initQuiz();
+                }
+            }
 
             if (tabName === 'bo-thu' && typeof initRadicals === 'function') initRadicals();
 
@@ -19797,6 +20176,29 @@ document.addEventListener('click', (ev) => {
         // thay bằng '_' để hợp lệ làm tên file (khớp safe_filename() trong script generate).
         // Nếu chưa có file (từ mới/câu ví dụ chưa generate) → rơi xuống Google Translate TTS,
         // rồi Web Speech API.
+        // Bộ nhớ đệm âm thanh nạp trước (Audio Preloader) để học mượt, không độ trễ
+        const __preloadedUrls = new Set();
+        function preloadAudio(urls) {
+            if (!urls) return;
+            if (!Array.isArray(urls)) urls = [urls];
+            urls.filter(u => u && typeof u === 'string' && !__preloadedUrls.has(u)).slice(0, 10).forEach(url => {
+                __preloadedUrls.add(url);
+                const doPreload = () => {
+                    const a = new Audio();
+                    a.preload = 'auto';
+                    a.src = url;
+                    a.oncanplaythrough = a.onerror = () => {
+                        a.oncanplaythrough = a.onerror = null;
+                    };
+                };
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(doPreload, { timeout: 2500 });
+                } else {
+                    setTimeout(doPreload, 150);
+                }
+            });
+        }
+
         function ttsLocalPath(text) {
             const fname = text.replace(/[\/\\]/g, '_');
             return `audio/tts/${encodeURIComponent(fname)}.mp3`;
@@ -20711,7 +21113,8 @@ document.addEventListener('click', (ev) => {
 
                 rawKaraokeData = [];
 
-                const activeNav = document.querySelector('.nav-item.active').id.replace('nav-', '');
+                const activeNavEl = document.querySelector('.nav-item.active');
+                const activeNav = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
 
                 if (['vocab', 'flashcard', 'listening', 'quiz', 'karaoke'].includes(activeNav)) switchTab(activeNav);
 
@@ -20743,7 +21146,8 @@ document.addEventListener('click', (ev) => {
 
             
 
-            const activeNav = document.querySelector('.nav-item.active').id.replace('nav-', '');
+            const activeNavEl = document.querySelector('.nav-item.active');
+            const activeNav = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
 
             if(['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'dictation'].includes(activeNav)) switchTab(activeNav);
 

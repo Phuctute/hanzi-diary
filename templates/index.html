@@ -3082,8 +3082,7 @@ window.addEventListener('error', function(e) {
             (g.structure_note ? '<div class="gmh-detail-structure"><i class="fa-solid fa-diagram-project mr-1.5"></i>Cấu trúc: ' + g.structure_note + '</div>' : '') +
             (examplesHtml ? '<div class="mt-5"><div class="text-[11.5px] font-black text-slate-400 uppercase tracking-wide mb-2">Ví dụ</div>' + examplesHtml + '</div>' : '') +
             confusableHtml +
-            '<div id="gmh-contexts-box" class="mt-6"></div>' +
-            gmhFeedbackSectionHtml(g)
+            '<div id="gmh-contexts-box" class="mt-6"></div>'
         );
     }
 
@@ -3126,54 +3125,6 @@ window.addEventListener('error', function(e) {
                 if (!btn) return;
                 if (res.bookmarked) { btn.classList.add('is-saved'); btn.innerHTML = '<i class="fa-solid fa-bookmark"></i> Đã lưu Flashcard'; }
                 else { btn.classList.remove('is-saved'); btn.innerHTML = '<i class="fa-solid fa-bookmark"></i> Lưu vào Flashcard'; }
-            }).catch(function () {});
-    };
-
-    // ============ Bình luận / góp ý ============
-    function gmhFeedbackSectionHtml(g) {
-        var list = (g.feedback || []).map(gmhFeedbackItemHtml).join('') || '<div class="text-slate-400 text-xs py-4">Chưa có góp ý nào — hãy là người đầu tiên!</div>';
-        var formHtml = g.is_logged_in
-            ? '<div class="mt-3 flex gap-2">' +
-                '<input type="text" id="gmh-fb-input" placeholder="Góp ý về điểm ngữ pháp này..." class="flex-1 rounded-xl border-2 border-slate-200 px-3.5 py-2.5 text-[13px] font-medium outline-none focus:border-primary">' +
-                '<button type="button" onclick="gmhSubmitFeedback(' + g.grammar_id + ')" class="px-4 py-2.5 rounded-xl bg-primary text-white text-[13px] font-black">Gửi</button>' +
-              '</div>'
-            : '<div class="mt-3 text-[12.5px] text-slate-400 font-medium">Đăng nhập để góp ý cho điểm ngữ pháp này.</div>';
-        return '<div class="mt-7 pt-5 border-t border-slate-100" id="gmh-fb-section" data-grammar-id="' + g.grammar_id + '">' +
-            '<div class="text-[11.5px] font-black text-slate-400 uppercase tracking-wide mb-2"><i class="fa-solid fa-comments mr-1"></i> Bình luận & góp ý</div>' +
-            '<div id="gmh-fb-list">' + list + '</div>' +
-            formHtml +
-        '</div>';
-    }
-    function gmhFeedbackItemHtml(fb) {
-        var upActive = fb.my_vote === 'up' ? ' is-active' : '';
-        var downActive = fb.my_vote === 'down' ? ' is-active' : '';
-        return '<div class="gmh-fb-item" data-feedback-id="' + fb.feedback_id + '">' +
-            '<div class="flex items-center gap-2 mb-1"><span class="font-black text-slate-700 text-[12.5px]">' + (fb.full_name || fb.username) + '</span>' +
-            '<span class="text-slate-300 text-[11px]">' + (fb.created_at || '') + '</span></div>' +
-            '<div class="text-[13px] text-slate-600 leading-relaxed">' + fb.content + '</div>' +
-            '<div class="flex items-center gap-1.5 mt-1.5">' +
-                '<span class="gmh-fb-vote-btn' + upActive + '" onclick="gmhVoteFeedback(' + fb.feedback_id + ',\'up\')"><i class="fa-solid fa-thumbs-up"></i> ' + (fb.upvotes || 0) + '</span>' +
-                '<span class="gmh-fb-vote-btn' + downActive + '" onclick="gmhVoteFeedback(' + fb.feedback_id + ',\'down\')"><i class="fa-solid fa-thumbs-down"></i> ' + (fb.downvotes || 0) + '</span>' +
-            '</div>' +
-        '</div>';
-    }
-    window.gmhSubmitFeedback = function (grammarId) {
-        var input = document.getElementById('gmh-fb-input');
-        var content = (input.value || '').trim();
-        if (!content) return;
-        fetch('api.php?action=grammar_feedback_submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ grammar_id: grammarId, content: content }) })
-            .then(function (r) { return r.json(); }).then(function (res) {
-                if (!res || !res.success) { alert((res && res.message) || 'Có lỗi xảy ra.'); return; }
-                input.value = '';
-                gmhOpenDetail(grammarId);
-            }).catch(function () {});
-    };
-    window.gmhVoteFeedback = function (feedbackId, voteType) {
-        fetch('api.php?action=grammar_feedback_vote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ feedback_id: feedbackId, vote_type: voteType }) })
-            .then(function (r) { return r.json(); }).then(function (res) {
-                if (!res || !res.success) return;
-                var section = document.getElementById('gmh-fb-section');
-                if (section) gmhOpenDetail(parseInt(section.getAttribute('data-grammar-id'), 10));
             }).catch(function () {});
     };
 
@@ -3686,9 +3637,7 @@ window.addEventListener('error', function(e) {
             <button onclick="navFlashcard(1)" class="group flex-1 flex items-center justify-center gap-2 sm:gap-3 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-slate-600 text-sm sm:text-base font-bold md:hover:bg-slate-50 md:hover:text-primary md:hover:border-primary hover:shadow-sm active:bg-slate-100 active:scale-[0.98] transition-all duration-150 outline-none">
                 <span class="hidden sm:inline">Tiếp</span> <i class="fa-solid fa-arrow-right transition-transform md:group-hover:translate-x-1"></i>
             </button>
-            <button id="fc-comments-toggle" onclick="fcToggleComments()" title="Bình luận về từ này" class="flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 flex items-center justify-center rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-slate-600 md:hover:bg-slate-50 md:hover:text-primary md:hover:border-primary hover:shadow-sm active:scale-[0.98] transition-all duration-150 outline-none">
-                <i class="fa-solid fa-comment-dots"></i>
-            </button>
+
             <button id="fc-shuffle-btn" onclick="toggleFlashcardShuffle()" aria-pressed="false" title="Xáo trộn thứ tự thẻ" class="flex-shrink-0 h-12 w-12 sm:h-14 sm:w-14 flex items-center justify-center rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-slate-600 md:hover:bg-slate-50 md:hover:text-primary md:hover:border-primary hover:shadow-sm active:scale-[0.98] transition-all duration-150 outline-none">
                 <i class="fa-solid fa-shuffle"></i>
             </button>
@@ -3701,7 +3650,7 @@ window.addEventListener('error', function(e) {
             <button onclick="submitSrsRating(4, event)" class="bg-emerald-50 text-emerald-600 border border-emerald-200 py-3 rounded-xl font-bold text-xs hover:bg-emerald-500 hover:text-white active:scale-95 active:brightness-90 active:ring-2 active:ring-emerald-400 active:ring-offset-0 active:border-emerald-400 transition-all duration-150 shadow-sm min-h-[44px]">Thuộc</button>
         </div>
 
-        <div id="fc-comments-box" class="hidden w-full max-w-[500px] mt-4 px-2 sm:px-4 bg-white rounded-2xl border border-slate-100 shadow-sm p-4"></div>
+        
 
         <div class="hidden md:flex mt-10 flex-col items-center gap-y-2 text-slate-400 text-xs lg:text-sm font-medium opacity-70 max-w-[520px] mx-auto">
             <div class="flex items-center justify-center flex-wrap gap-x-5 gap-y-2">
@@ -4010,22 +3959,11 @@ window.addEventListener('error', function(e) {
         currentExamplePlayIdx = 0;
         removeExampleHighlights();
         setTimeout(updateFlashcardUI, 250);
-        document.getElementById('fc-comments-box')?.classList.add('hidden');
+        
         saveFlashcardProgress();
     }
 
-    // Bình luận theo từng từ vựng hiện tại — thu gọn mặc định để không xen ngang lúc học.
-    function fcToggleComments() {
-        const box = document.getElementById('fc-comments-box');
-        if (!box) return;
-        const opening = box.classList.contains('hidden');
-        box.classList.toggle('hidden');
-        if (opening && typeof loadItemComments === 'function' && vocabData[currentFlashcardIdx]) {
-            const v = vocabData[currentFlashcardIdx];
-            box.innerHTML = '<div id="fc-comments-box-inner"></div>';
-            loadItemComments('fc-comments-box-inner', 'flashcard', v.vocab_id || v.id);
-        }
-    }
+
 
     // Xáo trộn: phá thứ tự chronological của danh sách từ, reset về thẻ đầu (Fisher-Yates)
     let isFlashcardShuffle = false;
@@ -4955,10 +4893,7 @@ window.addEventListener('error', function(e) {
             </div>
         </div>
 
-        <!-- BÌNH LUẬN — ngay dưới phần Hội thoại -->
-        <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-5 mb-6">
-            <div id="karaoke-comments"></div>
-        </div>
+
     </div>
 </div>
 
@@ -10497,7 +10432,7 @@ window.addEventListener('error', function(e) {
         resetKaraokeUI();
         buildKaraokeQA(data.qa_json);
 
-        if (typeof loadItemComments === 'function' && data.id) loadItemComments('karaoke-comments', 'karaoke', data.id);
+        
 
         // Nếu vừa nhảy tới đây từ 1 liên kết ngoài (Từ vựng/Ngữ pháp -> "xem trong hội thoại"),
         // đảm bảo đúng content_id đang hiện (đổi dropdown nếu cần) rồi cuộn + flash đúng dòng.
@@ -13831,14 +13766,12 @@ window.addEventListener('error', function(e) {
                     <div id="mo-chu-panel" class="hidden mt-4"></div>
                 </div>` : ''}
 
-                <div class="mt-7 pt-5 border-t border-slate-100">
-                    <div id="rad-comments"></div>
-                </div>
+
             </div>`;
 
         document.getElementById('rad-detail-modal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        if (typeof loadItemComments === 'function') loadItemComments('rad-comments', 'radical', r.id);
+        
 
         radWriter = drawWriter('rad-detail-writer', disp, { width: 190, height: 190, padding: 42, showCharacter: false, strokeColor: '#027AB3', radicalColor: '#e8794b', showOutline: true, delayBetweenStrokes: 300 });
         if (radWriter) radWriter.loopCharacterAnimation();
@@ -15188,21 +15121,10 @@ document.addEventListener('click', (ev) => {
                 </div>
             </div>
             <div class="mt-4 space-y-2">${ex}</div>
-            <button onclick="ltToggleComments(this, ${w.id})" class="mt-3 text-[11px] font-bold text-slate-400 hover:text-primary transition-colors"><i class="fa-solid fa-comment-dots mr-1"></i>Bình luận</button>
-            <div class="lt-comments-box hidden mt-2"></div>
+
         </div>`;
     }
-    function ltToggleComments(btn, wordId) {
-        const box = btn.nextElementSibling;
-        const opening = box.classList.contains('hidden');
-        box.classList.toggle('hidden');
-        if (opening && !box.dataset.loaded && typeof loadItemComments === 'function') {
-            const id = 'lt-c-' + wordId + '-' + Math.random().toString(36).slice(2, 7);
-            box.id = id;
-            box.dataset.loaded = '1';
-            loadItemComments(id, 'measure_word', wordId);
-        }
-    }
+
 
     function renderMeasureWords() {
         const host = document.getElementById('lt-sections');
@@ -15317,7 +15239,7 @@ document.addEventListener('click', (ev) => {
                 order: 1;
             }
             /* Trên Desktop/Tablet: Video KHÔNG cố định (static) để khi cuộn trang,
-               toàn bộ cột Studio (Video -> Ghi âm/Kết quả -> Bình luận) cuộn tự nhiên,
+               toàn bộ cột Studio (Video -> Ghi âm/Kết quả) cuộn tự nhiên,
                tránh việc video ghim cố định che khuất mất các nội dung bên dưới. */
             #sd-media-sticky {
                 position: static !important;
@@ -15558,14 +15480,7 @@ document.addEventListener('click', (ev) => {
             </div>
         </div>
 
-        <!-- BÌNH LUẬN — ngay dưới khối Phụ đề. Đặt NGOÀI .sd-detail-grid (không phải sibling
-             của .sd-sidebar) vì .sd-sidebar dùng position:sticky theo chiều cao khối cha; nếu để
-             bên trong, sidebar sẽ tiếp tục "dính" đè lên phần bình luận khi cuộn qua nó.
-             Không dùng nền trắng để tránh mảng trắng trống trải khi chưa có bình luận nào
-             -> chỉ 1 đường kẻ phân cách nhẹ. -->
-        <div class="pt-5 mt-2 border-t border-slate-200/70">
-            <div id="sd-comments"></div>
-        </div>
+        
     </div>
 </div>
 
@@ -15820,7 +15735,7 @@ document.addEventListener('click', (ev) => {
             document.getElementById('shadow-library').classList.add('hidden');
             document.getElementById('shadow-detail').classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            if (typeof loadItemComments === 'function') loadItemComments('sd-comments', 'shadowing', cur.id);
+            
 
             // Mở video mới -> tiêu đề luôn hiện lại từ đầu
             const mediaEl2 = document.getElementById('sd-media-sticky');
@@ -16571,9 +16486,7 @@ document.addEventListener('click', (ev) => {
             </div>
         </div>
 
-        <div class="pt-5 mt-2 border-t border-slate-200/70">
-            <div id="dt-comments"></div>
-        </div>
+
     </div>
 </div>
 
@@ -16729,7 +16642,7 @@ document.addEventListener('click', (ev) => {
         document.getElementById('dict-library').classList.add('hidden');
         document.getElementById('dict-detail').classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (typeof loadItemComments === 'function' && cur.id) loadItemComments('dt-comments', cur.source, cur.id);
+        
 
         const mediaEl = document.getElementById('dt-media-sticky');
         if (mediaEl) mediaEl.classList.remove('dt-hide-title');
@@ -21233,96 +21146,6 @@ document.addEventListener('click', (ev) => {
             }
 
         }
-
-        // ================= BÌNH LUẬN THEO TỪNG MỤC NỘI DUNG (item_comments) =================
-        // Widget dùng chung: gọi loadItemComments('id-container', 'module', itemId) sau khi
-        // render 1 container rỗng <div id="id-container"></div> trong trang.
-        function icEsc(s) {
-            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-        }
-        function icTimeAgo(ts) {
-            try {
-                const d = new Date(String(ts).replace(' ', 'T'));
-                const diff = (Date.now() - d.getTime()) / 1000;
-                if (diff < 60) return 'vừa xong';
-                if (diff < 3600) return Math.floor(diff / 60) + ' phút trước';
-                if (diff < 86400) return Math.floor(diff / 3600) + ' giờ trước';
-                return Math.floor(diff / 86400) + ' ngày trước';
-            } catch (e) { return ''; }
-        }
-        async function loadItemComments(containerId, moduleName, itemId) {
-            const box = document.getElementById(containerId);
-            if (!box) return;
-            box.dataset.module = moduleName;
-            box.dataset.itemId = itemId;
-            box.innerHTML = '<div class="text-xs text-slate-400 py-2"><i class="fa-solid fa-spinner fa-spin"></i> Đang tải bình luận...</div>';
-            try {
-                const res = await fetch('api.php?action=get_item_comments&module_name=' + encodeURIComponent(moduleName) + '&item_id=' + encodeURIComponent(itemId));
-                const data = await res.json();
-                renderItemCommentsBox(containerId, data.success ? data.data : []);
-            } catch (e) {
-                box.innerHTML = '<div class="text-xs text-slate-400 py-2">Không tải được bình luận.</div>';
-            }
-        }
-        function renderItemCommentsBox(containerId, comments) {
-            const box = document.getElementById(containerId);
-            if (!box) return;
-            const moduleName = box.dataset.module, itemId = box.dataset.itemId;
-            const list = (comments || []).map(c => `
-                <div class="flex gap-2.5 py-2.5 border-b border-slate-50 last:border-0">
-                    <div class="w-7 h-7 rounded-full bg-td-lightBlue/30 text-primary flex items-center justify-center font-black text-[11px] shrink-0 overflow-hidden">${c.avatar ? `<img src="${icEsc(c.avatar)}" class="w-full h-full object-cover">` : icEsc((c.full_name || 'H').charAt(0).toUpperCase())}</div>
-                    <div class="min-w-0 flex-1">
-                        <div class="flex items-baseline gap-2"><span class="text-xs font-black text-slate-700">${icEsc(c.full_name || 'Học viên')}</span><span class="text-[10px] text-slate-400">${icTimeAgo(c.created_at)}</span></div>
-                        <div class="text-sm text-slate-600 leading-snug break-words">${icEsc(c.body)}</div>
-                    </div>
-                </div>`).join('') || '<div class="text-xs text-slate-400 py-3 text-center">Chưa có bình luận nào. Hãy là người đầu tiên!</div>';
-
-            box.innerHTML = `
-                <div class="mt-1">
-                    <div class="flex items-center gap-2 mb-1.5">
-                        <i class="fa-solid fa-comments text-slate-400 text-xs"></i>
-                        <span class="text-xs font-black text-slate-500 uppercase tracking-wide">Bình luận (${(comments || []).length})</span>
-                    </div>
-                    <div class="max-h-64 overflow-y-auto mb-2 pr-1">${list}</div>
-                    <form onsubmit="submitItemComment(event, '${containerId}')" class="flex items-center gap-2">
-                        <input type="text" maxlength="1000" placeholder="Viết bình luận tại đây..." class="flex-1 h-9 rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs font-medium outline-none focus:bg-white focus:border-primary transition-all">
-                        <button type="submit" class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center hover:opacity-90 transition-all shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
-                    </form>
-                </div>`;
-        }
-        async function submitItemComment(e, containerId) {
-            e.preventDefault();
-            if (!currentUser) {
-                window.__loginCallbackPath = null;
-                return;
-            }
-            const box = document.getElementById(containerId);
-            const input = e.target.querySelector('input');
-            const body = input.value.trim();
-            if (!body) return;
-            const btn = e.target.querySelector('button');
-            btn.disabled = true;
-            try {
-                const res = await fetch('api.php?action=add_item_comment', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ module_name: box.dataset.module, item_id: box.dataset.itemId, body })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    input.value = '';
-                    loadItemComments(containerId, box.dataset.module, box.dataset.itemId);
-                } else {
-                    alert(data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
-                }
-            } catch (err) {
-                alert('Lỗi kết nối mạng, vui lòng thử lại sau!');
-            } finally {
-                btn.disabled = false;
-            }
-        }
-
-
 
         // ================= HỆ THỐNG TRACKING HÀNH VI USER (PER-VIEW TRACKING) =================
 

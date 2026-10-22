@@ -3506,9 +3506,6 @@ window.addEventListener('error', function(e) {
                             <span class="hidden sm:inline">Chi tiết</span>
                             <i class="fa-solid fa-chevron-down toggle-icon transition-transform duration-300"></i>
                         </div>
-                        <button class="text-slate-400 hover:text-td-red active:bg-red-50 active:text-td-red transition-all w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-slate-50 md:hover:bg-red-50 shadow-sm outline-none border border-transparent hover:border-red-100" onclick="event.stopPropagation(); openReportModal('vocab', ${v.vocab_id || v.id})" title="Báo lỗi từ vựng này">
-                            <i class="fa-solid fa-triangle-exclamation text-sm sm:text-base pointer-events-none"></i>
-                        </button>
                         <button class="text-slate-400 hover:text-white active:bg-primary active:text-white transition-all w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-slate-50 md:hover:bg-primary shadow-sm outline-none" data-text="${encodeURIComponent(safeTextV)}" onclick="playTTS(this.getAttribute('data-text'), event)" title="Phát âm">
                             <i class="fa-solid fa-volume-high text-sm sm:text-base pointer-events-none"></i>
                         </button>
@@ -3633,10 +3630,6 @@ window.addEventListener('error', function(e) {
                         <i class="fa-solid fa-volume-high text-lg sm:text-xl pointer-events-none"></i>
                     </button>
                     
-                    <button onclick="openReportModal('flashcard', vocabData[currentFlashcardIdx].vocab_id || vocabData[currentFlashcardIdx].id); event.stopPropagation();" class="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-slate-50/50 text-slate-400 hover:text-td-red hover:bg-red-50 flex items-center justify-center transition-all z-20 shadow-sm border border-transparent hover:border-red-100" title="Báo lỗi từ vựng này">
-                        <i class="fa-solid fa-triangle-exclamation text-lg sm:text-xl"></i>
-                    </button>
-
                     <button class="fc-save-btn absolute top-5 right-5 h-10 w-10 rounded-full bg-slate-50/50 text-slate-400 hover:text-[#EAB942] hover:bg-[#EAB942]/10 flex items-center justify-center transition-all z-20 shadow-sm border border-transparent hover:border-[#EAB942]/30" onclick="flashcardSaveToggle(event)" title="Lưu vào sổ tay">
                         <i class="fa-regular fa-bookmark"></i>
                     </button>
@@ -4303,9 +4296,6 @@ window.addEventListener('error', function(e) {
     </div>
     
     <div class="text-center mb-6 sm:mb-8 w-full max-w-xl bg-white p-6 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[32px] shadow-soft border border-slate-100 relative mx-auto">
-        <button onclick="openReportModal('writing', vocabData[currentWriteIdx]?.vocab_id || vocabData[currentWriteIdx]?.id); event.stopPropagation();" class="absolute top-5 right-5 h-10 w-10 rounded-full bg-slate-50/50 text-slate-400 hover:text-td-red hover:bg-red-50 flex items-center justify-center transition-all z-20 shadow-sm border border-transparent hover:border-red-100" title="Báo lỗi từ vựng này">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-        </button>
         <h3 class="text-[11px] sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">Gõ chữ Hán của:</h3>
         <p id="write-def" class="font-black text-primary drop-shadow-sm tracking-wider break-words px-2">
             nghĩa tiếng việt
@@ -4664,9 +4654,6 @@ window.addEventListener('error', function(e) {
         
         document.getElementById('quiz-container').innerHTML = `
             <div class="text-center mb-6 sm:mb-8 relative">
-                <button onclick="openReportModal('quiz', ${currentVId}); event.stopPropagation();" class="absolute top-0 right-0 h-10 w-10 rounded-full bg-slate-50/50 text-slate-400 hover:text-td-red hover:bg-red-50 flex items-center justify-center transition-all z-20 shadow-sm border border-transparent hover:border-red-100" title="Báo lỗi từ vựng này">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </button>
                 <h3 class="text-[11px] sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">Chọn nghĩa đúng cho từ:</h3>
                 ${q.tocfl_band ? `<span class="inline-block mb-2 px-2.5 py-0.5 bg-amber-50 text-amber-500 text-[9px] font-black rounded-full border border-amber-200 uppercase tracking-widest">TOCFL ${q.tocfl_band}</span>` : ''}
                 <h2 class="quiz-hanzi-title font-tc font-black text-primary drop-shadow-md break-words px-2 pb-2">${displayQHanzi}</h2>
@@ -4798,9 +4785,6 @@ window.addEventListener('error', function(e) {
                 <div id="dialogue-selector-placeholder" class="flex-1 min-w-0"></div>
             </div>
             <div class="md:hidden flex items-center shrink-0 ml-2 gap-2">
-                <button onclick="openReportModal('karaoke', rawKaraokeData[currentKaraokeIdx].id || 0)" class="w-10 h-10 rounded-xl bg-slate-100 text-slate-400 hover:text-td-red flex items-center justify-center hover:bg-red-50 active:scale-95 transition-all outline-none" title="Báo cáo lỗi nội dung này">
-                    <i class="fa-solid fa-triangle-exclamation text-sm"></i>
-                </button>
                 <button id="karaokeSettingsBtnMobile" onclick="document.getElementById('karaokeSettings').classList.toggle('hidden')" class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-slate-200 active:scale-95 transition-all outline-none">
                     <i class="fa-solid fa-sliders text-sm"></i>
                 </button>
@@ -4835,9 +4819,6 @@ window.addEventListener('error', function(e) {
         </div>
 
         <div class="hidden md:flex justify-end w-1/4 shrink-0 gap-2">
-            <button onclick="openReportModal('karaoke', rawKaraokeData[currentKaraokeIdx].id || 0)" class="h-10 px-4 rounded-xl bg-slate-50 text-slate-400 hover:text-td-red flex items-center gap-2 hover:bg-red-50 active:scale-95 transition-all outline-none font-bold text-sm border border-slate-100" title="Báo cáo lỗi nội dung này">
-                <i class="fa-solid fa-triangle-exclamation"></i> Báo lỗi
-            </button>
             <button id="karaokeSettingsBtnPC" onclick="document.getElementById('karaokeSettings').classList.toggle('hidden')" class="h-10 px-4 rounded-xl bg-slate-50 text-slate-600 flex items-center gap-2 hover:bg-slate-200 active:scale-95 transition-all outline-none font-bold text-sm border border-slate-100">
                 <i class="fa-solid fa-sliders"></i> Cài đặt
             </button>
@@ -12557,10 +12538,7 @@ window.addEventListener('error', function(e) {
                                 </div>
                                 <div class="px-3.5 py-1.5 rounded-full bg-primary/10 text-sm font-black text-primary">Câu ${currentTestIdx + 1} <span class="text-primary/50 font-bold">/ ${currentSkillQs.length}</span></div>
                             </div>
-                            <button onclick="openReportModal('exam_question', ${q.id}); event.stopPropagation();" title="Báo lỗi câu hỏi này" class="w-8 h-8 rounded-full bg-white shadow-sm text-slate-400 hover:text-td-red hover:bg-red-50 flex items-center justify-center transition-all shrink-0 border border-transparent hover:border-red-100">
-                                <i class="fa-solid fa-triangle-exclamation text-xs"></i>
-                            </button>
-                        </div>
+                            </div>
                         ${qObj.part && qObj.part.instruction ? `<div class="text-sm sm:text-base font-bold text-slate-600 bg-white shadow-sm px-4 py-3 rounded-2xl w-full font-tc leading-relaxed">${getChar(qObj.part.instruction)}</div>` : ''}
                     </div>
                 </div>
@@ -13780,8 +13758,7 @@ window.addEventListener('error', function(e) {
                             <button id="rad-known-btn" onclick="toggleRadKnown(${r.id})" class="px-5 py-2.5 rounded-xl text-sm font-black transition-all ${known ? 'bg-emerald-500 text-white shadow-sm shadow-emerald-500/30' : 'bg-white ring-2 ring-emerald-200 text-emerald-600 hover:bg-emerald-50'}">
                                 <i class="fa-solid ${known ? 'fa-circle-check' : 'fa-circle-plus'} mr-1.5"></i>${known ? 'Đã thuộc bộ này' : 'Đánh dấu đã thuộc'}
                             </button>
-                            <button onclick="openReportModal('radical', ${r.id})" class="px-3 py-2.5 rounded-xl text-xs font-bold bg-slate-50 text-slate-500 ring-1 ring-slate-200 hover:bg-red-50 hover:text-td-red transition-all"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Báo lỗi</button>
-                        </div>
+                            </div>
                     </div>
                 </div>
 
@@ -15102,9 +15079,6 @@ document.addEventListener('click', (ev) => {
             </div>`).join('');
         return `
         <div class="relative bg-white rounded-[22px] ring-1 ring-slate-200/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-5 hover:-translate-y-1 hover:shadow-[0_20px_44px_-14px_rgba(0,0,0,0.14)] transition-all duration-300">
-            <button onclick="openReportModal('measure_word', ${w.id})" title="Báo lỗi từ này" class="absolute top-3 right-3 w-7 h-7 rounded-lg text-slate-300 hover:text-td-red hover:bg-red-50 flex items-center justify-center transition-colors">
-                <i class="fa-solid fa-triangle-exclamation text-xs"></i>
-            </button>
             <div class="flex items-start gap-4">
                 <div class="shrink-0 w-[68px] h-[68px] rounded-[20px] bg-gradient-to-br ${c.tile} ring-1 ${c.ring} flex items-center justify-center shadow-inner">
                     <span class="font-tc text-[42px] font-black ${c.char} leading-none">${ltEsc(w.char)}</span>
@@ -15292,10 +15266,7 @@ document.addEventListener('click', (ev) => {
                                 <span id="sd-topic" class="text-xs text-slate-500 truncate"></span>
                             </div>
                         </div>
-                        <button onclick="openReportModal('shadowing', cur.id)" title="Báo lỗi bài này" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-400 hover:text-td-red hover:border-td-red flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </button>
-                    </div>
+                        </div>
 
                     <!-- video (YouTube) -->
                     <div id="sd-video-wrap" class="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft bg-black ring-4 ring-td-lightBlue/25">
@@ -16889,10 +16860,6 @@ document.addEventListener('click', (ev) => {
       <span id="hz-tip-py" class="text-xs text-slate-500 font-medium"></span>
     </div>
     <div class="flex items-center gap-2.5 shrink-0" style="pointer-events:auto;">
-      <button id="hz-tip-report" onclick="openReportModal('hanzi', window.__hzTipDictId); event.stopPropagation();"
-              class="hidden text-slate-300 hover:text-td-red transition-colors" title="Báo lỗi">
-        <i class="fa-solid fa-triangle-exclamation"></i>
-      </button>
       <button id="hz-tip-save" onclick="hzTipSaveToggle(event)"
               class="hidden text-slate-300 hover:text-[#EAB942] transition-colors" title="Lưu vào sổ tay">
         <i class="fa-regular fa-bookmark"></i>
@@ -17516,101 +17483,7 @@ document.addEventListener('click', (ev) => {
         <div id="exam-review-list-body" class="flex-1 overflow-y-auto px-3 sm:px-6 py-4 sm:py-6 max-w-4xl mx-auto w-full"></div>
     </div>
 
-    <div id="report-error-modal"
-
-        class="fixed inset-0 z-[1000] flex items-center justify-center hidden bg-brandNavy/80 backdrop-blur-sm">
-
-        <div
-
-            class="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl mx-4 animate-fade-in border border-white/20 relative">
-
-            <button aria-label="Đóng Báo cáo lỗi" onclick="closeReportModal()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-colors outline-none">
-
-                <i class="fa-solid fa-xmark"></i>
-
-            </button>
-
-            <div class="flex items-center gap-3 mb-5 border-b border-slate-100 pb-4">
-
-                <div
-
-                    class="w-10 h-10 bg-red-50 text-td-red rounded-xl flex items-center justify-center shadow-inner shrink-0">
-
-                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
-
-                </div>
-
-                <div>
-
-                    <h3 class="text-xl font-black text-brandNavy tracking-tight">Báo cáo lỗi</h3>
-
-                    <p class="text-xs font-bold text-slate-400">Giúp hệ thống cải thiện nội dung chính xác hơn.</p>
-
-                </div>
-
-            </div>
-
-
-
-            <form id="form-report-error" onsubmit="submitReportError(event)">
-
-                <input type="hidden" id="report-module-name">
-
-                <input type="hidden" id="report-item-id">
-
-                <div class="space-y-4 mb-6">
-
-                    <div>
-
-                        <label for="report-error-type" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5 ml-1">Loại lỗi gặp phải</label>
-
-                        <select id="report-error-type" required class="w-full h-11 rounded-xl border border-slate-200 bg-slate-50 px-4 focus:bg-white focus:border-td-red focus:ring-4 focus:ring-red-50 outline-none transition-all font-medium text-slate-700 cursor-pointer">
-
-                            <option value="">-- Chọn loại lỗi --</option>
-
-                            <option value="Sai chính tả / Ngữ pháp">Sai chính tả / Ngữ pháp</option>
-
-                            <option value="Sai Pinyin / Phát âm">Sai Pinyin / Phát âm</option>
-
-                            <option value="Sai nghĩa Tiếng Việt">Sai nghĩa Tiếng Việt</option>
-
-                            <option value="Lỗi âm thanh (Audio)">Lỗi âm thanh (Audio)</option>
-
-                            <option value="Đề thi / Câu hỏi sai / Lỗi Hình ảnh">Đề thi / Câu hỏi sai / Hình ảnh</option>
-
-                            <option value="Khác">Lỗi khác</option>
-
-                        </select>
-
-                    </div>
-
-                    <div>
-
-                        <label for="report-description" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5 ml-1">Mô tả chi tiết</label>
-
-                        <textarea id="report-description" rows="3" required placeholder="Vui lòng mô tả chi tiết lỗi bạn gặp phải để chúng tôi dễ dàng khắc phục..." class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:bg-white focus:border-td-red focus:ring-4 focus:ring-red-50 outline-none transition-all font-medium text-slate-700 resize-none"></textarea>
-
-                    </div>
-
-                </div>
-
-                <div class="flex gap-3">
-
-                    <button type="button" onclick="closeReportModal()" class="flex-1 py-3 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-colors shadow-sm outline-none">Hủy bỏ</button>
-
-                    <button type="submit" id="btn-submit-report" class="flex-1 py-3 rounded-xl bg-td-red text-white font-black hover:bg-red-600 transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 outline-none">
-
-                        GỬI BÁO CÁO <i class="fa-solid fa-paper-plane"></i>
-
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
+    
 
 
 
@@ -20822,29 +20695,9 @@ document.addEventListener('click', (ev) => {
 
 
 
-        function openReportModal(moduleName, itemId) {
+        function openReportModal(moduleName, itemId) {}
 
-            
-
-            document.getElementById('report-module-name').value = moduleName;
-
-            document.getElementById('report-item-id').value = itemId;
-
-            document.getElementById('report-error-type').value = '';
-
-            document.getElementById('report-description').value = '';
-
-            document.getElementById('report-error-modal').classList.remove('hidden');
-
-        }
-
-
-
-        function closeReportModal() {
-
-            document.getElementById('report-error-modal').classList.add('hidden');
-
-        }
+        function closeReportModal() {}
 
 
 
@@ -20969,7 +20822,7 @@ document.addEventListener('click', (ev) => {
                     </div>
                     <div class="max-h-64 overflow-y-auto mb-2 pr-1">${list}</div>
                     <form onsubmit="submitItemComment(event, '${containerId}')" class="flex items-center gap-2">
-                        <input type="text" maxlength="1000" placeholder="Viết bình luận hoặc báo lỗi tại đây..." class="flex-1 h-9 rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs font-medium outline-none focus:bg-white focus:border-primary transition-all">
+                        <input type="text" maxlength="1000" placeholder="Viết bình luận tại đây..." class="flex-1 h-9 rounded-lg border border-slate-200 bg-slate-50 px-3 text-xs font-medium outline-none focus:bg-white focus:border-primary transition-all">
                         <button type="submit" class="w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center hover:opacity-90 transition-all shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
                     </form>
                 </div>`;

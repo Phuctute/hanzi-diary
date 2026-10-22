@@ -15958,34 +15958,61 @@ document.addEventListener('click', (ev) => {
 
     function setupYouTube() {
         ytLoadApi(() => {
-            if (!document.getElementById('sd-player')) return;
-            if (player && player.loadVideoById) { player.loadVideoById(cur.youtube_id); player.setPlaybackRate(playbackRate); syncVolumeUI(); }
-            else {
-                player = new YT.Player('sd-player', {
-                    videoId: cur.youtube_id,
-                    // Ẩn toàn bộ overlay của YouTube (tiêu đề, gợi ý video khác, chú thích, phụ đề gốc...)
-                    // vì app đã có thanh điều khiển + phụ đề riêng ngay bên dưới -> màn hình video sạch, chỉ còn hình.
-                    playerVars: { rel: 0, modestbranding: 1, controls: 0, iv_load_policy: 3, cc_load_policy: 0, disablekb: 1, fs: 0, playsinline: 1 },
-                    events: {
-                        onReady: (e) => {
+            const wrap = document.getElementById('sd-video-wrap');
+            if (!wrap) return;
+            if (player && typeof player.loadVideoById === 'function') {
+                try {
+                    player.loadVideoById(cur.youtube_id);
+                    player.setPlaybackRate(playbackRate);
+                    syncVolumeUI();
+                    return;
+                } catch(err) {
+                    try { player.destroy(); } catch(e) {}
+                    player = null;
+                }
+            }
+            let pDiv = document.getElementById('sd-player');
+            if (!pDiv || pDiv.tagName === 'IFRAME') {
+                if (pDiv) pDiv.remove();
+                pDiv = document.createElement('div');
+                pDiv.id = 'sd-player';
+                pDiv.className = 'absolute inset-0 w-full h-full';
+                const firstChild = wrap.firstChild;
+                wrap.insertBefore(pDiv, firstChild);
+            }
+            player = new YT.Player('sd-player', {
+                host: 'https://www.youtube-nocookie.com',
+                videoId: cur.youtube_id,
+                playerVars: {
+                    origin: window.location.origin,
+                    enablejsapi: 1,
+                    rel: 0,
+                    modestbranding: 1,
+                    controls: 0,
+                    iv_load_policy: 3,
+                    cc_load_policy: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    playsinline: 1
+                },
+                events: {
+                    onReady: (e) => {
+                        try {
                             e.target.setPlaybackRate(playbackRate);
                             syncVolumeUI();
                             requestAnimationFrame(updateStickyHeightVar);
-                            // Tua sẵn tới mốc bắt đầu (bỏ qua intro). Làm ở đây (thay vì chỉ trong
-                            // shadowTogglePlay) để kể cả khi người học bấm nút play của chính YouTube
-                            // thì cũng không phải ngồi xem lại intro.
                             const fs = startAt();
                             if (fs > 0.5) {
-                                try { e.target.seekTo(fs + 0.02, true); } catch (err) {}
+                                e.target.seekTo(fs + 0.02, true);
                                 const si = startCueIdx();
                                 if (si !== curCueIdx) { curCueIdx = si; highlightCue(si); updateCurrentPanel(); }
                             }
-                        },
-                        onStateChange: onPlayerState,
-                        onError: onPlayerError
-                    }
-                });
-            }
+                        } catch(err) {}
+                    },
+                    onStateChange: onPlayerState,
+                    onError: onPlayerError
+                }
+            });
         });
     }
     function onPlayerState(e) {
@@ -16762,15 +16789,44 @@ document.addEventListener('click', (ev) => {
     function setupYouTube() {
         ytPendingSeek = null;
         loadYouTubeApiOnce(() => {
-            if (!document.getElementById('dt-player')) return;
-            if (player && player.loadVideoById) { player.loadVideoById({ videoId: cur.youtube_id, startSeconds: cur.video_start_offset || 0 }); }
-            else {
-                player = new YT.Player('dt-player', {
-                    videoId: cur.youtube_id,
-                    playerVars: { start: Math.floor(cur.video_start_offset || 0), rel: 0, modestbranding: 1, controls: 0, iv_load_policy: 3, cc_load_policy: 0, disablekb: 1, fs: 0, playsinline: 1 },
-                    events: { onStateChange: onPlayerState, onError: onPlayerError, onReady: onDtPlayerReady }
-                });
+            const wrap = document.getElementById('dt-video-wrap');
+            if (!wrap) return;
+            if (player && typeof player.loadVideoById === 'function') {
+                try {
+                    player.loadVideoById({ videoId: cur.youtube_id, startSeconds: cur.video_start_offset || 0 });
+                    return;
+                } catch(err) {
+                    try { player.destroy(); } catch(e) {}
+                    player = null;
+                }
             }
+            let pDiv = document.getElementById('dt-player');
+            if (!pDiv || pDiv.tagName === 'IFRAME') {
+                if (pDiv) pDiv.remove();
+                pDiv = document.createElement('div');
+                pDiv.id = 'dt-player';
+                pDiv.className = 'absolute inset-0 w-full h-full';
+                const firstChild = wrap.firstChild;
+                wrap.insertBefore(pDiv, firstChild);
+            }
+            player = new YT.Player('dt-player', {
+                host: 'https://www.youtube-nocookie.com',
+                videoId: cur.youtube_id,
+                playerVars: {
+                    origin: window.location.origin,
+                    enablejsapi: 1,
+                    start: Math.floor(cur.video_start_offset || 0),
+                    rel: 0,
+                    modestbranding: 1,
+                    controls: 0,
+                    iv_load_policy: 3,
+                    cc_load_policy: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    playsinline: 1
+                },
+                events: { onStateChange: onPlayerState, onError: onPlayerError, onReady: onDtPlayerReady }
+            });
         });
     }
     function onPlayerState(e) {

@@ -268,12 +268,18 @@ def api_php():
         res = SHADOWING_VIDEOS
         if topic:
             res = [v for v in res if v.get("topic") == topic]
-        limit = int(request.args.get("limit", 20))
-        return jsonify({"success": True, "data": res[:limit], "total": len(res)})
+        limit_str = request.args.get("limit")
+        if limit_str:
+            try:
+                res = res[:int(limit_str)]
+            except ValueError:
+                pass
+        elif action == "get_top_shadowing_videos":
+            res = res[:8]
+        return jsonify({"success": True, "data": res, "total": len(res)})
     elif action == "get_shadowing_video":
         vid = request.args.get("id")
         cache_dir = os.path.join(DATA_DIR, "shadowing_cache")
-        os.makedirs(cache_dir, exist_ok=True)
         cache_file = os.path.join(cache_dir, f"{vid}.json")
         if os.path.exists(cache_file):
             try:
@@ -281,17 +287,8 @@ def api_php():
                     return jsonify(json.load(f))
             except Exception:
                 pass
-        try:
-            url = f"https://zh.taiwandiary.vn/api.php?action=get_shadowing_video&id={vid}"
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=10) as r:
-                data = json.loads(r.read())
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False)
-                return jsonify(data)
-        except Exception as e:
-            v_local = next((v for v in SHADOWING_VIDEOS if str(v.get("id")) == str(vid)), None)
-            return jsonify({"success": True if v_local else False, "data": v_local})
+        v_local = next((v for v in SHADOWING_VIDEOS if str(v.get("id")) == str(vid)), None)
+        return jsonify({"success": True if v_local else False, "data": v_local or {}})
     elif action in ("dict_lookup_search", "dict_search_token", "lookup_hanzi"):
         q = (request.args.get("q") or request.args.get("keyword") or "").strip().lower()
         if not q:

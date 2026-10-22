@@ -17523,17 +17523,20 @@ document.addEventListener('click', (ev) => {
         var exObj = null;
         if (data.examples && data.examples.length) {
           var e = data.examples[0];
+          var rawHz = e.examples_hanzi || e.example_zh || '';
+          var cleanHz = rawHz.replace(/^\[[^\]]+\]\s*/, '');
           exObj = {
-            hanzi: e.examples_hanzi || '',
-            vi: e.examples_translation || ''
+            hanzi: cleanHz || rawHz,
+            vi: e.examples_translation || e.example_vi || ''
           };
         }
         var band = data.tocfl_band || (data.tocfl_level ? data.tocfl_level : null);
+        var defn = data.definition || data.first_meaning_vi || data.meaning_vi || '';
         render(
           snap,
           data.pinyin || genPinyin(toTrad(snap)),
-          data.definition || '',
-          'Từ bài học',
+          defn,
+          data.src || 'Từ bài học',
           exObj,
           data.dict_id || data.vocab_id || data.id,
           band,

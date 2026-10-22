@@ -6,6 +6,7 @@ import hashlib
 import time
 import asyncio
 import urllib.request
+import urllib.parse
 import subprocess
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response
@@ -133,6 +134,8 @@ for w in ALL_VOCAB:
         "radical": cm.get("radical") if len(hz) == 1 else None,
         "stroke_count": cm.get("stroke_count") if len(hz) == 1 else None,
         "tocfl_band": w.get("tocfl_band") if (w.get("tocfl_band") and w.get("tocfl_band") < 99) else None,
+        "part_of_speech": w.get("part_of_speech") or "Từ vựng",
+        "examples": w.get("examples") or [],
         "ex_len": len(w.get("examples") or [])
     }
     DICT_INDEX.append(item)
@@ -501,7 +504,103 @@ def api_php():
         ts = int(time.time())
         token = hashlib.sha256(f"dict_token_{ts}".encode()).hexdigest()[:16]
         return jsonify({"success": True, "ts": ts, "token": token})
-    elif action in ("dict_lookup_search", "lookup_hanzi"):
+    elif action == "lookup_hanzi":
+        q = (request.args.get("q") or request.args.get("keyword") or "").strip()
+        if not q:
+            return jsonify({"success": True, "data": None})
+        
+        q_raw = q.lower()
+        q_trad = to_traditional(q_raw)
+        
+        def _norm_hz(s):
+            return (s or "").replace("臺", "台")
+
+        q_norm = _norm_hz(q_raw)
+        q_trad_norm = _norm_hz(q_trad)
+        
+        # 1. Exact match in local DICT_INDEX / ALL_VOCAB
+        match_item = None
+        for it in DICT_INDEX:
+            hz = it["hanzi"].lower()
+            simp = (it["hanzi_simplified"] or hz).lower()
+            hz_norm = _norm_hz(hz)
+            if hz == q_raw or simp == q_raw or hz == q_trad or simp == q_trad:
+                match_item = it
+                break
+            if hz_norm == q_norm or hz_norm == q_trad_norm:
+                match_item = it
+                break
+        
+        if match_item:
+            defn = match_item.get("definition") or match_item.get("first_meaning_vi") or ""
+            return jsonify({
+                "success": True,
+                "data": {
+                    "dict_id": match_item["dict_id"],
+                    "hanzi": match_item["hanzi"],
+                    "pinyin": match_item["pinyin"],
+                    "definition": defn,
+                    "first_meaning_vi": match_item.get("first_meaning_vi") or defn,
+                    "part_of_speech": match_item.get("part_of_speech") or "Từ vựng",
+                    "tocfl_band": match_item.get("tocfl_band"),
+                    "examples": match_item.get("examples") or []
+                }
+            })
+            
+        # 2. Check local dict_cache
+        cache_key = hashlib.md5(f"lookup_hz_{q_trad}".encode("utf-8")).hexdigest()
+        cache_file = os.path.join(DICT_CACHE_DIR, f"{cache_key}.json")
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r", encoding="utf-8") as f:
+                    cached_data = json.load(f)
+                    if cached_data:
+                        return jsonify({"success": True, "data": cached_data})
+            except Exception:
+                pass
+        
+        # 3. Fallback to Taiwan Diary remote API
+        try:
+            req_url = f"https://zh.taiwandiary.vn/api.php?action=lookup_hanzi&q={urllib.parse.quote(q_trad or q)}"
+            req = urllib.request.Request(req_url, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Referer": "https://zh.taiwandiary.vn/"
+            })
+            resp = urllib.request.urlopen(req, timeout=3.5)
+            res = json.loads(resp.read().decode("utf-8"))
+            if res.get("success") and res.get("data"):
+                data = res["data"]
+                try:
+                    with open(cache_file, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False)
+                except Exception:
+                    pass
+                return jsonify({"success": True, "data": data})
+        except Exception as e:
+            print(f"Remote lookup_hanzi fetch error for {q}: {e}")
+            
+        # 4. Partial fallback search in local DICT_INDEX
+        for it in DICT_INDEX:
+            hz = it["hanzi"].lower()
+            if hz.startswith(q_raw) or hz.startswith(q_trad):
+                defn = it.get("definition") or it.get("first_meaning_vi") or ""
+                return jsonify({
+                    "success": True,
+                    "data": {
+                        "dict_id": it["dict_id"],
+                        "hanzi": it["hanzi"],
+                        "pinyin": it["pinyin"],
+                        "definition": defn,
+                        "first_meaning_vi": it.get("first_meaning_vi") or defn,
+                        "part_of_speech": it.get("part_of_speech") or "Từ vựng",
+                        "tocfl_band": it.get("tocfl_band"),
+                        "examples": it.get("examples") or []
+                    }
+                })
+
+        return jsonify({"success": True, "data": None})
+
+    elif action == "dict_lookup_search":
         q = (request.args.get("q") or request.args.get("keyword") or "").strip()
         if not q:
             return jsonify({"success": True, "data": []})
@@ -574,6 +673,7 @@ def api_php():
                 "stroke_count": it["stroke_count"],
                 "weight": idx,
                 "first_meaning_vi": it["first_meaning_vi"],
+                "definition": it.get("definition") or it["first_meaning_vi"],
                 "hanzi_simplified": it["hanzi_simplified"]
             })
             

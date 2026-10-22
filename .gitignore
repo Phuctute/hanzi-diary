@@ -4,3 +4,7 @@ data/audio_cache/
 data/image_cache/
 data/shadowing_cache/
 .DS_Store
+data/user_history.json
+data/srs_progress.json
+data/notebook.json
+data/last_position.json

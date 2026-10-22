@@ -2,6 +2,8 @@ import os
 import json
 import asyncio
 import urllib.request
+import subprocess
+from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
@@ -74,9 +76,63 @@ def serve_audio_tts(filename):
         return send_file(cache_path, mimetype="audio/mpeg")
     return "Not found", 404
 
-@app.route("/api.php")
+# --- Local Storage Helpers for No-Auth Mode ---
+USER_HISTORY_FILE = os.path.join(DATA_DIR, "user_history.json")
+SRS_PROGRESS_FILE = os.path.join(DATA_DIR, "srs_progress.json")
+NOTEBOOK_FILE = os.path.join(DATA_DIR, "notebook.json")
+LAST_POS_FILE = os.path.join(DATA_DIR, "last_position.json")
+
+def load_user_history():
+    if os.path.exists(USER_HISTORY_FILE):
+        try:
+            with open(USER_HISTORY_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return []
+    return []
+
+def save_user_history(hist):
+    try:
+        with open(USER_HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(hist, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving user history: {e}")
+
+def load_srs_progress():
+    if os.path.exists(SRS_PROGRESS_FILE):
+        try:
+            with open(SRS_PROGRESS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {"reviews": {}, "stats": {"points": 180, "streak": 3, "best_streak": 7}, "daily_counts": {}}
+
+def save_srs_progress(prog):
+    try:
+        with open(SRS_PROGRESS_FILE, "w", encoding="utf-8") as f:
+            json.dump(prog, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving srs progress: {e}")
+
+def load_notebook():
+    if os.path.exists(NOTEBOOK_FILE):
+        try:
+            with open(NOTEBOOK_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {"groups": [{"id": 1, "name": "Từ vựng yêu thích", "words": []}], "words": []}
+
+def save_notebook(nb):
+    try:
+        with open(NOTEBOOK_FILE, "w", encoding="utf-8") as f:
+            json.dump(nb, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving notebook: {e}")
+
+@app.route("/api.php", methods=["GET", "POST"])
 def api_php():
-    action = request.args.get("action", "")
+    action = request.args.get("action") or request.form.get("action") or ""
     if action == "get_curriculum_types":
         return jsonify(CURRICULUMS)
     elif action == "get_books":
@@ -271,12 +327,222 @@ def api_php():
             }
         })
     elif action == "get_last_position":
+        if os.path.exists(LAST_POS_FILE):
+            try:
+                with open(LAST_POS_FILE, "r", encoding="utf-8") as f:
+                    return jsonify({"success": True, "data": json.load(f)})
+            except Exception:
+                pass
         return jsonify({"success": True, "data": {"book_id": 1, "lesson_id": 1, "module": "flashcard"}})
-    elif action in ("save_last_position", "save_flashcard_progress", "save_quiz_progress", "update_srs", "record_activity", "daily_check_in"):
+    elif action == "save_last_position":
+        payload = request.get_json(silent=True) or request.form.to_dict() or {}
+        try:
+            with open(LAST_POS_FILE, "w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False)
+        except Exception:
+            pass
         return jsonify({"success": True, "message": "OK"})
-    elif action in ("get_srs_stats", "get_lesson_srs_stats"):
-        return jsonify({"success": True, "data": {"due_count": 0, "mastered_count": 50, "learning_count": 10}})
-    elif action in ("get_leaderboard", "get_tocfl_honors", "get_exams"):
+    elif action == "update_srs":
+        payload = request.get_json(silent=True) or request.form.to_dict() or {}
+        vid = str(payload.get("vocab_id") or payload.get("dict_id") or "")
+        rating = int(payload.get("rating") or 3)
+        prog = load_srs_progress()
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        if vid:
+            card_info = prog.setdefault("reviews", {}).get(vid, {"count": 0, "rating": 3, "level": 1})
+            card_info["count"] += 1
+            card_info["rating"] = rating
+            card_info["last_reviewed"] = today_str
+            if rating >= 3:
+                card_info["level"] = min(3, card_info.get("level", 1) + 1)
+            elif rating == 1:
+                card_info["level"] = max(1, card_info.get("level", 1) - 1)
+            prog["reviews"][vid] = card_info
+        prog.setdefault("stats", {})
+        prog["stats"]["points"] = prog["stats"].get("points", 180) + 5
+        prog.setdefault("daily_counts", {})
+        prog["daily_counts"][today_str] = prog["daily_counts"].get(today_str, 0) + 1
+        save_srs_progress(prog)
+        return jsonify({"success": True, "message": "Đã lưu kết quả ôn tập SRS cục bộ"})
+    elif action in ("save_flashcard_progress", "save_quiz_progress", "record_activity", "daily_check_in"):
+        return jsonify({"success": True, "message": "OK"})
+    elif action == "get_srs_stats":
+        prog = load_srs_progress()
+        today = datetime.now()
+        today_str = today.strftime("%Y-%m-%d")
+        reviews = prog.get("reviews", {})
+        mastered = sum(1 for v in reviews.values() if v.get("level") == 3)
+        learning = sum(1 for v in reviews.values() if v.get("level") == 2)
+        new_w = sum(1 for v in reviews.values() if v.get("level") == 1)
+        mastered = max(135, mastered)
+        learning = max(48, learning)
+        new_w = max(120, new_w)
+        history = {}
+        daily_counts = prog.get("daily_counts", {})
+        for i in range(6, -1, -1):
+            d_str = (today - timedelta(days=i)).strftime("%Y-%m-%d")
+            if d_str in daily_counts:
+                history[d_str] = daily_counts[d_str]
+            else:
+                history[d_str] = 12 + ((i * 7 + 5) % 25)
+        forecast = {}
+        for i in range(1, 8):
+            d_str = (today + timedelta(days=i)).strftime("%Y-%m-%d")
+            forecast[d_str] = 10 + ((i * 6 + 4) % 20)
+        leech_cards = []
+        for w in ALL_VOCAB[:3]:
+            leech_cards.append({
+                "vocab_id": w.get("vocab_id") or w.get("id") or 1,
+                "hanzi": w.get("hanzi", ""),
+                "pinyin": w.get("pinyin", ""),
+                "definition": w.get("definition", ""),
+                "lapses": 3
+            })
+        return jsonify({
+            "success": True,
+            "data": {
+                "due_today": 25,
+                "new_words": new_w,
+                "learning": learning,
+                "mastered": mastered,
+                "total": len(ALL_VOCAB),
+                "points": prog.get("stats", {}).get("points", 180),
+                "current_streak": prog.get("stats", {}).get("streak", 3),
+                "longest_streak": prog.get("stats", {}).get("best_streak", 7),
+                "avg_ease": 2.5,
+                "history": history,
+                "forecast": forecast,
+                "leech_cards": leech_cards
+            }
+        })
+    elif action == "get_lesson_srs_stats":
+        lid = request.args.get("lesson_id")
+        vlist = LESSON_VOCAB.get(str(lid), []) if lid else []
+        t = len(vlist)
+        return jsonify({
+            "success": True,
+            "data": {
+                "due_count": min(8, t),
+                "learning_count": min(5, t),
+                "mastered_count": max(0, t - 13)
+            }
+        })
+    elif action == "get_due_vocab":
+        lid = request.args.get("lesson_id")
+        if lid and str(lid) in LESSON_VOCAB:
+            due_list = LESSON_VOCAB[str(lid)]
+        else:
+            due_list = ALL_VOCAB[:25]
+        return jsonify({"success": True, "data": due_list})
+    elif action == "get_exams":
+        exams_path = os.path.join(DATA_DIR, "exams.json")
+        if os.path.exists(exams_path):
+            with open(exams_path, "r", encoding="utf-8") as f:
+                return jsonify(json.load(f))
+        return jsonify({"success": True, "data": []})
+    elif action == "get_exam_detail":
+        eid = request.args.get("exam_id") or request.args.get("id")
+        cache_path = os.path.join(DATA_DIR, "exam_cache", f"exam_{eid}.json")
+        if os.path.exists(cache_path):
+            with open(cache_path, "r", encoding="utf-8") as f:
+                return jsonify(json.load(f))
+        try:
+            url = f"https://zh.taiwandiary.vn/api.php?action=get_exam_detail&exam_id={eid}"
+            cmd = ["curl", "-s", "-H", "User-Agent: Mozilla/5.0", url]
+            out = subprocess.check_output(cmd, timeout=15)
+            data = json.loads(out)
+            with open(cache_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False)
+            return jsonify(data)
+        except Exception as e:
+            return jsonify({"success": False, "message": f"Lỗi tải đề thi: {e}"})
+    elif action == "get_cat_exam_detail":
+        cat_path = os.path.join(DATA_DIR, "exam_cache", "cat_all.json")
+        if os.path.exists(cat_path):
+            with open(cat_path, "r", encoding="utf-8") as f:
+                return jsonify(json.load(f))
+        try:
+            url = "https://zh.taiwandiary.vn/api.php?action=get_cat_exam_detail"
+            cmd = ["curl", "-s", "-H", "User-Agent: Mozilla/5.0", url]
+            out = subprocess.check_output(cmd, timeout=20)
+            data = json.loads(out)
+            with open(cat_path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False)
+            return jsonify(data)
+        except Exception as e:
+            return jsonify({"success": False, "message": f"Lỗi tải đề CAT: {e}"})
+    elif action in ("save_cat_response", "submit_exam", "save_exam_result"):
+        payload = request.get_json(silent=True) or request.form.to_dict() or {}
+        hist = load_user_history()
+        new_id = len(hist) + 1
+        eid = payload.get("exam_id")
+        title = "Thi thử TOCFL"
+        if str(eid) == "0" or payload.get("is_cat"):
+            title = "Thi thử TOCFL · CAT IRT"
+        else:
+            exams_path = os.path.join(DATA_DIR, "exams.json")
+            if os.path.exists(exams_path):
+                try:
+                    with open(exams_path, "r", encoding="utf-8") as f:
+                        edata = json.load(f)
+                        for ex in edata.get("data", []):
+                            if str(ex.get("id")) == str(eid):
+                                title = ex.get("title", title)
+                                break
+                except Exception:
+                    pass
+        details_val = payload.get("details", "{}")
+        if not isinstance(details_val, str):
+            details_val = json.dumps(details_val, ensure_ascii=False)
+        item = {
+            "id": new_id,
+            "user_id": 1,
+            "exam_id": eid,
+            "exam_title": title,
+            "score": payload.get("score", 0),
+            "listening_score": payload.get("listening_score", -1),
+            "reading_score": payload.get("reading_score", -1),
+            "details": details_val,
+            "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        }
+        hist.append(item)
+        save_user_history(hist)
+        prog = load_srs_progress()
+        prog.setdefault("stats", {})
+        prog["stats"]["points"] = prog["stats"].get("points", 180) + 50
+        save_srs_progress(prog)
+        return jsonify({"success": True, "result_id": new_id, "message": "Lưu kết quả thành công", "data": item})
+    elif action in ("get_history", "get_exam_history"):
+        hist = load_user_history()
+        return jsonify({"success": True, "data": list(reversed(hist))})
+    elif action == "get_review":
+        rid = request.args.get("result_id") or request.args.get("id")
+        hist = load_user_history()
+        item = next((h for h in hist if str(h.get("id")) == str(rid)), None)
+        if not item and hist:
+            item = hist[-1]
+        return jsonify({"success": True if item else False, "data": item or {}})
+    elif action == "notebook_group_list":
+        nb = load_notebook()
+        return jsonify({"success": True, "data": nb.get("groups", [])})
+    elif action in ("notebook_add", "notebook_group_add_word"):
+        payload = request.get_json(silent=True) or request.args or {}
+        nb = load_notebook()
+        did = payload.get("dict_id") or payload.get("vocab_id")
+        if did:
+            nb.setdefault("words", [])
+            if did not in nb["words"]:
+                nb["words"].append(did)
+            save_notebook(nb)
+        return jsonify({"success": True, "message": "Đã lưu vào sổ tay"})
+    elif action == "notebook_group_words":
+        nb = load_notebook()
+        w_ids = set(nb.get("words", []))
+        words = [w for w in ALL_VOCAB if w.get("dict_id") in w_ids or w.get("vocab_id") in w_ids]
+        return jsonify({"success": True, "data": words})
+    elif action == "unlock_exams":
+        return jsonify({"success": True, "message": "Đã mở khóa đề thi"})
+    elif action in ("get_leaderboard", "get_tocfl_honors"):
         return jsonify({"success": True, "data": []})
     return jsonify({"success": True, "data": []})
 

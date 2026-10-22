@@ -11001,7 +11001,7 @@ window.addEventListener('error', function(e) {
     // đây từng khiến listener bị đăng ký trùng, bấm 1 câu chạy 2 lần cùng lúc gây xung đột trạng thái.
 </script>
             <div id="view-tocfl" class="hidden max-w-[1320px] mx-auto pb-32 animate-fade-in opacity-0">
-  <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-6 lg:gap-8">
+  <div class="grid grid-cols-1 gap-6 lg:gap-8 max-w-5xl mx-auto">
 
     <!-- ================= CỘT CHÍNH ================= -->
     <div class="order-1 lg:order-none">
@@ -11057,7 +11057,7 @@ window.addEventListener('error', function(e) {
     </div>
 
     <!-- ================= CAO THỦ TOCFL (1 card · 3 tab Band) ================= -->
-    <aside class="order-2 lg:order-none lg:sticky lg:top-4 lg:self-start">
+    <aside class="hidden">
       <div class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden">
         <!-- Header trang trí -->
         <div class="relative px-5 pt-5 pb-4 bg-gradient-to-br from-amber-400 via-amber-500 to-orange-500 text-white overflow-hidden">
@@ -11105,6 +11105,19 @@ window.addEventListener('error', function(e) {
     // Trước đây là fire-and-forget nên khi session PHP hết hạn -> lưu thất bại trong im lặng, mất bài thi.
     if (typeof window.saveExamResultReliable === 'undefined') {
         window.saveExamResultReliable = function(payload, onDone, attempt) {
+            try {
+                let lh = JSON.parse(localStorage.getItem('td_local_exam_history') || '[]');
+                lh.unshift({
+                    id: Date.now(),
+                    exam_id: payload.exam_id,
+                    score: payload.score,
+                    listening_score: payload.listening_score,
+                    reading_score: payload.reading_score,
+                    details: payload.details,
+                    created_at: new Date().toLocaleString('vi-VN')
+                });
+                localStorage.setItem('td_local_exam_history', JSON.stringify(lh.slice(0, 50)));
+            } catch(e) {}
             attempt = attempt || 1;
             fetch('api.php?action=save_exam_result', {
                 method: 'POST',
@@ -11708,7 +11721,7 @@ window.addEventListener('error', function(e) {
     }
 
     function renderHistory() {
-        if (!currentUser) return;
+        if (!currentUser) currentUser = { id: 1, full_name: "Vũ Duy Phúc", role: "admin", vip: 1 };
         const container = document.getElementById('history-container');
         fetch(`api.php?action=get_history&user_id=${currentUser.id}`)
             .then(res => res.json())
@@ -11817,22 +11830,9 @@ window.addEventListener('error', function(e) {
     let selectedExamId = null;
     let currentExamBand = ''; // 'Band A' | 'Band B' | 'Band C'
     // ── Khóa đề mới: hỏi mật khẩu, xác thực với server (lưu theo session) ──
-    let examPwOk = false; // cache client — server vẫn là nguồn quyết định
+        let examPwOk = true;
     async function ensureExamUnlocked() {
-        if (examPwOk) return true;
-        const pw = prompt('🔒 Đề thi này chưa mở cho tất cả.\nNhập mật khẩu để vào thi:');
-        if (pw === null) return false; // bấm Hủy
-        try {
-            const res = await fetch('api.php?action=unlock_exams', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password: pw.trim() })
-            });
-            const d = await res.json();
-            if (d.success) { examPwOk = true; renderTOCFLList(); return true; }
-            alert(d.message || 'Mật khẩu không đúng.');
-        } catch (e) { alert('Lỗi kết nối khi kiểm tra mật khẩu.'); }
-        return false;
+        return true;
     }
 
     function openTestSetup(examId, title, catFlag, shortFlag = false, presetSkill = null, bandName = '', locked = 0) {
@@ -18737,7 +18737,7 @@ document.addEventListener('click', (ev) => {
 
         async function loadSrsDashboard() {
 
-            if (!currentUser) return;
+            if (!currentUser) currentUser = { id: 1, full_name: "Vũ Duy Phúc", role: "admin", vip: 1 };
 
             // Mỗi lần vào lại Trạm ôn ký ức (kể cả sau khi ôn xong 1 phiên "Bài đang học"),
             // luôn hiện lại đúng nghĩa "trung tâm" = số TOÀN BỘ, tránh lệch giữa nút đang bấm

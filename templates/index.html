@@ -4597,8 +4597,18 @@ window.addEventListener('error', function(e) {
     document.addEventListener('DOMContentLoaded', () => {
         const inputTyping = document.getElementById('typing-input');
         if(inputTyping) {
-            inputTyping.addEventListener('keypress', function(e) {
-                if(e.key === 'Enter') checkTyping();
+            inputTyping.addEventListener('keydown', function(e) {
+                if (e.isComposing || e.keyCode === 229) return;
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const feedback = document.getElementById('typing-feedback');
+                    const hasResult = feedback && feedback.classList.contains('opacity-100');
+                    if (hasResult && !inputTyping.value.trim()) {
+                        navWriting(1);
+                    } else {
+                        checkTyping();
+                    }
+                }
             });
             // Gõ thường: bỏ qua khi đang soạn IME (pinyin chưa chốt) để không chấm nhầm.
             inputTyping.addEventListener('input', function(e) {
@@ -4678,7 +4688,7 @@ window.addEventListener('error', function(e) {
             input.classList.add('border-td-red', 'bg-red-50', 'text-td-red', 'ring-2', 'sm:ring-4', 'ring-td-red/20');
             
             if(value !== '') input.value = ''; 
-            if (autoNextCheckbox && autoNextCheckbox.checked && value !== '') typingTimeout = setTimeout(() => navWriting(1), 1500); // Rút ngắn thời gian chuyển câu khi sai để user khỏi đợi lâu
+            // Giữ nguyên câu khi làm sai để người học kịp nhìn đáp án, ghi nhớ mặt chữ và chủ động bấm tiếp
         }
     }
 </script>

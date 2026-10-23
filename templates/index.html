@@ -1505,9 +1505,9 @@ window.addEventListener('error', function(e) {
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
-                <i class="fa-solid fa-pen-nib w-5 text-center text-lg"></i>
+                <i class="fa-solid fa-keyboard w-5 text-center text-lg"></i>
 
-                <span class="font-semibold text-[14px]">Tập viết chữ Hán</span>
+                <span class="font-semibold text-[14px]">Luyện gõ chữ Hán</span>
 
             </a>
 
@@ -1953,11 +1953,11 @@ window.addEventListener('error', function(e) {
                                     <p class="text-slate-500 text-xs mt-1 font-medium">Ôn đúng lúc sắp quên</p>
                                     <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-blue-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
-                                <!-- Tập viết chữ Hán -->
+                                <!-- Luyện gõ chữ Hán -->
                                 <button onclick="startSrsReview('listening')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-purple-500 hover:shadow-[0_12px_28px_-6px_rgba(168,85,247,0.2)] hover:-translate-y-1 transition-all duration-200">
-                                    <span class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-base shadow-sm group-hover:bg-purple-600 group-hover:text-white transition-colors"><i class="fa-solid fa-pen-nib"></i></span>
-                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-purple-600 transition-colors">Tập viết Hán tự</h4>
-                                    <p class="text-slate-500 text-xs mt-1 font-medium">Luyện nét bút chuẩn</p>
+                                    <span class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-base shadow-sm group-hover:bg-purple-600 group-hover:text-white transition-colors"><i class="fa-solid fa-keyboard"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-purple-600 transition-colors">Luyện gõ Hán tự</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Gõ phím &amp; nhớ mặt chữ</p>
                                     <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-purple-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Hội thoại ngữ cảnh -->
@@ -2088,11 +2088,11 @@ window.addEventListener('error', function(e) {
                         <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-emerald-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
                     </button>
 
-                    <!-- Luyện viết trí nhớ -->
+                    <!-- Luyện gõ nhớ từ -->
                     <button onclick="startSrsReview('listening')" class="group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-purple-50 to-white ring-1 ring-purple-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(168,85,247,0.35)] transition-all duration-300">
-                        <i class="fa-solid fa-pen-nib absolute -right-3 -bottom-3 text-6xl text-purple-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                        <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-500 text-white flex items-center justify-center text-lg shadow-lg shadow-purple-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-pen-nib"></i></span>
-                        <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Luyện viết trí nhớ</h4>
+                        <i class="fa-solid fa-keyboard absolute -right-3 -bottom-3 text-6xl text-purple-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
+                        <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-500 text-white flex items-center justify-center text-lg shadow-lg shadow-purple-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-keyboard"></i></span>
+                        <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Luyện gõ nhớ từ</h4>
                         <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Gõ lại Hán tự — cách nhớ mặt chữ sâu nhất.</p>
                         <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-purple-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
                     </button>
@@ -3740,13 +3740,22 @@ window.addEventListener('error', function(e) {
                             <span class="inline-block bg-sky-50 text-sky-600 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2 border border-sky-100">Nghĩa tiếng Việt</span>
                             <div id="fc-def" class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed">bạn, anh, chị</div>
                         </div>
-                        <div class="mb-2">
-                            <span class="inline-block bg-emerald-50 text-emerald-600 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2 sm:mb-3 border border-emerald-100">Ví dụ minh họa</span>
-                            <div id="fc-examples" class="space-y-3 pb-4"></div>
+                        <div class="mb-3">
+                            <span class="inline-block bg-emerald-50 text-emerald-600 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2 border border-emerald-100">Ví dụ tiêu biểu</span>
+                            <div id="fc-examples" class="space-y-2.5"></div>
                         </div>
-                        <div id="fc-contexts-section" class="mb-2 flex-1 hidden">
-                            <span class="inline-block bg-amber-50 text-amber-600 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2 sm:mb-3 border border-amber-100"><i class="fa-solid fa-comments mr-1"></i>Từ này trong hội thoại</span>
-                            <div id="fc-contexts" class="space-y-2 pb-4"></div>
+                        <div id="fc-contexts-section" class="mb-3 hidden" onclick="event.stopPropagation();">
+                            <button type="button" onclick="event.stopPropagation(); toggleFcContexts();" id="fc-contexts-toggle-btn" class="w-full flex items-center justify-between text-left py-2 px-3 bg-amber-50/80 hover:bg-amber-100/80 border border-amber-200/90 rounded-xl transition-all outline-none">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900">
+                                    <i class="fa-solid fa-comments text-amber-600 text-sm"></i>
+                                    <span id="fc-contexts-badge-text">Ngữ cảnh hội thoại</span>
+                                </span>
+                                <span class="text-[11px] font-bold text-amber-700 flex items-center gap-1">
+                                    <span id="fc-contexts-action-text">Mở xem</span>
+                                    <i id="fc-contexts-chevron" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+                                </span>
+                            </button>
+                            <div id="fc-contexts" class="hidden space-y-2 pt-2.5 pb-2"></div>
                         </div>
                     </div>
                 </div>
@@ -4306,23 +4315,41 @@ window.addEventListener('error', function(e) {
         document.getElementById('fc-def').innerText = v.definition;
         let exHtml = '';
         if(v.examples && v.examples.length > 0){
-            v.examples.forEach(ex => {
+            const maxPrimary = 2; // Giữ 1-2 ví dụ tiêu biểu nhất để phản xạ nhanh
+            const primaryList = v.examples.slice(0, maxPrimary);
+            const extraList = v.examples.slice(maxPrimary);
+
+            const buildExampleCard = (ex) => {
                 const parsedEx = parseExamplePattern(getChar(ex.examples_hanzi));
                 let uiHanzi = parsedEx.role ? `<span class="inline-block bg-primary/10 text-primary text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 rounded-md mr-1 sm:mr-2 align-middle border border-primary/20">[${parsedEx.role}]</span>${parsedEx.sentence}` : parsedEx.sentence;
                 const safeTextEx = parsedEx.sentence.replace(/"/g, '&quot;');
-                
-                exHtml += `
-                <div class="fc-example-item border border-slate-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 relative bg-[#f8fbff] mb-2 sm:mb-3 last:mb-0 transition-all duration-300">
+                return `
+                <div class="fc-example-item border border-slate-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 relative bg-[#f8fbff] mb-2 sm:mb-2.5 last:mb-0 transition-all duration-300">
                     <div class="flex justify-between items-start gap-2 sm:gap-3 mb-1.5 sm:mb-2">
                         <div class="text-sm sm:text-base text-slate-800 leading-relaxed pr-6 font-bold font-tc tracking-wide">${uiHanzi}</div>
-                        <button class="fc-ex-audio-btn text-slate-400 hover:text-primary active:bg-slate-100 transition-all shrink-0 bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border border-slate-100 outline-none" data-text="${encodeURIComponent(safeTextEx)}" onclick="playTTS(this.getAttribute('data-text'), event)">
+                        <button type="button" class="fc-ex-audio-btn text-slate-400 hover:text-primary active:bg-slate-100 transition-all shrink-0 bg-white w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border border-slate-100 outline-none" data-text="${encodeURIComponent(safeTextEx)}" onclick="event.stopPropagation(); playTTS(this.getAttribute('data-text'), event)">
                             <i class="fa-solid fa-volume-high text-xs sm:text-sm pointer-events-none"></i>
                         </button>
                     </div>
                     <div class="text-primary font-bold text-xs sm:text-sm mb-1">${ex.examples_pinyin}</div>
                     <div class="text-xs sm:text-sm text-slate-600 font-medium">${ex.examples_translation}</div>
                 </div>`;
-            });
+            };
+
+            primaryList.forEach(ex => { exHtml += buildExampleCard(ex); });
+
+            if (extraList.length > 0) {
+                exHtml += `
+                <div class="mt-2" onclick="event.stopPropagation();">
+                    <button type="button" onclick="event.stopPropagation(); toggleFcMoreExamples();" id="fc-more-ex-btn" class="w-full py-2 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 text-xs font-bold text-primary flex items-center justify-center gap-1.5 transition-all outline-none">
+                        <span>Xem thêm ${extraList.length} ví dụ khác</span>
+                        <i id="fc-more-ex-icon" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+                    </button>
+                    <div id="fc-more-examples" class="hidden mt-2 space-y-2">
+                        ${extraList.map(buildExampleCard).join('')}
+                    </div>
+                </div>`;
+            }
         } else { exHtml = '<p class="text-xs sm:text-sm text-slate-400 italic bg-slate-50 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-slate-100">Không có ví dụ.</p>'; }
         document.getElementById('fc-examples').innerHTML = exHtml;
         loadVocabContexts(v.vocab_id || v.id);
@@ -4333,20 +4360,58 @@ window.addEventListener('error', function(e) {
         return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    // Nạp & hiển thị "Từ này trong hội thoại" (auto-detect từ server). Ẩn nếu không có.
+    // Đóng/mở thêm ví dụ trên mặt sau Flashcard
+    function toggleFcMoreExamples() {
+        const box = document.getElementById('fc-more-examples');
+        const icon = document.getElementById('fc-more-ex-icon');
+        const btnText = document.querySelector('#fc-more-ex-btn span');
+        if (!box) return;
+        const isHidden = box.classList.contains('hidden');
+        box.classList.toggle('hidden', !isHidden);
+        if (icon) icon.classList.toggle('rotate-180', isHidden);
+        if (btnText) {
+            if (isHidden) {
+                if (!btnText.dataset.origText) btnText.dataset.origText = btnText.textContent;
+                btnText.textContent = 'Thu gọn ví dụ';
+            } else {
+                btnText.textContent = btnText.dataset.origText || 'Xem thêm ví dụ';
+            }
+        }
+    }
+
+    // Đóng/mở ngữ cảnh hội thoại trên mặt sau Flashcard
+    function toggleFcContexts() {
+        const box = document.getElementById('fc-contexts');
+        const actionText = document.getElementById('fc-contexts-action-text');
+        const chevron = document.getElementById('fc-contexts-chevron');
+        if (!box) return;
+        const isHidden = box.classList.contains('hidden');
+        box.classList.toggle('hidden', !isHidden);
+        if (actionText) actionText.innerText = isHidden ? 'Thu gọn' : 'Mở xem';
+        if (chevron) chevron.classList.toggle('rotate-180', isHidden);
+    }
+
+    // Nạp & hiển thị "Từ này trong hội thoại" dạng Accordion (không làm tràn mặt thẻ)
     async function loadVocabContexts(vocabId) {
         const section = document.getElementById('fc-contexts-section');
         const box = document.getElementById('fc-contexts');
+        const badgeText = document.getElementById('fc-contexts-badge-text');
+        const actionText = document.getElementById('fc-contexts-action-text');
+        const chevron = document.getElementById('fc-contexts-chevron');
         if (!section || !box) return;
         section.classList.add('hidden');
+        box.classList.add('hidden');
+        if (actionText) actionText.innerText = 'Mở xem';
+        if (chevron) chevron.classList.remove('rotate-180');
         box.innerHTML = '';
         if (!vocabId) return;
-        const reqId = ++loadVocabContexts._seq;   // tránh race khi lật thẻ nhanh
+        const reqId = ++loadVocabContexts._seq;
         try {
             const res = await fetch(`api.php?action=get_vocab_contexts&vocab_id=${vocabId}`);
             const json = await res.json();
-            if (reqId !== loadVocabContexts._seq) return;   // đã chuyển sang từ khác
+            if (reqId !== loadVocabContexts._seq) return;
             if (!json.success || !json.data || json.data.length === 0) return;
+            if (badgeText) badgeText.innerText = `Ngữ cảnh hội thoại (${json.data.length} đoạn)`;
             let html = '';
             json.data.forEach(ctx => {
                 const hz = getChar(ctx.hanzi || '');
@@ -4406,9 +4471,13 @@ window.addEventListener('error', function(e) {
         </div>
     </div>
     
+    <div class="w-full max-w-xl mb-3.5 px-3.5 py-2.5 bg-slate-50/90 border border-slate-200/80 rounded-2xl flex items-center justify-between text-xs text-slate-500 shadow-sm">
+        <span class="flex items-center gap-2 font-medium"><i class="fa-solid fa-keyboard text-primary text-sm"></i> Gõ Hán tự qua bộ gõ Pinyin để ghi nhớ</span>
+        <button type="button" onclick="openDictFromTyping()" class="text-primary hover:text-primaryDark hover:underline font-bold text-[11px] shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 bg-white rounded-lg border border-slate-200/70 shadow-2xs transition-all">Tập viết nét tay <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></button>
+    </div>
     <div class="w-full max-w-xl flex flex-col items-center px-1 sm:px-0 mx-auto">
         <div class="w-full relative group">
-            <input type="text" id="typing-input" class="w-full text-center text-[26px] sm:text-[36px] font-black rounded-xl sm:rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 sm:px-6 sm:py-5 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-sm transition-all text-primary placeholder:text-slate-300 placeholder:font-medium placeholder:text-lg sm:placeholder:text-xl" placeholder="Nhập Hán tự..." autocomplete="off">
+            <input type="text" id="typing-input" class="w-full text-center text-[26px] sm:text-[36px] font-black rounded-xl sm:rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 sm:px-6 sm:py-5 outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-sm transition-all text-primary placeholder:text-slate-300 placeholder:font-medium placeholder:text-base sm:placeholder:text-xl" placeholder="Gõ Hán tự bằng Pinyin..." autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false">
         </div>
         
         <div class="h-[50px] sm:h-[60px] w-full flex items-center justify-center my-3 sm:my-4">
@@ -4470,6 +4539,21 @@ window.addEventListener('error', function(e) {
         toggleBtn.title = hidden ? 'Hiện pinyin' : 'Ẩn pinyin';
     }
 
+    function openDictFromTyping() {
+        if (!vocabData || vocabData.length === 0) return;
+        const v = vocabData[currentWriteIdx];
+        if (!v) return;
+        const char = getChar(v.hanzi);
+        switchTab('dict-lookup');
+        setTimeout(() => {
+            const inp = document.getElementById('dict-search-input');
+            if (inp) {
+                inp.value = char;
+                if (typeof dictPerformSearch === 'function') dictPerformSearch(char);
+            }
+        }, 150);
+    }
+
     function updateWritingUI() {
         if(vocabData.length === 0) return;
         const v = vocabData[currentWriteIdx];
@@ -4485,7 +4569,10 @@ window.addEventListener('error', function(e) {
         const feedback = document.getElementById('typing-feedback');
         feedback.classList.add('opacity-0');
         feedback.innerHTML = '';
-        input.focus();
+        // Chỉ auto-focus trên Desktop/PC; không tự bật bàn phím ảo che màn hình trên Mobile
+        if (window.innerWidth >= 768 && !('ontouchstart' in window && window.innerWidth < 1024)) {
+            input.focus();
+        }
     }
 
     // Tự động kiểm tra: khi bật, chấm ngay lúc gõ đủ số ký tự đáp án (khỏi bấm nút / Enter).
@@ -4879,13 +4966,16 @@ window.addEventListener('error', function(e) {
                     nextQuiz();
                 }, 3500);
             } else if (autoNextCheckbox && autoNextCheckbox.checked) {
-                quizTimeout = setTimeout(() => nextQuiz(), 800);
+                quizTimeout = setTimeout(() => nextQuiz(), 900);
             } else {
-                document.getElementById('quiz-next-btn').classList.remove('hidden');
+                const nextBtn = document.getElementById('quiz-next-btn');
+                if (nextBtn) nextBtn.classList.remove('hidden');
             }
         } else {
+            // TRẢ LỜI SAI: BẮT BUỘC DỪNG LẠI, KHÔNG AUTO-NEXT!
+            clearTimeout(quizTimeout);
             btn.classList.replace('border-slate-100', 'border-td-red');
-            btn.classList.add('bg-red-50', 'text-td-red', 'shadow-sm');
+            btn.classList.add('bg-red-50', 'text-td-red', 'shadow-sm', 'ring-2', 'ring-td-red/30');
             btn.classList.remove('text-slate-700', 'hover:bg-td-lightBlue/10', 'hover:text-primary', 'hover:border-primary');
             letterSpan.classList.replace('bg-slate-100', 'bg-td-red');
             letterSpan.classList.replace('text-slate-400', 'text-white');
@@ -4894,7 +4984,7 @@ window.addEventListener('error', function(e) {
             buttons.forEach(b => {
                 if (b.dataset.correct === 'true' || (currentQ.definition && b.innerText.includes(currentQ.definition.trim()))) {
                     b.classList.replace('border-slate-100', 'border-td-green');
-                    b.classList.add('bg-emerald-50', 'text-td-green', 'shadow-sm');
+                    b.classList.add('bg-emerald-50', 'text-td-green', 'shadow-sm', 'ring-2', 'ring-td-green/40');
                     const s = b.querySelector('span:first-child');
                     if (s) {
                         s.classList.replace('bg-slate-100', 'bg-td-green');
@@ -4902,9 +4992,40 @@ window.addEventListener('error', function(e) {
                     }
                 }
             });
-            
-            if(autoNextCheckbox && autoNextCheckbox.checked) quizTimeout = setTimeout(() => nextQuiz(), 2500); 
-            else document.getElementById('quiz-next-btn').classList.remove('hidden');
+
+            // Hiện hộp giải thích đáp án đúng rõ ràng
+            let feedbackEl = document.getElementById('quiz-wrong-feedback');
+            if (!feedbackEl) {
+                feedbackEl = document.createElement('div');
+                feedbackEl.id = 'quiz-wrong-feedback';
+                const optsContainer = document.getElementById('quiz-options');
+                if (optsContainer && optsContainer.parentNode) {
+                    optsContainer.parentNode.insertBefore(feedbackEl, document.getElementById('quiz-next-btn'));
+                }
+            }
+            const displayHz = getChar(currentQ.hanzi);
+            feedbackEl.className = 'mt-5 p-4 sm:p-5 rounded-2xl bg-amber-50/90 border border-amber-200 text-slate-800 animate-fade-in flex items-start gap-3 text-left shadow-sm';
+            feedbackEl.innerHTML = `
+                <div class="w-8 h-8 rounded-xl bg-amber-200/70 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                    <i class="fa-solid fa-lightbulb text-sm"></i>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="font-bold text-amber-900 text-xs sm:text-sm uppercase tracking-wider mb-1">Chưa chính xác — Ghi nhớ từ này:</div>
+                    <div class="text-sm sm:text-base text-slate-900 font-medium">
+                        <span class="font-black font-tc text-lg sm:text-xl text-brandNavy mr-2">${displayHz}</span>
+                        <span class="text-primary font-bold text-sm sm:text-base mr-2">[${currentQ.pinyin}]</span>
+                        <span class="text-slate-700">${currentQ.definition}</span>
+                    </div>
+                </div>`;
+
+            // Luôn hiện nút CÂU TIẾP THEO để người học chủ động bấm
+            const nextBtnWrap = document.getElementById('quiz-next-btn');
+            if (nextBtnWrap) {
+                nextBtnWrap.classList.remove('hidden');
+                if (window.innerWidth < 768) {
+                    setTimeout(() => nextBtnWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+                }
+            }
         }
     }
     function nextQuiz() { currentQuizIdx++; saveQuizProgress(); renderQuizQuestion(); }
@@ -10429,6 +10550,64 @@ window.addEventListener('error', function(e) {
         return aligned;
     }
 
+    // Tải bài học có hội thoại (dùng khi bài hiện tại là chủ đề / không có hội thoại)
+    async function loadDialogueLesson(lid) {
+        lid = lid || 1;
+        const selBook = document.getElementById('select-book');
+        if (selBook && selBook.value === '__topics__') {
+            const book1Opt = selBook.querySelector('option[value="1"]');
+            if (book1Opt) {
+                selBook.value = "1";
+                if (typeof loadLessons === 'function') await loadLessons(1);
+            }
+        }
+        const selLesson = document.getElementById('select-lesson');
+        if (selLesson) selLesson.value = String(lid);
+        if (typeof loadVocabulariesAndContent === 'function') {
+            await loadVocabulariesAndContent(lid);
+        }
+        if (typeof renderKaraokeContent === 'function') {
+            renderKaraokeContent(0);
+        }
+    }
+
+    // Đảm bảo tab Hội thoại luôn có nội dung khi người dùng mở tab
+    async function ensureKaraokeHasContent() {
+        if (rawKaraokeData && rawKaraokeData.length > 0) {
+            renderKaraokeContent(currentKaraokeIdx || 0);
+            return;
+        }
+        const container = document.getElementById('dialogueContainer');
+        if (container) {
+            container.innerHTML = `
+                <div class="text-center py-16 px-4 animate-fade-in">
+                    <div class="inline-block w-8 h-8 border-3 border-primary border-t-transparent rounded-full animate-spin mb-3"></div>
+                    <div class="text-sm font-bold text-slate-600">Đang tải bài hội thoại...</div>
+                </div>`;
+        }
+        try {
+            const selLesson = document.getElementById('select-lesson');
+            let targetLid = (selLesson && selLesson.value && !selLesson.value.startsWith('topic:')) ? selLesson.value : 1;
+            let res = await fetch(`api.php?action=get_lesson_contents&lesson_id=${targetLid}`);
+            let json = await res.json();
+            if (!json.success || !json.data || json.data.length === 0) {
+                targetLid = 1;
+                res = await fetch('api.php?action=get_lesson_contents&lesson_id=1');
+                json = await res.json();
+            }
+            if (json.success && json.data && json.data.length > 0) {
+                rawKaraokeData = json.data;
+                window.rawKaraokeData = rawKaraokeData;
+                currentKaraokeIdx = 0;
+                renderKaraokeContent(0);
+                return;
+            }
+        } catch (e) {
+            console.error('Error ensuring karaoke content:', e);
+        }
+        if (typeof renderKaraokeContent === 'function') renderKaraokeContent(0);
+    }
+
     function renderKaraokeContent(index) {
         index = parseInt(index, 10);
         if (isNaN(index) || index < 0 || (rawKaraokeData && index >= rawKaraokeData.length)) {
@@ -10443,10 +10622,22 @@ window.addEventListener('error', function(e) {
         const container = document.getElementById('dialogueContainer');
 
         if (!rawKaraokeData || rawKaraokeData.length === 0) {
-            document.getElementById('dialogue-selector-placeholder').innerHTML = '<span class="text-sm font-bold text-slate-400">Không có hội thoại</span>';
-            container.innerHTML = "<div class='text-center mt-10 text-slate-500'>Không tìm thấy dữ liệu hội thoại trong bài học này.</div>";
+            const placeholder = document.getElementById('dialogue-selector-placeholder');
+            if (placeholder) placeholder.innerHTML = '<span class="text-xs font-bold text-slate-400">Chọn bài có hội thoại</span>';
+            container.innerHTML = `
+                <div class="text-center py-12 px-5 bg-white rounded-3xl border border-slate-200/80 shadow-sm max-w-lg mx-auto my-8 animate-fade-in">
+                    <div class="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto mb-4 text-2xl shadow-sm">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Chưa có bài khóa trong mục này</h3>
+                    <p class="text-xs sm:text-sm text-slate-500 mb-6 leading-relaxed">Chủ đề từ vựng hiện tại không có bài khóa hội thoại tương tác. Hãy bấm nút bên dưới để chuyển ngay sang bài hội thoại mẫu của giáo trình.</p>
+                    <button type="button" onclick="loadDialogueLesson(1)" class="w-full sm:w-auto px-6 py-3.5 bg-primary text-white font-bold text-sm sm:text-base rounded-xl shadow-td hover:shadow-td-hover active:scale-95 transition-all inline-flex items-center justify-center gap-2 outline-none">
+                        <i class="fa-solid fa-play"></i> Mở Hội thoại Bài 1
+                    </button>
+                </div>`;
             karaokeAudio.src = "";
-            document.getElementById('karaokeVideoContainer').classList.add('hidden');
+            const vContainer = document.getElementById('karaokeVideoContainer');
+            if (vContainer) vContainer.classList.add('hidden');
             return;
         }
 
@@ -15925,9 +16116,11 @@ document.addEventListener('click', (ev) => {
             const mediaEl2 = document.getElementById('sd-media-sticky');
             if (mediaEl2) mediaEl2.classList.remove('sd-hide-title');
             lastCueScrollY = 0;
+            lastShadowPageScrollY = 0;
 
             renderCueList();
             bindCueListAutoHide();  // gắn auto-ẩn tiêu đề theo hướng cuộn
+            bindShadowPageAutoHide();
             updateCurrentPanel();
             setupPlayer();
             loadTop();
@@ -16068,13 +16261,45 @@ document.addEventListener('click', (ev) => {
         }, { passive: true });
     }
 
-    // Cuộn TRONG khung phụ đề để câu đang phát luôn nằm GIỮA khung — người học luôn nhìn thấy
-    // nội dung đang đọc ở giữa màn hình, kèm các câu vừa đọc xong ở phía trên.
+    let lastShadowPageScrollY = 0;
+    function bindShadowPageAutoHide() {
+        const handleScroll = (y) => {
+            const detail = document.getElementById('shadow-detail');
+            if (!detail || detail.classList.contains('hidden')) return;
+            const media = document.getElementById('sd-media-sticky');
+            if (!media) return;
+            if (y > lastShadowPageScrollY + 6 && y > 40) media.classList.add('sd-hide-title');
+            else if (y < lastShadowPageScrollY - 6) media.classList.remove('sd-hide-title');
+            lastShadowPageScrollY = y;
+        };
+
+        const mc = document.getElementById('mainContent');
+        if (mc && mc.dataset.sdAutohide !== '1') {
+            mc.dataset.sdAutohide = '1';
+            mc.addEventListener('scroll', () => handleScroll(mc.scrollTop), { passive: true });
+        }
+        if (!window._sdWinScrollBound) {
+            window._sdWinScrollBound = true;
+            window.addEventListener('scroll', () => {
+                const y = window.scrollY || document.documentElement.scrollTop || 0;
+                handleScroll(y);
+            }, { passive: true });
+        }
+    }
+
+    // Cuộn TRONG khung phụ đề để câu đang phát luôn nằm GIỮA khung
     function scrollCueIntoPosition(el) {
         const list = document.getElementById('sd-cue-list');
         if (!el || !list) return;
-        const target = el.offsetTop - (list.clientHeight / 2) + (el.offsetHeight / 2);
-        list.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        const elTop = el.offsetTop;
+        const elBottom = elTop + el.offsetHeight;
+        const listTop = list.scrollTop;
+        const listBottom = listTop + list.clientHeight;
+
+        if (elTop < listTop + 10 || elBottom > listBottom - 10) {
+            const target = el.offsetTop - (list.clientHeight / 2) + (el.offsetHeight / 2);
+            list.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
     }
 
     // Tô sáng từng chữ theo tiến độ thời gian TRONG câu đang phát.
@@ -16537,22 +16762,57 @@ document.addEventListener('click', (ev) => {
         .dt-cue { flex: 0 0 auto; }
         #dt-title-bar { overflow: hidden; max-height: 64px; transition: max-height .25s ease, opacity .2s ease, margin-bottom .25s ease; }
         #dt-media-sticky.dt-hide-title #dt-title-bar { max-height: 0; opacity: 0; margin-bottom: 0; }
-        @media (min-width: 1024px) {
+        @media (min-width: 768px) {
             #dt-media-sticky.dt-hide-title #dt-title-bar { max-height: 64px; opacity: 1; margin-bottom: 0.5rem; }
         }
-        @media (max-width: 1023px) {
-            #dt-media-sticky.dt-compact #dt-video-wrap { max-width: 56%; margin-left: auto; margin-right: auto; }
+        @media (max-width: 767px) {
             #dt-media-sticky::before { content: ''; position: absolute; left: 0; right: 0; bottom: 100%; height: 60vh; background: #F8FAFC; }
         }
-        .dt-detail-grid { display: flex; flex-direction: column; }
+        /* Bố cục Studio 2 cột tối ưu cho Máy tính / Tablet (>=768px):
+           - Cột Trái: Video Cinema 16:9 + Điều khiển + Cài đặt nhập + Tiến độ
+           - Cột Phải: Bảng câu chép chính tả cuộn độc lập thoáng đãng
+           - Mobile (<768px): tràn rộng sang 2 mép màn hình, loại bỏ lề thụt dư thừa */
+        .dt-detail-grid { display: flex; flex-direction: column; width: 100%; }
         .dt-sidebar { display: contents; }
         .dt-area-media { order: 1; }
-        .dt-area-cues { order: 2; }
+        .dt-area-cues { order: 2; width: auto; }
         .dt-area-extra { order: 3; }
-        @media (min-width: 1024px) {
-            .dt-detail-grid { flex-direction: row; align-items: flex-start; gap: 1.25rem; }
-            .dt-area-cues { order: 1; flex: 2 1 0%; min-width: 0; }
-            .dt-sidebar { display: flex; flex-direction: column; gap: 1.25rem; flex: 1 1 0%; min-width: 280px; order: 2; position: sticky; top: 1rem; }
+        @media (min-width: 768px) {
+            .dt-detail-grid {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+            .dt-sidebar {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+                flex: 1.2 1 0%;
+                min-width: 0;
+                order: 1;
+            }
+            /* Trên Desktop/Tablet: Video KHÔNG cố định (static) để khi cuộn trang,
+               toàn bộ cột Studio cuộn tự nhiên, tránh che khuất nội dung bên dưới. */
+            #dt-media-sticky {
+                position: static !important;
+                background: transparent !important;
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                z-index: auto !important;
+            }
+            .dt-area-cues {
+                order: 2;
+                flex: 1.15 1 0%;
+                min-width: 320px;
+                max-width: none;
+                position: sticky;
+                top: 0.5rem;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        @media (min-width: 1280px) {
+            .dt-sidebar { flex: 1.25 1 0%; }
+            .dt-area-cues { flex: 1.2 1 0%; max-width: none; }
         }
         .dt-tile { user-select: none; }
     </style>
@@ -16589,16 +16849,25 @@ document.addEventListener('click', (ev) => {
     <div id="dict-detail" class="hidden max-w-7xl mx-auto w-full pb-24">
         <div class="dt-detail-grid gap-5">
             <div class="dt-sidebar">
-                <div id="dt-media-sticky" class="dt-area-media sticky top-0 lg:top-4 z-20 -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-2.5 bg-surface">
-                    <div id="dt-title-bar" class="flex items-center gap-2.5 mb-2">
-                        <button onclick="dictBackToLibrary()" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-500 hover:text-primary hover:border-primary flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0">
-                            <i class="fa-solid fa-arrow-left"></i>
-                        </button>
-                        <div class="min-w-0 flex-1">
-                            <h2 id="dt-title" class="font-black text-brandNavy text-sm sm:text-lg leading-tight truncate"></h2>
-                            <div class="flex items-center gap-2">
-                                <span id="dt-badge" class="text-[10px] font-black px-2 py-0.5 rounded-md bg-accent/20 text-accentHover uppercase tracking-wide"></span>
+                <div id="dt-media-sticky" class="dt-area-media sticky top-0 md:static z-20 md:z-auto -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
+                    <div id="dt-title-bar" class="flex items-center justify-between gap-2.5 mb-2">
+                        <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                            <button onclick="dictBackToLibrary()" class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-500 hover:text-primary hover:border-primary flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0" title="Quay lại thư viện">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <div class="min-w-0 flex-1">
+                                <h2 id="dt-title" class="font-black text-brandNavy text-sm sm:text-lg leading-tight truncate"></h2>
+                                <div class="flex items-center gap-2">
+                                    <span id="dt-badge" class="text-[10px] font-black px-2 py-0.5 rounded-md bg-accent/20 text-accentHover uppercase tracking-wide"></span>
+                                </div>
                             </div>
+                        </div>
+                        <!-- Phím tắt nhanh trên máy tính -->
+                        <div class="hidden xl:flex items-center gap-2 bg-white/80 border border-slate-200 rounded-full px-3 py-1 text-[11px] text-slate-500 shadow-2xs shrink-0 select-none">
+                            <span class="text-slate-400 font-bold"><i class="fa-regular fa-keyboard mr-1"></i>Phím tắt:</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">Space</kbd> Phát</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">←/→</kbd> Câu</span>
+                            <span class="flex items-center gap-1"><kbd class="px-1.5 py-0.2 text-[9px] font-bold font-mono bg-slate-100 border border-slate-200 rounded text-slate-700">L</kbd> Lặp</span>
                         </div>
                     </div>
 
@@ -16669,15 +16938,15 @@ document.addEventListener('click', (ev) => {
                 </div>
             </div>
 
-            <div class="dt-area-cues bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-3xl p-4 sm:p-5 shadow-soft">
-                <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <div class="dt-area-cues -mx-3 sm:mx-0 bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-soft">
+                <div id="dt-cue-head" class="flex items-center justify-between mb-3 flex-wrap gap-2 px-0.5">
                     <div class="flex items-center gap-2 text-sm font-black text-brandNavy">
                         <div class="w-7 h-7 rounded-lg bg-td-lightBlue/40 text-primary flex items-center justify-center"><i class="fa-solid fa-headphones text-xs"></i></div>
                         Chép chính tả
                     </div>
                     <span id="dt-progress" class="text-xs font-bold text-primary bg-td-lightBlue/25 rounded-full px-2.5 py-1">0/0</span>
                 </div>
-                <div id="dt-cue-list" class="relative flex flex-col gap-3"></div>
+                <div id="dt-cue-list" class="relative flex flex-col gap-3 overflow-y-auto custom-scrollbar pr-0.5 sm:pr-1"></div>
             </div>
         </div>
 
@@ -16716,9 +16985,37 @@ document.addEventListener('click', (ev) => {
     function renderLessonGrid() {
         const wrap = document.getElementById('dict-lesson-grid-wrap');
         const countEl = document.getElementById('dict-lesson-count');
-        lessonItems = (typeof rawKaraokeData !== 'undefined' ? rawKaraokeData : []).filter(d => d.type === 'dialogue' || d.type === 'passage' || !d.type);
-        countEl.textContent = lessonItems.length;
+        const srcData = (typeof window.rawKaraokeData !== 'undefined' && Array.isArray(window.rawKaraokeData))
+            ? window.rawKaraokeData
+            : ((typeof rawKaraokeData !== 'undefined' && Array.isArray(rawKaraokeData)) ? rawKaraokeData : []);
+        lessonItems = srcData.filter(d => d.type === 'dialogue' || d.type === 'passage' || !d.type);
+        if (countEl) countEl.textContent = lessonItems.length;
         if (!lessonItems.length) {
+            const les = document.getElementById('select-lesson');
+            const curLessonId = les ? les.value : '';
+            if (!curLessonId) {
+                wrap.innerHTML = '<div class="text-center text-slate-400 py-10 text-sm">Chọn một bài học ở phía trên để bắt đầu.</div>';
+                return;
+            }
+            if (window._dictLoadedLessonId !== String(curLessonId)) {
+                window._dictLoadedLessonId = String(curLessonId);
+                wrap.innerHTML = '<div class="text-center text-slate-400 py-10 text-sm">Đang tải hội thoại & bài khóa…</div>';
+                fetch(`api.php?action=get_lesson_contents&lesson_id=${curLessonId}`)
+                    .then(r => r.json())
+                    .then(diagJson => {
+                        const data = (diagJson && diagJson.success && Array.isArray(diagJson.data)) ? diagJson.data : [];
+                        window.rawKaraokeData = data;
+                        rawKaraokeData = data;
+                        if (data.length > 0) {
+                            renderLessonGrid();
+                        } else {
+                            wrap.innerHTML = '<div class="text-center text-slate-400 py-10 text-sm">Bài học hiện tại chưa có hội thoại/bài khóa.</div>';
+                        }
+                    }).catch(() => {
+                        wrap.innerHTML = '<div class="text-center text-slate-400 py-10 text-sm">Bài học hiện tại chưa có hội thoại/bài khóa.</div>';
+                    });
+                return;
+            }
             wrap.innerHTML = '<div class="text-center text-slate-400 py-10 text-sm">Bài học hiện tại chưa có hội thoại/bài khóa.</div>';
             return;
         }
@@ -16862,13 +17159,24 @@ document.addEventListener('click', (ev) => {
             }
         }, 60);
 
+        const cueListEl = document.getElementById('dt-cue-list');
+        if (cueListEl) {
+            cueListEl.scrollTo({ top: 0, behavior: 'instant' });
+            cueListEl.scrollTop = 0;
+        }
+
         const mediaEl = document.getElementById('dt-media-sticky');
         if (mediaEl) mediaEl.classList.remove('dt-hide-title');
+        lastDictCueScrollY = 0;
+        lastDictPageScrollY = 0;
 
         updateModeButtons();
         renderCueList();
+        bindDictCueListAutoHide();
+        bindDictPageAutoHide();
         updateCurrentPanel();
         setupPlayer();
+        fitDictCueListHeight();
     }
 
     window.dictStopAll = function () {
@@ -17033,17 +17341,77 @@ document.addEventListener('click', (ev) => {
         res.classList.remove('hidden');
     };
 
+    let lastDictCueScrollY = 0;
+    function bindDictCueListAutoHide() {
+        const list = document.getElementById('dt-cue-list');
+        const media = document.getElementById('dt-media-sticky');
+        if (!list || !media || list.dataset.autohide === '1') return;
+        list.dataset.autohide = '1';
+        list.addEventListener('scroll', () => {
+            const y = list.scrollTop;
+            if (y > lastDictCueScrollY + 6 && y > 40) media.classList.add('dt-hide-title');
+            else if (y < lastDictCueScrollY - 6) media.classList.remove('dt-hide-title');
+            lastDictCueScrollY = y;
+        }, { passive: true });
+    }
+
+    let lastDictPageScrollY = 0;
+    function bindDictPageAutoHide() {
+        const handleScroll = (y) => {
+            const detail = document.getElementById('dict-detail');
+            if (!detail || detail.classList.contains('hidden')) return;
+            const media = document.getElementById('dt-media-sticky');
+            if (!media) return;
+            if (y > lastDictPageScrollY + 6 && y > 40) media.classList.add('dt-hide-title');
+            else if (y < lastDictPageScrollY - 6) media.classList.remove('dt-hide-title');
+            lastDictPageScrollY = y;
+        };
+
+        const mc = document.getElementById('mainContent');
+        if (mc && mc.dataset.dtAutohide !== '1') {
+            mc.dataset.dtAutohide = '1';
+            mc.addEventListener('scroll', () => handleScroll(mc.scrollTop), { passive: true });
+        }
+        if (!window._dtWinScrollBound) {
+            window._dtWinScrollBound = true;
+            window.addEventListener('scroll', () => {
+                const y = window.scrollY || document.documentElement.scrollTop || 0;
+                handleScroll(y);
+            }, { passive: true });
+        }
+    }
+
+    function scrollDictCueIntoPosition(el) {
+        const list = document.getElementById('dt-cue-list');
+        if (!el || !list) return;
+        const elTop = el.offsetTop;
+        const elBottom = elTop + el.offsetHeight;
+        const listTop = list.scrollTop;
+        const listBottom = listTop + list.clientHeight;
+
+        // Chỉ cuộn nếu thẻ câu nằm ngoài tầm nhìn của khung danh sách
+        if (elTop < listTop + 10 || elBottom > listBottom - 10) {
+            const target = el.offsetTop - (list.clientHeight / 2) + (el.offsetHeight / 2);
+            list.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
+    }
+
     function renderCueList() {
         const el = document.getElementById('dt-cue-list');
         if (!cues.length) { el.innerHTML = '<div class="text-center text-slate-400 py-6 text-sm">Nội dung này chưa có dữ liệu để chép chính tả.</div>'; document.getElementById('dt-progress').textContent = '0/0'; return; }
         document.getElementById('dt-progress').textContent = `${curCueIdx + 1}/${cues.length}`;
         el.innerHTML = cues.map((c, i) => cueCardHTML(c, i)).join('');
+        bindDictCueListAutoHide();
+        requestAnimationFrame(() => { fitDictCueListHeight(); });
     }
 
     function highlightCue(i) {
         document.querySelectorAll('.dt-cue').forEach(el => el.classList.remove('border-primary', 'bg-td-lightBlue/10'));
         const el = document.getElementById('dt-cue-' + i);
-        if (el) { el.classList.add('border-primary', 'bg-td-lightBlue/10'); el.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+        if (el) {
+            el.classList.add('border-primary', 'bg-td-lightBlue/10');
+            scrollDictCueIntoPosition(el);
+        }
         document.getElementById('dt-progress').textContent = `${i + 1}/${cues.length}`;
     }
     function updateCurrentPanel() { /* placeholder for future extensions */ }
@@ -17219,6 +17587,67 @@ document.addEventListener('click', (ev) => {
     function stopPoll() { if (poll) { clearInterval(poll); poll = null; } }
 
     document.addEventListener('visibilitychange', () => { if (document.hidden && media.ready()) { try { media.pause(); } catch (e) {} } });
+
+    // Đặt chiều cao khung câu = phần màn hình còn lại (sau khi trừ header app + khối video + header thẻ).
+    // Nhờ vậy KHỐI chép chính tả đứng yên, chỉ danh sách câu bên trong cuộn độc lập.
+    function fitDictCueListHeight() {
+        const list = document.getElementById('dt-cue-list');
+        const detail = document.getElementById('dict-detail');
+        if (!list || !detail || detail.classList.contains('hidden')) return;
+
+        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+        const appHeader = document.getElementById('main-app-header');
+        const headerH = appHeader ? appHeader.getBoundingClientRect().height : 0;
+        const headEl = document.getElementById('dt-cue-head');
+        const cueHeadH = headEl ? headEl.getBoundingClientRect().height : 0;
+
+        if (isDesktop) {
+            const mc = document.getElementById('mainContent');
+            const containerH = mc ? mc.clientHeight : (window.innerHeight - headerH);
+            const h = containerH - cueHeadH - 96;
+            list.style.height = Math.max(300, h) + 'px';
+        } else {
+            const mediaEl = document.getElementById('dt-media-sticky');
+            const mediaH = mediaEl ? mediaEl.getBoundingClientRect().height : 0;
+            const chrome = 32;
+            const h = window.innerHeight - headerH - mediaH - cueHeadH - chrome;
+            list.style.height = Math.max(240, h) + 'px';
+        }
+    }
+
+    window.addEventListener('resize', fitDictCueListHeight);
+    if (window.ResizeObserver) {
+        const dtMediaRO = new ResizeObserver(() => fitDictCueListHeight());
+        const dtMediaEl = document.getElementById('dt-media-sticky');
+        if (dtMediaEl) dtMediaRO.observe(dtMediaEl);
+    }
+
+    // Hotkeys máy tính: Space (Phát/Dừng), ArrowLeft/Right (Đổi câu), L (Lặp), P (Nghe lại)
+    window.addEventListener('keydown', (e) => {
+        const view = document.getElementById('view-dictation');
+        const detail = document.getElementById('dict-detail');
+        if (!view || view.classList.contains('hidden') || !detail || detail.classList.contains('hidden')) return;
+
+        const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable)) return;
+
+        if (e.code === 'Space') {
+            e.preventDefault();
+            dictTogglePlay();
+        } else if (e.code === 'ArrowLeft') {
+            e.preventDefault();
+            dictPrevCue();
+        } else if (e.code === 'ArrowRight') {
+            e.preventDefault();
+            dictNextCue();
+        } else if (e.code === 'KeyL' && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            dictToggleLoop();
+        } else if (e.code === 'KeyP' && !e.ctrlKey && !e.metaKey) {
+            e.preventDefault();
+            dictReplayCue();
+        }
+    });
 })();
 </script>
 
@@ -18020,6 +18449,7 @@ document.addEventListener('click', (ev) => {
         let quizQuestions = [];
 
         let rawKaraokeData = []; 
+        window.rawKaraokeData = rawKaraokeData; 
 
         let currentKaraokeLines = []; 
 
@@ -18463,7 +18893,8 @@ document.addEventListener('click', (ev) => {
                     e.preventDefault();
                     const nextBtn = document.getElementById('quiz-next-btn');
                     if (nextBtn && !nextBtn.classList.contains('hidden')) {
-                        nextBtn.click();
+                        if (typeof nextQuiz === 'function') nextQuiz();
+                        else nextBtn.click();
                     } else {
                         const ttsBtn = document.querySelector('#quiz-container button[onclick*="playTTS"]');
                         if (ttsBtn) {
@@ -19703,7 +20134,7 @@ document.addEventListener('click', (ev) => {
 
                 'dashboard': 'Trang chủ', 'srs': 'Ôn tập Ký ức', 'vocab': 'Từ vựng', 'flashcard': 'Flashcard',
 
-                'listening': 'Tập viết chữ Hán', 'quiz': 'Trắc nghiệm', 'karaoke': 'Hội thoại', 'tocfl': 'Thi thử TOCFL',
+                'listening': 'Luyện gõ chữ Hán', 'quiz': 'Trắc nghiệm', 'karaoke': 'Hội thoại', 'tocfl': 'Thi thử TOCFL',
 
                 'calculator': 'Tính điểm TOCFL', 'bo-thu': 'Bộ thủ Hán tự', 'dict-lookup': 'Từ điển Trung-Việt', 'luong-tu': 'Lượng từ tiếng Trung', 'shadowing': 'Luyện nói (Shadowing)', 'dictation': 'Nghe chép chính tả', 'community': 'Cộng đồng', 'profile': 'Trang cá nhân', 'vocab-notebook-hub': 'Sổ tay từ vựng', 'grammar-hub': 'Kho ngữ pháp'
 
@@ -19731,7 +20162,7 @@ document.addEventListener('click', (ev) => {
 
             // LOGIC MỚI: ẨN/HIỆN PHẦN CHỌN BÀI HỌC DỰA TRÊN TAB
 
-            const learningTabs = ['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'vocab-notebook-hub'];
+            const learningTabs = ['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'vocab-notebook-hub', 'dictation'];
 
             const selectorsWrap = document.getElementById('lesson-selectors');
 
@@ -19805,7 +20236,14 @@ document.addEventListener('click', (ev) => {
 
             if (tabName === 'shadowing' && typeof initShadowing === 'function') initShadowing();
 
-            if (tabName === 'karaoke' && typeof renderKaraokeContent === 'function') renderKaraokeContent(currentKaraokeIdx);
+            if (tabName === 'karaoke') {
+                if (!rawKaraokeData || rawKaraokeData.length === 0) {
+                    if (typeof ensureKaraokeHasContent === 'function') ensureKaraokeHasContent();
+                    else if (typeof renderKaraokeContent === 'function') renderKaraokeContent(currentKaraokeIdx);
+                } else if (typeof renderKaraokeContent === 'function') {
+                    renderKaraokeContent(currentKaraokeIdx);
+                }
+            }
 
             if (tabName === 'dictation' && typeof initDictationTab === 'function') initDictationTab();
 
@@ -21087,7 +21525,7 @@ document.addEventListener('click', (ev) => {
             if (!lessonId) return;
             const activeNavEl = document.querySelector('.nav-item.active');
             const module = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
-            if (!['vocab', 'flashcard', 'listening', 'quiz', 'karaoke'].includes(module)) return;
+            if (!['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'dictation'].includes(module)) return;
             const book = document.getElementById('select-book');
             const curriculumId = book && book.selectedOptions[0] ? book.selectedOptions[0].dataset.curriculum : null;
             const lessonLabel = (les.selectedOptions[0] ? les.selectedOptions[0].text : '') || '';
@@ -21299,11 +21737,13 @@ document.addEventListener('click', (ev) => {
                 filteredVocabData = [...vocabData];
 
                 rawKaraokeData = [];
+                window.rawKaraokeData = [];
+                window._dictLoadedLessonId = String(lessonId);
 
                 const activeNavEl = document.querySelector('.nav-item.active');
                 const activeNav = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
 
-                if (['vocab', 'flashcard', 'listening', 'quiz', 'karaoke'].includes(activeNav)) switchTab(activeNav);
+                if (['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'dictation'].includes(activeNav)) switchTab(activeNav);
 
                 return;
 
@@ -21328,8 +21768,10 @@ document.addEventListener('click', (ev) => {
                 const diagJson = await resDiag.json();
 
                 rawKaraokeData = (diagJson.success && diagJson.data) ? diagJson.data : [];
+                window.rawKaraokeData = rawKaraokeData;
+                window._dictLoadedLessonId = String(lessonId);
 
-            } catch (err) { rawKaraokeData = []; }
+            } catch (err) { rawKaraokeData = []; window.rawKaraokeData = []; window._dictLoadedLessonId = String(lessonId); }
 
             
 

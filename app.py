@@ -124,6 +124,7 @@ for w in ALL_VOCAB:
     
     item = {
         "dict_id": did,
+        "vocab_id": w.get("vocab_id") or did,
         "hanzi": hz,
         "hanzi_simplified": simp if simp != hz else None,
         "pinyin": py,
@@ -141,6 +142,14 @@ for w in ALL_VOCAB:
     DICT_INDEX.append(item)
     DICT_BY_ID[str(did)] = item
 print(f"Compiled optimized DICT_INDEX with {len(DICT_INDEX)} unique entries.")
+
+# Pre-computed TOCFL vocabulary by band (1-6)
+TOCFL_VOCAB = {i: [] for i in range(1, 7)}
+for it in DICT_INDEX:
+    b = it.get("tocfl_band")
+    if b in TOCFL_VOCAB:
+        TOCFL_VOCAB[b].append(it)
+print(f"Indexed TOCFL_VOCAB: {', '.join(f'Band {k}: {len(v)}' for k, v in TOCFL_VOCAB.items())}")
 
 @app.route("/")
 def index():
@@ -385,6 +394,14 @@ def api_php():
     elif action in ("get_vocab_by_tag", "get_tag_vocab"):
         tid = request.args.get("tag_id")
         return jsonify({"success": True, "data": TAG_VOCAB.get(str(tid), []) if tid else []})
+    elif action in ("get_vocab_by_tocfl_band", "get_tocfl_vocab"):
+        band = request.args.get("band") or request.args.get("level")
+        try:
+            b_val = int(band)
+            data = TOCFL_VOCAB.get(b_val, [])
+            return jsonify({"success": True, "data": data, "total": len(data), "band": b_val})
+        except (ValueError, TypeError):
+            return jsonify({"success": False, "message": "Invalid band", "data": []})
     elif action == "get_vocab_contexts":
         vid = request.args.get("dict_id") or request.args.get("vocab_id") or request.args.get("id")
         word = next((w for w in ALL_VOCAB if str(w.get("dict_id") or w.get("vocab_id") or w.get("id")) == str(vid)), None)
@@ -1320,18 +1337,21 @@ def serve_dict_file(filename):
 def admin_content_api():
     action = request.args.get("action")
     if action == "get_dictionary_stats":
-        band_counts = {}
-        for w in ALL_VOCAB:
-            b = w.get("tocfl_band")
-            if b:
-                band_counts[b] = band_counts.get(b, 0) + 1
-        band_dist = [{"tocfl_band": k, "cnt": v} for k, v in sorted(band_counts.items())]
+        band_dist = [{"tocfl_band": k, "cnt": len(v)} for k, v in sorted(TOCFL_VOCAB.items())]
         return jsonify({
             "success": True,
-            "total_words": len(ALL_VOCAB),
+            "total_words": len(DICT_INDEX),
             "band_dist": band_dist
         })
     return jsonify({"success": True, "data": []})
+
+@app.route("/api_notifications.php", methods=["GET", "POST"])
+def api_notifications():
+    return jsonify({"success": True, "count": 0, "data": []})
+
+@app.route("/api_tracking.php", methods=["GET", "POST"])
+def api_tracking():
+    return jsonify({"success": True})
 
 @app.route("/<page>")
 def serve_page(page):

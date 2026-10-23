@@ -381,17 +381,71 @@ window.addEventListener('error', function(e) {
         /* Nút font đang chọn trong menu tài khoản mobile */
         .font-opt-active { border-color: #027AB3 !important; color: #027AB3 !important; background: rgba(2,122,179,.08); }
 
-        body {
-
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
             background-color: #F8FAFC;
-
             -webkit-font-smoothing: antialiased;
-
             -moz-osx-font-smoothing: grayscale;
-
         }
 
+        /* Khung nội dung chính: triệt tiêu rãnh chiếm lề (gutter) để toàn bộ app cân đối 100%, không bị lệch trái */
+        #mainContent {
+            overflow-y: auto !important;
+            overflow-y: overlay !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
 
+        #mainContent::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+
+        /* Thanh trượt nổi bên trên (Floating Overlay Scrollbar) */
+        #floating-scrollbar-track {
+            position: absolute;
+            right: 4px;
+            width: 12px;
+            z-index: 40;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #floating-scrollbar-thumb {
+            width: 6px;
+            background: rgba(100, 116, 139, 0.45);
+            border-radius: 9999px;
+            transition: width 0.15s ease, background-color 0.15s ease;
+            pointer-events: auto;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        #floating-scrollbar-thumb:hover,
+        #floating-scrollbar-track:hover #floating-scrollbar-thumb {
+            width: 9px;
+            background: rgba(71, 85, 105, 0.75);
+        }
+
+        #floating-scrollbar-thumb.is-dragging {
+            width: 9px;
+            background: rgba(2, 122, 179, 0.95) !important;
+        }
+
+        /* Cuộn phụ (sidebar, dropdown, modal) */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
 
         ::-webkit-scrollbar {
 
@@ -17698,6 +17752,11 @@ document.addEventListener('click', (ev) => {
 
         </main>
 
+        <!-- Floating Overlay Scrollbar (nổi bên trên, không chiếm lề layout) -->
+        <div id="floating-scrollbar-track" aria-hidden="true">
+            <div id="floating-scrollbar-thumb"></div>
+        </div>
+
     </div>
 
 
@@ -21810,6 +21869,141 @@ document.addEventListener('click', (ev) => {
     })();
     </script>
 
+    <!-- Script điều khiển Floating Overlay Scrollbar (nổi bên trên, không chiếm lề layout) -->
+    <script>
+    (function initFloatingScrollbar() {
+        const main = document.getElementById('mainContent');
+        const track = document.getElementById('floating-scrollbar-track');
+        const thumb = document.getElementById('floating-scrollbar-thumb');
+        if (!main || !track || !thumb) return;
+
+        let isDragging = false;
+        let startY = 0;
+        let startScrollTop = 0;
+        let isHovering = false;
+        let hideTimer = null;
+
+        function update() {
+            const scrollH = main.scrollHeight;
+            const clientH = main.clientHeight;
+            if (scrollH <= clientH + 4) {
+                track.style.display = 'none';
+                return;
+            }
+            track.style.display = 'flex';
+            const topOffset = main.offsetTop + 4;
+            const availH = clientH - 8;
+            track.style.top = topOffset + 'px';
+            track.style.height = availH + 'px';
+
+            const thumbH = Math.max(36, Math.min(availH * 0.8, (clientH / scrollH) * availH));
+            thumb.style.height = thumbH + 'px';
+
+            const maxScroll = scrollH - clientH;
+            const maxThumbTop = availH - thumbH;
+            const currentTop = maxScroll > 0 ? (main.scrollTop / maxScroll) * maxThumbTop : 0;
+            thumb.style.transform = `translateY(${currentTop}px)`;
+        }
+
+        function show(persist) {
+            update();
+            track.style.opacity = '1';
+            clearTimeout(hideTimer);
+            if (!persist && !isDragging && !isHovering) {
+                hideTimer = setTimeout(() => {
+                    track.style.opacity = '0';
+                }, 1200);
+            }
+        }
+
+        main.addEventListener('scroll', () => show(false), { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+
+        // Tự động nhận biết khi nội dung trong view thay đổi kích thước
+        if (window.ResizeObserver) {
+            const ro = new ResizeObserver(() => update());
+            ro.observe(main);
+        }
+
+        // Kéo thả chuột trên thanh trượt nổi
+        thumb.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startY = e.clientY;
+            startScrollTop = main.scrollTop;
+            main.style.scrollBehavior = 'auto';
+            thumb.classList.add('is-dragging');
+            show(true);
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaY = e.clientY - startY;
+            const scrollH = main.scrollHeight;
+            const clientH = main.clientHeight;
+            const availH = clientH - 8;
+            const thumbH = parseFloat(thumb.style.height) || 36;
+            const maxThumbTop = availH - thumbH;
+            const maxScroll = scrollH - clientH;
+
+            if (maxThumbTop > 0) {
+                const scrollDelta = (deltaY / maxThumbTop) * maxScroll;
+                main.scrollTop = startScrollTop + scrollDelta;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                main.style.scrollBehavior = '';
+                thumb.classList.remove('is-dragging');
+                show(false);
+            }
+        });
+
+        // Hover vào vùng thanh cuộn bên phải
+        track.style.pointerEvents = 'auto';
+        track.addEventListener('mouseenter', () => {
+            isHovering = true;
+            show(true);
+        });
+        track.addEventListener('mouseleave', () => {
+            isHovering = false;
+            if (!isDragging) {
+                show(false);
+            }
+        });
+
+        // Click rãnh track để cuộn nhanh đến vị trí
+        track.addEventListener('click', (e) => {
+            if (e.target === thumb) return;
+            const rect = track.getBoundingClientRect();
+            const clickY = e.clientY - rect.top;
+            const availH = rect.height;
+            const thumbH = parseFloat(thumb.style.height) || 36;
+            const targetTop = clickY - (thumbH / 2);
+            const maxThumbTop = availH - thumbH;
+            const maxScroll = main.scrollHeight - main.clientHeight;
+            const ratio = Math.max(0, Math.min(1, targetTop / maxThumbTop));
+            main.scrollTo({ top: ratio * maxScroll, behavior: 'smooth' });
+        });
+
+        // Hook vào switchTab toàn cục để làm mới kích thước thanh trượt ngay khi đổi tab
+        const origSwitchTab = window.switchTab;
+        if (typeof origSwitchTab === 'function') {
+            window.switchTab = function(...args) {
+                const res = origSwitchTab.apply(this, args);
+                setTimeout(update, 60);
+                setTimeout(update, 350);
+                return res;
+            };
+        }
+
+        // Khởi tạo ban đầu
+        setTimeout(update, 120);
+    })();
+    </script>
 </body>
 
 

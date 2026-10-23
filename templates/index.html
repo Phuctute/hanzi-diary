@@ -1709,9 +1709,9 @@ window.addEventListener('error', function(e) {
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 
                     <!-- ========================================================= -->
-                    <!-- CỘT TRÁI (3) — Tiện ích & Tra cứu  · mobile order-3       -->
+                    <!-- CỘT PHỤ (4) — Tiện ích cá nhân, SRS & Thi thử (Sticky)    -->
                     <!-- ========================================================= -->
-                    <aside class="lg:col-span-4 order-6 lg:order-none flex flex-col gap-6">
+                    <aside id="dash-aside-col" class="lg:col-span-4 order-6 lg:order-2 lg:sticky lg:top-6 flex flex-col gap-5">
 
                         <!-- Tiếp tục học (Resume) -->
                         <section id="dash-resume-wrap" class="rounded-3xl p-5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-gradient-to-br from-[#047857] via-[#0FA968] to-[#34D399] text-white relative overflow-hidden">
@@ -1724,6 +1724,39 @@ window.addEventListener('error', function(e) {
                                 <div id="dash-resume">
                                     <div class="text-sm text-white/80 py-2">Chưa có bài học nào gần đây.</div>
                                 </div>
+                            </div>
+                        </section>
+
+                        <!-- Widget: Trạm ôn ký ức (SRS) -->
+                        <section id="dash-srs-widget" class="rounded-3xl p-5 bg-gradient-to-br from-blue-50/80 via-white to-sky-50/50 ring-1 ring-sky-100/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
+                            <i class="fa-solid fa-clock-rotate-left absolute -right-3 -bottom-3 text-[100px] text-sky-500/10 pointer-events-none"></i>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0A93D4] to-[#027AB3] text-white flex items-center justify-center text-sm shadow-md shadow-[#027AB3]/25"><i class="fa-solid fa-bolt"></i></span>
+                                        <div>
+                                            <h3 class="font-black text-slate-800 text-[14px] leading-tight">Trạm ôn ký ức</h3>
+                                            <span class="text-[10px] font-extrabold text-[#027AB3] uppercase tracking-wider">FSRS Spaced Repetition</span>
+                                        </div>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-sky-100 text-[#027AB3]">Hôm nay</span>
+                                </div>
+                                <div class="bg-white/80 backdrop-blur rounded-2xl p-3.5 ring-1 ring-sky-100 mb-3 flex items-center justify-between">
+                                    <div>
+                                        <div class="flex items-baseline gap-1.5">
+                                            <span id="dash-srs-due-count" class="text-3xl font-black text-slate-800 leading-none">0</span>
+                                            <span class="text-xs text-slate-500 font-bold">từ đến hạn</span>
+                                        </div>
+                                        <p id="dash-srs-subtext" class="text-[11px] text-slate-500 font-medium mt-1 leading-tight">Đang đồng bộ...</p>
+                                    </div>
+                                    <button onclick="startSrsReview('flashcard')" title="Ôn tập ngay" class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#027AB3] to-[#0A93D4] hover:scale-105 active:scale-95 text-white flex items-center justify-center text-base shadow-md shadow-[#027AB3]/30 transition-all shrink-0">
+                                        <i class="fa-solid fa-play ml-0.5"></i>
+                                    </button>
+                                </div>
+                                <button onclick="switchTab('srs')" class="w-full flex items-center justify-between py-2 px-3 rounded-xl bg-sky-50/70 hover:bg-sky-100/70 text-[#027AB3] text-xs font-bold transition-colors">
+                                    <span>Xem chi tiết trạm ôn &amp; biểu đồ</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                </button>
                             </div>
                         </section>
 
@@ -1757,10 +1790,10 @@ window.addEventListener('error', function(e) {
                     </aside>
 
                     <!-- ========================================================= -->
-                    <!-- CỘT TRUNG TÂM (6) — Nội dung học                          -->
+                    <!-- CỘT CHÍNH (8) — Nội dung học tập & Lộ trình                -->
                     <!-- Mobile: display:contents → các section con tham gia grid   -->
                     <!-- ========================================================= -->
-                    <main id="dash-main-col" class="lg:col-span-6 lg:order-none flex flex-col gap-6">
+                    <main id="dash-main-col" class="lg:col-span-8 order-1 lg:order-1 flex flex-col gap-6">
 
                         <!-- Tra từ điển nhanh (search nổi bật, dropdown gợi ý) -->
                         <section class="relative">
@@ -1841,7 +1874,7 @@ window.addEventListener('error', function(e) {
                                 <h3 class="font-black text-slate-800 text-base sm:text-lg">Phương pháp học &amp; thi</h3>
                                 <span class="text-[11px] font-bold text-slate-400">10 chế độ</span>
                             </div>
-                            <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                            <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
                                 <!-- Thi thử TOCFL -->
                                 <button onclick="switchTab('tocfl')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-sky-50 to-white ring-1 ring-sky-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(2,122,179,0.35)] transition-all duration-300">
                                     <i class="fa-solid fa-graduation-cap absolute -right-3 -bottom-3 text-6xl text-[#027AB3]/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
@@ -20341,6 +20374,7 @@ document.addEventListener('click', (ev) => {
             initDashboardStatic();
             loadDashLeaderboard();
             renderDashResume();
+            renderDashSrsWidget();
 
             const guestBtn = document.getElementById('dash-streak-guest');
             const weekBox = document.getElementById('dash-week');
@@ -20497,6 +20531,29 @@ document.addEventListener('click', (ev) => {
             switchTab(valid.includes(module) ? module : 'vocab');
         }
 
+        // ---- Widget Trạm ôn ký ức (SRS) tại Dashboard ----
+        async function renderDashSrsWidget() {
+            const dueEl = document.getElementById('dash-srs-due-count');
+            const subEl = document.getElementById('dash-srs-subtext');
+            if (!dueEl) return;
+            try {
+                const r = await fetch('api.php?action=get_lesson_srs_stats&lesson_id=0');
+                const j = await r.json();
+                if (j && j.success && j.data) {
+                    const due = j.data.due_now || 0;
+                    const mastered = j.data.mastered || 0;
+                    dueEl.textContent = due;
+                    if (subEl) {
+                        subEl.textContent = due > 0
+                            ? `Cần ôn ngay hôm nay · Đã thuộc ${mastered} từ`
+                            : `Đã hoàn thành hôm nay · Đã thuộc ${mastered} từ`;
+                    }
+                }
+            } catch (e) {
+                if (subEl) subEl.textContent = 'Ôn tập từ vựng đúng thời điểm';
+            }
+        }
+
         // ---- Lộ trình giáo trình (bản đồ sách, phân theo loại) ----
         const DASH_BOOK_COLORS = [
             { bg: 'bg-blue-50', icon: 'text-blue-500' },
@@ -20578,7 +20635,7 @@ document.addEventListener('click', (ev) => {
                             <h4 class="font-black text-slate-700 text-[13px] uppercase tracking-wide">${dashEsc(headLabel)}</h4>
                             ${countBadge}
                         </div>
-                        <div class="grid grid-cols-3 sm:grid-cols-4 gap-2.5">${group.map((b, i) => dashBookCard(b, typeName, i)).join('')}</div>
+                        <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3">${group.map((b, i) => dashBookCard(b, typeName, i)).join('')}</div>
                     </div>`;
                 });
                 box.innerHTML = html;

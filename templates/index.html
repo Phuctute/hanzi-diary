@@ -294,10 +294,11 @@ window.addEventListener('error', function(e) {
             --font-chinese-tc: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
         }
 
-        /* Với Noto Sans TC, chữ Hán hiển thị đậm rõ nét ở weight 700 */
+        /* Chữ Hán thanh mảnh, tinh tế, vừa mắt ở weight 500 (tránh bị đậm thô) */
         .font-tc.font-black,
-        .font-tc.font-bold {
-            font-weight: 700 !important;
+        .font-tc.font-bold,
+        .vocab-hanzi-main {
+            font-weight: 500 !important;
             font-synthesis: none;
         }
 
@@ -570,7 +571,7 @@ window.addEventListener('error', function(e) {
 
             line-height: 1.15;
 
-            font-weight: 600 !important;
+            font-weight: 500 !important;
 
             font-synthesis: none;
 
@@ -610,7 +611,7 @@ window.addEventListener('error', function(e) {
 
             line-height: 1.2;
 
-            font-weight: 600 !important;
+            font-weight: 500 !important;
 
             font-synthesis: none;
 
@@ -2363,7 +2364,7 @@ window.addEventListener('error', function(e) {
 .fc-save-btn.is-saved { color:#EAB942 !important; }
 
 .vnh-word-row { display:flex; align-items:center; justify-content:space-between; gap:10px; background:#fff; border:1px solid #f1f5f9; border-radius:14px; padding:10px 12px; }
-.vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:700; font-size:1.1rem; color:#1e293b; }
+.vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
 <script>
@@ -2839,7 +2840,7 @@ window.addEventListener('error', function(e) {
 /* ===== Card ngữ pháp trong danh sách kết quả (bấm -> mở modal chi tiết) ===== */
 .gmh-item { background:#F4F5F9; border:1.5px solid transparent; border-radius:16px; padding:16px 18px; cursor:pointer; transition:all .16s ease; }
 .gmh-item:hover { background:#EAF3FA; border-color:#B7DCEE; transform:translateY(-1px); }
-.gmh-item .g-pattern { font-family:var(--font-chinese-tc), sans-serif; font-weight:700; font-size:1.55rem; color:#027AB3; line-height:1.3; }
+.gmh-item .g-pattern { font-family:var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.55rem; color:#027AB3; line-height:1.3; }
 .gmh-item .g-pinyin { font-size:13px; color:#94a3b8; font-weight:600; }
 .gmh-item .g-title { font-size:14.5px; font-weight:800; color:#334155; margin-top:4px; }
 .gmh-item .g-explain { font-size:13.5px; color:#64748b; margin-top:6px; line-height:1.55; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
@@ -2854,20 +2855,20 @@ window.addEventListener('error', function(e) {
 .gmh-pager-input { width:48px; text-align:center; border:1.5px solid #e2e8f0; border-radius:8px; padding:5px 4px; font-size:12.5px; font-weight:800; color:#334155; }
 
 /* ===== Modal chi tiết ===== */
-.gmh-detail-hanzi { font-family:var(--font-chinese-tc), sans-serif; font-weight:700; font-size:2.9rem; line-height:1.25; color:#027AB3; }
+.gmh-detail-hanzi { font-family:var(--font-chinese-tc), sans-serif; font-weight:500; font-size:2.9rem; line-height:1.25; color:#027AB3; }
 .gmh-detail-pinyin { font-size:16.5px; color:#64748b; font-weight:700; margin-top:4px; }
 .gmh-detail-title { font-size:18px; font-weight:800; color:#334155; margin-top:8px; }
 .gmh-detail-explain { font-size:15px; color:#334155; line-height:1.75; margin-top:14px; }
 .gmh-detail-structure { background:#F0F7FF; border:1.5px solid #D6E4FA; border-radius:16px; padding:14px 16px; margin-top:14px; font-size:14.5px; color:#1e3a5f; font-weight:700; }
 .gmh-example { background:#F8FAFC; border:1px solid #eef2f7; border-radius:14px; padding:12px 14px; margin-top:10px; display:flex; align-items:flex-start; gap:10px; }
-.gmh-example .e-zh { font-family:var(--font-chinese-tc), sans-serif; font-weight:600; color:#027AB3; font-size:17px; }
+.gmh-example .e-zh { font-family:var(--font-chinese-tc), sans-serif; font-weight:500; color:#027AB3; font-size:17px; }
 .gmh-example .e-pinyin { color:#94a3b8; font-size:12px; font-weight:600; margin-top:1px; }
 .gmh-example .e-vi { color:#64748b; font-size:13.5px; margin-top:4px; }
 .gmh-speak-btn { flex-shrink:0; width:34px; height:34px; border-radius:50%; background:#fff; border:1.5px solid #e2e8f0; color:#027AB3; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all .15s ease; }
 .gmh-speak-btn:hover { border-color:#027AB3; background:#EAF3FA; }
 .gmh-confusable-chip { display:inline-flex; flex-direction:column; background:#FFF9EC; border:1.5px solid #FBE8B8; border-radius:12px; padding:8px 12px; cursor:pointer; transition:all .15s ease; }
 .gmh-confusable-chip:hover { transform:translateY(-1px); box-shadow:0 6px 16px -4px rgba(217,119,6,.25); }
-.gmh-confusable-chip .c-pattern { font-family:var(--font-chinese-tc), sans-serif; font-weight:700; color:#027AB3; font-size:15px; }
+.gmh-confusable-chip .c-pattern { font-family:var(--font-chinese-tc), sans-serif; font-weight:500; color:#027AB3; font-size:15px; }
 .gmh-bookmark-btn { display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:14px; font-weight:800; font-size:13.5px; border:2px solid #E3ECF6; color:#027AB3; background:#fff; cursor:pointer; transition:all .15s ease; }
 .gmh-bookmark-btn.is-saved { background:linear-gradient(135deg,#FBBF24,#F59E0B); border-color:transparent; color:#fff; }
 .gmh-fb-item { border-bottom:1px solid #f1f5f9; padding:12px 0; }
@@ -2881,7 +2882,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-card.is-flipped { transform:rotateY(180deg); }
 .gmh-fc-face { position:absolute; inset:0; backface-visibility:hidden; border-radius:20px; border:1.5px solid #eef2f7; background:#F8FAFC; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; overflow-y:auto; }
 .gmh-fc-face.back { transform:rotateY(180deg); align-items:stretch; text-align:left; justify-content:flex-start; }
-.gmh-fc-hanzi { font-family:var(--font-chinese-tc), sans-serif; font-weight:700; font-size:2.4rem; color:#027AB3; line-height:1.25; }
+.gmh-fc-hanzi { font-family:var(--font-chinese-tc), sans-serif; font-weight:500; font-size:2.4rem; color:#027AB3; line-height:1.25; }
 .gmh-fc-pinyin { font-size:15px; color:#94a3b8; font-weight:600; margin-top:6px; }
 .gmh-fc-title { font-size:16px; font-weight:800; color:#334155; margin-top:12px; }
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
@@ -14145,7 +14146,7 @@ window.addEventListener('error', function(e) {
 /* Dùng chung font Hán tự toàn site (var(--font-chinese-tc), định nghĩa ở index.php = Noto Serif TC),
    giới hạn đậm tối đa SemiBold 600 (chuẩn glyph MOE, tránh lệch bộ thủ như 礻/⺬ khi đổi font tuỳ trang).
    font-synthesis:none phòng ký tự hiếm không có sẵn trong face 600. */
-.dict-hanzi-big { font-family: var(--font-chinese-tc); font-weight: 600 !important; font-synthesis: none; }
+.dict-hanzi-big { font-family: var(--font-chinese-tc); font-weight: 500 !important; font-synthesis: none; }
 .dict-kw-hl { color:#c2410c; font-weight:700; }
 
 /* Nhãn phân đoạn pastel kiểu Hanzii/Flashcard: TỪ LOẠI (tím) · NGHĨA TIẾNG VIỆT (xanh dương) ·

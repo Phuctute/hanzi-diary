@@ -15371,63 +15371,7 @@ document.addEventListener('click', (ev) => {
             .sd-area-cues { flex: 1.2 1 0%; max-width: none; }
         }
 
-        /* Nút âm lượng trên video: MẶC ĐỊNH TỰ ẨN HOÀN TOÀN để không che khung hình video.
-           Chỉ hiện khi rê chuột vào video (máy tính) hoặc chạm vào video (điện thoại), sau đó tự mờ dần biến mất. */
-        #sd-vol-widget {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease, background-color 0.25s ease;
-            user-select: none;
-        }
-        /* Máy tính (có hover): rê chuột vào khung video thì hiện nút */
-        @media (hover: hover) {
-            #sd-video-wrap:hover #sd-vol-widget {
-                opacity: 1;
-                pointer-events: auto;
-            }
-        }
-        /* Mobile / Touch hoặc khi đang mở thanh chỉnh: class .is-visible hiện nút */
-        #sd-vol-widget.is-visible,
-        #sd-vol-widget.is-open {
-            opacity: 1 !important;
-            pointer-events: auto !important;
-        }
-
-        /* Thanh kéo trượt âm lượng: mặc định co lại gọn gàng */
-        .sd-vol-slider-wrap {
-            max-width: 0;
-            opacity: 0;
-            overflow: hidden;
-            pointer-events: none;
-            transform: scaleX(0.7);
-            transform-origin: left center;
-            transition: max-width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                        opacity 0.2s ease,
-                        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        @media (hover: hover) {
-            .sd-vol-widget:hover .sd-vol-slider-wrap {
-                max-width: 100px;
-                opacity: 1;
-                pointer-events: auto;
-                transform: scaleX(1);
-            }
-            .sd-vol-widget:hover {
-                background-color: rgba(0, 0, 0, 0.8) !important;
-                padding-right: 8px !important;
-            }
-        }
-        .sd-vol-widget.is-open .sd-vol-slider-wrap {
-            max-width: 100px;
-            opacity: 1;
-            pointer-events: auto;
-            transform: scaleX(1);
-        }
-        .sd-vol-widget.is-open {
-            background-color: rgba(0, 0, 0, 0.8) !important;
-            padding-right: 8px !important;
-        }
-    </style>
+        </style>
 
     <!-- ============ THƯ VIỆN VIDEO ============ -->
     <div id="shadow-library" class="max-w-7xl mx-auto w-full pb-24">
@@ -15450,14 +15394,14 @@ document.addEventListener('click', (ev) => {
 
     <!-- ============ TRANG CHI TIẾT 1 VIDEO ============ -->
     <div id="shadow-detail" class="hidden max-w-7xl mx-auto w-full pb-24">
-        <div class="sd-detail-grid gap-2 md:gap-5">
+        <div class="sd-detail-grid gap-5">
             <!-- SIDEBAR: video/audio + thanh điều khiển + ghi âm/kết quả/top list.
                  Mobile: display:contents -> 3 khối con tự xếp thứ tự riêng (media/cues/extra) xen với phụ đề.
                  Desktop: trở thành 1 cột riêng bên phải, cao độc lập với phụ đề (xem .sd-sidebar ở <style> đầu file). -->
             <div class="sd-sidebar">
             <!-- KHU VỰC MEDIA: video/audio + thanh điều khiển -->
             <!-- Mobile: cố định (sticky) trên cùng. Desktop: static tự nhiên trong sidebar trái (không che các khối nội dung bên dưới khi cuộn). -->
-            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:static z-20 md:z-auto -mx-4 px-4 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
+            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:static z-20 md:z-auto -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
                     <!-- Thanh back + tiêu đề: đặt TRONG khối sticky nên luôn nhìn thấy dù đã cuộn phụ đề xuống sâu.
                          Tự thu gọn khi cuộn phụ đề xuống, hiện lại khi cuộn lên (xem #sd-title-bar trong <style>). -->
                     <div id="sd-title-bar" class="flex items-center justify-between gap-2.5 mb-2">
@@ -15486,15 +15430,6 @@ document.addEventListener('click', (ev) => {
                     <!-- video (YouTube) -->
                     <div id="sd-video-wrap" class="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft bg-black ring-4 ring-td-lightBlue/25">
                         <div id="sd-player" class="absolute inset-0 w-full h-full"></div>
-                        <!-- Điều khiển âm lượng gọn, tự thu gọn / bung khi hover hoặc chạm -->
-                        <div id="sd-vol-widget" class="sd-vol-widget group/vol absolute bottom-3 right-3 z-20 flex items-center bg-black/45 hover:bg-black/80 backdrop-blur-md rounded-full p-1 text-white transition-all shadow-md border border-white/15">
-                            <button id="sd-mute-btn" onclick="shadowHandleMuteClick(event)" title="Tắt/bật tiếng & Âm lượng" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-white/90 hover:text-white transition-colors shrink-0">
-                                <i class="fa-solid fa-volume-high text-xs"></i>
-                            </button>
-                            <div id="sd-vol-slider-wrap" class="sd-vol-slider-wrap flex items-center">
-                                <input id="sd-volume-range" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" ontouchstart="shadowVolKeepOpen()" onmousedown="shadowVolKeepOpen()" title="Âm lượng" class="w-16 sm:w-20 h-1.5 accent-white cursor-pointer mr-2">
-                            </div>
-                        </div>
                     </div>
 
                     <!-- bài audio (giáo trình) -->
@@ -15508,13 +15443,9 @@ document.addEventListener('click', (ev) => {
                                 <div id="sd-audio-title" class="font-tc font-black text-base sm:text-2xl leading-snug truncate"></div>
                             </div>
                             <!-- Điều khiển âm lượng -->
-                            <div id="sd-vol-widget-a" class="sd-vol-widget group/vol flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-1 text-white transition-all shadow-sm border border-white/20 shrink-0">
-                                <button id="sd-mute-btn-a" onclick="shadowHandleMuteClick(event, 'a')" title="Tắt/bật tiếng & Âm lượng" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-white/90 hover:text-white transition-colors shrink-0">
-                                    <i class="fa-solid fa-volume-high text-xs"></i>
-                                </button>
-                                <div id="sd-vol-slider-wrap-a" class="sd-vol-slider-wrap flex items-center">
-                                    <input id="sd-volume-range-a" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" ontouchstart="shadowVolKeepOpen()" onmousedown="shadowVolKeepOpen()" title="Âm lượng" class="w-14 sm:w-18 h-1.5 accent-white cursor-pointer mr-1.5">
-                                </div>
+                            <div class="flex items-center gap-2 bg-white/15 rounded-full pl-2.5 pr-3 py-1.5 shrink-0">
+                                <button id="sd-mute-btn-a" onclick="shadowToggleMute()" title="Tắt/bật tiếng" class="w-6 h-6 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-volume-high text-xs"></i></button>
+                                <input id="sd-volume-range-a" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" title="Âm lượng" class="w-14 sm:w-20 h-1.5 accent-white cursor-pointer">
                             </div>
                         </div>
                         <div class="mt-3 sm:mt-5">
@@ -15624,7 +15555,7 @@ document.addEventListener('click', (ev) => {
             </div>
 
             <!-- KHU VỰC PHỤ ĐỀ: tràn rộng sát 2 mép màn hình trên mobile, không bị khóa chiều rộng hay hở lề -->
-            <div class="sd-area-cues -mx-4 sm:mx-0 bg-gradient-to-br from-white to-td-lightBlue/10 border-y sm:border border-td-lightBlue/40 rounded-none sm:rounded-3xl p-2 sm:p-5 shadow-soft">
+            <div class="sd-area-cues bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-soft">
                 <div id="sd-cue-head" class="flex items-center justify-between mb-2.5 sm:mb-3 flex-wrap gap-2 px-0.5">
                     <div class="flex items-center gap-2 text-sm font-black text-brandNavy">
                         <div class="w-7 h-7 rounded-lg bg-td-lightBlue/40 text-primary flex items-center justify-center"><i class="fa-solid fa-closed-captioning text-xs"></i></div>
@@ -16175,69 +16106,6 @@ document.addEventListener('click', (ev) => {
         media.toggleMute();
         syncVolumeUI();
     };
-
-    let sdVolTimer = null;
-    window.shadowVolShow = function (dur = 3000) {
-        if (sdVolTimer) clearTimeout(sdVolTimer);
-        const w = document.getElementById('sd-vol-widget');
-        if (w) w.classList.add('is-visible');
-        sdVolTimer = setTimeout(() => {
-            if (w && !w.classList.contains('is-open')) {
-                w.classList.remove('is-visible');
-            }
-        }, dur);
-    };
-
-    window.shadowVolKeepOpen = function () {
-        if (sdVolTimer) clearTimeout(sdVolTimer);
-        const w = document.getElementById('sd-vol-widget');
-        const wa = document.getElementById('sd-vol-widget-a');
-        if (w) { w.classList.add('is-visible'); w.classList.add('is-open'); }
-        if (wa) { wa.classList.add('is-open'); }
-        sdVolTimer = setTimeout(() => {
-            if (w) { w.classList.remove('is-open'); w.classList.remove('is-visible'); }
-            if (wa) { wa.classList.remove('is-open'); }
-        }, 3200);
-    };
-
-    window.shadowHandleMuteClick = function (e, target) {
-        if (e) e.stopPropagation();
-        const isHoverDevice = window.matchMedia('(hover: hover)').matches;
-        const w = target === 'a' ? document.getElementById('sd-vol-widget-a') : document.getElementById('sd-vol-widget');
-
-        if (isHoverDevice) {
-            window.shadowToggleMute();
-        } else {
-            if (w && !w.classList.contains('is-open')) {
-                window.shadowVolKeepOpen();
-            } else {
-                window.shadowToggleMute();
-                window.shadowVolKeepOpen();
-            }
-        }
-    };
-
-    // Chạm vào khung video để hiển thị nút âm lượng trong 3 giây rồi tự ẩn
-    document.addEventListener('DOMContentLoaded', () => {
-        const vWrap = document.getElementById('sd-video-wrap');
-        if (vWrap) {
-            vWrap.addEventListener('click', (e) => {
-                if (e.target.closest('#sd-vol-widget')) return;
-                window.shadowVolShow(3000);
-            });
-        }
-    });
-
-    document.addEventListener('click', function (e) {
-        const vWrap = document.getElementById('sd-video-wrap');
-        const w = document.getElementById('sd-vol-widget');
-        const wa = document.getElementById('sd-vol-widget-a');
-        if (w && (!vWrap || !vWrap.contains(e.target))) {
-            w.classList.remove('is-open');
-            w.classList.remove('is-visible');
-        }
-        if (wa && !wa.contains(e.target)) wa.classList.remove('is-open');
-    });
 
     // ---------- MEDIA ADAPTER: YouTube hoặc audio (giáo trình) ----------
     // Toàn bộ logic karaoke/điều khiển bên dưới chỉ nói chuyện qua media.*,

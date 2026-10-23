@@ -15317,10 +15317,10 @@ document.addEventListener('click', (ev) => {
            - Cột Trái: Video Cinema 16:9 + Điều khiển + Studio Luyện Nói
            - Cột Phải: Bảng phụ đề đồng bộ mở rộng thoáng đãng sang 2 bên
            - Mobile (<768px): phụ đề tràn rộng sang 2 mép màn hình, loại bỏ lề thụt dư thừa */
-        .sd-detail-grid { display: flex; flex-direction: column; }
+        .sd-detail-grid { display: flex; flex-direction: column; width: 100%; }
         .sd-sidebar { display: contents; }
         .sd-area-media { order: 1; }
-        .sd-area-cues { order: 2; width: 100%; }
+        .sd-area-cues { order: 2; width: auto; }
         .sd-area-extra { order: 3; }
         @media (min-width: 768px) {
             .sd-detail-grid {
@@ -15371,11 +15371,29 @@ document.addEventListener('click', (ev) => {
             .sd-area-cues { flex: 1.2 1 0%; max-width: none; }
         }
 
-        /* Widget âm lượng thu gọn thông minh: mặc định chỉ là nút tròn nhỏ gọn, không choán diện tích video */
-        .sd-vol-widget {
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Nút âm lượng trên video: MẶC ĐỊNH TỰ ẨN HOÀN TOÀN để không che khung hình video.
+           Chỉ hiện khi rê chuột vào video (máy tính) hoặc chạm vào video (điện thoại), sau đó tự mờ dần biến mất. */
+        #sd-vol-widget {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, background-color 0.25s ease;
             user-select: none;
         }
+        /* Máy tính (có hover): rê chuột vào khung video thì hiện nút */
+        @media (hover: hover) {
+            #sd-video-wrap:hover #sd-vol-widget {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+        /* Mobile / Touch hoặc khi đang mở thanh chỉnh: class .is-visible hiện nút */
+        #sd-vol-widget.is-visible,
+        #sd-vol-widget.is-open {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Thanh kéo trượt âm lượng: mặc định co lại gọn gàng */
         .sd-vol-slider-wrap {
             max-width: 0;
             opacity: 0;
@@ -15439,7 +15457,7 @@ document.addEventListener('click', (ev) => {
             <div class="sd-sidebar">
             <!-- KHU VỰC MEDIA: video/audio + thanh điều khiển -->
             <!-- Mobile: cố định (sticky) trên cùng. Desktop: static tự nhiên trong sidebar trái (không che các khối nội dung bên dưới khi cuộn). -->
-            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:static z-20 md:z-auto -mx-3 px-3 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
+            <div id="sd-media-sticky" class="sd-area-media sticky top-0 md:static z-20 md:z-auto -mx-4 px-4 sm:mx-0 sm:px-0 pt-2 pb-1 md:pb-0 md:pt-0 bg-surface md:bg-transparent">
                     <!-- Thanh back + tiêu đề: đặt TRONG khối sticky nên luôn nhìn thấy dù đã cuộn phụ đề xuống sâu.
                          Tự thu gọn khi cuộn phụ đề xuống, hiện lại khi cuộn lên (xem #sd-title-bar trong <style>). -->
                     <div id="sd-title-bar" class="flex items-center justify-between gap-2.5 mb-2">
@@ -15605,8 +15623,8 @@ document.addEventListener('click', (ev) => {
             </div>
             </div>
 
-            <!-- KHU VỰC PHỤ ĐỀ: nằm ngoài sidebar, chiếm toàn bộ không gian màn hình chính -->
-            <div class="sd-area-cues -mx-3 sm:mx-0 bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-soft">
+            <!-- KHU VỰC PHỤ ĐỀ: tràn rộng sát 2 mép màn hình trên mobile, không bị khóa chiều rộng hay hở lề -->
+            <div class="sd-area-cues -mx-4 sm:mx-0 bg-gradient-to-br from-white to-td-lightBlue/10 border-y sm:border border-td-lightBlue/40 rounded-none sm:rounded-3xl p-2 sm:p-5 shadow-soft">
                 <div id="sd-cue-head" class="flex items-center justify-between mb-2.5 sm:mb-3 flex-wrap gap-2 px-0.5">
                     <div class="flex items-center gap-2 text-sm font-black text-brandNavy">
                         <div class="w-7 h-7 rounded-lg bg-td-lightBlue/40 text-primary flex items-center justify-center"><i class="fa-solid fa-closed-captioning text-xs"></i></div>
@@ -15991,9 +16009,9 @@ document.addEventListener('click', (ev) => {
         const vi = showVi && c._vi ? `<div class="sd-ci-vi text-[14px] sm:text-[16px] text-slate-600 font-medium mt-1.5 sm:mt-2 leading-relaxed">${esc(c._vi)}</div>` : '';
         // Pinyin per-chữ (kiểu Hội thoại) khi bật; tắt thì chỉ hiện Hán tự thuần, nhẹ hơn.
         const body = `<div class="flex flex-wrap items-end gap-y-1 sm:gap-y-1.5">${cueCharsHTML(c.text, showPinyin)}</div>`;
-        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue w-full text-left rounded-2xl border px-3 sm:px-4 py-2.5 sm:py-3.5 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
-            <div class="flex items-start gap-2 sm:gap-3">
-                <span class="text-[11px] sm:text-[12px] font-bold text-slate-300 mt-1 sm:mt-1.5 shrink-0 select-none text-right">#${i + 1}</span>
+        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue w-full text-left rounded-xl sm:rounded-2xl border px-2.5 sm:px-4 py-2 sm:py-3.5 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
+            <div class="flex items-start gap-1.5 sm:gap-3">
+                <span class="text-[10px] sm:text-[12px] font-bold text-slate-300 mt-1 sm:mt-1.5 shrink-0 select-none text-right w-5 sm:w-6">#${i + 1}</span>
                 <div class="min-w-0 flex-1">${body}${vi}</div>
             </div>
         </button>`;
@@ -16159,15 +16177,26 @@ document.addEventListener('click', (ev) => {
     };
 
     let sdVolTimer = null;
+    window.shadowVolShow = function (dur = 3000) {
+        if (sdVolTimer) clearTimeout(sdVolTimer);
+        const w = document.getElementById('sd-vol-widget');
+        if (w) w.classList.add('is-visible');
+        sdVolTimer = setTimeout(() => {
+            if (w && !w.classList.contains('is-open')) {
+                w.classList.remove('is-visible');
+            }
+        }, dur);
+    };
+
     window.shadowVolKeepOpen = function () {
         if (sdVolTimer) clearTimeout(sdVolTimer);
         const w = document.getElementById('sd-vol-widget');
         const wa = document.getElementById('sd-vol-widget-a');
-        if (w) w.classList.add('is-open');
-        if (wa) wa.classList.add('is-open');
+        if (w) { w.classList.add('is-visible'); w.classList.add('is-open'); }
+        if (wa) { wa.classList.add('is-open'); }
         sdVolTimer = setTimeout(() => {
-            if (w) w.classList.remove('is-open');
-            if (wa) wa.classList.remove('is-open');
+            if (w) { w.classList.remove('is-open'); w.classList.remove('is-visible'); }
+            if (wa) { wa.classList.remove('is-open'); }
         }, 3200);
     };
 
@@ -16188,10 +16217,25 @@ document.addEventListener('click', (ev) => {
         }
     };
 
+    // Chạm vào khung video để hiển thị nút âm lượng trong 3 giây rồi tự ẩn
+    document.addEventListener('DOMContentLoaded', () => {
+        const vWrap = document.getElementById('sd-video-wrap');
+        if (vWrap) {
+            vWrap.addEventListener('click', (e) => {
+                if (e.target.closest('#sd-vol-widget')) return;
+                window.shadowVolShow(3000);
+            });
+        }
+    });
+
     document.addEventListener('click', function (e) {
+        const vWrap = document.getElementById('sd-video-wrap');
         const w = document.getElementById('sd-vol-widget');
         const wa = document.getElementById('sd-vol-widget-a');
-        if (w && !w.contains(e.target)) w.classList.remove('is-open');
+        if (w && (!vWrap || !vWrap.contains(e.target))) {
+            w.classList.remove('is-open');
+            w.classList.remove('is-visible');
+        }
         if (wa && !wa.contains(e.target)) wa.classList.remove('is-open');
     });
 

@@ -3736,9 +3736,9 @@ window.addEventListener('error', function(e) {
         if (!panel) return;
         if (!currentUser || isSrsMode) { panel.classList.add('hidden'); return; }
         const lessonId = fcCurrentLessonId();
-        if (fcSrsScope === 'lesson' && !lessonId) { panel.classList.add('hidden'); return; }
+        const effectiveScope = (fcSrsScope === 'lesson' && !lessonId) ? 'all' : fcSrsScope;
         panel.classList.remove('hidden');
-        const url = fcSrsScope === 'lesson'
+        const url = effectiveScope === 'lesson'
             ? `api.php?action=get_lesson_srs_stats&lesson_id=${lessonId}`
             : `api.php?action=get_lesson_srs_stats&lesson_id=0`;
         try {
@@ -3754,48 +3754,67 @@ window.addEventListener('error', function(e) {
     const FC_SRS_COLORS = { forgot: '#ef4444', notMastered: '#f97316', recalling: '#3b82f6', mastered: '#10b981' };
 
     function renderFcSrsPanel(d) {
-        document.getElementById('fc-stat-mastered').textContent = d.mastered;
-        document.getElementById('fc-stat-recalling').textContent = d.recalling;
-        document.getElementById('fc-stat-notmastered').textContent = d.not_mastered;
-        document.getElementById('fc-stat-forgot').textContent = d.forgot;
+        if (!d) return;
+        const m = d.mastered || 0;
+        const r = d.recalling || 0;
+        const nm = d.not_mastered || 0;
+        const f = d.forgot || 0;
+        const due = d.due_now || 0;
+
+        document.getElementById('fc-stat-mastered').textContent = m;
+        document.getElementById('fc-stat-recalling').textContent = r;
+        document.getElementById('fc-stat-notmastered').textContent = nm;
+        document.getElementById('fc-stat-forgot').textContent = f;
 
         const reviewBtn = document.getElementById('fc-review-now-btn');
-        document.getElementById('fc-review-now-count').textContent = d.due_now;
-        if (d.due_now > 0) { reviewBtn.classList.remove('hidden'); reviewBtn.classList.add('flex'); }
+        document.getElementById('fc-review-now-count').textContent = due;
+        if (due > 0) { reviewBtn.classList.remove('hidden'); reviewBtn.classList.add('flex'); }
         else { reviewBtn.classList.add('hidden'); reviewBtn.classList.remove('flex'); }
 
         const ctxDonut = document.getElementById('fc-mastery-donut');
         if (fcSrsDonut) fcSrsDonut.destroy();
-        fcSrsDonut = new Chart(ctxDonut, {
-            type: 'doughnut',
-            data: {
-                labels: ['Thuộc lòng', 'Đang nhớ', 'Chưa thuộc', 'Đã quên'],
-                datasets: [{
-                    data: [d.mastered, d.recalling, d.not_mastered, d.forgot],
-                    backgroundColor: [FC_SRS_COLORS.mastered, FC_SRS_COLORS.recalling, FC_SRS_COLORS.notMastered, FC_SRS_COLORS.forgot],
-                    borderWidth: 0,
-                    borderRadius: 12,
-                    spacing: 3,
-                }]
-            },
-            options: { cutout: '72%', plugins: { legend: { display: false } }, maintainAspectRatio: false }
-        });
+        if (typeof Chart !== 'undefined' && ctxDonut) {
+            const total = m + r + nm + f;
+            fcSrsDonut = new Chart(ctxDonut, {
+                type: 'doughnut',
+                data: total > 0 ? {
+                    labels: ['Thuộc lòng', 'Đang nhớ', 'Chưa thuộc', 'Đã quên'],
+                    datasets: [{
+                        data: [m, r, nm, f],
+                        backgroundColor: [FC_SRS_COLORS.mastered, FC_SRS_COLORS.recalling, FC_SRS_COLORS.notMastered, FC_SRS_COLORS.forgot],
+                        borderWidth: 0,
+                        borderRadius: 8,
+                        spacing: 2,
+                    }]
+                } : {
+                    labels: ['Chưa có dữ liệu'],
+                    datasets: [{
+                        data: [1],
+                        backgroundColor: ['#e2e8f0'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { cutout: '72%', plugins: { legend: { display: false } }, maintainAspectRatio: false }
+            });
+        }
 
         const ctxBar = document.getElementById('fc-srs-bucket-bar');
         const b = d.buckets || {};
         if (fcSrsBucketChart) fcSrsBucketChart.destroy();
-        fcSrsBucketChart = new Chart(ctxBar, {
-            type: 'bar',
-            data: {
-                labels: ['1', '2', '3', '4', 'Nhớ sâu'],
-                datasets: [{ data: [b['1'] || 0, b['2'] || 0, b['3'] || 0, b['4'] || 0, b.deep || 0], backgroundColor: ['#f87171', '#fb923c', '#60a5fa', '#818cf8', '#a78bfa'], borderRadius: 6 }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
-            }
-        });
+        if (typeof Chart !== 'undefined' && ctxBar) {
+            fcSrsBucketChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['1', '2', '3', '4', 'Nhớ sâu'],
+                    datasets: [{ data: [b['1'] || 0, b['2'] || 0, b['3'] || 0, b['4'] || 0, b.deep || 0], backgroundColor: ['#f87171', '#fb923c', '#60a5fa', '#818cf8', '#a78bfa'], borderRadius: 6 }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, suggestedMax: 5, ticks: { precision: 0, stepSize: 1 } } }
+                }
+            });
+        }
     }
 
     // Bấm "Ôn ngay N từ" — chỉ nạp đúng các từ đang due của bài học (hoặc toàn tài khoản nếu đang
@@ -3843,7 +3862,11 @@ window.addEventListener('error', function(e) {
     let __fcSaveTimer = null;
     function fcCurrentLessonId() {
         const les = document.getElementById('select-lesson');
-        return les && les.value ? parseInt(les.value, 10) : 0;
+        if (les && les.value) return parseInt(les.value, 10);
+        if (typeof vocabData !== 'undefined' && vocabData && vocabData.length > 0 && vocabData[0].lesson_id) {
+            return parseInt(vocabData[0].lesson_id, 10);
+        }
+        return 0;
     }
     function saveFlashcardProgress() {
         // Không lưu khi: chưa đăng nhập, đang ôn SRS (bộ thẻ động), hoặc đang xáo trộn (index vô nghĩa)
@@ -4055,7 +4078,10 @@ window.addEventListener('error', function(e) {
         })
         .then(res => res.json())
         .then(result => {
-            if (result && result.success) return;
+            if (result && result.success) {
+                if (typeof loadFcSrsPanel === 'function') loadFcSrsPanel();
+                return;
+            }
             if (result && result.code === 'NO_SESSION') {
                 localStorage.removeItem('td_user');
                 currentUser = null;

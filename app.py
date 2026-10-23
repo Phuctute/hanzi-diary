@@ -146,6 +146,18 @@ print(f"Compiled optimized DICT_INDEX with {len(DICT_INDEX)} unique entries.")
 def index():
     return render_template("index.html")
 
+@app.route("/manifest.json")
+def serve_manifest():
+    return send_from_directory(os.path.join(BASE_DIR, "static"), "manifest.json", mimetype="application/manifest+json")
+
+@app.route("/sw.js")
+@app.route("/service-worker.js")
+def serve_sw():
+    response = send_from_directory(os.path.join(BASE_DIR, "static"), "sw.js", mimetype="application/javascript")
+    response.headers["Service-Worker-Allowed"] = "/"
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return response
+
 @app.route("/audio/tts/<path:filename>")
 def serve_audio_tts(filename):
     text = filename.replace(".mp3", "").strip()
@@ -741,15 +753,24 @@ def api_php():
         prog = load_srs_progress()
         today_str = datetime.now().strftime("%Y-%m-%d")
         if vid:
-            card_info = prog.setdefault("reviews", {}).get(vid, {"count": 0, "rating": 3, "level": 1})
-            card_info["count"] += 1
+            card_info = prog.setdefault("reviews", {}).get(vid, {"count": 0, "rating": 3, "level": 1, "streak": 0})
+            card_info["count"] = card_info.get("count", 0) + 1
             card_info["rating"] = rating
             card_info["last_reviewed"] = today_str
             if rating >= 3:
                 card_info["level"] = min(3, card_info.get("level", 1) + 1)
+                card_info["streak"] = card_info.get("streak", 0) + 1
             elif rating == 1:
                 card_info["level"] = max(1, card_info.get("level", 1) - 1)
+                card_info["streak"] = 0
+            elif rating == 2:
+                card_info["streak"] = max(0, card_info.get("streak", 0) - 1)
             prog["reviews"][vid] = card_info
+
+            did = str(payload.get("dict_id") or "")
+            if did and did != vid:
+                prog["reviews"][did] = card_info
+
         prog.setdefault("stats", {})
         prog["stats"]["points"] = prog["stats"].get("points", 180) + 5
         prog.setdefault("daily_counts", {})
@@ -809,22 +830,137 @@ def api_php():
         })
     elif action == "get_lesson_srs_stats":
         lid = request.args.get("lesson_id")
-        vlist = LESSON_VOCAB.get(str(lid), []) if lid else []
-        t = len(vlist)
+        prog = load_srs_progress()
+        reviews = prog.get("reviews", {})
+
+        mastered = 0
+        recalling = 0
+        not_mastered = 0
+        forgot = 0
+        due_now = 0
+        buckets = {"1": 0, "2": 0, "3": 0, "4": 0, "deep": 0}
+
+        def get_streak(r):
+            s = r.get("streak")
+            if s is not None:
+                return s
+            rt = r.get("rating", 3)
+            cnt = r.get("count", 1)
+            if rt == 4:
+                return max(3, cnt)
+            elif rt == 3:
+                return max(1, cnt)
+            return 0
+
+        if not lid or str(lid) in ("0", "", "all"):
+            seen_entries = set()
+            for k, r in reviews.items():
+                ident = id(r)
+                if ident in seen_entries:
+                    continue
+                seen_entries.add(ident)
+
+                rt = r.get("rating", 3)
+                stk = get_streak(r)
+
+                if stk == 1:
+                    buckets["1"] += 1
+                elif stk == 2:
+                    buckets["2"] += 1
+                elif stk == 3:
+                    buckets["3"] += 1
+                elif stk == 4:
+                    buckets["4"] += 1
+                elif stk >= 5:
+                    buckets["deep"] += 1
+
+                if rt == 4:
+                    mastered += 1
+                elif rt == 3:
+                    recalling += 1
+                elif rt == 2:
+                    not_mastered += 1
+                    due_now += 1
+                elif rt == 1:
+                    forgot += 1
+                    due_now += 1
+        else:
+            vlist = LESSON_VOCAB.get(str(lid), [])
+            for w in vlist:
+                vid = str(w.get("vocab_id") or w.get("id") or w.get("dict_id") or "")
+                did = str(w.get("dict_id") or "")
+                r = reviews.get(vid) or (reviews.get(did) if did else None)
+
+                if not r:
+                    not_mastered += 1
+                    continue
+
+                rt = r.get("rating", 3)
+                stk = get_streak(r)
+
+                if stk == 1:
+                    buckets["1"] += 1
+                elif stk == 2:
+                    buckets["2"] += 1
+                elif stk == 3:
+                    buckets["3"] += 1
+                elif stk == 4:
+                    buckets["4"] += 1
+                elif stk >= 5:
+                    buckets["deep"] += 1
+
+                if rt == 4:
+                    mastered += 1
+                elif rt == 3:
+                    recalling += 1
+                elif rt == 2:
+                    not_mastered += 1
+                    due_now += 1
+                elif rt == 1:
+                    forgot += 1
+                    due_now += 1
+
         return jsonify({
             "success": True,
             "data": {
-                "due_count": min(8, t),
-                "learning_count": min(5, t),
-                "mastered_count": max(0, t - 13)
+                "mastered": mastered,
+                "recalling": recalling,
+                "not_mastered": not_mastered,
+                "forgot": forgot,
+                "due_now": due_now,
+                "buckets": buckets
             }
         })
     elif action == "get_due_vocab":
         lid = request.args.get("lesson_id")
-        if lid and str(lid) in LESSON_VOCAB:
-            due_list = LESSON_VOCAB[str(lid)]
+        prog = load_srs_progress()
+        reviews = prog.get("reviews", {})
+
+        if lid and str(lid) not in ("0", "", "all") and str(lid) in LESSON_VOCAB:
+            vlist = LESSON_VOCAB[str(lid)]
+            due_list = []
+            for w in vlist:
+                vid = str(w.get("vocab_id") or w.get("id") or w.get("dict_id") or "")
+                did = str(w.get("dict_id") or "")
+                r = reviews.get(vid) or (reviews.get(did) if did else None)
+                if r and r.get("rating") in (1, 2):
+                    due_list.append(w)
+            if not due_list:
+                due_list = vlist[:25]
         else:
-            due_list = ALL_VOCAB[:25]
+            due_list = []
+            seen = set()
+            for w in ALL_VOCAB:
+                vid = str(w.get("vocab_id") or w.get("id") or w.get("dict_id") or "")
+                did = str(w.get("dict_id") or "")
+                if vid in seen:
+                    continue
+                r = reviews.get(vid) or (reviews.get(did) if did else None)
+                if r and r.get("rating") in (1, 2):
+                    due_list.append(w)
+                    seen.add(vid)
+            if not due_list:
+                due_list = ALL_VOCAB[:25]
         return jsonify({"success": True, "data": due_list})
     elif action == "get_exams":
         exams_path = os.path.join(DATA_DIR, "exams.json")

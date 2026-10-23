@@ -1,4 +1,4 @@
-// Taiwan Diary - Mandarin Learning App (p.vql.vn)
+// Hanzi Diary - Mandarin Learning App (p.vql.vn)
 // Complete Frontend SPA Logic
 
 let state = {

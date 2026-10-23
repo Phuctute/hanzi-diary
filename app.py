@@ -559,7 +559,7 @@ def api_php():
             except Exception:
                 pass
         
-        # 3. Fallback to Taiwan Diary remote API
+        # 3. Fallback to remote API
         try:
             req_url = f"https://zh.taiwandiary.vn/api.php?action=lookup_hanzi&q={urllib.parse.quote(q_trad or q)}"
             req = urllib.request.Request(req_url, headers={
@@ -701,7 +701,7 @@ def api_php():
                 "role": "admin",
                 "vip": 1,
                 "tocfl_level": "Band A",
-                "avatar": "/static/img/taiwandiary.png"
+                "avatar": "/static/img/hanzi_icon.png"
             }
         })
     elif action == "get_profile":
@@ -715,7 +715,7 @@ def api_php():
                 "role": "admin",
                 "vip": 1,
                 "tocfl_level": "Band A",
-                "avatar": "/static/img/taiwandiary.png"
+                "avatar": "/static/img/hanzi_icon.png"
             }
         })
     elif action == "get_last_position":

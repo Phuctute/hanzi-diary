@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hanzi-pwa-v1.0.5';
+const CACHE_NAME = 'hanzi-pwa-v1.0.7';
 const PRECACHE_ASSETS = [
   '/',
   '/manifest.json',

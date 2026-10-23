@@ -624,15 +624,10 @@ window.addEventListener('error', function(e) {
 
 
         .quiz-hanzi-title {
-
             font-size: clamp(40px, 8vw, 70px);
-
             line-height: 1.2;
-
-            font-weight: 500 !important;
-
+            font-weight: 600 !important;
             font-synthesis: none;
-
         }
 
 
@@ -833,27 +828,30 @@ window.addEventListener('error', function(e) {
         button.bg-primary:hover { filter: brightness(1.06); box-shadow: 0 10px 26px -6px rgba(2,122,179,0.5); }
         button.bg-primary:active { transform: scale(0.97); }
 
-        /* === Mobile reorder: main becomes transparent grid participant === */
+        /* === Mobile reorder: main & aside become transparent grid participants === */
         @media (max-width: 1023px) {
-            #dash-main-col {
+            #dash-main-col,
+            #dash-aside-col {
                 display: contents;
             }
             /* Mobile order:
-               1 = Streak
-               2 = Lộ trình giáo trình (Từ vựng)
-               3 = Luyện nói Shadowing (video hot)
-               4 = Top chú Ong chăm chỉ
-               5 = Phương pháp học & thi
-               6 = Banner slider
-               7 = Cột trái (các tiện ích)
+               1 = Ô tra từ điển nhanh
+               2 = Tiếp tục học (Resume bài đang học)
+               3 = Trạm ôn ký ức (SRS từ đến hạn hôm nay)
+               4 = Lộ trình giáo trình (Học bài tiếp theo)
+               5 = Phương pháp học & thi (10 chế độ học tập)
+               6 = Luyện nói Shadowing
+               7 = Banner truyền thông
+               8 = Tiện ích thi thử & tra cứu nhanh
             */
-            #dash-right-col           { display: contents; }
-            #dash-section-streak      { order: 1; }
-            #dash-section-roadmap     { order: 2; }
-            #dash-section-shadowing   { order: 3; }
-            #dash-section-topong      { order: 4; }
+            #dash-section-search      { order: 1; }
+            #dash-resume-wrap         { order: 2; }
+            #dash-srs-widget          { order: 3; }
+            #dash-section-roadmap     { order: 4; }
             #dash-section-hub         { order: 5; }
-            #dash-section-banner      { order: 6; }
+            #dash-section-shadowing   { order: 6; }
+            #dash-section-banner      { order: 7; }
+            #dash-section-quicktools  { order: 8; }
         }
 
         /* === CSS CỦA HANZI DIARY BLOG & LỊCH KHAI GIẢNG WIDGET === */
@@ -1455,7 +1453,7 @@ window.addEventListener('error', function(e) {
 
                 <i class="fa-solid fa-pen-nib w-5 text-center text-lg"></i>
 
-                <span class="font-semibold text-[14px]">Luyện viết</span>
+                <span class="font-semibold text-[14px]">Tập viết chữ Hán</span>
 
             </a>
 
@@ -1480,8 +1478,8 @@ window.addEventListener('error', function(e) {
             </a>
 
             <a href="#" onclick="switchTab('dictation')" id="nav-dictation" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
-                <i class="fa-solid fa-spell-check w-5 text-center text-lg"></i>
-                <span class="font-semibold text-[14px]">Luyện viết chính tả</span>
+                <i class="fa-solid fa-headphones-simple w-5 text-center text-lg"></i>
+                <span class="font-semibold text-[14px]">Nghe chép chính tả</span>
             </a>
 
             <a href="#" onclick="switchTab('shadowing')" id="nav-shadowing" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
@@ -1629,7 +1627,7 @@ window.addEventListener('error', function(e) {
 
                 <div class="relative group flex-1 min-w-0 md:flex-initial md:w-auto md:min-w-[220px] lg:w-[260px]">
 
-                    <select id="select-book" aria-label="Chọn giáo trình học tiếng Trung" onchange="loadLessons(this.value)" class="h-10 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-3 pr-8 md:pl-4 md:pr-10 text-[13px] md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
+                    <select id="select-book" aria-label="Chọn giáo trình học tiếng Trung" onchange="loadLessons(this.value)" class="h-9 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-2.5 pr-7 md:pl-4 md:pr-10 text-xs md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
 
                         <option value="">-- Giáo trình --</option>
 
@@ -1637,9 +1635,9 @@ window.addEventListener('error', function(e) {
 
                     <div
 
-                        class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-5 md:w-6 h-5 md:h-6 bg-white rounded flex items-center justify-center pointer-events-none group-hover:text-primary transition-colors border border-slate-100">
+                        class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-4 md:w-6 h-4 md:h-6 bg-white rounded flex items-center justify-center pointer-events-none group-hover:text-primary transition-colors border border-slate-100">
 
-                        <i class="fa-solid fa-chevron-down text-[9px] md:text-[10px] text-slate-400"></i>
+                        <i class="fa-solid fa-chevron-down text-[8px] md:text-[10px] text-slate-400"></i>
 
                     </div>
 
@@ -1647,17 +1645,17 @@ window.addEventListener('error', function(e) {
 
                 <div class="relative group flex-1 min-w-0 md:flex-initial md:w-auto md:min-w-[220px] lg:w-[260px]">
 
-                    <select id="select-lesson" aria-label="Chọn bài học tiếng Trung" onchange="loadVocabulariesAndContent(this.value); if (typeof loadFcSrsPanel === 'function') loadFcSrsPanel();" class="h-10 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-3 pr-8 md:pl-4 md:pr-10 text-[13px] md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
+                    <select id="select-lesson" aria-label="Chọn bài học tiếng Trung" onchange="loadVocabulariesAndContent(this.value); if (typeof loadFcSrsPanel === 'function') loadFcSrsPanel();" class="h-9 md:h-11 w-full rounded-lg md:rounded-xl border border-slate-200 bg-slate-50 pl-2.5 pr-7 md:pl-4 md:pr-10 text-xs md:text-sm font-semibold text-slate-700 outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/10 transition-all appearance-none cursor-pointer truncate hover:border-td-lightBlue">
 
-                        <option value="">-- Bài --</option>
+                        <option value="">-- Bài học --</option>
 
                     </select>
 
                     <div
 
-                        class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-5 md:w-6 h-5 md:h-6 bg-white rounded flex items-center justify-center pointer-events-none group-hover:text-primary transition-colors border border-slate-100">
+                        class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-4 md:w-6 h-4 md:h-6 bg-white rounded flex items-center justify-center pointer-events-none group-hover:text-primary transition-colors border border-slate-100">
 
-                        <i class="fa-solid fa-chevron-down text-[9px] md:text-[10px] text-slate-400"></i>
+                        <i class="fa-solid fa-chevron-down text-[8px] md:text-[10px] text-slate-400"></i>
 
                     </div>
 
@@ -1676,25 +1674,25 @@ window.addEventListener('error', function(e) {
                 <i class="fa-solid fa-house-chimney text-lg"></i>
                 <span class="text-[10px] font-bold">Trang chủ</span>
             </button>
-            <button onclick="switchTab('tocfl')" id="mnav-tocfl" data-mnav="tocfl"
+            <button onclick="switchTab('quiz')" id="mnav-quiz" data-mnav="quiz"
                 class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-award text-lg"></i>
-                <span class="text-[10px] font-bold">Luyện thi</span>
+                <i class="fa-solid fa-circle-check text-lg"></i>
+                <span class="text-[10px] font-bold">Trắc nghiệm</span>
             </button>
             <button onclick="switchTab('flashcard')" id="mnav-flashcard" data-mnav="flashcard"
                 class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-clone text-lg"></i>
                 <span class="text-[10px] font-bold">Flashcard</span>
             </button>
-            <button onclick="switchTab('shadowing')" id="mnav-shadowing" data-mnav="shadowing"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-microphone-lines text-lg"></i>
-                <span class="text-[10px] font-bold">Shadowing</span>
-            </button>
             <button onclick="switchTab('vocab')" id="mnav-vocab" data-mnav="vocab"
                 class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-book-bookmark text-lg"></i>
                 <span class="text-[10px] font-bold">Từ vựng</span>
+            </button>
+            <button onclick="switchTab('karaoke')" id="mnav-karaoke" data-mnav="karaoke"
+                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-comments text-lg"></i>
+                <span class="text-[10px] font-bold">Hội thoại</span>
             </button>
         </nav>
 
@@ -1773,7 +1771,7 @@ window.addEventListener('error', function(e) {
                         </section>
 
                         <!-- CTA: Thi thử TOCFL ngay (2 chế độ) — pastel, đồng bộ Learning Hub -->
-                        <section class="rounded-3xl p-5 bg-gradient-to-br from-sky-50 to-white ring-1 ring-sky-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                        <section id="dash-section-quicktools" class="rounded-3xl p-5 bg-gradient-to-br from-sky-50 to-white ring-1 ring-sky-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                             <div class="flex items-center gap-2.5 mb-1">
                                 <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0A93D4] to-[#027AB3] text-white flex items-center justify-center text-base shadow-lg shadow-[#027AB3]/30"><i class="fa-solid fa-graduation-cap"></i></span>
                                 <h3 class="font-black text-slate-800 text-[15px]">Thi thử TOCFL ngay</h3>
@@ -1808,7 +1806,7 @@ window.addEventListener('error', function(e) {
                     <main id="dash-main-col" class="lg:col-span-8 order-1 lg:order-1 flex flex-col gap-6">
 
                         <!-- Tra từ điển nhanh (search nổi bật, dropdown gợi ý) -->
-                        <section class="relative">
+                        <section id="dash-section-search" class="relative">
                             <div class="relative">
                                 <input id="dash-dict-search" oninput="dashDictSearchDebounced('dash-dict-search','dash-dict-dropdown')" onfocus="dashDictSearchDebounced('dash-dict-search','dash-dict-dropdown')"
                                     onkeydown="if(event.key==='Escape') dashDictSearchClose('dash-dict-dropdown');"
@@ -1888,84 +1886,74 @@ window.addEventListener('error', function(e) {
                             </div>
                             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
                                 <!-- Thi thử TOCFL -->
-                                <button onclick="switchTab('tocfl')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-sky-50 to-white ring-1 ring-sky-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(2,122,179,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-graduation-cap absolute -right-3 -bottom-3 text-6xl text-[#027AB3]/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0A93D4] to-[#027AB3] text-white flex items-center justify-center text-lg shadow-lg shadow-[#027AB3]/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-graduation-cap"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Thi thử TOCFL</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Đề thích ứng IRT</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-[#027AB3] text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('tocfl')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-[#027AB3] hover:shadow-[0_12px_28px_-6px_rgba(2,122,179,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-sky-50 text-[#027AB3] flex items-center justify-center text-base shadow-sm group-hover:bg-[#027AB3] group-hover:text-white transition-colors"><i class="fa-solid fa-graduation-cap"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-[#027AB3] transition-colors">Thi thử TOCFL</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Đề thích ứng IRT</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-[#027AB3] text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Flashcard FSRS -->
-                                <button onclick="startSrsReview('flashcard')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-blue-50 to-white ring-1 ring-blue-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(59,130,246,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-layer-group absolute -right-3 -bottom-3 text-6xl text-blue-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-500 text-white flex items-center justify-center text-lg shadow-lg shadow-blue-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-layer-group"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Flashcard FSRS</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Ôn đúng lúc sắp quên</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-blue-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="startSrsReview('flashcard')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-blue-500 hover:shadow-[0_12px_28px_-6px_rgba(59,130,246,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-base shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors"><i class="fa-solid fa-layer-group"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-blue-600 transition-colors">Flashcard FSRS</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Ôn đúng lúc sắp quên</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-blue-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
-                                <!-- Luyện viết trí nhớ -->
-                                <button onclick="startSrsReview('listening')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-purple-50 to-white ring-1 ring-purple-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(168,85,247,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-pen-nib absolute -right-3 -bottom-3 text-6xl text-purple-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-500 text-white flex items-center justify-center text-lg shadow-lg shadow-purple-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-pen-nib"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Luyện viết trí nhớ</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Gõ lại Hán tự</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-purple-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <!-- Tập viết chữ Hán -->
+                                <button onclick="startSrsReview('listening')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-purple-500 hover:shadow-[0_12px_28px_-6px_rgba(168,85,247,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-base shadow-sm group-hover:bg-purple-600 group-hover:text-white transition-colors"><i class="fa-solid fa-pen-nib"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-purple-600 transition-colors">Tập viết Hán tự</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Luyện nét bút chuẩn</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-purple-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Hội thoại ngữ cảnh -->
-                                <button onclick="openKaraokeDialogue()" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-sky-50 to-white ring-1 ring-sky-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(14,165,233,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-comments absolute -right-3 -bottom-3 text-6xl text-sky-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center text-lg shadow-lg shadow-sky-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-comments"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Hội thoại ngữ cảnh</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Nghe theo ngữ cảnh thật</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-sky-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="openKaraokeDialogue()" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-sky-500 hover:shadow-[0_12px_28px_-6px_rgba(14,165,233,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-base shadow-sm group-hover:bg-sky-600 group-hover:text-white transition-colors"><i class="fa-solid fa-comments"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-sky-600 transition-colors">Hội thoại ngữ cảnh</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Nghe theo ngữ cảnh thật</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-sky-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Chép chính tả -->
-                                <button onclick="openKaraokeDictation()" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-amber-50 to-white ring-1 ring-amber-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(245,158,11,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-keyboard absolute -right-3 -bottom-3 text-6xl text-amber-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center text-lg shadow-lg shadow-amber-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-keyboard"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Chép chính tả</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Nghe &amp; gõ cả đoạn</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-amber-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="openKaraokeDictation()" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-amber-500 hover:shadow-[0_12px_28px_-6px_rgba(245,158,11,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-base shadow-sm group-hover:bg-amber-600 group-hover:text-white transition-colors"><i class="fa-solid fa-headphones-simple"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-amber-600 transition-colors">Nghe chép chính tả</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Nghe &amp; gõ cả đoạn</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-amber-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Bộ thủ thông dụng -->
-                                <button onclick="switchTab('bo-thu')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-rose-50 to-white ring-1 ring-rose-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(244,63,94,0.35)] transition-all duration-300">
-                                    <span class="absolute -right-2 -bottom-5 text-7xl font-black text-rose-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none font-tc">部</span>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-400 to-rose-500 text-white flex items-center justify-center text-lg shadow-lg shadow-rose-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-shapes"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Bộ thủ Hán tự</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">50–214 bộ thông dụng</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-rose-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('bo-thu')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-rose-500 hover:shadow-[0_12px_28px_-6px_rgba(244,63,94,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-base shadow-sm group-hover:bg-rose-600 group-hover:text-white transition-colors font-tc font-bold">部</span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-rose-600 transition-colors">Bộ thủ Hán tự</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">50–214 bộ thông dụng</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-rose-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Trắc nghiệm -->
-                                <button onclick="switchTab('quiz')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-emerald-50 to-white ring-1 ring-emerald-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(16,185,129,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-circle-check absolute -right-3 -bottom-3 text-6xl text-emerald-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-500 text-white flex items-center justify-center text-lg shadow-lg shadow-emerald-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-circle-check"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Trắc nghiệm</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Kiểm tra nhanh từ vựng</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-emerald-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('quiz')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-emerald-500 hover:shadow-[0_12px_28px_-6px_rgba(16,185,129,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-base shadow-sm group-hover:bg-emerald-600 group-hover:text-white transition-colors"><i class="fa-solid fa-circle-check"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-emerald-600 transition-colors">Trắc nghiệm phản xạ</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Kiểm tra nhanh từ vựng</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-emerald-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Từ vựng TOCFL -->
-                                <button onclick="switchTab('vocab')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-cyan-50 to-white ring-1 ring-cyan-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(6,182,212,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-book-bookmark absolute -right-3 -bottom-3 text-6xl text-cyan-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-400 to-cyan-500 text-white flex items-center justify-center text-lg shadow-lg shadow-cyan-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-book-bookmark"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Kho từ vựng</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">14.000+ từ TOCFL</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-cyan-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('vocab')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-cyan-500 hover:shadow-[0_12px_28px_-6px_rgba(6,182,212,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-base shadow-sm group-hover:bg-cyan-600 group-hover:text-white transition-colors"><i class="fa-solid fa-book-bookmark"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-cyan-600 transition-colors">Kho từ vựng</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">14.000+ từ TOCFL</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-cyan-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Lượng từ -->
-                                <button onclick="switchTab('luong-tu')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-teal-50 to-white ring-1 ring-teal-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(20,184,166,0.35)] transition-all duration-300">
-                                    <span class="absolute -right-2 -bottom-5 text-7xl font-black text-teal-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none font-tc">個</span>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-500 text-white flex items-center justify-center text-lg shadow-lg shadow-teal-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-layer-group"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Lượng từ</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Đo lường &amp; đếm chuẩn</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-teal-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('luong-tu')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-teal-500 hover:shadow-[0_12px_28px_-6px_rgba(20,184,166,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-base shadow-sm group-hover:bg-teal-600 group-hover:text-white transition-colors font-tc font-bold">個</span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-teal-600 transition-colors">Lượng từ</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Đo lường &amp; đếm chuẩn</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-teal-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                                 <!-- Tính điểm thi -->
-                                <button onclick="switchTab('calculator')" class="dash-hub group relative overflow-hidden text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-gradient-to-br from-indigo-50 to-white ring-1 ring-indigo-100/70 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 hover:shadow-[0_18px_40px_-8px_rgba(99,102,241,0.35)] transition-all duration-300">
-                                    <i class="fa-solid fa-calculator absolute -right-3 -bottom-3 text-6xl text-indigo-500/10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>
-                                    <span class="relative z-10 w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-400 to-indigo-500 text-white flex items-center justify-center text-lg shadow-lg shadow-indigo-500/30 mb-3 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-calculator"></i></span>
-                                    <h4 class="relative z-10 font-black text-slate-800 text-sm sm:text-[15px] leading-tight">Tính điểm thi</h4>
-                                    <p class="relative z-10 text-slate-500 text-xs mt-1 font-medium">Quy đổi thang TOCFL</p>
-                                    <span class="relative z-10 mt-auto pt-2 inline-flex items-center gap-1 text-indigo-500 text-[11px] font-black opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">Bắt đầu <i class="fa-solid fa-arrow-right"></i></span>
+                                <button onclick="switchTab('calculator')" class="dash-hub group relative text-left flex flex-col rounded-2xl p-4 sm:p-5 min-h-[132px] bg-white border border-slate-200/80 shadow-[0_4px_16px_rgb(0,0,0,0.03)] hover:border-indigo-500 hover:shadow-[0_12px_28px_-6px_rgba(99,102,241,0.2)] hover:-translate-y-1 transition-all duration-200">
+                                    <span class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-base shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i class="fa-solid fa-calculator"></i></span>
+                                    <h4 class="font-black text-slate-800 text-sm sm:text-[15px] leading-tight mt-2.5 group-hover:text-indigo-600 transition-colors">Tính điểm thi</h4>
+                                    <p class="text-slate-500 text-xs mt-1 font-medium">Quy đổi thang TOCFL</p>
+                                    <span class="mt-auto pt-2 inline-flex items-center gap-1 text-slate-400 group-hover:text-indigo-600 text-[11px] font-bold transition-colors">Bắt đầu <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
                                 </button>
                             </div>
                         </section>
@@ -2493,8 +2481,16 @@ window.addEventListener('error', function(e) {
     // giáo trình + bài, tải từ vựng và render đúng theo thuật toán cũ).
     window.vnhGoToVocab = function (lessonId, bookId) {
         if (typeof switchTab === 'function') switchTab('vocab');
+        window.__resume = { book_id: bookId, lesson_id: lessonId };
+        var sb = document.getElementById('select-book');
+        if (sb && sb.options && sb.options.length > 1 && bookId) {
+            sb.value = bookId;
+            if (typeof loadLessons === 'function') {
+                loadLessons(bookId);
+                return;
+            }
+        }
         if (bookId && typeof loadBooksAll === 'function') {
-            window.__resume = { book_id: bookId, lesson_id: lessonId };
             loadBooksAll();
         } else if (typeof loadVocabulariesAndContent === 'function') {
             var sel = document.getElementById('select-lesson'); if (sel) sel.value = lessonId;
@@ -2568,20 +2564,22 @@ window.addEventListener('error', function(e) {
         }).catch(function () { vnhShowLessonInline('Bài học — ' + bookName, []); });
     };
 
-    // ============ TOCFL theo Level (thẻ pastel) ============
+    // ============ TOCFL theo Level ============
     function vnhLoadTocflCounts() {
         var row = document.getElementById('vnh-tocfl-row');
+        var bandNames = ['Band A1', 'Band A2', 'Band B1', 'Band B2', 'Band C1', 'Band C2'];
         var render = function (counts) {
             var html = '';
             for (var lvl = 1; lvl <= 6; lvl++) {
                 var th = HUB_THEMES[(lvl - 1) % HUB_THEMES.length];
                 var cnt = counts[String(lvl)];
-                html += '<button type="button" class="vnh-hub-card group relative overflow-hidden text-left flex flex-col rounded-2xl p-3.5 sm:p-4 bg-gradient-to-br ' + th.grad + ' ring-1 ' + th.ring + ' shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 transition-all duration-300" style="--hub-shadow:' + th.hover + '" onclick="vnhSelectTocflLevel(' + lvl + ')">' +
+                var bandLabel = bandNames[lvl - 1];
+                html += '<button type="button" class="vnh-hub-card group relative overflow-hidden text-left flex flex-col rounded-2xl p-3.5 sm:p-4 bg-gradient-to-br ' + th.grad + ' ring-1 ' + th.ring + ' shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer" style="--hub-shadow:' + th.hover + '" onclick="vnhSelectTocflLevel(' + lvl + ')">' +
                         '<i class="fa-solid fa-certificate absolute -right-2 -bottom-2 text-5xl ' + th.wm + ' group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>' +
                         '<span class="relative z-10 w-9 h-9 rounded-xl bg-gradient-to-br ' + th.iconBg + ' text-white flex items-center justify-center text-xs shadow-lg ' + th.iconShadow + ' mb-2.5 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="fa-solid fa-certificate"></i></span>' +
                         '<h4 class="relative z-10 font-black text-slate-800 text-[12.5px] sm:text-[13px] leading-tight">TOCFL ' + lvl + '</h4>' +
-                        '<p class="relative z-10 text-slate-500 text-[11px] mt-1 font-medium">' + (cnt !== undefined ? cnt + ' từ' : '—') + '</p>' +
-                        '<span class="hub-arrow relative z-10 mt-auto pt-1.5 inline-flex items-center gap-1 ' + th.text + ' text-[10.5px] font-black">Xem <i class="fa-solid fa-arrow-right text-[8px]"></i></span>' +
+                        '<p class="relative z-10 text-slate-500 text-[11px] mt-1 font-medium">' + bandLabel + ' · ' + (cnt !== undefined ? cnt + ' từ' : '—') + '</p>' +
+                        '<span class="hub-arrow relative z-10 mt-auto pt-1.5 inline-flex items-center gap-1 ' + th.text + ' text-[10.5px] font-black">Học từ vựng <i class="fa-solid fa-arrow-right text-[8px]"></i></span>' +
                     '</button>';
             }
             row.innerHTML = html;
@@ -2592,10 +2590,21 @@ window.addEventListener('error', function(e) {
             render(c);
         }).catch(function () { render({}); });
     }
+
+    // Bấm thẻ TOCFL Level -> chuyển thẳng sang tab Từ vựng với giáo trình TOCFL tương ứng
     window.vnhSelectTocflLevel = function (level) {
-        vnhShowLessonInline('Từ vựng TOCFL Level ' + level, []);
-        document.getElementById('vnh-lesson-inline-list').innerHTML =
-            '<div class="col-span-full text-center text-slate-400 text-sm py-6"><i class="fa-solid fa-hammer text-xl mb-2 block text-slate-300"></i>Sổ từ vựng theo Level đang được phát triển.</div>';
+        var map = {
+            1: { book_id: 11, lesson_id: 139 },
+            2: { book_id: 12, lesson_id: 140 },
+            3: { book_id: 13, lesson_id: 141 },
+            4: { book_id: 14, lesson_id: 142 },
+            5: { book_id: 15, lesson_id: 143 },
+            6: { book_id: 16, lesson_id: 144 }
+        };
+        var target = map[level];
+        if (target && typeof vnhGoToVocab === 'function') {
+            vnhGoToVocab(target.lesson_id, target.book_id);
+        }
     };
 
     // ============ Từ vựng theo chủ đề (Dictionary tag) — thẻ "hub" pastel + icon chìm ============
@@ -4729,15 +4738,15 @@ window.addEventListener('error', function(e) {
             <div class="text-center mb-6 sm:mb-8 relative">
                 <h3 class="text-[11px] sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-3 sm:mb-4">Chọn nghĩa đúng cho từ:</h3>
                 ${q.tocfl_band ? `<span class="inline-block mb-2 px-2.5 py-0.5 bg-amber-50 text-amber-500 text-[9px] font-black rounded-full border border-amber-200 uppercase tracking-widest">TOCFL ${q.tocfl_band}</span>` : ''}
-                <h2 class="quiz-hanzi-title font-tc text-black break-words px-2 pb-2">${displayQHanzi}</h2>
+                <h2 class="quiz-hanzi-title font-tc font-black text-black break-words px-2 pb-2">${displayQHanzi}</h2>
                 <button class="mt-3 sm:mt-4 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-50 border border-slate-200 text-slate-400 md:hover:bg-primary md:hover:border-primary hover:text-white active:bg-primary active:text-white active:border-primary active:scale-95 hover:shadow-md hover:-translate-y-1 transition-all mx-auto flex items-center justify-center outline-none" data-text="${encodeURIComponent(safeTextQ)}" onclick="playTTS(this.getAttribute('data-text'), event)" title="Phát âm">
                     <i class="fa-solid fa-volume-high text-lg sm:text-xl pointer-events-none"></i>
                 </button>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5" id="quiz-options">${optionsHtml}</div>
             <div class="mt-6 sm:mt-8 text-center hidden animate-fade-in" id="quiz-next-btn">
-                <button onclick="nextQuiz()" class="inline-flex items-center justify-center gap-2 px-8 sm:px-10 h-12 sm:h-14 rounded-xl sm:rounded-2xl bg-primary text-white font-black text-sm sm:text-lg shadow-td hover:shadow-td-hover active:scale-95 hover:-translate-y-1 transition-all w-full sm:w-auto outline-none">
-                    CÂU TIẾP THEO <i class="fa-solid fa-arrow-right"></i>
+                <button onclick="nextQuiz()" class="px-8 py-3.5 bg-primary text-white font-bold text-sm sm:text-base rounded-xl sm:rounded-2xl shadow-td hover:shadow-td-hover active:scale-95 hover:-translate-y-1 transition-all outline-none">
+                    CÂU TIẾP THEO <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                 </button>
             </div>`;
     }
@@ -15305,13 +15314,13 @@ document.addEventListener('click', (ev) => {
         .sd-cue-active .sd-ch { font-weight: 700; }
 
         /* Bố cục Studio 2 cột tối ưu cho Máy tính / Tablet (>=768px):
-           - Cột Trái (order: 1, 62-65%): Video Cinema 16:9 + Điều khiển + Studio Luyện Nói (Ghi âm & Kết quả song song)
-           - Cột Phải (order: 2, 35-38%): Bảng phụ đề đồng bộ (sticky toàn màn hình, cuộn mượt độc lập)
-           - Mobile (<768px): giữ nguyên luồng cuộn dọc media -> phụ đề -> ghi âm/kết quả. */
+           - Cột Trái: Video Cinema 16:9 + Điều khiển + Studio Luyện Nói
+           - Cột Phải: Bảng phụ đề đồng bộ mở rộng thoáng đãng sang 2 bên
+           - Mobile (<768px): phụ đề tràn rộng sang 2 mép màn hình, loại bỏ lề thụt dư thừa */
         .sd-detail-grid { display: flex; flex-direction: column; }
         .sd-sidebar { display: contents; }
         .sd-area-media { order: 1; }
-        .sd-area-cues { order: 2; }
+        .sd-area-cues { order: 2; width: 100%; }
         .sd-area-extra { order: 3; }
         @media (min-width: 768px) {
             .sd-detail-grid {
@@ -15323,7 +15332,7 @@ document.addEventListener('click', (ev) => {
                 display: flex;
                 flex-direction: column;
                 gap: 1.25rem;
-                flex: 1.45 1 0%;
+                flex: 1.2 1 0%;
                 min-width: 0;
                 order: 1;
             }
@@ -15339,9 +15348,9 @@ document.addEventListener('click', (ev) => {
             }
             .sd-area-cues {
                 order: 2;
-                flex: 1 1 0%;
+                flex: 1.15 1 0%;
                 min-width: 320px;
-                max-width: 480px;
+                max-width: none;
                 position: sticky;
                 top: 0.5rem;
                 display: flex;
@@ -15358,8 +15367,47 @@ document.addEventListener('click', (ev) => {
             }
         }
         @media (min-width: 1280px) {
-            .sd-sidebar { flex: 1.6 1 0%; }
-            .sd-area-cues { flex: 1 1 0%; max-width: 520px; }
+            .sd-sidebar { flex: 1.25 1 0%; }
+            .sd-area-cues { flex: 1.2 1 0%; max-width: none; }
+        }
+
+        /* Widget âm lượng thu gọn thông minh: mặc định chỉ là nút tròn nhỏ gọn, không choán diện tích video */
+        .sd-vol-widget {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+        .sd-vol-slider-wrap {
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            transform: scaleX(0.7);
+            transform-origin: left center;
+            transition: max-width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.2s ease,
+                        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (hover: hover) {
+            .sd-vol-widget:hover .sd-vol-slider-wrap {
+                max-width: 100px;
+                opacity: 1;
+                pointer-events: auto;
+                transform: scaleX(1);
+            }
+            .sd-vol-widget:hover {
+                background-color: rgba(0, 0, 0, 0.8) !important;
+                padding-right: 8px !important;
+            }
+        }
+        .sd-vol-widget.is-open .sd-vol-slider-wrap {
+            max-width: 100px;
+            opacity: 1;
+            pointer-events: auto;
+            transform: scaleX(1);
+        }
+        .sd-vol-widget.is-open {
+            background-color: rgba(0, 0, 0, 0.8) !important;
+            padding-right: 8px !important;
         }
     </style>
 
@@ -15420,10 +15468,14 @@ document.addEventListener('click', (ev) => {
                     <!-- video (YouTube) -->
                     <div id="sd-video-wrap" class="relative w-full aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft bg-black ring-4 ring-td-lightBlue/25">
                         <div id="sd-player" class="absolute inset-0 w-full h-full"></div>
-                        <!-- Điều khiển âm lượng ngay trên video (YouTube tắt controls gốc nên cần thanh riêng) -->
-                        <div class="absolute bottom-3 right-3 z-20 flex items-center gap-2 bg-black/55 backdrop-blur-sm rounded-full pl-2.5 pr-3 py-1.5">
-                            <button id="sd-mute-btn" onclick="shadowToggleMute()" title="Tắt/bật tiếng" class="w-6 h-6 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-volume-high text-xs"></i></button>
-                            <input id="sd-volume-range" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" title="Âm lượng" class="w-16 sm:w-20 h-1.5 accent-white cursor-pointer">
+                        <!-- Điều khiển âm lượng gọn, tự thu gọn / bung khi hover hoặc chạm -->
+                        <div id="sd-vol-widget" class="sd-vol-widget group/vol absolute bottom-3 right-3 z-20 flex items-center bg-black/45 hover:bg-black/80 backdrop-blur-md rounded-full p-1 text-white transition-all shadow-md border border-white/15">
+                            <button id="sd-mute-btn" onclick="shadowHandleMuteClick(event)" title="Tắt/bật tiếng & Âm lượng" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-white/90 hover:text-white transition-colors shrink-0">
+                                <i class="fa-solid fa-volume-high text-xs"></i>
+                            </button>
+                            <div id="sd-vol-slider-wrap" class="sd-vol-slider-wrap flex items-center">
+                                <input id="sd-volume-range" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" ontouchstart="shadowVolKeepOpen()" onmousedown="shadowVolKeepOpen()" title="Âm lượng" class="w-16 sm:w-20 h-1.5 accent-white cursor-pointer mr-2">
+                            </div>
                         </div>
                     </div>
 
@@ -15438,9 +15490,13 @@ document.addEventListener('click', (ev) => {
                                 <div id="sd-audio-title" class="font-tc font-black text-base sm:text-2xl leading-snug truncate"></div>
                             </div>
                             <!-- Điều khiển âm lượng -->
-                            <div class="flex items-center gap-2 bg-white/15 rounded-full pl-2.5 pr-3 py-1.5 shrink-0">
-                                <button id="sd-mute-btn-a" onclick="shadowToggleMute()" title="Tắt/bật tiếng" class="w-6 h-6 text-white flex items-center justify-center shrink-0"><i class="fa-solid fa-volume-high text-xs"></i></button>
-                                <input id="sd-volume-range-a" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" title="Âm lượng" class="w-14 sm:w-20 h-1.5 accent-white cursor-pointer">
+                            <div id="sd-vol-widget-a" class="sd-vol-widget group/vol flex items-center bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full p-1 text-white transition-all shadow-sm border border-white/20 shrink-0">
+                                <button id="sd-mute-btn-a" onclick="shadowHandleMuteClick(event, 'a')" title="Tắt/bật tiếng & Âm lượng" class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-white/90 hover:text-white transition-colors shrink-0">
+                                    <i class="fa-solid fa-volume-high text-xs"></i>
+                                </button>
+                                <div id="sd-vol-slider-wrap-a" class="sd-vol-slider-wrap flex items-center">
+                                    <input id="sd-volume-range-a" type="range" min="0" max="100" value="100" oninput="shadowSetVolume(this.value)" ontouchstart="shadowVolKeepOpen()" onmousedown="shadowVolKeepOpen()" title="Âm lượng" class="w-14 sm:w-18 h-1.5 accent-white cursor-pointer mr-1.5">
+                                </div>
                             </div>
                         </div>
                         <div class="mt-3 sm:mt-5">
@@ -15550,22 +15606,22 @@ document.addEventListener('click', (ev) => {
             </div>
 
             <!-- KHU VỰC PHỤ ĐỀ: nằm ngoài sidebar, chiếm toàn bộ không gian màn hình chính -->
-            <div class="sd-area-cues bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-3xl p-4 sm:p-5 shadow-soft">
-                <div id="sd-cue-head" class="flex items-center justify-between mb-3 flex-wrap gap-2">
+            <div class="sd-area-cues -mx-3 sm:mx-0 bg-gradient-to-br from-white to-td-lightBlue/10 border border-td-lightBlue/40 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-soft">
+                <div id="sd-cue-head" class="flex items-center justify-between mb-2.5 sm:mb-3 flex-wrap gap-2 px-0.5">
                     <div class="flex items-center gap-2 text-sm font-black text-brandNavy">
                         <div class="w-7 h-7 rounded-lg bg-td-lightBlue/40 text-primary flex items-center justify-center"><i class="fa-solid fa-closed-captioning text-xs"></i></div>
                         Phụ đề
                     </div>
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2 sm:gap-3">
                         <span id="sd-progress" class="text-xs font-bold text-primary bg-td-lightBlue/25 rounded-full px-2.5 py-1">0/0</span>
-                        <label class="flex items-center gap-1.5 cursor-pointer select-none bg-white/70 rounded-full px-2.5 py-1 border border-td-lightBlue/40"><span class="text-[11px] font-semibold text-slate-500">Pinyin</span><input type="checkbox" id="sd-show-pinyin" checked onchange="shadowToggleCC()" class="accent-primary w-4 h-4"></label>
-                        <label class="flex items-center gap-1.5 cursor-pointer select-none bg-white/70 rounded-full px-2.5 py-1 border border-td-lightBlue/40"><span class="text-[11px] font-semibold text-slate-500">Dịch nghĩa</span><input type="checkbox" id="sd-show-vi" onchange="shadowToggleCC()" class="accent-primary w-4 h-4"></label>
+                        <label class="flex items-center gap-1.5 cursor-pointer select-none bg-white/70 rounded-full px-2 sm:px-2.5 py-1 border border-td-lightBlue/40"><span class="text-[11px] font-semibold text-slate-500">Pinyin</span><input type="checkbox" id="sd-show-pinyin" checked onchange="shadowToggleCC()" class="accent-primary w-4 h-4"></label>
+                        <label class="flex items-center gap-1.5 cursor-pointer select-none bg-white/70 rounded-full px-2 sm:px-2.5 py-1 border border-td-lightBlue/40"><span class="text-[11px] font-semibold text-slate-500">Dịch nghĩa</span><input type="checkbox" id="sd-show-vi" onchange="shadowToggleCC()" class="accent-primary w-4 h-4"></label>
                     </div>
                 </div>
                 <!-- relative: để el.offsetTop của mỗi câu tính theo chính khung này (dùng khi canh giữa).
                      overflow-y-auto + chiều cao set bằng JS (fitCueListHeight) -> khối phụ đề đứng yên,
                      chỉ các câu bên trong cuộn. -->
-                <div id="sd-cue-list" class="relative flex flex-col gap-2.5 overflow-y-auto custom-scrollbar pr-1"></div>
+                <div id="sd-cue-list" class="relative flex flex-col gap-2 sm:gap-2.5 overflow-y-auto custom-scrollbar pr-0.5 sm:pr-1"></div>
             </div>
         </div>
 
@@ -15577,6 +15633,7 @@ document.addEventListener('click', (ev) => {
 (function () {
     const SPEEDS = [0.75, 1, 1.25];
     let videos = [], topics = [], filterTopic = '';
+    let savedShadowLibraryScroll = 0;
     // ---- Quy tắc riêng cho topic 漢字說故事 ----
     // Khớp theo CHUỖI CON vì tên topic đầy đủ trong DB là:
     //   「漢字說故事」動畫 - Ý nghĩa chữ hán qua chiết tự
@@ -15675,7 +15732,15 @@ document.addEventListener('click', (ev) => {
     async function loadVideos() {
         try { const r = await fetch('api.php?action=get_shadowing_videos'); const j = await r.json(); videos = j.success ? (j.data || []) : []; }
         catch (e) { videos = []; }
+        const prevScroll = savedShadowLibraryScroll || (document.getElementById('mainContent')?.scrollTop || 0);
         renderGrid();
+        if (prevScroll && !document.getElementById('shadow-library').classList.contains('hidden')) {
+            const mc = document.getElementById('mainContent');
+            if (mc) {
+                mc.scrollTo({ top: prevScroll, behavior: 'instant' });
+                mc.scrollTop = prevScroll;
+            }
+        }
     }
 
     function coverHTML(v) {
@@ -15821,9 +15886,36 @@ document.addEventListener('click', (ev) => {
             document.getElementById('sd-topic').textContent = cur.topic || '';
             resetRecordUI();
 
+            const mc = document.getElementById('mainContent');
+            if (!document.getElementById('shadow-library').classList.contains('hidden') && mc) {
+                savedShadowLibraryScroll = mc.scrollTop;
+            }
+
             document.getElementById('shadow-library').classList.add('hidden');
             document.getElementById('shadow-detail').classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (mc) {
+                mc.scrollTo({ top: 0, behavior: 'instant' });
+                mc.scrollTop = 0;
+            }
+            const cueListEl = document.getElementById('sd-cue-list');
+            if (cueListEl) {
+                cueListEl.scrollTo({ top: 0, behavior: 'instant' });
+                cueListEl.scrollTop = 0;
+            }
+            window.scrollTo(0, 0);
+            requestAnimationFrame(() => {
+                if (mc) {
+                    mc.scrollTo({ top: 0, behavior: 'instant' });
+                    mc.scrollTop = 0;
+                }
+            });
+            setTimeout(() => {
+                if (mc) {
+                    mc.scrollTo({ top: 0, behavior: 'instant' });
+                    mc.scrollTop = 0;
+                }
+            }, 60);
             
 
             // Mở video mới -> tiêu đề luôn hiện lại từ đầu
@@ -15852,6 +15944,17 @@ document.addEventListener('click', (ev) => {
         window.shadowStopAll();
         document.getElementById('shadow-detail').classList.add('hidden');
         document.getElementById('shadow-library').classList.remove('hidden');
+        const mc = document.getElementById('mainContent');
+        if (mc && savedShadowLibraryScroll) {
+            mc.scrollTo({ top: savedShadowLibraryScroll, behavior: 'instant' });
+            mc.scrollTop = savedShadowLibraryScroll;
+            requestAnimationFrame(() => {
+                if (mc) {
+                    mc.scrollTo({ top: savedShadowLibraryScroll, behavior: 'instant' });
+                    mc.scrollTop = savedShadowLibraryScroll;
+                }
+            });
+        }
         loadVideos(); // refresh play_count / thứ tự
     };
 
@@ -15885,12 +15988,12 @@ document.addEventListener('click', (ev) => {
     // ---- danh sách phụ đề ----
     function cueItemHTML(c, i) {
         const active = i === curCueIdx;
-        const vi = showVi && c._vi ? `<div class="sd-ci-vi text-[14px] sm:text-[16px] text-slate-600 font-medium mt-2 leading-relaxed">${esc(c._vi)}</div>` : '';
+        const vi = showVi && c._vi ? `<div class="sd-ci-vi text-[14px] sm:text-[16px] text-slate-600 font-medium mt-1.5 sm:mt-2 leading-relaxed">${esc(c._vi)}</div>` : '';
         // Pinyin per-chữ (kiểu Hội thoại) khi bật; tắt thì chỉ hiện Hán tự thuần, nhẹ hơn.
-        const body = `<div class="flex flex-wrap items-end gap-y-1.5">${cueCharsHTML(c.text, showPinyin)}</div>`;
-        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue text-left rounded-2xl border px-4 py-3.5 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
-            <div class="flex items-start gap-3">
-                <span class="text-[12px] font-black text-slate-300 mt-2 shrink-0">#${i + 1}</span>
+        const body = `<div class="flex flex-wrap items-end gap-y-1 sm:gap-y-1.5">${cueCharsHTML(c.text, showPinyin)}</div>`;
+        return `<button onclick="shadowGoCue(${i})" id="sd-cue-${i}" class="sd-cue w-full text-left rounded-2xl border px-3 sm:px-4 py-2.5 sm:py-3.5 transition-all ${active ? 'sd-cue-active border-primary bg-td-lightBlue/20' : 'border-slate-100 bg-white hover:border-td-lightBlue/60'}">
+            <div class="flex items-start gap-2 sm:gap-3">
+                <span class="text-[11px] sm:text-[12px] font-bold text-slate-300 mt-1 sm:mt-1.5 shrink-0 select-none text-right">#${i + 1}</span>
                 <div class="min-w-0 flex-1">${body}${vi}</div>
             </div>
         </button>`;
@@ -16054,6 +16157,43 @@ document.addEventListener('click', (ev) => {
         media.toggleMute();
         syncVolumeUI();
     };
+
+    let sdVolTimer = null;
+    window.shadowVolKeepOpen = function () {
+        if (sdVolTimer) clearTimeout(sdVolTimer);
+        const w = document.getElementById('sd-vol-widget');
+        const wa = document.getElementById('sd-vol-widget-a');
+        if (w) w.classList.add('is-open');
+        if (wa) wa.classList.add('is-open');
+        sdVolTimer = setTimeout(() => {
+            if (w) w.classList.remove('is-open');
+            if (wa) wa.classList.remove('is-open');
+        }, 3200);
+    };
+
+    window.shadowHandleMuteClick = function (e, target) {
+        if (e) e.stopPropagation();
+        const isHoverDevice = window.matchMedia('(hover: hover)').matches;
+        const w = target === 'a' ? document.getElementById('sd-vol-widget-a') : document.getElementById('sd-vol-widget');
+
+        if (isHoverDevice) {
+            window.shadowToggleMute();
+        } else {
+            if (w && !w.classList.contains('is-open')) {
+                window.shadowVolKeepOpen();
+            } else {
+                window.shadowToggleMute();
+                window.shadowVolKeepOpen();
+            }
+        }
+    };
+
+    document.addEventListener('click', function (e) {
+        const w = document.getElementById('sd-vol-widget');
+        const wa = document.getElementById('sd-vol-widget-a');
+        if (w && !w.contains(e.target)) w.classList.remove('is-open');
+        if (wa && !wa.contains(e.target)) wa.classList.remove('is-open');
+    });
 
     // ---------- MEDIA ADAPTER: YouTube hoặc audio (giáo trình) ----------
     // Toàn bộ logic karaoke/điều khiển bên dưới chỉ nói chuyện qua media.*,
@@ -16582,6 +16722,7 @@ document.addEventListener('click', (ev) => {
 <script>
 (function () {
     let lessonItems = [], videos = [], topics = [], filterTopic = '';
+    let savedDictLibraryScroll = 0;
     let cur = null, cues = [], curCueIdx = 0;
     let player = null, audioEl = null, isAudioMode = false;
     let poll = null, loopSentence = false, playUntil = null;
@@ -16728,10 +16869,32 @@ document.addEventListener('click', (ev) => {
         curCueIdx = 0; playUntil = null; tileState = {}; scoredCount = 0; correctCount = 0;
         document.getElementById('dt-title').textContent = gc(cur.title);
         document.getElementById('dt-badge').textContent = cur.badge || '';
+
+        const mc = document.getElementById('mainContent');
+        if (!document.getElementById('dict-library').classList.contains('hidden') && mc) {
+            savedDictLibraryScroll = mc.scrollTop;
+        }
+
         document.getElementById('dict-library').classList.add('hidden');
         document.getElementById('dict-detail').classList.remove('hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
+
+        if (mc) {
+            mc.scrollTo({ top: 0, behavior: 'instant' });
+            mc.scrollTop = 0;
+        }
+        window.scrollTo(0, 0);
+        requestAnimationFrame(() => {
+            if (mc) {
+                mc.scrollTo({ top: 0, behavior: 'instant' });
+                mc.scrollTop = 0;
+            }
+        });
+        setTimeout(() => {
+            if (mc) {
+                mc.scrollTo({ top: 0, behavior: 'instant' });
+                mc.scrollTop = 0;
+            }
+        }, 60);
 
         const mediaEl = document.getElementById('dt-media-sticky');
         if (mediaEl) mediaEl.classList.remove('dt-hide-title');
@@ -16750,6 +16913,17 @@ document.addEventListener('click', (ev) => {
         window.dictStopAll();
         document.getElementById('dict-detail').classList.add('hidden');
         document.getElementById('dict-library').classList.remove('hidden');
+        const mc = document.getElementById('mainContent');
+        if (mc && savedDictLibraryScroll) {
+            mc.scrollTo({ top: savedDictLibraryScroll, behavior: 'instant' });
+            mc.scrollTop = savedDictLibraryScroll;
+            requestAnimationFrame(() => {
+                if (mc) {
+                    mc.scrollTo({ top: savedDictLibraryScroll, behavior: 'instant' });
+                    mc.scrollTop = savedDictLibraryScroll;
+                }
+            });
+        }
         renderLessonGrid();
     };
 
@@ -18319,15 +18493,28 @@ document.addEventListener('click', (ev) => {
                     const nextBtn = document.getElementById('quiz-next-btn');
                     if (nextBtn && !nextBtn.classList.contains('hidden')) {
                         nextBtn.click();
-                    } else if (typeof nextQuiz === 'function') {
-                        nextQuiz();
+                    } else {
+                        const ttsBtn = document.querySelector('#quiz-container button[onclick*="playTTS"]');
+                        if (ttsBtn) {
+                            ttsBtn.click();
+                            ttsBtn.classList.add('scale-95', 'bg-primary', 'text-white', 'border-primary');
+                            setTimeout(() => {
+                                ttsBtn.classList.remove('scale-95', 'bg-primary', 'text-white', 'border-primary');
+                            }, 200);
+                        }
                     }
                     return;
                 }
                 if (key.toLowerCase() === 'r' || key.toLowerCase() === 'p') {
                     e.preventDefault();
                     const ttsBtn = document.querySelector('#quiz-container button[onclick*="playTTS"]');
-                    if (ttsBtn) ttsBtn.click();
+                    if (ttsBtn) {
+                        ttsBtn.click();
+                        ttsBtn.classList.add('scale-95', 'bg-primary', 'text-white', 'border-primary');
+                        setTimeout(() => {
+                            ttsBtn.classList.remove('scale-95', 'bg-primary', 'text-white', 'border-primary');
+                        }, 200);
+                    }
                     return;
                 }
                 return;
@@ -19545,9 +19732,9 @@ document.addEventListener('click', (ev) => {
 
                 'dashboard': 'Trang chủ', 'srs': 'Ôn tập Ký ức', 'vocab': 'Từ vựng', 'flashcard': 'Flashcard',
 
-                'listening': 'Luyện viết', 'quiz': 'Trắc nghiệm', 'karaoke': 'Hội thoại', 'tocfl': 'THI THỬ TOCFL (MỚI)',
+                'listening': 'Tập viết chữ Hán', 'quiz': 'Trắc nghiệm', 'karaoke': 'Hội thoại', 'tocfl': 'Thi thử TOCFL',
 
-                'calculator': 'Tính điểm TOCFL', 'bo-thu': 'Bộ thủ Hán tự', 'dict-lookup': 'Từ điển Trung-Việt', 'luong-tu': 'Lượng từ tiếng Trung', 'shadowing': 'Luyện nói (Shadowing)', 'dictation': 'Luyện viết chính tả', 'community': 'Cộng đồng', 'profile': 'Trang cá nhân', 'vocab-notebook-hub': 'Sổ tay từ vựng', 'grammar-hub': 'Kho ngữ pháp'
+                'calculator': 'Tính điểm TOCFL', 'bo-thu': 'Bộ thủ Hán tự', 'dict-lookup': 'Từ điển Trung-Việt', 'luong-tu': 'Lượng từ tiếng Trung', 'shadowing': 'Luyện nói (Shadowing)', 'dictation': 'Nghe chép chính tả', 'community': 'Cộng đồng', 'profile': 'Trang cá nhân', 'vocab-notebook-hub': 'Sổ tay từ vựng', 'grammar-hub': 'Kho ngữ pháp'
 
             };
 

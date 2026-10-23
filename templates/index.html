@@ -46,11 +46,16 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/png" href="/static/img/favicon.png?v=20261023_v3">
-    <link rel="apple-touch-icon" href="/static/img/hanzi_icon.png?v=20261023_v3">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
+    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=20261023_v4">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
 
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json?v=20261023_v4">
     <meta name="theme-color" content="#027AB3">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -274,6 +279,12 @@ window.addEventListener('error', function(e) {
            --font-chinese-tc giữ lại để mọi nơi dùng .font-tc/var() không cần sửa lại từng chỗ. */
         :root {
             --font-chinese-tc: 'Noto Serif TC', 'PMingLiU', 'MingLiU', 'Songti TC', 'STKaiti', serif;
+        }
+
+        #sidebar-logo-img {
+            width: 130px !important;
+            max-width: 130px !important;
+            height: auto !important;
         }
 
         /* Report người dùng (Windows, chế độ Giản thể): chữ hiển thị "lỗi font" — Noto Serif TC là
@@ -1360,9 +1371,9 @@ window.addEventListener('error', function(e) {
 
         class="fixed md:relative w-[280px] h-full sidebar-gradient flex flex-col shrink-0 z-50 shadow-2xl md:shadow-none border-r border-white/5 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
 
-        <div class="min-h-[96px] py-3 flex items-center justify-start px-4 relative mb-1 w-full shrink-0">
+        <div class="h-20 flex items-center justify-start px-4 relative mb-2 w-full mt-2 shrink-0">
 
-            <img src="/static/img/hanzidiary.png?v=20261023_v3" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" class="w-[195px] md:w-[225px] h-auto object-contain drop-shadow-md hover:scale-105 transition-transform duration-300">
+            <img id="sidebar-logo-img" src="/static/img/hanzidiary.png?v=20261023_v6" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 130px !important; max-width: 130px !important; height: auto !important;" class="w-[130px] h-auto object-contain drop-shadow-lg hover:scale-105 transition-transform duration-300">
 
             <button aria-label="Đóng Menu" onclick="toggleSidebar()" class="absolute right-4 text-white/50 hover:text-white bg-white/10 active:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center md:hidden transition-colors">
 
@@ -1504,6 +1515,14 @@ window.addEventListener('error', function(e) {
                 <i class="fa-solid fa-calculator w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Tính điểm thi</span>
             </a>
+
+            <!-- ============ CÀI ĐẶT ỨNG DỤNG (PWA) ============ -->
+            <div id="pwa-sidebar-install" class="px-4 mt-4 mb-2 hidden">
+                <button type="button" onclick="triggerPwaInstall()" class="w-full flex items-center justify-center gap-2.5 py-2.5 px-3 rounded-xl bg-gradient-to-r from-sky-500/20 to-blue-600/20 hover:from-sky-500/30 hover:to-blue-600/30 text-white border border-sky-400/30 text-[13px] font-semibold transition-all shadow-sm active:scale-95">
+                    <i class="fa-solid fa-circle-down text-sky-300"></i>
+                    <span>Cài ứng dụng về máy</span>
+                </button>
+            </div>
 
             </nav>
 
@@ -21452,6 +21471,149 @@ document.addEventListener('click', (ev) => {
 
         // ================= KẾT THÚC TRACKING =================
 
+    </script>
+
+    <!-- PWA Install Banner (Bottom Floating) -->
+    <div id="pwa-install-banner" class="hidden fixed bottom-[74px] md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
+        <div class="flex items-center gap-3">
+            <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
+            <div class="flex-1 min-w-0">
+                <div class="text-xs font-black text-slate-800 truncate">Cài đặt Hanzi Diary</div>
+                <div class="text-[11px] text-slate-500 truncate">Mở nhanh trên màn hình chính như App</div>
+            </div>
+            <button type="button" onclick="triggerPwaInstall()" class="px-3 py-1.5 bg-[#027AB3] hover:bg-[#026290] text-white text-xs font-bold rounded-lg shadow-sm transition-colors shrink-0">
+                Cài đặt
+            </button>
+            <button type="button" onclick="dismissPwaBanner()" class="text-slate-400 hover:text-slate-600 p-1 shrink-0" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- PWA Install Guide Modal -->
+    <div id="pwa-guide-modal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) this.classList.add('hidden')">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 relative">
+            <div class="flex items-center gap-3 mb-3">
+                <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
+                <div>
+                    <h4 class="font-bold text-slate-800 text-sm">Cài đặt Hanzi Diary</h4>
+                    <p class="text-xs text-slate-500">Màn hình chính (Home Screen)</p>
+                </div>
+            </div>
+            <div id="pwa-guide-body" class="text-xs text-slate-600 leading-relaxed mb-4 space-y-2"></div>
+            <button type="button" onclick="document.getElementById('pwa-guide-modal').classList.add('hidden')" class="w-full py-2.5 bg-[#027AB3] hover:bg-[#026290] text-white font-semibold rounded-xl text-xs transition-colors shadow-sm">
+                Đã hiểu
+            </button>
+        </div>
+    </div>
+
+    <!-- Service Worker & PWA Script -->
+    <script>
+    (function() {
+        let deferredPrompt = null;
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js', { scope: '/' })
+                    .then((reg) => {
+                        console.log('[PWA] Service Worker registered:', reg.scope);
+                    })
+                    .catch((err) => {
+                        console.warn('[PWA] Service Worker registration failed:', err);
+                    });
+            });
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+
+            if (!isStandalone) {
+                const sidebarBtn = document.getElementById('pwa-sidebar-install');
+                if (sidebarBtn) sidebarBtn.classList.remove('hidden');
+
+                if (!sessionStorage.getItem('pwa_banner_dismissed')) {
+                    const banner = document.getElementById('pwa-install-banner');
+                    if (banner) banner.classList.remove('hidden');
+                }
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('[PWA] App successfully installed!');
+            deferredPrompt = null;
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.classList.add('hidden');
+            const sidebarBtn = document.getElementById('pwa-sidebar-install');
+            if (sidebarBtn) sidebarBtn.classList.add('hidden');
+        });
+
+        window.triggerPwaInstall = async function() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const choice = await deferredPrompt.userChoice;
+                if (choice.outcome === 'accepted') {
+                    console.log('[PWA] User accepted install prompt');
+                }
+                deferredPrompt = null;
+                const banner = document.getElementById('pwa-install-banner');
+                if (banner) banner.classList.add('hidden');
+                return;
+            }
+
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const modal = document.getElementById('pwa-guide-modal');
+            const body = document.getElementById('pwa-guide-body');
+            if (!modal || !body) return;
+
+            if (isIOS) {
+                body.innerHTML = `
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 1:</span>
+                        <span>Nhấn nút <b>Chia sẻ</b> (biểu tượng <i class="fa-solid fa-arrow-up-from-bracket"></i>) ở thanh dưới cùng Safari.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 2:</span>
+                        <span>Cuộn xuống chọn <b>"Thêm vào MH chính"</b> (Add to Home Screen).</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 3:</span>
+                        <span>Nhấn <b>Thêm</b> ở góc trên bên phải.</span>
+                    </div>
+                `;
+            } else {
+                body.innerHTML = `
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 1:</span>
+                        <span>Nhấn vào menu <b>3 chấm</b> (<i class="fa-solid fa-ellipsis-vertical"></i>) ở góc trên bên phải trình duyệt Chrome.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 2:</span>
+                        <span>Chọn <b>"Cài đặt ứng dụng"</b> hoặc <b>"Thêm vào màn hình chính"</b>.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5">
+                        <span class="font-bold text-[#027AB3]">Bước 3:</span>
+                        <span>Xác nhận <b>Cài đặt</b> để tạo icon ứng dụng.</span>
+                    </div>
+                `;
+            }
+            modal.classList.remove('hidden');
+        };
+
+        window.dismissPwaBanner = function() {
+            const banner = document.getElementById('pwa-install-banner');
+            if (banner) banner.classList.add('hidden');
+            sessionStorage.setItem('pwa_banner_dismissed', '1');
+        };
+
+        if (!isStandalone) {
+            setTimeout(() => {
+                const sidebarBtn = document.getElementById('pwa-sidebar-install');
+                if (sidebarBtn) sidebarBtn.classList.remove('hidden');
+            }, 1000);
+        }
+    })();
     </script>
 
 </body>

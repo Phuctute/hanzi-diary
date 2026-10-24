@@ -1082,8 +1082,8 @@ window.addEventListener('error', function(e) {
 
 
         .quiz-hanzi-title {
-            font-size: clamp(40px, 8vw, 70px);
-            line-height: 1.2;
+            font-size: clamp(46px, 9.2vw, 80px);
+            line-height: 1.15;
             font-weight: 600 !important;
             font-synthesis: none;
         }
@@ -5361,9 +5361,9 @@ window.addEventListener('error', function(e) {
             const optVId = opt.vocab_id || opt.id;
             const isCorrect = (optVId === currentVId);
             optionsHtml += `
-                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-3 py-2 sm:px-4 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-[13px] sm:text-base hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
-                    <span class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-xs sm:text-sm font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
-                    <span class="leading-snug sm:leading-relaxed">${opt.definition}</span>
+                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-3.5 py-2.5 sm:px-4.5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-[14.5px] sm:text-[17.5px] hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
+                    <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-[13px] sm:text-[15.5px] font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
+                    <span class="leading-snug sm:leading-relaxed flex-1">${opt.definition}</span>
                 </button>`;
         });
 
@@ -5377,6 +5377,7 @@ window.addEventListener('error', function(e) {
                     ${q.tocfl_band ? `<span class="inline-block px-2 py-0.5 bg-amber-50 text-amber-500 text-[9px] font-black rounded-full border border-amber-200 uppercase tracking-widest leading-none">TOCFL ${q.tocfl_band}</span>` : ''}
                 </div>
                 <h2 class="quiz-hanzi-title font-tc font-black text-black break-words px-8 pb-1 sm:pb-2">${displayQHanzi}</h2>
+                <div id="quiz-pinyin" class="absolute left-0 right-0 top-full pt-1 sm:pt-2 text-primary font-bold text-base sm:text-2xl tracking-wide opacity-0 transition-opacity duration-200 select-none pointer-events-none">${q.pinyin || ''}</div>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3.5" id="quiz-options">${optionsHtml}</div>
             <div class="mt-4 sm:mt-6 flex items-center justify-between gap-3 min-h-[50px] sm:min-h-[56px]" id="quiz-bottom-bar">
@@ -5424,6 +5425,12 @@ window.addEventListener('error', function(e) {
 
         const currentQ = quizQuestions[currentQuizIdx];
         const vId = currentQ.vocab_id || currentQ.id;
+
+        // Hiện pinyin màu xanh dương bên dưới chữ Hán khi đã chọn xong đáp án
+        const pinyinEl = document.getElementById('quiz-pinyin');
+        if (pinyinEl) {
+            pinyinEl.classList.remove('opacity-0');
+        }
 
         // Cập nhật SRS: Đúng = Nhớ (3) -> 1 ngày | Sai = Quên (1) -> 10 phút
         if (currentUser) {
@@ -22783,7 +22790,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.20', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.21', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

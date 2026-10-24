@@ -1088,6 +1088,34 @@ window.addEventListener('error', function(e) {
             font-synthesis: none;
         }
 
+        .quiz-opt-badge {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            min-height: 32px;
+            aspect-ratio: 1 / 1;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 640px) {
+            .quiz-opt-badge {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                min-height: 38px;
+            }
+        }
+        .quiz-opt-def {
+            font-size: 14px;
+        }
+        @media (min-width: 640px) {
+            .quiz-opt-def {
+                font-size: 17px;
+            }
+        }
+
 
 
         * {
@@ -5356,22 +5384,14 @@ window.addEventListener('error', function(e) {
         }
         let options = [q, ...wrongs].sort(() => 0.5 - Math.random());
 
-        const isAndroidChrome = /Android/i.test(navigator.userAgent);
-        const optBtnPad = isAndroidChrome 
-            ? 'px-3.5 py-2.5 sm:px-4 sm:py-3 text-[13.8px] sm:text-[16.8px]' 
-            : 'px-3.5 py-2.5 sm:px-4.5 sm:py-3.5 text-[14.5px] sm:text-[17.5px]';
-        const optBadgeSize = isAndroidChrome 
-            ? 'w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] text-[12.5px] sm:text-[14.7px]' 
-            : 'w-8 h-8 sm:w-10 sm:h-10 text-[13px] sm:text-[15.5px]';
-
         let optionsHtml = '';
         options.forEach((opt, idx) => {
             const optVId = opt.vocab_id || opt.id;
             const isCorrect = (optVId === currentVId);
             optionsHtml += `
-                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="${optBtnPad} rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
-                    <span class="${optBadgeSize} rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
-                    <span class="leading-snug sm:leading-relaxed flex-1">${opt.definition}</span>
+                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-3.5 py-2.5 sm:px-4.5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
+                    <span class="quiz-opt-badge w-8 h-8 sm:w-10 sm:h-10 aspect-square rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-xs sm:text-sm font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
+                    <span class="quiz-opt-def leading-snug sm:leading-relaxed flex-1">${opt.definition}</span>
                 </button>`;
         });
 
@@ -22798,7 +22818,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.24', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.25', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

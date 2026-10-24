@@ -5234,7 +5234,7 @@ window.addEventListener('error', function(e) {
             <span class="pointer-events-none">Tự đọc</span>
         </button>
         <label class="relative inline-flex items-center cursor-pointer group hover:opacity-80 transition-opacity shrink-0 select-none">
-            <input type="checkbox" id="quiz-auto-next" class="sr-only peer" checked>
+            <input type="checkbox" id="quiz-auto-next" onchange="toggleQuizAutoNext(event)" class="sr-only peer" checked>
             <div class="w-9 h-5 sm:w-11 sm:h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-[100%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 sm:after:h-5 sm:after:w-5 after:transition-all peer-checked:bg-primary border border-slate-200 shadow-inner shrink-0"></div>
             <span class="ml-1 sm:ml-2 text-[11px] sm:text-xs font-bold text-slate-500 whitespace-nowrap">Auto-next</span>
         </label>
@@ -5421,6 +5421,8 @@ window.addEventListener('error', function(e) {
         }
 
         document.getElementById('quiz-header').classList.remove('hidden');
+        if (typeof applyQuizAutoNextUI === 'function') applyQuizAutoNextUI();
+        if (typeof applyQuizAutoReadUI === 'function') applyQuizAutoReadUI();
         document.getElementById('quiz-counter').innerText = `${currentQuizIdx + 1} / ${quizQuestions.length}`;
         const scoreEl = document.getElementById('quiz-score-value');
         if (scoreEl) scoreEl.innerText = quizScore;
@@ -5560,12 +5562,27 @@ window.addEventListener('error', function(e) {
     }
     applyQuizAutoReadUI();
 
+    let quizAutoNext = localStorage.getItem('td_quiz_autonext') !== null ? (localStorage.getItem('td_quiz_autonext') === '1') : true;
+    function applyQuizAutoNextUI() {
+        const el = document.getElementById('quiz-auto-next');
+        if (el) el.checked = quizAutoNext;
+    }
+    function toggleQuizAutoNext(event) {
+        if (event) event.stopPropagation();
+        const el = document.getElementById('quiz-auto-next');
+        quizAutoNext = el ? el.checked : !quizAutoNext;
+        localStorage.setItem('td_quiz_autonext', quizAutoNext ? '1' : '0');
+        applyQuizAutoNextUI();
+    }
+    applyQuizAutoNextUI();
+
     let quizTimeout = null;
     function checkQuizAnswer(btn, isCorrect) {
         clearTimeout(quizTimeout);
         const buttons = document.getElementById('quiz-options').querySelectorAll('button');
         buttons.forEach(b => { b.disabled = true; b.classList.remove('hover:-translate-y-1', 'hover:shadow-md'); });
         const autoNextCheckbox = document.getElementById('quiz-auto-next');
+        const isAutoNext = autoNextCheckbox ? autoNextCheckbox.checked : quizAutoNext;
         const letterSpan = btn.querySelector('span:first-child');
 
         const currentQ = quizQuestions[currentQuizIdx];
@@ -5606,19 +5623,33 @@ window.addEventListener('error', function(e) {
             if (quizAutoRead) {
                 const displayHanzi = getChar(currentQ.hanzi);
                 playTTS(encodeURIComponent(displayHanzi));
-                const onEnded = () => {
-                    globalAudioPlayer.removeEventListener('ended', onEnded);
-                    clearTimeout(quizTimeout);
-                    nextQuiz();
-                };
-                globalAudioPlayer.addEventListener('ended', onEnded);
-                quizTimeout = setTimeout(() => {
-                    globalAudioPlayer.removeEventListener('ended', onEnded);
-                    nextQuiz();
-                }, 3500);
-            } else if (autoNextCheckbox && autoNextCheckbox.checked) {
-                quizTimeout = setTimeout(() => nextQuiz(), 900);
+            }
+
+            if (isAutoNext) {
+                if (quizAutoRead) {
+                    const onEnded = () => {
+                        globalAudioPlayer.removeEventListener('ended', onEnded);
+                        clearTimeout(quizTimeout);
+                        const chk = document.getElementById('quiz-auto-next');
+                        if (chk && !chk.checked) return;
+                        nextQuiz();
+                    };
+                    globalAudioPlayer.addEventListener('ended', onEnded);
+                    quizTimeout = setTimeout(() => {
+                        globalAudioPlayer.removeEventListener('ended', onEnded);
+                        const chk = document.getElementById('quiz-auto-next');
+                        if (chk && !chk.checked) return;
+                        nextQuiz();
+                    }, 3500);
+                } else {
+                    quizTimeout = setTimeout(() => {
+                        const chk = document.getElementById('quiz-auto-next');
+                        if (chk && !chk.checked) return;
+                        nextQuiz();
+                    }, 900);
+                }
             } else {
+                clearTimeout(quizTimeout);
                 const nextBtn = document.getElementById('quiz-next-btn');
                 if (nextBtn) nextBtn.classList.remove('hidden');
             }
@@ -13270,9 +13301,10 @@ window.addEventListener('error', function(e) {
 
     // Tự động chuyển sang câu tiếp theo ngay khi chọn đáp án (áp dụng cả Nghe lẫn Đọc).
     // Mặc định BẬT; người thi có thể tắt để tự kiểm tra lại câu trả lời trước khi qua câu mới.
-    let autoNextOnAnswer = true;
+    let autoNextOnAnswer = localStorage.getItem('exam_auto_next') !== null ? (localStorage.getItem('exam_auto_next') === '1') : true;
     function toggleAutoNext() {
         autoNextOnAnswer = !autoNextOnAnswer;
+        localStorage.setItem('exam_auto_next', autoNextOnAnswer ? '1' : '0');
         renderExamQuestion(true);
     }
 

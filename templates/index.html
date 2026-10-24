@@ -1082,8 +1082,8 @@ window.addEventListener('error', function(e) {
 
 
         .quiz-hanzi-title {
-            font-size: clamp(40px, 8vw, 70px);
-            line-height: 1.2;
+            font-size: clamp(54px, 11vw, 86px);
+            line-height: 1.15;
             font-weight: 600 !important;
             font-synthesis: none;
         }
@@ -5361,9 +5361,9 @@ window.addEventListener('error', function(e) {
             const optVId = opt.vocab_id || opt.id;
             const isCorrect = (optVId === currentVId);
             optionsHtml += `
-                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-3 py-2 sm:px-4 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-[13px] sm:text-base hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-1 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
-                    <span class="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-xs sm:text-sm font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
-                    <span class="leading-snug sm:leading-relaxed">${opt.definition}</span>
+                <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-4 py-3 sm:px-5 sm:py-4 rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold text-base sm:text-lg hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-3 sm:gap-4 group outline-none">
+                    <span class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-sm sm:text-base font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
+                    <span class="leading-snug sm:leading-relaxed flex-1">${opt.definition}</span>
                 </button>`;
         });
 
@@ -5371,21 +5371,24 @@ window.addEventListener('error', function(e) {
         const safeTextQ = displayQHanzi.replace(/"/g, '&quot;');
         
         document.getElementById('quiz-container').innerHTML = `
-            <div class="text-center relative pt-0.5 sm:pt-1" style="margin-bottom: clamp(44px, 6.5vw, 68px);">
-                <button class="absolute top-0 right-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-50 hover:bg-primary/10 border border-slate-200 text-slate-400 hover:text-primary active:bg-primary active:text-white active:scale-95 transition-all shadow-2xs flex items-center justify-center outline-none" data-text="${encodeURIComponent(safeTextQ)}" onclick="playTTS(this.getAttribute('data-text'), event)" title="Phát âm">
-                    <i class="fa-solid fa-volume-high text-xs sm:text-sm pointer-events-none"></i>
-                </button>
-                <h3 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 sm:mb-1.5 px-9">Chọn nghĩa đúng cho từ:</h3>
+            <div class="text-center relative pt-0.5 sm:pt-1 mb-2 sm:mb-4">
+                <h3 class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 sm:mb-1.5">Chọn nghĩa đúng cho từ:</h3>
                 <div class="h-5 sm:h-6 flex items-center justify-center mb-1">
-                    ${q.tocfl_band ? `<span class="inline-block px-2 py-0.5 bg-amber-50 text-amber-500 text-[9px] font-black rounded-full border border-amber-200 uppercase tracking-widest leading-none">TOCFL ${q.tocfl_band}</span>` : ''}
+                    ${q.tocfl_band ? `<span class="inline-block px-2.5 py-0.5 bg-amber-50 text-amber-500 text-[10px] font-black rounded-full border border-amber-200 uppercase tracking-widest leading-none">TOCFL ${q.tocfl_band}</span>` : ''}
                 </div>
-                <h2 class="quiz-hanzi-title font-tc font-black text-black break-words px-8 pb-1 sm:pb-2">${displayQHanzi}</h2>
+                <h2 class="quiz-hanzi-title font-tc font-black text-black break-words px-4 pb-0.5">${displayQHanzi}</h2>
+                <div id="quiz-pinyin" class="text-primary font-bold text-lg sm:text-2xl tracking-wide min-h-[1.75rem] sm:min-h-[2.25rem] mt-1 opacity-0 transition-opacity duration-200 select-none">${q.pinyin || ''}</div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3.5" id="quiz-options">${optionsHtml}</div>
-            <div class="mt-2.5 sm:mt-5 text-center hidden animate-fade-in" id="quiz-next-btn">
-                <button onclick="nextQuiz()" class="w-full sm:w-auto px-6 py-2.5 sm:px-8 sm:py-3.5 bg-primary text-white font-bold text-xs sm:text-base rounded-xl sm:rounded-2xl shadow-td hover:shadow-td-hover active:scale-95 hover:-translate-y-1 transition-all outline-none">
-                    CÂU TIẾP THEO <i class="fa-solid fa-arrow-right ml-1.5 text-[10px] sm:text-xs"></i>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" id="quiz-options">${optionsHtml}</div>
+            <div class="mt-4 sm:mt-6 flex items-center justify-between gap-3 min-h-[50px] sm:min-h-[56px]" id="quiz-bottom-bar">
+                <button class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white hover:bg-slate-50 border-2 border-slate-200 text-slate-500 hover:text-primary hover:border-primary active:bg-primary active:text-white active:scale-95 transition-all shadow-xs flex items-center justify-center shrink-0 outline-none" data-text="${encodeURIComponent(safeTextQ)}" onclick="playTTS(this.getAttribute('data-text'), event)" title="Phát âm">
+                    <i class="fa-solid fa-volume-high text-xl sm:text-2xl pointer-events-none"></i>
                 </button>
+                <div class="hidden ml-auto animate-fade-in" id="quiz-next-btn">
+                    <button onclick="nextQuiz()" class="px-6 py-3 sm:px-8 sm:py-3.5 bg-primary text-white font-bold text-sm sm:text-base rounded-xl sm:rounded-2xl shadow-td hover:shadow-td-hover active:scale-95 hover:-translate-y-1 transition-all outline-none flex items-center gap-2">
+                        <span>CÂU TIẾP THEO</span> <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
             </div>`;
     }
 
@@ -5422,6 +5425,12 @@ window.addEventListener('error', function(e) {
 
         const currentQ = quizQuestions[currentQuizIdx];
         const vId = currentQ.vocab_id || currentQ.id;
+
+        // Hiện pinyin màu xanh dương bên dưới chữ Hán khi đã chọn xong đáp án
+        const pinyinEl = document.getElementById('quiz-pinyin');
+        if (pinyinEl) {
+            pinyinEl.classList.remove('opacity-0');
+        }
 
         // Cập nhật SRS: Đúng = Nhớ (3) -> 1 ngày | Sai = Quên (1) -> 10 phút
         if (currentUser) {
@@ -22781,7 +22790,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.17', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.18', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

@@ -5490,31 +5490,6 @@ window.addEventListener('error', function(e) {
                 }
             });
 
-            // Hiện hộp giải thích đáp án đúng rõ ràng
-            let feedbackEl = document.getElementById('quiz-wrong-feedback');
-            if (!feedbackEl) {
-                feedbackEl = document.createElement('div');
-                feedbackEl.id = 'quiz-wrong-feedback';
-                const optsContainer = document.getElementById('quiz-options');
-                if (optsContainer && optsContainer.parentNode) {
-                    optsContainer.parentNode.insertBefore(feedbackEl, document.getElementById('quiz-next-btn'));
-                }
-            }
-            const displayHz = getChar(currentQ.hanzi);
-            feedbackEl.className = 'mt-2.5 sm:mt-5 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-amber-50/90 border border-amber-200 text-slate-800 animate-fade-in flex items-start gap-2.5 sm:gap-3 text-left shadow-sm';
-            feedbackEl.innerHTML = `
-                <div class="w-8 h-8 rounded-xl bg-amber-200/70 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
-                    <i class="fa-solid fa-lightbulb text-sm"></i>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <div class="font-bold text-amber-900 text-xs sm:text-sm uppercase tracking-wider mb-1">Chưa chính xác — Ghi nhớ từ này:</div>
-                    <div class="text-sm sm:text-base text-slate-900 font-medium">
-                        <span class="font-black font-tc text-lg sm:text-xl text-brandNavy mr-2">${displayHz}</span>
-                        <span class="text-primary font-bold text-sm sm:text-base mr-2">[${currentQ.pinyin}]</span>
-                        <span class="text-slate-700">${currentQ.definition}</span>
-                    </div>
-                </div>`;
-
             // Luôn hiện nút CÂU TIẾP THEO để người học chủ động bấm
             const nextBtnWrap = document.getElementById('quiz-next-btn');
             if (nextBtnWrap) {
@@ -22806,7 +22781,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.15', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.17', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

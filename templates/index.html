@@ -5181,8 +5181,8 @@ window.addEventListener('error', function(e) {
         }
     }
 </script>
-            <div id="view-quiz" class="hidden max-w-3xl mx-auto py-4 sm:py-8 pb-32 animate-fade-in opacity-0">
-    <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3 sm:mb-4 flex-nowrap" id="quiz-header">
+            <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32 animate-fade-in opacity-0">
+    <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
         <div class="bg-white rounded-full sm:rounded-[20px] px-2.5 py-1 sm:px-6 sm:py-2.5 shadow-xs sm:shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center shrink-0 tracking-wide">
             <span id="quiz-counter" class="text-primary text-xs sm:text-base mr-1 sm:mr-1.5 font-bold">0 / 0</span> CÂU
         </div>
@@ -22790,7 +22790,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.21', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.22', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

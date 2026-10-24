@@ -5336,6 +5336,14 @@ window.addEventListener('error', function(e) {
         } catch (e) {}
     }
 
+    function normalizeQuizDef(s) {
+        return (s || '').toString()
+            .toLowerCase()
+            .trim()
+            .replace(/^[\s.,;!?:，。！？；]+|[\s.,;!?:，。！？；]+$/g, '')
+            .replace(/\s+/g, ' ');
+    }
+
     function renderQuizQuestion() {
         if (typeof preloadAudio === 'function' && typeof quizQuestions !== 'undefined' && Array.isArray(quizQuestions)) {
             const nextQ = quizQuestions.slice(currentQuizIdx + 1, currentQuizIdx + 5);
@@ -5373,14 +5381,53 @@ window.addEventListener('error', function(e) {
         const q = quizQuestions[currentQuizIdx];
         const currentVId = q.vocab_id || q.id;
 
-        // Loại nhiễu trùng nghĩa (report #99): cùng 1 từ có thể xuất hiện ở nhiều vocab_id
-        // khác nhau (dạy lại ở nhiều bài). Nếu chỉ lọc theo vocab_id, đáp án nhiễu có thể
-        // là bản sao CHÍNH XÁC của đáp án đúng (cùng dict_id/nghĩa) -> 2 nút hiện y hệt nhau.
-        let wrongs = vocabData.filter(v => (v.vocab_id || v.id) !== currentVId
-            && v.dict_id !== q.dict_id
-            && v.definition !== q.definition).sort(() => 0.5 - Math.random()).slice(0, 3);
-        if (wrongs.length === 0) {
-            wrongs = vocabData.filter(v => (v.vocab_id || v.id) !== currentVId).slice(0, 3);
+        // Loại nhiễu trùng nghĩa / trùng từ:
+        // 1. Chuẩn hóa chuỗi nghĩa (bỏ hoa-thường, khoảng trắng, dấu câu cuối)
+        // 2. Không chọn đáp án trùng nghĩa, trùng chữ Hán hoặc trùng dict_id với câu hỏi q
+        // 3. Khử trùng triệt để giữa các đáp án nhiễu bằng Set
+        // 4. Dự phòng nếu bài học có ít từ vựng thì lấy thêm từ pool fallback độc nhất
+        const qNormDef = normalizeQuizDef(q.definition);
+        const qHanzi = (q.hanzi || '').split('/')[0].trim();
+        const usedDefs = new Set();
+        if (qNormDef) usedDefs.add(qNormDef);
+
+        const candidates = [...vocabData].sort(() => 0.5 - Math.random());
+        const wrongs = [];
+        for (const v of candidates) {
+            if (wrongs.length >= 3) break;
+            const vId = v.vocab_id || v.id;
+            if (vId === currentVId) continue;
+            if (q.dict_id && v.dict_id && v.dict_id === q.dict_id) continue;
+            const vHanzi = (v.hanzi || '').split('/')[0].trim();
+            if (vHanzi && vHanzi === qHanzi) continue;
+            const vNormDef = normalizeQuizDef(v.definition);
+            if (!vNormDef || usedDefs.has(vNormDef)) continue;
+            usedDefs.add(vNormDef);
+            wrongs.push(v);
+        }
+
+        if (wrongs.length < 3) {
+            const fallbackDefs = [
+                { vocab_id: 'fb1', dict_id: 'fb1', definition: 'Đi' },
+                { vocab_id: 'fb2', dict_id: 'fb2', definition: 'Xem; nhìn; đọc' },
+                { vocab_id: 'fb3', dict_id: 'fb3', definition: 'Mua' },
+                { vocab_id: 'fb4', dict_id: 'fb4', definition: 'Ăn' },
+                { vocab_id: 'fb5', dict_id: 'fb5', definition: 'Uống' },
+                { vocab_id: 'fb6', dict_id: 'fb6', definition: 'Nói' },
+                { vocab_id: 'fb7', dict_id: 'fb7', definition: 'Nghe; lắng nghe' },
+                { vocab_id: 'fb8', dict_id: 'fb8', definition: 'Làm' },
+                { vocab_id: 'fb9', dict_id: 'fb9', definition: 'Đến; tới' },
+                { vocab_id: 'fb10', dict_id: 'fb10', definition: 'Tốt; đẹp; hay' },
+                { vocab_id: 'fb11', dict_id: 'fb11', definition: 'Bận rộn' },
+                { vocab_id: 'fb12', dict_id: 'fb12', definition: 'Mới' }
+            ].sort(() => 0.5 - Math.random());
+            for (const fb of fallbackDefs) {
+                if (wrongs.length >= 3) break;
+                const fbNorm = normalizeQuizDef(fb.definition);
+                if (!fbNorm || usedDefs.has(fbNorm)) continue;
+                usedDefs.add(fbNorm);
+                wrongs.push(fb);
+            }
         }
         let options = [q, ...wrongs].sort(() => 0.5 - Math.random());
 
@@ -5516,7 +5563,11 @@ window.addEventListener('error', function(e) {
             letterSpan.classList.remove('group-hover:bg-primary');
             
             buttons.forEach(b => {
-                if (b.dataset.correct === 'true' || (currentQ.definition && b.innerText.includes(currentQ.definition.trim()))) {
+                const optDefEl = b.querySelector('.quiz-opt-def');
+                const optDefText = optDefEl ? optDefEl.innerText : '';
+                const qDefNorm = normalizeQuizDef(currentQ.definition);
+                const isMatch = b.dataset.correct === 'true' || (qDefNorm && normalizeQuizDef(optDefText) === qDefNorm);
+                if (isMatch) {
                     b.classList.replace('border-slate-100', 'border-td-green');
                     b.classList.add('bg-emerald-50', 'text-td-green', 'shadow-sm', 'ring-2', 'ring-td-green/40');
                     const s = b.querySelector('span:first-child');

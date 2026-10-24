@@ -483,12 +483,20 @@ function initQuiz() {
     const targetIdx = i;
     const targetWord = pool[targetIdx];
 
-    // Pick 3 distractors
+    // Pick 3 distractors with unique normalized definitions
+    const normDef = (s) => (s || '').toString().toLowerCase().trim().replace(/^[\s.,;!?:，。！？；]+|[\s.,;!?:，。！？；]+$/g, '').replace(/\s+/g, ' ');
+    const targetNormDef = normDef(targetWord.definition);
+    const usedDefs = new Set();
+    if (targetNormDef) usedDefs.add(targetNormDef);
+
     const distractors = [];
-    const others = pool.filter((_, idx) => idx !== targetIdx);
-    while (distractors.length < 3 && others.length > 0) {
-      const r = Math.floor(Math.random() * others.length);
-      distractors.push(others.splice(r, 1)[0]);
+    const others = pool.filter((_, idx) => idx !== targetIdx).sort(() => 0.5 - Math.random());
+    for (const other of others) {
+      if (distractors.length >= 3) break;
+      const oNormDef = normDef(other.definition);
+      if (!oNormDef || usedDefs.has(oNormDef)) continue;
+      usedDefs.add(oNormDef);
+      distractors.push(other);
     }
 
     const options = [targetWord, ...distractors];

@@ -8,3 +8,9 @@ data/user_history.json
 data/srs_progress.json
 data/notebook.json
 data/last_position.json
+data/dict_cache/
+data/tts_cache/
+.old_backups/
+*.bak
+*.bak_*
+*.patch_backup

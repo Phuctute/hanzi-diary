@@ -5358,10 +5358,10 @@ window.addEventListener('error', function(e) {
 
         const isAndroidChrome = /Android/i.test(navigator.userAgent);
         const optBtnPad = isAndroidChrome 
-            ? 'px-3 py-2 sm:px-4 sm:py-3 text-[13px] sm:text-base' 
+            ? 'px-3.5 py-2.5 sm:px-4 sm:py-3 text-[13.8px] sm:text-[16.8px]' 
             : 'px-3.5 py-2.5 sm:px-4.5 sm:py-3.5 text-[14.5px] sm:text-[17.5px]';
         const optBadgeSize = isAndroidChrome 
-            ? 'w-7 h-7 sm:w-9 sm:h-9 text-xs sm:text-sm' 
+            ? 'w-[30px] h-[30px] sm:w-[38px] sm:h-[38px] text-[12.5px] sm:text-[14.7px]' 
             : 'w-8 h-8 sm:w-10 sm:h-10 text-[13px] sm:text-[15.5px]';
 
         let optionsHtml = '';
@@ -22798,7 +22798,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.0.23', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.0.24', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                     })

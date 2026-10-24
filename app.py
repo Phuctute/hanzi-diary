@@ -205,43 +205,22 @@ def load_user_history():
     return []
 
 def save_user_history(hist):
-    try:
-        with open(USER_HISTORY_FILE, "w", encoding="utf-8") as f:
-            json.dump(hist, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"Error saving user history: {e}")
+    # Progress is persisted client-side per device (localStorage). Server writes disabled to prevent sharing.
+    pass
 
 def load_srs_progress():
-    if os.path.exists(SRS_PROGRESS_FILE):
-        try:
-            with open(SRS_PROGRESS_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
     return {"reviews": {}, "stats": {"points": 180, "streak": 3, "best_streak": 7}, "daily_counts": {}}
 
 def save_srs_progress(prog):
-    try:
-        with open(SRS_PROGRESS_FILE, "w", encoding="utf-8") as f:
-            json.dump(prog, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"Error saving srs progress: {e}")
+    # Progress is persisted client-side per device (localStorage). Server writes disabled to prevent sharing.
+    pass
 
 def load_notebook():
-    if os.path.exists(NOTEBOOK_FILE):
-        try:
-            with open(NOTEBOOK_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            pass
     return {"groups": [{"id": 1, "name": "Từ vựng yêu thích", "words": []}], "words": []}
 
 def save_notebook(nb):
-    try:
-        with open(NOTEBOOK_FILE, "w", encoding="utf-8") as f:
-            json.dump(nb, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"Error saving notebook: {e}")
+    # Progress is persisted client-side per device (localStorage). Server writes disabled to prevent sharing.
+    pass
 
 DICT_CACHE_DIR = os.path.join(DATA_DIR, "dict_cache")
 os.makedirs(DICT_CACHE_DIR, exist_ok=True)
@@ -748,20 +727,9 @@ def api_php():
             }
         })
     elif action == "get_last_position":
-        if os.path.exists(LAST_POS_FILE):
-            try:
-                with open(LAST_POS_FILE, "r", encoding="utf-8") as f:
-                    return jsonify({"success": True, "data": json.load(f)})
-            except Exception:
-                pass
         return jsonify({"success": True, "data": {"book_id": 1, "lesson_id": 1, "module": "flashcard"}})
     elif action == "save_last_position":
-        payload = request.get_json(silent=True) or request.form.to_dict() or {}
-        try:
-            with open(LAST_POS_FILE, "w", encoding="utf-8") as f:
-                json.dump(payload, f, ensure_ascii=False)
-        except Exception:
-            pass
+        # Progress is persisted client-side per device (localStorage). Server writes disabled to prevent sharing.
         return jsonify({"success": True, "message": "OK"})
     elif action == "update_srs":
         payload = request.get_json(silent=True) or request.form.to_dict() or {}

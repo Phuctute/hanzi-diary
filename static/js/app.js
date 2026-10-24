@@ -483,19 +483,27 @@ function initQuiz() {
     const targetIdx = i;
     const targetWord = pool[targetIdx];
 
-    // Pick 3 distractors with unique normalized definitions
-    const normDef = (s) => (s || '').toString().toLowerCase().trim().replace(/^[\s.,;!?:，。！？；]+|[\s.,;!?:，。！？；]+$/g, '').replace(/\s+/g, ' ');
-    const targetNormDef = normDef(targetWord.definition);
-    const usedDefs = new Set();
-    if (targetNormDef) usedDefs.add(targetNormDef);
+    // Pick 3 distractors with non-colliding definitions
+    const cleanDef = (s) => (s || '').toString().toLowerCase().replace(/\([^\)]*\)|（[^）]*）|\[[^\]]*\]/g, ' ').replace(/^[\s.,;!?:，。！？；/、]+|[\s.,;!?:，。！？；/、]+$/g, '').replace(/\s+/g, ' ').trim();
+    const isColliding = (d1, d2) => {
+      const c1 = cleanDef(d1), c2 = cleanDef(d2);
+      if (!c1 || !c2) return false;
+      if (c1 === c2) return true;
+      if ((c1.length >= 4 && (` ${c2} `).includes(` ${c1} `)) || (c2.length >= 4 && (` ${c1} `).includes(` ${c2} `))) return true;
+      const parts1 = c1.split(/[,;/，；/、
+]+/).map(p => p.trim()).filter(p => p.length >= 2);
+      const parts2 = c2.split(/[,;/，；/、
+]+/).map(p => p.trim()).filter(p => p.length >= 2);
+      return parts1.some(p => parts2.includes(p));
+    };
 
     const distractors = [];
     const others = pool.filter((_, idx) => idx !== targetIdx).sort(() => 0.5 - Math.random());
     for (const other of others) {
       if (distractors.length >= 3) break;
-      const oNormDef = normDef(other.definition);
-      if (!oNormDef || usedDefs.has(oNormDef)) continue;
-      usedDefs.add(oNormDef);
+      if (!other.definition) continue;
+      if (isColliding(targetWord.definition, other.definition)) continue;
+      if (distractors.some(d => isColliding(d.definition, other.definition))) continue;
       distractors.push(other);
     }
 

@@ -2032,7 +2032,7 @@ window.addEventListener('error', function(e) {
 
         <header id="main-app-header"
 
-            class="h-auto md:h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-3 md:py-0 shrink-0 z-20 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] w-full gap-3 md:gap-4 transition-all">
+            class="relative h-auto md:h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-3 md:py-0 shrink-0 z-20 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] w-full gap-3 md:gap-4 transition-all">
 
             <div class="flex items-center justify-between w-full md:w-auto">
 
@@ -2055,18 +2055,24 @@ window.addEventListener('error', function(e) {
                 <!-- Nút tìm kiếm + tài khoản mobile: gọn 1 dòng header, bấm mới bung ô search -->
                 <div class="md:hidden flex items-center gap-2 shrink-0">
 
-                <div class="relative shrink-0" id="header-dict-search-wrap-mobile">
+                <div class="shrink-0" id="header-dict-search-wrap-mobile">
                     <button aria-label="Tra từ điển" onclick="toggleHeaderDictSearch('header-dict-mobile-panel','header-dict-mobile-search')" class="w-10 h-10 rounded-xl bg-slate-50 text-slate-500 active:bg-slate-200 active:text-primary flex items-center justify-center transition-colors outline-none border border-slate-200 shadow-sm">
                         <i class="fa-solid fa-magnifying-glass text-sm"></i>
                     </button>
-                    <div id="header-dict-mobile-panel" style="width:min(94vw,28rem)" class="header-dict-panel hidden absolute right-0 top-[calc(100%+10px)] bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
-                        <div class="relative">
+                    <div id="header-dict-mobile-panel" style="top: calc(100% + 8px); left: 12px; right: 12px; max-width: 32rem; margin: 0 auto;" class="header-dict-panel hidden absolute bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
+                        <div class="relative flex items-center">
                             <input id="header-dict-mobile-search"
-                                oninput="dashDictSearchDebounced('header-dict-mobile-search','header-dict-mobile-dropdown')"
+                                oninput="dashDictSearchDebounced('header-dict-mobile-search','header-dict-mobile-dropdown','header-dict-mobile-clear')"
                                 onkeydown="if(event.key==='Escape'){dashDictSearchClose('header-dict-mobile-dropdown');document.getElementById('header-dict-mobile-panel').classList.add('hidden');}"
                                 placeholder="Nhập hanzi, pinyin hoặc nghĩa tiếng Việt..." autocomplete="off"
-                                class="w-full h-12 rounded-xl border-2 border-slate-200 bg-slate-50 pl-11 pr-3 text-base font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
-                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                                class="w-full h-12 rounded-xl border-2 border-slate-200 bg-slate-50 pl-11 pr-11 text-base font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
+                            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+                            <button type="button" id="header-dict-mobile-clear"
+                                onclick="dashDictClearInput('header-dict-mobile-search','header-dict-mobile-dropdown','header-dict-mobile-clear')"
+                                class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 active:scale-90 transition-all outline-none"
+                                aria-label="Xoá tìm kiếm">
+                                <i class="fa-solid fa-circle-xmark text-lg"></i>
+                            </button>
                         </div>
                         <div id="header-dict-mobile-dropdown" class="hidden mt-2 rounded-xl max-h-[60vh] overflow-y-auto"></div>
                     </div>
@@ -2089,14 +2095,20 @@ window.addEventListener('error', function(e) {
                 <button aria-label="Tra từ điển" onclick="toggleHeaderDictSearch('header-dict-desktop-panel','header-dict-desktop-search')" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 text-slate-500 hover:bg-primary hover:text-white hover:border-primary active:scale-95 transition-all outline-none flex items-center justify-center shadow-sm">
                     <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </button>
-                <div id="header-dict-desktop-panel" style="width:min(480px,92vw)" class="header-dict-panel hidden absolute right-0 top-[calc(100%+10px)] bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
-                    <div class="relative">
+                <div id="header-dict-desktop-panel" style="top: calc(100% + 10px); width: min(480px, 92vw);" class="header-dict-panel hidden absolute right-0 bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
+                    <div class="relative flex items-center">
                         <input id="header-dict-desktop-search"
-                            oninput="dashDictSearchDebounced('header-dict-desktop-search','header-dict-desktop-dropdown')"
+                            oninput="dashDictSearchDebounced('header-dict-desktop-search','header-dict-desktop-dropdown','header-dict-desktop-clear')"
                             onkeydown="if(event.key==='Escape'){dashDictSearchClose('header-dict-desktop-dropdown');document.getElementById('header-dict-desktop-panel').classList.add('hidden');}"
                             placeholder="Nhập hanzi, pinyin hoặc nghĩa tiếng Việt..." autocomplete="off"
-                            class="w-full h-12 rounded-xl border-2 border-slate-200 bg-slate-50 pl-11 pr-3 text-base font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
-                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                            class="w-full h-12 rounded-xl border-2 border-slate-200 bg-slate-50 pl-11 pr-11 text-base font-semibold outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all text-slate-700 placeholder:text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+                        <button type="button" id="header-dict-desktop-clear"
+                            onclick="dashDictClearInput('header-dict-desktop-search','header-dict-desktop-dropdown','header-dict-desktop-clear')"
+                            class="hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-600 active:scale-90 transition-all outline-none"
+                            aria-label="Xoá tìm kiếm">
+                            <i class="fa-solid fa-circle-xmark text-lg"></i>
+                        </button>
                     </div>
                     <div id="header-dict-desktop-dropdown" class="hidden mt-2 rounded-xl max-h-[60vh] overflow-y-auto"></div>
                 </div>
@@ -5336,12 +5348,47 @@ window.addEventListener('error', function(e) {
         } catch (e) {}
     }
 
+    function cleanQuizDef(s) {
+        if (!s) return '';
+        let str = s.toString().toLowerCase();
+        str = str.replace(/\([^\)]*\)|（[^）]*）|\[[^\]]*\]/g, ' ');
+        str = str.replace(/^[\s.,;!?:，。！？；/、]+|[\s.,;!?:，。！？；/、]+$/g, '');
+        return str.replace(/\s+/g, ' ').trim();
+    }
+
+    const __QUIZ_STOPWORDS = new Set(['là', 'có', 'của', 'ở', 'được', 'bị', 'cho', 'về', 'trong', 'ra', 'vào', 'lên', 'xuống', 'lại', 'thì', 'mà', 'với', 'một', 'những', 'các']);
+
+    function getQuizDefKeywords(cleaned) {
+        if (!cleaned) return [];
+        const parts = cleaned.split(/[,;/，；/、\n\r]+/);
+        const tokens = [];
+        for (let p of parts) {
+            p = p.trim();
+            if (p.length >= 2 && !__QUIZ_STOPWORDS.has(p)) {
+                tokens.push(p);
+            }
+        }
+        return tokens;
+    }
+
+    function isQuizDefColliding(def1, def2) {
+        const c1 = cleanQuizDef(def1);
+        const c2 = cleanQuizDef(def2);
+        if (!c1 || !c2) return false;
+        if (c1 === c2) return true;
+        if ((c1.length >= 4 && (` ${c2} `).includes(` ${c1} `)) || (c2.length >= 4 && (` ${c1} `).includes(` ${c2} `))) {
+            return true;
+        }
+        const k1 = getQuizDefKeywords(c1);
+        const k2 = getQuizDefKeywords(c2);
+        for (const token of k1) {
+            if (k2.includes(token)) return true;
+        }
+        return false;
+    }
+
     function normalizeQuizDef(s) {
-        return (s || '').toString()
-            .toLowerCase()
-            .trim()
-            .replace(/^[\s.,;!?:，。！？；]+|[\s.,;!?:，。！？；]+$/g, '')
-            .replace(/\s+/g, ' ');
+        return cleanQuizDef(s);
     }
 
     function renderQuizQuestion() {
@@ -5382,50 +5429,73 @@ window.addEventListener('error', function(e) {
         const currentVId = q.vocab_id || q.id;
 
         // Loại nhiễu trùng nghĩa / trùng từ:
-        // 1. Chuẩn hóa chuỗi nghĩa (bỏ hoa-thường, khoảng trắng, dấu câu cuối)
-        // 2. Không chọn đáp án trùng nghĩa, trùng chữ Hán hoặc trùng dict_id với câu hỏi q
-        // 3. Khử trùng triệt để giữa các đáp án nhiễu bằng Set
-        // 4. Dự phòng nếu bài học có ít từ vựng thì lấy thêm từ pool fallback độc nhất
-        const qNormDef = normalizeQuizDef(q.definition);
+        // 1. Chuẩn hóa chuỗi nghĩa (bỏ hoa-thường, bỏ chú thích trong ngoặc, dấu câu)
+        // 2. Không chọn đáp án trùng nghĩa, đồng nghĩa, trùng từ khóa nghĩa, trùng chữ Hán hoặc trùng dict_id
+        // 3. Khử trùng triệt để giữa câu hỏi và các đáp án nhiễu (kể cả giữa các đáp án nhiễu với nhau)
+        // 4. Dự phòng nếu bài học có ít từ vựng thì lấy thêm từ pool fallback 25 từ độc nhất
         const qHanzi = (q.hanzi || '').split('/')[0].trim();
-        const usedDefs = new Set();
-        if (qNormDef) usedDefs.add(qNormDef);
 
         const candidates = [...vocabData].sort(() => 0.5 - Math.random());
         const wrongs = [];
         for (const v of candidates) {
             if (wrongs.length >= 3) break;
             const vId = v.vocab_id || v.id;
-            if (vId === currentVId) continue;
-            if (q.dict_id && v.dict_id && v.dict_id === q.dict_id) continue;
+            if (String(vId) === String(currentVId)) continue;
+            if (q.dict_id && v.dict_id && String(v.dict_id) === String(q.dict_id)) continue;
             const vHanzi = (v.hanzi || '').split('/')[0].trim();
             if (vHanzi && vHanzi === qHanzi) continue;
-            const vNormDef = normalizeQuizDef(v.definition);
-            if (!vNormDef || usedDefs.has(vNormDef)) continue;
-            usedDefs.add(vNormDef);
+            if (!v.definition) continue;
+            if (isQuizDefColliding(q.definition, v.definition)) continue;
+            let collides = false;
+            for (const w of wrongs) {
+                if (isQuizDefColliding(w.definition, v.definition)) {
+                    collides = true;
+                    break;
+                }
+            }
+            if (collides) continue;
             wrongs.push(v);
         }
 
         if (wrongs.length < 3) {
             const fallbackDefs = [
                 { vocab_id: 'fb1', dict_id: 'fb1', definition: 'Đi' },
-                { vocab_id: 'fb2', dict_id: 'fb2', definition: 'Xem; nhìn; đọc' },
+                { vocab_id: 'fb2', dict_id: 'fb2', definition: 'Xem; nhìn' },
                 { vocab_id: 'fb3', dict_id: 'fb3', definition: 'Mua' },
                 { vocab_id: 'fb4', dict_id: 'fb4', definition: 'Ăn' },
                 { vocab_id: 'fb5', dict_id: 'fb5', definition: 'Uống' },
                 { vocab_id: 'fb6', dict_id: 'fb6', definition: 'Nói' },
-                { vocab_id: 'fb7', dict_id: 'fb7', definition: 'Nghe; lắng nghe' },
-                { vocab_id: 'fb8', dict_id: 'fb8', definition: 'Làm' },
-                { vocab_id: 'fb9', dict_id: 'fb9', definition: 'Đến; tới' },
-                { vocab_id: 'fb10', dict_id: 'fb10', definition: 'Tốt; đẹp; hay' },
+                { vocab_id: 'fb7', dict_id: 'fb7', definition: 'Nghe' },
+                { vocab_id: 'fb8', dict_id: 'fb8', definition: 'Làm việc' },
+                { vocab_id: 'fb9', dict_id: 'fb9', definition: 'Đến; tới nơi' },
+                { vocab_id: 'fb10', dict_id: 'fb10', definition: 'Tốt; tuyệt vời' },
                 { vocab_id: 'fb11', dict_id: 'fb11', definition: 'Bận rộn' },
-                { vocab_id: 'fb12', dict_id: 'fb12', definition: 'Mới' }
+                { vocab_id: 'fb12', dict_id: 'fb12', definition: 'Mới mẻ' },
+                { vocab_id: 'fb13', dict_id: 'fb13', definition: 'Học tập' },
+                { vocab_id: 'fb14', dict_id: 'fb14', definition: 'Nghỉ ngơi' },
+                { vocab_id: 'fb15', dict_id: 'fb15', definition: 'Mở cửa' },
+                { vocab_id: 'fb16', dict_id: 'fb16', definition: 'Đóng lại' },
+                { vocab_id: 'fb17', dict_id: 'fb17', definition: 'Hỏi; thắc mắc' },
+                { vocab_id: 'fb18', dict_id: 'fb18', definition: 'Trả lời' },
+                { vocab_id: 'fb19', dict_id: 'fb19', definition: 'Yêu thích' },
+                { vocab_id: 'fb20', dict_id: 'fb20', definition: 'Hy vọng' },
+                { vocab_id: 'fb21', dict_id: 'fb21', definition: 'Chờ đợi' },
+                { vocab_id: 'fb22', dict_id: 'fb22', definition: 'Tìm kiếm' },
+                { vocab_id: 'fb23', dict_id: 'fb23', definition: 'Cảm ơn' },
+                { vocab_id: 'fb24', dict_id: 'fb24', definition: 'Xin lỗi' },
+                { vocab_id: 'fb25', dict_id: 'fb25', definition: 'Giúp đỡ' }
             ].sort(() => 0.5 - Math.random());
             for (const fb of fallbackDefs) {
                 if (wrongs.length >= 3) break;
-                const fbNorm = normalizeQuizDef(fb.definition);
-                if (!fbNorm || usedDefs.has(fbNorm)) continue;
-                usedDefs.add(fbNorm);
+                if (isQuizDefColliding(q.definition, fb.definition)) continue;
+                let collides = false;
+                for (const w of wrongs) {
+                    if (isQuizDefColliding(w.definition, fb.definition)) {
+                        collides = true;
+                        break;
+                    }
+                }
+                if (collides) continue;
                 wrongs.push(fb);
             }
         }
@@ -5434,7 +5504,7 @@ window.addEventListener('error', function(e) {
         let optionsHtml = '';
         options.forEach((opt, idx) => {
             const optVId = opt.vocab_id || opt.id;
-            const isCorrect = (optVId === currentVId);
+            const isCorrect = (opt === q) || (String(optVId) === String(currentVId));
             optionsHtml += `
                 <button onclick="checkQuizAnswer(this, ${isCorrect})" data-correct="${isCorrect}" class="px-3.5 py-2.5 sm:px-4.5 sm:py-3.5 rounded-xl sm:rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-bold hover:border-primary md:hover:text-primary md:hover:bg-td-lightBlue/10 active:bg-td-lightBlue/10 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 w-full text-left flex items-center gap-2.5 sm:gap-3.5 group outline-none">
                     <span class="quiz-opt-badge w-8 h-8 sm:w-10 sm:h-10 aspect-square rounded-lg sm:rounded-xl bg-slate-100 text-slate-400 flex items-center justify-center shrink-0 text-xs sm:text-sm font-black group-hover:bg-primary group-hover:text-white transition-colors">${String.fromCharCode(65 + idx)}</span>
@@ -5566,7 +5636,7 @@ window.addEventListener('error', function(e) {
                 const optDefEl = b.querySelector('.quiz-opt-def');
                 const optDefText = optDefEl ? optDefEl.innerText : '';
                 const qDefNorm = normalizeQuizDef(currentQ.definition);
-                const isMatch = b.dataset.correct === 'true' || (qDefNorm && normalizeQuizDef(optDefText) === qDefNorm);
+                const isMatch = b.dataset.correct === 'true';
                 if (isMatch) {
                     b.classList.replace('border-slate-100', 'border-td-green');
                     b.classList.add('bg-emerald-50', 'text-td-green', 'shadow-sm', 'ring-2', 'ring-td-green/40');
@@ -14884,7 +14954,21 @@ window.addEventListener('error', function(e) {
         const pool = [...radData].sort((a, b) => a.rank - b.rank).slice(0, 80);
         const shuffled = [...pool].sort(() => Math.random() - 0.5);
         radQuizQs = shuffled.slice(0, 10).map(correct => {
-            const distractors = pool.filter(x => x.id !== correct.id).sort(() => Math.random() - 0.5).slice(0, 3);
+            const cMeaning = (correct.meaning_vi || '').trim().toLowerCase();
+            const cRad = (correct.radical || '').trim();
+            const others = pool.filter(x => x.id !== correct.id).sort(() => Math.random() - 0.5);
+            const distractors = [];
+            const usedMeanings = new Set([cMeaning]);
+            const usedRads = new Set([cRad]);
+            for (const x of others) {
+                if (distractors.length >= 3) break;
+                const m = (x.meaning_vi || '').trim().toLowerCase();
+                const r = (x.radical || '').trim();
+                if (!m || usedMeanings.has(m) || usedRads.has(r)) continue;
+                usedMeanings.add(m);
+                usedRads.add(r);
+                distractors.push(x);
+            }
             const options = [correct, ...distractors].sort(() => Math.random() - 0.5);
             return { correct, options };
         });
@@ -15780,10 +15864,25 @@ window.addEventListener('dict-lookup-open', (ev) => {
 // quả sẽ chuyển sang tab Từ điển và mở thẳng trang chi tiết từ đó.
 // ============================================================
 const dictQuickSearchTimers = {};
-function dashDictSearchDebounced(inputId, dropdownId) {
+function dashDictSearchDebounced(inputId, dropdownId, clearBtnId) {
     inputId = inputId || 'dash-dict-search'; dropdownId = dropdownId || 'dash-dict-dropdown';
+    const inp = document.getElementById(inputId);
+    const btn = clearBtnId ? document.getElementById(clearBtnId) : (inp ? inp.parentElement?.querySelector('[id$="-clear"]') : null);
+    if (btn && inp) {
+        btn.classList.toggle('hidden', !inp.value.trim());
+    }
     clearTimeout(dictQuickSearchTimers[inputId]);
     dictQuickSearchTimers[inputId] = setTimeout(() => dashDictSearchRun(inputId, dropdownId), 200);
+}
+function dashDictClearInput(inputId, dropdownId, clearBtnId) {
+    const inp = document.getElementById(inputId);
+    if (inp) {
+        inp.value = '';
+        inp.focus();
+    }
+    const btn = clearBtnId ? document.getElementById(clearBtnId) : (inp ? inp.parentElement?.querySelector('[id$="-clear"]') : null);
+    if (btn) btn.classList.add('hidden');
+    dashDictSearchClose(dropdownId);
 }
 function dashDictSearchClose(dropdownId) {
     const dd = document.getElementById(dropdownId || 'dash-dict-dropdown');
@@ -15832,7 +15931,14 @@ function toggleHeaderDictSearch(panelId, inputId) {
     if (!panel) return;
     const opening = panel.classList.contains('hidden');
     panel.classList.toggle('hidden');
-    if (opening) setTimeout(() => { const inp = document.getElementById(inputId); if (inp) inp.focus(); }, 50);
+    if (opening) setTimeout(() => {
+        const inp = document.getElementById(inputId);
+        if (inp) {
+            inp.focus();
+            const clr = panel.querySelector('[id$="-clear"]');
+            if (clr) clr.classList.toggle('hidden', !inp.value.trim());
+        }
+    }, 50);
 }
 document.addEventListener('click', (ev) => {
     document.querySelectorAll('.header-dict-panel').forEach(panel => {
@@ -19250,7 +19356,11 @@ document.addEventListener('click', (ev) => {
             panel.classList.toggle('hidden');
             if (wasHidden) {
                 const input = document.getElementById(inputId);
-                if (input) setTimeout(() => input.focus(), 50);
+                if (input) setTimeout(() => {
+                    input.focus();
+                    const clr = panel.querySelector('[id$="-clear"]');
+                    if (clr) clr.classList.toggle('hidden', !input.value.trim());
+                }, 50);
             }
         }
         document.addEventListener('click', (e) => {

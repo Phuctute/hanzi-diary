@@ -1,7 +1,9 @@
-const CACHE_NAME = 'hanzi-pwa-v1.0.25';
+const CACHE_NAME = 'hanzi-pwa-v1.2.8';
 const PRECACHE_ASSETS = [
   '/',
   '/manifest.json',
+  '/static/css/tw.css',
+  '/static/js/chart.min.js',
   '/static/img/favicon.png',
   '/static/img/icon-192.png',
   '/static/img/icon-512.png',
@@ -50,7 +52,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Đối với trang HTML chính (navigation): Network First, fallback to cache
+  // Đối với trang HTML chính (navigation): Network-First (luôn lấy bản mới nhất khi online, fallback sang cache khi offline)
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req)
@@ -61,7 +63,7 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         })
-        .catch(() => caches.match(req).then((res) => res || caches.match('/')))
+        .catch(() => caches.match(req).then((cached) => cached || caches.match('/')))
     );
     return;
   }

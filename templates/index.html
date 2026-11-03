@@ -2541,7 +2541,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.3</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.4</span>
             </div>
 
             </nav>
@@ -3742,18 +3742,29 @@ window.addEventListener('error', function(e) {
                 var simp = (typeof converterT2S === 'function') ? converterT2S(v.hanzi) : '';
                 var dual = (simp && simp !== v.hanzi) ? (v.hanzi + '（' + simp + '）') : v.hanzi;
                 var meaning = v.first_meaning_vi || v.definition || v.meaning_vi || '';
-                var safeHanzi = (v.hanzi || '').replace(/"/g, '&quot;');
-                return '<div class="vnh-word-row hover:border-primary/40 transition-all">' +
-                    '<div class="min-w-0 flex-1 cursor-pointer" onclick="if(typeof openDictDetailModal==='function') openDictDetailModal(' + (v.dict_id || v.vocab_id) + ')">' +
+                var did = v.dict_id || v.vocab_id;
+                return '<div class="vnh-word-row hover:border-primary/40 transition-all" data-dict-id="' + did + '" data-hanzi="' + encodeURIComponent(v.hanzi || '') + '">' +
+                    '<div class="min-w-0 flex-1 cursor-pointer" onclick="vnhWordClick(this)">' +
                         '<div class="vnh-word-hanzi truncate font-tc text-slate-800">' + dual + '</div>' +
                         '<div class="text-[11px] text-slate-400 truncate mt-0.5">' + (v.pinyin || '') + (meaning ? ' · ' + meaning : '') + '</div>' +
                     '</div>' +
-                    '<button type="button" class="w-8 h-8 rounded-full text-slate-400 hover:text-primary hover:bg-slate-100 flex items-center justify-center shrink-0 transition-colors" data-text="' + encodeURIComponent(safeHanzi) + '" onclick="event.stopPropagation(); if(typeof playTTS==='function') playTTS(this.getAttribute('data-text'), event);" title="Phát âm"><i class="fa-solid fa-volume-high text-xs pointer-events-none"></i></button>' +
-                    '<button type="button" class="w-7 h-7 rounded-full text-slate-300 hover:text-td-red hover:bg-red-50 flex items-center justify-center shrink-0 transition-colors" onclick="event.stopPropagation(); vnhRemoveGroupWord(' + (v.dict_id || v.vocab_id) + ')" title="Xóa khỏi sổ tay"><i class="fa-solid fa-trash-can text-xs"></i></button>' +
+                    '<button type="button" class="w-8 h-8 rounded-full text-slate-400 hover:text-primary hover:bg-slate-100 flex items-center justify-center shrink-0 transition-colors" onclick="vnhWordAudio(this, event)" title="Phát âm"><i class="fa-solid fa-volume-high text-xs pointer-events-none"></i></button>' +
+                    '<button type="button" class="w-7 h-7 rounded-full text-slate-300 hover:text-td-red hover:bg-red-50 flex items-center justify-center shrink-0 transition-colors" onclick="vnhRemoveGroupWord(' + did + ')" title="Xóa khỏi sổ tay"><i class="fa-solid fa-trash-can text-xs pointer-events-none"></i></button>' +
                 '</div>';
             }).join('');
         }).catch(function () { box.innerHTML = ''; });
     }
+    window.vnhWordClick = function(el) {
+        var row = el.closest('.vnh-word-row');
+        var did = row ? row.dataset.dictId : null;
+        if (did && typeof openDictDetailModal === 'function') openDictDetailModal(did);
+    };
+    window.vnhWordAudio = function(btn, ev) {
+        if (ev) ev.stopPropagation();
+        var row = btn.closest('.vnh-word-row');
+        var hz = row ? decodeURIComponent(row.dataset.hanzi || '') : '';
+        if (hz && typeof playTTS === 'function') playTTS(encodeURIComponent(hz), ev);
+    };
     window.vnhRemoveGroupWord = function (dictId) {
         fetch('/api.php?action=notebook_group_remove_word&group_id=' + vnhState.currentGroupId + '&dict_id=' + dictId, {
             method: 'POST',

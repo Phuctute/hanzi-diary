@@ -11,4 +11,7 @@ COPY . .
 
 EXPOSE 8910
 
-CMD ["python3", "app.py"]
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD curl -fsS http://127.0.0.1:8910/ > /dev/null || exit 1
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8910", "--workers", "2", "--threads", "8", "--timeout", "120", "--graceful-timeout", "30", "--access-logfile", "-", "--error-logfile", "-", "app:app"]

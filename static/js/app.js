@@ -2,7 +2,7 @@
 // Complete Frontend SPA Logic
 
 let state = {
-  currentTab: 'vocab',
+  currentTab: 'dashboard',
   curriculums: [],
   books: [],
   lessons: [],
@@ -34,11 +34,22 @@ let state = {
   activeNotebookCategory: 'doi-song',
 };
 
+window.state = state;
+
 // Initialize app
 document.addEventListener('DOMContentLoaded', async () => {
+  window.currentTab = 'dashboard';
+  state.currentTab = 'dashboard';
   initOpenCC();
   initSidebar();
   initShortcuts();
+  try {
+    const swMatch = 'hanzi-pwa-v1.4.3'.match(/v1\.\d+\.\d+/);
+    if (swMatch) {
+      const el = document.getElementById('app-version-badge');
+      if (el) el.innerText = swMatch[0];
+    }
+  } catch(e){}
   await loadCurriculums();
   await loadRadicalStrokePills();
   await loadMeasureWords();
@@ -88,6 +99,7 @@ function initSidebar() {
 
 function switchTab(tabId) {
   state.currentTab = tabId;
+  window.currentTab = tabId;
 
   // Update nav buttons
   document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -101,7 +113,7 @@ function switchTab(tabId) {
   });
 
   // Update view visibility
-  document.querySelectorAll('.tab-content').forEach(section => {
+  document.querySelectorAll('[id^="view-"]').forEach(section => {
     section.classList.add('hidden');
   });
   const activeView = document.getElementById(`view-${tabId}`);
@@ -135,6 +147,8 @@ function switchTab(tabId) {
   if (tabId === 'grammar') loadGrammar();
   if (tabId === 'radicals') loadRadicals();
   if (tabId === 'measure-words') renderMeasureWords();
+
+  if (typeof updateUIBadge === 'function') updateUIBadge();
 
   // Close mobile sidebar
   const sidebar = document.getElementById('sidebar');
@@ -197,9 +211,14 @@ async function onBookChange(bookId) {
 }
 
 async function onLessonChange(lessonId) {
+  const spinner = document.getElementById('ios-lesson-spinner');
+  if (spinner) spinner.classList.add('active');
+
   state.currentLessonId = parseInt(lessonId);
   const curLesson = state.lessons.find(l => l.lesson_id === state.currentLessonId);
   const curBook = state.books.find(b => b.book_id === state.currentBookId);
+  
+  window.dispatchEvent(new CustomEvent('lessonChanged', { detail: { lessonId } }));
 
   // Update badge
   const badge = document.getElementById('currentLessonBadge');
@@ -208,7 +227,11 @@ async function onLessonChange(lessonId) {
   }
 
   // Load vocab and contents
-  await Promise.all([loadVocabularies(), loadLessonContents()]);
+  try {
+    await Promise.all([loadVocabularies(), loadLessonContents()]);
+  } finally {
+    if (spinner) spinner.classList.remove('active');
+  }
 }
 
 async function loadVocabularies() {
@@ -490,10 +513,8 @@ function initQuiz() {
       if (!c1 || !c2) return false;
       if (c1 === c2) return true;
       if ((c1.length >= 4 && (` ${c2} `).includes(` ${c1} `)) || (c2.length >= 4 && (` ${c1} `).includes(` ${c2} `))) return true;
-      const parts1 = c1.split(/[,;/，；/、
-]+/).map(p => p.trim()).filter(p => p.length >= 2);
-      const parts2 = c2.split(/[,;/，；/、
-]+/).map(p => p.trim()).filter(p => p.length >= 2);
+      const parts1 = c1.split(/[,;\/，；、\n]+/).map(p => p.trim()).filter(p => p.length >= 2);
+      const parts2 = c2.split(/[,;\/，；、\n]+/).map(p => p.trim()).filter(p => p.length >= 2);
       return parts1.some(p => parts2.includes(p));
     };
 

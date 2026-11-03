@@ -10,15 +10,15 @@
     "examples": [
       {
         "grammar_id": 1,
-        "example_zh": "是...的，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"是...的\"."
+        "example_zh": "他是昨天 坐 飛 機 去 颱 北 的 。",
+        "example_pinyin": "Tā shì zuótiān zuò fēijī qù Táiběi de.",
+        "example_vi": "Anh ấy là ngày hôm qua đi máy bay đến Đài Bắc."
       }
     ]
   },
   {
     "grammar_id": 2,
-    "pattern_zh": "了",
+    "pattern_zh": "瞭",
     "pattern_pinyin": "le",
     "title_vi": "Trợ từ biểu thị hoàn thành",
     "explanation_vi": "Đặt sau động từ để biểu thị hành động đã hoàn thành, hoặc cuối câu để biểu thị sự thay đổi trạng thái.",
@@ -27,9 +27,9 @@
     "examples": [
       {
         "grammar_id": 2,
-        "example_zh": "了，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"了\"."
+        "example_zh": "我 們 昨天 去 瞭 故 宮 。",
+        "example_pinyin": "Wǒmen zuótiān qù le Gùgōng.",
+        "example_vi": "Chúng tôi hôm qua đã đi Cố Cung."
       }
     ]
   },
@@ -44,15 +44,15 @@
     "examples": [
       {
         "grammar_id": 3,
-        "example_zh": "在...呢，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"在...呢\"."
+        "example_zh": "他 在 做 飯 呢 。",
+        "example_pinyin": "Tā zài zuò fàn ne.",
+        "example_vi": "Anh ấy đang nấu cơm đấy."
       }
     ]
   },
   {
     "grammar_id": 8,
-    "pattern_zh": "因为...所以",
+    "pattern_zh": "因爲...所以",
     "pattern_pinyin": "yīnwèi...suǒyǐ",
     "title_vi": "Vì...nên...",
     "explanation_vi": "Diễn tả quan hệ nhân quả giữa hai vế câu.",
@@ -61,9 +61,9 @@
     "examples": [
       {
         "grammar_id": 8,
-        "example_zh": "因为...所以，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"因为...所以\"."
+        "example_zh": "因 爲 下 雨 ， 所 以 我 們 沒 去 。",
+        "example_pinyin": "Yīnwèi xià yǔ, suǒyǐ wǒmen méi qù.",
+        "example_vi": "Vì trời mưa, cho nên chúng tôi không đi."
       }
     ]
   },
@@ -78,9 +78,9 @@
     "examples": [
       {
         "grammar_id": 10,
-        "example_zh": "先...再，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"先...再\"."
+        "example_zh": "先 洗 手 ， 再 喫 飯 。",
+        "example_pinyin": "Xiān xǐ shǒu, zài chī fàn.",
+        "example_vi": "Rửa tay trước, rồi mới ăn cơm."
       }
     ]
   },
@@ -103,7 +103,7 @@
   },
   {
     "grammar_id": 12,
-    "pattern_zh": "表所有「的」",
+    "pattern_zh": "錶所有「的」",
     "pattern_pinyin": "de",
     "title_vi": "Trợ từ sở hữu 的 (của)",
     "explanation_vi": "「的」đặt sau danh từ/đại từ chỉ người sở hữu để biểu thị quan hệ sở hữu, tương đương với \"của\" trong tiếng Việt.",
@@ -180,7 +180,7 @@
     "examples": [
       {
         "grammar_id": 16,
-        "example_zh": "你愛吃什麼？這是什麼？",
+        "example_zh": "你愛喫什麼？這是什麼？",
         "example_pinyin": "Nǐ ài chī shénme? Zhè shì shénme?",
         "example_vi": "Bạn thích ăn gì? Đây là cái gì?"
       }
@@ -222,7 +222,7 @@
   },
   {
     "grammar_id": 19,
-    "pattern_zh": "地點表達",
+    "pattern_zh": "地點錶達",
     "pattern_pinyin": "",
     "title_vi": "Cách diễn đạt địa điểm/địa chỉ",
     "explanation_vi": "Địa chỉ trong tiếng Trung viết theo thứ tự từ lớn đến nhỏ (quốc gia → thành phố → đường → số nhà), ngược lại với cách viết địa chỉ tiếng Việt.",
@@ -239,7 +239,7 @@
   },
   {
     "grammar_id": 20,
-    "pattern_zh": "時間表達",
+    "pattern_zh": "時間錶達",
     "pattern_pinyin": "",
     "title_vi": "Cách diễn đạt thời gian",
     "explanation_vi": "Cách nói ngày tháng năm và giờ trong tiếng Trung: năm đọc từng chữ số, tháng/ngày theo số thứ tự, giờ dùng 點 (giờ) và 分 (phút).",
@@ -265,7 +265,7 @@
     "examples": [
       {
         "grammar_id": 21,
-        "example_zh": "2   二39  三十九108 一百零八110 一百一（十）1,000 一千1,018 一千零一十八10,000 一萬10,890 一萬零八百九十",
+        "example_zh": "2   二39  三十九108 一百零八110 一百一（十）1,000 一韆1,018 一韆零一十八10,000 一萬10,890 一萬零八百九十",
         "example_pinyin": "",
         "example_vi": "2 (hai), 39 (ba mươi chín), 108 (một trăm lẻ tám), 110 (một trăm mười), 1.000 (một nghìn), 1.018 (một nghìn không trăm mười tám), 10.000 (một vạn), 10.890 (mười nghìn tám trăm chín mươi)."
       }
@@ -299,7 +299,7 @@
     "examples": [
       {
         "grammar_id": 23,
-        "example_zh": "你喜歡誰？誰在教室？",
+        "example_zh": "你喜歡誰？誰在敎室？",
         "example_pinyin": "Nǐ xǐhuān shéi? Shéi zài jiàoshì?",
         "example_vi": "Bạn thích ai? Ai đang ở trong lớp?"
       }
@@ -316,7 +316,7 @@
     "examples": [
       {
         "grammar_id": 24,
-        "example_zh": "郵局在哪（裡/兒）？",
+        "example_zh": "郵侷在哪（裡/兒）？",
         "example_pinyin": "Yóujú zài nǎlǐ?",
         "example_vi": "Bưu điện ở đâu?"
       }
@@ -350,9 +350,9 @@
     "examples": [
       {
         "grammar_id": 4,
-        "example_zh": "比，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"比\"."
+        "example_zh": "我 比 他 高 。",
+        "example_pinyin": "Wǒ bǐ tā gāo.",
+        "example_vi": "Tôi cao hơn anh ấy."
       }
     ]
   },
@@ -367,15 +367,15 @@
     "examples": [
       {
         "grammar_id": 5,
-        "example_zh": "把，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"把\"."
+        "example_zh": "請 把 門 打開 。",
+        "example_pinyin": "Qǐng bǎ mén dǎkāi.",
+        "example_vi": "Xin hãy mở cửa ra."
       }
     ]
   },
   {
     "grammar_id": 6,
-    "pattern_zh": "要...了",
+    "pattern_zh": "要...瞭",
     "pattern_pinyin": "yào...le",
     "title_vi": "Sắp sửa xảy ra",
     "explanation_vi": "Diễn tả một sự việc sắp sửa xảy ra trong tương lai gần.",
@@ -384,15 +384,15 @@
     "examples": [
       {
         "grammar_id": 6,
-        "example_zh": "要...了，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"要...了\"."
+        "example_zh": "快 要 過 年 瞭 。",
+        "example_pinyin": "Kuài yào guò nián le.",
+        "example_vi": "Sắp đến Tết rồi."
       }
     ]
   },
   {
     "grammar_id": 7,
-    "pattern_zh": "虽然...但是",
+    "pattern_zh": "雖然...但是",
     "pattern_pinyin": "suīrán...dànshì",
     "title_vi": "Tuy...nhưng...",
     "explanation_vi": "Diễn tả sự tương phản/nhượng bộ giữa hai vế câu.",
@@ -401,15 +401,15 @@
     "examples": [
       {
         "grammar_id": 7,
-        "example_zh": "虽然...但是，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"虽然...但是\"."
+        "example_zh": "雖 然 天 氣 很 冷 ， 但 是 他 還是 去 運 動 。",
+        "example_pinyin": "Suīrán tiānqì hěn lěng, dànshì tā háishì qù yùndòng.",
+        "example_vi": "Mặc dù trời rất lạnh, nhưng anh ấy vẫn đi vận động."
       }
     ]
   },
   {
     "grammar_id": 9,
-    "pattern_zh": "一边...一边",
+    "pattern_zh": "一邊...一邊",
     "pattern_pinyin": "yìbiān...yìbiān",
     "title_vi": "Vừa...vừa...",
     "explanation_vi": "Diễn tả hai hành động xảy ra đồng thời.",
@@ -418,9 +418,9 @@
     "examples": [
       {
         "grammar_id": 9,
-        "example_zh": "一边...一边，我明天去台北。",
-        "example_pinyin": "",
-        "example_vi": "Ví dụ minh hoạ cho cấu trúc \"一边...一边\"."
+        "example_zh": "他 邊 聽 音 樂 邊 寫 作 業 。",
+        "example_pinyin": "Tā biān tīng yīnyuè biān xiě zuòyè.",
+        "example_vi": "Cậu ấy vừa nghe nhạc vừa viết bài tập."
       }
     ]
   },
@@ -443,7 +443,7 @@
   },
   {
     "grammar_id": 27,
-    "pattern_zh": "V了¹",
+    "pattern_zh": "V瞭¹",
     "pattern_pinyin": "le",
     "title_vi": "Trợ từ 了 chỉ hành động đã hoàn thành",
     "explanation_vi": "「了」đặt ngay sau động từ để biểu thị hành động đã hoàn thành/xảy ra, thường đi cùng từ chỉ thời gian quá khứ như 昨天 (hôm qua).",
@@ -452,7 +452,7 @@
     "examples": [
       {
         "grammar_id": 27,
-        "example_zh": "我昨天買了很多書。",
+        "example_zh": "我昨天買瞭很多書。",
         "example_pinyin": "Wǒ zuótiān mǎi le hěn duō shū.",
         "example_vi": "Hôm qua tôi đã mua rất nhiều sách."
       }
@@ -460,7 +460,7 @@
   },
   {
     "grammar_id": 28,
-    "pattern_zh": "和¹",
+    "pattern_zh": "龢¹",
     "pattern_pinyin": "hé",
     "title_vi": "Liên từ 和 (và)",
     "explanation_vi": "「和」dùng để nối hai danh từ/cụm danh từ ngang hàng, tương đương với \"và\".",
@@ -469,7 +469,7 @@
     "examples": [
       {
         "grammar_id": 28,
-        "example_zh": "這間餐廳的點心很棒，大人和小孩都喜歡。",
+        "example_zh": "這間餐廳的點心很棒，大人龢小孩都喜歡。",
         "example_pinyin": "Zhè jiān cāntīng de diǎnxīn hěn bàng, dàrén hé xiǎohái dōu xǐhuān.",
         "example_vi": "Điểm tâm của nhà hàng này rất ngon, cả người lớn và trẻ em đều thích."
       }
@@ -503,7 +503,7 @@
     "examples": [
       {
         "grammar_id": 30,
-        "example_zh": "你今年會出國嗎？",
+        "example_zh": "你今年會齣國嗎？",
         "example_pinyin": "Nǐ jīnnián huì chūguó ma?",
         "example_vi": "Năm nay bạn sẽ ra nước ngoài không?"
       }
@@ -554,7 +554,7 @@
     "examples": [
       {
         "grammar_id": 33,
-        "example_zh": "如果下雨，我就不出門。",
+        "example_zh": "如果下雨，我就不齣門。",
         "example_pinyin": "Rúguǒ xiàyǔ, wǒ jiù bù chūmén.",
         "example_vi": "Nếu trời mưa, tôi sẽ không ra ngoài."
       }
@@ -571,7 +571,7 @@
     "examples": [
       {
         "grammar_id": 34,
-        "example_zh": "上課不可以吃東西。",
+        "example_zh": "上課不可以喫東西。",
         "example_pinyin": "Shàngkè bù kěyǐ chī dōngxi.",
         "example_vi": "Trong giờ học không được ăn đồ ăn."
       }
@@ -605,7 +605,7 @@
     "examples": [
       {
         "grammar_id": 36,
-        "example_zh": "你今天要一起吃飯嗎？",
+        "example_zh": "你今天要一起喫飯嗎？",
         "example_pinyin": "Nǐ jīntiān yào yīqǐ chīfàn ma?",
         "example_vi": "Hôm nay bạn có muốn cùng ăn cơm không?"
       }
@@ -622,7 +622,7 @@
     "examples": [
       {
         "grammar_id": 37,
-        "example_zh": "他已經來臺灣一個月了。",
+        "example_zh": "他已經來臺灣一個月瞭。",
         "example_pinyin": "Tā yǐjīng lái Táiwān yī gè yuè le.",
         "example_vi": "Anh ấy đã đến Đài Loan được một tháng rồi."
       }
@@ -639,7 +639,7 @@
     "examples": [
       {
         "grammar_id": 38,
-        "example_zh": "這個箱子很大，但是裡面的東西很輕。",
+        "example_zh": "這個箱子很大，但是裡麵的東西很輕。",
         "example_pinyin": "Zhège xiāngzi hěn dà, dànshì lǐmiàn de dōngxi hěn qīng.",
         "example_vi": "Cái thùng này rất to, nhưng đồ bên trong lại rất nhẹ."
       }
@@ -690,7 +690,7 @@
     "examples": [
       {
         "grammar_id": 41,
-        "example_zh": "你回到家就給我打電話。",
+        "example_zh": "你迴到傢就給我打電話。",
         "example_pinyin": "Nǐ huídào jiā jiù gěi wǒ dǎ diànhuà.",
         "example_vi": "Bạn về đến nhà thì gọi điện cho tôi ngay."
       }
@@ -741,7 +741,7 @@
     "examples": [
       {
         "grammar_id": 44,
-        "example_zh": "他感冒了，今天不能運動。",
+        "example_zh": "他感冒瞭，今天不能運動。",
         "example_pinyin": "Tā gǎnmào le, jīntiān bù néng yùndòng.",
         "example_vi": "Anh ấy bị cảm rồi, hôm nay không thể tập thể dục được."
       }
@@ -758,7 +758,7 @@
     "examples": [
       {
         "grammar_id": 45,
-        "example_zh": "我要出去了，你有什麼話快一點說吧。",
+        "example_zh": "我要齣去瞭，你有什麼話快一點說吧。",
         "example_pinyin": "Wǒ yào chūqù le, nǐ yǒu shénme huà kuài yīdiǎn shuō ba.",
         "example_vi": "Tôi sắp đi ra ngoài rồi, bạn có gì muốn nói thì nói nhanh lên."
       }
@@ -775,7 +775,7 @@
     "examples": [
       {
         "grammar_id": 46,
-        "example_zh": "盒子被打開了。",
+        "example_zh": "盒子被打開瞭。",
         "example_pinyin": "Hézi bèi dǎkāi le.",
         "example_vi": "Cái hộp đã bị mở ra."
       }
@@ -792,7 +792,7 @@
     "examples": [
       {
         "grammar_id": 47,
-        "example_zh": "你吃飽了嗎？",
+        "example_zh": "你喫飽瞭嗎？",
         "example_pinyin": "Nǐ chībǎo le ma?",
         "example_vi": "Bạn ăn no chưa?"
       }
@@ -809,7 +809,7 @@
     "examples": [
       {
         "grammar_id": 48,
-        "example_zh": "他跟我說了一個很有意思的故事。",
+        "example_zh": "他跟我說瞭一個很有意思的故事。",
         "example_pinyin": "Tā gēn wǒ shuō le yī gè hěn yǒuyìsi de gùshì.",
         "example_vi": "Anh ấy đã kể cho tôi nghe một câu chuyện rất thú vị."
       }
@@ -826,7 +826,7 @@
     "examples": [
       {
         "grammar_id": 49,
-        "example_zh": "妹妹想吃冰淇淋。",
+        "example_zh": "妹妹想喫冰淇淋。",
         "example_pinyin": "Mèimei xiǎng chī bīngqílín.",
         "example_vi": "Em gái muốn ăn kem."
       }
@@ -834,7 +834,7 @@
   },
   {
     "grammar_id": 50,
-    "pattern_zh": "和²",
+    "pattern_zh": "龢²",
     "pattern_pinyin": "hé",
     "title_vi": "Giới từ 和 (với - đối tượng cùng thực hiện)",
     "explanation_vi": "「和」ngoài vai trò liên từ, còn có thể làm giới từ chỉ đối tượng cùng thực hiện hành động, tương đương với \"với\", ý nghĩa tương tự 跟.",
@@ -843,7 +843,7 @@
     "examples": [
       {
         "grammar_id": 50,
-        "example_zh": "妹妹很喜歡和爸爸聊天。",
+        "example_zh": "妹妹很喜歡龢爸爸聊天。",
         "example_pinyin": "Mèimei hěn xǐhuān hé bàba liáotiān.",
         "example_vi": "Em gái rất thích trò chuyện với bố."
       }
@@ -877,7 +877,7 @@
     "examples": [
       {
         "grammar_id": 52,
-        "example_zh": "他會用筷子吃飯。",
+        "example_zh": "他會用筷子喫飯。",
         "example_pinyin": "Tā huì yòng kuàizi chīfàn.",
         "example_vi": "Anh ấy biết dùng đũa để ăn cơm."
       }
@@ -928,7 +928,7 @@
     "examples": [
       {
         "grammar_id": 55,
-        "example_zh": "雖然他不是很有錢，可是他很快樂。我想出國玩，可是錢不夠。",
+        "example_zh": "雖然他不是很有錢，可是他很快樂。我想齣國翫，可是錢不夠。",
         "example_pinyin": "Suīrán tā bú shì hěn yǒuqián, kěshì tā hěn kuàilè.",
         "example_vi": "Tuy anh ấy không giàu có lắm, nhưng anh ấy rất vui vẻ. Tôi muốn ra nước ngoài chơi, nhưng tiền không đủ."
       }
@@ -945,7 +945,7 @@
     "examples": [
       {
         "grammar_id": 56,
-        "example_zh": "孩子們都在外面玩。",
+        "example_zh": "孩子們都在外麵翫。",
         "example_pinyin": "Háizimen dōu zài wàimiàn wán.",
         "example_vi": "Bọn trẻ đều đang chơi ở ngoài."
       }
@@ -1013,7 +1013,7 @@
     "examples": [
       {
         "grammar_id": 60,
-        "example_zh": "你為什麼吃不下飯？",
+        "example_zh": "你為什麼喫不下飯？",
         "example_pinyin": "Nǐ wèishénme chī bú xià fàn?",
         "example_vi": "Tại sao bạn ăn không nổi cơm vậy?"
       }
@@ -1055,7 +1055,7 @@
   },
   {
     "grammar_id": 63,
-    "pattern_zh": "V了²",
+    "pattern_zh": "V瞭²",
     "pattern_pinyin": "le",
     "title_vi": "Trợ từ 了 chỉ sự thay đổi trạng thái",
     "explanation_vi": "「了」đặt cuối câu để biểu thị một trạng thái mới đã xuất hiện so với trước đó, tương đương với \"đã...rồi\".",
@@ -1064,7 +1064,7 @@
     "examples": [
       {
         "grammar_id": 63,
-        "example_zh": "天氣變了。天氣冷了。",
+        "example_zh": "天氣變瞭。天氣冷瞭。",
         "example_pinyin": "Tiānqì biàn le. Tiānqì lěng le.",
         "example_vi": "Thời tiết đã thay đổi rồi. Trời đã lạnh rồi."
       }
@@ -1149,7 +1149,7 @@
     "examples": [
       {
         "grammar_id": 68,
-        "example_zh": "你可以幫我去郵局寄信嗎？",
+        "example_zh": "你可以幫我去郵侷寄信嗎？",
         "example_pinyin": "Nǐ kěyǐ bāng wǒ qù yóujú jì xìn ma?",
         "example_vi": "Bạn có thể giúp tôi ra bưu điện gửi thư không?"
       }
@@ -1174,7 +1174,7 @@
   },
   {
     "grammar_id": 70,
-    "pattern_zh": "V出¹",
+    "pattern_zh": "V齣¹",
     "pattern_pinyin": "chū",
     "title_vi": "Bổ ngữ xu hướng 出 (ra)",
     "explanation_vi": "「出」đặt sau động từ để biểu thị hành động di chuyển từ trong ra ngoài, tương đương với \"ra\".",
@@ -1183,7 +1183,7 @@
     "examples": [
       {
         "grammar_id": 70,
-        "example_zh": "王美美一走出餐廳就看見室友。",
+        "example_zh": "王美美一走齣餐廳就看見室友。",
         "example_pinyin": "Wáng Měiměi yī zǒu chū cāntīng jiù kànjiàn shìyǒu.",
         "example_vi": "Vương Mỹ Mỹ vừa bước ra khỏi nhà hàng thì nhìn thấy bạn cùng phòng."
       }
@@ -1200,7 +1200,7 @@
     "examples": [
       {
         "grammar_id": 71,
-        "example_zh": "你可以多吃一點水果。哥哥應該少喝點啤酒。",
+        "example_zh": "你可以多喫一點水果。哥哥應該少喝點啤酒。",
         "example_pinyin": "Nǐ kěyǐ duō chī yīdiǎn shuǐguǒ.",
         "example_vi": "Bạn có thể ăn nhiều trái cây hơn một chút. Anh trai nên uống ít bia hơn một chút."
       }
@@ -1251,7 +1251,7 @@
     "examples": [
       {
         "grammar_id": 74,
-        "example_zh": "吃完早餐以後，他就去上學了。兩個月以後我要去日本。",
+        "example_zh": "喫完早餐以後，他就去上學瞭。兩個月以後我要去日本。",
         "example_pinyin": "Chī wán zǎocān yǐhòu, tā jiù qù shàngxué le.",
         "example_vi": "Sau khi ăn xong bữa sáng, anh ấy liền đi học. Hai tháng sau tôi sẽ đi Nhật Bản."
       }
@@ -1302,7 +1302,7 @@
     "examples": [
       {
         "grammar_id": 77,
-        "example_zh": "我今天忘了帶錢，怎麼辦？",
+        "example_zh": "我今天忘瞭帶錢，怎麼辦？",
         "example_pinyin": "Wǒ jīntiān wàng le dài qián, zěnme bàn?",
         "example_vi": "Hôm nay tôi quên mang tiền, phải làm sao đây?"
       }
@@ -1319,7 +1319,7 @@
     "examples": [
       {
         "grammar_id": 78,
-        "example_zh": "我跟姐姐一起到圖書館借書。",
+        "example_zh": "我跟姐姐一起到圖書館藉書。",
         "example_pinyin": "Wǒ gēn jiějie yīqǐ dào túshūguǎn jiè shū.",
         "example_vi": "Tôi cùng chị gái đến thư viện mượn sách."
       }
@@ -1361,7 +1361,7 @@
   },
   {
     "grammar_id": 81,
-    "pattern_zh": "怎麼了",
+    "pattern_zh": "怎麼瞭",
     "pattern_pinyin": "zěnme le",
     "title_vi": "怎麼了 (làm sao vậy/có chuyện gì vậy)",
     "explanation_vi": "「怎麼了」dùng để hỏi nguyên nhân của một tình huống bất thường, tương đương với \"làm sao vậy/có chuyện gì vậy\".",
@@ -1370,7 +1370,7 @@
     "examples": [
       {
         "grammar_id": 81,
-        "example_zh": "李明華今天沒來上班，他怎麼了？",
+        "example_zh": "李明華今天沒來上班，他怎麼瞭？",
         "example_pinyin": "Lǐ Mínghuá jīntiān méi lái shàngbān, tā zěnme le?",
         "example_vi": "Lý Minh Hoa hôm nay không đi làm, anh ấy làm sao vậy?"
       }
@@ -1387,7 +1387,7 @@
     "examples": [
       {
         "grammar_id": 82,
-        "example_zh": "阿姨走到對面的超市去買菜。叔叔一直住在臺北。",
+        "example_zh": "阿姨走到對麵的超市去買菜。叔叔一直住在臺北。",
         "example_pinyin": "Āyí zǒu dào duìmiàn de chāoshì qù mǎi cài.",
         "example_vi": "Dì đi đến siêu thị đối diện để mua rau. Chú luôn sống ở Đài Bắc."
       }
@@ -1455,7 +1455,7 @@
     "examples": [
       {
         "grammar_id": 86,
-        "example_zh": "你的東西我拿來了。他跑去學校了。",
+        "example_zh": "你的東西我拿來瞭。他跑去學校瞭。",
         "example_pinyin": "Nǐ de dōngxi wǒ ná lái le. Tā pǎo qù xuéxiào le.",
         "example_vi": "Đồ của bạn tôi đã mang đến rồi. Anh ấy đã chạy đến trường rồi."
       }
@@ -1472,7 +1472,7 @@
     "examples": [
       {
         "grammar_id": 87,
-        "example_zh": "因為他們沒有錢，所以不能出國旅行。",
+        "example_zh": "因為他們沒有錢，所以不能齣國旅行。",
         "example_pinyin": "Yīnwèi tāmen méiyǒu qián, suǒyǐ bù néng chūguó lǚxíng.",
         "example_vi": "Vì họ không có tiền, nên không thể đi du lịch nước ngoài."
       }
@@ -1489,7 +1489,7 @@
     "examples": [
       {
         "grammar_id": 88,
-        "example_zh": "班上的同學有的會說英文，有的會說法文。",
+        "example_zh": "班上的衕學有的會說英文，有的會說法文。",
         "example_pinyin": "Bān shàng de tóngxué yǒude huì shuō Yīngwén, yǒude huì shuō Fǎwén.",
         "example_vi": "Các bạn cùng lớp có người biết nói tiếng Anh, có người biết nói tiếng Pháp."
       }
@@ -1514,7 +1514,7 @@
   },
   {
     "grammar_id": 90,
-    "pattern_zh": "太Vs了",
+    "pattern_zh": "太Vs瞭",
     "pattern_pinyin": "tài...le",
     "title_vi": "太 + Tính từ + 了 (quá...)",
     "explanation_vi": "「太」đặt trước tính từ, kết hợp 「了」ở cuối để nhấn mạnh mức độ vượt quá giới hạn mong muốn, tương đương với \"quá...\".",
@@ -1523,7 +1523,7 @@
     "examples": [
       {
         "grammar_id": 90,
-        "example_zh": "這家飯店太貴了，我不要住。",
+        "example_zh": "這傢飯店太貴瞭，我不要住。",
         "example_pinyin": "Zhè jiā fàndiàn tài guì le, wǒ bú yào zhù.",
         "example_vi": "Khách sạn này quá đắt, tôi không muốn ở."
       }
@@ -1540,7 +1540,7 @@
     "examples": [
       {
         "grammar_id": 91,
-        "example_zh": "爸爸今天晚上想吃飯還是吃麵？",
+        "example_zh": "爸爸今天晚上想喫飯還是喫麵？",
         "example_pinyin": "Bàba jīntiān wǎnshàng xiǎng chīfàn háishì chī miàn?",
         "example_vi": "Tối nay bố muốn ăn cơm hay ăn mì?"
       }
@@ -1557,7 +1557,7 @@
     "examples": [
       {
         "grammar_id": 92,
-        "example_zh": "這家餐廳又便宜又有名。",
+        "example_zh": "這傢餐廳又便宜又有名。",
         "example_pinyin": "Zhè jiā cāntīng yòu piányí yòu yǒumíng.",
         "example_vi": "Nhà hàng này vừa rẻ vừa nổi tiếng."
       }
@@ -1574,7 +1574,7 @@
     "examples": [
       {
         "grammar_id": 93,
-        "example_zh": "我有一點累。今天有一點冷。",
+        "example_zh": "我有一點纍。今天有一點冷。",
         "example_pinyin": "Wǒ yǒu yìdiǎn lèi. Jīntiān yǒu yìdiǎn lěng.",
         "example_vi": "Tôi hơi mệt. Hôm nay hơi lạnh."
       }
@@ -1608,7 +1608,7 @@
     "examples": [
       {
         "grammar_id": 95,
-        "example_zh": "從早上開始，郵局排隊的人就很多。",
+        "example_zh": "從早上開始，郵侷排隊的人就很多。",
         "example_pinyin": "Cóng zǎoshang kāishǐ, yóujú páiduì de rén jiù hěn duō.",
         "example_vi": "Từ sáng sớm, người xếp hàng ở bưu điện đã rất đông."
       }
@@ -1625,7 +1625,7 @@
     "examples": [
       {
         "grammar_id": 96,
-        "example_zh": "他站起來走出房間。",
+        "example_zh": "他站起來走齣房間。",
         "example_pinyin": "Tā zhàn qǐlái zǒuchū fángjiān.",
         "example_vi": "Anh ấy đứng dậy đi ra khỏi phòng."
       }
@@ -1642,7 +1642,7 @@
     "examples": [
       {
         "grammar_id": 97,
-        "example_zh": "搬家的時候要小心一點。",
+        "example_zh": "搬傢的時候要小心一點。",
         "example_pinyin": "Bānjiā de shíhòu yào xiǎoxīn yìdiǎn.",
         "example_vi": "Khi chuyển nhà phải cẩn thận hơn một chút."
       }
@@ -1659,7 +1659,7 @@
     "examples": [
       {
         "grammar_id": 98,
-        "example_zh": "他們聊天聊了一個多小時。",
+        "example_zh": "他們聊天聊瞭一個多小時。",
         "example_pinyin": "Tāmen liáotiān liáo le yī gè duō xiǎoshí.",
         "example_vi": "Họ đã trò chuyện hơn một tiếng đồng hồ."
       }
@@ -1693,7 +1693,7 @@
     "examples": [
       {
         "grammar_id": 100,
-        "example_zh": "他又忘了寫功課。",
+        "example_zh": "他又忘瞭寫功課。",
         "example_pinyin": "Tā yòu wàng le xiě gōngkè.",
         "example_vi": "Anh ấy lại quên làm bài tập rồi."
       }
@@ -1710,7 +1710,7 @@
     "examples": [
       {
         "grammar_id": 101,
-        "example_zh": "他去了臺中，又去了高雄。他買了一件衣服，又買了一條褲子。",
+        "example_zh": "他去瞭臺中，又去瞭高雄。他買瞭一件衣服，又買瞭一條褲子。",
         "example_pinyin": "Tā qù le Táizhōng, yòu qù le Gāoxióng.",
         "example_vi": "Anh ấy đã đi Đài Trung, rồi lại đi Cao Hùng. Anh ấy đã mua một cái áo, lại mua thêm một cái quần."
       }
@@ -1727,7 +1727,7 @@
     "examples": [
       {
         "grammar_id": 102,
-        "example_zh": "小孩笑著向我跑過來。我在這邊停車，你可以先走過去找朋友。",
+        "example_zh": "小孩笑著曏我跑過來。我在這邊停車，你可以先走過去找朋友。",
         "example_pinyin": "Xiǎohái xiàozhe xiàng wǒ pǎo guòlái.",
         "example_vi": "Đứa bé cười chạy về phía tôi. Tôi đỗ xe ở đây, bạn có thể đi qua đó tìm bạn trước."
       }
@@ -1744,7 +1744,7 @@
     "examples": [
       {
         "grammar_id": 103,
-        "example_zh": "大家到了可以找地方坐下來休息。你可以從10樓走下去嗎？",
+        "example_zh": "大傢到瞭可以找地方坐下來休息。你可以從10樓走下去嗎？",
         "example_pinyin": "Dàjiā dào le kěyǐ zhǎo dìfāng zuò xiàlái xiūxí.",
         "example_vi": "Mọi người đến nơi rồi có thể tìm chỗ ngồi xuống nghỉ ngơi. Bạn có thể đi xuống từ tầng 10 không?"
       }
@@ -1795,7 +1795,7 @@
     "examples": [
       {
         "grammar_id": 106,
-        "example_zh": "他們一下課就回家。",
+        "example_zh": "他們一下課就迴傢。",
         "example_pinyin": "Tāmen yī xiàkè jiù huíjiā.",
         "example_vi": "Họ vừa tan học là về nhà ngay."
       }
@@ -1837,7 +1837,7 @@
   },
   {
     "grammar_id": 109,
-    "pattern_zh": "了……就……",
+    "pattern_zh": "瞭……就……",
     "pattern_pinyin": "le...jiù...",
     "title_vi": "了……就…… (sau khi...thì...)",
     "explanation_vi": "Diễn tả hành động thứ hai xảy ra ngay sau khi hành động thứ nhất hoàn thành, tương đương với \"sau khi...thì...\".",
@@ -1846,7 +1846,7 @@
     "examples": [
       {
         "grammar_id": 109,
-        "example_zh": "我吃了早飯就去上課。",
+        "example_zh": "我喫瞭早飯就去上課。",
         "example_pinyin": "Wǒ chī le zǎofàn jiù qù shàngkè.",
         "example_vi": "Tôi ăn sáng xong thì đi học."
       }
@@ -1863,7 +1863,7 @@
     "examples": [
       {
         "grammar_id": 110,
-        "example_zh": "從學校往圖書館走就到了。",
+        "example_zh": "從學校往圖書館走就到瞭。",
         "example_pinyin": "Cóng xuéxiào wǎng túshūguǎn zǒu jiù dào le.",
         "example_vi": "Từ trường đi về hướng thư viện là đến."
       }
@@ -1880,7 +1880,7 @@
     "examples": [
       {
         "grammar_id": 111,
-        "example_zh": "我家離學校走路只要十分鐘。",
+        "example_zh": "我傢離學校走路隻要十分鐘。",
         "example_pinyin": "Wǒjiā lí xuéxiào zǒulù zhǐyào shí fēnzhōng.",
         "example_vi": "Nhà tôi cách trường chỉ mất mười phút đi bộ."
       }
@@ -1922,7 +1922,7 @@
   },
   {
     "grammar_id": 114,
-    "pattern_zh": "V進/出/上/回+（……）來/去",
+    "pattern_zh": "V進/齣/上/迴+（……）來/去",
     "pattern_pinyin": "jìn/chū/shàng/huí + lái/qù",
     "title_vi": "Bổ ngữ xu hướng kép 進/出/上/回 + 來/去",
     "explanation_vi": "Kết hợp động từ chỉ hướng (進/出/上/回) với 來/去 để diễn tả hướng di chuyển phức hợp (vào/ra/lên/về + về phía người nói hoặc ra xa), tương đương với \"vào/ra/lên/về... đây/đó\".",
@@ -1931,7 +1931,7 @@
     "examples": [
       {
         "grammar_id": 114,
-        "example_zh": "電梯等太久了，我從二樓走上來。你可以從這條路走上去就到了。你說的書我買回來了。照片洗好了，你可以拿回去了。衣服拿進來吧，外面好像快下雨了。我帶回了一個禮物（來）。他走進去書店，買了三本書。李明華走進郵局寄信（去）。弟弟從教室跑出來。老師說先休息十分鐘，大家就跑出去玩了。",
+        "example_zh": "電梯等太久瞭，我從二樓走上來。你可以從這條路走上去就到瞭。你說的書我買迴來瞭。照片洗好瞭，你可以拿迴去瞭。衣服拿進來吧，外麵好像快下雨瞭。我帶迴瞭一個禮物（來）。他走進去書店，買瞭三本書。李明華走進郵侷寄信（去）。弟弟從敎室跑齣來。老師說先休息十分鐘，大傢就跑齣去翫瞭。",
         "example_pinyin": "",
         "example_vi": "Thang máy chờ lâu quá, tôi đi bộ lên từ tầng 2. / Bạn đi theo con đường này lên là tới. / Cuốn sách bạn nói tôi đã mua về rồi. / Ảnh rửa xong rồi, bạn có thể lấy về. / Mang quần áo vào đi, bên ngoài có vẻ sắp mưa rồi. / Tôi đã mang về một món quà. / Anh ấy bước vào hiệu sách, mua ba cuốn sách. / Lý Minh Hoa bước vào bưu điện gửi thư. / Em trai chạy ra khỏi lớp học. / Cô giáo nói nghỉ 10 phút trước, thế là mọi người chạy ra ngoài chơi."
       }
@@ -1948,7 +1948,7 @@
     "examples": [
       {
         "grammar_id": 115,
-        "example_zh": "他看了菜單後，決定點一份三明治。",
+        "example_zh": "他看瞭菜單後，決定點一份三明治。",
         "example_pinyin": "Tā kàn le càidān hòu, juédìng diǎn yī fèn sānmíngzhì.",
         "example_vi": "Sau khi xem thực đơn, anh ấy quyết định gọi một phần sandwich."
       }
@@ -1965,7 +1965,7 @@
     "examples": [
       {
         "grammar_id": 116,
-        "example_zh": "A：你吃了幾個餃子？B：十幾個。",
+        "example_zh": "A：你喫瞭幾個餃子？B：十幾個。",
         "example_pinyin": "Nǐ chī le jǐ gè jiǎozi? Shí jǐ gè.",
         "example_vi": "A: Bạn ăn mấy cái sủi cảo? B: Hơn mười cái."
       }
@@ -1999,7 +1999,7 @@
     "examples": [
       {
         "grammar_id": 118,
-        "example_zh": "我今天早上已經看過電視新聞了。",
+        "example_zh": "我今天早上已經看過電視新聞瞭。",
         "example_pinyin": "Wǒ jīntiān zǎoshang yǐjīng kàn guò diànshì xīnwén le.",
         "example_vi": "Sáng nay tôi đã xem tin tức truyền hình rồi."
       }
@@ -2016,7 +2016,7 @@
     "examples": [
       {
         "grammar_id": 119,
-        "example_zh": "他們吃著餅乾看電視。",
+        "example_zh": "他們喫著餅乾看電視。",
         "example_pinyin": "Tāmen chīzhe bǐnggān kàn diànshì.",
         "example_vi": "Họ vừa ăn bánh quy vừa xem tivi."
       }
@@ -2033,7 +2033,7 @@
     "examples": [
       {
         "grammar_id": 120,
-        "example_zh": "他找到那家超市了。",
+        "example_zh": "他找到那傢超市瞭。",
         "example_pinyin": "Tā zhǎodào nà jiā chāoshì le.",
         "example_vi": "Anh ấy đã tìm ra siêu thị đó rồi."
       }
@@ -2041,7 +2041,7 @@
   },
   {
     "grammar_id": 121,
-    "pattern_zh": "才¹",
+    "pattern_zh": "纔¹",
     "pattern_pinyin": "cái",
     "title_vi": "Phó từ 才 (mới - chỉ sau khi điều kiện được đáp ứng)",
     "explanation_vi": "「才」diễn tả một việc chỉ xảy ra sau khi có điều kiện/sự việc khác xảy ra trước, tương đương với \"mới\".",
@@ -2050,7 +2050,7 @@
     "examples": [
       {
         "grammar_id": 121,
-        "example_zh": "他看了報告後才同意醫生的說法。",
+        "example_zh": "他看瞭報告後纔衕意醫生的說法。",
         "example_pinyin": "Tā kàn le bàogào hòu cái tóngyì yīshēng de shuōfǎ.",
         "example_vi": "Anh ấy đọc báo cáo xong mới đồng ý với cách nói của bác sĩ."
       }
@@ -2058,7 +2058,7 @@
   },
   {
     "grammar_id": 122,
-    "pattern_zh": "才⁴",
+    "pattern_zh": "纔⁴",
     "pattern_pinyin": "cái",
     "title_vi": "Phó từ 才 (mới chỉ - nhấn mạnh số lượng ít/còn nhỏ)",
     "explanation_vi": "「才」đặt trước số từ để nhấn mạnh số lượng còn ít hoặc tuổi còn nhỏ, tương đương với \"mới chỉ\".",
@@ -2067,7 +2067,7 @@
     "examples": [
       {
         "grammar_id": 122,
-        "example_zh": "我上次見到你的時候，你才十一歲。",
+        "example_zh": "我上次見到你的時候，你纔十一歲。",
         "example_pinyin": "Wǒ shàngcì jiàndào nǐ de shíhòu, nǐ cái shíyī suì.",
         "example_vi": "Lần trước tôi gặp bạn, bạn mới chỉ 11 tuổi."
       }
@@ -2084,7 +2084,7 @@
     "examples": [
       {
         "grammar_id": 123,
-        "example_zh": "睡前喝杯熱牛奶，可以讓我睡得更好。",
+        "example_zh": "睡前喝盃熱牛奶，可以讓我睡得更好。",
         "example_pinyin": "Shuì qián hē bēi rè niúnǎi, kěyǐ ràng wǒ shuì de gèng hǎo.",
         "example_vi": "Uống một cốc sữa nóng trước khi ngủ có thể giúp tôi ngủ ngon hơn."
       }
@@ -2135,7 +2135,7 @@
     "examples": [
       {
         "grammar_id": 126,
-        "example_zh": "我叫人去買便當回來。",
+        "example_zh": "我叫人去買便當迴來。",
         "example_pinyin": "Wǒ jiào rén qù mǎi biàndāng huílái.",
         "example_vi": "Tôi nhờ người đi mua cơm hộp về."
       }
@@ -2203,7 +2203,7 @@
     "examples": [
       {
         "grammar_id": 130,
-        "example_zh": "三年級到六年級的同學，下課後都要留下來練習跳舞。",
+        "example_zh": "三年級到六年級的衕學，下課後都要留下來練習跳舞。",
         "example_pinyin": "Sān niánjí dào liù niánjí de tóngxué, xiàkè hòu dōu yào liú xiàlái liànxí tiàowǔ.",
         "example_vi": "Các bạn học sinh từ lớp 3 đến lớp 6, sau giờ học đều phải ở lại luyện tập múa."
       }
@@ -2220,7 +2220,7 @@
     "examples": [
       {
         "grammar_id": 131,
-        "example_zh": "你要是發燒，今天就在家休息吧。",
+        "example_zh": "你要是發燒，今天就在傢休息吧。",
         "example_pinyin": "Nǐ yàoshi fāshāo, jīntiān jiù zài jiā xiūxí ba.",
         "example_vi": "Nếu bạn bị sốt, hôm nay cứ ở nhà nghỉ ngơi đi."
       }
@@ -2237,7 +2237,7 @@
     "examples": [
       {
         "grammar_id": 132,
-        "example_zh": "下雨的話，我就不去了。",
+        "example_zh": "下雨的話，我就不去瞭。",
         "example_pinyin": "Xiàyǔ dehuà, wǒ jiù bú qù le.",
         "example_vi": "Nếu trời mưa thì tôi sẽ không đi nữa."
       }
@@ -2254,7 +2254,7 @@
     "examples": [
       {
         "grammar_id": 133,
-        "example_zh": "事情沒有你想的那麼嚴重。這盤豆腐吃起來沒有炒麵這麼辣。",
+        "example_zh": "事情沒有你想的那麼嚴重。這盤豆腐喫起來沒有炒麵這麼辣。",
         "example_pinyin": "Shìqíng méiyǒu nǐ xiǎng de nàme yánzhòng.",
         "example_vi": "Sự việc không nghiêm trọng như bạn nghĩ. Đĩa đậu phụ này ăn không cay bằng mì xào."
       }
@@ -2271,7 +2271,7 @@
     "examples": [
       {
         "grammar_id": 134,
-        "example_zh": "這個故事不但容易了解， 而且很有意思。",
+        "example_zh": "這個故事不但容易瞭解， 而且很有意思。",
         "example_pinyin": "Zhège gùshì bùdàn róngyì liǎojiě, érqiě hěn yǒuyìsi.",
         "example_vi": "Câu chuyện này không những dễ hiểu, mà còn rất thú vị."
       }
@@ -2313,7 +2313,7 @@
   },
   {
     "grammar_id": 137,
-    "pattern_zh": "真Vs",
+    "pattern_zh": "眞Vs",
     "pattern_pinyin": "zhēn",
     "title_vi": "Phó từ 真 (thật sự/thật là)",
     "explanation_vi": "「真」đặt trước tính từ để nhấn mạnh cảm xúc chân thật của người nói, tương đương với \"thật sự/thật là\".",
@@ -2322,7 +2322,7 @@
     "examples": [
       {
         "grammar_id": 137,
-        "example_zh": "那個房子真不錯，而且就在學校附近。",
+        "example_zh": "那個房子眞不錯，而且就在學校附近。",
         "example_pinyin": "Nàge fángzi zhēn búcuò, érqiě jiù zài xuéxiào fùjìn.",
         "example_vi": "Căn nhà đó thật sự không tệ, hơn nữa lại ngay gần trường học."
       }
@@ -2339,7 +2339,7 @@
     "examples": [
       {
         "grammar_id": 138,
-        "example_zh": "颱風來了，雨越下越大。",
+        "example_zh": "颱風來瞭，雨越下越大。",
         "example_pinyin": "Táifēng lái le, yǔ yuè xià yuè dà.",
         "example_vi": "Bão đến rồi, mưa càng lúc càng to."
       }
@@ -2356,7 +2356,7 @@
     "examples": [
       {
         "grammar_id": 139,
-        "example_zh": "他的中文越來越好了。",
+        "example_zh": "他的中文越來越好瞭。",
         "example_pinyin": "Tā de Zhōngwén yuèláiyuè hǎo le.",
         "example_vi": "Tiếng Trung của anh ấy ngày càng tốt hơn."
       }
@@ -2373,7 +2373,7 @@
     "examples": [
       {
         "grammar_id": 140,
-        "example_zh": "我們本來不認識，後來聊了一下就熟了。",
+        "example_zh": "我們本來不認識，後來聊瞭一下就熟瞭。",
         "example_pinyin": "Wǒmen běnlái bú rènshì, hòulái liáo le yīxià jiù shú le.",
         "example_vi": "Ban đầu chúng tôi không quen nhau, sau đó trò chuyện một lúc là thân liền."
       }
@@ -2390,7 +2390,7 @@
     "examples": [
       {
         "grammar_id": 141,
-        "example_zh": "我喜歡先吃菜再吃肉，然後才吃飯。",
+        "example_zh": "我喜歡先喫菜再喫肉，然後纔喫飯。",
         "example_pinyin": "Wǒ xǐhuān xiān chī cài zài chī ròu, ránhòu cái chīfàn.",
         "example_vi": "Tôi thích ăn rau trước rồi ăn thịt, sau đó mới ăn cơm."
       }
@@ -2407,7 +2407,7 @@
     "examples": [
       {
         "grammar_id": 142,
-        "example_zh": "他一邊吃飯一邊看手機。",
+        "example_zh": "他一邊喫飯一邊看手機。",
         "example_pinyin": "Tā yìbiān chīfàn yìbiān kàn shǒujī.",
         "example_vi": "Anh ấy vừa ăn cơm vừa xem điện thoại."
       }
@@ -2424,7 +2424,7 @@
     "examples": [
       {
         "grammar_id": 143,
-        "example_zh": "大家先找位子再點菜。",
+        "example_zh": "大傢先找位子再點菜。",
         "example_pinyin": "Dàjiā xiān zhǎo wèizi zài diǎncài.",
         "example_vi": "Mọi người tìm chỗ ngồi trước rồi mới gọi món."
       }
@@ -2432,7 +2432,7 @@
   },
   {
     "grammar_id": 144,
-    "pattern_zh": "就要……了",
+    "pattern_zh": "就要……瞭",
     "pattern_pinyin": "jiùyào...le",
     "title_vi": "就要……了 (sắp...rồi)",
     "explanation_vi": "Diễn tả một sự việc sắp xảy ra trong tương lai gần, tương đương với \"sắp...rồi\", nhấn mạnh tính gần kề hơn 快要.",
@@ -2441,7 +2441,7 @@
     "examples": [
       {
         "grammar_id": 144,
-        "example_zh": "下個星期就要開學了。",
+        "example_zh": "下個星期就要開學瞭。",
         "example_pinyin": "Xià gè xīngqí jiùyào kāixué le.",
         "example_vi": "Tuần sau là khai giảng rồi."
       }
@@ -2449,7 +2449,7 @@
   },
   {
     "grammar_id": 145,
-    "pattern_zh": "快要……了",
+    "pattern_zh": "快要……瞭",
     "pattern_pinyin": "kuàiyào...le",
     "title_vi": "快要……了 (sắp...rồi)",
     "explanation_vi": "Diễn tả một sự việc sắp xảy ra trong tương lai gần, tương đương với \"sắp...rồi\".",
@@ -2458,7 +2458,7 @@
     "examples": [
       {
         "grammar_id": 145,
-        "example_zh": "暑假快要結束了。",
+        "example_zh": "暑叚快要結束瞭。",
         "example_pinyin": "Shǔjià kuàiyào jiéshù le.",
         "example_vi": "Kỳ nghỉ hè sắp kết thúc rồi."
       }
@@ -2492,7 +2492,7 @@
     "examples": [
       {
         "grammar_id": 147,
-        "example_zh": "他生氣的時候，最好不要跟他開玩笑。",
+        "example_zh": "他生氣的時候，最好不要跟他開翫笑。",
         "example_pinyin": "Tā shēngqì de shíhòu, zuìhǎo bú yào gēn tā kāiwánxiào.",
         "example_vi": "Lúc anh ấy đang tức giận, tốt nhất đừng đùa giỡn với anh ấy."
       }
@@ -2526,7 +2526,7 @@
     "examples": [
       {
         "grammar_id": 149,
-        "example_zh": "他們選了一個離門口最近的位子坐下。",
+        "example_zh": "他們選瞭一個離門口最近的位子坐下。",
         "example_pinyin": "Tāmen xuǎn le yī gè lí ménkǒu zuìjìn de wèizi zuòxià.",
         "example_vi": "Họ chọn một chỗ gần cửa nhất rồi ngồi xuống."
       }
@@ -2543,7 +2543,7 @@
     "examples": [
       {
         "grammar_id": 150,
-        "example_zh": "他拿起筆寫下電話和地址。",
+        "example_zh": "他拿起筆寫下電話龢地址。",
         "example_pinyin": "Tā ná qǐ bǐ xiěxià diànhuà hé dìzhǐ.",
         "example_vi": "Anh ấy cầm bút lên viết xuống số điện thoại và địa chỉ."
       }
@@ -2560,7 +2560,7 @@
     "examples": [
       {
         "grammar_id": 151,
-        "example_zh": "公車上站滿了人。",
+        "example_zh": "公車上站滿瞭人。",
         "example_pinyin": "Gōngchē shàng zhàn mǎn le rén.",
         "example_vi": "Trên xe buýt đứng đầy người."
       }
@@ -2594,7 +2594,7 @@
     "examples": [
       {
         "grammar_id": 153,
-        "example_zh": "百貨公司的活動有時候是打折，有時候是送禮物。",
+        "example_zh": "百貨公司的活動有時候是打摺，有時候是送禮物。",
         "example_pinyin": "Bǎihuò gōngsī de huódòng yǒushíhòu shì dǎzhé, yǒushíhòu shì sòng lǐwù.",
         "example_vi": "Chương trình khuyến mãi của trung tâm thương mại đôi khi là giảm giá, đôi khi là tặng quà."
       }
@@ -2611,7 +2611,7 @@
     "examples": [
       {
         "grammar_id": 154,
-        "example_zh": "李小姐聽到消息後，開心地對我笑了笑。",
+        "example_zh": "李小姐聽到消息後，開心地對我笑瞭笑。",
         "example_pinyin": "Lǐ xiǎojiě tīngdào xiāoxi hòu, kāixīn de duì wǒ xiào le xiào.",
         "example_vi": "Sau khi nghe tin, cô Lý vui vẻ cười với tôi."
       }
@@ -2628,7 +2628,7 @@
     "examples": [
       {
         "grammar_id": 155,
-        "example_zh": "他對畫畫很有興趣，以後想當畫家。",
+        "example_zh": "他對畫畫很有興趣，以後想當畫傢。",
         "example_pinyin": "Tā duì huàhuà hěn yǒu xìngqù, yǐhòu xiǎng dāng huàjiā.",
         "example_vi": "Anh ấy rất có hứng thú với việc vẽ tranh, sau này muốn làm họa sĩ."
       }
@@ -2653,7 +2653,7 @@
   },
   {
     "grammar_id": 157,
-    "pattern_zh": "為了",
+    "pattern_zh": "為瞭",
     "pattern_pinyin": "wèile",
     "title_vi": "Giới từ 為了 (để/vì mục đích)",
     "explanation_vi": "「為了」đặt trước mục đích để nói lý do thực hiện hành động, tương đương với \"để/vì mục đích\".",
@@ -2662,7 +2662,7 @@
     "examples": [
       {
         "grammar_id": 157,
-        "example_zh": "他為了學中文到臺灣來。為了賺更多錢，他打了好幾份工。",
+        "example_zh": "他為瞭學中文到臺灣來。為瞭賺更多錢，他打瞭好幾份工。",
         "example_pinyin": "Tā wèile xué Zhōngwén dào Táiwān lái.",
         "example_vi": "Anh ấy đến Đài Loan để học tiếng Trung. Để kiếm thêm tiền, anh ấy làm mấy công việc bán thời gian."
       }
@@ -2679,7 +2679,7 @@
     "examples": [
       {
         "grammar_id": 158,
-        "example_zh": "寒假要去哪裡玩，我們可以一起討論討論。",
+        "example_zh": "寒叚要去哪裡翫，我們可以一起討論討論。",
         "example_pinyin": "Hánjià yào qù nǎlǐ wán, wǒmen kěyǐ yīqǐ tǎolùn tǎolùn.",
         "example_vi": "Kỳ nghỉ đông đi chơi đâu, chúng ta có thể cùng bàn bạc thử một chút."
       }
@@ -2713,7 +2713,7 @@
     "examples": [
       {
         "grammar_id": 160,
-        "example_zh": "這間店的蛋糕很有名，總在短短的時間內就賣完了。",
+        "example_zh": "這間店的蛋糕很有名，總在短短的時間內就賣完瞭。",
         "example_pinyin": "Zhè jiān diàn de dàngāo hěn yǒumíng, zǒng zài duǎnduǎn de shíjiān nèi jiù màiwán le.",
         "example_vi": "Bánh của cửa hàng này rất nổi tiếng, luôn bán hết trong thời gian rất ngắn."
       }
@@ -2747,7 +2747,7 @@
     "examples": [
       {
         "grammar_id": 162,
-        "example_zh": "這個麵包很好吃，你吃吃看。",
+        "example_zh": "這個麵包很好喫，你喫喫看。",
         "example_pinyin": "Zhège miànbāo hěn hǎochī, nǐ chī chī kàn.",
         "example_vi": "Bánh mì này rất ngon, bạn ăn thử xem."
       }
@@ -2764,7 +2764,7 @@
     "examples": [
       {
         "grammar_id": 163,
-        "example_zh": "我還沒給你剛剛買火車票的錢。我才剛回國，現在還沒有時間跟妹妹見面。",
+        "example_zh": "我還沒給你剛剛買火車票的錢。我纔剛迴國，現在還沒有時間跟妹妹見麵。",
         "example_pinyin": "Wǒ hái méi gěi nǐ gānggāng mǎi huǒchēpiào de qián.",
         "example_vi": "Tôi vẫn chưa đưa bạn tiền mua vé tàu vừa nãy. Tôi vừa mới về nước, hiện tại vẫn chưa có thời gian gặp em gái."
       }
@@ -2781,7 +2781,7 @@
     "examples": [
       {
         "grammar_id": 164,
-        "example_zh": "你住的地方不太好找，我花了一點時間才找到。我的位子離老師太遠了，所以聽得不很清楚。",
+        "example_zh": "你住的地方不太好找，我花瞭一點時間纔找到。我的位子離老師太遠瞭，所以聽得不很清楚。",
         "example_pinyin": "Nǐ zhù de dìfāng bú tài hǎo zhǎo, wǒ huā le yìdiǎn shíjiān cái zhǎodào.",
         "example_vi": "Chỗ bạn ở không dễ tìm lắm, tôi mất một chút thời gian mới tìm ra. Chỗ ngồi của tôi xa thầy giáo quá, nên nghe không rõ lắm."
       }
@@ -2798,7 +2798,7 @@
     "examples": [
       {
         "grammar_id": 165,
-        "example_zh": "他在外面租了房子，這學期不用再住在學校了。我有一個背包，所以不必帶行李箱。",
+        "example_zh": "他在外麵租瞭房子，這學期不用再住在學校瞭。我有一個背包，所以不必帶行李箱。",
         "example_pinyin": "Tā zài wàimiàn zū le fángzi, zhè xuéqí bùyòng zài zhù zài xuéxiào le.",
         "example_vi": "Anh ấy đã thuê nhà bên ngoài, học kỳ này không cần ở trong trường nữa. Tôi có một ba lô, nên không cần mang vali."
       }
@@ -2815,7 +2815,7 @@
     "examples": [
       {
         "grammar_id": 166,
-        "example_zh": "你臉色不太好，是不是生病了？",
+        "example_zh": "你臉色不太好，是不是生病瞭？",
         "example_pinyin": "Nǐ liǎnsè bú tài hǎo, shìbùshì shēngbìng le?",
         "example_vi": "Sắc mặt bạn không tốt lắm, có phải là bị bệnh rồi không?"
       }
@@ -2849,7 +2849,7 @@
     "examples": [
       {
         "grammar_id": 168,
-        "example_zh": "他很喜歡吃餃子，每次都吃好幾盤。我認識他已經有好多年了。爸爸已經出國好些天了，應該快回來了。",
+        "example_zh": "他很喜歡喫餃子，每次都喫好幾盤。我認識他已經有好多年瞭。爸爸已經齣國好些天瞭，應該快迴來瞭。",
         "example_pinyin": "Tā hěn xǐhuān chī jiǎozi, měicì dōu chī hǎo jǐ pán.",
         "example_vi": "Anh ấy rất thích ăn sủi cảo, lần nào cũng ăn mấy đĩa liền. Tôi quen anh ấy đã nhiều năm rồi. Bố đã ra nước ngoài khá nhiều ngày rồi, chắc sắp về."
       }
@@ -2900,7 +2900,7 @@
     "examples": [
       {
         "grammar_id": 171,
-        "example_zh": "如果你不同意，那麼你建議我們該怎麼做呢？",
+        "example_zh": "如果你不衕意，那麼你建議我們該怎麼做呢？",
         "example_pinyin": "Rúguǒ nǐ bù tóngyì, nàme nǐ jiànyì wǒmen gāi zěnme zuò ne?",
         "example_vi": "Nếu bạn không đồng ý, vậy thì bạn đề nghị chúng ta nên làm thế nào?"
       }
@@ -2917,7 +2917,7 @@
     "examples": [
       {
         "grammar_id": 172,
-        "example_zh": "A：冰箱裡的東西都可以自己拿來吃。B：謝謝，那我就不客氣了。",
+        "example_zh": "A：冰箱裡的東西都可以自己拿來喫。B：謝謝，那我就不客氣瞭。",
         "example_pinyin": "Bīngxiāng lǐ de dōngxi dōu kěyǐ zìjǐ ná lái chī. Xièxie, nà wǒ jiù bú kèqì le.",
         "example_vi": "A: Đồ trong tủ lạnh cứ tự lấy ăn nhé. B: Cảm ơn, vậy thì tôi không khách sáo nữa."
       }
@@ -2934,7 +2934,7 @@
     "examples": [
       {
         "grammar_id": 173,
-        "example_zh": "下了飛機以後，別忘了打個電話。",
+        "example_zh": "下瞭飛機以後，別忘瞭打個電話。",
         "example_pinyin": "Xià le fēijī yǐhòu, bié wàng le dǎ gè diànhuà.",
         "example_vi": "Sau khi xuống máy bay, đừng quên gọi điện thoại nhé."
       }
@@ -2968,7 +2968,7 @@
     "examples": [
       {
         "grammar_id": 175,
-        "example_zh": "現在排隊的人太多了，我們還是等一下再來吧！",
+        "example_zh": "現在排隊的人太多瞭，我們還是等一下再來吧！",
         "example_pinyin": "Xiànzài páiduì de rén tài duō le, wǒmen háishì děng yīxià zài lái ba!",
         "example_vi": "Bây giờ người xếp hàng đông quá, hay là chúng ta đợi một lát rồi quay lại đi!"
       }
@@ -3019,7 +3019,7 @@
     "examples": [
       {
         "grammar_id": 178,
-        "example_zh": "游泳可以讓身體更健康。",
+        "example_zh": "遊泳可以讓身體更健康。",
         "example_pinyin": "Yóuyǒng kěyǐ ràng shēntǐ gèng jiànkāng.",
         "example_vi": "Bơi lội có thể giúp cơ thể khỏe mạnh hơn."
       }
@@ -3053,7 +3053,7 @@
     "examples": [
       {
         "grammar_id": 180,
-        "example_zh": "夏天到了，冬天的衣服可以收起來了。",
+        "example_zh": "夏天到瞭，鼕天的衣服可以收起來瞭。",
         "example_pinyin": "Xiàtiān dào le, dōngtiān de yīfu kěyǐ shōu qǐlái le.",
         "example_vi": "Mùa hè đến rồi, quần áo mùa đông có thể cất đi được rồi."
       }
@@ -3070,7 +3070,7 @@
     "examples": [
       {
         "grammar_id": 181,
-        "example_zh": "時間到了，我不能再說下去了。",
+        "example_zh": "時間到瞭，我不能再說下去瞭。",
         "example_pinyin": "Shíjiān dào le, wǒ bù néng zài shuō xiàqù le.",
         "example_vi": "Hết giờ rồi, tôi không thể nói tiếp được nữa."
       }
@@ -3078,7 +3078,7 @@
   },
   {
     "grammar_id": 182,
-    "pattern_zh": "才²",
+    "pattern_zh": "纔²",
     "pattern_pinyin": "cái",
     "title_vi": "Phó từ 才 (mới - chỉ khi đủ điều kiện)",
     "explanation_vi": "「才」diễn tả một kết quả chỉ đạt được khi có đủ điều kiện cần thiết, tương đương với \"mới\".",
@@ -3087,7 +3087,7 @@
     "examples": [
       {
         "grammar_id": 182,
-        "example_zh": "學語言要多練習，才能學得好。",
+        "example_zh": "學語言要多練習，纔能學得好。",
         "example_pinyin": "Xué yǔyán yào duō liànxí, cái néng xué de hǎo.",
         "example_vi": "Học ngôn ngữ phải luyện tập nhiều mới học giỏi được."
       }
@@ -3095,7 +3095,7 @@
   },
   {
     "grammar_id": 183,
-    "pattern_zh": "才³",
+    "pattern_zh": "纔³",
     "pattern_pinyin": "cái",
     "title_vi": "Phó từ 才 (vừa mới)",
     "explanation_vi": "「才」diễn tả một hành động vừa mới xảy ra thì có sự việc khác xảy ra ngay sau, tương đương với \"vừa mới\".",
@@ -3104,7 +3104,7 @@
     "examples": [
       {
         "grammar_id": 183,
-        "example_zh": "他才出門，就開始下雨了。",
+        "example_zh": "他纔齣門，就開始下雨瞭。",
         "example_pinyin": "Tā cái chūmén, jiù kāishǐ xiàyǔ le.",
         "example_vi": "Anh ấy vừa ra khỏi nhà thì trời bắt đầu mưa."
       }
@@ -3121,7 +3121,7 @@
     "examples": [
       {
         "grammar_id": 184,
-        "example_zh": "這條街有很多銀行，光這個路口就有四家。",
+        "example_zh": "這條街有很多銀行，光這個路口就有四傢。",
         "example_pinyin": "Zhè tiáo jiē yǒu hěn duō yínháng, guāng zhège lùkǒu jiù yǒu sì jiā.",
         "example_vi": "Con phố này có rất nhiều ngân hàng, chỉ riêng ngã tư này đã có bốn cái."
       }
@@ -3138,7 +3138,7 @@
     "examples": [
       {
         "grammar_id": 185,
-        "example_zh": "這家餐廳的水比飲料還貴。",
+        "example_zh": "這傢餐廳的水比飲料還貴。",
         "example_pinyin": "Zhè jiā cāntīng de shuǐ bǐ yǐnliào hái guì.",
         "example_vi": "Nước lọc ở nhà hàng này còn đắt hơn cả đồ uống."
       }
@@ -3155,7 +3155,7 @@
     "examples": [
       {
         "grammar_id": 186,
-        "example_zh": "如果有適合的工作，你願意接受嗎？",
+        "example_zh": "如果有適閤的工作，你願意接受嗎？",
         "example_pinyin": "Rúguǒ yǒu shìhé de gōngzuò, nǐ yuànyì jiēshòu ma?",
         "example_vi": "Nếu có công việc phù hợp, bạn có sẵn lòng nhận không?"
       }
@@ -3163,7 +3163,7 @@
   },
   {
     "grammar_id": 187,
-    "pattern_zh": "只要……就……",
+    "pattern_zh": "隻要……就……",
     "pattern_pinyin": "zhǐyào...jiù...",
     "title_vi": "只要……就…… (chỉ cần...thì...)",
     "explanation_vi": "Diễn tả điều kiện đủ để một kết quả xảy ra, tương đương với \"chỉ cần...thì...\".",
@@ -3172,7 +3172,7 @@
     "examples": [
       {
         "grammar_id": 187,
-        "example_zh": "他只要有空，就會去參加這次的派對。",
+        "example_zh": "他隻要有空，就會去參加這次的派對。",
         "example_pinyin": "Tā zhǐyào yǒu kòng, jiù huì qù cānjiā zhècì de pàiduì.",
         "example_vi": "Anh ấy chỉ cần rảnh là sẽ đi tham gia bữa tiệc lần này."
       }
@@ -3180,7 +3180,7 @@
   },
   {
     "grammar_id": 188,
-    "pattern_zh": "只有……才……",
+    "pattern_zh": "隻有……纔……",
     "pattern_pinyin": "zhǐyǒu...cái...",
     "title_vi": "只有……才…… (chỉ có...mới...)",
     "explanation_vi": "Diễn tả điều kiện cần duy nhất để một kết quả xảy ra (chặt chẽ hơn 只要), tương đương với \"chỉ có...mới...\".",
@@ -3189,7 +3189,7 @@
     "examples": [
       {
         "grammar_id": 188,
-        "example_zh": "你只有在學中文的環境才學得好。",
+        "example_zh": "你隻有在學中文的環境纔學得好。",
         "example_pinyin": "Nǐ zhǐyǒu zài xué Zhōngwén de huánjìng cái xué de hǎo.",
         "example_vi": "Bạn chỉ có ở trong môi trường học tiếng Trung mới học giỏi được."
       }
@@ -3197,7 +3197,7 @@
   },
   {
     "grammar_id": 189,
-    "pattern_zh": "只好",
+    "pattern_zh": "隻好",
     "pattern_pinyin": "zhǐhǎo",
     "title_vi": "Phó từ 只好 (đành phải)",
     "explanation_vi": "「只好」diễn tả việc buộc phải làm gì do không còn lựa chọn nào khác, tương đương với \"đành phải\".",
@@ -3206,7 +3206,7 @@
     "examples": [
       {
         "grammar_id": 189,
-        "example_zh": "外面下起了大雨，我們只好留在飯店裡。",
+        "example_zh": "外麵下起瞭大雨，我們隻好留在飯店裡。",
         "example_pinyin": "Wàimiàn xiàqǐ le dàyǔ, wǒmen zhǐhǎo liú zài fàndiàn lǐ.",
         "example_vi": "Bên ngoài mưa to, chúng tôi đành phải ở lại trong khách sạn."
       }
@@ -3214,7 +3214,7 @@
   },
   {
     "grammar_id": 190,
-    "pattern_zh": "不管……都……",
+    "pattern_zh": "不筦……都……",
     "pattern_pinyin": "bùguǎn...dōu...",
     "title_vi": "不管……都…… (bất kể/dù...đều...)",
     "explanation_vi": "Diễn tả kết quả không thay đổi bất kể điều kiện nào, tương đương với \"bất kể/dù...đều...\".",
@@ -3223,7 +3223,7 @@
     "examples": [
       {
         "grammar_id": 190,
-        "example_zh": "如果你有問題 ，不管什麼時候都可以打電話給我。",
+        "example_zh": "如果你有問題 ，不筦什麼時候都可以打電話給我。",
         "example_pinyin": "Rúguǒ nǐ yǒu wèntí, bùguǎn shénme shíhòu dōu kěyǐ dǎ diànhuà gěi wǒ.",
         "example_vi": "Nếu bạn có vấn đề gì, bất kể lúc nào cũng có thể gọi điện cho tôi."
       }
@@ -3240,7 +3240,7 @@
     "examples": [
       {
         "grammar_id": 191,
-        "example_zh": "秋天到了，天氣開始一天比一天冷。",
+        "example_zh": "鞦天到瞭，天氣開始一天比一天冷。",
         "example_pinyin": "Qiūtiān dào le, tiānqì kāishǐ yī tiān bǐ yī tiān lěng.",
         "example_vi": "Mùa thu đến rồi, thời tiết bắt đầu ngày càng lạnh hơn."
       }
@@ -3274,7 +3274,7 @@
     "examples": [
       {
         "grammar_id": 193,
-        "example_zh": "百貨公司常常有很多人，尤其是週末和假日。",
+        "example_zh": "百貨公司常常有很多人，尤其是週末龢叚日。",
         "example_pinyin": "Bǎihuò gōngsī chángcháng yǒu hěn duō rén, yóuqí shì zhōumò hé jiàrì.",
         "example_vi": "Trung tâm thương mại thường rất đông người, đặc biệt là vào cuối tuần và ngày lễ."
       }
@@ -3282,7 +3282,7 @@
   },
   {
     "grammar_id": 194,
-    "pattern_zh": "V 得/不 了",
+    "pattern_zh": "V 得/不 瞭",
     "pattern_pinyin": "de/bù liǎo",
     "title_vi": "Bổ ngữ khả năng 得/不 了 (có thể/không thể... nổi)",
     "explanation_vi": "「得了」/「不了」đặt sau động từ để hỏi/khẳng định khả năng hoàn thành hành động, tương đương với \"...nổi/...được\".",
@@ -3291,7 +3291,7 @@
     "examples": [
       {
         "grammar_id": 194,
-        "example_zh": "這麼多東西你拿得了嗎？我一個人吃不了40個餃子。",
+        "example_zh": "這麼多東西你拿得瞭嗎？我一個人喫不瞭40個餃子。",
         "example_pinyin": "Zhème duō dōngxi nǐ ná de liǎo ma? Wǒ yī gè rén chī bùliǎo sìshí gè jiǎozi.",
         "example_vi": "Nhiều đồ thế này bạn mang nổi không? Một mình tôi không ăn hết nổi 40 cái sủi cảo."
       }
@@ -3299,7 +3299,7 @@
   },
   {
     "grammar_id": 195,
-    "pattern_zh": "V得/不……（表可能）",
+    "pattern_zh": "V得/不……（錶可能）",
     "pattern_pinyin": "de/bù",
     "title_vi": "Bổ ngữ khả năng 得/不 (có thể/không thể - biểu thị khả năng)",
     "explanation_vi": "Chèn 得/不 giữa động từ và bổ ngữ kết quả/xu hướng để biểu thị khả năng đạt được kết quả đó hay không.",
@@ -3359,7 +3359,7 @@
     "examples": [
       {
         "grammar_id": 198,
-        "example_zh": "我們派對可以開始了，客人差不多都到了。",
+        "example_zh": "我們派對可以開始瞭，客人差不多都到瞭。",
         "example_pinyin": "Wǒmen pàiduì kěyǐ kāishǐ le, kèrén chàbùduō dōu dào le.",
         "example_vi": "Chúng ta có thể bắt đầu tiệc rồi, khách gần như đã đến đủ."
       }
@@ -3367,7 +3367,7 @@
   },
   {
     "grammar_id": 199,
-    "pattern_zh": "Vs極了/得不得了/得很",
+    "pattern_zh": "Vs極瞭/得不得瞭/得很",
     "pattern_pinyin": "jíle / de bùdéliǎo / de hěn",
     "title_vi": "Tính từ + 極了/得不得了/得很 (cực kỳ...)",
     "explanation_vi": "Ba cách khác nhau để nhấn mạnh mức độ cực cao của một tính từ, đều tương đương với \"cực kỳ/vô cùng...\".",
@@ -3376,7 +3376,7 @@
     "examples": [
       {
         "grammar_id": 199,
-        "example_zh": "他終於買到演唱會的門票，心裡高興極了。這間店的空間雖然不大，但是每天生意都好得不得了。這個香蕉蛋糕的作法簡單得很。",
+        "example_zh": "他終於買到演唱會的門票，心裡高興極瞭。這間店的空間雖然不大，但是每天生意都好得不得瞭。這個香蕉蛋糕的作法簡單得很。",
         "example_pinyin": "Tā zhōngyú mǎidào yǎnchànghuì de ménpiào, xīnlǐ gāoxìng jíle.",
         "example_vi": "Anh ấy cuối cùng cũng mua được vé concert, trong lòng vui sướng cực kỳ. Không gian của cửa hàng này tuy không lớn, nhưng ngày nào việc kinh doanh cũng tốt vô cùng. Cách làm bánh chuối này đơn giản lắm."
       }
@@ -3384,7 +3384,7 @@
   },
   {
     "grammar_id": 200,
-    "pattern_zh": "Vs死了",
+    "pattern_zh": "Vs死瞭",
     "pattern_pinyin": "sǐle",
     "title_vi": "Tính từ + 死了 (...chết đi được - mức độ cực kỳ, khẩu ngữ)",
     "explanation_vi": "「死了」đặt sau tính từ để nhấn mạnh mức độ cực cao theo phong cách khẩu ngữ, hơi cường điệu, tương đương với \"...chết đi được\".",
@@ -3393,7 +3393,7 @@
     "examples": [
       {
         "grammar_id": 200,
-        "example_zh": "學校裡的功課忙死了，下課還要去打工。",
+        "example_zh": "學校裡的功課忙死瞭，下課還要去打工。",
         "example_pinyin": "Xuéxiào lǐ de gōngkè máng sǐle, xiàkè hái yào qù dǎgōng.",
         "example_vi": "Bài tập ở trường bận muốn chết, tan học còn phải đi làm thêm."
       }
@@ -3401,7 +3401,7 @@
   },
   {
     "grammar_id": 201,
-    "pattern_zh": "Vs壞了",
+    "pattern_zh": "Vs壞瞭",
     "pattern_pinyin": "huàile",
     "title_vi": "Tính từ + 壞了 (...quá đi mất - mức độ cực kỳ)",
     "explanation_vi": "「壞了」đặt sau tính từ (thường mang nghĩa tiêu cực) để nhấn mạnh mức độ nghiêm trọng, tương đương với \"...quá đi mất/...kinh khủng\".",
@@ -3410,7 +3410,7 @@
     "examples": [
       {
         "grammar_id": 201,
-        "example_zh": "他忙了一整天都沒吃東西，肚子餓壞了。",
+        "example_zh": "他忙瞭一整天都沒喫東西，肚子餓壞瞭。",
         "example_pinyin": "Tā máng le yī zhěngtiān dōu méi chī dōngxi, dùzi è huàile.",
         "example_vi": "Anh ấy bận cả ngày không ăn gì, bụng đói kinh khủng."
       }
@@ -3418,7 +3418,7 @@
   },
   {
     "grammar_id": 202,
-    "pattern_zh": "Vs了一點",
+    "pattern_zh": "Vs瞭一點",
     "pattern_pinyin": "le yìdiǎn",
     "title_vi": "Tính từ + 了一點 (hơi...một chút)",
     "explanation_vi": "「了一點」đặt sau tính từ để nói mức độ vượt nhẹ so với mong muốn, tương đương với \"hơi...một chút\".",
@@ -3427,7 +3427,7 @@
     "examples": [
       {
         "grammar_id": 202,
-        "example_zh": "雖然排隊的人多了一點，但這間店的牛肉麵非常有名。",
+        "example_zh": "雖然排隊的人多瞭一點，但這間店的牛肉麵非常有名。",
         "example_pinyin": "Suīrán páiduì de rén duō le yìdiǎn, dàn zhè jiān diàn de niúròumiàn fēicháng yǒumíng.",
         "example_vi": "Tuy người xếp hàng hơi đông một chút, nhưng mì bò của quán này rất nổi tiếng."
       }
@@ -3444,7 +3444,7 @@
     "examples": [
       {
         "grammar_id": 203,
-        "example_zh": "今天天氣不錯，記得出門前把衣服洗一洗。",
+        "example_zh": "今天天氣不錯，記得齣門前把衣服洗一洗。",
         "example_pinyin": "Jīntiān tiānqì búcuò, jìde chūmén qián bǎ yīfu xǐ yī xǐ.",
         "example_vi": "Hôm nay thời tiết đẹp, nhớ giặt qua quần áo trước khi ra ngoài nhé."
       }
@@ -3469,7 +3469,7 @@
   },
   {
     "grammar_id": 205,
-    "pattern_zh": "把 O V 了",
+    "pattern_zh": "把 O V 瞭",
     "pattern_pinyin": "bǎ...le",
     "title_vi": "Câu 把 + Tân ngữ + Động từ + 了",
     "explanation_vi": "Trong câu 把, 「了」đặt sau động từ để biểu thị tân ngữ đã bị xử lý/loại bỏ hoàn toàn, tương đương với \"đem...làm/bán/vứt...rồi\".",
@@ -3478,7 +3478,7 @@
     "examples": [
       {
         "grammar_id": 205,
-        "example_zh": "這件衣服穿不下，我打算把它賣了。",
+        "example_zh": "這件衣服穿不下，我打算把它賣瞭。",
         "example_pinyin": "Zhè jiàn yīfu chuān bú xià, wǒ dǎsuàn bǎ tā mài le.",
         "example_vi": "Cái áo này mặc không vừa nữa, tôi định đem bán nó đi."
       }
@@ -3495,7 +3495,7 @@
     "examples": [
       {
         "grammar_id": 206,
-        "example_zh": "他把菜洗好了。",
+        "example_zh": "他把菜洗好瞭。",
         "example_pinyin": "Tā bǎ cài xǐ hǎo le.",
         "example_vi": "Anh ấy đã rửa sạch rau rồi."
       }
@@ -3529,7 +3529,7 @@
     "examples": [
       {
         "grammar_id": 208,
-        "example_zh": "回家後再麻煩你把郵件寄給我。",
+        "example_zh": "迴傢後再麻煩你把郵件寄給我。",
         "example_pinyin": "Huíjiā hòu zài máfan nǐ bǎ yóujiàn jì gěi wǒ.",
         "example_vi": "Sau khi về nhà phiền bạn gửi email cho tôi nhé."
       }
@@ -3546,7 +3546,7 @@
     "examples": [
       {
         "grammar_id": 209,
-        "example_zh": "鄰居的聲音太大了，妹妹被吵得睡不著。",
+        "example_zh": "鄰居的聲音太大瞭，妹妹被吵得睡不著。",
         "example_pinyin": "Línjū de shēngyīn tài dà le, mèimei bèi chǎo de shuì bù zháo.",
         "example_vi": "Tiếng ồn của hàng xóm to quá, em gái bị làm ồn đến mức không ngủ được."
       }
@@ -3580,7 +3580,7 @@
     "examples": [
       {
         "grammar_id": 211,
-        "example_zh": "他什麼都吃，就是不敢吃臭豆腐。",
+        "example_zh": "他什麼都喫，就是不敢喫臭豆腐。",
         "example_pinyin": "Tā shénme dōu chī, jiùshì bù gǎn chī chòudòufu.",
         "example_vi": "Anh ấy ăn gì cũng được, chỉ có điều không dám ăn đậu phụ thối."
       }
@@ -3597,7 +3597,7 @@
     "examples": [
       {
         "grammar_id": 212,
-        "example_zh": "颱風快來了，媽媽把食物跟水都先買好了。",
+        "example_zh": "颱風快來瞭，媽媽把食物跟水都先買好瞭。",
         "example_pinyin": "Táifēng kuài lái le, māma bǎ shíwù gēn shuǐ dōu xiān mǎi hǎo le.",
         "example_vi": "Bão sắp đến rồi, mẹ đã mua sẵn đồ ăn và nước trước."
       }
@@ -3631,7 +3631,7 @@
     "examples": [
       {
         "grammar_id": 214,
-        "example_zh": "我要回家吃飯了。",
+        "example_zh": "我要迴傢喫飯瞭。",
         "example_pinyin": "Wǒ yào huíjiā chīfàn le.",
         "example_vi": "Tôi phải về nhà ăn cơm đây."
       }
@@ -3639,7 +3639,7 @@
   },
   {
     "grammar_id": 215,
-    "pattern_zh": "才……就……",
+    "pattern_zh": "纔……就……",
     "pattern_pinyin": "cái...jiù...",
     "title_vi": "才……就…… (mới...đã...)",
     "explanation_vi": "Diễn tả một khoảng thời gian rất ngắn giữa hai sự việc, tương đương với \"mới...đã...\".",
@@ -3648,7 +3648,7 @@
     "examples": [
       {
         "grammar_id": 215,
-        "example_zh": "我跟他才談沒多久，他就有事先離開了。",
+        "example_zh": "我跟他纔談沒多久，他就有事先離開瞭。",
         "example_pinyin": "Wǒ gēn tā cái tán méi duōjiǔ, tā jiù yǒushì xiān líkāi le.",
         "example_vi": "Tôi mới nói chuyện với anh ấy chưa được bao lâu, anh ấy đã có việc rời đi trước rồi."
       }
@@ -3665,7 +3665,7 @@
     "examples": [
       {
         "grammar_id": 216,
-        "example_zh": "他兩天沒睡覺了，讓他多睡一點。",
+        "example_zh": "他兩天沒睡覺瞭，讓他多睡一點。",
         "example_pinyin": "Tā liǎng tiān méi shuìjiào le, ràng tā duō shuì yìdiǎn.",
         "example_vi": "Anh ấy hai ngày rồi chưa ngủ, để anh ấy ngủ thêm một chút."
       }
@@ -3682,7 +3682,7 @@
     "examples": [
       {
         "grammar_id": 217,
-        "example_zh": "從現在起，你應該多吃菜少吃肉。",
+        "example_zh": "從現在起，你應該多喫菜少喫肉。",
         "example_pinyin": "Cóng xiànzài qǐ, nǐ yīnggāi duō chī cài shǎo chī ròu.",
         "example_vi": "Từ bây giờ trở đi, bạn nên ăn nhiều rau ít thịt."
       }
@@ -3699,7 +3699,7 @@
     "examples": [
       {
         "grammar_id": 218,
-        "example_zh": "這支手錶現在在打折，一般學生也買得起。",
+        "example_zh": "這支手錶現在在打摺，一般學生也買得起。",
         "example_pinyin": "Zhè zhī shǒubiǎo xiànzài zài dǎzhé, yìbān xuéshēng yě mǎi de qǐ.",
         "example_vi": "Chiếc đồng hồ này đang giảm giá, học sinh bình thường cũng mua nổi."
       }
@@ -3707,7 +3707,7 @@
   },
   {
     "grammar_id": 219,
-    "pattern_zh": "V （得/不）出來",
+    "pattern_zh": "V （得/不）齣來",
     "pattern_pinyin": "chūlái",
     "title_vi": "Bổ ngữ khả năng （得/不）出來 (nhận ra được/không nhận ra được)",
     "explanation_vi": "「（得/不）出來」đặt sau động từ giác quan/nhận thức để biểu thị khả năng nhận biết được điều gì, tương đương với \"nhận ra được/không nhận ra được\".",
@@ -3716,7 +3716,7 @@
     "examples": [
       {
         "grammar_id": 219,
-        "example_zh": "從他說話的樣子來看，感覺不出來他很緊張。",
+        "example_zh": "從他說話的樣子來看，感覺不齣來他很緊張。",
         "example_pinyin": "Cóng tā shuōhuà de yàngzi lái kàn, gǎnjué bù chūlái tā hěn jǐnzhāng.",
         "example_vi": "Nhìn cách anh ấy nói chuyện, không nhận ra được là anh ấy đang căng thẳng."
       }
@@ -3733,7 +3733,7 @@
     "examples": [
       {
         "grammar_id": 220,
-        "example_zh": "姐姐學一遍，就記住所有作法了。",
+        "example_zh": "姐姐學一遍，就記住所有作法瞭。",
         "example_pinyin": "Jiějie xué yī biàn, jiù jìzhù suǒyǒu zuòfǎ le.",
         "example_vi": "Chị gái học một lần là nhớ hết cách làm rồi."
       }
@@ -3750,7 +3750,7 @@
     "examples": [
       {
         "grammar_id": 221,
-        "example_zh": "他喝完牛奶很快就睡著了。",
+        "example_zh": "他喝完牛奶很快就睡著瞭。",
         "example_pinyin": "Tā hē wán niúnǎi hěn kuài jiù shuìzháo le.",
         "example_vi": "Anh ấy uống xong sữa là ngủ thiếp đi rất nhanh."
       }
@@ -3784,7 +3784,7 @@
     "examples": [
       {
         "grammar_id": 223,
-        "example_zh": "他已經過慣了城市的生活，去鄉下常覺得不習慣。",
+        "example_zh": "他已經過慣瞭城市的生活，去鄉下常覺得不習慣。",
         "example_pinyin": "Tā yǐjīng guòguàn le chéngshì de shēnghuó, qù xiāngxià cháng juéde bù xíguàn.",
         "example_vi": "Anh ấy đã quen với cuộc sống thành phố, về quê thường thấy không quen."
       }
@@ -3801,7 +3801,7 @@
     "examples": [
       {
         "grammar_id": 224,
-        "example_zh": "今天生意很好，一下子就賣掉了四雙皮鞋。",
+        "example_zh": "今天生意很好，一下子就賣掉瞭四雙皮鞋。",
         "example_pinyin": "Jīntiān shēngyì hěn hǎo, yīxiàzi jiù màidiào le sì shuāng píxié.",
         "example_vi": "Hôm nay buôn bán tốt lắm, chỉ trong chốc lát đã bán hết bốn đôi giày da."
       }
@@ -3886,7 +3886,7 @@
     "examples": [
       {
         "grammar_id": 229,
-        "example_zh": "我連家旁邊開了一間健身房都不知道。畢業後，我們一次也沒見過。",
+        "example_zh": "我連傢旁邊開瞭一間健身房都不知道。畢業後，我們一次也沒見過。",
         "example_pinyin": "Wǒ lián jiā pángbiān kāi le yī jiān jiànshēnfáng dōu bù zhīdào.",
         "example_vi": "Tôi đến cả việc bên cạnh nhà mở một phòng gym cũng không hề biết. Sau khi tốt nghiệp, chúng tôi một lần cũng chưa gặp lại nhau."
       }
@@ -3911,7 +3911,7 @@
   },
   {
     "grammar_id": 231,
-    "pattern_zh": "V（了）（一）V",
+    "pattern_zh": "V（瞭）（一）V",
     "pattern_pinyin": "",
     "title_vi": "Động từ + (了) + Động từ (làm một chút - thể quá khứ)",
     "explanation_vi": "Lặp lại động từ đơn âm, có thể chèn 了 ở giữa, để biểu thị hành động ngắn/nhẹ nhàng đã xảy ra.",
@@ -3920,7 +3920,7 @@
     "examples": [
       {
         "grammar_id": 231,
-        "example_zh": "王小姐高興地笑了笑。",
+        "example_zh": "王小姐高興地笑瞭笑。",
         "example_pinyin": "Wáng xiǎojiě gāoxìng de xiào le xiào.",
         "example_vi": "Cô Vương vui vẻ cười một cái."
       }
@@ -3945,7 +3945,7 @@
   },
   {
     "grammar_id": 233,
-    "pattern_zh": "不再……了",
+    "pattern_zh": "不再……瞭",
     "pattern_pinyin": "bú zài...le",
     "title_vi": "不再……了 (không còn...nữa)",
     "explanation_vi": "「不再……了」dùng để diễn tả một hành động/trạng thái đã chấm dứt, không tiếp tục nữa, tương đương với \"không còn...nữa\".",
@@ -3954,7 +3954,7 @@
     "examples": [
       {
         "grammar_id": 233,
-        "example_zh": "找到工作後，他現在不再擔心錢的問題了。",
+        "example_zh": "找到工作後，他現在不再擔心錢的問題瞭。",
         "example_pinyin": "Zhǎodào gōngzuò hòu, tā xiànzài bú zài dānxīn qián de wèntí le.",
         "example_vi": "Sau khi tìm được việc làm, bây giờ anh ấy không còn lo lắng về vấn đề tiền bạc nữa."
       }
@@ -3971,7 +3971,7 @@
     "examples": [
       {
         "grammar_id": 234,
-        "example_zh": "年輕時，整晚不睡一點都不累。我昨晚一點酒也沒喝。",
+        "example_zh": "年輕時，整晚不睡一點都不纍。我昨晚一點酒也沒喝。",
         "example_pinyin": "Niánqīng shí, zhěngwǎn bú shuì yìdiǎn dōu bú lèi.",
         "example_vi": "Lúc trẻ, thức cả đêm không ngủ mà chẳng thấy mệt chút nào. Tối qua tôi không hề uống một giọt rượu nào."
       }
@@ -4005,7 +4005,7 @@
     "examples": [
       {
         "grammar_id": 236,
-        "example_zh": "你今天怎麼那麼早就回家了，你不舒服嗎？你怎麼站在外面，你沒帶鑰匙嗎？",
+        "example_zh": "你今天怎麼那麼早就迴傢瞭，你不舒服嗎？你怎麼站在外麵，你沒帶鑰匙嗎？",
         "example_pinyin": "Nǐ jīntiān zěnme nàme zǎo jiù huíjiā le, nǐ bù shūfú ma?",
         "example_vi": "Sao hôm nay bạn về nhà sớm thế, bạn không khỏe à? Sao bạn đứng ở ngoài vậy, bạn không mang chìa khóa à?"
       }
@@ -4022,7 +4022,7 @@
     "examples": [
       {
         "grammar_id": 237,
-        "example_zh": "如果參加活動可以認識更多人，這樣不是很好嗎？你怎麼還在家裡，王美美沒跟你說改時間了嗎？",
+        "example_zh": "如果參加活動可以認識更多人，這樣不是很好嗎？你怎麼還在傢裡，王美美沒跟你說改時間瞭嗎？",
         "example_pinyin": "Rúguǒ cānjiā huódòng kěyǐ rènshì gèng duō rén, zhèyàng bú shì hěn hǎo ma?",
         "example_vi": "Nếu tham gia hoạt động có thể quen biết thêm nhiều người, vậy chẳng phải rất tốt sao? Sao bạn còn ở nhà vậy, Vương Mỹ Mỹ chẳng phải đã nói với bạn đổi giờ rồi sao?"
       }
@@ -4056,7 +4056,7 @@
     "examples": [
       {
         "grammar_id": 239,
-        "example_zh": "他們兩兄弟，其中一個適合做生意，一個適合教書。",
+        "example_zh": "他們兩兄弟，其中一個適閤做生意，一個適閤敎書。",
         "example_pinyin": "Tāmen liǎng xiōngdì, qízhōng yī gè shìhé zuò shēngyì, yī gè shìhé jiāoshū.",
         "example_vi": "Hai anh em họ, trong đó một người hợp làm kinh doanh, một người hợp làm giáo viên."
       }
@@ -4073,7 +4073,7 @@
     "examples": [
       {
         "grammar_id": 240,
-        "example_zh": "他很喜歡吃甜食，像是巧克力、蛋糕、冰淇淋等。",
+        "example_zh": "他很喜歡喫甜食，像是巧剋力、蛋糕、冰淇淋等。",
         "example_pinyin": "Tā hěn xǐhuān chī tiánshí, xiàng shì qiǎokèlì, dàngāo, bīngqílín děng.",
         "example_vi": "Anh ấy rất thích ăn đồ ngọt, như là sô-cô-la, bánh kem, kem, vân vân."
       }
@@ -4090,7 +4090,7 @@
     "examples": [
       {
         "grammar_id": 241,
-        "example_zh": "他每天通車要花費兩個小時以上。在臺灣，十八歲以下不能買酒。妳可以選一個一千元以內的禮物。他摔到五公尺以外的草地。",
+        "example_zh": "他每天通車要花費兩個小時以上。在臺灣，十八歲以下不能買酒。妳可以選一個一韆元以內的禮物。他摔到五公尺以外的草地。",
         "example_pinyin": "Tā měitiān tōngchē yào huāfèi liǎng gè xiǎoshí yǐshàng.",
         "example_vi": "Mỗi ngày anh ấy đi lại mất hơn hai tiếng trở lên. Ở Đài Loan, dưới 18 tuổi không được mua rượu. Bạn có thể chọn một món quà trong vòng 1000 đồng. Anh ấy ngã ra bãi cỏ cách xa hơn 5 mét."
       }
@@ -4098,7 +4098,7 @@
   },
   {
     "grammar_id": 242,
-    "pattern_zh": "除了……（以外），……都……",
+    "pattern_zh": "除瞭……（以外），……都……",
     "pattern_pinyin": "chúle...(yǐwài)...dōu...",
     "title_vi": "除了……（以外），……都…… (ngoại trừ...còn lại đều...)",
     "explanation_vi": "「除了……以外」đưa ra ngoại lệ, 「都」nhấn mạnh phần còn lại đều đúng, tương đương với \"ngoại trừ...còn lại đều...\".",
@@ -4107,7 +4107,7 @@
     "examples": [
       {
         "grammar_id": 242,
-        "example_zh": "除了牛肉以外，其他的肉我都可以吃。",
+        "example_zh": "除瞭牛肉以外，其他的肉我都可以喫。",
         "example_pinyin": "Chúle niúròu yǐwài, qítā de ròu wǒ dōu kěyǐ chī.",
         "example_vi": "Ngoại trừ thịt bò, các loại thịt khác tôi đều ăn được."
       }
@@ -4115,7 +4115,7 @@
   },
   {
     "grammar_id": 243,
-    "pattern_zh": "除了……以外， 還/也……",
+    "pattern_zh": "除瞭……以外， 還/也……",
     "pattern_pinyin": "chúle...yǐwài...hái/yě...",
     "title_vi": "除了……以外，還/也…… (ngoài...ra, còn...)",
     "explanation_vi": "「除了……以外」nêu một điều đã biết, 「還/也」bổ sung thêm điều khác cùng đúng, tương đương với \"ngoài...ra, còn...\".",
@@ -4124,7 +4124,7 @@
     "examples": [
       {
         "grammar_id": 243,
-        "example_zh": "這次的活動除了杯子以外，還送毛巾。除了我以外，還有十幾位同學也收到了一樣的郵件。",
+        "example_zh": "這次的活動除瞭盃子以外，還送毛巾。除瞭我以外，還有十幾位衕學也收到瞭一樣的郵件。",
         "example_pinyin": "Zhè cì de huódòng chúle bēizi yǐwài, hái sòng máojīn.",
         "example_vi": "Chương trình lần này ngoài cốc ra, còn tặng khăn. Ngoài tôi ra, còn có hơn mười bạn học cũng nhận được email giống vậy."
       }
@@ -4158,7 +4158,7 @@
     "examples": [
       {
         "grammar_id": 245,
-        "example_zh": "這裡只有百分之五的人沒出過國。",
+        "example_zh": "這裡隻有百分之五的人沒齣過國。",
         "example_pinyin": "Zhèlǐ zhǐyǒu bǎifēnzhī wǔ de rén méi chūguò guó.",
         "example_vi": "Ở đây chỉ có 5% số người là chưa từng ra nước ngoài."
       }
@@ -4192,7 +4192,7 @@
     "examples": [
       {
         "grammar_id": 247,
-        "example_zh": "這條腳踏車步道他大概只騎了三分之一。",
+        "example_zh": "這條腳踏車步道他大概隻騎瞭三分之一。",
         "example_pinyin": "Zhè tiáo jiǎotàchē bùdào tā dàgài zhǐ qí le sān fēnzhī yī.",
         "example_vi": "Con đường đi xe đạp này anh ấy có lẽ chỉ đi được một phần ba."
       }
@@ -4251,7 +4251,7 @@
   },
   {
     "grammar_id": 251,
-    "pattern_zh": "別（再）……了",
+    "pattern_zh": "別（再）……瞭",
     "pattern_pinyin": "bié (zài)...le",
     "title_vi": "別（再）……了 (đừng...nữa)",
     "explanation_vi": "「別（再）……了」dùng để yêu cầu người nghe dừng lại một hành động đang diễn ra hoặc lặp lại, tương đương với \"đừng...nữa\".",
@@ -4260,7 +4260,7 @@
     "examples": [
       {
         "grammar_id": 251,
-        "example_zh": "別再說話了，比賽要開始囉！",
+        "example_zh": "別再說話瞭，比賽要開始囉！",
         "example_pinyin": "Bié zài shuōhuà le, bǐsài yào kāishǐ luo!",
         "example_vi": "Đừng nói chuyện nữa, trận đấu sắp bắt đầu rồi!"
       }
@@ -4277,7 +4277,7 @@
     "examples": [
       {
         "grammar_id": 252,
-        "example_zh": "一般民眾不可免費使用本校的游泳池。",
+        "example_zh": "一般民眾不可免費使用本校的遊泳池。",
         "example_pinyin": "Yìbān mínzhòng bù kě miǎnfèi shǐyòng běn xiào de yóuyǒngchí.",
         "example_vi": "Người dân thông thường không được sử dụng miễn phí hồ bơi của trường này."
       }
@@ -4294,7 +4294,7 @@
     "examples": [
       {
         "grammar_id": 253,
-        "example_zh": "他不但可理解老師上課的內容，還能說出重點。",
+        "example_zh": "他不但可理解老師上課的內容，還能說齣重點。",
         "example_pinyin": "Tā bùdàn kě lǐjiě lǎoshī shàngkè de nèiróng, hái néng shuōchū zhòngdiǎn.",
         "example_vi": "Anh ấy không những hiểu được nội dung bài giảng của thầy, mà còn nói ra được trọng tâm."
       }
@@ -4311,7 +4311,7 @@
     "examples": [
       {
         "grammar_id": 254,
-        "example_zh": "做好資源回收可改善環境。",
+        "example_zh": "做好資源迴收可改善環境。",
         "example_pinyin": "Zuò hǎo zīyuán huíshōu kě gǎishàn huánjìng.",
         "example_vi": "Làm tốt việc tái chế tài nguyên có thể cải thiện môi trường."
       }
@@ -4328,7 +4328,7 @@
     "examples": [
       {
         "grammar_id": 255,
-        "example_zh": "我們平常不該吃太鹹的食物。",
+        "example_zh": "我們平常不該喫太鹹的食物。",
         "example_pinyin": "Wǒmen píngcháng bù gāi chī tài xián de shíwù.",
         "example_vi": "Bình thường chúng ta không nên ăn đồ ăn quá mặn."
       }
@@ -4345,7 +4345,7 @@
     "examples": [
       {
         "grammar_id": 256,
-        "example_zh": "時間不早了，我該回家了。",
+        "example_zh": "時間不早瞭，我該迴傢瞭。",
         "example_pinyin": "Shíjiān bù zǎo le, wǒ gāi huíjiā le.",
         "example_vi": "Muộn rồi, tôi nên về nhà thôi."
       }
@@ -4353,7 +4353,7 @@
   },
   {
     "grammar_id": 257,
-    "pattern_zh": "V出²",
+    "pattern_zh": "V齣²",
     "pattern_pinyin": "chū",
     "title_vi": "Bổ ngữ kết quả 出 (đưa ra/nghĩ ra)",
     "explanation_vi": "「出」đặt sau động từ (như 提/想/說) để biểu thị việc tạo ra/đưa ra một ý tưởng, kết quả cụ thể, tương đương với \"đưa ra/nghĩ ra\".",
@@ -4362,7 +4362,7 @@
     "examples": [
       {
         "grammar_id": 257,
-        "example_zh": "在重要時刻他總能提出有用的想法或辦法。",
+        "example_zh": "在重要時刻他總能提齣有用的想法或辦法。",
         "example_pinyin": "Zài zhòngyào shíkè tā zǒng néng tíchū yǒuyòng de xiǎngfǎ huò bànfǎ.",
         "example_vi": "Vào những thời khắc quan trọng, anh ấy luôn có thể đưa ra ý tưởng hoặc cách giải quyết hữu ích."
       }
@@ -4379,7 +4379,7 @@
     "examples": [
       {
         "grammar_id": 258,
-        "example_zh": "他白天上班，晚上還當家教，根本沒時間回信。",
+        "example_zh": "他白天上班，晚上還當傢敎，根本沒時間迴信。",
         "example_pinyin": "Tā báitiān shàngbān, wǎnshàng hái dāng jiājiào, gēnběn méi shíjiān huíxìn.",
         "example_vi": "Anh ấy ban ngày đi làm, buổi tối còn dạy gia sư, căn bản không có thời gian trả lời thư."
       }
@@ -4396,7 +4396,7 @@
     "examples": [
       {
         "grammar_id": 259,
-        "example_zh": "你今天看起來很累。",
+        "example_zh": "你今天看起來很纍。",
         "example_pinyin": "Nǐ jīntiān kàn qǐlái hěn lèi.",
         "example_vi": "Hôm nay bạn trông có vẻ mệt mỏi."
       }
@@ -4413,7 +4413,7 @@
     "examples": [
       {
         "grammar_id": 260,
-        "example_zh": "流了一整天的汗，我的衣服不能不洗。他要搬家了，所以不得不轉學。日常生活中，我們對吃的東西不可不小心。",
+        "example_zh": "流瞭一整天的汗，我的衣服不能不洗。他要搬傢瞭，所以不得不轉學。日常生活中，我們對喫的東西不可不小心。",
         "example_pinyin": "Liú le yī zhěngtiān de hàn, wǒ de yīfu bùnéngbù xǐ.",
         "example_vi": "Ra mồ hôi cả ngày, quần áo của tôi không thể không giặt. Anh ấy sắp chuyển nhà, nên buộc phải chuyển trường. Trong cuộc sống hàng ngày, chúng ta không thể không cẩn thận với đồ ăn."
       }
@@ -4421,7 +4421,7 @@
   },
   {
     "grammar_id": 261,
-    "pattern_zh": "跟/和……比起來",
+    "pattern_zh": "跟/龢……比起來",
     "pattern_pinyin": "gēn/hé...bǐqǐlái",
     "title_vi": "跟/和……比起來 (so với...thì)",
     "explanation_vi": "「比起來」kết hợp với 跟/和 để đưa ra một phép so sánh dựa trên đối tượng đã nêu, tương đương với \"so với...thì\".",
@@ -4430,7 +4430,7 @@
     "examples": [
       {
         "grammar_id": 261,
-        "example_zh": "跟在國內讀書比起來，出國留學是更大的挑戰。",
+        "example_zh": "跟在國內讀書比起來，齣國留學是更大的挑戰。",
         "example_pinyin": "Gēn zài guónèi dúshū bǐqǐlái, chūguó liúxué shì gèng dà de tiǎozhàn.",
         "example_vi": "So với học trong nước, du học nước ngoài là thử thách lớn hơn."
       }
@@ -4447,7 +4447,7 @@
     "examples": [
       {
         "grammar_id": 262,
-        "example_zh": "畢業後，我們不再像以前一樣經常見面。",
+        "example_zh": "畢業後，我們不再像以前一樣經常見麵。",
         "example_pinyin": "Bìyè hòu, wǒmen bú zài xiàng yǐqián yíyàng jīngcháng jiànmiàn.",
         "example_vi": "Sau khi tốt nghiệp, chúng tôi không còn thường xuyên gặp nhau như trước nữa."
       }
@@ -4498,7 +4498,7 @@
     "examples": [
       {
         "grammar_id": 265,
-        "example_zh": "他差一點就遲到了。",
+        "example_zh": "他差一點就遲到瞭。",
         "example_pinyin": "Tā chàyìdiǎn jiù chídào le.",
         "example_vi": "Anh ấy suýt nữa thì đến muộn."
       }
@@ -4566,7 +4566,7 @@
     "examples": [
       {
         "grammar_id": 269,
-        "example_zh": "遇到問題時，要看每個人用什麼態度去面對它，處理方式就會不一樣。明天能不能去野餐還得看天氣才能決定。",
+        "example_zh": "遇到問題時，要看每個人用什麼態度去麵對它，處理方式就會不一樣。明天能不能去野餐還得看天氣纔能決定。",
         "example_pinyin": "Yùdào wèntí shí, yào kàn měi gèrén yòng shénme tàidù qù miànduì tā, chǔlǐ fāngshì jiù huì bù yíyàng.",
         "example_vi": "Khi gặp vấn đề, còn tùy vào thái độ đối mặt của mỗi người mà cách xử lý sẽ khác nhau. Ngày mai có đi dã ngoại được hay không còn phải xem thời tiết mới quyết định được."
       }
@@ -4583,7 +4583,7 @@
     "examples": [
       {
         "grammar_id": 270,
-        "example_zh": "近年來不論是企業或個人，使用網路的情況都越來越普遍。無論是開車出門或到餐廳吃飯，我都會選擇人少的時間去。",
+        "example_zh": "近年來不論是企業或個人，使用網路的情況都越來越普遍。無論是開車齣門或到餐廳喫飯，我都會選擇人少的時間去。",
         "example_pinyin": "Jìnnián lái búlùn shì qǐyè huò gèrén, shǐyòng wǎnglù de qíngkuàng dōu yuèláiyuè pǔbiàn.",
         "example_vi": "Những năm gần đây dù là doanh nghiệp hay cá nhân, việc sử dụng internet đều ngày càng phổ biến. Dù lái xe ra ngoài hay đến nhà hàng ăn, tôi đều chọn giờ ít người."
       }
@@ -4591,7 +4591,7 @@
   },
   {
     "grammar_id": 271,
-    "pattern_zh": "只是",
+    "pattern_zh": "隻是",
     "pattern_pinyin": "zhǐshì",
     "title_vi": "Phó từ 只是 (chỉ là/chỉ có điều)",
     "explanation_vi": "「只是」dùng để đưa ra một ngoại lệ nhỏ so với nhận định chung, tương đương với \"chỉ là/chỉ có điều\".",
@@ -4600,7 +4600,7 @@
     "examples": [
       {
         "grammar_id": 271,
-        "example_zh": "他身體很健康，只是眼睛不太好。",
+        "example_zh": "他身體很健康，隻是眼睛不太好。",
         "example_pinyin": "Tā shēntǐ hěn jiànkāng, zhǐshì yǎnjīng bú tài hǎo.",
         "example_vi": "Sức khỏe anh ấy rất tốt, chỉ có điều mắt không tốt lắm."
       }
@@ -4617,7 +4617,7 @@
     "examples": [
       {
         "grammar_id": 272,
-        "example_zh": "外面太陽很大，但溫度卻很低。",
+        "example_zh": "外麵太陽很大，但溫度卻很低。",
         "example_pinyin": "Wàimiàn tàiyáng hěn dà, dàn wēndù què hěn dī.",
         "example_vi": "Bên ngoài nắng to, nhưng nhiệt độ lại rất thấp."
       }
@@ -4634,7 +4634,7 @@
     "examples": [
       {
         "grammar_id": 273,
-        "example_zh": "爸爸叫我們動作快，（要）不然船要開走了。",
+        "example_zh": "爸爸叫我們動作快，（要）不然船要開走瞭。",
         "example_pinyin": "Bàba jiào wǒmen dòngzuò kuài, yàobùrán chuán yào kāizǒu le.",
         "example_vi": "Bố bảo chúng tôi nhanh lên, nếu không thuyền sẽ rời bến mất."
       }
@@ -4651,7 +4651,7 @@
     "examples": [
       {
         "grammar_id": 274,
-        "example_zh": "A：出版旅遊雜誌要花不少錢吧！B：（出版旅遊雜誌的）成本是很高。",
+        "example_zh": "A：齣版旅遊雜誌要花不少錢吧！B：（齣版旅遊雜誌的）成本是很高。",
         "example_pinyin": "Chūbǎn lǚyóu zázhì yào huā bùshǎo qián ba! Chéngběn shì hěn gāo.",
         "example_vi": "A: Xuất bản tạp chí du lịch chắc tốn nhiều tiền lắm nhỉ! B: Chi phí (xuất bản tạp chí du lịch) đúng là rất cao."
       }
@@ -4668,7 +4668,7 @@
     "examples": [
       {
         "grammar_id": 275,
-        "example_zh": "他本來打算去租影片，哪裡知道那間店在三天前竟然關了！",
+        "example_zh": "他本來打算去租影片，哪裡知道那間店在三天前竟然關瞭！",
         "example_pinyin": "Tā běnlái dǎsuàn qù zū yǐngpiàn, nǎlǐ zhīdào nà jiān diàn zài sān tiān qián jìngrán guān le!",
         "example_vi": "Anh ấy vốn định đi thuê phim, nào có biết cửa hàng đó ba ngày trước đã đóng cửa mất rồi!"
       }
@@ -4702,7 +4702,7 @@
     "examples": [
       {
         "grammar_id": 277,
-        "example_zh": "通過這次溝通，老師又更理解學生的想法了。",
+        "example_zh": "通過這次溝通，老師又更理解學生的想法瞭。",
         "example_pinyin": "Tōngguò zhè cì gōutōng, lǎoshī yòu gèng lǐjiě xuéshēng de xiǎngfǎ le.",
         "example_vi": "Thông qua lần trao đổi này, giáo viên càng hiểu thêm suy nghĩ của học sinh."
       }
@@ -4719,7 +4719,7 @@
     "examples": [
       {
         "grammar_id": 278,
-        "example_zh": "經過一段時間之後，他已經可以適應研究所的生活了。",
+        "example_zh": "經過一段時間之後，他已經可以適應研究所的生活瞭。",
         "example_pinyin": "Jīngguò yī duàn shíjiān zhīhòu, tā yǐjīng kěyǐ shìyìng yánjiūsuǒ de shēnghuó le.",
         "example_vi": "Sau khi trải qua một khoảng thời gian, anh ấy đã có thể thích nghi với cuộc sống ở trường sau đại học."
       }
@@ -4753,7 +4753,7 @@
     "examples": [
       {
         "grammar_id": 280,
-        "example_zh": "他們按照旅遊書上的介紹，安排了三天兩夜的旅行。",
+        "example_zh": "他們按照旅遊書上的介紹，安排瞭三天兩夜的旅行。",
         "example_pinyin": "Tāmen ànzhào lǚyóu shū shàng de jièshào, ānpái le sān tiān liǎng yè de lǚxíng.",
         "example_vi": "Họ dựa theo giới thiệu trong sách du lịch, sắp xếp chuyến đi 3 ngày 2 đêm."
       }
@@ -4787,7 +4787,7 @@
     "examples": [
       {
         "grammar_id": 282,
-        "example_zh": "趁著年節的時候，爸爸拜訪了很多親戚。趁飯菜還熱著時，趕緊先來吃吧。",
+        "example_zh": "趁著年節的時候，爸爸拜訪瞭很多親慼。趁飯菜還熱著時，趕緊先來喫吧。",
         "example_pinyin": "Chènzhe niánjié de shíhòu, bàba bàifǎng le hěn duō qīnqi.",
         "example_vi": "Nhân dịp Tết, bố đã đi thăm rất nhiều họ hàng. Tranh thủ lúc cơm còn nóng, mau ăn đi."
       }
@@ -4804,7 +4804,7 @@
     "examples": [
       {
         "grammar_id": 283,
-        "example_zh": "離過年只剩兩天了，火車票幾乎全賣完了。",
+        "example_zh": "離過年隻剩兩天瞭，火車票幾乎全賣完瞭。",
         "example_pinyin": "Lí guònián zhǐ shèng liǎng tiān le, huǒchēpiào jīhū quán mài wán le.",
         "example_vi": "Còn cách Tết chỉ hai ngày nữa, vé tàu gần như đã bán hết."
       }
@@ -4812,7 +4812,7 @@
   },
   {
     "grammar_id": 284,
-    "pattern_zh": "V著V著……就……了",
+    "pattern_zh": "V著V著……就……瞭",
     "pattern_pinyin": "zhe...zhe...jiù...le",
     "title_vi": "Động từ著Động từ著……就……了 (đang...đang...thì bỗng...)",
     "explanation_vi": "Lặp lại \"Động từ + 著\" hai lần để diễn tả một hành động đang kéo dài, rồi bất chợt dẫn đến kết quả khác, tương đương với \"đang...đang...thì bỗng...\".",
@@ -4821,7 +4821,7 @@
     "examples": [
       {
         "grammar_id": 284,
-        "example_zh": "弟弟常常在床上看書，看著看著就睡著了。",
+        "example_zh": "弟弟常常在牀上看書，看著看著就睡著瞭。",
         "example_pinyin": "Dìdi chángcháng zài chuáng shàng kànshū, kànzhe kànzhe jiù shuìzháo le.",
         "example_vi": "Em trai thường đọc sách trên giường, đọc đọc là ngủ thiếp đi lúc nào không hay."
       }
@@ -4829,7 +4829,7 @@
   },
   {
     "grammar_id": 285,
-    "pattern_zh": "早就……了",
+    "pattern_zh": "早就……瞭",
     "pattern_pinyin": "zǎojiù...le",
     "title_vi": "早就……了 (đã...từ lâu rồi)",
     "explanation_vi": "「早就」nhấn mạnh một việc đã xảy ra từ rất lâu trước đó, tương đương với \"đã...từ lâu rồi\".",
@@ -4838,7 +4838,7 @@
     "examples": [
       {
         "grammar_id": 285,
-        "example_zh": "說點別的吧，這個故事他早就聽過了。",
+        "example_zh": "說點別的吧，這個故事他早就聽過瞭。",
         "example_pinyin": "Shuō diǎn biéde ba, zhège gùshì tā zǎojiù tīngguò le.",
         "example_vi": "Nói chuyện khác đi, câu chuyện này anh ấy đã nghe từ lâu rồi."
       }
@@ -4855,7 +4855,7 @@
     "examples": [
       {
         "grammar_id": 286,
-        "example_zh": "網站的使用人數在一天之內就增加了十倍。每個人都要在會議上做一個十分鐘以內的報告。",
+        "example_zh": "網站的使用人數在一天之內就增加瞭十倍。每個人都要在會議上做一個十分鐘以內的報告。",
         "example_pinyin": "Wǎngzhàn de shǐyòng rénshù zài yī tiān zhīnèi jiù zēngjiā le shí bèi.",
         "example_vi": "Số người sử dụng website trong vòng một ngày đã tăng gấp mười lần. Mỗi người đều phải trình bày báo cáo trong vòng mười phút tại cuộc họp."
       }
@@ -4872,7 +4872,7 @@
     "examples": [
       {
         "grammar_id": 287,
-        "example_zh": "他一個人就扮演了四、五個角色，一會兒是公車司機，一會兒是老闆。",
+        "example_zh": "他一個人就扮演瞭四、五個角色，一會兒是公車司機，一會兒是老闆。",
         "example_pinyin": "Tā yī gè rén jiù bànyǎn le sì, wǔ gè juésè, yīhuǐr shì gōngchē sījī, yīhuǐr shì lǎobǎn.",
         "example_vi": "Một mình anh ấy đóng bốn, năm vai, lúc thì là tài xế xe buýt, lúc thì là ông chủ."
       }
@@ -4897,7 +4897,7 @@
   },
   {
     "grammar_id": 289,
-    "pattern_zh": "既……又……",
+    "pattern_zh": "旣……又……",
     "pattern_pinyin": "jì...yòu...",
     "title_vi": "既……又…… (vừa...vừa... - trang trọng)",
     "explanation_vi": "Tương tự 又……又……nhưng mang tính trang trọng hơn, dùng để liệt kê hai đặc điểm cùng tồn tại.",
@@ -4906,7 +4906,7 @@
     "examples": [
       {
         "grammar_id": 289,
-        "example_zh": "這家賣的水果既新鮮又好吃。",
+        "example_zh": "這傢賣的水果旣新鮮又好喫。",
         "example_pinyin": "Zhè jiā mài de shuǐguǒ jì xīnxiān yòu hǎochī.",
         "example_vi": "Trái cây cửa hàng này bán vừa tươi vừa ngon."
       }
@@ -4940,7 +4940,7 @@
     "examples": [
       {
         "grammar_id": 291,
-        "example_zh": "他最不愛上學，現在竟然當起老師來了。",
+        "example_zh": "他最不愛上學，現在竟然當起老師來瞭。",
         "example_pinyin": "Tā zuì bú ài shàngxué, xiànzài jìngrán dāng qǐ lǎoshī lái le.",
         "example_vi": "Anh ấy ghét đi học nhất, vậy mà bây giờ lại trở thành giáo viên."
       }
@@ -4957,7 +4957,7 @@
     "examples": [
       {
         "grammar_id": 292,
-        "example_zh": "你回來的路上可以買條吐司嗎？家裡的吐司都吃光了。",
+        "example_zh": "你迴來的路上可以買條吐司嗎？傢裡的吐司都喫光瞭。",
         "example_pinyin": "Nǐ huílái de lùshàng kěyǐ mǎi tiáo tǔsī ma? Jiā lǐ de tǔsī dōu chīguāng le.",
         "example_vi": "Trên đường về bạn mua giúp ổ bánh mì sandwich nhé? Bánh mì ở nhà ăn hết sạch rồi."
       }
@@ -5016,7 +5016,7 @@
   },
   {
     "grammar_id": 296,
-    "pattern_zh": "不只……而且/還/也……",
+    "pattern_zh": "不隻……而且/還/也……",
     "pattern_pinyin": "bùzhǐ...érqiě/hái/yě...",
     "title_vi": "不只……而且/還/也…… (không chỉ...mà còn...)",
     "explanation_vi": "Tương tự 不但……而且……, dùng để bổ sung thêm một đặc điểm khác, tương đương với \"không chỉ...mà còn...\".",
@@ -5025,7 +5025,7 @@
     "examples": [
       {
         "grammar_id": 296,
-        "example_zh": "這個杯子的設計不只好看而且還很方便。這輛車不只便宜，還很好開。這種餅乾很好吃，不只小孩喜歡，大人也喜歡。",
+        "example_zh": "這個盃子的設計不隻好看而且還很方便。這輛車不隻便宜，還很好開。這種餅乾很好喫，不隻小孩喜歡，大人也喜歡。",
         "example_pinyin": "Zhège bēizi de shèjì bùzhǐ hǎokàn érqiě hái hěn fāngbiàn.",
         "example_vi": "Thiết kế của cái cốc này không chỉ đẹp mà còn rất tiện lợi. Chiếc xe này không chỉ rẻ, mà còn dễ lái. Loại bánh quy này rất ngon, không chỉ trẻ con thích, người lớn cũng thích."
       }
@@ -5033,7 +5033,7 @@
   },
   {
     "grammar_id": 297,
-    "pattern_zh": "除了……之外……",
+    "pattern_zh": "除瞭……之外……",
     "pattern_pinyin": "chúle...zhīwài",
     "title_vi": "除了……之外…… (ngoài...ra - biến thể của 除了……以外……)",
     "explanation_vi": "「之外」có thể thay cho 「以外」sau 除了, ý nghĩa giống nhau, tương đương với \"ngoài...ra\".",
@@ -5042,7 +5042,7 @@
     "examples": [
       {
         "grammar_id": 297,
-        "example_zh": "姐姐平常除了喝水之外，不喝其他的飲料。",
+        "example_zh": "姐姐平常除瞭喝水之外，不喝其他的飲料。",
         "example_pinyin": "Jiějie píngcháng chúle hē shuǐ zhīwài, bù hē qítā de yǐnliào.",
         "example_vi": "Chị gái bình thường ngoài uống nước ra, không uống loại đồ uống nào khác."
       }
@@ -5059,7 +5059,7 @@
     "examples": [
       {
         "grammar_id": 298,
-        "example_zh": "臺灣有些食物，像臭豆腐、大腸麵線、豬血糕什麼的，都是以前我沒吃過的。",
+        "example_zh": "臺灣有些食物，像臭豆腐、大腸麵線、豬血糕什麼的，都是以前我沒喫過的。",
         "example_pinyin": "Táiwān yǒuxiē shíwù, xiàng chòudòufu, dàchángmiànxiàn, zhūxiěgāo shénmede, dōu shì yǐqián wǒ méi chīguò de.",
         "example_vi": "Một số món ăn ở Đài Loan, như đậu phụ thối, mì lòng heo, bánh huyết heo vân vân, đều là những món trước đây tôi chưa từng ăn."
       }
@@ -5076,7 +5076,7 @@
     "examples": [
       {
         "grammar_id": 299,
-        "example_zh": "第一次上課的內容只不過是教一些基本動作而已。",
+        "example_zh": "第一次上課的內容隻不過是敎一些基本動作而已。",
         "example_pinyin": "Dì yī cì shàngkè de nèiróng zhǐ búguò shì jiāo yīxiē jīběn dòngzuò éryǐ.",
         "example_vi": "Nội dung buổi học đầu tiên chỉ là dạy vài động tác cơ bản mà thôi."
       }
@@ -5093,7 +5093,7 @@
     "examples": [
       {
         "grammar_id": 300,
-        "example_zh": "捷運站黃線以內的範圍不能吃東西。這條河以東。和平東路以西。",
+        "example_zh": "捷運站黃線以內的範圍不能喫東西。這條河以東。龢平東路以西。",
         "example_pinyin": "Jiéyùnzhàn huáng xiàn yǐnèi de fànwéi bùnéng chī dōngxi.",
         "example_vi": "Phạm vi bên trong vạch vàng của ga tàu điện ngầm không được ăn uống. Phía đông của con sông này. Phía tây của đường Hòa Bình Đông."
       }
@@ -5110,7 +5110,7 @@
     "examples": [
       {
         "grammar_id": 301,
-        "example_zh": "談到資訊設備，這間圖書館的電腦都是最新的。說到夢想，大家有各式各樣的回答。",
+        "example_zh": "談到資訊設備，這間圖書館的電腦都是最新的。說到夢想，大傢有各式各樣的迴答。",
         "example_pinyin": "Tándào zīxùn shèbèi, zhè jiān túshūguǎn de diànnǎo dōu shì zuìxīn de.",
         "example_vi": "Nói đến thiết bị thông tin, máy tính của thư viện này đều là loại mới nhất. Nói đến ước mơ, mọi người có đủ loại câu trả lời khác nhau."
       }
@@ -5127,7 +5127,7 @@
     "examples": [
       {
         "grammar_id": 302,
-        "example_zh": "拿臺灣來說，現在的老年人口越來越多，出生率卻越來越低。",
+        "example_zh": "拿臺灣來說，現在的老年人口越來越多，齣生率卻越來越低。",
         "example_pinyin": "Ná Táiwān lái shuō, xiànzài de lǎonián rénkǒu yuèláiyuè duō, chūshēnglǜ què yuèláiyuè dī.",
         "example_vi": "Lấy Đài Loan làm ví dụ, dân số cao tuổi hiện nay ngày càng nhiều, nhưng tỷ lệ sinh lại ngày càng thấp."
       }
@@ -5161,7 +5161,7 @@
     "examples": [
       {
         "grammar_id": 304,
-        "example_zh": "這句話的意思不是很清楚，可以說明一下嗎？他們的意見我不是很同意。",
+        "example_zh": "這句話的意思不是很清楚，可以說明一下嗎？他們的意見我不是很衕意。",
         "example_pinyin": "Zhè jù huà de yìsi bú shì hěn qīngchǔ, kěyǐ shuōmíng yīxià ma?",
         "example_vi": "Ý nghĩa của câu này không rõ ràng lắm, bạn có thể giải thích một chút không? Ý kiến của họ tôi không đồng ý lắm."
       }
@@ -5186,7 +5186,7 @@
   },
   {
     "grammar_id": 306,
-    "pattern_zh": "怎麼（一）回事",
+    "pattern_zh": "怎麼（一）迴事",
     "pattern_pinyin": "zěnme (yī) huí shì",
     "title_vi": "怎麼（一）回事 (chuyện gì vậy/là chuyện thế nào)",
     "explanation_vi": "Dùng để hỏi về nguyên nhân/diễn biến của một sự việc, tương đương với \"chuyện gì vậy/là chuyện thế nào\".",
@@ -5195,7 +5195,7 @@
     "examples": [
       {
         "grammar_id": 306,
-        "example_zh": "聽說姐姐跟室友吵架了，你知道是怎麼一回事嗎？",
+        "example_zh": "聽說姐姐跟室友吵架瞭，你知道是怎麼一迴事嗎？",
         "example_pinyin": "Tīngshuō jiějie gēn shìyǒu chǎojià le, nǐ zhīdào shì zěnme yī huí shì ma?",
         "example_vi": "Nghe nói chị gái cãi nhau với bạn cùng phòng, bạn có biết là chuyện gì vậy không?"
       }
@@ -5229,7 +5229,7 @@
     "examples": [
       {
         "grammar_id": 308,
-        "example_zh": "他忘了帶手機，害我一整天都找不到他。",
+        "example_zh": "他忘瞭帶手機，害我一整天都找不到他。",
         "example_pinyin": "Tā wàng le dài shǒujī, hài wǒ yī zhěngtiān dōu zhǎo bú dào tā.",
         "example_vi": "Anh ấy quên mang điện thoại, khiến tôi cả ngày không tìm được anh ấy."
       }
@@ -5348,7 +5348,7 @@
     "examples": [
       {
         "grammar_id": 315,
-        "example_zh": "你說這麼晚了，他還會回來吃飯嗎？",
+        "example_zh": "你說這麼晚瞭，他還會迴來喫飯嗎？",
         "example_pinyin": "Nǐ shuō zhème wǎn le, tā hái huì huílái chīfàn ma?",
         "example_vi": "Bạn nói xem, muộn thế này rồi, anh ấy còn về ăn cơm không?"
       }
@@ -5382,7 +5382,7 @@
     "examples": [
       {
         "grammar_id": 317,
-        "example_zh": "才下了一個鐘頭的雨，誰知道家裡就淹水了。",
+        "example_zh": "纔下瞭一個鐘頭的雨，誰知道傢裡就淹水瞭。",
         "example_pinyin": "Cái xià le yī gè zhōngtóu de yǔ, shéi zhīdào jiā lǐ jiù yānshuǐ le.",
         "example_vi": "Mới mưa có một tiếng đồng hồ, ai mà biết được nhà đã bị ngập nước."
       }
@@ -5399,7 +5399,7 @@
     "examples": [
       {
         "grammar_id": 318,
-        "example_zh": "A：演唱會的票都賣光了。B：所以啦，下次應該早點去排隊。",
+        "example_zh": "A：演唱會的票都賣光瞭。B：所以啦，下次應該早點去排隊。",
         "example_pinyin": "Yǎnchànghuì de piào dōu màiguāng le. Suǒyǐ la, xiàcì yīnggāi zǎodiǎn qù páiduì.",
         "example_vi": "A: Vé concert bán hết sạch rồi. B: Đấy, lần sau nên đi xếp hàng sớm hơn."
       }
@@ -5416,7 +5416,7 @@
     "examples": [
       {
         "grammar_id": 319,
-        "example_zh": "這間牛肉麵店可算是臺北最有名的了。",
+        "example_zh": "這間牛肉麵店可算是臺北最有名的瞭。",
         "example_pinyin": "Zhè jiān niúròumiàn diàn kě suànshì Táiběi zuì yǒumíng de le.",
         "example_vi": "Quán mì bò này có thể coi là nổi tiếng nhất Đài Bắc."
       }
@@ -5433,7 +5433,7 @@
     "examples": [
       {
         "grammar_id": 320,
-        "example_zh": "日月潭與阿里山都是臺灣有名的旅遊地點。",
+        "example_zh": "日月潭與阿裡山都是臺灣有名的旅遊地點。",
         "example_pinyin": "Rìyuètán yǔ Ālǐshān dōu shì Táiwān yǒumíng de lǚyóu dìdiǎn.",
         "example_vi": "Hồ Nhật Nguyệt và núi A Lý Sơn đều là những điểm du lịch nổi tiếng của Đài Loan."
       }
@@ -5450,7 +5450,7 @@
     "examples": [
       {
         "grammar_id": 321,
-        "example_zh": "這位作家很喜歡與讀者分享生活的感動。",
+        "example_zh": "這位作傢很喜歡與讀者分享生活的感動。",
         "example_pinyin": "Zhè wèi zuòjiā hěn xǐhuān yǔ dúzhě fēnxiǎng shēnghuó de gǎndòng.",
         "example_vi": "Nhà văn này rất thích chia sẻ những cảm xúc trong cuộc sống với độc giả."
       }
@@ -5484,7 +5484,7 @@
     "examples": [
       {
         "grammar_id": 323,
-        "example_zh": "他多少存了點錢，所以你不用擔心。",
+        "example_zh": "他多少存瞭點錢，所以你不用擔心。",
         "example_pinyin": "Tā duōshǎo cún le diǎn qián, suǒyǐ nǐ bùyòng dānxīn.",
         "example_vi": "Anh ấy ít nhiều cũng đã tiết kiệm được chút tiền, nên bạn không cần lo lắng."
       }
@@ -5501,7 +5501,7 @@
     "examples": [
       {
         "grammar_id": 324,
-        "example_zh": "都提醒過幾次了，他還是忘記還書。",
+        "example_zh": "都提醒過幾次瞭，他還是忘記還書。",
         "example_pinyin": "Dōu tíxǐng guò jǐ cì le, tā háishì wàngjì huán shū.",
         "example_vi": "Đã nhắc nhở mấy lần rồi, mà anh ấy vẫn quên trả sách."
       }
@@ -5535,7 +5535,7 @@
     "examples": [
       {
         "grammar_id": 326,
-        "example_zh": "父母用教育的方式把孩子不好的行為改過來。",
+        "example_zh": "父母用敎育的方式把孩子不好的行為改過來。",
         "example_pinyin": "Fùmǔ yòng jiàoyù de fāngshì bǎ háizi bùhǎo de xíngwéi gǎi guòlái.",
         "example_vi": "Cha mẹ dùng cách giáo dục để sửa lại những hành vi không tốt của con cái."
       }
@@ -5560,7 +5560,7 @@
   },
   {
     "grammar_id": 328,
-    "pattern_zh": "才⁵",
+    "pattern_zh": "纔⁵",
     "pattern_pinyin": "cái",
     "title_vi": "Phó từ 才 (nhất định không... - nhấn mạnh khẩu ngữ)",
     "explanation_vi": "「才」kết hợp với phủ định để nhấn mạnh một điều chắc chắn không xảy ra, thường đi cùng 呢 ở cuối, mang tính khẩu ngữ.",
@@ -5569,7 +5569,7 @@
     "examples": [
       {
         "grammar_id": 328,
-        "example_zh": "這麼短的裙子他才不敢穿呢！",
+        "example_zh": "這麼短的裙子他纔不敢穿呢！",
         "example_pinyin": "Zhème duǎn de qúnzi tā cái bù gǎn chuān ne!",
         "example_vi": "Cái váy ngắn thế này thì cô ấy nhất định không dám mặc đâu!"
       }
@@ -5586,7 +5586,7 @@
     "examples": [
       {
         "grammar_id": 329,
-        "example_zh": "這間教室有一個籃球場這麼大。",
+        "example_zh": "這間敎室有一個籃球場這麼大。",
         "example_pinyin": "Zhè jiān jiàoshì yǒu yī gè lánqiúchǎng zhème dà.",
         "example_vi": "Phòng học này to bằng một sân bóng rổ."
       }
@@ -5603,7 +5603,7 @@
     "examples": [
       {
         "grammar_id": 330,
-        "example_zh": "弟弟的身高比同年紀的孩子來得高。",
+        "example_zh": "弟弟的身高比衕年紀的孩子來得高。",
         "example_pinyin": "Dìdi de shēngāo bǐ tóng niánjì de háizi láide gāo.",
         "example_vi": "Chiều cao của em trai cao hơn so với những đứa trẻ cùng tuổi."
       }
@@ -5620,7 +5620,7 @@
     "examples": [
       {
         "grammar_id": 331,
-        "example_zh": "他們家姊妹的感情好得沒話說，幾乎從來沒有吵過架。",
+        "example_zh": "他們傢姊妹的感情好得沒話說，幾乎從來沒有吵過架。",
         "example_pinyin": "Tāmen jiā jiěmèi de gǎnqíng hǎo de méi huàshuō, jīhū cónglái méiyǒu chǎoguò jià.",
         "example_vi": "Tình cảm chị em nhà họ tốt đến mức không chê vào đâu được, gần như chưa từng cãi nhau."
       }
@@ -5628,7 +5628,7 @@
   },
   {
     "grammar_id": 332,
-    "pattern_zh": "向",
+    "pattern_zh": "曏",
     "pattern_pinyin": "xiàng",
     "title_vi": "Giới từ 向 (từ/hướng đến - nguồn của hành động)",
     "explanation_vi": "「向」chỉ đối tượng mà hành động hướng tới hoặc bắt nguồn từ, tương đương với \"từ/hướng đến\".",
@@ -5637,7 +5637,7 @@
     "examples": [
       {
         "grammar_id": 332,
-        "example_zh": "我向爸爸借了一千塊。",
+        "example_zh": "我曏爸爸藉瞭一韆塊。",
         "example_pinyin": "Wǒ xiàng bàba jiè le yīqiān kuài.",
         "example_vi": "Tôi mượn bố 1000 đồng."
       }
@@ -5662,7 +5662,7 @@
   },
   {
     "grammar_id": 334,
-    "pattern_zh": "既然……就……",
+    "pattern_zh": "旣然……就……",
     "pattern_pinyin": "jìrán...jiù...",
     "title_vi": "既然……就…… (đã...thì...)",
     "explanation_vi": "「既然」đưa ra một thực tế đã xảy ra, 「就」dẫn đến kết luận/đề nghị dựa trên thực tế đó, tương đương với \"đã...thì...\".",
@@ -5671,7 +5671,7 @@
     "examples": [
       {
         "grammar_id": 334,
-        "example_zh": "既然在學校上課，就可以利用時間好好使用學校的資源。",
+        "example_zh": "旣然在學校上課，就可以利用時間好好使用學校的資源。",
         "example_pinyin": "Jìrán zài xuéxiào shàngkè, jiù kěyǐ lìyòng shíjiān hǎohǎo shǐyòng xuéxiào de zīyuán.",
         "example_vi": "Đã học ở trường rồi, thì nên tận dụng thời gian sử dụng tốt tài nguyên của trường."
       }
@@ -5696,7 +5696,7 @@
   },
   {
     "grammar_id": 336,
-    "pattern_zh": "再不……就……了",
+    "pattern_zh": "再不……就……瞭",
     "pattern_pinyin": "zài bù...jiù...le",
     "title_vi": "再不……就……了 (nếu không...ngay thì sẽ...)",
     "explanation_vi": "Dùng để cảnh báo hậu quả nếu không hành động ngay, tương đương với \"nếu không...ngay thì sẽ...\".",
@@ -5705,7 +5705,7 @@
     "examples": [
       {
         "grammar_id": 336,
-        "example_zh": "我必須先離開了，再不走就要遲到了。",
+        "example_zh": "我必須先離開瞭，再不走就要遲到瞭。",
         "example_pinyin": "Wǒ bìxū xiān líkāi le, zài bù zǒu jiù yào chídào le.",
         "example_vi": "Tôi phải đi trước đây, không đi ngay là sẽ muộn mất."
       }
@@ -5722,7 +5722,7 @@
     "examples": [
       {
         "grammar_id": 337,
-        "example_zh": "我開會快遲到了，現在非走不可了。",
+        "example_zh": "我開會快遲到瞭，現在非走不可瞭。",
         "example_pinyin": "Wǒ kāihuì kuài chídào le, xiànzài fēi zǒu bùkě le.",
         "example_vi": "Tôi sắp trễ họp rồi, bây giờ nhất định phải đi thôi."
       }
@@ -5730,7 +5730,7 @@
   },
   {
     "grammar_id": 338,
-    "pattern_zh": "即使……也……",
+    "pattern_zh": "卽使……也……",
     "pattern_pinyin": "jíshǐ...yě...",
     "title_vi": "即使……也…… (dù/ngay cả khi...vẫn...)",
     "explanation_vi": "「即使」đưa ra một giả định cực đoan, 「也」khẳng định kết quả không đổi, tương đương với \"dù/ngay cả khi...vẫn...\".",
@@ -5739,7 +5739,7 @@
     "examples": [
       {
         "grammar_id": 338,
-        "example_zh": "即使大學畢業了，平時自己也要多學習新的知識。",
+        "example_zh": "卽使大學畢業瞭，平時自己也要多學習新的知識。",
         "example_pinyin": "Jíshǐ dàxué bìyè le, píngshí zìjǐ yě yào duō xuéxí xīn de zhīshì.",
         "example_vi": "Dù đã tốt nghiệp đại học, bình thường bản thân vẫn phải học thêm kiến thức mới."
       }
@@ -5807,7 +5807,7 @@
     "examples": [
       {
         "grammar_id": 342,
-        "example_zh": "除非你對教書很有興趣，否則很容易就會失去耐心。",
+        "example_zh": "除非你對敎書很有興趣，否則很容易就會失去耐心。",
         "example_pinyin": "Chúfēi nǐ duì jiāoshū hěn yǒu xìngqù, fǒuzé hěn róngyì jiù huì shīqù nàixīn.",
         "example_vi": "Trừ phi bạn rất hứng thú với việc dạy học, nếu không sẽ rất dễ mất kiên nhẫn."
       }
@@ -5824,7 +5824,7 @@
     "examples": [
       {
         "grammar_id": 343,
-        "example_zh": "快去叫醒爸爸，否則他上班要遲到了。",
+        "example_zh": "快去叫醒爸爸，否則他上班要遲到瞭。",
         "example_pinyin": "Kuài qù jiàoxǐng bàba, fǒuzé tā shàngbān yào chídào le.",
         "example_vi": "Mau đi đánh thức bố dậy, nếu không bố sẽ đi làm muộn mất."
       }
@@ -5832,7 +5832,7 @@
   },
   {
     "grammar_id": 344,
-    "pattern_zh": "假如…… （就）……",
+    "pattern_zh": "叚如…… （就）……",
     "pattern_pinyin": "jiǎrú",
     "title_vi": "假如……（就）…… (giả sử/nếu...thì...)",
     "explanation_vi": "「假如」tương tự 如果, đặt giả định, 「就」dẫn vào kết quả, mang tính trang trọng hơn 如果 một chút.",
@@ -5841,7 +5841,7 @@
     "examples": [
       {
         "grammar_id": 344,
-        "example_zh": "假如你吃不完的話，就當作下午的點心吧！假如你要去會場，記得可以先到服務臺拿講義。",
+        "example_zh": "叚如你喫不完的話，就當作下午的點心吧！叚如你要去會場，記得可以先到服務臺拿講義。",
         "example_pinyin": "Jiǎrú nǐ chī bù wán dehuà, jiù dàngzuò xiàwǔ de diǎnxīn ba!",
         "example_vi": "Nếu bạn ăn không hết thì để làm đồ ăn nhẹ buổi chiều nhé! Nếu bạn muốn đến hội trường, nhớ có thể ghé quầy dịch vụ lấy tài liệu trước."
       }
@@ -5875,7 +5875,7 @@
     "examples": [
       {
         "grammar_id": 346,
-        "example_zh": "他寧願少賺一點錢，也不要把時間都花在工作上。在國外，弟弟寧願多花些電話費，也要常常打電話回家。",
+        "example_zh": "他寧願少賺一點錢，也不要把時間都花在工作上。在國外，弟弟寧願多花些電話費，也要常常打電話迴傢。",
         "example_pinyin": "Tā nìngyuàn shǎo zhuàn yīdiǎn qián, yě bú yào bǎ shíjiān dōu huā zài gōngzuò shàng.",
         "example_vi": "Anh ấy thà kiếm ít tiền hơn một chút, còn hơn dành hết thời gian cho công việc. Ở nước ngoài, em trai thà tốn thêm tiền điện thoại, còn hơn không thường xuyên gọi về nhà."
       }
@@ -5892,7 +5892,7 @@
     "examples": [
       {
         "grammar_id": 347,
-        "example_zh": "我寧可少賺一點錢，也要有自己的休閒時間。我寧可多花一點錢買洗衣機，也不要再等到周年慶了。",
+        "example_zh": "我寧可少賺一點錢，也要有自己的休閒時間。我寧可多花一點錢買洗衣機，也不要再等到週年慶瞭。",
         "example_pinyin": "Wǒ nìngkě shǎo zhuàn yīdiǎn qián, yě yào yǒu zìjǐ de xiūxián shíjiān.",
         "example_vi": "Tôi thà kiếm ít tiền hơn, còn hơn là không có thời gian nghỉ ngơi cho riêng mình. Tôi thà chi thêm tiền mua máy giặt, còn hơn đợi đến đợt khuyến mãi thường niên."
       }
@@ -5943,7 +5943,7 @@
     "examples": [
       {
         "grammar_id": 350,
-        "example_zh": "借錢也好，先賺錢再讀書也好，反正他一定要念完大學。",
+        "example_zh": "藉錢也好，先賺錢再讀書也好，反正他一定要唸完大學。",
         "example_pinyin": "Jiè qián yě hǎo, xiān zhuànqián zài dúshū yě hǎo, fǎnzhèng tā yīdìng yào niàn wán dàxué.",
         "example_vi": "Vay tiền cũng được, kiếm tiền trước rồi học tiếp cũng được, dù sao anh ấy cũng nhất định phải học xong đại học."
       }
@@ -5951,7 +5951,7 @@
   },
   {
     "grammar_id": 351,
-    "pattern_zh": "幸虧",
+    "pattern_zh": "倖虧",
     "pattern_pinyin": "xìngkuī",
     "title_vi": "Phó từ 幸虧 (may mà/may thay)",
     "explanation_vi": "「幸虧」dùng để nói về một yếu tố may mắn đã giúp tránh được hậu quả xấu, tương đương với \"may mà/may thay\".",
@@ -5960,7 +5960,7 @@
     "examples": [
       {
         "grammar_id": 351,
-        "example_zh": "他差點走錯路，幸虧停下來查了地圖。",
+        "example_zh": "他差點走錯路，倖虧停下來査瞭地圖。",
         "example_pinyin": "Tā chàdiǎn zǒucuò lù, xìngkuī tíng xiàlái chá le dìtú.",
         "example_vi": "Anh ấy suýt đi nhầm đường, may mà dừng lại kiểm tra bản đồ."
       }
@@ -5977,7 +5977,7 @@
     "examples": [
       {
         "grammar_id": 352,
-        "example_zh": "我們是二十年的老朋友了，難道我還不了解你嗎？",
+        "example_zh": "我們是二十年的老朋友瞭，難道我還不瞭解你嗎？",
         "example_pinyin": "Wǒmen shì èrshí nián de lǎo péngyǒu le, nándào wǒ hái bù liǎojiě nǐ ma?",
         "example_vi": "Chúng ta là bạn thân 20 năm rồi, chẳng lẽ tôi lại không hiểu bạn sao?"
       }
@@ -5994,7 +5994,7 @@
     "examples": [
       {
         "grammar_id": 353,
-        "example_zh": "這次的颱風算強颱，你一定要先準備好水跟食物。尖峰時刻竟然沒塞車，我們算是運氣很好。",
+        "example_zh": "這次的颱風算強颱，你一定要先準備好水跟食物。尖峯時刻竟然沒塞車，我們算是運氣很好。",
         "example_pinyin": "Zhècì de táifēng suàn qiáng tái, nǐ yīdìng yào xiān zhǔnbèi hǎo shuǐ gēn shíwù.",
         "example_vi": "Cơn bão lần này được coi là bão mạnh, bạn nhất định phải chuẩn bị sẵn nước và đồ ăn. Giờ cao điểm mà không bị kẹt xe, chúng ta coi như may mắn lắm rồi."
       }
@@ -6028,7 +6028,7 @@
     "examples": [
       {
         "grammar_id": 355,
-        "example_zh": "爸爸忘了戴帽子出門，回來果然曬傷了。",
+        "example_zh": "爸爸忘瞭戴帽子齣門，迴來果然曬傷瞭。",
         "example_pinyin": "Bàba wàng le dài màozi chūmén, huílái guǒrán shàishāng le.",
         "example_vi": "Bố quên đội mũ khi ra ngoài, về nhà quả nhiên bị cháy nắng."
       }
@@ -6062,7 +6062,7 @@
     "examples": [
       {
         "grammar_id": 357,
-        "example_zh": "雖然他月底才搬進來，這個月的房租還是照付。",
+        "example_zh": "雖然他月底纔搬進來，這個月的房租還是照付。",
         "example_pinyin": "Suīrán tā yuèdǐ cái bān jìnlái, zhège yuè de fángzū háishì zhào fù.",
         "example_vi": "Tuy anh ấy cuối tháng mới chuyển vào, tiền thuê nhà tháng này vẫn phải trả như thường."
       }
@@ -6079,7 +6079,7 @@
     "examples": [
       {
         "grammar_id": 358,
-        "example_zh": "不管遇到什麼問題，他就是很有自信。",
+        "example_zh": "不筦遇到什麼問題，他就是很有自信。",
         "example_pinyin": "Bùguǎn yùdào shénme wèntí, tā jiùshì hěn yǒu zìxìn.",
         "example_vi": "Dù gặp vấn đề gì, anh ấy vẫn cứ rất tự tin."
       }
@@ -6096,7 +6096,7 @@
     "examples": [
       {
         "grammar_id": 359,
-        "example_zh": "光從書名就知道這是一本很有創意的書。光聽就學會了。",
+        "example_zh": "光從書名就知道這是一本很有創意的書。光聽就學會瞭。",
         "example_pinyin": "Guāng cóng shūmíng jiù zhīdào zhè shì yī běn hěn yǒu chuàngyì de shū.",
         "example_vi": "Chỉ nhìn tên sách là đã biết đây là cuốn sách rất sáng tạo. Chỉ nghe là đã học được rồi."
       }
@@ -6147,7 +6147,7 @@
     "examples": [
       {
         "grammar_id": 362,
-        "example_zh": "根據氣象報告，明天下午會下雨。",
+        "example_zh": "根據氣像報告，明天下午會下雨。",
         "example_pinyin": "Gēnjù qìxiàng bàogào, míngtiān xiàwǔ huì xiàyǔ.",
         "example_vi": "Theo báo cáo thời tiết, chiều mai sẽ có mưa."
       }
@@ -6164,7 +6164,7 @@
     "examples": [
       {
         "grammar_id": 363,
-        "example_zh": "自己在國外生活，記得有空多打電話回家，好讓家人放心。",
+        "example_zh": "自己在國外生活，記得有空多打電話迴傢，好讓傢人放心。",
         "example_pinyin": "Zìjǐ zài guówài shēnghuó, jìde yǒu kòng duō dǎ diànhuà huíjiā, hǎo ràng jiārén fàngxīn.",
         "example_vi": "Tự sống ở nước ngoài, nhớ rảnh thì gọi điện về nhà nhiều, để gia đình yên tâm."
       }
@@ -6181,7 +6181,7 @@
     "examples": [
       {
         "grammar_id": 364,
-        "example_zh": "自從他的研究發表後，受到很多的肯定。",
+        "example_zh": "自從他的研究發錶後，受到很多的肯定。",
         "example_pinyin": "Zìcóng tā de yánjiū fābiǎo hòu, shòudào hěn duō de kěndìng.",
         "example_vi": "Kể từ khi nghiên cứu của anh ấy được công bố, đã nhận được nhiều sự công nhận."
       }
@@ -6198,7 +6198,7 @@
     "examples": [
       {
         "grammar_id": 365,
-        "example_zh": "自從開始學習網球以來，他的表現一直都很出色。",
+        "example_zh": "自從開始學習網球以來，他的錶現一直都很齣色。",
         "example_pinyin": "Zìcóng kāishǐ xuéxí wǎngqiú yǐlái, tā de biǎoxiàn yīzhí dōu hěn chūsè.",
         "example_vi": "Kể từ khi bắt đầu học quần vợt đến nay, thành tích của anh ấy luôn xuất sắc."
       }
@@ -6215,7 +6215,7 @@
     "examples": [
       {
         "grammar_id": 366,
-        "example_zh": "他講了一句話，至今仍讓我印象深刻。",
+        "example_zh": "他講瞭一句話，至今仍讓我印像深刻。",
         "example_pinyin": "Tā jiǎng le yī jù huà, zhìjīn réng ràng wǒ yìnxiàng shēnkè.",
         "example_vi": "Anh ấy đã nói một câu, cho đến nay vẫn khiến tôi ấn tượng sâu sắc."
       }
@@ -6240,7 +6240,7 @@
   },
   {
     "grammar_id": 368,
-    "pattern_zh": "一方面……，一方面……",
+    "pattern_zh": "一方麵……，一方麵……",
     "pattern_pinyin": "yī fāngmiàn...yī fāngmiàn...",
     "title_vi": "一方面……，一方面…… (một mặt...mặt khác...)",
     "explanation_vi": "Dùng để liệt kê hai khía cạnh cần chú ý đồng thời của một việc, tương đương với \"một mặt...mặt khác...\".",
@@ -6249,7 +6249,7 @@
     "examples": [
       {
         "grammar_id": 368,
-        "example_zh": "表演的時候，一方面要注意動作，一方面還要跟別人配合。",
+        "example_zh": "錶演的時候，一方麵要註意動作，一方麵還要跟別人配閤。",
         "example_pinyin": "Biǎoyǎn de shíhòu, yī fāngmiàn yào zhùyì dòngzuò, yī fāngmiàn hái yào gēn biérén pèihé.",
         "example_vi": "Khi biểu diễn, một mặt phải chú ý động tác, mặt khác còn phải phối hợp với người khác."
       }
@@ -6257,7 +6257,7 @@
   },
   {
     "grammar_id": 369,
-    "pattern_zh": "一面……一面……",
+    "pattern_zh": "一麵……一麵……",
     "pattern_pinyin": "yī miàn...yī miàn...",
     "title_vi": "一面……一面…… (vừa...vừa... - trang trọng hơn 一邊)",
     "explanation_vi": "Tương tự 一邊……一邊……, diễn tả hai hành động xảy ra đồng thời, mang tính trang trọng hơn.",
@@ -6266,7 +6266,7 @@
     "examples": [
       {
         "grammar_id": 369,
-        "example_zh": "臺下的觀眾一面拍手，一面跟著唱。",
+        "example_zh": "臺下的觀眾一麵拍手，一麵跟著唱。",
         "example_pinyin": "Táixià de guānzhòng yī miàn pāishǒu, yī miàn gēnzhe chàng.",
         "example_vi": "Khán giả dưới sân khấu vừa vỗ tay vừa hát theo."
       }
@@ -6274,7 +6274,7 @@
   },
   {
     "grammar_id": 370,
-    "pattern_zh": "千萬",
+    "pattern_zh": "韆萬",
     "pattern_pinyin": "qiānwàn",
     "title_vi": "Phó từ 千萬 (nhất định/ngàn lần phải)",
     "explanation_vi": "「千萬」đặt trước động từ để nhấn mạnh mức độ khẩn thiết của một lời khuyên/cảnh báo, tương đương với \"nhất định phải\".",
@@ -6283,7 +6283,7 @@
     "examples": [
       {
         "grammar_id": 370,
-        "example_zh": "出國時，千萬要記得帶護照。",
+        "example_zh": "齣國時，韆萬要記得帶護照。",
         "example_pinyin": "Chūguó shí, qiānwàn yào jìde dài hùzhào.",
         "example_vi": "Khi ra nước ngoài, nhất định phải nhớ mang hộ chiếu."
       }
@@ -6300,7 +6300,7 @@
     "examples": [
       {
         "grammar_id": 371,
-        "example_zh": "意外發生的原因目前仍在調查中。",
+        "example_zh": "意外發生的原因目前仍在調査中。",
         "example_pinyin": "Yìwài fāshēng de yuányīn mùqián réng zài diàochá zhōng.",
         "example_vi": "Nguyên nhân xảy ra sự cố hiện vẫn đang trong quá trình điều tra."
       }
@@ -6317,7 +6317,7 @@
     "examples": [
       {
         "grammar_id": 372,
-        "example_zh": "他去很多家公司面試，結果只有一家公司通知他去上班。",
+        "example_zh": "他去很多傢公司麵試，結果隻有一傢公司通知他去上班。",
         "example_pinyin": "Tā qù hěn duō jiā gōngsī miànshì, jiéguǒ zhǐyǒu yī jiā gōngsī tōngzhī tā qù shàngbān.",
         "example_vi": "Anh ấy đi phỏng vấn ở rất nhiều công ty, kết quả chỉ có một công ty báo cho anh ấy đi làm."
       }
@@ -6334,7 +6334,7 @@
     "examples": [
       {
         "grammar_id": 373,
-        "example_zh": "表達能力差正是我的弱點，但由於多講多寫，這些弱點也就克服了。",
+        "example_zh": "錶達能力差正是我的弱點，但由於多講多寫，這些弱點也就剋服瞭。",
         "example_pinyin": "Biǎodá nénglì chà zhèngshì wǒ de ruòdiǎn, dàn yóuyú duō jiǎng duō xiě, zhèxiē ruòdiǎn yě jiù kèfú le.",
         "example_vi": "Khả năng diễn đạt kém chính là điểm yếu của tôi, nhưng do nói nhiều viết nhiều, những điểm yếu này cũng đã được khắc phục."
       }
@@ -6351,7 +6351,7 @@
     "examples": [
       {
         "grammar_id": 374,
-        "example_zh": "這家麵店參加牛肉麵比賽得了第一名，因此吸引了更多顧客。",
+        "example_zh": "這傢麵店參加牛肉麵比賽得瞭第一名，因此吸引瞭更多顧客。",
         "example_pinyin": "Zhè jiā miàndiàn cānjiā niúròumiàn bǐsài dé le dì yī míng, yīncǐ xīyǐn le gèng duō gùkè.",
         "example_vi": "Quán mì này tham gia cuộc thi mì bò và đạt giải nhất, vì vậy đã thu hút thêm nhiều khách hàng."
       }
@@ -6402,7 +6402,7 @@
     "examples": [
       {
         "grammar_id": 377,
-        "example_zh": "由以上的報告，我們可以知道不同地區學生的學習差異。",
+        "example_zh": "由以上的報告，我們可以知道不衕地區學生的學習差異。",
         "example_pinyin": "Yóu yǐshàng de bàogào, wǒmen kěyǐ zhīdào bùtóng dìqū xuéshēng de xuéxí chāyì.",
         "example_vi": "Từ báo cáo trên đây, chúng ta có thể biết sự khác biệt trong học tập của học sinh các vùng."
       }
@@ -6410,7 +6410,7 @@
   },
   {
     "grammar_id": 378,
-    "pattern_zh": "（在）……方面",
+    "pattern_zh": "（在）……方麵",
     "pattern_pinyin": "fāngmiàn",
     "title_vi": "（在）……方面 (về mặt/phương diện)",
     "explanation_vi": "「方面」đặt sau danh từ để chỉ một khía cạnh/lĩnh vực cụ thể, tương đương với \"về mặt/phương diện\".",
@@ -6419,7 +6419,7 @@
     "examples": [
       {
         "grammar_id": 378,
-        "example_zh": "除了運動，爸爸在飲食方面也非常注意。",
+        "example_zh": "除瞭運動，爸爸在飲食方麵也非常註意。",
         "example_pinyin": "Chúle yùndòng, bàba zài yǐnshí fāngmiàn yě fēicháng zhùyì.",
         "example_vi": "Ngoài tập thể dục, bố cũng rất chú ý về mặt ăn uống."
       }
@@ -6436,7 +6436,7 @@
     "examples": [
       {
         "grammar_id": 379,
-        "example_zh": "張老師寫了一篇關於梵谷作品欣賞的文章。",
+        "example_zh": "張老師寫瞭一篇關於梵穀作品訢賞的文章。",
         "example_pinyin": "Zhāng lǎoshī xiě le yī piān guānyú Fàngǔ zuòpǐn xīnshǎng de wénzhāng.",
         "example_vi": "Cô giáo Trương đã viết một bài về việc thưởng thức tác phẩm của Van Gogh."
       }
@@ -6470,7 +6470,7 @@
     "examples": [
       {
         "grammar_id": 381,
-        "example_zh": "暑假的實習生和我們年紀差不多大，大家都很合得來。",
+        "example_zh": "暑叚的實習生龢我們年紀差不多大，大傢都很閤得來。",
         "example_pinyin": "Shǔjià de shíxíshēng hé wǒmen niánjì chàbùduō dà, dàjiā dōu hěn hédelái.",
         "example_vi": "Thực tập sinh mùa hè tuổi xấp xỉ chúng tôi, mọi người đều hợp nhau lắm."
       }
@@ -6487,7 +6487,7 @@
     "examples": [
       {
         "grammar_id": 382,
-        "example_zh": "生活中不免遇到很多問題和挑戰。",
+        "example_zh": "生活中不免遇到很多問題龢挑戰。",
         "example_pinyin": "Shēnghuó zhōng bùmiǎn yùdào hěn duō wèntí hé tiǎozhàn.",
         "example_vi": "Trong cuộc sống khó tránh khỏi gặp phải nhiều vấn đề và thử thách."
       }
@@ -6521,7 +6521,7 @@
     "examples": [
       {
         "grammar_id": 384,
-        "example_zh": "雖然他們的宗教不同，但並不影響他們的合作關係。讓孩子對閱讀產生興趣並沒那麼難。",
+        "example_zh": "雖然他們的宗敎不衕，但並不影響他們的閤作關係。讓孩子對閱讀產生興趣並沒那麼難。",
         "example_pinyin": "Suīrán tāmen de zōngjiào bùtóng, dàn bìng bù yǐngxiǎng tāmen de hézuò guānxi.",
         "example_vi": "Tuy tôn giáo của họ khác nhau, nhưng hoàn toàn không ảnh hưởng đến mối quan hệ hợp tác của họ. Khiến trẻ có hứng thú với đọc sách quả thực không khó đến vậy."
       }
@@ -6538,7 +6538,7 @@
     "examples": [
       {
         "grammar_id": 385,
-        "example_zh": "自從那次在公車上遇見王明後，我就再也沒見過他了。生過一場大病後，他再也不喝酒了。",
+        "example_zh": "自從那次在公車上遇見王明後，我就再也沒見過他瞭。生過一場大病後，他再也不喝酒瞭。",
         "example_pinyin": "Zìcóng nàcì zài gōngchē shàng yùjiàn Wáng Míng hòu, wǒ jiù zàiyě méi jiànguò tā le.",
         "example_vi": "Kể từ lần gặp Vương Minh trên xe buýt đó, tôi không bao giờ gặp lại anh ấy nữa. Sau khi bị bệnh nặng một lần, anh ấy không bao giờ uống rượu nữa."
       }
@@ -6572,7 +6572,7 @@
     "examples": [
       {
         "grammar_id": 387,
-        "example_zh": "教授把演講題目定為「團隊精神」。",
+        "example_zh": "敎授把演講題目定為「團隊精神」。",
         "example_pinyin": "Jiàoshòu bǎ yǎnjiǎng tímù dìngwéi \"tuánduì jīngshén\".",
         "example_vi": "Giáo sư đặt tên đề tài bài giảng là \"Tinh thần đồng đội\"."
       }
@@ -6606,7 +6606,7 @@
     "examples": [
       {
         "grammar_id": 389,
-        "example_zh": "據說這個地方本來沒有湖，是大地震之後才出現的。",
+        "example_zh": "據說這個地方本來沒有湖，是大地震之後纔齣現的。",
         "example_pinyin": "Jùshuō zhège dìfāng běnlái méiyǒu hú, shì dà dìzhèn zhīhòu cái chūxiàn de.",
         "example_vi": "Nghe nói nơi này vốn dĩ không có hồ, là sau trận động đất lớn mới xuất hiện."
       }
@@ -6623,7 +6623,7 @@
     "examples": [
       {
         "grammar_id": 390,
-        "example_zh": "我看還是早點出門，等等遲到就不好了。這個工作太危險，我看你別做了。",
+        "example_zh": "我看還是早點齣門，等等遲到就不好瞭。這個工作太危險，我看你別做瞭。",
         "example_pinyin": "Wǒ kàn háishì zǎodiǎn chūmén, děngděng chídào jiù bù hǎo le.",
         "example_vi": "Tôi thấy nên ra khỏi nhà sớm hơn, lát nữa trễ thì không hay. Công việc này quá nguy hiểm, tôi thấy bạn đừng làm nữa."
       }
@@ -6640,7 +6640,7 @@
     "examples": [
       {
         "grammar_id": 391,
-        "example_zh": "你看這件事到底是怎麼回事？",
+        "example_zh": "你看這件事到底是怎麼迴事？",
         "example_pinyin": "Nǐ kàn zhè jiàn shì dàodǐ shì zěnme huí shì?",
         "example_vi": "Bạn thấy chuyện này rốt cuộc là thế nào?"
       }
@@ -6708,7 +6708,7 @@
     "examples": [
       {
         "grammar_id": 395,
-        "example_zh": "氣象報告說週末會有颱風，也/那/這就是說，我們不能去海邊了。",
+        "example_zh": "氣像報告說週末會有颱風，也/那/這就是說，我們不能去海邊瞭。",
         "example_pinyin": "Qìxiàng bàogào shuō zhōumò huì yǒu táifēng, jiùshìshuō, wǒmen bù néng qù hǎibiān le.",
         "example_vi": "Báo cáo thời tiết nói cuối tuần sẽ có bão, tức là chúng ta không thể đi biển được nữa."
       }
@@ -6742,7 +6742,7 @@
     "examples": [
       {
         "grammar_id": 397,
-        "example_zh": "A：你怎麼不跟他結婚呢？B：怎麼說呢，就是覺得合不來。",
+        "example_zh": "A：你怎麼不跟他結婚呢？B：怎麼說呢，就是覺得閤不來。",
         "example_pinyin": "Nǐ zěnme bù gēn tā jiéhūn ne? Zěnme shuō ne, jiùshì juéde hébùlái.",
         "example_vi": "A: Sao bạn không cưới anh ấy vậy? B: Biết nói sao nhỉ, chỉ là thấy không hợp nhau."
       }
@@ -6759,7 +6759,7 @@
     "examples": [
       {
         "grammar_id": 398,
-        "example_zh": "我先買好車票了，這樣一來，我們等一下就可以放心去買伴手禮了。",
+        "example_zh": "我先買好車票瞭，這樣一來，我們等一下就可以放心去買伴手禮瞭。",
         "example_pinyin": "Wǒ xiān mǎi hǎo chēpiào le, zhèyàng yī lái, wǒmen děng yīxià jiù kěyǐ fàngxīn qù mǎi bànshǒulǐ le.",
         "example_vi": "Tôi đã mua sẵn vé xe rồi, như vậy thì lát nữa chúng ta có thể yên tâm đi mua quà lưu niệm."
       }
@@ -6767,7 +6767,7 @@
   },
   {
     "grammar_id": 399,
-    "pattern_zh": "算了",
+    "pattern_zh": "算瞭",
     "pattern_pinyin": "suànle",
     "title_vi": "算了 (thôi bỏ đi/thôi kệ)",
     "explanation_vi": "「算了」dùng để thể hiện sự buông bỏ, không tiếp tục theo đuổi/tranh cãi về một việc, tương đương với \"thôi bỏ đi/thôi kệ\".",
@@ -6776,7 +6776,7 @@
     "examples": [
       {
         "grammar_id": 399,
-        "example_zh": "算了，這麼晚了你先回去吧，剩下的我來整理就可以了。",
+        "example_zh": "算瞭，這麼晚瞭你先迴去吧，剩下的我來整理就可以瞭。",
         "example_pinyin": "Suànle, zhème wǎn le nǐ xiān huíqù ba, shèngxià de wǒ lái zhěnglǐ jiù kěyǐ le.",
         "example_vi": "Thôi kệ đi, muộn thế này bạn về trước đi, phần còn lại để tôi dọn là được rồi."
       }
@@ -6793,7 +6793,7 @@
     "examples": [
       {
         "grammar_id": 400,
-        "example_zh": "今天所討論的，如果有任何建議，歡迎以電子郵件提出。",
+        "example_zh": "今天所討論的，如果有任何建議，歡迎以電子郵件提齣。",
         "example_pinyin": "Jīntiān suǒ tǎolùn de, rúguǒ yǒu rènhé jiànyì, huānyíng yǐ diànzǐ yóujiàn tíchū.",
         "example_vi": "Về những gì đã thảo luận hôm nay, nếu có ý kiến gì, hoan nghênh góp ý bằng email."
       }
@@ -6861,7 +6861,7 @@
     "examples": [
       {
         "grammar_id": 404,
-        "example_zh": "抽獎活動將由電腦選出得獎者。",
+        "example_zh": "抽獎活動將由電腦選齣得獎者。",
         "example_pinyin": "Chōujiǎng huódòng jiāng yóu diànnǎo xuǎnchū déjiǎngzhě.",
         "example_vi": "Hoạt động rút thăm sẽ do máy tính chọn ra người trúng giải."
       }
@@ -6895,7 +6895,7 @@
     "examples": [
       {
         "grammar_id": 406,
-        "example_zh": "不是每個外國人都不吃臭豆腐，我的日本朋友就很喜歡吃。",
+        "example_zh": "不是每個外國人都不喫臭豆腐，我的日本朋友就很喜歡喫。",
         "example_pinyin": "Bú shì měi gè wàiguórén dōu bù chī chòudòufu, wǒ de Rìběn péngyǒu jiù hěn xǐhuān chī.",
         "example_vi": "Không phải người nước ngoài nào cũng không ăn đậu phụ thối, bạn người Nhật của tôi thì lại rất thích ăn."
       }
@@ -6929,7 +6929,7 @@
     "examples": [
       {
         "grammar_id": 408,
-        "example_zh": "順著音樂聲走過去，就會看到一群人在運動。",
+        "example_zh": "順著音樂聲走過去，就會看到一羣人在運動。",
         "example_pinyin": "Shùnzhe yīnyuè shēng zǒu guòqù, jiù huì kàndào yī qún rén zài yùndòng.",
         "example_vi": "Đi theo tiếng nhạc, sẽ thấy một nhóm người đang tập thể dục."
       }
@@ -6980,7 +6980,7 @@
     "examples": [
       {
         "grammar_id": 411,
-        "example_zh": "他憑自己的努力考上了全國最好的設計學院。",
+        "example_zh": "他憑自己的努力考上瞭全國最好的設計學院。",
         "example_pinyin": "Tā píng zìjǐ de nǔlì kǎoshàng le quánguó zuìhǎo de shèjì xuéyuàn.",
         "example_vi": "Anh ấy nhờ vào nỗ lực của bản thân đã thi đỗ vào học viện thiết kế tốt nhất cả nước."
       }
@@ -6997,7 +6997,7 @@
     "examples": [
       {
         "grammar_id": 412,
-        "example_zh": "房子的價格主要視地點和大小而定。",
+        "example_zh": "房子的價格主要視地點龢大小而定。",
         "example_pinyin": "Fángzi de jiàgé zhǔyào shì dìdiǎn hé dàxiǎo érdìng.",
         "example_vi": "Giá nhà chủ yếu tuỳ thuộc vào vị trí và diện tích mà quyết định."
       }
@@ -7031,7 +7031,7 @@
     "examples": [
       {
         "grammar_id": 414,
-        "example_zh": "坐在前面的那個男生，看起來大約跟我年紀相當。",
+        "example_zh": "坐在前麵的那個男生，看起來大約跟我年紀相當。",
         "example_pinyin": "Zuò zài qiánmiàn de nàge nánshēng, kànqǐlái dàyuē gēn wǒ niánjì xiāngdāng.",
         "example_vi": "Cậu bạn ngồi phía trước trông có vẻ tuổi tương đương tôi."
       }
@@ -7048,7 +7048,7 @@
     "examples": [
       {
         "grammar_id": 415,
-        "example_zh": "買來的玩具雖然精緻，但比不上親自做的有價值。",
+        "example_zh": "買來的翫俱雖然精緻，但比不上親自做的有價值。",
         "example_pinyin": "Mǎi lái de wánjù suīrán jīngzhì, dàn bǐbùshàng qīnzì zuò de yǒu jiàzhí.",
         "example_vi": "Đồ chơi mua về tuy tinh xảo, nhưng không sánh bằng đồ tự tay làm có giá trị."
       }
@@ -7065,7 +7065,7 @@
     "examples": [
       {
         "grammar_id": 416,
-        "example_zh": "這座城市現在與五年前相比，繁榮了許多。",
+        "example_zh": "這座城市現在與五年前相比，繁榮瞭許多。",
         "example_pinyin": "Zhè zuò chéngshì xiànzài yǔ wǔ nián qián xiāngbǐ, fánróng le xǔduō.",
         "example_vi": "Thành phố này bây giờ so với 5 năm trước, đã phồn vinh hơn nhiều."
       }
@@ -7099,7 +7099,7 @@
     "examples": [
       {
         "grammar_id": 418,
-        "example_zh": "他之所以成功，是因為堅持和努力。",
+        "example_zh": "他之所以成功，是因為堅持龢努力。",
         "example_pinyin": "Tā zhīsuǒyǐ chénggōng, shì yīnwèi jiānchí hé nǔlì.",
         "example_vi": "Sở dĩ anh ấy thành công là vì sự kiên trì và nỗ lực."
       }
@@ -7158,7 +7158,7 @@
   },
   {
     "grammar_id": 422,
-    "pattern_zh": "為了A而B",
+    "pattern_zh": "為瞭A而B",
     "pattern_pinyin": "wèile...ér...",
     "title_vi": "為了A而B (vì A mà làm B)",
     "explanation_vi": "「為了……而……」dùng để chỉ mục đích (A) dẫn đến hành động (B), tương đương với \"vì...mà...\".",
@@ -7167,7 +7167,7 @@
     "examples": [
       {
         "grammar_id": 422,
-        "example_zh": "他聽從醫生的建議，開始為了健康而控制飲食。",
+        "example_zh": "他聽從醫生的建議，開始為瞭健康而控製飲食。",
         "example_pinyin": "Tā tīngcóng yīshēng de jiànyì, kāishǐ wèile jiànkāng ér kòngzhì yǐnshí.",
         "example_vi": "Anh ấy nghe theo lời khuyên của bác sĩ, bắt đầu vì sức khỏe mà kiểm soát ăn uống."
       }
@@ -7184,7 +7184,7 @@
     "examples": [
       {
         "grammar_id": 423,
-        "example_zh": "政府蓋了一條新的道路後，居民無須再繞遠路。",
+        "example_zh": "政府蓋瞭一條新的道路後，居民無須再繞遠路。",
         "example_pinyin": "Zhèngfǔ gài le yī tiáo xīn de dàolù hòu, jūmín wúxū zài rào yuǎnlù.",
         "example_vi": "Sau khi chính phủ xây một con đường mới, người dân không cần phải đi vòng xa nữa."
       }
@@ -7201,7 +7201,7 @@
     "examples": [
       {
         "grammar_id": 424,
-        "example_zh": "臺北的冬天雖然濕冷，但還不至於下雪。",
+        "example_zh": "臺北的鼕天雖然濕冷，但還不至於下雪。",
         "example_pinyin": "Táiběi de dōngtiān suīrán shīlěng, dàn hái búzhìyú xiàxuě.",
         "example_vi": "Mùa đông ở Đài Bắc tuy ẩm lạnh, nhưng chưa đến mức có tuyết rơi."
       }
@@ -7235,7 +7235,7 @@
     "examples": [
       {
         "grammar_id": 426,
-        "example_zh": "這篇文章未曾發表過。",
+        "example_zh": "這篇文章未曾發錶過。",
         "example_pinyin": "Zhè piān wénzhāng wèicéng fābiǎo guò.",
         "example_vi": "Bài viết này chưa từng được công bố."
       }
@@ -7252,7 +7252,7 @@
     "examples": [
       {
         "grammar_id": 427,
-        "example_zh": "這家公司規定員工每天工作時間不得超過八小時。",
+        "example_zh": "這傢公司規定員工每天工作時間不得超過八小時。",
         "example_pinyin": "Zhè jiā gōngsī guīdìng yuángōng měitiān gōngzuò shíjiān bùdé chāoguò bā xiǎoshí.",
         "example_vi": "Công ty này quy định thời gian làm việc của nhân viên mỗi ngày không được vượt quá 8 tiếng."
       }
@@ -7286,7 +7286,7 @@
     "examples": [
       {
         "grammar_id": 429,
-        "example_zh": "我把旅行中遇到的人、有趣的事，以及看到的美景說給大家聽。",
+        "example_zh": "我把旅行中遇到的人、有趣的事，以及看到的美景說給大傢聽。",
         "example_pinyin": "Wǒ bǎ lǚxíng zhōng yùdào de rén, yǒuqù de shì, yǐjí kàndào de měijǐng shuō gěi dàjiā tīng.",
         "example_vi": "Tôi kể cho mọi người nghe về những người đã gặp, những chuyện thú vị, cũng như cảnh đẹp đã thấy trong chuyến đi."
       }
@@ -7311,7 +7311,7 @@
   },
   {
     "grammar_id": 431,
-    "pattern_zh": "既A，也B",
+    "pattern_zh": "旣A，也B",
     "pattern_pinyin": "jì...yě...",
     "title_vi": "既A，也B (vừa A vừa B)",
     "explanation_vi": "Tương tự 既……又……, dùng để liệt kê hai điều cùng đúng, tương đương với \"vừa...vừa...\".",
@@ -7320,7 +7320,7 @@
     "examples": [
       {
         "grammar_id": 431,
-        "example_zh": "來臺灣既可以學中文，也可以享受美食。",
+        "example_zh": "來臺灣旣可以學中文，也可以享受美食。",
         "example_pinyin": "Lái Táiwān jì kěyǐ xué Zhōngwén, yě kěyǐ xiǎngshòu měishí.",
         "example_vi": "Đến Đài Loan vừa có thể học tiếng Trung, vừa có thể thưởng thức món ngon."
       }
@@ -7354,7 +7354,7 @@
     "examples": [
       {
         "grammar_id": 433,
-        "example_zh": "這位作家花了兩年的時間修改，使得這部小說更加完整。",
+        "example_zh": "這位作傢花瞭兩年的時間脩改，使得這部小說更加完整。",
         "example_pinyin": "Zhè wèi zuòjiā huā le liǎng nián de shíjiān xiūgǎi, shǐde zhè bù xiǎoshuō gèngjiā wánzhěng.",
         "example_vi": "Nhà văn này đã dành hai năm để chỉnh sửa, khiến cho cuốn tiểu thuyết này hoàn chỉnh hơn."
       }
@@ -7371,7 +7371,7 @@
     "examples": [
       {
         "grammar_id": 434,
-        "example_zh": "早上喝一杯咖啡能使他頭腦更加清醒。",
+        "example_zh": "早上喝一盃咖啡能使他頭腦更加清醒。",
         "example_pinyin": "Zǎoshang hē yī bēi kāfēi néng shǐ tā tóunǎo gèngjiā qīngxǐng.",
         "example_vi": "Uống một tách cà phê vào buổi sáng có thể khiến đầu óc anh ấy tỉnh táo hơn."
       }
@@ -7388,7 +7388,7 @@
     "examples": [
       {
         "grammar_id": 435,
-        "example_zh": "這間餐廳的氣氛和服務，令人印象深刻。",
+        "example_zh": "這間餐廳的氣氛龢服務，令人印像深刻。",
         "example_pinyin": "Zhè jiān cāntīng de qìfēn hé fúwù, lìng rén yìnxiàng shēnkè.",
         "example_vi": "Không khí và dịch vụ của nhà hàng này khiến người ta ấn tượng sâu sắc."
       }
@@ -7422,7 +7422,7 @@
     "examples": [
       {
         "grammar_id": 437,
-        "example_zh": "他一口氣跑了五千公尺。",
+        "example_zh": "他一口氣跑瞭五韆公尺。",
         "example_pinyin": "Tā yīkǒuqì pǎo le wǔqiān gōngchǐ.",
         "example_vi": "Anh ấy chạy một mạch 5000 mét."
       }
@@ -7490,7 +7490,7 @@
     "examples": [
       {
         "grammar_id": 441,
-        "example_zh": "如果島上有家醫院，萬一發生車禍可以立即處理。",
+        "example_zh": "如果島上有傢醫院，萬一發生車禍可以立卽處理。",
         "example_pinyin": "Rúguǒ dǎo shàng yǒu jiā yīyuàn, wànyī fāshēng chēhuò kěyǐ lìjí chǔlǐ.",
         "example_vi": "Nếu trên đảo có một bệnh viện, lỡ như xảy ra tai nạn xe có thể xử lý ngay."
       }
@@ -7507,7 +7507,7 @@
     "examples": [
       {
         "grammar_id": 442,
-        "example_zh": "環境一旦破壞了，就很難再恢復。",
+        "example_zh": "環境一旦破壞瞭，就很難再恢復。",
         "example_pinyin": "Huánjìng yīdàn pòhuài le, jiù hěn nán zài huīfù.",
         "example_vi": "Môi trường một khi đã bị phá hủy, thì rất khó để phục hồi lại."
       }
@@ -7532,7 +7532,7 @@
   },
   {
     "grammar_id": 444,
-    "pattern_zh": "儘管……（還/但是）……",
+    "pattern_zh": "儘筦……（還/但是）……",
     "pattern_pinyin": "jǐnguǎn",
     "title_vi": "儘管……（還/但是）…… (mặc dù...vẫn...)",
     "explanation_vi": "「儘管」đưa ra một sự nhượng bộ, 「還/但是」khẳng định kết quả không đổi, tương đương với \"mặc dù...vẫn...\".",
@@ -7541,7 +7541,7 @@
     "examples": [
       {
         "grammar_id": 444,
-        "example_zh": "儘管不常見面，但是我們每次聚會都聊得很開心。儘管工作再忙，爸爸週末還是會留點時間去當志工。",
+        "example_zh": "儘筦不常見麵，但是我們每次聚會都聊得很開心。儘筦工作再忙，爸爸週末還是會留點時間去當誌工。",
         "example_pinyin": "Jǐnguǎn bù cháng jiànmiàn, dànshì wǒmen měicì jùhuì dōu liáo de hěn kāixīn.",
         "example_vi": "Mặc dù không thường gặp nhau, nhưng mỗi lần họp mặt chúng tôi đều trò chuyện rất vui vẻ. Dù công việc có bận đến đâu, bố vẫn dành chút thời gian cuối tuần đi làm tình nguyện."
       }
@@ -7558,7 +7558,7 @@
     "examples": [
       {
         "grammar_id": 445,
-        "example_zh": "老師也必須不斷學習，才能將新知識帶給學生。",
+        "example_zh": "老師也必須不斷學習，纔能將新知識帶給學生。",
         "example_pinyin": "Lǎoshī yě bìxū bùduàn xuéxí, cáinéng jiāng xīn zhīshì dài gěi xuéshēng.",
         "example_vi": "Giáo viên cũng phải không ngừng học hỏi, mới có thể mang kiến thức mới đến cho học sinh."
       }
@@ -7575,7 +7575,7 @@
     "examples": [
       {
         "grammar_id": 446,
-        "example_zh": "就算出太陽，天氣還是冷得要命。",
+        "example_zh": "就算齣太陽，天氣還是冷得要命。",
         "example_pinyin": "Jiùsuàn chū tàiyáng, tiānqì háishì lěng de yàomìng.",
         "example_vi": "Dù có nắng lên, thời tiết vẫn lạnh muốn chết."
       }
@@ -7592,7 +7592,7 @@
     "examples": [
       {
         "grammar_id": 447,
-        "example_zh": "他們已經提早半小時出門，不料路上塞車，結果還是遲到了。",
+        "example_zh": "他們已經提早半小時齣門，不料路上塞車，結果還是遲到瞭。",
         "example_pinyin": "Tāmen yǐjīng tízǎo bàn xiǎoshí chūmén, búliào lùshàng sāichē, jiéguǒ háishì chídào le.",
         "example_vi": "Họ đã ra khỏi nhà sớm nửa tiếng, không ngờ đường bị kẹt xe, kết quả vẫn bị muộn."
       }
@@ -7609,7 +7609,7 @@
     "examples": [
       {
         "grammar_id": 448,
-        "example_zh": "誰叫你不早點來，食物全都被吃光了。",
+        "example_zh": "誰叫你不早點來，食物全都被喫光瞭。",
         "example_pinyin": "Shéi jiào nǐ bù zǎodiǎn lái, shíwù quán dōu bèi chīguāng le.",
         "example_vi": "Ai bảo bạn không đến sớm hơn, đồ ăn bị ăn hết sạch rồi."
       }
@@ -7626,7 +7626,7 @@
     "examples": [
       {
         "grammar_id": 449,
-        "example_zh": "結果都已經確定了，還有什麼好討論的！",
+        "example_zh": "結果都已經確定瞭，還有什麼好討論的！",
         "example_pinyin": "Jiéguǒ dōu yǐjīng quèdìng le, hái yǒu shénme hǎo tǎolùn de!",
         "example_vi": "Kết quả đều đã chắc chắn rồi, còn gì mà phải bàn luận nữa!"
       }
@@ -7643,7 +7643,7 @@
     "examples": [
       {
         "grammar_id": 450,
-        "example_zh": "他畢竟是個孩子，喜歡玩是正常的。",
+        "example_zh": "他畢竟是個孩子，喜歡翫是正常的。",
         "example_pinyin": "Tā bìjìng shì gè háizi, xǐhuān wán shì zhèngcháng de.",
         "example_vi": "Dù sao nó cũng chỉ là một đứa trẻ, thích chơi là chuyện bình thường."
       }
@@ -7660,7 +7660,7 @@
     "examples": [
       {
         "grammar_id": 451,
-        "example_zh": "即使是新車，難免也會有些小毛病。",
+        "example_zh": "卽使是新車，難免也會有些小毛病。",
         "example_pinyin": "Jíshǐ shì xīnchē, nánmiǎn yě huì yǒuxiē xiǎo máobìng.",
         "example_vi": "Dù là xe mới, khó tránh khỏi có vài lỗi nhỏ."
       }
@@ -7677,7 +7677,7 @@
     "examples": [
       {
         "grammar_id": 452,
-        "example_zh": "別看他工作忙碌，他還是會抽出時間去運動。",
+        "example_zh": "別看他工作忙碌，他還是會抽齣時間去運動。",
         "example_pinyin": "Biékàn tā gōngzuò mánglù, tā háishì huì chōuchū shíjiān qù yùndòng.",
         "example_vi": "Đừng thấy anh ấy bận công việc mà tưởng, anh ấy vẫn dành thời gian đi tập thể dục."
       }
@@ -7694,7 +7694,7 @@
     "examples": [
       {
         "grammar_id": 453,
-        "example_zh": "這個問題的答案無所謂對或錯，只是每個人看法不同而已。",
+        "example_zh": "這個問題的答案無所謂對或錯，隻是每個人看法不衕而已。",
         "example_pinyin": "Zhège wèntí de dá'àn wúsuǒwèi duì huò cuò, zhǐshì měi gèrén kànfǎ bùtóng éryǐ.",
         "example_vi": "Đáp án của câu hỏi này không có chuyện đúng hay sai, chỉ là quan điểm mỗi người khác nhau thôi."
       }
@@ -7728,7 +7728,7 @@
     "examples": [
       {
         "grammar_id": 455,
-        "example_zh": "這裡明明寫著禁止帶寵物，你怎麼還把小狗帶進來了呢。",
+        "example_zh": "這裡明明寫著禁止帶寵物，你怎麼還把小狗帶進來瞭呢。",
         "example_pinyin": "Zhèlǐ míngmíng xiězhe jìnzhǐ dài chǒngwù, nǐ zěnme hái bǎ xiǎogǒu dài jìnlái le ne.",
         "example_vi": "Ở đây rõ ràng ghi cấm mang thú cưng, sao bạn còn mang chó vào đây vậy."
       }
@@ -7745,7 +7745,7 @@
     "examples": [
       {
         "grammar_id": 456,
-        "example_zh": "好在這次還不是正式演出，大家可以再重新練習一遍。",
+        "example_zh": "好在這次還不是正式演齣，大傢可以再重新練習一遍。",
         "example_pinyin": "Hǎozài zhècì hái bú shì zhèngshì yǎnchū, dàjiā kěyǐ zài chóngxīn liànxí yī biàn.",
         "example_vi": "May mà lần này chưa phải là buổi diễn chính thức, mọi người có thể luyện tập lại một lần nữa."
       }
@@ -7762,7 +7762,7 @@
     "examples": [
       {
         "grammar_id": 457,
-        "example_zh": "一般來說 ，語言學家所關注的是語言規則的問題。",
+        "example_zh": "一般來說 ，語言學傢所關註的是語言規則的問題。",
         "example_pinyin": "Yìbān láishuō, yǔyán xuéjiā suǒ guānzhù de shì yǔyán guīzé de wèntí.",
         "example_vi": "Nói chung, cái mà các nhà ngôn ngữ học quan tâm là vấn đề quy tắc ngôn ngữ."
       }
@@ -7796,7 +7796,7 @@
     "examples": [
       {
         "grammar_id": 459,
-        "example_zh": "一般而言，薪水越高，越容易吸引到人才。",
+        "example_zh": "一般而言，薪水越高，越容易吸引到人纔。",
         "example_pinyin": "Yìbān éryán, xīnshuǐ yuè gāo, yuè róngyì xīyǐn dào réncái.",
         "example_vi": "Nói chung, lương càng cao, càng dễ thu hút nhân tài."
       }
@@ -7813,7 +7813,7 @@
     "examples": [
       {
         "grammar_id": 460,
-        "example_zh": "他找到了一份不錯的工作，這下子，總算可以把貸款還完了。",
+        "example_zh": "他找到瞭一份不錯的工作，這下子，總算可以把貸款還完瞭。",
         "example_pinyin": "Tā zhǎodào le yī fèn búcuò de gōngzuò, zhè xiàzi, zǒngsuàn kěyǐ bǎ dàikuǎn huán wán le.",
         "example_vi": "Anh ấy đã tìm được một công việc tốt, thế này thì cuối cùng cũng có thể trả hết nợ rồi."
       }
@@ -7830,7 +7830,7 @@
     "examples": [
       {
         "grammar_id": 461,
-        "example_zh": "今天請大家來開會，主要是想了解大家對這個問題的看法。",
+        "example_zh": "今天請大傢來開會，主要是想瞭解大傢對這個問題的看法。",
         "example_pinyin": "Jīntiān qǐng dàjiā lái kāihuì, zhǔyào shì xiǎng liǎojiě dàjiā duì zhège wèntí de kànfǎ.",
         "example_vi": "Hôm nay mời mọi người đến họp, chủ yếu là muốn tìm hiểu ý kiến của mọi người về vấn đề này."
       }
@@ -7847,7 +7847,7 @@
     "examples": [
       {
         "grammar_id": 462,
-        "example_zh": "基本上，這些軟體都是免費的，如果想要有更多功能才需要付錢。",
+        "example_zh": "基本上，這些軟體都是免費的，如果想要有更多功能纔需要付錢。",
         "example_pinyin": "Jīběn shàng, zhèxiē ruǎntǐ dōu shì miǎnfèi de, rúguǒ xiǎng yào yǒu gèng duō gōngnéng cái xūyào fùqián.",
         "example_vi": "Về cơ bản, những phần mềm này đều miễn phí, nếu muốn có thêm chức năng thì mới cần trả tiền."
       }
@@ -7864,7 +7864,7 @@
     "examples": [
       {
         "grammar_id": 463,
-        "example_zh": "這本雜誌一個月可以賣出五萬多本，可見很受市場歡迎。",
+        "example_zh": "這本雜誌一個月可以賣齣五萬多本，可見很受市場歡迎。",
         "example_pinyin": "Zhè běn zázhì yī gè yuè kěyǐ mài chū wǔwàn duō běn, kějiàn hěn shòu shìchǎng huānyíng.",
         "example_vi": "Tạp chí này có thể bán được hơn 50.000 cuốn một tháng, có thể thấy rất được thị trường ưa chuộng."
       }
@@ -7872,7 +7872,7 @@
   },
   {
     "grammar_id": 464,
-    "pattern_zh": "（可是）話說回來",
+    "pattern_zh": "（可是）話說迴來",
     "pattern_pinyin": "huàshuōhuílái",
     "title_vi": "（可是）話說回來 (nhưng nói đi thì cũng phải nói lại)",
     "explanation_vi": "Dùng để chuyển sang một góc nhìn khác/bổ sung cân bằng sau khi đã nói một ý, tương đương với \"nói đi thì cũng phải nói lại\".",
@@ -7881,7 +7881,7 @@
     "examples": [
       {
         "grammar_id": 464,
-        "example_zh": "人與人相處的確是一件困難的事情，可是話說回來，只要真誠就可以交到好朋友。",
+        "example_zh": "人與人相處的確是一件睏難的事情，可是話說迴來，隻要眞誠就可以交到好朋友。",
         "example_pinyin": "Rén yǔ rén xiāngchǔ díquè shì yī jiàn kùnnán de shìqíng, kěshì huàshuōhuílái, zhǐyào zhēnchéng jiù kěyǐ jiāo dào hǎo péngyǒu.",
         "example_vi": "Con người sống chung với nhau đúng là một việc khó khăn, nhưng nói đi thì cũng phải nói lại, chỉ cần chân thành thì có thể kết bạn tốt."
       }
@@ -7915,7 +7915,7 @@
     "examples": [
       {
         "grammar_id": 466,
-        "example_zh": "出生率降低了，換句話說，就是孩子越來越少了。",
+        "example_zh": "齣生率降低瞭，換句話說，就是孩子越來越少瞭。",
         "example_pinyin": "Chūshēnglǜ jiàngdī le, huànjùhuàshuō, jiùshì háizi yuèláiyuè shǎo le.",
         "example_vi": "Tỷ lệ sinh giảm rồi, nói cách khác, tức là trẻ em ngày càng ít đi."
       }
@@ -7932,7 +7932,7 @@
     "examples": [
       {
         "grammar_id": 467,
-        "example_zh": "他不但是個成功的企業家，也是個學者，除此之外，更是個好父親。",
+        "example_zh": "他不但是個成功的企業傢，也是個學者，除此之外，更是個好父親。",
         "example_pinyin": "Tā bùdàn shì gè chénggōng de qǐyèjiā, yěshì gè xuézhě, chúcǐzhīwài, gèng shì gè hǎo fùqīn.",
         "example_vi": "Ông ấy không những là một doanh nhân thành đạt, cũng là một học giả, ngoài ra còn là một người cha tốt."
       }
@@ -7949,7 +7949,7 @@
     "examples": [
       {
         "grammar_id": 468,
-        "example_zh": "公司的規模越來越大，相對地需要的空間也變大了。",
+        "example_zh": "公司的規模越來越大，相對地需要的空間也變大瞭。",
         "example_pinyin": "Gōngsī de guīmó yuèláiyuè dà, xiāngduì de xūyào de kōngjiān yě biàn dà le.",
         "example_vi": "Quy mô công ty ngày càng lớn, tương ứng thì không gian cần thiết cũng lớn hơn."
       }
@@ -7966,7 +7966,7 @@
     "examples": [
       {
         "grammar_id": 469,
-        "example_zh": "一般人認為運動一定可以減肥，事實上，飲食控制才是最重要的。",
+        "example_zh": "一般人認為運動一定可以減肥，事實上，飲食控製纔是最重要的。",
         "example_pinyin": "Yìbān rén rènwéi yùndòng yīdìng kěyǐ jiǎnféi, shìshí shàng, yǐnshí kòngzhì cái shì zuì zhòngyào de.",
         "example_vi": "Người bình thường cho rằng tập thể dục chắc chắn giảm được cân, nhưng thực tế là kiểm soát ăn uống mới là quan trọng nhất."
       }
@@ -7983,7 +7983,7 @@
     "examples": [
       {
         "grammar_id": 470,
-        "example_zh": "不管會碰到什麼困難、結果如何，總之，先踏出第一步再說。",
+        "example_zh": "不筦會碰到什麼睏難、結果如何，總之，先踏齣第一步再說。",
         "example_pinyin": "Bùguǎn huì pèngdào shénme kùnnán, jiéguǒ rúhé, zǒngzhī, xiān tàchū dì yī bù zàishuō.",
         "example_vi": "Dù gặp phải khó khăn gì, kết quả ra sao, tóm lại, cứ bước bước đầu tiên đã rồi tính."
       }
@@ -8000,7 +8000,7 @@
     "examples": [
       {
         "grammar_id": 471,
-        "example_zh": "就算再忙，他還是會去當志工，由此可知/看來/可見，他是一個熱心的人。",
+        "example_zh": "就算再忙，他還是會去當誌工，由此可知/看來/可見，他是一個熱心的人。",
         "example_pinyin": "Jiùsuàn zài máng, tā háishì huì qù dāng zhìgōng, yóucǐ kězhī, tā shì yī gè rèxīn de rén.",
         "example_vi": "Dù bận đến đâu, anh ấy vẫn đi làm tình nguyện, từ đó có thể thấy anh ấy là người nhiệt tình."
       }
@@ -8017,7 +8017,7 @@
     "examples": [
       {
         "grammar_id": 472,
-        "example_zh": "今天說了那麼多，總而言之，就是要幫助各位增加財富管理的觀念。",
+        "example_zh": "今天說瞭那麼多，總而言之，就是要幫助各位增加財富筦理的觀唸。",
         "example_pinyin": "Jīntiān shuō le nàme duō, zǒngéryánzhī, jiùshì yào bāngzhù gèwèi zēngjiā cáifù guǎnlǐ de guānniàn.",
         "example_vi": "Hôm nay đã nói nhiều như vậy, tóm lại mà nói, là muốn giúp mọi người tăng cường quan niệm quản lý tài chính."
       }
@@ -8034,7 +8034,7 @@
     "examples": [
       {
         "grammar_id": 473,
-        "example_zh": "假如我們的心情愉快，就比較可以抵抗病菌的感染。簡言之，心情好，抵抗力就強。",
+        "example_zh": "叚如我們的心情愉快，就比較可以牴抗病菌的感染。簡言之，心情好，牴抗力就強。",
         "example_pinyin": "Jiǎrú wǒmen de xīnqíng yúkuài, jiù bǐjiào kěyǐ dǐkàng bìngjūn de gǎnrǎn.",
         "example_vi": "Nếu tâm trạng chúng ta vui vẻ, sẽ dễ chống lại sự lây nhiễm vi khuẩn hơn. Nói ngắn gọn, tâm trạng tốt thì sức đề kháng mạnh."
       }
@@ -8119,7 +8119,7 @@
     "examples": [
       {
         "grammar_id": 478,
-        "example_zh": "在比賽的壓力下，他表現得沒有預期的好。",
+        "example_zh": "在比賽的壓力下，他錶現得沒有預期的好。",
         "example_pinyin": "Zài bǐsài de yālì xià, tā biǎoxiàn de méiyǒu yùqí de hǎo.",
         "example_vi": "Dưới áp lực của cuộc thi, anh ấy thể hiện không được tốt như mong đợi."
       }
@@ -8187,7 +8187,7 @@
     "examples": [
       {
         "grammar_id": 482,
-        "example_zh": "這位有名的導演拍攝了一部電影，在國際上得到了很好的評價。",
+        "example_zh": "這位有名的導演拍攝瞭一部電影，在國際上得到瞭很好的評價。",
         "example_pinyin": "Zhè wèi yǒumíng de dǎoyǎn pāishè le yī bù diànyǐng, zài guójì shàng dédào le hěn hǎo de píngjià.",
         "example_vi": "Đạo diễn nổi tiếng này đã quay một bộ phim, được đánh giá rất cao trên phạm vi quốc tế."
       }
@@ -8204,7 +8204,7 @@
     "examples": [
       {
         "grammar_id": 483,
-        "example_zh": "這個國家的經濟是以農業為主。",
+        "example_zh": "這個國傢的經濟是以農業為主。",
         "example_pinyin": "Zhège guójiā de jīngjì shì yǐ nóngyè wéizhǔ.",
         "example_vi": "Nền kinh tế của quốc gia này lấy nông nghiệp làm chính."
       }
@@ -8221,7 +8221,7 @@
     "examples": [
       {
         "grammar_id": 484,
-        "example_zh": "每次外出，我一定會檢查是否帶了皮包跟鑰匙。",
+        "example_zh": "每次外齣，我一定會檢査是否帶瞭皮包跟鑰匙。",
         "example_pinyin": "Měicì wàichū, wǒ yīdìng huì jiǎnchá shìfǒu dài le píbāo gēn yàoshi.",
         "example_vi": "Mỗi lần ra ngoài, tôi luôn kiểm tra xem có mang ví và chìa khóa hay không."
       }
@@ -8280,7 +8280,7 @@
   },
   {
     "grammar_id": 488,
-    "pattern_zh": "更別說……了",
+    "pattern_zh": "更別說……瞭",
     "pattern_pinyin": "gèng biéshuō...le",
     "title_vi": "更別說……了 (chưa nói đến/huống gì...)",
     "explanation_vi": "Dùng để nhấn mạnh mức độ của một trường hợp cực đoan hơn, tương đương với \"chưa nói đến/huống gì\".",
@@ -8289,7 +8289,7 @@
     "examples": [
       {
         "grammar_id": 488,
-        "example_zh": "山上的天氣非常寒冷，白天也才五度，更別說夜晚了。",
+        "example_zh": "山上的天氣非常寒冷，白天也纔五度，更別說夜晚瞭。",
         "example_pinyin": "Shān shàng de tiānqì fēicháng hánlěng, báitiān yě cái wǔ dù, gèng biéshuō yèwǎn le.",
         "example_vi": "Thời tiết trên núi cực kỳ lạnh, ban ngày cũng chỉ có 5 độ, huống gì ban đêm."
       }
@@ -8323,7 +8323,7 @@
     "examples": [
       {
         "grammar_id": 490,
-        "example_zh": "今天加入會員不但享有折扣，還可以免費體驗。此外，生日當天還有贈品。",
+        "example_zh": "今天加入會員不但享有摺釦，還可以免費體驗。此外，生日當天還有贈品。",
         "example_pinyin": "Jīntiān jiārù huìyuán bùdàn xiǎngyǒu zhékòu, hái kěyǐ miǎnfèi tǐyàn.",
         "example_vi": "Hôm nay đăng ký thành viên không những được giảm giá, còn được trải nghiệm miễn phí. Ngoài ra, ngày sinh nhật còn có quà tặng."
       }
@@ -8340,7 +8340,7 @@
     "examples": [
       {
         "grammar_id": 491,
-        "example_zh": "新產品的銷售量非但沒有增加，還減少了百分之三十。",
+        "example_zh": "新產品的銷售量非但沒有增加，還減少瞭百分之三十。",
         "example_pinyin": "Xīn chǎnpǐn de xiāoshòuliàng fēidàn méiyǒu zēngjiā, hái jiǎnshǎo le bǎifēnzhī sānshí.",
         "example_vi": "Doanh số sản phẩm mới chẳng những không tăng, mà còn giảm 30%."
       }
@@ -8374,7 +8374,7 @@
     "examples": [
       {
         "grammar_id": 493,
-        "example_zh": "正如我們所猜想的，商品在一天之內全都賣光了。",
+        "example_zh": "正如我們所猜想的，商品在一天之內全都賣光瞭。",
         "example_pinyin": "Zhèngrú wǒmen suǒ cāixiǎng de, shāngpǐn zài yī tiān zhīnèi quán dōu màiguāng le.",
         "example_vi": "Đúng như chúng tôi đã đoán, hàng hóa đã bán hết sạch trong vòng một ngày."
       }
@@ -8391,7 +8391,7 @@
     "examples": [
       {
         "grammar_id": 494,
-        "example_zh": "這部電影的靈感出自紅樓夢。",
+        "example_zh": "這部電影的靈感齣自紅樓夢。",
         "example_pinyin": "Zhè bù diànyǐng de línggǎn chū zì Hónglóumèng.",
         "example_vi": "Cảm hứng của bộ phim này bắt nguồn từ tiểu thuyết Hồng Lâu Mộng."
       }
@@ -8408,7 +8408,7 @@
     "examples": [
       {
         "grammar_id": 495,
-        "example_zh": "李明華畢業於中文系。",
+        "example_zh": "李明華畢業於中文繫。",
         "example_pinyin": "Lǐ Mínghuá bìyè yú Zhōngwénxì.",
         "example_vi": "Lý Minh Hoa tốt nghiệp khoa Trung văn."
       }
@@ -8425,7 +8425,7 @@
     "examples": [
       {
         "grammar_id": 496,
-        "example_zh": "本公司徵求行銷人員，薪水三萬五千至四萬。",
+        "example_zh": "本公司徵求行銷人員，薪水三萬五韆至四萬。",
         "example_pinyin": "Běn gōngsī zhēngqiú xíngxiāo rényuán, xīnshuǐ sānwàn wǔqiān zhì sìwàn.",
         "example_vi": "Công ty chúng tôi tuyển nhân viên marketing, lương từ 35.000 đến 40.000 (Đài tệ)."
       }
@@ -8442,7 +8442,7 @@
     "examples": [
       {
         "grammar_id": 497,
-        "example_zh": "臺北的交通很方便，以捷運為例，附近的景點都到得了。",
+        "example_zh": "臺北的交通很方便，以捷運為例，附近的景點都到得瞭。",
         "example_pinyin": "Táiběi de jiāotōng hěn fāngbiàn, yǐ jiéyùn wéilì, fùjìn de jǐngdiǎn dōu dàodeliǎo.",
         "example_vi": "Giao thông ở Đài Bắc rất tiện lợi, lấy tàu điện ngầm làm ví dụ, các điểm tham quan gần đó đều đến được."
       }
@@ -8459,7 +8459,7 @@
     "examples": [
       {
         "grammar_id": 498,
-        "example_zh": "趕緊把頭髮擦乾，免得感冒了。",
+        "example_zh": "趕緊把頭髮擦乾，免得感冒瞭。",
         "example_pinyin": "Gǎnjǐn bǎ tóufa cāgān, miǎnde gǎnmào le.",
         "example_vi": "Mau lau khô tóc đi, kẻo bị cảm."
       }
@@ -8510,7 +8510,7 @@
     "examples": [
       {
         "grammar_id": 501,
-        "example_zh": "雖然爬山爬了一整天，但他們不覺得累，反而精神很好。不小心打破了花瓶，爸爸不但沒罵我，反而安慰我。",
+        "example_zh": "雖然爬山爬瞭一整天，但他們不覺得纍，反而精神很好。不小心打破瞭花瓶，爸爸不但沒罵我，反而安慰我。",
         "example_pinyin": "Suīrán páshān pá le yī zhěngtiān, dàn tāmen bù juéde lèi, fǎn'ér jīngshén hěn hǎo.",
         "example_vi": "Tuy leo núi cả ngày, nhưng họ không thấy mệt, mà ngược lại còn rất tinh thần. Lỡ làm vỡ bình hoa, bố không những không mắng tôi, mà ngược lại còn an ủi tôi."
       }
@@ -8527,7 +8527,7 @@
     "examples": [
       {
         "grammar_id": 502,
-        "example_zh": "電動車不會污染空氣，缺點則是價格偏高。",
+        "example_zh": "電動車不會汙染空氣，缺點則是價格偏高。",
         "example_pinyin": "Diàndòngchē bú huì wūrǎn kōngqì, quēdiǎn zé shì jiàgé piān gāo.",
         "example_vi": "Xe điện không gây ô nhiễm không khí, còn nhược điểm thì là giá hơi cao."
       }
@@ -8544,7 +8544,7 @@
     "examples": [
       {
         "grammar_id": 503,
-        "example_zh": "周末晚上大家都去聚餐，而我寧可在家自己做飯。",
+        "example_zh": "週末晚上大傢都去聚餐，而我寧可在傢自己做飯。",
         "example_pinyin": "Zhōumò wǎnshàng dàjiā dōu qù jùcān, ér wǒ nìngkě zài jiā zìjǐ zuòfàn.",
         "example_vi": "Tối cuối tuần mọi người đều đi ăn tiệc, còn tôi thà ở nhà tự nấu ăn."
       }

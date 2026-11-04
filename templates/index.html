@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.4.11"></script>
+    <script src="/static/js/offline-store.js?v=1.4.12"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -1194,6 +1194,45 @@ window.addEventListener('error', function(e) {
         }
         /* Nút font đang chọn trong menu tài khoản mobile */
         .font-opt-active { border-color: #027AB3 !important; color: #027AB3 !important; background: rgba(2,122,179,.08); }
+
+        /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
+        #mobile-bottom-nav {
+            padding-bottom: max(10px, env(safe-area-inset-bottom, 12px)) !important;
+        }
+        @media (max-width: 767px) {
+            #mainContent {
+                padding-bottom: calc(72px + env(safe-area-inset-bottom, 12px)) !important;
+            }
+        }
+
+        /* Tinh chỉnh màn hình siêu nhỏ (< 360px: iPhone SE, Galaxy Fold cover) */
+        @media (max-width: 359px) {
+            #lesson-selectors select {
+                font-size: 11px !important;
+                padding-left: 6px !important;
+                padding-right: 20px !important;
+            }
+            .mnav-item span {
+                font-size: 8.5px !important;
+                letter-spacing: -0.03em !important;
+            }
+        }
+
+        /* Tinh chỉnh chế độ xoay ngang trên điện thoại (Landscape mobile) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            #mobile-bottom-nav {
+                padding-bottom: max(4px, env(safe-area-inset-bottom, 4px)) !important;
+            }
+            .mnav-item {
+                min-height: 42px !important;
+                padding-top: 4px !important;
+                padding-bottom: 2px !important;
+            }
+            #fc-card-wrapper {
+                height: min(280px, calc(100vh - 110px)) !important;
+                margin-bottom: 8px !important;
+            }
+        }
 
         html, body {
             width: 100%;
@@ -2585,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.11</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.12</span>
             </div>
 
             </nav>
@@ -26184,7 +26223,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.4.11', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.4.12', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

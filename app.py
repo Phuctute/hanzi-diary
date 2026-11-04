@@ -660,7 +660,7 @@ def get_offline_bundle_data():
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.4.12",
+            "version": "1.5.2",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,

@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.4.12';
-const API_CACHE_NAME = 'hanzi-api-v1.4.12';
+const CACHE_NAME = 'hanzi-pwa-v1.5.2';
+const API_CACHE_NAME = 'hanzi-api-v1.5.2';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [

@@ -39,6 +39,8 @@ LESSONS = load_json("lessons.json", [])
 LESSON_VOCAB = load_json("lesson_vocab.json", {})
 LESSON_CONTENTS = load_json("lesson_contents.json", {})
 GRAMMAR = load_json("grammar.json", [])
+GRAMMAR_TAGS = load_json("grammar_tags.json", {})
+GRAMMAR_BY_ID = {g.get("grammar_id"): g for g in GRAMMAR}
 RADICALS = load_json("radicals.json", [])
 MEASURE_WORDS = load_json("measure_words.json", {"groups": [], "words": []})
 DICT_TAGS = load_json("dict_tags.json", [])
@@ -658,7 +660,7 @@ def get_offline_bundle_data():
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.3.4",
+            "version": "1.4.10",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,
@@ -782,7 +784,22 @@ def api_php():
         return jsonify({"success": True, "data": contexts})
     elif action == "get_grammar_tags":
         tag_type = request.args.get("tag_type")
-        if tag_type == "top_n":
+        if GRAMMAR_TAGS:
+            tags_list = list(GRAMMAR_TAGS.values())
+            if tag_type:
+                tags_list = [t for t in tags_list if t.get("tag_type") == tag_type]
+            tags_list.sort(key=lambda t: t.get("sort_order", 0))
+            data = [
+                {
+                    "tag_id": t["tag_id"],
+                    "tag_type": t.get("tag_type"),
+                    "tag_name": t.get("tag_name"),
+                    "sort_order": t.get("sort_order", 0),
+                    "grammar_count": t.get("grammar_count", len(t.get("grammar_ids", [])))
+                }
+                for t in tags_list
+            ]
+        elif tag_type == "top_n":
             data = [
                 {"tag_id": 6, "tag_type": "top_n", "tag_name": "Top 10 hay dùng", "sort_order": 1, "grammar_count": 10},
                 {"tag_id": 7, "tag_type": "top_n", "tag_name": "Top 20 hay dùng", "sort_order": 2, "grammar_count": 20},
@@ -790,9 +807,9 @@ def api_php():
             ]
         else:
             data = [
-                {"tag_id": 9, "tag_type": "curriculum", "tag_name": "TBCL Chính thức (Đài Loan)", "sort_order": 0, "grammar_count": len(GRAMMAR)},
-                {"tag_id": 1, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 1", "sort_order": 1, "grammar_count": 50},
-                {"tag_id": 2, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 2", "sort_order": 2, "grammar_count": 48},
+                {"tag_id": 9, "tag_type": "curriculum", "tag_name": "TBCL Chính thức (Đài Loan)", "sort_order": 0, "grammar_count": 495},
+                {"tag_id": 1, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 1", "sort_order": 1, "grammar_count": 3},
+                {"tag_id": 2, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 2", "sort_order": 2, "grammar_count": 2},
                 {"tag_id": 12, "tag_type": "curriculum", "tag_name": "Giáo trình Thời Đại 2", "sort_order": 3, "grammar_count": 48},
                 {"tag_id": 29, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 4", "sort_order": 5, "grammar_count": 43},
                 {"tag_id": 42, "tag_type": "curriculum", "tag_name": "Giáo trình Đương Đại 5", "sort_order": 6, "grammar_count": 34}
@@ -807,15 +824,16 @@ def api_php():
         res = GRAMMAR
         if tag_id:
             try:
-                tid = int(tag_id)
-                if tid == 6: res = res[:10]
-                elif tid == 7: res = res[:20]
-                elif tid == 8: res = res[:50]
-                elif tid == 9: res = res
+                tid_str = str(int(tag_id))
+                if GRAMMAR_TAGS and tid_str in GRAMMAR_TAGS:
+                    target_ids = GRAMMAR_TAGS[tid_str].get("grammar_ids", [])
+                    res = [GRAMMAR_BY_ID[gid] for gid in target_ids if gid in GRAMMAR_BY_ID]
                 else:
-                    chunk_size = max(1, len(GRAMMAR) // 10)
-                    idx = (tid * 7) % len(GRAMMAR)
-                    res = res[idx:idx + 45] + res[:max(0, 45 - (len(GRAMMAR) - idx))]
+                    tid = int(tag_id)
+                    if tid == 6: res = res[:10]
+                    elif tid == 7: res = res[:20]
+                    elif tid == 8: res = res[:50]
+                    else: res = []
             except ValueError:
                 pass
         if band:
@@ -833,6 +851,29 @@ def api_php():
         gid = request.args.get("grammar_id") or request.args.get("id")
         item = next((g for g in GRAMMAR if str(g.get("grammar_id") or g.get("id")) == str(gid)), None)
         return jsonify({"success": True if item else False, "data": item})
+    elif action in ("get_grammar_by_ids", "get_grammar_bookmarks"):
+        ids_param = request.args.get("ids") or request.args.get("grammar_ids") or ""
+        if not ids_param and request.is_json:
+            payload = request.get_json(silent=True) or {}
+            ids_param = payload.get("ids") or payload.get("grammar_ids") or []
+        if isinstance(ids_param, str):
+            id_list = [s.strip() for s in ids_param.split(",") if s.strip()]
+        elif isinstance(ids_param, list):
+            id_list = [str(s) for s in ids_param if s]
+        else:
+            id_list = []
+        results = []
+        for gid_str in id_list:
+            try:
+                gid = int(gid_str)
+                item = GRAMMAR_BY_ID.get(gid)
+                if item:
+                    results.append(item)
+            except ValueError:
+                pass
+        return jsonify({"success": True, "data": results, "total": len(results)})
+    elif action in ("grammar_bookmark_toggle", "grammar_bookmark_remove", "grammar_bookmark_clear"):
+        return jsonify({"success": True, "message": "OK"})
     elif action == "get_radicals":
         strokes = request.args.get("strokes")
         search = request.args.get("search", "").strip().lower()

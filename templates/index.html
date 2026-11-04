@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.4.10"></script>
+    <script src="/static/js/offline-store.js?v=1.4.11"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2585,7 +2585,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.10</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.4.11</span>
             </div>
 
             </nav>
@@ -18451,6 +18451,8 @@ function dashDictSearchEnter(inputId, dropdownId) {
     const firstBtn = dd.querySelector('button');
     if (firstBtn) firstBtn.click();
 }
+const _dashDictCache = new Map();
+
 async function dashDictSearchRun(inputId, dropdownId) {
     inputId = inputId || 'dash-dict-search'; dropdownId = dropdownId || 'dash-dict-dropdown';
     const input = document.getElementById(inputId);
@@ -18458,9 +18460,8 @@ async function dashDictSearchRun(inputId, dropdownId) {
     if (!input || !dd) return;
     const q = input.value.trim();
     if (!q) { dd.classList.add('hidden'); dd.innerHTML = ''; return; }
-    try {
-        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`);
-        const json = await res.json();
+
+    function renderDashResults(json) {
         const entries = (json.data || []).slice(0, 8);
         if (!entries.length) {
             dd.innerHTML = dictRenderAiTranslationFallback(json.ai_translation);
@@ -18478,6 +18479,22 @@ async function dashDictSearchRun(inputId, dropdownId) {
             }).join('');
         }
         dd.classList.remove('hidden');
+    }
+
+    if (_dashDictCache.has(q)) {
+        renderDashResults(_dashDictCache.get(q));
+        return;
+    }
+
+    try {
+        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`);
+        const json = await res.json();
+        _dashDictCache.set(q, json);
+        if (_dashDictCache.size > 80) {
+            const firstK = _dashDictCache.keys().next().value;
+            _dashDictCache.delete(firstK);
+        }
+        renderDashResults(json);
     } catch (e) { dd.classList.add('hidden'); }
 }
 function dashDictSearchPick(dictId, dropdownId) {
@@ -25680,30 +25697,26 @@ document.addEventListener('click', (ev) => {
 
             }
 
+            // Tải song song (Parallel Promise.all) tiết kiệm 50% thời gian chờ mạng khi đổi bài
             try {
-
-                const resVocab = await fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`);
-
-                vocabData = await resVocab.json();
-
-            } catch (err) { vocabData = []; }
-
-            filteredVocabData = [...vocabData];
-
-
-
-            try {
-
-                const resDiag = await fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`);
-
-                const diagJson = await resDiag.json();
-
-                rawKaraokeData = (diagJson.success && diagJson.data) ? diagJson.data : [];
+                const [vocabJson, diagJson] = await Promise.all([
+                    fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`).then(r => r.json()).catch(() => []),
+                    fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`).then(r => r.json()).catch(() => ({ success: false, data: [] }))
+                ]);
+                vocabData = Array.isArray(vocabJson) ? vocabJson : [];
+                filteredVocabData = [...vocabData];
+                rawKaraokeData = (diagJson && diagJson.success && diagJson.data) ? diagJson.data : [];
                 window.rawKaraokeData = rawKaraokeData;
                 window._karaokeLoadedLessonId = String(lessonId);
                 window._dictLoadedLessonId = String(lessonId);
-
-            } catch (err) { rawKaraokeData = []; window.rawKaraokeData = []; window._karaokeLoadedLessonId = String(lessonId); window._dictLoadedLessonId = String(lessonId); }
+            } catch (err) {
+                vocabData = [];
+                filteredVocabData = [];
+                rawKaraokeData = [];
+                window.rawKaraokeData = [];
+                window._karaokeLoadedLessonId = String(lessonId);
+                window._dictLoadedLessonId = String(lessonId);
+            }
 
             
 
@@ -26171,7 +26184,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.4.10', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.4.11', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

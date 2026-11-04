@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.4.10';
-const API_CACHE_NAME = 'hanzi-api-v1.4.10';
+const CACHE_NAME = 'hanzi-pwa-v1.4.11';
+const API_CACHE_NAME = 'hanzi-api-v1.4.11';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -121,6 +121,7 @@ self.addEventListener('fetch', (event) => {
     url.search.includes('action=get_books') ||
     url.search.includes('action=get_lessons') ||
     url.search.includes('action=get_vocabularies') ||
+    url.search.includes('action=get_lesson_contents') ||
     url.search.includes('action=get_grammar_tags') ||
     url.search.includes('action=get_top_shadowing_videos')
   );

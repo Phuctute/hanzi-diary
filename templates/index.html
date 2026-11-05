@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.5.3"></script>
+    <script src="/static/js/offline-store.js?v=1.5.4"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.3</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.4</span>
             </div>
 
             </nav>
@@ -5297,6 +5297,38 @@ window.addEventListener('error', function(e) {
     let fcDueNowVocab = [];
     var flashcardList = [];
 
+    function pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin) {
+        if (!pinyinParts || pinyinParts.length === 0) return rawPinyin;
+        if (pinyinParts.length === hanziParts.length) return pinyinParts[idx];
+
+        const trimmedH = (partHanzi || '').trim();
+        // 1. Kết thúc bằng '兒' / '儿' và có pinyin tương ứng kết thúc bằng 'r'
+        if (/[兒儿]$/.test(trimmedH)) {
+            const rPart = pinyinParts.find(p => /r$/i.test(p.trim()));
+            if (rPart) return rPart;
+        }
+        // 2. Kết thúc bằng '子' và có pinyin tương ứng kết thúc bằng 'zi'
+        if (/子$/.test(trimmedH)) {
+            const ziPart = pinyinParts.find(p => /zi$/i.test(p.trim()));
+            if (ziPart) return ziPart;
+        }
+        // 3. Khớp số âm tiết theo số chữ Hán
+        const cleanH = trimmedH.replace(/[^\u4e00-\u9fa5]/g, '');
+        const hLen = cleanH.length || trimmedH.length;
+        const countSyllables = (p) => {
+            const m = (p || '').toLowerCase().match(/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜaeiouü]+/g);
+            return m ? m.length : 1;
+        };
+        const matchingLen = pinyinParts.filter(p => countSyllables(p) === hLen);
+        if (matchingLen.length >= 1) {
+            return matchingLen[0];
+        }
+
+        // 4. Dự phòng: nếu chỉ số hợp lệ lấy theo index, còn lại lấy phần pinyin cuối
+        if (idx < pinyinParts.length) return pinyinParts[idx];
+        return pinyinParts[pinyinParts.length - 1];
+    }
+
     // Tách các từ đồng nghĩa có dấu / hoặc ／ (ví dụ "相片/照片", "哪裡/哪兒") thành các thẻ flashcard riêng biệt (giống logic Trắc nghiệm)
     function expandFlashcardVocab(vocabList) {
         if (!Array.isArray(vocabList)) return [];
@@ -5315,9 +5347,7 @@ window.addEventListener('error', function(e) {
                         : [];
 
                     hanziParts.forEach((partHanzi, idx) => {
-                        const partPinyin = (pinyinParts.length === hanziParts.length)
-                            ? pinyinParts[idx]
-                            : (pinyinParts[idx] || rawPinyin);
+                        const partPinyin = pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin);
 
                         const baseId = v.vocab_id || v.id || `v_${idx}`;
                         cards.push({
@@ -7461,9 +7491,7 @@ window.addEventListener('error', function(e) {
                         : [];
 
                     hanziParts.forEach((partHanzi, idx) => {
-                        const partPinyin = (pinyinParts.length === hanziParts.length)
-                            ? pinyinParts[idx]
-                            : (pinyinParts[idx] || rawPinyin);
+                        const partPinyin = pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin);
 
                         const baseId = v.vocab_id || v.id || `v_${idx}`;
                         questions.push({
@@ -7569,8 +7597,8 @@ window.addEventListener('error', function(e) {
             if (!data || !Array.isArray(data.order) || data.order.length === 0) return;
             // Chỉ khôi phục nếu bộ câu hỏi đã lưu khớp CHÍNH XÁC với bộ từ vựng hiện tại của bài
             // (tránh câu hỏi "ma" khi từ vựng bài đã bị sửa/xoá sau khi học viên lưu tiến độ).
-            const currentIds = quizQuestions.map(quizVocabId).slice().sort((a, b) => a - b);
-            const savedIds = data.order.slice().sort((a, b) => a - b);
+            const currentIds = quizQuestions.map(quizVocabId).slice().sort((a, b) => String(a).localeCompare(String(b)));
+            const savedIds = data.order.slice().sort((a, b) => String(a).localeCompare(String(b)));
             const sameSet = currentIds.length === savedIds.length && currentIds.every((id, i) => id === savedIds[i]);
             if (!sameSet) return;
             const idx = parseInt(data.current_index, 10) || 0;
@@ -7832,7 +7860,7 @@ window.addEventListener('error', function(e) {
         const letterSpan = btn.querySelector('span:first-child');
 
         const currentQ = quizQuestions[currentQuizIdx];
-        const vId = currentQ.vocab_id || currentQ.id;
+        const vId = currentQ.original_vocab_id || currentQ.vocab_id || currentQ.id;
 
         // Hiện pinyin màu xanh dương bên dưới chữ Hán khi đã chọn xong đáp án
         const pinyinEl = document.getElementById('quiz-pinyin');
@@ -26223,7 +26251,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.5.3', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.5.4', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

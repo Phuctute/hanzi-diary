@@ -1,11 +1,11 @@
-const CACHE_NAME = 'hanzi-pwa-v1.5.8';
-const API_CACHE_NAME = 'hanzi-api-v1.5.8';
+const CACHE_NAME = 'hanzi-pwa-v1.5.9';
+const API_CACHE_NAME = 'hanzi-api-v1.5.9';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [
   '/',
   '/manifest.json',
-  '/static/css/fontawesome.min.css',
+  '/static/vendor/fontawesome/css/all.min.css',
   '/static/js/hanzi-writer.min.js',
   '/static/img/icon-192.png',
   '/static/img/icon-512.png'

@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.5.8"></script>
+    <script src="/static/js/offline-store.js?v=1.5.9"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.8</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.9</span>
             </div>
 
             </nav>
@@ -15284,7 +15284,11 @@ window.addEventListener('error', function(e) {
         md.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         if (window.tocflHonorsData) renderHonorTab(window.activeHonorBand);
-        else { document.getElementById('tocfl-honors-m').innerHTML = `<div class="text-center py-14 text-slate-400 text-sm"><i class="fa-solid fa-spinner fa-spin"></i></div>`; loadTocflHonors(); }
+        else {
+        const hm = document.getElementById('tocfl-honors-m');
+        if (hm) hm.innerHTML = `<div class="text-center py-14 text-slate-400 text-sm"><i class="fa-solid fa-spinner fa-spin"></i></div>`;
+        loadTocflHonors();
+    }
     }
     function closeHonorModal() {
         const md = document.getElementById('tocfl-honor-modal');
@@ -18052,7 +18056,7 @@ function renderDictLookupDetail(entry) {
         entry.tocfl_band ? `<span class="dict-pastel dict-pastel-blue">TOCFL ${entry.tocfl_band}</span>` : '',
         entry.hsk_level ? `<span class="dict-pastel dict-pastel-purple">HSK ${entry.hsk_level}</span>` : '',
         ...sourceLabels.map(src => `<span class="dict-pastel dict-pastel-amber">${src === 'tocfl_textbook' ? 'Giáo trình TOCFL' : (src === 'moedict' ? 'Từ điển MOE' : src)}</span>`),
-        ...(entry.tags || []).map(t => `<a href="/vocab-notebook-hub#tag-${t.tag_id}" class="dict-pastel dict-pastel-green hover:opacity-80 transition-opacity">${t.tag_name}</a>`)
+        ...(entry.tags || []).map(t => `<button type="button" onclick="if(typeof vnhSelectDictTag==='function') vnhSelectDictTag(${t.tag_id},'${String(t.tag_name || '').replace(/'/g, "\\'")}');" class="dict-pastel dict-pastel-green hover:opacity-80 transition-opacity cursor-pointer text-left">${t.tag_name}</button>`)
     ].filter(Boolean).join('');
 
     // Nhóm theo từ loại (pos) — tính trước để header "Nghĩa tiếng Việt" và khối "Từ vựng" bên dưới
@@ -23156,78 +23160,63 @@ document.addEventListener('click', (ev) => {
 
         function toggleLoginPwd() {
             const input = document.getElementById('login-pwd');
+            if (!input) return;
             const isHidden = input.type === 'password';
             input.type = isHidden ? 'text' : 'password';
-            document.getElementById('login-eye-show').classList.toggle('hidden', isHidden);
-            document.getElementById('login-eye-hide').classList.toggle('hidden', !isHidden);
+            const eyeShow = document.getElementById('login-eye-show');
+            if (eyeShow) eyeShow.classList.toggle('hidden', isHidden);
+            const eyeHide = document.getElementById('login-eye-hide');
+            if (eyeHide) eyeHide.classList.toggle('hidden', !isHidden);
         }
 
         function toggleAuthForm(type) {
-
-            document.getElementById('auth-error').classList.add('hidden');
-
-            document.getElementById('auth-success').classList.add('hidden');
+            const err = document.getElementById('auth-error');
+            if (err) err.classList.add('hidden');
+            const suc = document.getElementById('auth-success');
+            if (suc) suc.classList.add('hidden');
 
             const forms = ['login', 'register-step1', 'register-step2', 'forgot-step1', 'forgot-step2'];
-
-            forms.forEach(f => document.getElementById('form-' + f).classList.add('hidden'));
+            forms.forEach(f => {
+                const el = document.getElementById('form-' + f);
+                if (el) el.classList.add('hidden');
+            });
 
             const quickAuth = document.getElementById('quick-auth-block');
             const showQuickAuth = (type === 'login' || type === 'register_step1');
             if (quickAuth) quickAuth.classList.toggle('hidden', !showQuickAuth);
 
-            document.getElementById('email-auth-forms').classList.remove('hidden');
+            const emailAuth = document.getElementById('email-auth-forms');
+            if (emailAuth) emailAuth.classList.remove('hidden');
             const toggleBtn = document.getElementById('toggle-email-auth');
             if (toggleBtn) toggleBtn.classList.add('hidden');
 
-            if (type === 'login') {
+            const titleEl = document.getElementById('auth-title');
+            const formEl = document.getElementById('form-' + (type === 'register_step1' ? 'register-step1' : (type === 'register_step2' ? 'register-step2' : (type === 'forgot' ? 'forgot-step1' : (type === 'forgot_step2' ? 'forgot-step2' : 'login')))));
+            if (formEl) formEl.classList.remove('hidden');
 
-                document.getElementById('form-login').classList.remove('hidden');
-
-                document.getElementById('auth-title').innerText = 'Đăng nhập hệ thống';
-
-            } else if (type === 'register_step1') {
-
-                document.getElementById('form-register-step1').classList.remove('hidden');
-
-                document.getElementById('auth-title').innerText = 'Tạo tài khoản';
-
-            } else if (type === 'register_step2') {
-
-                document.getElementById('form-register-step2').classList.remove('hidden');
-
-                document.getElementById('auth-title').innerText = 'Xác thực Email';
-
-            } else if (type === 'forgot') {
-
-                document.getElementById('form-forgot-step1').classList.remove('hidden');
-
-                document.getElementById('auth-title').innerText = 'Quên mật khẩu';
-
-            } else if (type === 'forgot_step2') {
-
-                document.getElementById('form-forgot-step2').classList.remove('hidden');
-
-                document.getElementById('auth-title').innerText = 'Đặt lại mật khẩu';
-
+            if (titleEl) {
+                if (type === 'login') titleEl.innerText = 'Đăng nhập hệ thống';
+                else if (type === 'register_step1') titleEl.innerText = 'Tạo tài khoản';
+                else if (type === 'register_step2') titleEl.innerText = 'Xác thực Email';
+                else if (type === 'forgot') titleEl.innerText = 'Quên mật khẩu';
+                else if (type === 'forgot_step2') titleEl.innerText = 'Đặt lại mật khẩu';
             }
-
         }
 
-
-
         function toggleEmailAuth() {
-            document.getElementById('email-auth-forms').classList.remove('hidden');
-            document.getElementById('toggle-email-auth').classList.add('hidden');
+            const emailAuth = document.getElementById('email-auth-forms');
+            if (emailAuth) emailAuth.classList.remove('hidden');
+            const toggleBtn = document.getElementById('toggle-email-auth');
+            if (toggleBtn) toggleBtn.classList.add('hidden');
         }
 
         function showAuthMsg(type, text) {
-
-            const err = document.getElementById('auth-error'); const suc = document.getElementById('auth-success');
-
-            err.classList.add('hidden'); suc.classList.add('hidden');
-
-            if(type === 'error'){ err.innerText = text; err.classList.remove('hidden'); }
+            const err = document.getElementById('auth-error'); 
+            const suc = document.getElementById('auth-success');
+            if (err) err.classList.add('hidden'); 
+            if (suc) suc.classList.add('hidden');
+            if (type === 'error' && err) { err.innerText = text; err.classList.remove('hidden'); }
+            if (type === 'success' && suc) { suc.innerText = text; suc.classList.remove('hidden'); }
 
             else { suc.innerText = text; suc.classList.remove('hidden'); }
 
@@ -26033,27 +26022,23 @@ document.addEventListener('click', (ev) => {
             e.preventDefault();
 
             const btn = document.getElementById('btn-submit-report');
+            const originalText = btn ? btn.innerHTML : '';
+            if (btn) {
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
+                btn.disabled = true;
+            }
 
-            const originalText = btn.innerHTML;
-
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ĐANG GỬI...';
-
-            btn.disabled = true;
-
-
+            const getVal = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.value : '';
+            };
 
             const payload = {
-
-                user_id: currentUser.id,
-
-                module_name: document.getElementById('report-module-name').value,
-
-                item_id: document.getElementById('report-item-id').value,
-
-                error_type: document.getElementById('report-error-type').value,
-
-                description: document.getElementById('report-description').value
-
+                user_id: currentUser ? currentUser.id : null,
+                module_name: getVal('report-module-name'),
+                item_id: getVal('report-item-id'),
+                error_type: getVal('report-error-type'),
+                description: getVal('report-description')
             };
 
 
@@ -26463,7 +26448,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.5.8', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.5.9', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

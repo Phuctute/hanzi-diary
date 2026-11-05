@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.5.6"></script>
+    <script src="/static/js/offline-store.js?v=1.5.7"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.6</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.7</span>
             </div>
 
             </nav>
@@ -5551,6 +5551,7 @@ window.addEventListener('error', function(e) {
         currentFlashcardIdx = 0; currentExamplePlayIdx = 0;
         resetFlashcardScroll();
         updateFlashcardUI();
+        if (typeof preloadLessonAudio === 'function') preloadLessonAudio(flashcardList);
         document.getElementById('flashcard-inner').classList.remove('rotate-y-180');
         document.getElementById('flashcard-nav-btns').classList.remove('hidden');
         if (currentUser) {
@@ -24800,38 +24801,84 @@ document.addEventListener('click', (ev) => {
         // Nếu chưa có file (từ mới/câu ví dụ chưa generate) → rơi xuống Google Translate TTS,
         // rồi Web Speech API.
         // Bộ nhớ đệm âm thanh nạp trước (Audio Preloader) để học mượt, không độ trễ
+        // Bộ nhớ đệm âm thanh nạp trước (Audio Preloader) để học mượt, không độ trễ
         const __preloadedUrls = new Set();
         function preloadAudio(urls) {
             if (!urls) return;
             if (!Array.isArray(urls)) urls = [urls];
-            urls.filter(u => u && typeof u === 'string' && !__preloadedUrls.has(u)).slice(0, 10).forEach(url => {
-                __preloadedUrls.add(url);
-                const doPreload = () => {
-                    const a = new Audio();
-                    a.preload = 'auto';
-                    a.src = url;
-                    a.oncanplaythrough = a.onerror = () => {
-                        a.oncanplaythrough = a.onerror = null;
-                    };
-                };
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(doPreload, { timeout: 2500 });
-                } else {
-                    setTimeout(doPreload, 150);
+            const toLoad = urls.filter(u => u && typeof u === 'string' && !__preloadedUrls.has(u));
+            toLoad.forEach(u => __preloadedUrls.add(u));
+            if (toLoad.length === 0) return;
+
+            // Nạp âm thanh nền thành từng đợt nhỏ qua fetch (để Service Worker lưu cache 200 OK)
+            let idx = 0;
+            const loadBatch = () => {
+                if (idx >= toLoad.length) return;
+                if (typeof navigator !== 'undefined' && !navigator.onLine) return;
+                const batch = toLoad.slice(idx, idx + 4);
+                idx += 4;
+                batch.forEach(url => {
+                    fetch(url, { priority: 'low' }).catch(() => {});
+                });
+                if (idx < toLoad.length) {
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(loadBatch, { timeout: 2000 });
+                    } else {
+                        setTimeout(loadBatch, 250);
+                    }
                 }
-            });
+            };
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadBatch, { timeout: 1500 });
+            } else {
+                setTimeout(loadBatch, 100);
+            }
+        }
+
+        // Tự động tải trước âm thanh cho toàn bộ từ vựng của bài học đang mở
+        function preloadLessonAudio(list) {
+            if (!list || !Array.isArray(list) || list.length === 0) return;
+            if (typeof navigator !== 'undefined' && !navigator.onLine) return;
+            const urls = list.map(v => (v && v.hanzi) ? ttsLocalPath(v.hanzi) : null).filter(Boolean);
+            if (typeof preloadAudio === 'function') preloadAudio(urls);
         }
 
         function ttsLocalPath(text) {
-            const fname = text.replace(/[\/\\]/g, '_');
+            // Tách lấy từ đầu tiên nếu là từ phân cách bằng / (ví dụ: 老闆/老板 -> 老闆)
+            const cleanText = (text || '').split(/[/／]/)[0].replace(/["']/g, '').trim();
+            const fname = cleanText.replace(/[\/\\]/g, '_');
             return `/audio/tts/${encodeURIComponent(fname)}.mp3`;
         }
 
-        // Token tăng dần mỗi lần playTTS() được gọi + cờ "đã thực sự phát".
-        // Tránh 2 giọng chồng nhau khi trình duyệt bắn 'error' trễ (vd. do lỗi
-        // Range request 206 của PHP dev server) SAU KHI audio local đã kêu —
-        // handler cũ (đã hết hạn theo token) hoặc handler mới (đã có started=true)
-        // đều không được phép fallback nữa.
+        // Quản lý theo dõi sự cố mất mạng đột ngột khi đang sử dụng
+        let __networkFailedRecently = false;
+        let __networkFailTimer = null;
+        function markNetworkDown() {
+            __networkFailedRecently = true;
+            clearTimeout(__networkFailTimer);
+            __networkFailTimer = setTimeout(() => { __networkFailedRecently = false; }, 12000);
+        }
+        window.addEventListener('offline', () => markNetworkDown());
+        window.addEventListener('online', () => { __networkFailedRecently = false; });
+
+        // Khởi động trước danh sách giọng nói cho Web Speech API (tránh getVoices() trả về mảng rỗng)
+        let __ttsVoices = [];
+        function __loadTtsVoices() {
+            if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                try {
+                    const v = window.speechSynthesis.getVoices();
+                    if (v && v.length > 0) __ttsVoices = v;
+                } catch (e) {}
+            }
+        }
+        __loadTtsVoices();
+        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                __loadTtsVoices();
+            };
+        }
+
+        // Token tăng dần mỗi lần playTTS() được gọi + cờ "đã thực sự phát"
         let __ttsToken = 0;
         let __ttsStarted = false;
 
@@ -24866,108 +24913,122 @@ document.addEventListener('click', (ev) => {
             if (!encodedText) return;
 
             const text = decodeURIComponent(encodedText).replace(/["']/g, '').trim();
-
             if (!text) return;
 
-            // Nếu đang offline: kiểm tra audio đã cache, nếu chưa có phát ngay bằng Web Speech API
-            if (!navigator.onLine) {
-                const localUrl = ttsLocalPath(text);
+            const localUrl = ttsLocalPath(text);
+            const token = ++__ttsToken;
+            __ttsStarted = false;
+            let fallbackDone = false;
+
+            if (isKaraokePlaying) {
+                karaokeAudio.pause(); isKaraokePlaying = false;
+                const kb = document.getElementById('karaokePlayBtn');
+                if (kb) kb.innerHTML = '<i class="fa-solid fa-play ml-0.5 text-sm sm:text-lg"></i>';
+            }
+
+            const triggerFallback = () => {
+                if (token !== __ttsToken || __ttsStarted || fallbackDone) return;
+                fallbackDone = true;
+                globalAudioPlayer.pause();
+                playTTSFallback(text);
+            };
+
+            const isOfflineNow = !navigator.onLine || __networkFailedRecently;
+
+            // Nếu đang offline hoặc vừa bị mất mạng: ưu tiên mở cache, nếu chưa cache phát ngay qua Web Speech API
+            if (isOfflineNow) {
                 if ('caches' in window) {
                     caches.match(localUrl).then(cached => {
                         if (cached) {
                             globalAudioPlayer.pause();
                             globalAudioPlayer.currentTime = 0;
                             globalAudioPlayer.src = localUrl;
-                            globalAudioPlayer.play().catch(() => playTTSFallback(text));
+                            globalAudioPlayer.play().catch(triggerFallback);
                         } else {
-                            playTTSFallback(text);
+                            triggerFallback();
                         }
-                    }).catch(() => playTTSFallback(text));
+                    }).catch(triggerFallback);
                 } else {
-                    playTTSFallback(text);
+                    triggerFallback();
                 }
                 return;
             }
 
-            const token = ++__ttsToken;
-            __ttsStarted = false;
-
+            // Trường hợp có mạng: phát MP3 chất lượng cao
             try {
-
-                if (isKaraokePlaying) {
-
-                    karaokeAudio.pause(); isKaraokePlaying = false;
-
-                    document.getElementById('karaokePlayBtn').innerHTML = '<i class="fa-solid fa-play ml-0.5 text-sm sm:text-lg"></i>';
-
-                }
-
                 globalAudioPlayer.pause();
-
                 globalAudioPlayer.currentTime = 0;
-
-                globalAudioPlayer.src = ttsLocalPath(text);
-
+                globalAudioPlayer.src = localUrl;
                 ttsBindStarted(token);
 
-                // Nếu file local không tồn tại (404) hoặc lỗi phát: rơi xuống Google TTS,
-                // rồi cuối cùng Web Speech API — không im lặng nuốt lỗi (report #88).
-                // Bỏ qua nếu token đã cũ (bị playTTS khác ghi đè) hoặc audio đã thực sự phát.
-                // `onerror` và `.play().catch()` có thể CÙNG bắn cho một lần lỗi duy nhất
-                // (report "2 giọng chồng nhau" 21/7, xác nhận qua Network tab: local mp3 +
-                // translate_tts cùng request) — cờ fallbackDone chỉ cho 1 trong 2 được kích
-                // hoạt fallback, và pause() cứng trước khi đổi src để audio cũ tắt hẳn.
-                let fallbackDone = false;
-                const toGoogle = () => {
-                    if (token !== __ttsToken || __ttsStarted || fallbackDone) return;
-                    fallbackDone = true;
-                    globalAudioPlayer.pause();
-                    if (!navigator.onLine) {
-                        playTTSFallback(text);
-                    } else {
-                        playTTSGoogle(text, token);
+                // Watchdog phát hiện sự cố mất mạng đột ngột (2.6s không phản hồi -> chuyển ngay sang Web Speech API)
+                const watchdog = setTimeout(() => {
+                    if (token === __ttsToken && !__ttsStarted && !fallbackDone) {
+                        markNetworkDown();
+                        triggerFallback();
                     }
-                };
+                }, 2600);
 
-                globalAudioPlayer.onerror = toGoogle;
-
-                globalAudioPlayer.play().catch(toGoogle);
-
-            } catch(err) { playTTSGoogle(text, token); }
-
-        }
-
-        function playTTSGoogle(text, token) {
-            try {
-                let fallbackDone = false;
-                const toFallback = () => {
+                const onLocalError = () => {
+                    clearTimeout(watchdog);
                     if (token !== __ttsToken || __ttsStarted || fallbackDone) return;
                     fallbackDone = true;
                     globalAudioPlayer.pause();
+                    markNetworkDown();
                     playTTSFallback(text);
                 };
-                globalAudioPlayer.onerror = toFallback;
-                globalAudioPlayer.src = `https://translate.googleapis.com/translate_tts?client=gtx&ie=UTF-8&tl=zh-TW&q=${encodeURIComponent(text)}`;
-                ttsBindStarted(token);
-                globalAudioPlayer.play().catch(toFallback);
-            } catch (err) { playTTSFallback(text); }
+
+                globalAudioPlayer.onerror = onLocalError;
+                globalAudioPlayer.play().then(() => {
+                    clearTimeout(watchdog);
+                }).catch(() => {
+                    clearTimeout(watchdog);
+                    onLocalError();
+                });
+
+            } catch(err) {
+                triggerFallback();
+            }
         }
 
         function playTTSFallback(text) {
             try {
-                if (!('speechSynthesis' in window)) return;
-                window.speechSynthesis.cancel();
-                const u = new SpeechSynthesisUtterance(text);
-                u.lang = 'zh-TW'; u.rate = 0.9;
-                if (window.speechSynthesis.getVoices) {
-                    const voices = window.speechSynthesis.getVoices();
-                    const twVoice = voices.find(v => v.lang === 'zh-TW' || v.lang === 'zh_TW') ||
-                                    voices.find(v => v.lang && v.lang.startsWith('zh'));
-                    if (twVoice) u.voice = twVoice;
+                if (!text || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+                const clean = (text || '').split(/[/／]/)[0].replace(/["']/g, '').trim();
+                if (!clean) return;
+
+                if (!__ttsVoices || __ttsVoices.length === 0) {
+                    __loadTtsVoices();
                 }
+                const u = new SpeechSynthesisUtterance(clean);
+                u.lang = 'zh-TW';
+                u.rate = 0.88;
+
+                if (__ttsVoices && __ttsVoices.length > 0) {
+                    const twVoice = __ttsVoices.find(v => /^(zh[-_]TW|cmn[-_]Hant[-_]TW)/i.test(v.lang)) ||
+                                    __ttsVoices.find(v => /^(zh[-_]HK|cmn[-_]Hant)/i.test(v.lang)) ||
+                                    __ttsVoices.find(v => /^(zh|cmn)/i.test(v.lang)) ||
+                                    __ttsVoices.find(v => v.name && /Taiwan|國語|Chinese|Mandarin/i.test(v.name));
+                    if (twVoice) {
+                        u.voice = twVoice;
+                        if (twVoice.lang) u.lang = twVoice.lang;
+                    }
+                }
+
+                if (window.speechSynthesis.speaking) {
+                    window.speechSynthesis.cancel();
+                }
+
+                u.onerror = (e) => {
+                    console.warn('[TTS] Web Speech API error:', e);
+                };
+
                 window.speechSynthesis.speak(u);
-            } catch (e) {}
+            } catch (e) {
+                console.warn('[TTS] Web Speech API fallback failed:', e);
+            }
         }
+
 
         
 
@@ -25800,6 +25861,7 @@ document.addEventListener('click', (ev) => {
                 } catch (err) { vocabData = []; }
 
                 filteredVocabData = [...vocabData];
+                if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
 
                 rawKaraokeData = [];
                 window.rawKaraokeData = [];
@@ -25847,6 +25909,7 @@ document.addEventListener('click', (ev) => {
                 ]);
                 vocabData = Array.isArray(vocabJson) ? vocabJson : [];
                 filteredVocabData = [...vocabData];
+                if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
                 rawKaraokeData = (diagJson && diagJson.success && diagJson.data) ? diagJson.data : [];
                 window.rawKaraokeData = rawKaraokeData;
                 window._karaokeLoadedLessonId = String(lessonId);
@@ -26326,7 +26389,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.5.6', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.5.7', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

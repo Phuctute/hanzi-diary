@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.5.6';
-const API_CACHE_NAME = 'hanzi-api-v1.5.6';
+const CACHE_NAME = 'hanzi-pwa-v1.5.7';
+const API_CACHE_NAME = 'hanzi-api-v1.5.7';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -45,20 +45,40 @@ self.addEventListener('fetch', (event) => {
   // Chỉ cache GET
   if (req.method !== 'GET') return;
 
-  // 1. Audio TTS: Cache-First
+  // 1. Audio TTS: Cache-First with Range Support and Sudden Network Drop Timeout
   if (url.pathname.startsWith('/audio/tts/') || url.pathname.startsWith('/static/sounds/')) {
     event.respondWith(
-      caches.open(AUDIO_CACHE_NAME).then((cache) => {
-        return cache.match(req).then((cached) => {
-          if (cached) return cached;
-          return fetch(req).then((response) => {
-            if (response && response.status === 200) {
-              cache.put(req, response.clone());
+      (async () => {
+        const cache = await caches.open(AUDIO_CACHE_NAME);
+        const cleanUrl = url.origin + url.pathname;
+        
+        // 1. Tra cứu nhanh từ cache (bỏ qua Range header)
+        const cached = (await cache.match(cleanUrl)) || (await cache.match(req));
+        if (cached) {
+          return cached;
+        }
+
+        // 2. Fetch có timeout 3.2s để tránh treo khi đang dùng thì đột ngột mất mạng
+        const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        const timeoutId = controller ? setTimeout(() => controller.abort(), 3200) : null;
+
+        try {
+          const fetchOptions = controller ? { signal: controller.signal } : {};
+          const fullRes = await fetch(cleanUrl, fetchOptions);
+          if (timeoutId) clearTimeout(timeoutId);
+
+          if (fullRes && (fullRes.status === 200 || fullRes.status === 206)) {
+            if (fullRes.status === 200) {
+              cache.put(cleanUrl, fullRes.clone()).catch(() => {});
             }
-            return response;
-          }).catch(() => new Response('', { status: 408 }));
-        });
-      })
+            return fullRes;
+          }
+          return fullRes;
+        } catch (err) {
+          if (timeoutId) clearTimeout(timeoutId);
+          return new Response('', { status: 408, statusText: 'Network Unavailable' });
+        }
+      })()
     );
     return;
   }

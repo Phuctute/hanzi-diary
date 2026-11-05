@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.5.5"></script>
+    <script src="/static/js/offline-store.js?v=1.5.6"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.5</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.6</span>
             </div>
 
             </nav>
@@ -5180,7 +5180,7 @@ window.addEventListener('error', function(e) {
                 </div>
 
                 <div id="fc-face-back" class="absolute w-full h-full backface-hidden bg-white border border-slate-100 rounded-[32px] rotate-y-180 overflow-hidden flex flex-col">
-                    <div class="w-full h-full overflow-y-auto p-6 sm:p-10 flex flex-col custom-scrollbar relative">
+                    <div id="fc-back-scroll" class="w-full h-full overflow-y-auto p-6 sm:p-10 flex flex-col custom-scrollbar relative">
                         <div class="mb-4 sm:mb-5 border-b border-slate-100 pb-4 sm:pb-5 pr-8">
                             <span class="inline-block bg-slate-100 text-slate-500 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2">Pinyin</span>
                             <div id="fc-pinyin" class="text-2xl sm:text-4xl font-black text-primary leading-tight tracking-wide">nǐ</div>
@@ -5317,23 +5317,40 @@ window.addEventListener('error', function(e) {
     }
 
     function resetFlashcardScroll() {
-        const scrollContainers = [
-            document.querySelector('#fc-face-back .overflow-y-auto'),
-            document.getElementById('fc-face-back'),
-            document.getElementById('fc-face-front'),
-            document.getElementById('fc-card-wrapper'),
-            document.getElementById('fc-contexts')
-        ];
-        scrollContainers.forEach(el => {
-            if (el) el.scrollTop = 0;
-        });
+        const doReset = () => {
+            const backScroll = document.getElementById('fc-back-scroll') || document.querySelector('#fc-face-back .overflow-y-auto');
+            if (backScroll) {
+                backScroll.scrollTop = 0;
+                if (typeof backScroll.scrollTo === 'function') {
+                    try { backScroll.scrollTo(0, 0); } catch (e) {}
+                }
+            }
+            const backFace = document.getElementById('fc-face-back');
+            if (backFace) {
+                backFace.scrollTop = 0;
+                if (typeof backFace.scrollTo === 'function') {
+                    try { backFace.scrollTo(0, 0); } catch (e) {}
+                }
+            }
+            const frontFace = document.getElementById('fc-face-front');
+            if (frontFace) frontFace.scrollTop = 0;
+            const cardWrapper = document.getElementById('fc-card-wrapper');
+            if (cardWrapper) cardWrapper.scrollTop = 0;
+            const ctxBox = document.getElementById('fc-contexts');
+            if (ctxBox) ctxBox.scrollTop = 0;
+        };
+
+        doReset();
         if (typeof requestAnimationFrame === 'function') {
             requestAnimationFrame(() => {
-                scrollContainers.forEach(el => {
-                    if (el) el.scrollTop = 0;
-                });
+                doReset();
+                requestAnimationFrame(doReset);
             });
         }
+        setTimeout(doReset, 50);
+        setTimeout(doReset, 150);
+        setTimeout(doReset, 350);
+        setTimeout(doReset, 500);
     }
 
     function pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin) {
@@ -5531,7 +5548,9 @@ window.addEventListener('error', function(e) {
 
     function initFlashcard() {
         flashcardList = expandFlashcardVocab(vocabData);
-        currentFlashcardIdx = 0; currentExamplePlayIdx = 0; updateFlashcardUI();
+        currentFlashcardIdx = 0; currentExamplePlayIdx = 0;
+        resetFlashcardScroll();
+        updateFlashcardUI();
         document.getElementById('flashcard-inner').classList.remove('rotate-y-180');
         document.getElementById('flashcard-nav-btns').classList.remove('hidden');
         if (currentUser) {
@@ -5701,10 +5720,8 @@ window.addEventListener('error', function(e) {
         const inner = document.getElementById('flashcard-inner');
         if (inner) {
             inner.classList.toggle('rotate-y-180');
-            if (!inner.classList.contains('rotate-y-180')) {
-                resetFlashcardScroll();
-            }
         }
+        resetFlashcardScroll();
         currentExamplePlayIdx = 0; 
         removeExampleHighlights();
     }
@@ -5982,6 +5999,7 @@ window.addEventListener('error', function(e) {
         } else { exHtml = '<p class="text-xs sm:text-sm text-slate-400 italic bg-slate-50 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-slate-100">Không có ví dụ.</p>'; }
         document.getElementById('fc-examples').innerHTML = exHtml;
         loadVocabContexts(v.vocab_id || v.id);
+        resetFlashcardScroll();
     }
 
     // Escape HTML tối thiểu (nội dung chèn dạng text, không cần escape dấu ngoặc kép)
@@ -26308,7 +26326,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.5.5', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.5.6', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

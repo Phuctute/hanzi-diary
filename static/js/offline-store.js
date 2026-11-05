@@ -1,5 +1,5 @@
 /**
- * Hanzi Diary Offline Data Engine (v1.5.5)
+ * Hanzi Diary Offline Data Engine (v1.5.6)
  * Lưu trữ toàn bộ 145 bài học, 18.9k từ vựng, ngữ pháp và phát âm Web Speech API khi không có mạng.
  */
 (function() {
@@ -9,7 +9,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '1.5.5';
+    const CURRENT_VERSION = '1.5.6';
 
     let dbInstance = null;
     let cachedBundle = null;
@@ -67,7 +67,7 @@
     async function populateCacheStorage(bundle) {
         if (!('caches' in window)) return;
         try {
-            const cache = await caches.open('hanzi-api-v1.5.5');
+            const cache = await caches.open('hanzi-api-v1.5.6');
             const jsonResp = (obj) => new Response(JSON.stringify(obj), {
                 headers: { 'Content-Type': 'application/json', 'X-Offline-Preload': '1' }
             });

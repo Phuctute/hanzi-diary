@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSidebar();
   initShortcuts();
   try {
-    const swMatch = 'hanzi-pwa-v1.5.2'.match(/v1\.\d+\.\d+/);
+    const swMatch = 'hanzi-pwa-v1.5.3'.match(/v1\.\d+\.\d+/);
     if (swMatch) {
       const el = document.getElementById('app-version-badge');
       if (el) el.innerText = swMatch[0];

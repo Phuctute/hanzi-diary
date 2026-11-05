@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.5.4"></script>
+    <script src="/static/js/offline-store.js?v=1.5.5"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.4</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.5.5</span>
             </div>
 
             </nav>
@@ -5297,6 +5297,45 @@ window.addEventListener('error', function(e) {
     let fcDueNowVocab = [];
     var flashcardList = [];
 
+    function isTradSimpVariantOnly(hanziParts) {
+        if (!Array.isArray(hanziParts) || hanziParts.length < 2) return false;
+        if (typeof ensureOpenCC === 'function') ensureOpenCC();
+        const clean = hanziParts.map(s => (s || '').replace(/[^\u4e00-\u9fa5]/g, '').trim()).filter(Boolean);
+        if (clean.length < 2) return false;
+        const firstLen = clean[0].length;
+        if (!clean.every(s => s.length === firstLen)) return false;
+
+        if (typeof converterT2S === 'function') {
+            const simps = clean.map(s => converterT2S(s));
+            if (simps.every(s => s === simps[0])) return true;
+        }
+        if (typeof converterS2T === 'function') {
+            const trads = clean.map(s => converterS2T(s));
+            if (trads.every(s => s === trads[0])) return true;
+        }
+        return false;
+    }
+
+    function resetFlashcardScroll() {
+        const scrollContainers = [
+            document.querySelector('#fc-face-back .overflow-y-auto'),
+            document.getElementById('fc-face-back'),
+            document.getElementById('fc-face-front'),
+            document.getElementById('fc-card-wrapper'),
+            document.getElementById('fc-contexts')
+        ];
+        scrollContainers.forEach(el => {
+            if (el) el.scrollTop = 0;
+        });
+        if (typeof requestAnimationFrame === 'function') {
+            requestAnimationFrame(() => {
+                scrollContainers.forEach(el => {
+                    if (el) el.scrollTop = 0;
+                });
+            });
+        }
+    }
+
     function pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin) {
         if (!pinyinParts || pinyinParts.length === 0) return rawPinyin;
         if (pinyinParts.length === hanziParts.length) return pinyinParts[idx];
@@ -5341,6 +5380,11 @@ window.addEventListener('error', function(e) {
             if (/[/／]/.test(rawHanzi)) {
                 const hanziParts = rawHanzi.split(/[/／]/).map(s => s.trim()).filter(Boolean);
                 if (hanziParts.length > 1) {
+                    // Cách 2: Các biến thể Phồn/Giản của cùng 1 từ (như 老闆/老板, 計劃/計畫) giữ nguyên 1 thẻ duy nhất
+                    if (isTradSimpVariantOnly(hanziParts)) {
+                        cards.push(v);
+                        return;
+                    }
                     const rawPinyin = (v.pinyin || '').trim();
                     const pinyinParts = /[/／]/.test(rawPinyin)
                         ? rawPinyin.split(/[/／]/).map(s => s.trim()).filter(Boolean)
@@ -5657,6 +5701,9 @@ window.addEventListener('error', function(e) {
         const inner = document.getElementById('flashcard-inner');
         if (inner) {
             inner.classList.toggle('rotate-y-180');
+            if (!inner.classList.contains('rotate-y-180')) {
+                resetFlashcardScroll();
+            }
         }
         currentExamplePlayIdx = 0; 
         removeExampleHighlights();
@@ -5678,6 +5725,7 @@ window.addEventListener('error', function(e) {
         currentFlashcardIdx = (currentFlashcardIdx + direction + flashcardList.length) % flashcardList.length;
         const inner = document.getElementById('flashcard-inner');
         if (inner) inner.classList.remove('rotate-y-180');
+        resetFlashcardScroll();
         currentExamplePlayIdx = 0;
         removeExampleHighlights();
         updateFlashcardUI();
@@ -5861,6 +5909,7 @@ window.addEventListener('error', function(e) {
     }
 
     function updateFlashcardUI() {
+        resetFlashcardScroll();
         if (!flashcardList || flashcardList.length === 0) {
             flashcardList = expandFlashcardVocab(vocabData);
         }
@@ -5873,15 +5922,16 @@ window.addEventListener('error', function(e) {
         const v = flashcardList[currentFlashcardIdx] || flashcardList[0];
         document.getElementById('fc-counter').innerText = `${currentFlashcardIdx + 1} / ${flashcardList.length}`;
         const displayVHanzi = getChar(v.hanzi);
+        const ttsVHanzi = (displayVHanzi || '').split(/[/／]/)[0].trim();
         document.getElementById('fc-hanzi').innerText = displayVHanzi;
-        document.getElementById('fc-audio-btn').setAttribute('data-text', encodeURIComponent(displayVHanzi));
+        document.getElementById('fc-audio-btn').setAttribute('data-text', encodeURIComponent(ttsVHanzi));
         document.querySelectorAll('.fc-save-btn i').forEach(icon => {
             icon.classList.remove('fa-solid');
             icon.classList.add('fa-regular');
         });
         document.querySelectorAll('.fc-save-btn').forEach(b => b.classList.remove('is-saved'));
         // Tự động phát âm từ mới khi bật
-        if (fcAutoPlay) playTTS(encodeURIComponent(displayVHanzi));
+        if (fcAutoPlay) playTTS(encodeURIComponent(ttsVHanzi));
         document.getElementById('fc-pinyin').innerText = v.pinyin;
         document.getElementById('fc-pos').innerText = v.part_of_speech || 'N/A';
         const tocflWrap = document.getElementById('fc-tocfl-wrap');
@@ -7485,6 +7535,11 @@ window.addEventListener('error', function(e) {
             if (/[/／]/.test(rawHanzi)) {
                 const hanziParts = rawHanzi.split(/[/／]/).map(s => s.trim()).filter(Boolean);
                 if (hanziParts.length > 1) {
+                    // Cách 2: Các biến thể Phồn/Giản của cùng 1 từ (như 老闆/老板, 計劃/計畫) giữ nguyên 1 câu hỏi duy nhất
+                    if (isTradSimpVariantOnly(hanziParts)) {
+                        questions.push(v);
+                        return;
+                    }
                     const rawPinyin = (v.pinyin || '').trim();
                     const pinyinParts = /[/／]/.test(rawPinyin)
                         ? rawPinyin.split(/[/／]/).map(s => s.trim()).filter(Boolean)
@@ -7789,7 +7844,8 @@ window.addEventListener('error', function(e) {
         });
 
         const displayQHanzi = getChar(q.hanzi);
-        const safeTextQ = displayQHanzi.replace(/"/g, '&quot;');
+        const ttsHanzi = (displayQHanzi || '').split(/[/／]/)[0].trim();
+        const safeTextQ = ttsHanzi.replace(/"/g, '&quot;');
         
         document.getElementById('quiz-container').innerHTML = `
             <div class="text-center relative pt-0.5 sm:pt-1" style="margin-bottom: clamp(44px, 6.5vw, 68px);">
@@ -7897,7 +7953,8 @@ window.addEventListener('error', function(e) {
 
             if (quizAutoRead) {
                 const displayHanzi = getChar(currentQ.hanzi);
-                playTTS(encodeURIComponent(displayHanzi));
+                const ttsHanzi = (displayHanzi || '').split(/[/／]/)[0].trim();
+                playTTS(encodeURIComponent(ttsHanzi));
             }
 
             if (isAutoNext) {
@@ -26251,7 +26308,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.5.4', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.5.5', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

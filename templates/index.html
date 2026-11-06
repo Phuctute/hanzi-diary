@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.6.1"></script>
+    <script src="/static/js/offline-store.js?v=1.6.2"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.1</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.2</span>
             </div>
 
             </nav>
@@ -5398,46 +5398,239 @@ window.addEventListener('error', function(e) {
         return pinyinParts[pinyinParts.length - 1];
     }
 
-    // Tách các từ đồng nghĩa có dấu / hoặc ／ (ví dụ "相片/照片", "哪裡/哪兒") thành các thẻ flashcard riêng biệt (giống logic Trắc nghiệm)
+    // Tách phần định nghĩa tương ứng cho từng từ (ví dụ "Như thế này / Như thế kia" -> ["Như thế này", "Như thế kia"])
+    // Bỏ qua dấu gạch chéo nằm trong dấu ngoặc chú thích như (trong nước/chất lỏng)
+    function splitDefinitionParts(defStr, expectedLen) {
+        if (!defStr || typeof defStr !== 'string') return [defStr || ''];
+        let depth = 0;
+        let masked = '';
+        for (let i = 0; i < defStr.length; i++) {
+            const c = defStr[i];
+            if (c === '(' || c === '（' || c === '[' || c === '【') {
+                depth++;
+                masked += c;
+            } else if (c === ')' || c === '）' || c === ']' || c === '】') {
+                depth = Math.max(0, depth - 1);
+                masked += c;
+            } else if ((c === '/' || c === '／') && depth > 0) {
+                masked += '\u0000';
+            } else {
+                masked += c;
+            }
+        }
+        const parts = masked.split(/[/／]/).map(p => p.replace(/\u0000/g, '/').trim()).filter(Boolean);
+        if (parts.length === expectedLen) {
+            return parts;
+        }
+        const arr = [];
+        for (let i = 0; i < expectedLen; i++) arr.push(defStr.trim());
+        return arr;
+    }
+
+    function splitPinyinSyllables(p) {
+        if (!p || typeof p !== 'string') return [];
+        const trimmed = p.trim();
+        if (trimmed.includes(' ')) {
+            return trimmed.split(/\s+/).filter(Boolean);
+        }
+        const matches = trimmed.match(/(?:[bcdfghjklmnpqrstwxyz]|zh|ch|sh)*(?:[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜaeiouüv]+(?:ng|n|r)?)(?:r)?/gi);
+        return matches ? matches.filter(Boolean) : [trimmed];
+    }
+
+    function escRegex(s) {
+        return (s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Tự động chuyển đổi câu ví dụ sang từ đang học (ví dụ: chuyển từ chứa "這麼" sang "那麼")
+    function adaptVocabExample(ex, partHanzi, partPinyin, partDef, allHanziParts, allPinyinParts, allDefParts, origDef) {
+        if (!ex || typeof ex !== 'object') return ex;
+        let hanzi = (ex.examples_hanzi || '').trim();
+        let pinyin = (ex.examples_pinyin || '').trim();
+        let translation = (ex.examples_translation || '').trim();
+
+        if (hanzi.includes(partHanzi)) {
+            return {
+                ...ex,
+                examples_hanzi: hanzi,
+                examples_pinyin: pinyin,
+                examples_translation: translation
+            };
+        }
+
+        let matchedOtherIdx = -1;
+        let matchedOtherHanzi = '';
+        for (let i = 0; i < allHanziParts.length; i++) {
+            const otherH = allHanziParts[i];
+            if (otherH !== partHanzi && otherH && hanzi.includes(otherH)) {
+                matchedOtherIdx = i;
+                matchedOtherHanzi = otherH;
+                break;
+            }
+        }
+
+        if (!matchedOtherHanzi) {
+            return ex;
+        }
+
+        const otherPinyin = allPinyinParts[matchedOtherIdx] || '';
+        const otherDef = allDefParts[matchedOtherIdx] || '';
+
+        // Thay thế chữ Hán trong câu ví dụ (xử lý cả dạng gạch chéo kép như "腳踏車/自行車")
+        const slashComboRegex = new RegExp(`${escRegex(matchedOtherHanzi)}\\s*[/／]\\s*${escRegex(partHanzi)}|${escRegex(partHanzi)}\\s*[/／]\\s*${escRegex(matchedOtherHanzi)}`, 'g');
+        if (slashComboRegex.test(hanzi)) {
+            hanzi = hanzi.replace(slashComboRegex, partHanzi);
+        } else {
+            hanzi = hanzi.replace(new RegExp(escRegex(matchedOtherHanzi), 'g'), partHanzi);
+        }
+
+        // Thay thế Pinyin trong câu ví dụ
+        if (otherPinyin && partPinyin) {
+            const srcClean = otherPinyin.trim();
+            const targetClean = partPinyin.trim();
+            const srcSyllables = splitPinyinSyllables(srcClean);
+            const targetSyllables = splitPinyinSyllables(targetClean);
+
+            const srcSpaced = srcSyllables.join(' ');
+            const targetSpaced = targetSyllables.join(' ');
+            const srcJoined = srcClean.replace(/\s+/g, '');
+            const targetJoined = targetClean.replace(/\s+/g, '');
+
+            const pSlashRegex = new RegExp(`${escRegex(srcSpaced)}\\s*[/／]\\s*${escRegex(targetSpaced)}|${escRegex(targetSpaced)}\\s*[/／]\\s*${escRegex(srcSpaced)}`, 'gi');
+            if (pSlashRegex.test(pinyin)) {
+                pinyin = pinyin.replace(pSlashRegex, targetSpaced);
+            } else {
+                if (srcSpaced && targetSpaced) {
+                    pinyin = pinyin.replace(new RegExp(escRegex(srcSpaced), 'gi'), (match) => {
+                        if (match[0] === match[0].toUpperCase() && match[0] !== match[0].toLowerCase()) {
+                            return targetSpaced.charAt(0).toUpperCase() + targetSpaced.slice(1);
+                        }
+                        return targetSpaced;
+                    });
+                }
+                if (srcJoined && targetJoined) {
+                    pinyin = pinyin.replace(new RegExp(escRegex(srcJoined), 'gi'), (match) => {
+                        if (match[0] === match[0].toUpperCase() && match[0] !== match[0].toLowerCase()) {
+                            return targetJoined.charAt(0).toUpperCase() + targetJoined.slice(1);
+                        }
+                        return targetJoined;
+                    });
+                }
+            }
+        }
+
+        // Thay thế nghĩa trong bản dịch ví dụ khi định nghĩa được tách riêng
+        if (partDef && otherDef && partDef !== origDef && otherDef !== origDef) {
+            const srcDefClean = otherDef.trim();
+            const targetDefClean = partDef.trim();
+            if (srcDefClean && targetDefClean) {
+                const defRegex = new RegExp(escRegex(srcDefClean), 'gi');
+                if (defRegex.test(translation)) {
+                    translation = translation.replace(defRegex, (m) => {
+                        if (m[0] === m[0].toUpperCase()) {
+                            return targetDefClean.charAt(0).toUpperCase() + targetDefClean.slice(1);
+                        }
+                        return targetDefClean.toLowerCase();
+                    });
+                } else {
+                    if (/như thế này|như này|như vậy|thế này/i.test(translation) && /kia|đó/i.test(targetDefClean)) {
+                        translation = translation.replace(/như thế này|như này|như vậy/gi, 'như thế kia')
+                                                 .replace(/thế này/gi, 'thế kia');
+                    } else if (/như thế kia|như kia|thế kia/i.test(translation) && /này/i.test(targetDefClean)) {
+                        translation = translation.replace(/như thế kia|như kia/gi, 'như thế này')
+                                                 .replace(/thế kia/gi, 'thế này');
+                    }
+                }
+            }
+        }
+
+        return {
+            ...ex,
+            examples_hanzi: hanzi,
+            examples_pinyin: pinyin,
+            examples_translation: translation
+        };
+    }
+
+    function adaptVocabExampleList(examples, partHanzi, partPinyin, partDef, allHanziParts, allPinyinParts, allDefParts, origDef) {
+        if (!Array.isArray(examples) || examples.length === 0) return [];
+        const directMatches = [];
+        const adaptedMatches = [];
+        const others = [];
+
+        examples.forEach(ex => {
+            if (!ex) return;
+            const h = (ex.examples_hanzi || '');
+            if (h.includes(partHanzi)) {
+                directMatches.push(ex);
+            } else {
+                const hasOther = allHanziParts.some(otherH => otherH && otherH !== partHanzi && h.includes(otherH));
+                if (hasOther) {
+                    adaptedMatches.push(adaptVocabExample(ex, partHanzi, partPinyin, partDef, allHanziParts, allPinyinParts, allDefParts, origDef));
+                } else {
+                    others.push(ex);
+                }
+            }
+        });
+
+        return [...directMatches, ...adaptedMatches, ...others];
+    }
+
+    // Tách 1 mục từ vựng có dấu gạch chéo thành các mục độc lập, gán nghĩa và ví dụ chính xác tương ứng
+    function splitVocabItemForLearning(v, splitType) {
+        if (!v) return [];
+        const rawHanzi = (v.hanzi || '').trim();
+        if (!/[/／]/.test(rawHanzi)) {
+            return [v];
+        }
+        const hanziParts = rawHanzi.split(/[/／]/).map(s => s.trim()).filter(Boolean);
+        if (hanziParts.length <= 1) {
+            return [v];
+        }
+        // Biến thể Phồn/Giản của cùng 1 từ (như 老闆/老板, 計劃/計畫) giữ nguyên 1 thẻ duy nhất
+        if (typeof isTradSimpVariantOnly === 'function' && isTradSimpVariantOnly(hanziParts)) {
+            return [v];
+        }
+        const rawPinyin = (v.pinyin || '').trim();
+        const pinyinParts = /[/／]/.test(rawPinyin)
+            ? rawPinyin.split(/[/／]/).map(s => s.trim()).filter(Boolean)
+            : [];
+        const rawDef = (v.definition || '').trim();
+        const defParts = splitDefinitionParts(rawDef, hanziParts.length);
+
+        const resolvedPinyins = hanziParts.map((partH, i) =>
+            pickSplitVocabPinyin(partH, i, hanziParts, pinyinParts, rawPinyin)
+        );
+
+        const baseId = v.vocab_id || v.id || `v_split`;
+        return hanziParts.map((partHanzi, idx) => {
+            const partPinyin = resolvedPinyins[idx];
+            const partDef = defParts[idx] || rawDef;
+            const adaptedExs = adaptVocabExampleList(v.examples, partHanzi, partPinyin, partDef, hanziParts, resolvedPinyins, defParts, rawDef);
+
+            const item = {
+                ...v,
+                vocab_id: `${baseId}_part_${idx + 1}`,
+                id: `${baseId}_part_${idx + 1}`,
+                original_vocab_id: baseId,
+                hanzi: partHanzi,
+                pinyin: partPinyin,
+                definition: partDef,
+                examples: adaptedExs
+            };
+            if (splitType === 'flashcard') item._is_split_flashcard = true;
+            if (splitType === 'quiz') item._is_split_question = true;
+            return item;
+        });
+    }
+
+    // Tách các từ đồng nghĩa có dấu / hoặc ／ (ví dụ "相片/照片", "哪裡/哪兒", "這麼/那麼") thành các thẻ flashcard riêng biệt
+    // Đồng thời tách nghĩa tương ứng và chuyển đổi ví dụ minh hoạ theo từ đang học
     function expandFlashcardVocab(vocabList) {
         if (!Array.isArray(vocabList)) return [];
         const cards = [];
         vocabList.forEach((v) => {
-            if (!v) return;
-            // Bỏ tên riêng khỏi flashcard: không có giá trị học từ vựng
-            if (v.is_proper_noun) return;
-            const rawHanzi = (v.hanzi || '').trim();
-            if (/[/／]/.test(rawHanzi)) {
-                const hanziParts = rawHanzi.split(/[/／]/).map(s => s.trim()).filter(Boolean);
-                if (hanziParts.length > 1) {
-                    // Cách 2: Các biến thể Phồn/Giản của cùng 1 từ (như 老闆/老板, 計劃/計畫) giữ nguyên 1 thẻ duy nhất
-                    if (isTradSimpVariantOnly(hanziParts)) {
-                        cards.push(v);
-                        return;
-                    }
-                    const rawPinyin = (v.pinyin || '').trim();
-                    const pinyinParts = /[/／]/.test(rawPinyin)
-                        ? rawPinyin.split(/[/／]/).map(s => s.trim()).filter(Boolean)
-                        : [];
-
-                    hanziParts.forEach((partHanzi, idx) => {
-                        const partPinyin = pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin);
-
-                        const baseId = v.vocab_id || v.id || `v_${idx}`;
-                        cards.push({
-                            ...v,
-                            vocab_id: `${baseId}_part_${idx + 1}`,
-                            id: `${baseId}_part_${idx + 1}`,
-                            original_vocab_id: baseId,
-                            hanzi: partHanzi,
-                            pinyin: partPinyin,
-                            _is_split_flashcard: true
-                        });
-                    });
-                    return;
-                }
-            }
-            cards.push(v);
+            if (!v || v.is_proper_noun) return;
+            cards.push(...splitVocabItemForLearning(v, 'flashcard'));
         });
         return cards;
     }
@@ -6024,7 +6217,7 @@ window.addEventListener('error', function(e) {
             }
         } else { exHtml = '<p class="text-xs sm:text-sm text-slate-400 italic bg-slate-50 p-3 sm:p-4 rounded-lg sm:rounded-xl border border-slate-100">Không có ví dụ.</p>'; }
         document.getElementById('fc-examples').innerHTML = exHtml;
-        loadVocabContexts(v.vocab_id || v.id);
+        loadVocabContexts(v.original_vocab_id || v.vocab_id || v.id, v.hanzi);
         resetFlashcardScroll();
     }
 
@@ -6065,7 +6258,7 @@ window.addEventListener('error', function(e) {
     }
 
     // Nạp & hiển thị "Từ này trong hội thoại" dạng Accordion (không làm tràn mặt thẻ)
-    async function loadVocabContexts(vocabId) {
+    async function loadVocabContexts(vocabId, overrideHanzi) {
         const section = document.getElementById('fc-contexts-section');
         const box = document.getElementById('fc-contexts');
         const badgeText = document.getElementById('fc-contexts-badge-text');
@@ -6087,7 +6280,7 @@ window.addEventListener('error', function(e) {
             if (badgeText) badgeText.innerText = `Ngữ cảnh hội thoại (${json.data.length} đoạn)`;
             let html = '';
             json.data.forEach(ctx => {
-                const hz = getChar(ctx.hanzi || '');
+                const hz = getChar(overrideHanzi || ctx.hanzi || '');
                 let linesHtml = '';
                 (ctx.lines || []).forEach(l => {
                     const disp = ctxEscHtml(getChar(l.line || ''));
@@ -7567,46 +7760,14 @@ window.addEventListener('error', function(e) {
 </div>
 
 <script>
-    // Tách các từ đồng nghĩa có dấu / hoặc ／ (ví dụ "相片/照片", "哪裡/哪兒") thành các câu hỏi riêng biệt
+    // Tách các từ đồng nghĩa có dấu / hoặc ／ (ví dụ "相片/照片", "哪裡/哪兒", "這麼/那麼") thành các câu hỏi riêng biệt
+    // Đồng thời tách nghĩa tương ứng và chuyển đổi ví dụ minh hoạ theo từ đang hỏi
     function expandQuizVocabQuestions(vocabList) {
         if (!Array.isArray(vocabList)) return [];
         const questions = [];
         vocabList.forEach((v) => {
-            if (!v) return;
-            // Bỏ tên riêng khỏi trắc nghiệm: không có giá trị học từ vựng
-            if (v.is_proper_noun) return;
-            const rawHanzi = (v.hanzi || '').trim();
-            if (/[/／]/.test(rawHanzi)) {
-                const hanziParts = rawHanzi.split(/[/／]/).map(s => s.trim()).filter(Boolean);
-                if (hanziParts.length > 1) {
-                    // Cách 2: Các biến thể Phồn/Giản của cùng 1 từ (như 老闆/老板, 計劃/計畫) giữ nguyên 1 câu hỏi duy nhất
-                    if (isTradSimpVariantOnly(hanziParts)) {
-                        questions.push(v);
-                        return;
-                    }
-                    const rawPinyin = (v.pinyin || '').trim();
-                    const pinyinParts = /[/／]/.test(rawPinyin)
-                        ? rawPinyin.split(/[/／]/).map(s => s.trim()).filter(Boolean)
-                        : [];
-
-                    hanziParts.forEach((partHanzi, idx) => {
-                        const partPinyin = pickSplitVocabPinyin(partHanzi, idx, hanziParts, pinyinParts, rawPinyin);
-
-                        const baseId = v.vocab_id || v.id || `v_${idx}`;
-                        questions.push({
-                            ...v,
-                            vocab_id: `${baseId}_part_${idx + 1}`,
-                            id: `${baseId}_part_${idx + 1}`,
-                            original_vocab_id: baseId,
-                            hanzi: partHanzi,
-                            pinyin: partPinyin,
-                            _is_split_question: true
-                        });
-                    });
-                    return;
-                }
-            }
-            questions.push(v);
+            if (!v || v.is_proper_noun) return;
+            questions.push(...splitVocabItemForLearning(v, 'quiz'));
         });
         return questions;
     }
@@ -26448,7 +26609,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.6.1', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.6.2', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

@@ -811,7 +811,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.6.2"></script>
+    <script src="/static/js/offline-store.js?v=1.6.3"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.2</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.3</span>
             </div>
 
             </nav>
@@ -5778,6 +5778,8 @@ window.addEventListener('error', function(e) {
         document.getElementById('fc-scope-all-btn')?.classList.toggle('bg-white', fcSrsScope === 'all');
         document.getElementById('fc-scope-all-btn')?.classList.toggle('shadow-sm', fcSrsScope === 'all');
         document.getElementById('fc-scope-all-btn')?.classList.toggle('text-primary', fcSrsScope === 'all');
+        window.__flashcardLessonId = String(fcCurrentLessonId() || window.currentLessonId || '');
+        window.__resetFlashcardSession = false;
         loadFcSrsPanel();
     }
 
@@ -7810,6 +7812,8 @@ window.addEventListener('error', function(e) {
         }
         document.getElementById('quiz-header').classList.remove('hidden');
         quizScore = 0; currentQuizIdx = 0;
+        window.__quizLessonId = String(fcCurrentLessonId() || window.currentLessonId || '');
+        window.__resetQuizSession = false;
         quizQuestions = [...expandedPool].sort(() => 0.5 - Math.random());
         restoreQuizProgress().finally(() => {
             renderQuizQuestion();
@@ -24199,6 +24203,12 @@ document.addEventListener('click', (ev) => {
             window.currentTab = tabName;
             if (typeof updateUIBadge === 'function') updateUIBadge();
 
+            // Về trang chủ (dashboard) thì đánh dấu làm mới phiên học khi vào lại từ đầu theo yêu cầu
+            if (tabName === 'dashboard') {
+                window.__resetFlashcardSession = true;
+                window.__resetQuizSession = true;
+            }
+
             if (isExamRunning) {
 
                 if (!confirm("Bạn đang làm bài thi. Rời đi sẽ mất toàn bộ kết quả. Bạn có chắc chắn muốn thoát?")) return; 
@@ -24386,7 +24396,35 @@ document.addEventListener('click', (ev) => {
                 }
             }
 
-            if (tabName === 'flashcard' && typeof initFlashcard === 'function') initFlashcard();
+            if (tabName === 'flashcard') {
+                const currentLid = String(fcCurrentLessonId() || window.currentLessonId || '');
+                const hasValidSession = !window.__resetFlashcardSession && 
+                                        Array.isArray(flashcardList) && 
+                                        flashcardList.length > 0 && 
+                                        (window.__isNotebookFlashcard || isSrsMode || (window.__flashcardLessonId && window.__flashcardLessonId === currentLid)) &&
+                                        currentFlashcardIdx >= 0 && 
+                                        currentFlashcardIdx < flashcardList.length;
+
+                if (hasValidSession) {
+                    // Trở lại đúng thẻ flashcard đang học dở dang, không reset về thẻ đầu
+                    const inner = document.getElementById('flashcard-inner');
+                    if (inner) inner.classList.remove('rotate-y-180');
+                    document.getElementById('flashcard-nav-btns')?.classList.remove('hidden');
+                    if (currentUser) {
+                        document.getElementById('srs-rating-controls')?.classList.remove('hidden');
+                    } else {
+                        document.getElementById('srs-rating-controls')?.classList.add('hidden');
+                    }
+                    if (typeof initSwipeGesture === 'function') initSwipeGesture();
+                    if (typeof resetFlashcardScroll === 'function') resetFlashcardScroll();
+                    if (typeof updateFlashcardUI === 'function') updateFlashcardUI();
+                    if (typeof loadFcSrsPanel === 'function') loadFcSrsPanel();
+                } else if (typeof initFlashcard === 'function') {
+                    // Bắt đầu mới hoặc khi vừa vào từ trang chủ / đổi bài
+                    window.__resetFlashcardSession = false;
+                    initFlashcard();
+                }
+            }
 
             if (tabName === 'writing') {
                 const les = document.getElementById('select-lesson');
@@ -24415,21 +24453,40 @@ document.addEventListener('click', (ev) => {
             if (tabName === 'quiz') {
                 const les = document.getElementById('select-lesson');
                 const lid = les ? les.value : null;
+                const currentLid = String(lid || window.currentLessonId || '');
                 const needReload = window.__isCustomVocabActive || 
-                                   window.__isNotebookFlashcard || 
                                    !vocabData || 
                                    vocabData.length === 0 || 
                                    (lid && String(window.__lastLoadedLessonId) !== String(lid));
 
                 window.__isCustomVocabActive = false;
-                window.__isNotebookFlashcard = false;
 
                 if (needReload && lid && typeof loadVocabulariesAndContent === 'function') {
                     loadVocabulariesAndContent(lid).then(() => {
+                        window.__resetQuizSession = false;
                         if (typeof initQuiz === 'function') initQuiz();
                     });
-                } else if (typeof initQuiz === 'function') {
-                    initQuiz();
+                } else {
+                    const hasValidSession = !window.__resetQuizSession && 
+                                            Array.isArray(quizQuestions) && 
+                                            quizQuestions.length > 0 && 
+                                            (window.__quizLessonId && window.__quizLessonId === currentLid) &&
+                                            currentQuizIdx >= 0 && 
+                                            currentQuizIdx < quizQuestions.length;
+
+                    if (hasValidSession) {
+                        // Trở lại đúng câu trắc nghiệm đang làm dở, giữ nguyên điểm số và các phương án
+                        document.getElementById('quiz-header')?.classList.remove('hidden');
+                        document.getElementById('quiz-progress-track')?.classList.remove('hidden');
+                        const qCont = document.getElementById('quiz-container');
+                        if (!qCont || !qCont.querySelector('#quiz-options')) {
+                            if (typeof renderQuizQuestion === 'function') renderQuizQuestion();
+                        }
+                    } else if (typeof initQuiz === 'function') {
+                        // Bắt đầu mới hoặc khi vừa vào từ trang chủ / đổi bài
+                        window.__resetQuizSession = false;
+                        initQuiz();
+                    }
                 }
             }
 
@@ -26034,6 +26091,10 @@ document.addEventListener('click', (ev) => {
 
             window.currentLessonId = parseInt(lessonId);
             window.__lastLoadedLessonId = String(lessonId);
+            window.__resetFlashcardSession = true;
+            window.__resetQuizSession = true;
+            window.__flashcardLessonId = null;
+            window.__quizLessonId = null;
             window.__isCustomVocabActive = false;
             window.__isNotebookFlashcard = false;
             window.__customFlashcardList = null;
@@ -26609,7 +26670,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.6.2', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.6.3', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

@@ -443,27 +443,50 @@ def serve_apple_touch_icon():
 def serve_pwa_sounds(filename):
     return send_from_directory(os.path.join(BASE_DIR, "static", "pwa", "sounds"), filename, mimetype="audio/mpeg")
 
+def generate_tts_mp3(text):
+    clean_text = text.strip()[:100]
+    if not clean_text:
+        return None
+    import hashlib
+    h = hashlib.md5(clean_text.encode("utf-8")).hexdigest()
+    cache_path = os.path.join(TTS_CACHE_DIR, f"{h}.mp3")
+    if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
+        return cache_path
+
+    import subprocess
+    import time
+    tmp_path = os.path.join(TTS_CACHE_DIR, f"{h}.tmp.{os.getpid()}_{int(time.time()*1000)}.mp3")
+    voices = ["zh-TW-HsiaoChenNeural", "zh-TW-YunJheNeural", "zh-CN-XiaoxiaoNeural"]
+    
+    for voice in voices:
+        try:
+            cmd = ["edge-tts", "--voice", voice, "--text", clean_text, "--write-media", tmp_path]
+            res = subprocess.run(cmd, timeout=5, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if res.returncode == 0 and os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:
+                os.replace(tmp_path, cache_path)
+                return cache_path
+        except Exception:
+            pass
+        finally:
+            if os.path.exists(tmp_path):
+                try:
+                    os.remove(tmp_path)
+                except OSError:
+                    pass
+
+    if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
+        return cache_path
+    return None
+
 @app.route("/audio/tts/<path:filename>")
 def serve_audio_tts(filename):
     text = filename.replace(".mp3", "").strip()
     if not text:
         return "Missing text", 400
-    import hashlib
-    h = hashlib.md5(text.encode("utf-8")).hexdigest()
-    cache_path = os.path.join(TTS_CACHE_DIR, f"{h}.mp3")
-    if not os.path.exists(cache_path) or os.path.getsize(cache_path) == 0:
-        import subprocess
-        cmd = ["edge-tts", "--voice", "zh-TW-HsiaoChenNeural", "--text", text, "--write-media", cache_path]
-        try:
-            res = subprocess.run(cmd, timeout=8, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            if res.returncode != 0 or not os.path.exists(cache_path):
-                cmd[2] = "zh-CN-XiaoxiaoNeural"
-                subprocess.run(cmd, timeout=8, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except Exception:
-            return "TTS error", 500
-    if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
+    cache_path = generate_tts_mp3(text)
+    if cache_path and os.path.exists(cache_path):
         return send_file(cache_path, mimetype="audio/mpeg")
-    return "Not found", 404
+    return "Audio not available", 404
 
 # --- Local Storage Helpers for No-Auth Mode ---
 USER_HISTORY_FILE = os.path.join(DATA_DIR, "user_history.json")
@@ -1777,35 +1800,10 @@ def api_tts():
     text = request.args.get("text", "").strip()
     if not text:
         return "Missing text", 400
-
-    # Truncate text to avoid abuse
-    text = text[:100]
-    import hashlib
-    h = hashlib.md5(text.encode("utf-8")).hexdigest()
-    cache_path = os.path.join(TTS_CACHE_DIR, f"{h}.mp3")
-
-    if not os.path.exists(cache_path) or os.path.getsize(cache_path) == 0:
-        import subprocess
-        # Try edge-tts CLI
-        voice = "zh-TW-HsiaoChenNeural"
-        cmd = ["edge-tts", "--voice", voice, "--text", text, "--write-media", cache_path]
-        try:
-            res = subprocess.run(cmd, timeout=8, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            if res.returncode != 0 or not os.path.exists(cache_path):
-                # Fallback voice
-                cmd[2] = "zh-CN-XiaoxiaoNeural"
-                subprocess.run(cmd, timeout=8, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except Exception as e:
-            return jsonify({"error": str(e)}), 500
-
-    if os.path.exists(cache_path):
-        if os.path.getsize(cache_path) > 0:
-            return send_file(cache_path, mimetype="audio/mpeg")
-        try:
-            os.remove(cache_path)
-        except OSError:
-            pass
-    return "TTS generation failed", 500
+    cache_path = generate_tts_mp3(text)
+    if cache_path and os.path.exists(cache_path):
+        return send_file(cache_path, mimetype="audio/mpeg")
+    return jsonify({"error": "TTS generation failed"}), 404
 
 AUDIO_CACHE_DIR = os.path.join(DATA_DIR, "audio_cache")
 os.makedirs(AUDIO_CACHE_DIR, exist_ok=True)

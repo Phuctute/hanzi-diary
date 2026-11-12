@@ -799,7 +799,7 @@ window.addEventListener('error', function(e) {
     <link rel="stylesheet" href="/static/css/tw.css">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
-    <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
 
 
 
@@ -807,11 +807,11 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/pinyin-pro.js" defer></script>
 
-    <script src="/static/js/chart.min.js" defer></script>
+    <script src="/static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.6.5"></script>
+    <script src="/static/js/offline-store.js?v=1.6.6"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2624,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.5</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.6</span>
             </div>
 
             </nav>
@@ -25369,6 +25369,7 @@ document.addEventListener('click', (ev) => {
         // Điểm gọi chính khi vào Trang chủ (idempotent).
         async function loadDashboardData() {
             initDashboardStatic();
+            if (!window.__dashRoadmapLoaded) loadDashRoadmap();
             loadDashLeaderboard();
             renderDashResume();
             renderDashSrsWidget();
@@ -25601,12 +25602,22 @@ document.addEventListener('click', (ev) => {
             const box = document.getElementById('dash-roadmap');
             if (!box) return;
             try {
-                const [tR, bR] = await Promise.all([
-                    fetch('/api.php?action=get_curriculum_types'),
-                    fetch('/api.php?action=get_books')
-                ]);
-                const types = await tR.json();
-                const books = await bR.json();
+                let types = null, books = null;
+                try {
+                    const [tR, bR] = await Promise.all([
+                        fetch('/api.php?action=get_curriculum_types'),
+                        fetch('/api.php?action=get_books')
+                    ]);
+                    types = await tR.json();
+                    books = await bR.json();
+                } catch (e1) {
+                    const [tR2, bR2] = await Promise.all([
+                        fetch('/api/curriculums'),
+                        fetch('/api/books')
+                    ]);
+                    types = await tR2.json();
+                    books = await bR2.json();
+                }
                 if (!Array.isArray(books) || !books.length) {
                     box.innerHTML = '<div class="text-sm text-slate-400 py-4 text-center">Chưa có giáo trình.</div>';
                     return;
@@ -25636,6 +25647,7 @@ document.addEventListener('click', (ev) => {
                     </div>`;
                 });
                 box.innerHTML = html;
+                window.__dashRoadmapLoaded = true;
             } catch (e) {
                 box.innerHTML = '<div class="text-sm text-red-400 py-4 text-center">Không tải được giáo trình.</div>';
             }
@@ -26670,7 +26682,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.6.5', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.6.6', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

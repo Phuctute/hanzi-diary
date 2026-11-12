@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: hanzi-diary
+    env: docker
+    plan: free
+    healthCheckPath: /

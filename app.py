@@ -372,7 +372,7 @@ def translate_chinese_to_vi(text):
     if not translated_vi:
         try:
             url = "https://api.mymemory.translated.net/get?q=" + urllib.parse.quote(text) + "&langpair=zh-TW|vi"
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
             with urllib.request.urlopen(req, timeout=3.5) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 mm_txt = data.get("responseData", {}).get("translatedText")
@@ -1817,7 +1817,7 @@ def proxy_audio(filepath):
     url = f"https://zh.taiwandiary.vn/audio/{filepath}"
     try:
         os.makedirs(os.path.dirname(cache_path), exist_ok=True)
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
         with urllib.request.urlopen(req, timeout=15) as resp:
             content = resp.read()
             with open(cache_path, "wb") as f:
@@ -1838,7 +1838,7 @@ def proxy_image(filepath):
     url = f"https://zh.taiwandiary.vn/image/{filepath}"
     try:
         os.makedirs(os.path.dirname(cache_path), exist_ok=True)
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
         with urllib.request.urlopen(req, timeout=10) as resp:
             content = resp.read()
             if content.startswith(b"<!DOCTYPE") or content.startswith(b"<html") or b"LiteSpeed" in content[:200]:

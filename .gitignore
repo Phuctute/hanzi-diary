@@ -1,7 +1,8 @@
 __pycache__/
 *.pyc
 data/audio_cache/
-data/image_cache/
+data/image_cache/banda/
+data/image_cache/bandb/
 data/shadowing_cache/
 .DS_Store
 data/user_history.json

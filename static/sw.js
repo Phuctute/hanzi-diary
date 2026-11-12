@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.6.6';
-const API_CACHE_NAME = 'hanzi-api-v1.6.6';
+const CACHE_NAME = 'hanzi-pwa-v1.6.7';
+const API_CACHE_NAME = 'hanzi-api-v1.6.7';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -234,6 +234,26 @@ self.addEventListener('fetch', (event) => {
           }).catch(() => cached);
           return cached || fetchPromise;
         });
+      })
+    );
+    return;
+  }
+
+  // 6. Book covers & images: Cache-First
+  if (url.pathname.startsWith('/image/')) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cached = await cache.match(req);
+        if (cached) return cached;
+        try {
+          const res = await fetch(req);
+          if (res && res.status === 200) {
+            cache.put(req, res.clone()).catch(() => {});
+          }
+          return res;
+        } catch (e) {
+          return cached || new Response('', { status: 404 });
+        }
       })
     );
     return;

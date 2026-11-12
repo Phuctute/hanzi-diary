@@ -1834,7 +1834,25 @@ def proxy_image(filepath):
     cache_path = os.path.join(IMAGE_CACHE_DIR, filepath)
     if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
         mime = "image/webp" if filepath.endswith(".webp") else ("image/png" if filepath.endswith(".png") else "image/jpeg")
-        return send_file(cache_path, mimetype=mime)
+        resp = send_file(cache_path, mimetype=mime)
+        resp.headers["Cache-Control"] = "public, max-age=2592000"
+        return resp
+
+    # Check alias Daidai <-> Dangdai locally before fetching
+    base_name = os.path.basename(filepath)
+    if "Daidai" in base_name:
+        alt_path = os.path.join(IMAGE_CACHE_DIR, filepath.replace("Daidai", "Dangdai"))
+        if os.path.exists(alt_path) and os.path.getsize(alt_path) > 0:
+            resp = send_file(alt_path, mimetype="image/webp")
+            resp.headers["Cache-Control"] = "public, max-age=2592000"
+            return resp
+    elif "Dangdai" in base_name:
+        alt_path = os.path.join(IMAGE_CACHE_DIR, filepath.replace("Dangdai", "Daidai"))
+        if os.path.exists(alt_path) and os.path.getsize(alt_path) > 0:
+            resp = send_file(alt_path, mimetype="image/webp")
+            resp.headers["Cache-Control"] = "public, max-age=2592000"
+            return resp
+
     url = f"https://zh.taiwandiary.vn/image/{filepath}"
     try:
         os.makedirs(os.path.dirname(cache_path), exist_ok=True)
@@ -1846,7 +1864,9 @@ def proxy_image(filepath):
             with open(cache_path, "wb") as f:
                 f.write(content)
         mime = resp.headers.get("content-type", "image/webp")
-        return send_file(cache_path, mimetype=mime)
+        resp = send_file(cache_path, mimetype=mime)
+        resp.headers["Cache-Control"] = "public, max-age=2592000"
+        return resp
     except Exception as e:
         return f"Image not found: {e}", 404
 

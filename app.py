@@ -411,6 +411,10 @@ def translate_chinese_to_vi(text):
 
     return None
 
+@app.route("/health")
+def health_check():
+    return "OK", 200, {"Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-cache"}
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -441,7 +445,9 @@ def serve_apple_touch_icon():
 
 @app.route("/pwa/sounds/<path:filename>")
 def serve_pwa_sounds(filename):
-    return send_from_directory(os.path.join(BASE_DIR, "static", "pwa", "sounds"), filename, mimetype="audio/mpeg")
+    resp = send_from_directory(os.path.join(BASE_DIR, "static", "pwa", "sounds"), filename, mimetype="audio/mpeg")
+    resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+    return resp
 
 def generate_tts_mp3(text):
     clean_text = text.strip()[:100]
@@ -485,7 +491,9 @@ def serve_audio_tts(filename):
         return "Missing text", 400
     cache_path = generate_tts_mp3(text)
     if cache_path and os.path.exists(cache_path):
-        return send_file(cache_path, mimetype="audio/mpeg")
+        resp = send_file(cache_path, mimetype="audio/mpeg")
+        resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return resp
     return "Audio not available", 404
 
 # --- Local Storage Helpers for No-Auth Mode ---
@@ -683,7 +691,7 @@ def get_offline_bundle_data():
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.5.8",
+            "version": "1.6.8",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,
@@ -1802,7 +1810,9 @@ def api_tts():
         return "Missing text", 400
     cache_path = generate_tts_mp3(text)
     if cache_path and os.path.exists(cache_path):
-        return send_file(cache_path, mimetype="audio/mpeg")
+        resp = send_file(cache_path, mimetype="audio/mpeg")
+        resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return resp
     return jsonify({"error": "TTS generation failed"}), 404
 
 AUDIO_CACHE_DIR = os.path.join(DATA_DIR, "audio_cache")
@@ -1812,7 +1822,9 @@ os.makedirs(AUDIO_CACHE_DIR, exist_ok=True)
 def proxy_audio(filepath):
     cache_path = os.path.join(AUDIO_CACHE_DIR, filepath)
     if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
-        return send_file(cache_path, mimetype="audio/mpeg")
+        resp = send_file(cache_path, mimetype="audio/mpeg")
+        resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return resp
     
     url = f"https://zh.taiwandiary.vn/audio/{filepath}"
     try:
@@ -1822,7 +1834,9 @@ def proxy_audio(filepath):
             content = resp.read()
             with open(cache_path, "wb") as f:
                 f.write(content)
-        return send_file(cache_path, mimetype="audio/mpeg")
+        resp = send_file(cache_path, mimetype="audio/mpeg")
+        resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        return resp
     except Exception as e:
         return f"Audio error: {e}", 404
 

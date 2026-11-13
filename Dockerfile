@@ -12,6 +12,6 @@ COPY . .
 EXPOSE 8910
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
-  CMD curl -fsS http://127.0.0.1:${PORT:-8910}/ > /dev/null || exit 1
+  CMD curl -fsS http://127.0.0.1:${PORT:-8910}/health > /dev/null || exit 1
 
 CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT:-8910} --workers 2 --threads 8 --timeout 120 --graceful-timeout 30 --access-logfile - --error-logfile - app:app"]

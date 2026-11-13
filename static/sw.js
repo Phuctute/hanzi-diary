@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.6.7';
-const API_CACHE_NAME = 'hanzi-api-v1.6.7';
+const CACHE_NAME = 'hanzi-pwa-v1.6.8';
+const API_CACHE_NAME = 'hanzi-api-v1.6.8';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const PRECACHE_ASSETS = [
@@ -56,11 +56,11 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   // 1. Audio TTS: Cache-First with Range Support and Sudden Network Drop Timeout
-  if (url.pathname.startsWith('/audio/tts/') || url.pathname.startsWith('/static/sounds/')) {
+  if (url.pathname.startsWith('/audio/') || url.pathname.startsWith('/api/tts') || url.pathname.startsWith('/pwa/sounds/') || url.pathname.startsWith('/static/sounds/')) {
     event.respondWith(
       (async () => {
         const cache = await caches.open(AUDIO_CACHE_NAME);
-        const cleanUrl = url.origin + url.pathname;
+        const cleanUrl = url.origin + url.pathname + (url.search || '');
         
         // 1. Tra cứu nhanh từ cache (bỏ qua Range header)
         const cached = (await cache.match(cleanUrl)) || (await cache.match(req));

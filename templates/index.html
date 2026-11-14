@@ -23,6 +23,15 @@ if ('caches' in window) {
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Hanzi Diary">
     <link rel="manifest" href="/manifest.json">
+    <script>
+        window.deferredPrompt = null;
+        window.addEventListener('beforeinstallprompt', function(e) {
+            e.preventDefault();
+            window.deferredPrompt = e;
+            console.log('[PWA] beforeinstallprompt captured in HEAD');
+            window.dispatchEvent(new CustomEvent('pwa-deferred-prompt-ready'));
+        });
+    </script>
     <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>
 window.__ERRORS__ = [];
@@ -811,7 +820,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.6.8"></script>
+    <script src="/static/js/offline-store.js?v=1.6.9"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2624,7 +2633,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.8</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.9</span>
             </div>
 
             </nav>
@@ -26675,7 +26684,10 @@ document.addEventListener('click', (ev) => {
     <!-- PWA Install Guide Modal -->
     <div id="pwa-guide-modal" class="hidden fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="if(event.target === this) this.classList.add('hidden')">
         <div class="bg-white rounded-2xl max-w-sm w-full p-5 shadow-2xl border border-slate-100 relative">
-            <div class="flex items-center gap-3 mb-3">
+            <button type="button" onclick="document.getElementById('pwa-guide-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1.5 rounded-lg transition-colors cursor-pointer" aria-label="Đóng">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+            <div class="flex items-center gap-3 mb-3 pr-6">
                 <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
                 <div>
                     <h4 class="font-bold text-slate-800 text-sm">Cài đặt Hanzi Diary</h4>
@@ -26684,11 +26696,11 @@ document.addEventListener('click', (ev) => {
             </div>
             <div id="pwa-guide-body" class="text-xs text-slate-600 leading-relaxed mb-4 space-y-2"></div>
             <div class="flex items-center justify-center gap-2 mb-4 pt-2 border-t border-slate-100 select-none">
-                <button type="button" onclick="switchPwaGuide('ios')" id="pwa-tab-ios" class="px-3 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer bg-[#027AB3] text-white shadow-sm">iOS (iPhone/iPad)</button>
-                <button type="button" onclick="switchPwaGuide('android')" id="pwa-tab-android" class="px-3 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">Android / PC</button>
+                <button type="button" onclick="switchPwaGuide('ios')" id="pwa-tab-ios" class="px-3 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer bg-slate-100 text-slate-600 hover:bg-slate-200">iOS (iPhone/iPad)</button>
+                <button type="button" onclick="switchPwaGuide('android')" id="pwa-tab-android" class="px-3 py-1 text-[11px] font-bold rounded-lg transition-all cursor-pointer bg-[#027AB3] text-white shadow-sm">Android / PC</button>
             </div>
-            <button type="button" onclick="document.getElementById('pwa-guide-modal').classList.add('hidden')" class="w-full py-2.5 bg-[#027AB3] hover:bg-[#026290] text-white font-semibold rounded-xl text-xs transition-colors shadow-sm">
-                Đã hiểu
+            <button type="button" id="pwa-modal-install-btn" onclick="handleModalInstallClick()" class="w-full py-3 bg-[#027AB3] hover:bg-[#026290] active:scale-[0.98] text-white font-bold rounded-xl text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-download"></i> Cài ngay
             </button>
         </div>
     </div>
@@ -26696,12 +26708,11 @@ document.addEventListener('click', (ev) => {
     <!-- Service Worker & PWA Script -->
     <script>
     (function() {
-        let deferredPrompt = null;
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.6.8', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.6.9', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();
@@ -26712,10 +26723,7 @@ document.addEventListener('click', (ev) => {
             });
         }
 
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-
+        function updateInstallUi() {
             if (!isStandalone) {
                 const sidebarBtn = document.getElementById('pwa-sidebar-install');
                 if (sidebarBtn) sidebarBtn.classList.remove('hidden');
@@ -26725,15 +26733,31 @@ document.addEventListener('click', (ev) => {
                     if (banner) banner.classList.remove('hidden');
                 }
             }
+        }
+
+        if (window.deferredPrompt) {
+            updateInstallUi();
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            window.deferredPrompt = e;
+            updateInstallUi();
+        });
+
+        window.addEventListener('pwa-deferred-prompt-ready', () => {
+            updateInstallUi();
         });
 
         window.addEventListener('appinstalled', () => {
             console.log('[PWA] App successfully installed!');
-            deferredPrompt = null;
+            window.deferredPrompt = null;
             const banner = document.getElementById('pwa-install-banner');
             if (banner) banner.classList.add('hidden');
             const sidebarBtn = document.getElementById('pwa-sidebar-install');
             if (sidebarBtn) sidebarBtn.classList.add('hidden');
+            const modal = document.getElementById('pwa-guide-modal');
+            if (modal) modal.classList.add('hidden');
         });
 
         window.renderPwaGuide = function(platform) {
@@ -26792,15 +26816,22 @@ document.addEventListener('click', (ev) => {
         };
 
         window.triggerPwaInstall = async function() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const choice = await deferredPrompt.userChoice;
-                if (choice.outcome === 'accepted') {
-                    console.log('[PWA] User accepted install prompt');
-                }
-                deferredPrompt = null;
+            if (window.deferredPrompt) {
+                const promptEvent = window.deferredPrompt;
+                window.deferredPrompt = null;
                 const banner = document.getElementById('pwa-install-banner');
                 if (banner) banner.classList.add('hidden');
+                try {
+                    await promptEvent.prompt();
+                    const choice = await promptEvent.userChoice;
+                    console.log('[PWA] User accepted install prompt:', choice.outcome);
+                    if (choice.outcome === 'accepted') {
+                        const sidebarBtn = document.getElementById('pwa-sidebar-install');
+                        if (sidebarBtn) sidebarBtn.classList.add('hidden');
+                    }
+                } catch (err) {
+                    console.warn('[PWA] prompt error:', err);
+                }
                 return;
             }
 
@@ -26810,6 +26841,56 @@ document.addEventListener('click', (ev) => {
 
             window.renderPwaGuide(isIOS ? 'ios' : 'android');
             modal.classList.remove('hidden');
+        };
+
+        window.handleModalInstallClick = async function() {
+            if (window.deferredPrompt) {
+                const promptEvent = window.deferredPrompt;
+                window.deferredPrompt = null;
+                const modal = document.getElementById('pwa-guide-modal');
+                if (modal) modal.classList.add('hidden');
+                const banner = document.getElementById('pwa-install-banner');
+                if (banner) banner.classList.add('hidden');
+                try {
+                    await promptEvent.prompt();
+                    const choice = await promptEvent.userChoice;
+                    console.log('[PWA] User choice:', choice.outcome);
+                    if (choice.outcome === 'accepted') {
+                        const sidebarBtn = document.getElementById('pwa-sidebar-install');
+                        if (sidebarBtn) sidebarBtn.classList.add('hidden');
+                    }
+                } catch (err) {
+                    console.warn('[PWA] prompt error:', err);
+                }
+                return;
+            }
+
+            if ('getInstalledRelatedApps' in navigator) {
+                try {
+                    const relatedApps = await navigator.getInstalledRelatedApps();
+                    if (relatedApps && relatedApps.length > 0) {
+                        alert('Ứng dụng Hanzi Diary đã được cài đặt trên thiết bị của bạn rồi!\nBạn hãy tìm biểu tượng "Hanzi Diary" trên màn hình chính.');
+                        const modal = document.getElementById('pwa-guide-modal');
+                        if (modal) modal.classList.add('hidden');
+                        return;
+                    }
+                } catch (e) {}
+            }
+
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            if (isIOS) {
+                alert('Trên iPhone / iPad (Safari):\n1. Nhấn nút Chia sẻ (biểu tượng ô vuông mũi tên ⬆ ở thanh dưới Safari)\n2. Cuộn xuống chọn "Thêm vào MH chính"\n3. Nhấn "Thêm" ở góc trên bên phải.');
+                return;
+            }
+
+            const guideBody = document.getElementById('pwa-guide-body');
+            if (guideBody) {
+                guideBody.classList.add('ring-2', 'ring-[#027AB3]', 'bg-sky-50', 'p-2', 'rounded-xl', 'transition-all');
+                setTimeout(() => {
+                    guideBody.classList.remove('ring-2', 'ring-[#027AB3]', 'bg-sky-50', 'p-2');
+                }, 3000);
+            }
+            alert('Trình duyệt chưa thể kích hoạt hộp thoại tự động.\nBạn vui lòng làm theo 3 bước hướng dẫn ở trên:\nNhấn vào menu 3 chấm (⋮) góc trên bên phải trình duyệt và chọn "Cài đặt ứng dụng" hoặc "Thêm vào màn hình chính" nhé!');
         };
 
         window.dismissPwaBanner = function() {

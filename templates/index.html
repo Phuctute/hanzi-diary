@@ -3,6 +3,15 @@
 <html lang="vi" style="background-color: #f0f4f8; color-scheme: light;">
 
 <head>
+    <script>
+        (function() {
+            var isGh = window.location.hostname.includes('github.io');
+            var baseEl = document.createElement('base');
+            baseEl.href = isGh ? '/hanzi-diary/' : '/';
+            document.head.prepend(baseEl);
+        })();
+    </script>
+
 <script>
 // Xoá cache lỗi v1.4.9 khỏi trình duyệt người dùng ngay lập tức
 if ('caches' in window) {
@@ -22,7 +31,7 @@ if ('caches' in window) {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Hanzi Diary">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <script>
         window.deferredPrompt = null;
         window.addEventListener('beforeinstallprompt', function(e) {
@@ -611,13 +620,13 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
-    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=20261023_v4">
-    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-192.png?v=20261023_v4">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=20261023_v4">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=20261023_v4">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-192.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-512.png?v=20261023_v4">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -693,7 +702,7 @@ window.addEventListener('error', function(e) {
 
             "@type": "ImageObject",
 
-            "url": "/static/img/hanzidiary.png"
+            "url": "static/img/hanzidiary.png"
 
           },
 
@@ -805,22 +814,22 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="/static/css/tw.css">
+    <link rel="stylesheet" href="static/css/tw.css">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
-    <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
+    <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
 
 
 
-    <script src="/static/js/opencc-full.js" defer></script>
+    <script src="static/js/opencc-full.js" defer></script>
 
-    <script src="/static/js/pinyin-pro.js" defer></script>
+    <script src="static/js/pinyin-pro.js" defer></script>
 
-    <script src="/static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
+    <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="/static/js/hanzi-writer.min.js" defer></script>
+    <script src="static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.6.9"></script>
+    <script src="static/js/offline-store.js?v=1.7.0"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2217,7 +2226,7 @@ window.addEventListener('error', function(e) {
                 role: 'admin',
                 vip: 1,
                 tocfl_level: 'Band A',
-                avatar: '/static/img/hanzi_icon.png'
+                avatar: 'static/img/hanzi_icon.png'
             }));
         }
     } catch(e) {}
@@ -2469,7 +2478,7 @@ window.addEventListener('error', function(e) {
         <div class="h-20 flex items-center justify-start px-4 relative mb-2 w-full mt-2 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-start select-none cursor-pointer" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=20261023_v6" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 130px !important; max-width: 130px !important; height: auto !important;" class="w-[130px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=20261023_v6" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 130px !important; max-width: 130px !important; height: auto !important;" class="w-[130px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
             <button aria-label="Đóng Menu" onclick="toggleSidebar()" class="absolute right-4 text-white/50 hover:text-white bg-white/10 active:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center md:hidden transition-colors">
@@ -2633,7 +2642,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.6.9</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.0</span>
             </div>
 
             </nav>
@@ -23134,7 +23143,7 @@ document.addEventListener('click', (ev) => {
                     email: "manhq7@gmail.com",
                     vip: 1,
                     role: "admin",
-                    avatar: "/static/img/hanzi_icon.png"
+                    avatar: "static/img/hanzi_icon.png"
                 });
                 try { localStorage.setItem('td_user', userJson); } catch (e) {}
             }
@@ -24623,7 +24632,7 @@ document.addEventListener('click', (ev) => {
 
                 posts.forEach(post => {
 
-                    let imgUrl = '/static/img/hanzidiary.png'; // Fallback
+                    let imgUrl = 'static/img/hanzidiary.png'; // Fallback
 
                     if (post._embedded && post._embedded['wp:featuredmedia']) {
 
@@ -26667,7 +26676,7 @@ document.addEventListener('click', (ev) => {
     <!-- PWA Install Banner (Bottom Floating) -->
     <div id="pwa-install-banner" class="hidden fixed bottom-[74px] md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
         <div class="flex items-center gap-3">
-            <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
+            <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
             <div class="flex-1 min-w-0">
                 <div class="text-xs font-black text-slate-800 truncate">Cài đặt Hanzi Diary</div>
                 <div class="text-[11px] text-slate-500 truncate">Mở nhanh trên màn hình chính như App</div>
@@ -26688,7 +26697,7 @@ document.addEventListener('click', (ev) => {
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
             <div class="flex items-center gap-3 mb-3 pr-6">
-                <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
+                <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
                 <div>
                     <h4 class="font-bold text-slate-800 text-sm">Cài đặt Hanzi Diary</h4>
                     <p class="text-xs text-slate-500">Màn hình chính (Home Screen)</p>
@@ -26712,7 +26721,10 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.6.9', { scope: '/' })
+                const isGh = window.location.hostname.includes('github.io');
+                const swUrl = isGh ? 'sw.js?v=1.7.0' : '/sw.js?v=1.7.0';
+                const swScope = isGh ? './' : '/';
+                navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

@@ -1,19 +1,20 @@
-const CACHE_NAME = 'hanzi-pwa-v1.6.9';
-const API_CACHE_NAME = 'hanzi-api-v1.6.9';
+const CACHE_NAME = 'hanzi-pwa-v1.7.0';
+const API_CACHE_NAME = 'hanzi-api-v1.7.0';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
+const BASE_SCOPE = self.registration ? self.registration.scope : '/';
 const PRECACHE_ASSETS = [
-  '/',
-  '/manifest.json',
-  '/static/css/tw.css',
-  '/static/vendor/fontawesome/css/all.min.css',
-  '/static/js/hanzi-writer.min.js',
-  '/static/js/opencc-full.js',
-  '/static/js/pinyin-pro.js',
-  '/static/js/chart.min.js',
-  '/static/js/offline-store.js',
-  '/static/img/icon-192.png',
-  '/static/img/icon-512.png'
+  BASE_SCOPE,
+  new URL('manifest.json', BASE_SCOPE).href,
+  new URL('static/css/tw.css', BASE_SCOPE).href,
+  new URL('static/vendor/fontawesome/css/all.min.css', BASE_SCOPE).href,
+  new URL('static/js/hanzi-writer.min.js', BASE_SCOPE).href,
+  new URL('static/js/opencc-full.js', BASE_SCOPE).href,
+  new URL('static/js/pinyin-pro.js', BASE_SCOPE).href,
+  new URL('static/js/chart.min.js', BASE_SCOPE).href,
+  new URL('static/js/offline-store.js', BASE_SCOPE).href,
+  new URL('static/img/icon-192.png', BASE_SCOPE).href,
+  new URL('static/img/icon-512.png', BASE_SCOPE).href
 ];
 
 self.addEventListener('install', (event) => {
@@ -240,20 +241,37 @@ self.addEventListener('fetch', (event) => {
   }
 
   // 6. Book covers & images: Cache-First
-  if (url.pathname.startsWith('/image/')) {
+  if (url.pathname.includes('/image/') || url.pathname.includes('/image_cache/')) {
     event.respondWith(
       caches.open(CACHE_NAME).then(async (cache) => {
         const cached = await cache.match(req);
         if (cached) return cached;
+        const baseImg = url.pathname.split('/').pop();
+        if (baseImg) {
+          try {
+            const localImgUrl = new URL(`data/image_cache/${baseImg}`, self.registration ? self.registration.scope : '/').href;
+            const localRes = await fetch(localImgUrl);
+            if (localRes && localRes.status === 200) {
+              cache.put(req, localRes.clone()).catch(() => {});
+              return localRes;
+            }
+          } catch(e) {}
+        }
         try {
           const res = await fetch(req);
           if (res && res.status === 200) {
             cache.put(req, res.clone()).catch(() => {});
+            return res;
           }
-          return res;
-        } catch (e) {
-          return cached || new Response('', { status: 404 });
-        }
+        } catch (e) {}
+        try {
+          const remoteRes = await fetch(`https://p.vql.vn/image/${baseImg}`);
+          if (remoteRes && remoteRes.status === 200) {
+            cache.put(req, remoteRes.clone()).catch(() => {});
+            return remoteRes;
+          }
+        } catch (e) {}
+        return new Response('', { status: 404 });
       })
     );
     return;

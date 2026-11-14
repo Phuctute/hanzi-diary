@@ -78,4 +78,4 @@ Repository này đã có sẵn file cấu hình `render.yaml` và `Dockerfile` t
 ## 📄 Bản Quyền & Giấy Phép
 
 Dự án phục vụ mục đích học tập và nghiên cứu cá nhân.
-Phiên bản hiện tại: **v1.6.9**
+Phiên bản hiện tại: **v1.7.0**

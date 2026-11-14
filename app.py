@@ -411,6 +411,22 @@ def translate_chinese_to_vi(text):
 
     return None
 
+@app.after_request
+def add_cors_headers(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
+    return response
+
+@app.route("/data/offline_bundle.json")
+def serve_data_offline_bundle():
+    bundle_json, _ = get_offline_bundle_data()
+    return Response(bundle_json, mimetype="application/json", headers={"Cache-Control": "public, max-age=86400", "Access-Control-Allow-Origin": "*"})
+
+@app.route("/data/image_cache/<path:filepath>")
+def serve_data_image_cache(filepath):
+    return proxy_image(filepath)
+
 @app.route("/health")
 def health_check():
     return "OK", 200, {"Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-cache"}
@@ -691,7 +707,7 @@ def get_offline_bundle_data():
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.6.9",
+            "version": "1.7.0",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,

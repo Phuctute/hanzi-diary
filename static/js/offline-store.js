@@ -9,7 +9,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '1.6.9';
+    const CURRENT_VERSION = '1.7.0';
 
     let dbInstance = null;
     let cachedBundle = null;
@@ -173,8 +173,21 @@
 
         try {
             console.log('[HanziOffline] Bắt đầu tải dữ liệu offline (~5.9MB gzipped)...');
-            const res = await fetch('/api/offline_bundle');
-            if (!res.ok) throw new Error('HTTP ' + res.status);
+            let res = null;
+            try {
+                res = await fetch('data/offline_bundle.json');
+            } catch(e) {}
+            if (!res || !res.ok) {
+                try {
+                    res = await fetch('/api/offline_bundle');
+                } catch(e) {}
+            }
+            if (!res || !res.ok) {
+                try {
+                    res = await fetch('https://p.vql.vn/api/offline_bundle');
+                } catch(e) {}
+            }
+            if (!res || !res.ok) throw new Error('HTTP ' + (res ? res.status : 'all bundle sources failed'));
             const bundle = await res.json();
             cachedBundle = bundle;
 

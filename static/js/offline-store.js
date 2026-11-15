@@ -327,42 +327,42 @@
                 headers: { 'Content-Type': 'application/json', 'X-Client-Offline': '1' }
             });
 
-            if (action === 'get_curriculum_types' || u.pathname === '/api/curriculums') {
+            if (action === 'get_curriculum_types' || (u.pathname === '/api/curriculums' || u.pathname.endsWith('/api/curriculums'))) {
                 return jsonResp(cachedBundle.curriculums || []);
             }
-            if (action === 'get_books' || u.pathname === '/api/books') {
+            if (action === 'get_books' || (u.pathname === '/api/books' || u.pathname.endsWith('/api/books'))) {
                 const cid = u.searchParams.get('curriculum_id');
                 const b = cid ? (cachedBundle.books || []).filter(x => String(x.curriculum_type_id) === String(cid)) : (cachedBundle.books || []);
                 return jsonResp(b);
             }
-            if (action === 'get_lessons' || u.pathname === '/api/lessons') {
+            if (action === 'get_lessons' || (u.pathname === '/api/lessons' || u.pathname.endsWith('/api/lessons'))) {
                 const bid = u.searchParams.get('book_id');
                 const ls = bid ? (cachedBundle.lessons || []).filter(x => String(x.book_id) === String(bid)) : (cachedBundle.lessons || []);
                 return jsonResp(ls);
             }
-            if (action === 'get_vocabularies' || u.pathname === '/api/vocabularies') {
+            if (action === 'get_vocabularies' || (u.pathname === '/api/vocabularies' || u.pathname.endsWith('/api/vocabularies'))) {
                 const lid = u.searchParams.get('lesson_id');
                 const vocabs = (lid && cachedBundle.lesson_vocab) ? (cachedBundle.lesson_vocab[String(lid)] || []) : [];
                 return jsonResp(vocabs);
             }
-            if (action === 'get_lesson_contents' || u.pathname === '/api/lesson_contents') {
+            if (action === 'get_lesson_contents' || (u.pathname === '/api/lesson_contents' || u.pathname.endsWith('/api/lesson_contents'))) {
                 const lid = u.searchParams.get('lesson_id');
                 const contents = (lid && cachedBundle.lesson_contents) ? (cachedBundle.lesson_contents[String(lid)] || []) : [];
-                return jsonResp(u.pathname === '/api/lesson_contents' ? contents : { success: true, data: contents });
+                return jsonResp((u.pathname === '/api/lesson_contents' || u.pathname.endsWith('/api/lesson_contents')) ? contents : { success: true, data: contents });
             }
             if (action === 'get_lessons_by_topic') {
                 const topic = u.searchParams.get('topic');
                 const ls = (cachedBundle.lessons || []).filter(l => l.topic === topic);
                 return jsonResp(ls);
             }
-            if (action === 'get_grammar' || u.pathname === '/api/grammar') {
-                return jsonResp(u.pathname === '/api/grammar' ? (cachedBundle.grammar || []) : { success: true, data: cachedBundle.grammar || [] });
+            if (action === 'get_grammar' || (u.pathname === '/api/grammar' || u.pathname.endsWith('/api/grammar'))) {
+                return jsonResp((u.pathname === '/api/grammar' || u.pathname.endsWith('/api/grammar')) ? (cachedBundle.grammar || []) : { success: true, data: cachedBundle.grammar || [] });
             }
-            if (action === 'get_radicals' || u.pathname === '/api/radicals') {
-                return jsonResp(u.pathname === '/api/radicals' ? (cachedBundle.radicals || []) : { success: true, data: cachedBundle.radicals || [] });
+            if (action === 'get_radicals' || (u.pathname === '/api/radicals' || u.pathname.endsWith('/api/radicals'))) {
+                return jsonResp((u.pathname === '/api/radicals' || u.pathname.endsWith('/api/radicals')) ? (cachedBundle.radicals || []) : { success: true, data: cachedBundle.radicals || [] });
             }
-            if (action === 'get_measure_words' || u.pathname === '/api/measure_words') {
-                return jsonResp(u.pathname === '/api/measure_words' ? (cachedBundle.measure_words || {}) : { success: true, data: cachedBundle.measure_words || {} });
+            if (action === 'get_measure_words' || (u.pathname === '/api/measure_words' || u.pathname.endsWith('/api/measure_words'))) {
+                return jsonResp((u.pathname === '/api/measure_words' || u.pathname.endsWith('/api/measure_words')) ? (cachedBundle.measure_words || {}) : { success: true, data: cachedBundle.measure_words || {} });
             }
             if (action === 'get_dict_tags') {
                 const cat = u.searchParams.get('category');
@@ -435,6 +435,9 @@
         } catch (err) {
             const urlStr = typeof input === 'string' ? input : (input && input.url ? input.url : '');
             if (urlStr && (urlStr.includes('/api.php') || urlStr.includes('/api/'))) {
+                if (!cachedBundle) {
+                    try { cachedBundle = await loadBundleFromDB(); } catch (e) {}
+                }
                 const fb = handleOfflineApi(urlStr);
                 if (fb) return fb;
             }

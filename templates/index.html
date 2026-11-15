@@ -2363,8 +2363,8 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-    <!-- ══════ Cyber Splash Screen (phuc.vql.vn style) ══════ -->
-    <div class="splash" id="splash">
+        <!-- ══════ Cyber Splash Screen (Hiện khi làm mới trang) ══════ -->
+    <div class="splash" id="splash" style="display: none;">
         <div class="splash-grid"></div>
         <div class="splash-ring"></div>
         <div class="splash-ring2"></div>
@@ -2377,26 +2377,38 @@ window.addEventListener('error', function(e) {
         <div class="splash-sub">學中文 · 每天進步</div>
     </div>
     <script>
-    (function initSplashDismiss() {
-        var dismissed = false;
-        function dismiss() {
-            if (dismissed) return;
-            dismissed = true;
-            var s = document.getElementById('splash');
-            if (s) {
+    (function initSplashMode() {
+        var isReload = false;
+        try {
+            var nav = performance.getEntriesByType && performance.getEntriesByType('navigation');
+            if (nav && nav.length > 0 && nav[0].type === 'reload') {
+                isReload = true;
+            } else if (performance.navigation && performance.navigation.type === 1) {
+                isReload = true;
+            }
+        } catch(e) {}
+        try {
+            if (sessionStorage.getItem('is_app_refresh') === '1') {
+                isReload = true;
+                sessionStorage.removeItem('is_app_refresh');
+            }
+        } catch(e) {}
+
+        var s = document.getElementById('splash');
+        if (!s) return;
+
+        if (!isReload) {
+            // Mở app thông thường: Bỏ hẳn animation, vào thẳng Dashboard tức thì
+            s.remove();
+        } else {
+            // Khi làm mới trang: Hiện animation cyber splash 1.1s mượt mà
+            s.style.display = 'flex';
+            setTimeout(function() {
                 s.classList.add('is-hidden');
                 setTimeout(function() {
                     if (s && s.parentNode) s.parentNode.removeChild(s);
                 }, 450);
-            }
-        }
-        setTimeout(dismiss, 1100);
-        if (document.readyState === 'complete') {
-            setTimeout(dismiss, 500);
-        } else {
-            window.addEventListener('load', function() {
-                setTimeout(dismiss, 500);
-            });
+            }, 1100);
         }
     })();
     </script>
@@ -18344,6 +18356,7 @@ window.addEventListener('error', function(e) {
 
                     // Thông báo đang làm mới
                     showReloadToast();
+                    try { sessionStorage.setItem('is_app_refresh', '1'); } catch (e) {}
 
                     // Reload lại trang tương đương phím F5
                     setTimeout(() => {

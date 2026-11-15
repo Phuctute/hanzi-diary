@@ -13,6 +13,132 @@ if ('caches' in window) {
 </script>
 
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
+<style id="splash-style">
+/* ══════ Cyber Splash Screen (phuc.vql.vn style) ══════ */
+.splash {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: #030712;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .4s ease, visibility .4s ease;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.splash.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(2, 122, 179, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(2, 122, 179, .08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: splashGrid .8s ease-out forwards;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+.splash-ring {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  border: 1.5px solid rgba(2, 122, 179, .35);
+  border-radius: 50%;
+  animation: splashPulse 1.2s ease-out forwards;
+}
+.splash-ring2 {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border: 1px solid rgba(2, 122, 179, .2);
+  border-radius: 50%;
+  animation: splashPulse2 1s .1s ease-out forwards;
+}
+.splash-logo-wrap {
+  position: relative;
+  z-index: 1;
+  animation: splashLogoIn .8s .15s cubic-bezier(.16, 1, .3, 1) both;
+}
+.splash-logo-img {
+  width: clamp(84px, 22vw, 110px);
+  height: clamp(84px, 22vw, 110px);
+  border-radius: 24px;
+  box-shadow: 0 0 45px rgba(2, 122, 179, .55);
+  object-fit: cover;
+}
+.splash-title {
+  font-size: clamp(24px, 7vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -.5px;
+  margin-top: 18px;
+  text-shadow: 0 0 30px rgba(2, 122, 179, .6);
+  animation: splashTextIn .6s .35s cubic-bezier(.16, 1, .3, 1) both;
+}
+.splash-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .45);
+  margin-top: 4px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  animation: splashTextIn .6s .45s cubic-bezier(.16, 1, .3, 1) both;
+}
+.splash-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(2, 122, 179, .5), transparent);
+  top: 50%;
+  animation: splashScan 1s ease-out forwards;
+}
+.splash-glitch {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(2, 122, 179, .04) 40.5%, transparent 41%, transparent 60%, rgba(2, 122, 179, .04) 60.5%, transparent 61%);
+  animation: splashGlitch .3s .6s ease both;
+  pointer-events: none;
+}
+
+@keyframes splashGrid {
+  0% { opacity: 0; transform: scale(1.4); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes splashPulse {
+  0% { transform: scale(.3); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes splashPulse2 {
+  0% { transform: scale(.5); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes splashLogoIn {
+  0% { transform: scale(.7) translateY(12px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes splashTextIn {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes splashScan {
+  0% { opacity: 0; transform: scaleX(0); }
+  25% { opacity: 1; transform: scaleX(1); }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes splashGlitch {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover, interactive-widget=resizes-content">
     <meta name="theme-color" content="#ffffff">
@@ -2236,6 +2362,43 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
+    <!-- ══════ Cyber Splash Screen (phuc.vql.vn style) ══════ -->
+    <div class="splash" id="splash">
+        <div class="splash-grid"></div>
+        <div class="splash-ring"></div>
+        <div class="splash-ring2"></div>
+        <div class="splash-line"></div>
+        <div class="splash-glitch"></div>
+        <div class="splash-logo-wrap">
+            <img class="splash-logo-img" src="/static/img/icon-192.png?v=1.7.4" alt="Hanzi Diary">
+        </div>
+        <div class="splash-title">Hanzi Diary</div>
+        <div class="splash-sub">學中文 · 每天進步</div>
+    </div>
+    <script>
+    (function initSplashDismiss() {
+        var dismissed = false;
+        function dismiss() {
+            if (dismissed) return;
+            dismissed = true;
+            var s = document.getElementById('splash');
+            if (s) {
+                s.classList.add('is-hidden');
+                setTimeout(function() {
+                    if (s && s.parentNode) s.parentNode.removeChild(s);
+                }, 450);
+            }
+        }
+        setTimeout(dismiss, 1100);
+        if (document.readyState === 'complete') {
+            setTimeout(dismiss, 500);
+        } else {
+            window.addEventListener('load', function() {
+                setTimeout(dismiss, 500);
+            });
+        }
+    })();
+    </script>
 
 
 

@@ -12,7 +12,7 @@ if ('caches' in window) {
 }
 </script>
 
-    <link rel="preload" as="image" href="/static/img/icon-512.png?v=1.8.3">
+    <link rel="preload" as="image" href="/static/img/icon-splash.webp?v=1.8.4" type="image/webp">
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
 <style id="splash-style">
 /* ══════ Native Launch Animation (Android / iOS / PC) ══════ */
@@ -20,14 +20,14 @@ if ('caches' in window) {
   position: fixed;
   z-index: 99999;
   inset: 0;
-  background: rgba(240, 244, 248, 0.90);
+  background: rgba(240, 244, 248, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.45s ease, -webkit-backdrop-filter 0.45s ease;
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
@@ -40,37 +40,58 @@ if ('caches' in window) {
   -webkit-backdrop-filter: blur(0px);
   pointer-events: none;
 }
+.splash-aura {
+  position: absolute;
+  width: clamp(260px, 70vw, 360px);
+  height: clamp(260px, 70vw, 360px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 122, 179, 0.16) 0%, rgba(2, 122, 179, 0.04) 50%, transparent 70%);
+  animation: splashAuraPulse 1.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
 .splash-logo-wrap {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   will-change: transform, opacity;
-  animation: splashLogoSpringIn 0.48s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: splashLogoPulse 1.4s ease-in-out infinite alternate;
   filter: drop-shadow(0 20px 38px rgba(2, 122, 179, 0.35)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+.splash.is-hiding .splash-aura {
+  opacity: 0;
+  transform: scale(1.3);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .splash.is-hiding .splash-logo-wrap,
 .splash.is-hidden .splash-logo-wrap {
-  animation: splashLogoRevealOut 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: splashLogoRevealOut 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .splash-logo-img {
-  width: clamp(160px, 48vw, 220px);
-  height: clamp(160px, 48vw, 220px);
+  width: clamp(160px, 45vw, 205px);
+  height: clamp(160px, 45vw, 205px);
   object-fit: contain;
-  border-radius: clamp(34px, 10vw, 48px);
+  border-radius: clamp(34px, 10vw, 46px);
+  display: block;
 }
-@keyframes splashLogoSpringIn {
+@keyframes splashLogoPulse {
   0% {
-    opacity: 0;
-    transform: scale(0.82) translateY(6px);
-  }
-  65% {
-    opacity: 1;
-    transform: scale(1.02) translateY(-1px);
+    transform: scale(1);
+    filter: drop-shadow(0 16px 32px rgba(2, 122, 179, 0.28)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.10));
   }
   100% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 26px 48px rgba(2, 122, 179, 0.42)) drop-shadow(0 10px 22px rgba(0, 0, 0, 0.14));
+  }
+}
+@keyframes splashAuraPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.10);
     opacity: 1;
-    transform: scale(1) translateY(0);
   }
 }
 @keyframes splashLogoRevealOut {
@@ -81,11 +102,12 @@ if ('caches' in window) {
   }
   100% {
     opacity: 0;
-    transform: scale(1.12);
-    filter: blur(4px);
+    transform: scale(1.22);
+    filter: blur(8px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .splash-aura,
   .splash-logo-wrap,
   .splash.is-hiding .splash-logo-wrap,
   .splash.is-hidden .splash-logo-wrap {
@@ -695,14 +717,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1.8.3">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-512.png?v=1.8.3">
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=1.8.3">
-    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=1.8.3">
-    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=1.8.3">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=1.8.3">
-    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-512.png?v=1.8.3">
-    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-512.png?v=1.8.3">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1.8.4">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-512.png?v=1.8.4">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=1.8.4">
+    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=1.8.4">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=1.8.4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=1.8.4">
+    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-512.png?v=1.8.4">
+    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-512.png?v=1.8.4">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -890,7 +912,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="/static/css/tw.css?v=1.8.3">
+    <link rel="stylesheet" href="/static/css/tw.css?v=1.8.4">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -905,7 +927,7 @@ window.addEventListener('error', function(e) {
 
     <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="/static/js/offline-store.js?v=1.8.3"></script>
+    <script src="/static/js/offline-store.js?v=1.8.4"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2321,10 +2343,11 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-            <!-- ══════ Native Launch Animation (Android / iOS / PC) ══════ -->
+                <!-- ══════ Native Launch Animation (Android / iOS / PC) ══════ -->
     <div class="splash" id="splash">
+        <div class="splash-aura"></div>
         <div class="splash-logo-wrap">
-            <img class="splash-logo-img" src="/static/img/icon-512.png?v=1.8.3" alt="Hanzi Diary">
+            <img class="splash-logo-img" src="/static/img/icon-splash.webp?v=1.8.4" onerror="this.onerror=null;this.src='/static/img/icon-512.png?v=1.8.4'" width="256" height="256" alt="Hanzi Diary">
         </div>
     </div>
     <script>
@@ -2341,11 +2364,35 @@ window.addEventListener('error', function(e) {
                 if (s && s.parentNode) {
                     s.parentNode.removeChild(s);
                 }
-            }, 380);
+            }, 480);
         }
 
-        // Tự động chuyển cảnh mượt mà sau 600ms (tổng thời gian ~950ms cực nhanh và mượt)
-        setTimeout(dismissSplash, 600);
+        // Đảm bảo hoạt ảnh hiển thị đủ thời gian trên màn hình (không bị chớp nháy trên Android/iOS)
+        var startTime = Date.now();
+        var minVisibleMs = 900; // Hiển thị ít nhất 900ms để thấy rõ hiệu ứng thở và chuyển cảnh mượt
+
+        function scheduleDismiss() {
+            var elapsed = Date.now() - startTime;
+            var remaining = Math.max(0, minVisibleMs - elapsed);
+            setTimeout(dismissSplash, remaining);
+        }
+
+        if (document.readyState === 'complete') {
+            requestAnimationFrame(function() {
+                scheduleDismiss();
+            });
+        } else {
+            window.addEventListener('load', function() {
+                requestAnimationFrame(function() {
+                    scheduleDismiss();
+                });
+            }, { once: true });
+
+            // Giới hạn an toàn fallback (tối đa 1500ms) để không bao giờ bị kẹt
+            setTimeout(function() {
+                if (!dismissed) scheduleDismiss();
+            }, 1500);
+        }
     })();
     </script>
 
@@ -2592,7 +2639,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=1.8.3" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=1.8.4" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
         </div>
@@ -2750,7 +2797,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.8.3</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.8.4</span>
             </div>
 
             </nav>
@@ -3615,7 +3662,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="/static/js/modules/vocab-notebook.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/vocab-notebook.js?v=1.8.4" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -3774,7 +3821,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="/static/js/modules/grammar-hub.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/grammar-hub.js?v=1.8.4" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4289,7 +4336,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/srs-engine.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/srs-engine.js?v=1.8.4" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4362,7 +4409,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/writing.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/writing.js?v=1.8.4" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4528,7 +4575,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="/static/js/modules/stroke-writer.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/stroke-writer.js?v=1.8.4" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -11661,7 +11708,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="/static/js/modules/tocfl-exam.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/tocfl-exam.js?v=1.8.4" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12042,7 +12089,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/radicals.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/radicals.js?v=1.8.4" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12152,7 +12199,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="/static/js/modules/dict-lookup.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/dict-lookup.js?v=1.8.4" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12223,7 +12270,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="/static/js/modules/measure-words.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/measure-words.js?v=1.8.4" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -12577,7 +12624,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/shadowing.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/shadowing.js?v=1.8.4" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -12782,7 +12829,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/dictation.js?v=1.8.3" defer></script>
+    <script src="/static/js/modules/dictation.js?v=1.8.4" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -17905,7 +17952,7 @@ window.addEventListener('error', function(e) {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=1.8.3', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=1.8.4', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

@@ -46,17 +46,17 @@ if ('caches' in window) {
 }
 .splash-ring {
   position: absolute;
-  width: 170px;
-  height: 170px;
-  border: 1.5px solid rgba(2, 122, 179, .35);
+  width: clamp(230px, 60vw, 290px);
+  height: clamp(230px, 60vw, 290px);
+  border: 1.5px solid rgba(0, 140, 255, .4);
   border-radius: 50%;
   animation: splashPulse 1.2s ease-out forwards;
 }
 .splash-ring2 {
   position: absolute;
-  width: 130px;
-  height: 130px;
-  border: 1px solid rgba(2, 122, 179, .2);
+  width: clamp(170px, 45vw, 220px);
+  height: clamp(170px, 45vw, 220px);
+  border: 1px solid rgba(0, 140, 255, .25);
   border-radius: 50%;
   animation: splashPulse2 1s .1s ease-out forwards;
 }
@@ -66,26 +66,26 @@ if ('caches' in window) {
   animation: splashLogoIn .8s .15s cubic-bezier(.16, 1, .3, 1) both;
 }
 .splash-logo-img {
-  width: clamp(84px, 22vw, 110px);
-  height: clamp(84px, 22vw, 110px);
-  border-radius: 24px;
-  box-shadow: 0 0 45px rgba(2, 122, 179, .55);
+  width: clamp(140px, 38vw, 190px);
+  height: clamp(140px, 38vw, 190px);
+  border-radius: clamp(30px, 8vw, 42px);
+  box-shadow: 0 0 60px rgba(0, 122, 255, .65), 0 20px 40px rgba(0, 0, 0, .45);
   object-fit: cover;
 }
 .splash-title {
-  font-size: clamp(24px, 7vw, 36px);
+  font-size: clamp(28px, 7.5vw, 40px);
   font-weight: 800;
   color: #fff;
   letter-spacing: -.5px;
-  margin-top: 18px;
-  text-shadow: 0 0 30px rgba(2, 122, 179, .6);
+  margin-top: 22px;
+  text-shadow: 0 0 35px rgba(0, 122, 255, .7);
   animation: splashTextIn .6s .35s cubic-bezier(.16, 1, .3, 1) both;
 }
 .splash-sub {
-  font-size: 13px;
-  color: rgba(255, 255, 255, .45);
-  margin-top: 4px;
-  letter-spacing: 3px;
+  font-size: clamp(13px, 3.6vw, 16px);
+  color: rgba(255, 255, 255, .55);
+  margin-top: 6px;
+  letter-spacing: 3.5px;
   font-weight: 500;
   animation: splashTextIn .6s .45s cubic-bezier(.16, 1, .3, 1) both;
 }
@@ -740,12 +740,12 @@ window.addEventListener('error', function(e) {
     <link rel="canonical" href="https://p.vql.vn/" />
 
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.7.5">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-192.png?v=1.7.5">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=1.7.5">
     <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=1.7.5">
     <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=1.7.5">
     <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=1.7.5">
     <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=1.7.5">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-192.png?v=1.7.5">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-512.png?v=1.7.5">
     <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-512.png?v=1.7.5">
 
 
@@ -2372,7 +2372,7 @@ window.addEventListener('error', function(e) {
         <div class="splash-line"></div>
         <div class="splash-glitch"></div>
         <div class="splash-logo-wrap">
-            <img class="splash-logo-img" src="static/img/icon-192.png?v=1.7.5" alt="Hanzi Diary">
+            <img class="splash-logo-img" src="static/img/icon-512.png?v=1.7.5" alt="Hanzi Diary">
         </div>
         <div class="splash-title">Hanzi Diary</div>
         <div class="splash-sub">學中文 · 每天進步</div>

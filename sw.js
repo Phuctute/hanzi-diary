@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.7.2';
-const API_CACHE_NAME = 'hanzi-api-v1.7.2';
+const CACHE_NAME = 'hanzi-pwa-v1.7.3';
+const API_CACHE_NAME = 'hanzi-api-v1.7.3';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';

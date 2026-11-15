@@ -3,14 +3,6 @@
 <html lang="vi" style="background-color: #f0f4f8; color-scheme: light;">
 
 <head>
-    <script>
-        (function() {
-            var isGh = window.location.hostname.includes('github.io');
-            var baseEl = document.createElement('base');
-            baseEl.href = isGh ? '/hanzi-diary/' : '/';
-            document.head.prepend(baseEl);
-        })();
-    </script>
 
 <script>
 // Xoá cache lỗi v1.4.9 khỏi trình duyệt người dùng ngay lập tức
@@ -31,7 +23,7 @@ if ('caches' in window) {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Hanzi Diary">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <script>
         window.deferredPrompt = null;
         window.addEventListener('beforeinstallprompt', function(e) {
@@ -620,13 +612,13 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-192.png?v=20261023_v4">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=20261023_v4">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=20261023_v4">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-192.png?v=20261023_v4">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-512.png?v=20261023_v4">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
+    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=20261023_v4">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-192.png?v=20261023_v4">
+    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-512.png?v=20261023_v4">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -702,7 +694,7 @@ window.addEventListener('error', function(e) {
 
             "@type": "ImageObject",
 
-            "url": "static/img/hanzidiary.png"
+            "url": "/static/img/hanzidiary.png"
 
           },
 
@@ -814,22 +806,22 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css">
+    <link rel="stylesheet" href="/static/css/tw.css">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
-    <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
+    <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
 
 
 
-    <script src="static/js/opencc-full.js" defer></script>
+    <script src="/static/js/opencc-full.js" defer></script>
 
-    <script src="static/js/pinyin-pro.js" defer></script>
+    <script src="/static/js/pinyin-pro.js" defer></script>
 
-    <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
+    <script src="/static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js" defer></script>
+    <script src="/static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="static/js/offline-store.js?v=1.7.0"></script>
+    <script src="/static/js/offline-store.js?v=1.7.1"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -1212,6 +1204,16 @@ window.addEventListener('error', function(e) {
         }
         /* Nút font đang chọn trong menu tài khoản mobile */
         .font-opt-active { border-color: #027AB3 !important; color: #027AB3 !important; background: rgba(2,122,179,.08); }
+
+        
+        #pwa-install-banner {
+            bottom: calc(72px + env(safe-area-inset-bottom, 12px)) !important;
+        }
+        @media (min-width: 768px) {
+            #pwa-install-banner {
+                bottom: 24px !important;
+            }
+        }
 
         /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
         #mobile-bottom-nav {
@@ -2226,7 +2228,7 @@ window.addEventListener('error', function(e) {
                 role: 'admin',
                 vip: 1,
                 tocfl_level: 'Band A',
-                avatar: 'static/img/hanzi_icon.png'
+                avatar: '/static/img/hanzi_icon.png'
             }));
         }
     } catch(e) {}
@@ -2478,7 +2480,7 @@ window.addEventListener('error', function(e) {
         <div class="h-20 flex items-center justify-start px-4 relative mb-2 w-full mt-2 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-start select-none cursor-pointer" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=20261023_v6" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 130px !important; max-width: 130px !important; height: auto !important;" class="w-[130px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=20261023_v6" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 130px !important; max-width: 130px !important; height: auto !important;" class="w-[130px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
             <button aria-label="Đóng Menu" onclick="toggleSidebar()" class="absolute right-4 text-white/50 hover:text-white bg-white/10 active:bg-white/20 rounded-full w-8 h-8 flex items-center justify-center md:hidden transition-colors">
@@ -2495,7 +2497,7 @@ window.addEventListener('error', function(e) {
 
 
 
-            <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard"
+            <a href="javascript:void(0)" onclick="switchTab('dashboard')" id="nav-dashboard"
 
                 class="nav-item active flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2508,13 +2510,13 @@ window.addEventListener('error', function(e) {
             <!-- Trạm ôn ký ức (/srs): trung tâm ôn tập toàn site (FSRS) — khôi phục lại link
                  sidebar (đã gỡ khỏi menu trước đây theo yêu cầu, nhưng trang/API vẫn còn nguyên).
                  Đặt ngay dưới Trang chủ vì đây là điểm vào chính cho việc ôn tập hàng ngày. -->
-            <a href="#" onclick="switchTab('srs')" id="nav-srs" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('srs')" id="nav-srs" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-hourglass-half w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Trạm ôn ký ức</span>
             </a>
 
             <!-- Thi thử TOCFL (Mới): ngay dưới Trang chủ theo yêu cầu 20260719. -->
-            <a href="#" onclick="switchTab('tocfl')" id="nav-tocfl" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer relative overflow-hidden group">
+            <a href="javascript:void(0)" onclick="switchTab('tocfl')" id="nav-tocfl" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <i class="fa-solid fa-award w-5 text-center text-accent text-lg transition-colors" id="nav-tocfl-icon"></i>
                 <span class="font-semibold text-[14px] text-white">Thi thử TOCFL</span>
@@ -2523,7 +2525,7 @@ window.addEventListener('error', function(e) {
             <!-- ============ LUYỆN TẬP: gộp 1 nhóm theo yêu cầu 20260719 ============ -->
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Luyện tập</div>
 
-            <a href="#" onclick="switchTab('vocab')" id="nav-vocab"
+            <a href="javascript:void(0)" onclick="switchTab('vocab')" id="nav-vocab"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2533,7 +2535,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('flashcard')" id="nav-flashcard"
+            <a href="javascript:void(0)" onclick="switchTab('flashcard')" id="nav-flashcard"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2543,7 +2545,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('quiz')" id="nav-quiz"
+            <a href="javascript:void(0)" onclick="switchTab('quiz')" id="nav-quiz"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2553,7 +2555,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('karaoke')" id="nav-karaoke"
+            <a href="javascript:void(0)" onclick="switchTab('karaoke')" id="nav-karaoke"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2563,7 +2565,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('writing')" id="nav-writing"
+            <a href="javascript:void(0)" onclick="switchTab('writing')" id="nav-writing"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2573,7 +2575,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('listening')" id="nav-listening"
+            <a href="javascript:void(0)" onclick="switchTab('listening')" id="nav-listening"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2583,12 +2585,12 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('dictation')" id="nav-dictation" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('dictation')" id="nav-dictation" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-headphones-simple w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Nghe chép chính tả</span>
             </a>
 
-            <a href="#" onclick="switchTab('shadowing')" id="nav-shadowing" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('shadowing')" id="nav-shadowing" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-microphone-lines w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Luyện nói (Shadowing)</span>
             </a>
@@ -2597,7 +2599,7 @@ window.addEventListener('error', function(e) {
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Từ vựng &amp; Hán tự</div>
 
             <!-- Sổ tay từ vựng (/vocab-notebook-hub): trang riêng mới (đang phát triển). -->
-            <a href="#" onclick="switchTab('vocab-notebook-hub'); if(typeof vnhOnOpen==='function') vnhOnOpen();" id="nav-vocab-notebook-hub"
+            <a href="javascript:void(0)" onclick="switchTab('vocab-notebook-hub'); if(typeof vnhOnOpen==='function') vnhOnOpen();" id="nav-vocab-notebook-hub"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2608,18 +2610,18 @@ window.addEventListener('error', function(e) {
             </a>
 
             <!-- Kho ngữ pháp (/grammar-hub): tổng hợp ngữ pháp theo giáo trình/TOCFL/chủ đề/Top hay dùng. -->
-            <a href="#" onclick="switchTab('grammar-hub'); if(typeof gmhOnOpen==='function') gmhOnOpen();" id="nav-grammar-hub"
+            <a href="javascript:void(0)" onclick="switchTab('grammar-hub'); if(typeof gmhOnOpen==='function') gmhOnOpen();" id="nav-grammar-hub"
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-book-open w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Ngữ pháp</span>
             </a>
 
-            <a href="#" onclick="switchTab('bo-thu')" id="nav-bo-thu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('bo-thu')" id="nav-bo-thu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-shapes w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Bộ thủ</span>
             </a>
 
-            <a href="#" onclick="switchTab('luong-tu')" id="nav-luong-tu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('luong-tu')" id="nav-luong-tu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-layer-group w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Lượng từ</span>
             </a>
@@ -2627,7 +2629,7 @@ window.addEventListener('error', function(e) {
             <!-- ============ THI CỬ TOCFL: tính điểm - xếp hạng (Thi thử đã chuyển lên đầu) ============ -->
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Thi cử TOCFL</div>
 
-            <a href="#" onclick="switchTab('calculator')" id="nav-calculator" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('calculator')" id="nav-calculator" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-calculator w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Tính điểm thi</span>
             </a>
@@ -2642,7 +2644,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.0</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.1</span>
             </div>
 
             </nav>
@@ -23143,7 +23145,7 @@ document.addEventListener('click', (ev) => {
                     email: "manhq7@gmail.com",
                     vip: 1,
                     role: "admin",
-                    avatar: "static/img/hanzi_icon.png"
+                    avatar: "/static/img/hanzi_icon.png"
                 });
                 try { localStorage.setItem('td_user', userJson); } catch (e) {}
             }
@@ -24237,6 +24239,9 @@ document.addEventListener('click', (ev) => {
 
 
         function switchTab(tabName, triggerPushState = true, isInitial = false) {
+            if (typeof event !== 'undefined' && event && typeof event.preventDefault === 'function') {
+                try { event.preventDefault(); } catch (e) {}
+            }
             window.currentTab = tabName;
             if (typeof updateUIBadge === 'function') updateUIBadge();
 
@@ -24632,7 +24637,7 @@ document.addEventListener('click', (ev) => {
 
                 posts.forEach(post => {
 
-                    let imgUrl = 'static/img/hanzidiary.png'; // Fallback
+                    let imgUrl = '/static/img/hanzidiary.png'; // Fallback
 
                     if (post._embedded && post._embedded['wp:featuredmedia']) {
 
@@ -26674,9 +26679,9 @@ document.addEventListener('click', (ev) => {
     </script>
 
     <!-- PWA Install Banner (Bottom Floating) -->
-    <div id="pwa-install-banner" class="hidden fixed bottom-[74px] md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
+    <div id="pwa-install-banner" style="bottom: calc(72px + env(safe-area-inset-bottom, 12px));" class="hidden fixed md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
         <div class="flex items-center gap-3">
-            <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
+            <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
             <div class="flex-1 min-w-0">
                 <div class="text-xs font-black text-slate-800 truncate">Cài đặt Hanzi Diary</div>
                 <div class="text-[11px] text-slate-500 truncate">Mở nhanh trên màn hình chính như App</div>
@@ -26697,7 +26702,7 @@ document.addEventListener('click', (ev) => {
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
             <div class="flex items-center gap-3 mb-3 pr-6">
-                <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
+                <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
                 <div>
                     <h4 class="font-bold text-slate-800 text-sm">Cài đặt Hanzi Diary</h4>
                     <p class="text-xs text-slate-500">Màn hình chính (Home Screen)</p>
@@ -26721,10 +26726,7 @@ document.addEventListener('click', (ev) => {
 
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=1.7.0' : '/sw.js?v=1.7.0';
-                const swScope = isGh ? './' : '/';
-                navigator.serviceWorker.register(swUrl, { scope: swScope })
+                navigator.serviceWorker.register('/sw.js?v=1.7.1', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

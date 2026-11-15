@@ -9,7 +9,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '1.7.0';
+    const CURRENT_VERSION = '1.7.1';
 
     let dbInstance = null;
     let cachedBundle = null;

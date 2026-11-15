@@ -707,7 +707,7 @@ def get_offline_bundle_data():
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.7.0",
+            "version": "1.7.1",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,
@@ -1934,6 +1934,10 @@ def serve_index_php():
 @app.route("/api_tracking.php", methods=["GET", "POST"])
 def api_tracking():
     return jsonify({"success": True})
+
+@app.route("/<page>/static/<path:filename>")
+def serve_subpage_static(page, filename):
+    return send_from_directory(os.path.join(BASE_DIR, "static"), filename)
 
 @app.route("/<page>")
 def serve_page(page):

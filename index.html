@@ -3,14 +3,7 @@
 <html lang="vi" style="background-color: #f0f4f8; color-scheme: light;">
 
 <head>
-    <script>
-        (function() {
-            var isGh = window.location.hostname.includes('github.io');
-            var baseEl = document.createElement('base');
-            baseEl.href = isGh ? '/hanzi-diary/' : '/';
-            document.head.prepend(baseEl);
-        })();
-    </script>
+    <base href="/hanzi-diary/">
 
 <script>
 // Xoá cache lỗi v1.4.9 khỏi trình duyệt người dùng ngay lập tức
@@ -829,7 +822,7 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="static/js/offline-store.js?v=1.7.0"></script>
+    <script src="static/js/offline-store.js?v=1.7.1"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -1212,6 +1205,16 @@ window.addEventListener('error', function(e) {
         }
         /* Nút font đang chọn trong menu tài khoản mobile */
         .font-opt-active { border-color: #027AB3 !important; color: #027AB3 !important; background: rgba(2,122,179,.08); }
+
+        
+        #pwa-install-banner {
+            bottom: calc(72px + env(safe-area-inset-bottom, 12px)) !important;
+        }
+        @media (min-width: 768px) {
+            #pwa-install-banner {
+                bottom: 24px !important;
+            }
+        }
 
         /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
         #mobile-bottom-nav {
@@ -2495,7 +2498,7 @@ window.addEventListener('error', function(e) {
 
 
 
-            <a href="#" onclick="switchTab('dashboard')" id="nav-dashboard"
+            <a href="javascript:void(0)" onclick="switchTab('dashboard')" id="nav-dashboard"
 
                 class="nav-item active flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2508,13 +2511,13 @@ window.addEventListener('error', function(e) {
             <!-- Trạm ôn ký ức (/srs): trung tâm ôn tập toàn site (FSRS) — khôi phục lại link
                  sidebar (đã gỡ khỏi menu trước đây theo yêu cầu, nhưng trang/API vẫn còn nguyên).
                  Đặt ngay dưới Trang chủ vì đây là điểm vào chính cho việc ôn tập hàng ngày. -->
-            <a href="#" onclick="switchTab('srs')" id="nav-srs" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('srs')" id="nav-srs" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-hourglass-half w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Trạm ôn ký ức</span>
             </a>
 
             <!-- Thi thử TOCFL (Mới): ngay dưới Trang chủ theo yêu cầu 20260719. -->
-            <a href="#" onclick="switchTab('tocfl')" id="nav-tocfl" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer relative overflow-hidden group">
+            <a href="javascript:void(0)" onclick="switchTab('tocfl')" id="nav-tocfl" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-r from-accent/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <i class="fa-solid fa-award w-5 text-center text-accent text-lg transition-colors" id="nav-tocfl-icon"></i>
                 <span class="font-semibold text-[14px] text-white">Thi thử TOCFL</span>
@@ -2523,7 +2526,7 @@ window.addEventListener('error', function(e) {
             <!-- ============ LUYỆN TẬP: gộp 1 nhóm theo yêu cầu 20260719 ============ -->
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Luyện tập</div>
 
-            <a href="#" onclick="switchTab('vocab')" id="nav-vocab"
+            <a href="javascript:void(0)" onclick="switchTab('vocab')" id="nav-vocab"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2533,7 +2536,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('flashcard')" id="nav-flashcard"
+            <a href="javascript:void(0)" onclick="switchTab('flashcard')" id="nav-flashcard"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2543,7 +2546,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('quiz')" id="nav-quiz"
+            <a href="javascript:void(0)" onclick="switchTab('quiz')" id="nav-quiz"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2553,7 +2556,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('karaoke')" id="nav-karaoke"
+            <a href="javascript:void(0)" onclick="switchTab('karaoke')" id="nav-karaoke"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2563,7 +2566,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('writing')" id="nav-writing"
+            <a href="javascript:void(0)" onclick="switchTab('writing')" id="nav-writing"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2573,7 +2576,7 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('listening')" id="nav-listening"
+            <a href="javascript:void(0)" onclick="switchTab('listening')" id="nav-listening"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2583,12 +2586,12 @@ window.addEventListener('error', function(e) {
 
             </a>
 
-            <a href="#" onclick="switchTab('dictation')" id="nav-dictation" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('dictation')" id="nav-dictation" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-headphones-simple w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Nghe chép chính tả</span>
             </a>
 
-            <a href="#" onclick="switchTab('shadowing')" id="nav-shadowing" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('shadowing')" id="nav-shadowing" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-microphone-lines w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Luyện nói (Shadowing)</span>
             </a>
@@ -2597,7 +2600,7 @@ window.addEventListener('error', function(e) {
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Từ vựng &amp; Hán tự</div>
 
             <!-- Sổ tay từ vựng (/vocab-notebook-hub): trang riêng mới (đang phát triển). -->
-            <a href="#" onclick="switchTab('vocab-notebook-hub'); if(typeof vnhOnOpen==='function') vnhOnOpen();" id="nav-vocab-notebook-hub"
+            <a href="javascript:void(0)" onclick="switchTab('vocab-notebook-hub'); if(typeof vnhOnOpen==='function') vnhOnOpen();" id="nav-vocab-notebook-hub"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -2608,18 +2611,18 @@ window.addEventListener('error', function(e) {
             </a>
 
             <!-- Kho ngữ pháp (/grammar-hub): tổng hợp ngữ pháp theo giáo trình/TOCFL/chủ đề/Top hay dùng. -->
-            <a href="#" onclick="switchTab('grammar-hub'); if(typeof gmhOnOpen==='function') gmhOnOpen();" id="nav-grammar-hub"
+            <a href="javascript:void(0)" onclick="switchTab('grammar-hub'); if(typeof gmhOnOpen==='function') gmhOnOpen();" id="nav-grammar-hub"
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-book-open w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Ngữ pháp</span>
             </a>
 
-            <a href="#" onclick="switchTab('bo-thu')" id="nav-bo-thu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('bo-thu')" id="nav-bo-thu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-shapes w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Bộ thủ</span>
             </a>
 
-            <a href="#" onclick="switchTab('luong-tu')" id="nav-luong-tu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('luong-tu')" id="nav-luong-tu" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-layer-group w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Lượng từ</span>
             </a>
@@ -2627,7 +2630,7 @@ window.addEventListener('error', function(e) {
             <!-- ============ THI CỬ TOCFL: tính điểm - xếp hạng (Thi thử đã chuyển lên đầu) ============ -->
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Thi cử TOCFL</div>
 
-            <a href="#" onclick="switchTab('calculator')" id="nav-calculator" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
+            <a href="javascript:void(0)" onclick="switchTab('calculator')" id="nav-calculator" class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
                 <i class="fa-solid fa-calculator w-5 text-center text-lg"></i>
                 <span class="font-semibold text-[14px]">Tính điểm thi</span>
             </a>
@@ -2642,7 +2645,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.0</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.1</span>
             </div>
 
             </nav>
@@ -22906,7 +22909,14 @@ document.addEventListener('click', (ev) => {
 
             } else {
 
-                const path = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+                const isGh = window.location.hostname.includes('github.io');
+                let path = 'dashboard';
+                if (isGh) {
+                    const hash = window.location.hash.replace(/^#/, '');
+                    path = hash || 'dashboard';
+                } else {
+                    path = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+                }
 
                 const validViews = ['dashboard', 'srs', 'vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'tocfl', 'calculator', 'bo-thu', 'dict-lookup', 'luong-tu', 'shadowing', 'dictation', 'vocab-notebook-hub', 'grammar-hub'];
 
@@ -23251,11 +23261,16 @@ document.addEventListener('click', (ev) => {
 
             // --- ĐỊNH TUYẾN THÔNG MINH KHI KHỞI TẠO TẢI TRANG (DEEP LINKING XỬ LÝ F5) ---
 
-            const currentPath = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+            const isGh = window.location.hostname.includes('github.io');
+            let currentPath = 'dashboard';
+            if (isGh) {
+                const hash = window.location.hash.replace(/^#/, '');
+                currentPath = hash || 'dashboard';
+            } else {
+                currentPath = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+            }
 
             const validViews = ['dashboard', 'srs', 'vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'tocfl', 'calculator', 'bo-thu', 'dict-lookup', 'luong-tu', 'shadowing', 'dictation', 'vocab-notebook-hub', 'grammar-hub'];
-
-
 
             if (validViews.includes(currentPath)) {
 
@@ -23263,7 +23278,9 @@ document.addEventListener('click', (ev) => {
                 const dictIdParam = (currentPath === 'dict-lookup') ? searchParams.get('dict_id') : null;
                 const stateObj = { tab: currentPath };
                 if (dictIdParam) stateObj.dict_id = dictIdParam;
-                const targetUrl = currentPath === 'dashboard' ? '/' : ('/' + currentPath + (window.location.search || ''));
+                const targetUrl = isGh
+                    ? (currentPath === 'dashboard' ? './' : '#' + currentPath)
+                    : (currentPath === 'dashboard' ? '/' : ('/' + currentPath + (window.location.search || '')));
                 window.history.replaceState(stateObj, "", targetUrl);
 
                 // Loại bỏ delay 300ms gây giật khựng giao diện; isInitial=true tránh fade-in giật nháy khi tải trang
@@ -23275,8 +23292,8 @@ document.addEventListener('click', (ev) => {
 
             } else {
 
-                window.history.replaceState({ tab: 'dashboard' }, "", "/");
-
+                const targetUrl = isGh ? './' : '/';
+                window.history.replaceState({ tab: 'dashboard' }, "", targetUrl);
                 switchTab('dashboard', false, true);
 
             }
@@ -24237,6 +24254,9 @@ document.addEventListener('click', (ev) => {
 
 
         function switchTab(tabName, triggerPushState = true, isInitial = false) {
+            if (typeof event !== 'undefined' && event && typeof event.preventDefault === 'function') {
+                try { event.preventDefault(); } catch (e) {}
+            }
             window.currentTab = tabName;
             if (typeof updateUIBadge === 'function') updateUIBadge();
 
@@ -24261,11 +24281,9 @@ document.addEventListener('click', (ev) => {
 
 
             if (triggerPushState) {
-
-                const targetUrl = tabName === 'dashboard' ? '/' : '/' + tabName;
-
+                const isGh = window.location.hostname.includes('github.io');
+                const targetUrl = tabName === 'dashboard' ? (isGh ? './' : '/') : (isGh ? '#' + tabName : '/' + tabName);
                 window.history.pushState({ tab: tabName }, "", targetUrl);
-
             }
 
 
@@ -26674,7 +26692,7 @@ document.addEventListener('click', (ev) => {
     </script>
 
     <!-- PWA Install Banner (Bottom Floating) -->
-    <div id="pwa-install-banner" class="hidden fixed bottom-[74px] md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
+    <div id="pwa-install-banner" style="bottom: calc(72px + env(safe-area-inset-bottom, 12px));" class="hidden fixed md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
         <div class="flex items-center gap-3">
             <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
             <div class="flex-1 min-w-0">
@@ -26722,7 +26740,7 @@ document.addEventListener('click', (ev) => {
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=1.7.0' : '/sw.js?v=1.7.0';
+                const swUrl = isGh ? 'sw.js?v=1.7.1' : '/sw.js?v=1.7.1';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

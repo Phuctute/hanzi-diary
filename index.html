@@ -13,10 +13,10 @@ if ('caches' in window) {
 }
 </script>
 
-    <link rel="preload" as="image" href="/static/img/icon-splash.webp?v=1.8.4" type="image/webp">
+    <link rel="preload" as="image" href="/static/img/icon-splash.webp?v=1.8.5" type="image/webp">
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
 <style id="splash-style">
-/* ══════ Native Launch Animation (Android / iOS / PC) ══════ */
+/* ══════ Native Motion Graphics Launch Animation (Android / iOS / PC) ══════ */
 .splash {
   position: fixed;
   z-index: 99999;
@@ -25,15 +25,15 @@ if ('caches' in window) {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.45s ease, -webkit-backdrop-filter 0.45s ease;
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
   pointer-events: auto;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;
 }
+
 .splash.is-hiding,
 .splash.is-hidden {
   opacity: 0;
@@ -41,77 +41,176 @@ if ('caches' in window) {
   -webkit-backdrop-filter: blur(0px);
   pointer-events: none;
 }
+
+/* Vòng hào quang xanh dịu phía sau logo */
 .splash-aura {
   position: absolute;
   width: clamp(260px, 70vw, 360px);
   height: clamp(260px, 70vw, 360px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(2, 122, 179, 0.16) 0%, rgba(2, 122, 179, 0.04) 50%, transparent 70%);
-  animation: splashAuraPulse 1.8s ease-in-out infinite alternate;
   pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+/* Sóng xung kích đồ hoạ phát ra khi bắt đầu animation */
+.splash-shockwave {
+  position: absolute;
+  width: clamp(170px, 48vw, 215px);
+  height: clamp(170px, 48vw, 215px);
+  border-radius: 50%;
+  border: 2px solid rgba(2, 122, 179, 0.6);
+  box-shadow: 0 0 25px rgba(2, 122, 179, 0.5), inset 0 0 15px rgba(255, 213, 61, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.splash.is-animating .splash-shockwave {
+  animation: splashShockwaveExpand 0.75s 0.12s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes splashShockwaveExpand {
+  0% { transform: scale(0.95); opacity: 0.85; border-width: 3px; }
+  60% { opacity: 0.5; }
+  100% { transform: scale(2.8); opacity: 0; border-width: 1px; }
+}
+
+/* Khung chứa Logo */
 .splash-logo-wrap {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   will-change: transform, opacity;
-  animation: splashLogoPulse 1.4s ease-in-out infinite alternate;
-  filter: drop-shadow(0 20px 38px rgba(2, 122, 179, 0.35)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+  transform: scale(1);
 }
-.splash.is-hiding .splash-aura {
-  opacity: 0;
-  transform: scale(1.3);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+
+.splash-logo-box {
+  position: relative;
+  width: clamp(170px, 48vw, 215px);
+  height: clamp(170px, 48vw, 215px);
+  border-radius: clamp(36px, 10vw, 48px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px -10px rgba(2, 122, 179, 0.38), 0 10px 24px -6px rgba(0, 0, 0, 0.14);
 }
-.splash.is-hiding .splash-logo-wrap,
-.splash.is-hidden .splash-logo-wrap {
-  animation: splashLogoRevealOut 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
+
 .splash-logo-img {
-  width: clamp(160px, 45vw, 205px);
-  height: clamp(160px, 45vw, 205px);
-  object-fit: contain;
-  border-radius: clamp(34px, 10vw, 46px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-@keyframes splashLogoPulse {
+
+/* Vệt sáng lướt chéo qua Logo đồ hoạ */
+.splash-shimmer {
+  position: absolute;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 42%,
+    rgba(255, 235, 120, 0.75) 50%,
+    rgba(255, 255, 255, 0.95) 52%,
+    rgba(255, 255, 255, 0.25) 58%,
+    transparent 68%
+  );
+  transform: translateX(-150%) rotate(25deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.splash.is-animating .splash-shimmer {
+  animation: splashShimmerSweep 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes splashShimmerSweep {
+  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(150%) rotate(25deg); opacity: 0; }
+}
+
+/* Các ngôi sao lấp lánh ở góc tia chớp */
+.splash-sparkle {
+  position: absolute;
+  color: #FFD53D;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  filter: drop-shadow(0 0 8px rgba(255, 213, 61, 0.95));
+  z-index: 10;
+  font-family: sans-serif;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.splash-sparkle-1 {
+  top: -8px;
+  right: 14px;
+  font-size: 24px;
+}
+
+.splash-sparkle-2 {
+  top: 18px;
+  right: -12px;
+  font-size: 16px;
+}
+
+.splash.is-animating .splash-sparkle-1 {
+  animation: splashSparkleBurst 0.6s 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash.is-animating .splash-sparkle-2 {
+  animation: splashSparkleBurst 0.5s 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashSparkleBurst {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  50% { transform: scale(1.4) rotate(45deg); opacity: 1; }
+  100% { transform: scale(0) rotate(90deg); opacity: 0; }
+}
+
+/* Chuyển động đồ hoạ của Logo (1s tĩnh -> Shimmer & Pop -> Phóng to xuyên không) */
+.splash.is-animating .splash-logo-wrap {
+  animation: splashLogoGraphicMotion 0.85s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashLogoGraphicMotion {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 16px 32px rgba(2, 122, 179, 0.28)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.10));
+    filter: drop-shadow(0 20px 48px -10px rgba(2, 122, 179, 0.38)) drop-shadow(0 10px 24px -6px rgba(0, 0, 0, 0.14));
   }
-  100% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 26px 48px rgba(2, 122, 179, 0.42)) drop-shadow(0 10px 22px rgba(0, 0, 0, 0.14));
+  25% {
+    /* Hơi nén nhẹ lấy đà */
+    transform: scale(0.96) translateY(2px);
+    filter: drop-shadow(0 14px 30px -8px rgba(2, 122, 179, 0.3)) drop-shadow(0 6px 16px -4px rgba(0, 0, 0, 0.1));
   }
-}
-@keyframes splashAuraPulse {
-  0% {
-    transform: scale(0.92);
-    opacity: 0.6;
+  50% {
+    /* Nảy bung lên đỉnh sáng */
+    transform: scale(1.08) translateY(-4px);
+    filter: drop-shadow(0 30px 60px -10px rgba(2, 122, 179, 0.55)) drop-shadow(0 14px 28px -6px rgba(0, 0, 0, 0.2));
   }
-  100% {
-    transform: scale(1.10);
+  70% {
+    /* Giữ đỉnh sáng trong tích tắc */
+    transform: scale(1.04) translateY(-1px);
     opacity: 1;
   }
-}
-@keyframes splashLogoRevealOut {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0px);
-  }
   100% {
+    /* Phóng to xuyên không vào app */
+    transform: scale(1.85) translateY(0);
     opacity: 0;
-    transform: scale(1.22);
-    filter: blur(8px);
+    filter: drop-shadow(0 40px 80px rgba(2, 122, 179, 0)) blur(12px);
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .splash-aura,
-  .splash-logo-wrap,
-  .splash.is-hiding .splash-logo-wrap,
-  .splash.is-hidden .splash-logo-wrap {
+  .splash-shockwave,
+  .splash-shimmer,
+  .splash-sparkle,
+  .splash.is-animating .splash-logo-wrap {
     animation: none !important;
   }
   .splash {
@@ -718,14 +817,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.8.4">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=1.8.4">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=1.8.4">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=1.8.4">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=1.8.4">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=1.8.4">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-512.png?v=1.8.4">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-512.png?v=1.8.4">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1.8.5">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=1.8.5">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=1.8.5">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=1.8.5">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=1.8.5">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=1.8.5">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-512.png?v=1.8.5">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-512.png?v=1.8.5">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -913,7 +1012,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=1.8.4">
+    <link rel="stylesheet" href="static/css/tw.css?v=1.8.5">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -928,7 +1027,7 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/hanzi-writer.min.js" defer></script>
 
-    <script src="static/js/offline-store.js?v=1.8.4"></script>
+    <script src="static/js/offline-store.js?v=1.8.5"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2344,11 +2443,17 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-                <!-- ══════ Native Launch Animation (Android / iOS / PC) ══════ -->
+                    <!-- ══════ Native Motion Graphics Launch Animation (Android / iOS / PC) ══════ -->
     <div class="splash" id="splash">
         <div class="splash-aura"></div>
+        <div class="splash-shockwave"></div>
         <div class="splash-logo-wrap">
-            <img class="splash-logo-img" src="/static/img/icon-splash.webp?v=1.8.4" onerror="this.onerror=null;this.src='/static/img/icon-512.png?v=1.8.4'" width="256" height="256" alt="Hanzi Diary">
+            <div class="splash-logo-box">
+                <img class="splash-logo-img" src="/static/img/icon-splash.webp?v=1.8.5" onerror="this.onerror=null;this.src='/static/img/icon-512.png?v=1.8.5'" width="256" height="256" alt="Hanzi Diary">
+                <div class="splash-shimmer"></div>
+            </div>
+            <div class="splash-sparkle splash-sparkle-1">✦</div>
+            <div class="splash-sparkle splash-sparkle-2">✦</div>
         </div>
     </div>
     <script>
@@ -2356,43 +2461,41 @@ window.addEventListener('error', function(e) {
         var s = document.getElementById('splash');
         if (!s) return;
 
-        var dismissed = false;
-        function dismissSplash() {
-            if (dismissed) return;
-            dismissed = true;
-            s.classList.add('is-hiding');
+        var started = false;
+        function runGraphicAnimation() {
+            if (started) return;
+            started = true;
+
+            // Giai đoạn 2: Bắt đầu chuỗi animation đồ hoạ sau đúng 1s tĩnh
+            s.classList.add('is-animating');
+
+            // Khi logo phóng to xuyên không (sau 550ms của animation đồ hoạ), mở lớp kính mờ
             setTimeout(function() {
-                if (s && s.parentNode) {
-                    s.parentNode.removeChild(s);
-                }
-            }, 480);
+                s.classList.add('is-hiding');
+                setTimeout(function() {
+                    if (s && s.parentNode) s.parentNode.removeChild(s);
+                }, 450);
+            }, 550);
         }
 
-        // Đảm bảo hoạt ảnh hiển thị đủ thời gian trên màn hình (không bị chớp nháy trên Android/iOS)
-        var startTime = Date.now();
-        var minVisibleMs = 900; // Hiển thị ít nhất 900ms để thấy rõ hiệu ứng thở và chuyển cảnh mượt
-
-        function scheduleDismiss() {
-            var elapsed = Date.now() - startTime;
-            var remaining = Math.max(0, minVisibleMs - elapsed);
-            setTimeout(dismissSplash, remaining);
+        // Giai đoạn 1: Giữ nguyên 1s tĩnh (1000ms) như hình ảnh mẫu
+        // Đảm bảo chỉ bắt đầu đếm 1s sau khi trình duyệt đã thực sự vẽ khung hình đầu tiên lên màn hình!
+        function onFirstFrameReady() {
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    setTimeout(runGraphicAnimation, 1000);
+                });
+            });
         }
 
         if (document.readyState === 'complete') {
-            requestAnimationFrame(function() {
-                scheduleDismiss();
-            });
+            onFirstFrameReady();
         } else {
-            window.addEventListener('load', function() {
-                requestAnimationFrame(function() {
-                    scheduleDismiss();
-                });
-            }, { once: true });
-
-            // Giới hạn an toàn fallback (tối đa 1500ms) để không bao giờ bị kẹt
+            window.addEventListener('load', onFirstFrameReady, { once: true });
+            // Fallback tối đa 1400ms phòng khi có tài nguyên mạng bị nghẽn
             setTimeout(function() {
-                if (!dismissed) scheduleDismiss();
-            }, 1500);
+                if (!started) onFirstFrameReady();
+            }, 1400);
         }
     })();
     </script>
@@ -2673,7 +2776,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=1.8.4" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="/static/img/mainlogo.png?v=1.8.5" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
         </div>
@@ -2831,7 +2934,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.8.4</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.8.5</span>
             </div>
 
             </nav>
@@ -3696,7 +3799,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=1.8.5" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -3855,7 +3958,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=1.8.5" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4370,7 +4473,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=1.8.5" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4443,7 +4546,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/writing.js?v=1.8.5" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4609,7 +4712,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=1.8.5" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -11777,7 +11880,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=1.8.5" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12158,7 +12261,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/radicals.js?v=1.8.5" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12268,7 +12371,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=1.8.5" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12339,7 +12442,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/measure-words.js?v=1.8.5" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -12693,7 +12796,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/shadowing.js?v=1.8.5" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -12898,7 +13001,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=1.8.4" defer></script>
+    <script src="static/js/modules/dictation.js?v=1.8.5" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -18034,7 +18137,7 @@ window.addEventListener('error', function(e) {
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=1.8.4' : '/sw.js?v=1.8.4';
+                const swUrl = isGh ? 'sw.js?v=1.8.5' : '/sw.js?v=1.8.5';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

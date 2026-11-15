@@ -452,7 +452,7 @@ def serve_sw():
 
 @app.route("/favicon.ico")
 def serve_favicon():
-    return send_from_directory(os.path.join(BASE_DIR, "static", "img"), "favicon.png", mimetype="image/png")
+    return send_from_directory(os.path.join(BASE_DIR, "static", "img"), "favicon.ico", mimetype="image/x-icon")
 
 @app.route("/apple-touch-icon.png")
 @app.route("/apple-touch-icon-precomposed.png")

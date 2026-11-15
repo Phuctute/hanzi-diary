@@ -1,6 +1,7 @@
 /**
- * Hanzi Diary Offline Data Engine (v1.5.8)
- * Lưu trữ toàn bộ 145 bài học, 18.9k từ vựng, ngữ pháp và phát âm Web Speech API khi không có mạng.
+ * Hanzi Diary Offline Data Engine (v1.7.2)
+ * Lưu trữ dạng mô-đun: Core Bundle (~194KB) + Tải theo từng Giáo trình (Curriculum Bundles).
+ * Hỗ trợ Web Speech API, IndexedDB và Cache Storage chuẩn đồng bộ với Service Worker.
  */
 (function() {
     'use strict';
@@ -9,11 +10,13 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '1.7.1';
+    const CURRENT_VERSION = '1.7.2';
+    const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
     let cachedBundle = null;
     let syncState = 'idle'; // 'idle' | 'syncing' | 'ready' | 'error'
+    const activeSyncs = new Set();
 
     function openDB() {
         if (dbInstance) return Promise.resolve(dbInstance);
@@ -67,7 +70,7 @@
     async function populateCacheStorage(bundle) {
         if (!('caches' in window)) return;
         try {
-            const cache = await caches.open('hanzi-api-v1.5.8');
+            const cache = await caches.open(API_CACHE_NAME);
             const jsonResp = (obj) => new Response(JSON.stringify(obj), {
                 headers: { 'Content-Type': 'application/json', 'X-Offline-Preload': '1' }
             });
@@ -104,7 +107,7 @@
                 }
             }
 
-            // Vocabularies & Contents (145 bài)
+            // Vocabularies & Contents (Lưu theo từng bài khi có)
             if (bundle.lesson_vocab) {
                 for (const lid in bundle.lesson_vocab) {
                     const vocabs = bundle.lesson_vocab[lid] || [];
@@ -142,7 +145,7 @@
                 for (const tid in bundle.tag_vocab) {
                     const tv = bundle.tag_vocab[tid] || [];
                     await cache.put(`/api.php?action=get_tag_vocab&tag_id=${tid}`, jsonResp({ success: true, data: tv }));
-                    await cache.put(`/api.php?action=get_vocab_by_tag&tag_id=${tid}`, jsonResp({ success: true, data: tv }));
+                    await cache.put(`/api/vocab_by_tag&tag_id=${tid}`, jsonResp({ success: true, data: tv }));
                 }
             }
 
@@ -155,7 +158,7 @@
                 await cache.put('/api.php?action=get_shadowing_topics', jsonResp({ success: true, data: bundle.shadowing_topics }));
             }
 
-            // Default fallback endpoints
+            // Fallback endpoints
             await cache.put('/api.php?action=get_last_position', jsonResp({ success: true, data: { book_id: 1, lesson_id: 1, module: 'flashcard' } }));
             await cache.put('/api.php?action=notebook_group_list', jsonResp({ success: true, groups: [{ group_id: 1, name: 'Từ vựng yêu thích', word_count: 0, color: 'blue' }] }));
             await cache.put('/api.php?action=get_notebook_groups', jsonResp({ success: true, groups: [{ group_id: 1, name: 'Từ vựng yêu thích', word_count: 0, color: 'blue' }] }));
@@ -166,46 +169,153 @@
         }
     }
 
-    async function syncOfflineData() {
+    // Helper: fetch file from local data or API
+    async function fetchBundleFile(candidates) {
+        for (const url of candidates) {
+            try {
+                const res = await fetch(url);
+                if (res && res.ok) return await res.json();
+            } catch(e) {}
+        }
+        return null;
+    }
+
+    // Tải Core Bundle (nhẹ ~194KB)
+    async function syncCore() {
+        console.log('[HanziOffline] Tải Core Bundle siêu nhẹ (~194KB gzipped)...');
+        const core = await fetchBundleFile([
+            'data/offline_core.json',
+            '/api/offline_bundle?type=core',
+            'https://p.vql.vn/api/offline_bundle?type=core'
+        ]);
+        if (!core) throw new Error('Không thể tải offline_core.json');
+
+        if (!cachedBundle) {
+            cachedBundle = {
+                version: CURRENT_VERSION,
+                lesson_vocab: {},
+                lesson_contents: {},
+                downloaded_curriculums: []
+            };
+        }
+        Object.assign(cachedBundle, core);
+        cachedBundle.lesson_vocab = cachedBundle.lesson_vocab || {};
+        cachedBundle.lesson_contents = cachedBundle.lesson_contents || {};
+        cachedBundle.downloaded_curriculums = cachedBundle.downloaded_curriculums || [];
+
+        await saveBundleToDB(cachedBundle);
+        await populateCacheStorage(cachedBundle);
+        localStorage.setItem(OFFLINE_VER_KEY, CURRENT_VERSION);
+        syncState = 'ready';
+        updateUIBadge();
+        console.log('[HanziOffline] Core bundle tải thành công!');
+        return cachedBundle;
+    }
+
+    // Tải mô-đun riêng của 1 Giáo trình (Curriculum)
+    async function syncCurriculum(curriculumId) {
+        const cid = parseInt(curriculumId, 10);
+        if (isNaN(cid) || activeSyncs.has(cid)) return false;
+        activeSyncs.add(cid);
+
+        try {
+            console.log(`[HanziOffline] Đang tải mô-đun giáo trình #${cid}...`);
+            const cData = await fetchBundleFile([
+                `data/offline_curriculum_${cid}.json`,
+                `/api/offline_bundle?curriculum_id=${cid}`,
+                `https://p.vql.vn/api/offline_bundle?curriculum_id=${cid}`
+            ]);
+            if (!cData) throw new Error(`Không thể tải giáo trình #${cid}`);
+
+            if (!cachedBundle) await syncCore();
+
+            // Hợp nhất từ vựng và nội dung bài học
+            cachedBundle.lesson_vocab = cachedBundle.lesson_vocab || {};
+            cachedBundle.lesson_contents = cachedBundle.lesson_contents || {};
+            cachedBundle.downloaded_curriculums = cachedBundle.downloaded_curriculums || [];
+
+            if (cData.lesson_vocab) Object.assign(cachedBundle.lesson_vocab, cData.lesson_vocab);
+            if (cData.lesson_contents) Object.assign(cachedBundle.lesson_contents, cData.lesson_contents);
+            if (!cachedBundle.downloaded_curriculums.includes(cid)) {
+                cachedBundle.downloaded_curriculums.push(cid);
+            }
+
+            await saveBundleToDB(cachedBundle);
+            await populateCacheStorage(cData);
+
+            console.log(`[HanziOffline] Đã tải xong giáo trình #${cid} (${cData.curriculum_name || ''})`);
+            try {
+                window.dispatchEvent(new CustomEvent('hanzi-curriculum-synced', { detail: { curriculumId: cid } }));
+            } catch(e) {}
+            return true;
+        } catch (err) {
+            console.warn(`[HanziOffline] Lỗi tải giáo trình #${cid}:`, err);
+            return false;
+        } finally {
+            activeSyncs.delete(cid);
+        }
+    }
+
+    // Kiểm tra giáo trình đã tải offline chưa
+    function isCurriculumDownloaded(curriculumId) {
+        const cid = parseInt(curriculumId, 10);
+        if (!cachedBundle || !cachedBundle.books || !cachedBundle.lessons) return false;
+        if (cachedBundle.downloaded_curriculums && cachedBundle.downloaded_curriculums.includes(cid)) return true;
+
+        const cBooks = cachedBundle.books.filter(b => parseInt(b.curriculum_type_id, 10) === cid);
+        if (cBooks.length === 0) return false;
+        const cBids = new Set(cBooks.map(b => b.book_id));
+        const cLessons = cachedBundle.lessons.filter(l => cBids.has(l.book_id));
+        if (cLessons.length === 0) return false;
+
+        const sampleLid = String(cLessons[0].lesson_id);
+        return !!(cachedBundle.lesson_vocab && cachedBundle.lesson_vocab[sampleLid] && cachedBundle.lesson_vocab[sampleLid].length > 0);
+    }
+
+    // Tải tất cả giáo trình
+    async function syncAll() {
         if (syncState === 'syncing') return;
         syncState = 'syncing';
         updateUIBadge();
 
         try {
-            console.log('[HanziOffline] Bắt đầu tải dữ liệu offline (~5.9MB gzipped)...');
-            let res = null;
-            try {
-                res = await fetch('data/offline_bundle.json');
-            } catch(e) {}
-            if (!res || !res.ok) {
-                try {
-                    res = await fetch('/api/offline_bundle');
-                } catch(e) {}
+            console.log('[HanziOffline] Bắt đầu tải toàn bộ dữ liệu offline...');
+            let full = await fetchBundleFile([
+                'data/offline_bundle.json',
+                '/api/offline_bundle',
+                'https://p.vql.vn/api/offline_bundle'
+            ]);
+            if (full) {
+                cachedBundle = full;
+                cachedBundle.downloaded_curriculums = [1, 2, 3];
+                await saveBundleToDB(full);
+                await populateCacheStorage(full);
+            } else {
+                await syncCore();
+                if (cachedBundle && cachedBundle.curriculums) {
+                    for (const c of cachedBundle.curriculums) {
+                        await syncCurriculum(c.id);
+                    }
+                }
             }
-            if (!res || !res.ok) {
-                try {
-                    res = await fetch('https://p.vql.vn/api/offline_bundle');
-                } catch(e) {}
-            }
-            if (!res || !res.ok) throw new Error('HTTP ' + (res ? res.status : 'all bundle sources failed'));
-            const bundle = await res.json();
-            cachedBundle = bundle;
-
-            // 1. Lưu vào IndexedDB
-            await saveBundleToDB(bundle);
-
-            // 2. Nạp Cache Storage cho Service Worker
-            await populateCacheStorage(bundle);
-
             localStorage.setItem(OFFLINE_VER_KEY, CURRENT_VERSION);
             syncState = 'ready';
             updateUIBadge();
-            console.log('[HanziOffline] Đã đồng bộ offline 100% (145 bài học, 18.9k từ vựng).');
+            console.log('[HanziOffline] Đã đồng bộ offline 100% tất cả giáo trình.');
         } catch (err) {
-            console.warn('[HanziOffline] Lỗi đồng bộ dữ liệu:', err);
+            console.warn('[HanziOffline] Lỗi đồng bộ toàn bộ:', err);
             syncState = cachedBundle ? 'ready' : 'error';
             updateUIBadge();
         }
+    }
+
+    async function syncOfflineData(target) {
+        if (typeof target === 'number' || (typeof target === 'string' && /^[0-9]+$/.test(target))) {
+            return syncCurriculum(parseInt(target, 10));
+        }
+        if (target === 'all') return syncAll();
+        // Mặc định: tải core trước
+        return syncCore();
     }
 
     function handleOfflineApi(urlStr) {
@@ -232,12 +342,12 @@
             }
             if (action === 'get_vocabularies' || u.pathname === '/api/vocabularies') {
                 const lid = u.searchParams.get('lesson_id');
-                const vocabs = lid ? (cachedBundle.lesson_vocab[String(lid)] || []) : [];
+                const vocabs = (lid && cachedBundle.lesson_vocab) ? (cachedBundle.lesson_vocab[String(lid)] || []) : [];
                 return jsonResp(vocabs);
             }
             if (action === 'get_lesson_contents' || u.pathname === '/api/lesson_contents') {
                 const lid = u.searchParams.get('lesson_id');
-                const contents = lid ? (cachedBundle.lesson_contents[String(lid)] || []) : [];
+                const contents = (lid && cachedBundle.lesson_contents) ? (cachedBundle.lesson_contents[String(lid)] || []) : [];
                 return jsonResp(u.pathname === '/api/lesson_contents' ? contents : { success: true, data: contents });
             }
             if (action === 'get_lessons_by_topic') {
@@ -313,7 +423,6 @@
             parent.style.display = 'none';
             parent.style.cssText = 'display: none !important;';
         }
-        return;
     }
 
     // Intercept native fetch
@@ -336,8 +445,13 @@
     // Public API
     window.HanziOffline = {
         sync: syncOfflineData,
+        syncCore: syncCore,
+        syncCurriculum: syncCurriculum,
+        syncAll: syncAll,
+        isCurriculumDownloaded: isCurriculumDownloaded,
         getBundle: () => cachedBundle,
-        getState: () => syncState
+        getState: () => syncState,
+        version: CURRENT_VERSION
     };
 
     // Khởi tạo
@@ -349,31 +463,23 @@
             updateUIBadge();
         }
 
-        // 2. Chỉ tự tải khi CHƯA có dữ liệu và đang dùng WiFi (Network Information API).
-        //    Trên 4G/3G: không tự tải 6MB — để user chủ động bấm nút offline.
+        // 2. Tự tải Core Bundle nếu chưa có hoặc phiên bản cũ
         if (navigator.onLine && (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION)) {
-            const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-            const onWifi = !conn || conn.type === 'wifi' || conn.type === 'ethernet' || conn.effectiveType === '4g';
-            const saveData = conn && conn.saveData;
-            if (onWifi && !saveData) {
-                // Tải khi trình duyệt rảnh, tránh tranh băng thông với render
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(() => syncOfflineData(), { timeout: 8000 });
-                } else {
-                    setTimeout(syncOfflineData, 4000);
-                }
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => syncCore().catch(() => {}), { timeout: 8000 });
+            } else {
+                setTimeout(() => syncCore().catch(() => {}), 3000);
             }
         }
 
-        // 3. Lắng nghe trạng thái kết nối
+        // 3. Lắng nghe trạng thái mạng
         window.addEventListener('online', () => {
             updateUIBadge();
             if (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION) {
-                syncOfflineData();
+                syncCore().catch(() => {});
             }
         });
         window.addEventListener('offline', updateUIBadge);
-
         setTimeout(updateUIBadge, 500);
     }
 

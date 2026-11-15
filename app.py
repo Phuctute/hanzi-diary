@@ -418,14 +418,14 @@ def add_cors_headers(response):
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
     return response
 
-@app.route("/data/offline_bundle.json")
-def serve_data_offline_bundle():
-    bundle_json, _ = get_offline_bundle_data()
-    return Response(bundle_json, mimetype="application/json", headers={"Cache-Control": "public, max-age=86400", "Access-Control-Allow-Origin": "*"})
-
-@app.route("/data/image_cache/<path:filepath>")
-def serve_data_image_cache(filepath):
-    return proxy_image(filepath)
+@app.route("/data/<path:filename>")
+def serve_data_files(filename):
+    if filename.startswith("image_cache/"):
+        return proxy_image(filename[len("image_cache/"):])
+    resp = send_from_directory(DATA_DIR, filename)
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers["Cache-Control"] = "public, max-age=86400"
+    return resp
 
 @app.route("/health")
 def health_check():
@@ -703,11 +703,29 @@ def get_rich_dict_detail(did, hanzi=None):
 _OFFLINE_BUNDLE_JSON = None
 _OFFLINE_BUNDLE_GZ = None
 
-def get_offline_bundle_data():
+def get_offline_bundle_data(bundle_type=None, curriculum_id=None):
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
+    
+    if bundle_type == "core":
+        fn = "offline_core.json"
+    elif curriculum_id:
+        fn = f"offline_curriculum_{curriculum_id}.json"
+    else:
+        fn = "offline_bundle.json"
+        
+    p_gz = os.path.join(DATA_DIR, fn + ".gz")
+    p_raw = os.path.join(DATA_DIR, fn)
+    
+    if os.path.exists(p_raw) and os.path.exists(p_gz):
+        with open(p_raw, "r", encoding="utf-8") as f:
+            j = f.read()
+        with open(p_gz, "rb") as f:
+            gz = f.read()
+        return j, gz
+        
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.7.1",
+            "version": "1.7.2",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,
@@ -729,15 +747,19 @@ def get_offline_bundle_data():
 @app.route("/api/offline_bundle", methods=["GET"])
 @app.route("/api/offline-bundle", methods=["GET"])
 def api_offline_bundle():
-    bundle_json, bundle_gz = get_offline_bundle_data()
+    b_type = request.args.get("type", "")
+    cid = request.args.get("curriculum_id", "")
+    bundle_json, bundle_gz = get_offline_bundle_data(bundle_type=b_type, curriculum_id=cid)
     accept_encoding = request.headers.get("Accept-Encoding", "")
     if "gzip" in accept_encoding:
         resp = Response(bundle_gz, mimetype="application/json")
         resp.headers["Content-Encoding"] = "gzip"
         resp.headers["Cache-Control"] = "public, max-age=86400"
+        resp.headers["Access-Control-Allow-Origin"] = "*"
         return resp
     resp = Response(bundle_json, mimetype="application/json")
     resp.headers["Cache-Control"] = "public, max-age=86400"
+    resp.headers["Access-Control-Allow-Origin"] = "*"
     return resp
 
 @app.route("/api.php", methods=["GET", "POST"])

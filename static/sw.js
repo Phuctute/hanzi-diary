@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.7.1';
-const API_CACHE_NAME = 'hanzi-api-v1.7.1';
+const CACHE_NAME = 'hanzi-pwa-v1.7.2';
+const API_CACHE_NAME = 'hanzi-api-v1.7.2';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
@@ -13,6 +13,17 @@ const PRECACHE_ASSETS = [
   new URL('static/js/pinyin-pro.js', BASE_SCOPE).href,
   new URL('static/js/chart.min.js', BASE_SCOPE).href,
   new URL('static/js/offline-store.js', BASE_SCOPE).href,
+  new URL('static/js/modules/vocab-notebook.js', BASE_SCOPE).href,
+  new URL('static/js/modules/grammar-hub.js', BASE_SCOPE).href,
+  new URL('static/js/modules/srs-engine.js', BASE_SCOPE).href,
+  new URL('static/js/modules/writing.js', BASE_SCOPE).href,
+  new URL('static/js/modules/stroke-writer.js', BASE_SCOPE).href,
+  new URL('static/js/modules/tocfl-exam.js', BASE_SCOPE).href,
+  new URL('static/js/modules/radicals.js', BASE_SCOPE).href,
+  new URL('static/js/modules/dict-lookup.js', BASE_SCOPE).href,
+  new URL('static/js/modules/measure-words.js', BASE_SCOPE).href,
+  new URL('static/js/modules/shadowing.js', BASE_SCOPE).href,
+  new URL('static/js/modules/dictation.js', BASE_SCOPE).href,
   new URL('static/img/icon-192.png', BASE_SCOPE).href,
   new URL('static/img/icon-512.png', BASE_SCOPE).href
 ];

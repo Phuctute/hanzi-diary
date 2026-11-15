@@ -725,7 +725,7 @@ def get_offline_bundle_data(bundle_type=None, curriculum_id=None):
         
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.8.8",
+            "version": "1.8.9",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,

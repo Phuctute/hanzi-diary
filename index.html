@@ -1216,167 +1216,6 @@ window.addEventListener('error', function(e) {
             }
         }
 
-        
-        /* ========================================================
-           LIQUID GLASS & MICRO-INTERACTION SUITE (v1.7.3)
-           ======================================================== */
-        
-        /* 1. Header Liquid Glass */
-        #main-app-header {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.72) 100%) !important;
-            backdrop-filter: blur(20px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.6) !important;
-            box-shadow: 0 4px 20px -2px rgba(2, 122, 179, 0.05) !important;
-        }
-
-        /* 2. Mobile Bottom Nav Liquid Glass */
-        #mobile-bottom-nav {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.94) 100%) !important;
-            backdrop-filter: blur(24px) saturate(190%) !important;
-            -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-            border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
-            box-shadow: 0 -8px 24px -4px rgba(2, 122, 179, 0.08), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95) !important;
-        }
-
-        /* 3. Dynamic Pill with Liquid Glow */
-        #mnav-dynamic-pill {
-            background: linear-gradient(135deg, rgba(2, 122, 179, 0.12) 0%, rgba(2, 122, 179, 0.05) 100%) !important;
-            border: 1px solid rgba(2, 122, 179, 0.2) !important;
-            box-shadow: 0 2px 8px rgba(2, 122, 179, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
-            border-radius: 14px !important;
-        }
-
-        /* 4. Interactive Touch Spring on Nav Items */
-        .mnav-item {
-            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.15s ease !important;
-            will-change: transform;
-        }
-        .mnav-item:active {
-            transform: scale(0.88) translateY(1px) !important;
-        }
-
-        /* 5. Curriculum Cards: Liquid Glass & Specular Depth */
-        .dash-book {
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        }
-        .dash-book:active {
-            transform: scale(0.93) !important;
-        }
-        .dash-book .relative.rounded-xl {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(235, 244, 253, 0.7) 100%) !important;
-            backdrop-filter: blur(14px) !important;
-            -webkit-backdrop-filter: blur(14px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.85) !important;
-            box-shadow: 0 4px 16px -2px rgba(2, 122, 179, 0.08), inset 0 1px 1.5px rgba(255, 255, 255, 1) !important;
-            transition: all 0.3s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
-            position: relative;
-            overflow: hidden;
-        }
-        .dash-book:hover .relative.rounded-xl {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 14px 28px -4px rgba(2, 122, 179, 0.22), inset 0 1px 2px rgba(255, 255, 255, 1) !important;
-            border-color: rgba(2, 122, 179, 0.35) !important;
-        }
-
-        /* Shimmer beam passing through the card on hover */
-        .dash-book .relative.rounded-xl::after {
-            content: '';
-            position: absolute;
-            top: -60%;
-            left: -60%;
-            width: 220%;
-            height: 220%;
-            background: linear-gradient(65deg, transparent 40%, rgba(255, 255, 255, 0.45) 50%, transparent 60%);
-            transform: rotate(25deg) translateY(-100%);
-            transition: transform 0.65s ease;
-            pointer-events: none;
-            z-index: 5;
-        }
-        .dash-book:hover .relative.rounded-xl::after {
-            transform: rotate(25deg) translateY(100%);
-        }
-
-        /* 6. Dashboard Feature Hub Cards (Frosted Glass) */
-        .dash-hub {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 100%) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.8) !important;
-            box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
-            transition: all 0.26s cubic-bezier(0.34, 1.4, 0.64, 1) !important;
-        }
-        .dash-hub:hover {
-            transform: translateY(-3px) scale(1.01) !important;
-            box-shadow: 0 14px 30px -4px rgba(2, 122, 179, 0.16), inset 0 1px 2px rgba(255, 255, 255, 1) !important;
-        }
-        .dash-hub:active {
-            transform: scale(0.97) translateY(0) !important;
-        }
-
-        /* 7. Liquid Spring Tap on Buttons & Interactive Elements */
-        .liquid-btn, .nav-item, #select-book, #select-lesson {
-            transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease !important;
-        }
-        .liquid-btn:active, .nav-item:active {
-            transform: scale(0.95) !important;
-        }
-
-        /* 8. PWA Banner Frosted Glass */
-        #pwa-install-banner {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 100%) !important;
-            backdrop-filter: blur(20px) saturate(180%) !important;
-            -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-            border: 1px solid rgba(255, 255, 255, 0.85) !important;
-            box-shadow: 0 14px 40px -4px rgba(2, 122, 179, 0.18), inset 0 1px 2px rgba(255, 255, 255, 1) !important;
-        }
-
-        /* 9. Liquid Glass Fallback Cover for Books */
-        .dash-book-glass-cover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(224, 242, 254, 0.6) 50%, rgba(186, 230, 253, 0.4) 100%) !important;
-            backdrop-filter: blur(12px) !important;
-            -webkit-backdrop-filter: blur(12px) !important;
-            position: relative;
-            overflow: hidden;
-        }
-        .dash-book-glass-cover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 40%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
-            pointer-events: none;
-        }
-        .dash-book-spine {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 7px;
-            background: linear-gradient(90deg, rgba(2, 122, 179, 0.35) 0%, rgba(2, 122, 179, 0.1) 80%, rgba(255, 255, 255, 0.4) 100%);
-            box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.5);
-            z-index: 2;
-        }
-
-        /* Ripple effect style */
-        .liquid-ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(2, 122, 179, 0.25);
-            transform: scale(0);
-            animation: liquid-ripple-anim 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-            pointer-events: none;
-            z-index: 100;
-        }
-        @keyframes liquid-ripple-anim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
         /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
         #mobile-bottom-nav {
             padding-bottom: max(10px, env(safe-area-inset-bottom, 12px)) !important;
@@ -2806,7 +2645,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.3</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v1.7.2</span>
             </div>
 
             </nav>
@@ -16881,18 +16720,11 @@ window.addEventListener('error', function(e) {
         function dashBookImgFallback(img) {
             const wrap = img.parentElement;
             if (!wrap) return;
-            const shortName = img.alt || '';
-            const numMatch = shortName.match(/\d+/);
-            const bookNum = numMatch ? numMatch[0] : '';
-            wrap.className = 'relative rounded-xl overflow-hidden aspect-[3/4] dash-book-glass-cover flex flex-col items-center justify-center p-3 select-none ring-1 ring-black/5';
+            wrap.classList.add('bg-gradient-to-br', 'from-primary/10', 'to-primary/25', 'flex', 'items-center', 'justify-center');
             img.remove();
-            wrap.innerHTML = `
-                <div class="dash-book-spine"></div>
-                <div class="w-11 h-11 rounded-2xl bg-white/75 shadow-sm border border-white/80 flex items-center justify-center mb-1 text-primary/70 backdrop-blur-sm">
-                    <i class="fa-solid fa-book-open text-lg"></i>
-                </div>
-                ${bookNum ? `<span class="text-[10px] font-black text-primary/70 tracking-wider">TẬP ${bookNum}</span>` : ''}
-            `;
+            const i = document.createElement('i');
+            i.className = 'fa-solid fa-book text-primary/50 text-3xl';
+            wrap.appendChild(i);
         }
         async function loadDashRoadmap() {
             const box = document.getElementById('dash-roadmap');
@@ -16950,28 +16782,16 @@ window.addEventListener('error', function(e) {
         }
         function dashBookCard(b, typeName, i) {
             const imgSet = dashBookImageSet(b, typeName);
-            const shortName = dashBookShortName(b);
-            const numMatch = shortName.match(/\d+/);
-            const bookNum = numMatch ? numMatch[0] : '';
+            const c = DASH_BOOK_COLORS[i % DASH_BOOK_COLORS.length];
             const cover = imgSet
-                ? `<img src="${dashEsc(imgSet.src)}" data-alts='${dashEsc(JSON.stringify(imgSet.alts || []))}' alt="${dashEsc(shortName)}" onerror="dashBookImgError(this)" class="w-full h-full object-cover">`
-                : `<div class="w-full h-full dash-book-glass-cover flex flex-col items-center justify-center p-3 relative">
-                     <div class="dash-book-spine"></div>
-                     <div class="w-11 h-11 rounded-2xl bg-white/75 shadow-sm border border-white/80 flex items-center justify-center mb-1 text-primary/70 backdrop-blur-sm">
-                         <i class="fa-solid fa-book-open text-lg"></i>
-                     </div>
-                     ${bookNum ? `<span class="text-[10px] font-black text-primary/70 tracking-wider">TẬP ${bookNum}</span>` : ''}
-                   </div>`;
-            return `<button onclick="openDashBook(${parseInt(b.book_id, 10)})" class="dash-book group text-left outline-none">
-                <div class="relative rounded-xl overflow-hidden aspect-[3/4] bg-slate-100 ring-1 ring-black/5">
+                ? `<img src="${dashEsc(imgSet.src)}" data-alts='${dashEsc(JSON.stringify(imgSet.alts || []))}' alt="${dashEsc(dashBookShortName(b))}" onerror="dashBookImgError(this)" class="w-full h-full object-cover">`
+                : `<div class="w-full h-full ${c.bg} flex items-center justify-center"><i class="fa-solid fa-book ${c.icon} text-2xl opacity-70"></i></div>`;
+            return `<button onclick="openDashBook(${parseInt(b.book_id, 10)})" class="dash-book group text-left">
+                <div class="relative rounded-xl overflow-hidden aspect-[3/4] bg-slate-100 shadow-[0_4px_16px_rgb(0,0,0,0.08)] ring-1 ring-black/5 group-hover:-translate-y-1 group-hover:shadow-[0_12px_28px_rgb(0,0,0,0.16)] transition-all duration-300">
                     ${cover}
-                    <span class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <span class="w-9 h-9 rounded-full bg-white/95 text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
-                            <i class="fa-solid fa-play text-xs ml-0.5"></i>
-                        </span>
-                    </span>
+                    <span class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100"><span class="w-9 h-9 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-lg"><i class="fa-solid fa-play text-xs"></i></span></span>
                 </div>
-                <div class="mt-1.5 font-bold text-slate-600 text-[11px] leading-tight text-center line-clamp-1">${dashEsc(shortName)}</div>
+                <div class="mt-1.5 font-bold text-slate-600 text-[11px] leading-tight text-center line-clamp-1">${dashEsc(dashBookShortName(b))}</div>
             </button>`;
         }
 
@@ -18577,30 +18397,6 @@ window.addEventListener('error', function(e) {
         <div class="ios-spinner-icon"></div>
         <span>Đang tải bài học...</span>
     </div>
-
-    <!-- Liquid Interactive Ripple Effect -->
-    <script>
-    (function initLiquidInteractions() {
-        document.addEventListener('pointerdown', function(e) {
-            const btn = e.target.closest('button, .dash-book, .dash-hub, .nav-item, .mnav-item, .cursor-pointer');
-            if (!btn || btn.disabled) return;
-            const rect = btn.getBoundingClientRect();
-            const circle = document.createElement('span');
-            const d = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - d / 2;
-            const y = e.clientY - rect.top - d / 2;
-            circle.className = 'liquid-ripple';
-            circle.style.width = circle.style.height = d + 'px';
-            circle.style.left = x + 'px';
-            circle.style.top = y + 'px';
-            btn.style.position = btn.style.position || 'relative';
-            btn.style.overflow = btn.style.overflow || 'hidden';
-            btn.appendChild(circle);
-            setTimeout(() => circle.remove(), 600);
-        }, { passive: true });
-    })();
-    </script>
-
 </body>
 
 

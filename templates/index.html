@@ -20,10 +20,6 @@ if ('caches' in window) {
   z-index: 99999;
   inset: 0;
   background-color: #016ff9;
-  background-image: url('/static/img/splash-artwork-full.webp?v=1.9.16');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,6 +40,17 @@ if ('caches' in window) {
   pointer-events: none;
 }
 
+.splash-bg-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  display: block;
+}
+
 /* Tia sáng nhẹ lướt ngang logo trung tâm */
 .splash-shimmer-sweep {
   position: absolute;
@@ -54,6 +61,7 @@ if ('caches' in window) {
   transform: translate(-50%, -50%);
   pointer-events: none;
   overflow: hidden;
+  z-index: 2;
 }
 
 .splash-shimmer-sweep::after {
@@ -2457,6 +2465,7 @@ window.addEventListener('error', function(e) {
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
     <!-- ══════ Seamless Master Artwork Launch Screen (Android / iOS / PC) ══════ -->
     <div class="splash" id="splash" aria-hidden="true">
+        <img class="splash-bg-art" src="/static/img/splash-artwork-full.webp?v=1.9.16" alt="" fetchpriority="high" decoding="sync">
         <div class="splash-shimmer-sweep"></div>
     </div>
     <script>
@@ -2479,7 +2488,7 @@ window.addEventListener('error', function(e) {
                 s.classList.add('is-hidden');
                 if (s && s.parentNode) s.parentNode.removeChild(s);
             }, 450);
-        }, 850);
+        }, 900);
     })();
     </script>
 

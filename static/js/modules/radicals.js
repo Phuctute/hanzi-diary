@@ -72,22 +72,51 @@ let radData = null;          // full array
         return pool[seed % pool.length];
     }
 
+    let dailyRadWriter = null;
     function updateRadSidebar() {
         if (!radLoaded) return;
         // daily
         const daily = radDailyPick();
         const dailyDisp = getChar(daily.radical);
-        document.getElementById('rad-daily-char').textContent = dailyDisp;
-        document.getElementById('rad-daily-bg').textContent = dailyDisp;
+        const charEl = document.getElementById('rad-daily-char');
+        if (charEl) charEl.textContent = dailyDisp;
+        const bgEl = document.getElementById('rad-daily-bg');
+        if (bgEl) bgEl.textContent = dailyDisp;
         document.getElementById('rad-daily-name').textContent = `${daily.hanviet} · ${daily.pinyin}`;
         document.getElementById('rad-daily-meaning').textContent = daily.meaning_vi;
         document.getElementById('rad-daily-open').onclick = () => openRadDetail(daily.radical);
-        // Hiển thị bộ thủ sắc nét bằng typography font-tc trên nền kính mờ
+
         const dailyWriterBox = document.getElementById('rad-daily-writer');
         if (dailyWriterBox) {
             dailyWriterBox.onclick = () => openRadDetail(daily.radical);
             dailyWriterBox.classList.add('cursor-pointer', 'hover:scale-105', 'transition-transform');
-            dailyWriterBox.innerHTML = `<span id="rad-daily-char" class="text-5xl font-black font-tc text-white select-none drop-shadow-sm">${dailyDisp}</span>`;
+            dailyWriterBox.title = 'Bấm để xem chi tiết bộ thủ';
+        }
+
+        // Animate nét viết HanziWriter mượt mà, sắc nét trên nền gradient
+        if (typeof HanziWriter !== 'undefined') {
+            if (dailyRadWriter) {
+                try { dailyRadWriter.cancelQuiz && dailyRadWriter.cancelQuiz(); } catch (e) {}
+                dailyRadWriter = null;
+            }
+            dailyRadWriter = drawWriter('rad-daily-writer', dailyDisp, {
+                width: 88,
+                height: 88,
+                padding: 10,
+                showCharacter: false,
+                strokeColor: '#ffffff',
+                radicalColor: '#ffffff',
+                showOutline: true,
+                outlineColor: 'rgba(255, 255, 255, 0.20)',
+                delayBetweenLoops: 1400,
+                delayBetweenStrokes: 130,
+                strokeAnimationSpeed: 1.2,
+                onLoadCharDataError: function () {
+                    const el = document.getElementById('rad-daily-writer');
+                    if (el) el.innerHTML = `<span id="rad-daily-char" class="text-5xl font-black font-tc text-white select-none drop-shadow-sm">${dailyDisp}</span>`;
+                }
+            });
+            if (dailyRadWriter) dailyRadWriter.loopCharacterAnimation();
         }
         // progress
         const top50 = new Set([...radData].sort((a, b) => a.rank - b.rank).slice(0, RAD_COMMON_N).map(r => r.id));
@@ -152,9 +181,42 @@ let radData = null;          // full array
         </button>`;
     }
 
-    // Giữ typography font-tc sắc nét trên từng thẻ bộ thủ (vẽ nét động ở modal chi tiết)
+    // Chạy HanziWriter (nét trắng, nền gradient) trên từng card khi card lọt vào khung hình — lazy render mượt mà
+    let radCardObserver = null;
     function initRadCardWriters() {
-        // No-op: giữ font chữ vector sắc nét, tránh biến dạng stroke và quá tải CPU
+        if (typeof HanziWriter === 'undefined') return;
+        if (!radCardObserver) {
+            radCardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    radCardObserver.unobserve(el);
+                    const char = el.dataset.radChar;
+                    const textClass = el.dataset.radTextClass || 'text-white';
+                    const w = drawWriter(el.id, char, {
+                        width: el.clientWidth || 72,
+                        height: el.clientHeight || 72,
+                        padding: 10,
+                        showCharacter: false,
+                        strokeColor: el.dataset.radStroke || '#ffffff',
+                        radicalColor: el.dataset.radRadical || '#ffffff',
+                        showOutline: true,
+                        outlineColor: 'rgba(255, 255, 255, 0.20)',
+                        delayBetweenStrokes: 180,
+                        delayBetweenLoops: 1800,
+                        strokeAnimationSpeed: 1.2,
+                        onLoadCharDataError: function () {
+                            el.innerHTML = `<span class="text-[38px] sm:text-[46px] leading-none font-black ${textClass} font-tc">${char}</span>`;
+                        }
+                    });
+                    if (w) w.loopCharacterAnimation();
+                });
+            }, { rootMargin: '150px' });
+        }
+        document.querySelectorAll('[data-rad-char]:not([data-rad-observed])').forEach(el => {
+            el.dataset.radObserved = '1';
+            radCardObserver.observe(el);
+        });
     }
 
     function renderRadicals() {
@@ -323,10 +385,11 @@ let radData = null;          // full array
             return HanziWriter.create(targetId, char, Object.assign({
                 width: el.clientWidth || 180,
                 height: el.clientHeight || 180,
-                padding: Math.round((el.clientWidth || 180) * 0.22),
+                padding: Math.round((el.clientWidth || 180) * 0.18),
                 strokeColor: '#0072bc',
                 radicalColor: '#e8794b',
                 showOutline: true,
+                outlineColor: '#e2e8f0',
                 delayBetweenStrokes: 180,
                 onLoadCharDataError: function () {
                     el.innerHTML = `<span class="text-6xl font-black text-primary font-tc flex items-center justify-center h-full">${char}</span>`;

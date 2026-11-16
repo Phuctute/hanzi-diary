@@ -1129,7 +1129,7 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.0.4" defer></script>
 
     <script src="static/js/offline-store.js?v=2.0.0"></script>
 
@@ -12467,7 +12467,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.0.3" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.0.4" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -18358,7 +18358,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.0.3' : '/sw.js?v=2.0.3';
+                const swUrl = isGh ? 'sw.js?v=2.0.4' : '/sw.js?v=2.0.4';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

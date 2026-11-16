@@ -331,7 +331,7 @@ if ('caches' in window) {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Hanzi Diary">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <script>
         window.deferredPrompt = null;
         window.addEventListener('beforeinstallprompt', function(e) {
@@ -920,14 +920,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2.0.1">
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/icon-512.png?v=2.0.1">
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/icon-512.png?v=2.0.1">
-    <link rel="icon" type="image/png" href="/static/img/favicon-blue.png?v=2.0.1">
-    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png?v=2.0.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/apple-touch-icon.png?v=2.0.0">
-    <link rel="apple-touch-icon" sizes="192x192" href="/static/img/icon-maskable-192.png?v=2.0.0">
-    <link rel="apple-touch-icon" sizes="512x512" href="/static/img/icon-maskable-512.png?v=2.0.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.0.1">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.0.1">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.0.1">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.0.1">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.0.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.0.0">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.0.0">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.0.0">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1003,7 +1003,7 @@ window.addEventListener('error', function(e) {
 
             "@type": "ImageObject",
 
-            "url": "/static/img/hanzidiary.png"
+            "url": "static/img/hanzidiary.png"
 
           },
 
@@ -1115,22 +1115,22 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="/static/css/tw.css?v=2.0.0">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.0.0">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
-    <link rel="stylesheet" href="/static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
+    <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
 
 
 
-    <script src="/static/js/opencc-full.js" defer></script>
+    <script src="static/js/opencc-full.js" defer></script>
 
-    <script src="/static/js/pinyin-pro.js" defer></script>
+    <script src="static/js/pinyin-pro.js" defer></script>
 
-    <script src="/static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
+    <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="/static/js/hanzi-writer.min.js?v=2.0.4" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.0.4" defer></script>
 
-    <script src="/static/js/offline-store.js?v=2.0.0"></script>
+    <script src="static/js/offline-store.js?v=2.0.0"></script>
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
@@ -2640,7 +2640,7 @@ window.addEventListener('error', function(e) {
                 role: 'admin',
                 vip: 1,
                 tocfl_level: 'Band A',
-                avatar: '/static/img/hanzi_icon.png'
+                avatar: 'static/img/hanzi_icon.png'
             }));
         }
     } catch(e) {}
@@ -2755,6 +2755,39 @@ window.addEventListener('error', function(e) {
                 class="w-full py-3.5 rounded-xl bg-primary text-white font-black hover:bg-primaryDark transition-all shadow-[0_8px_20px_rgba(0,113,184,0.3)] active:scale-95">
                 Đã hiểu
             </button>
+        </div>
+    </div>
+
+    <!-- Modal xác nhận làm lại bài trắc nghiệm từ đầu -->
+    <div id="quiz-restart-modal"
+        class="fixed inset-0 z-[800] flex items-center justify-center hidden bg-brandNavy/80 backdrop-blur-sm"
+        onclick="if(event.target===this) closeRestartQuizModal()">
+        <div
+            class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl mx-4 animate-fade-in border border-white/20 relative"
+            onclick="event.stopPropagation()">
+            <button type="button" onclick="closeRestartQuizModal()" aria-label="Đóng"
+                class="absolute top-4 right-4 text-slate-400 hover:text-red-500 w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center transition-colors cursor-pointer outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div
+                class="w-16 h-16 bg-amber-500/10 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner text-2xl">
+                <i class="fa-solid fa-rotate-right"></i>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-brandNavy mb-2">Làm lại từ đầu?</h3>
+            <p class="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+                Bạn có chắc chắn muốn làm lại bài trắc nghiệm từ câu đầu tiên không? Điểm số và tiến độ hiện tại sẽ được đặt lại.
+            </p>
+            <div class="flex gap-3">
+                <button type="button" onclick="closeRestartQuizModal()"
+                    class="flex-1 py-3 sm:py-3.5 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200 transition-colors active:scale-95 text-xs sm:text-sm cursor-pointer">
+                    Hủy bỏ
+                </button>
+                <button type="button" onclick="handleConfirmRestartQuiz()"
+                    class="flex-1 py-3 sm:py-3.5 rounded-xl bg-primary text-white font-black hover:bg-primaryDark transition-all shadow-[0_8px_20px_rgba(0,113,184,0.3)] active:scale-95 flex items-center justify-center gap-1.5 text-xs sm:text-sm cursor-pointer">
+                    <i class="fa-solid fa-rotate-right text-xs"></i>
+                    <span>Làm lại</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -3954,7 +3987,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="/static/js/modules/vocab-notebook.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.0.0" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4113,7 +4146,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="/static/js/modules/grammar-hub.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.0.0" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4628,7 +4661,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/srs-engine.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.0.0" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4701,7 +4734,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/writing.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/writing.js?v=2.0.0" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4867,13 +4900,14 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="/static/js/modules/stroke-writer.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.0.0" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
-        <div class="bg-white rounded-full sm:rounded-[20px] px-2.5 py-1 sm:px-6 sm:py-2.5 shadow-xs sm:shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center shrink-0 tracking-wide">
-            <span id="quiz-counter" class="text-primary text-xs sm:text-base mr-1 sm:mr-1.5 font-bold">0 / 0</span> CÂU
-        </div>
+        <button type="button" id="quiz-counter-btn" onclick="openRestartQuizModal()" title="Bấm để làm lại bài trắc nghiệm từ đầu" class="bg-white rounded-full sm:rounded-[20px] px-2.5 py-1 sm:px-5 sm:py-2.5 shadow-xs sm:shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center shrink-0 tracking-wide cursor-pointer hover:bg-slate-50 hover:border-slate-200 active:scale-95 transition-all select-none group outline-none">
+            <span id="quiz-counter" class="text-primary text-xs sm:text-base mr-1 sm:mr-1.5 font-bold group-hover:underline">0 / 0</span> CÂU
+            <i class="fa-solid fa-rotate-right ml-1 sm:ml-1.5 text-[9px] sm:text-xs text-slate-400 group-hover:text-primary group-hover:rotate-180 transition-transform duration-300"></i>
+        </button>
         <span class="text-[11px] sm:text-sm font-black text-td-green bg-td-green/10 px-2 py-1 sm:px-4 sm:py-2.5 rounded-full sm:rounded-[20px] border border-td-green/20 shadow-xs sm:shadow-sm flex items-center gap-1 sm:gap-1.5 shrink-0">
             <i class="fa-solid fa-star text-td-yellow text-[10px] sm:text-sm"></i> <span id="quiz-score-value">0</span>
         </span>
@@ -4912,7 +4946,36 @@ window.addEventListener('error', function(e) {
         return questions;
     }
 
-    function initQuiz() {
+    function openRestartQuizModal() {
+        if (!quizQuestions || quizQuestions.length === 0) return;
+        const modal = document.getElementById('quiz-restart-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+    }
+
+    function closeRestartQuizModal() {
+        const modal = document.getElementById('quiz-restart-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+        }
+    }
+
+    function handleConfirmRestartQuiz() {
+        closeRestartQuizModal();
+        if (typeof initQuiz === 'function') {
+            initQuiz(true);
+        }
+    }
+
+    window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            const m = document.getElementById('quiz-restart-modal');
+            if (m && !m.classList.contains('hidden')) closeRestartQuizModal();
+        }
+    });
+
+    function initQuiz(forceReset = false) {
         if (!vocabData || vocabData.length === 0) {
             const les = document.getElementById('select-lesson');
             const lid = les ? les.value : null;
@@ -4921,7 +4984,7 @@ window.addEventListener('error', function(e) {
                 if (qCont) {
                     qCont.innerHTML = `<div class="flex flex-col items-center justify-center py-10 sm:py-20 text-slate-400"><i class="fa-solid fa-spinner fa-spin text-3xl mb-4 text-primary"></i><p class="font-medium text-sm sm:text-base">Đang tải từ vựng cho bài học...</p></div>`;
                 }
-                loadVocabulariesAndContent(lid).then(() => initQuiz()).catch(() => initQuiz());
+                loadVocabulariesAndContent(lid).then(() => initQuiz(forceReset)).catch(() => initQuiz(forceReset));
                 return;
             }
             const qCont = document.getElementById('quiz-container');
@@ -4932,12 +4995,12 @@ window.addEventListener('error', function(e) {
                 const retryLes = document.getElementById('select-lesson');
                 if (retryLes && retryLes.value) {
                     if (typeof loadVocabulariesAndContent === 'function') {
-                        loadVocabulariesAndContent(retryLes.value).then(() => initQuiz());
+                        loadVocabulariesAndContent(retryLes.value).then(() => initQuiz(forceReset));
                     } else {
-                        initQuiz();
+                        initQuiz(forceReset);
                     }
                 } else if (vocabData && vocabData.length > 0) {
-                    initQuiz();
+                    initQuiz(forceReset);
                 }
             }, 600);
             return;
@@ -4953,9 +5016,14 @@ window.addEventListener('error', function(e) {
         window.__quizLessonId = String(fcCurrentLessonId() || window.currentLessonId || '');
         window.__resetQuizSession = false;
         quizQuestions = [...expandedPool].sort(() => 0.5 - Math.random());
-        restoreQuizProgress().finally(() => {
+        if (forceReset) {
+            clearQuizProgress();
             renderQuizQuestion();
-        });
+        } else {
+            restoreQuizProgress().finally(() => {
+                renderQuizQuestion();
+            });
+        }
     }
 
     // ------- LƯU / KHÔI PHỤC TIẾN TRÌNH QUIZ (báo lỗi #260) -------
@@ -12017,7 +12085,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="/static/js/modules/tocfl-exam.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.0.0" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12398,7 +12466,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/radicals.js?v=2.0.4" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.0.4" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12508,7 +12576,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="/static/js/modules/dict-lookup.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.0.0" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12579,7 +12647,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="/static/js/modules/measure-words.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.0.0" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -12933,7 +13001,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/shadowing.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.0.0" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13138,7 +13206,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="/static/js/modules/dictation.js?v=2.0.3" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.0.3" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -14401,7 +14469,7 @@ window.addEventListener('error', function(e) {
 
             if (completionMode === 'listening' && typeof initWriting === 'function') initWriting();
 
-            else if (completionMode === 'quiz' && typeof initQuiz === 'function') initQuiz();
+            else if (completionMode === 'quiz' && typeof initQuiz === 'function') initQuiz(true);
 
         }
 
@@ -14443,7 +14511,14 @@ window.addEventListener('error', function(e) {
 
             } else {
 
-                const path = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+                const isGh = window.location.hostname.includes('github.io');
+                let path = 'dashboard';
+                if (isGh) {
+                    const hash = window.location.hash.replace(/^#/, '');
+                    path = hash || 'dashboard';
+                } else {
+                    path = window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+                }
 
                 const validViews = ['dashboard', 'srs', 'vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'tocfl', 'calculator', 'bo-thu', 'dict-lookup', 'luong-tu', 'shadowing', 'dictation', 'vocab-notebook-hub', 'grammar-hub'];
 
@@ -14680,7 +14755,7 @@ window.addEventListener('error', function(e) {
                     email: "manhq7@gmail.com",
                     vip: 1,
                     role: "admin",
-                    avatar: "/static/img/hanzi_icon.png"
+                    avatar: "static/img/hanzi_icon.png"
                 });
                 try { localStorage.setItem('td_user', userJson); } catch (e) {}
             }
@@ -14788,11 +14863,16 @@ window.addEventListener('error', function(e) {
 
             // --- ĐỊNH TUYẾN THÔNG MINH KHI KHỞI TẠO TẢI TRANG (DEEP LINKING XỬ LÝ F5) ---
 
-            const currentPath = window.__earlyActiveTab || window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+            const isGh = window.location.hostname.includes('github.io');
+            let currentPath = 'dashboard';
+            if (isGh) {
+                const hash = window.location.hash.replace(/^#/, '');
+                currentPath = hash || 'dashboard';
+            } else {
+                currentPath = window.__earlyActiveTab || window.location.pathname.replace(/^\/|\/$/g, '') || 'dashboard';
+            }
 
             const validViews = ['dashboard', 'srs', 'vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'tocfl', 'calculator', 'bo-thu', 'dict-lookup', 'luong-tu', 'shadowing', 'dictation', 'vocab-notebook-hub', 'grammar-hub'];
-
-
 
             if (validViews.includes(currentPath)) {
 
@@ -14800,7 +14880,9 @@ window.addEventListener('error', function(e) {
                 const dictIdParam = (currentPath === 'dict-lookup') ? searchParams.get('dict_id') : null;
                 const stateObj = { tab: currentPath };
                 if (dictIdParam) stateObj.dict_id = dictIdParam;
-                const targetUrl = currentPath === 'dashboard' ? '/' : ('/' + currentPath + (window.location.search || ''));
+                const targetUrl = isGh
+                    ? (currentPath === 'dashboard' ? './' : '#' + currentPath)
+                    : (currentPath === 'dashboard' ? '/' : ('/' + currentPath + (window.location.search || '')));
                 window.history.replaceState(stateObj, "", targetUrl);
 
                 // Loại bỏ delay 300ms gây giật khựng giao diện; isInitial=true tránh fade-in giật nháy khi tải trang
@@ -14812,8 +14894,8 @@ window.addEventListener('error', function(e) {
 
             } else {
 
-                window.history.replaceState({ tab: 'dashboard' }, "", "/");
-
+                const targetUrl = isGh ? './' : '/';
+                window.history.replaceState({ tab: 'dashboard' }, "", targetUrl);
                 switchTab('dashboard', false, true);
 
             }
@@ -15802,11 +15884,9 @@ window.addEventListener('error', function(e) {
 
 
             if (triggerPushState) {
-
-                const targetUrl = tabName === 'dashboard' ? '/' : '/' + tabName;
-
+                const isGh = window.location.hostname.includes('github.io');
+                const targetUrl = tabName === 'dashboard' ? (isGh ? './' : '/') : (isGh ? '#' + tabName : '/' + tabName);
                 window.history.pushState({ tab: tabName }, "", targetUrl);
-
             }
 
 
@@ -16180,7 +16260,7 @@ window.addEventListener('error', function(e) {
 
                 posts.forEach(post => {
 
-                    let imgUrl = '/static/img/hanzidiary.png'; // Fallback
+                    let imgUrl = 'static/img/hanzidiary.png'; // Fallback
 
                     if (post._embedded && post._embedded['wp:featuredmedia']) {
 
@@ -18224,7 +18304,7 @@ window.addEventListener('error', function(e) {
     <!-- PWA Install Banner (Bottom Floating) -->
     <div id="pwa-install-banner" style="bottom: calc(72px + env(safe-area-inset-bottom, 12px));" class="hidden fixed md:bottom-6 right-4 left-4 md:left-auto md:w-[380px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl p-3 z-50 transition-all duration-300">
         <div class="flex items-center gap-3">
-            <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
+            <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-11 h-11 rounded-xl shadow-sm shrink-0 border border-slate-100">
             <div class="flex-1 min-w-0">
                 <div class="text-xs font-black text-slate-800 truncate">Cài đặt Hanzi Diary</div>
                 <div class="text-[11px] text-slate-500 truncate">Mở nhanh trên màn hình chính như App</div>
@@ -18245,7 +18325,7 @@ window.addEventListener('error', function(e) {
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
             <div class="flex items-center gap-3 mb-3 pr-6">
-                <img src="/static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
+                <img src="static/img/icon-192.png?v=20261023_v4" alt="Hanzi Diary" class="w-12 h-12 rounded-xl shadow border border-slate-100">
                 <div>
                     <h4 class="font-bold text-slate-800 text-sm">Cài đặt Hanzi Diary</h4>
                     <p class="text-xs text-slate-500">Màn hình chính (Home Screen)</p>
@@ -18276,7 +18356,10 @@ window.addEventListener('error', function(e) {
             });
 
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=2.0.4', { scope: '/' })
+                const isGh = window.location.hostname.includes('github.io');
+                const swUrl = isGh ? 'sw.js?v=2.0.4' : '/sw.js?v=2.0.4';
+                const swScope = isGh ? './' : '/';
+                navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();

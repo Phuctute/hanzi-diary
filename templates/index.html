@@ -14,7 +14,7 @@ if ('caches' in window) {
 
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
 <style id="splash-style">
-/* ══════ Apple Fluid Ripple Launch Animation (Nhẹ nhàng, Mượt mà, Thư thái chuẩn Apple) ══════ */
+/* ══════ Cyber Tech Laser & Stream Lines Launch Animation (Đường line chuyển động công nghệ) ══════ */
 .splash-overlay {
   position: fixed;
   z-index: 99999;
@@ -32,116 +32,181 @@ if ('caches' in window) {
   pointer-events: none;
 }
 
-/* Tâm toả sóng thanh thoát giữa màn hình */
-.splash-ripple-center {
+/* 1. Tia laser chân trời bung từ tâm ra 2 biên (Cyber Horizon Split) */
+.tech-horizon-beam {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 0;
-  height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4) 15%, #ffffff 50%, rgba(56, 189, 248, 0.4) 85%, transparent);
+  box-shadow: 0 0 20px 3px rgba(56, 189, 248, 0.9), 0 0 40px rgba(2, 122, 179, 0.6);
+  will-change: width, opacity;
+  animation: techHorizonExpand 0.75s 0.04s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Quầng sáng thở êm dịu ở tâm (Apple Soft Bloom) */
-.splash-ripple-bloom {
+@keyframes techHorizonExpand {
+  0% { width: 0; opacity: 0; }
+  20% { opacity: 1; }
+  60% { width: 100vw; opacity: 0.9; }
+  100% { width: 110vw; opacity: 0; }
+}
+
+/* 2. Tia quét laser dọc Holographic quét toàn màn hình từ trên xuống */
+.tech-scanner-bar {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 15%, rgba(56, 189, 248, 0.6) 55%, transparent 80%);
-  box-shadow: 0 0 30px 8px rgba(56, 189, 248, 0.55);
-  opacity: 0;
-  transform: scale(0.2);
-  will-change: transform, opacity;
-  animation: appleBloom 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes appleBloom {
-  0% { transform: scale(0.2); opacity: 0; }
-  30% { transform: scale(1.4); opacity: 0.95; }
-  70% { transform: scale(1.8); opacity: 0.5; }
-  100% { transform: scale(2.2); opacity: 0; }
-}
-
-/* Làn sóng nước Apple: Chuyển sắc mềm, dải sáng rộng, không viền cứng */
-.splash-ripple-wave {
-  position: absolute;
-  width: 140px;
-  height: 140px;
-  margin-top: -70px;
-  margin-left: -70px;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0.1);
-  will-change: transform, opacity;
-  background: radial-gradient(
-    circle,
-    transparent 45%,
-    rgba(255, 255, 255, 0.90) 65%,
-    rgba(56, 189, 248, 0.50) 80%,
-    rgba(2, 122, 179, 0.25) 92%,
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.3) 15%,
+    rgba(56, 189, 248, 0.95) 45%,
+    #ffffff 50%,
+    rgba(56, 189, 248, 0.95) 55%,
+    rgba(56, 189, 248, 0.3) 85%,
     transparent 100%
   );
-  box-shadow:
-    0 0 40px 6px rgba(56, 189, 248, 0.45),
-    inset 0 0 25px rgba(255, 255, 255, 0.65);
+  box-shadow: 
+    0 0 16px 2.5px rgba(56, 189, 248, 0.95),
+    0 0 35px 5px rgba(2, 122, 179, 0.6);
+  will-change: transform, opacity;
+  animation: techScannerSweepDown 1.1s 0.08s cubic-bezier(0.2, 0.85, 0.25, 1) forwards;
 }
 
-/* Nhịp điệu thư thái chuẩn Apple: 2 đợt sóng thanh lịch lướt êm ái qua toàn màn hình */
-.splash-ripple-wave.wave-1 {
-  animation: appleRippleMotion 1.45s 0.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.splash-ripple-wave.wave-2 {
-  animation: appleRippleMotion 1.55s 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes appleRippleMotion {
-  0% {
-    transform: scale(0.08);
-    opacity: 0;
-  }
-  18% {
-    opacity: 0.95;
-  }
-  50% {
-    opacity: 0.60;
-  }
-  80% {
-    opacity: 0.20;
-  }
-  100% {
-    transform: scale(16);
-    opacity: 0;
-  }
-}
-
-/* Vầng ánh sáng mỏng dịu toàn màn hình */
-.splash-ripple-sheen {
+.tech-scanner-bar::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, rgba(2, 122, 179, 0.03) 45%, transparent 75%);
-  opacity: 0;
+  left: 0;
+  right: 0;
+  top: -45px;
+  height: 45px;
+  background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.12));
+  pointer-events: none;
+}
+
+@keyframes techScannerSweepDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  12% { opacity: 1; }
+  85% { opacity: 0.95; }
+  100% { transform: translateY(105vh); opacity: 0; }
+}
+
+/* 3. Các đường line laser dữ liệu tốc độ cao lướt ngang màn hình */
+.tech-stream-line {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 999px;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: appleSheen 1.4s 0.05s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
 }
 
-@keyframes appleSheen {
-  0% { opacity: 0; transform: scale(0.6); }
-  30% { opacity: 0.9; transform: scale(1); }
-  100% { opacity: 0; transform: scale(1.3); }
+.stream-1 {
+  top: 28%;
+  left: -240px;
+  width: 220px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
+  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
+  animation: techStreamRight 0.85s 0.12s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
+}
+.stream-1::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2.5px;
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
+}
+
+.stream-2 {
+  top: 55%;
+  right: -280px;
+  width: 260px;
+  background: linear-gradient(270deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
+  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
+  animation: techStreamLeft 0.95s 0.22s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
+}
+.stream-2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2.5px;
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
+}
+
+.stream-3 {
+  top: 76%;
+  left: -260px;
+  width: 240px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
+  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
+  animation: techStreamRight 0.90s 0.35s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
+}
+.stream-3::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2.5px;
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
+}
+
+@keyframes techStreamRight {
+  0% { transform: translateX(0); opacity: 0; }
+  18% { opacity: 1; }
+  82% { opacity: 0.95; }
+  100% { transform: translateX(120vw); opacity: 0; }
+}
+
+@keyframes techStreamLeft {
+  0% { transform: translateX(0); opacity: 0; }
+  18% { opacity: 1; }
+  82% { opacity: 0.95; }
+  100% { transform: translateX(-120vw); opacity: 0; }
+}
+
+/* 4. Khung ngắm HUD 4 góc (Sci-Fi HUD Target Brackets) */
+.tech-hud-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(56, 189, 248, 0.75);
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0;
+  animation: techHudLock 0.9s 0.06s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hud-tl { top: 16px; left: 16px; border-width: 2px 0 0 2px; }
+.hud-tr { top: 16px; right: 16px; border-width: 2px 2px 0 0; }
+.hud-bl { bottom: 16px; left: 16px; border-width: 0 0 2px 2px; }
+.hud-br { bottom: 16px; right: 16px; border-width: 0 2px 2px 0; }
+
+@keyframes techHudLock {
+  0% { transform: scale(1.35); opacity: 0; }
+  25% { transform: scale(1); opacity: 1; }
+  75% { opacity: 0.85; }
+  100% { transform: scale(0.96); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash-ripple-bloom,
-  .splash-ripple-wave,
-  .splash-ripple-sheen {
+  .tech-horizon-beam,
+  .tech-scanner-bar,
+  .tech-stream-line,
+  .tech-hud-corner {
     animation: none !important;
   }
   .splash-overlay {
@@ -2446,24 +2511,27 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-                                                                                                                                                                                    <!-- ══════ Apple Fluid Ripple Launch Animation (Nhẹ nhàng, Mượt mà, Thư thái chuẩn Apple) ══════ -->
+                                                                                                                                                                                                        <!-- ══════ Cyber Tech Laser & Stream Lines Launch Animation (Đường line chuyển động công nghệ) ══════ -->
     <div class="splash-overlay" id="splash">
-        <div class="splash-ripple-sheen"></div>
-        <div class="splash-ripple-center">
-            <div class="splash-ripple-bloom"></div>
-            <div class="splash-ripple-wave wave-1"></div>
-            <div class="splash-ripple-wave wave-2"></div>
-        </div>
+        <div class="tech-hud-corner hud-tl"></div>
+        <div class="tech-hud-corner hud-tr"></div>
+        <div class="tech-hud-corner hud-bl"></div>
+        <div class="tech-hud-corner hud-br"></div>
+        <div class="tech-horizon-beam"></div>
+        <div class="tech-scanner-bar"></div>
+        <div class="tech-stream-line stream-1"></div>
+        <div class="tech-stream-line stream-2"></div>
+        <div class="tech-stream-line stream-3"></div>
     </div>
     <script>
     (function initAppSplash() {
         var s = document.getElementById('splash');
         if (!s) return;
 
-        // Tự động giải phóng phần tử DOM sau khi 2 làn sóng êm ái hoàn tất (1.6s)
+        // Tự động giải phóng phần tử DOM sau khi chùm tia công nghệ quét hoàn tất (1.25s)
         setTimeout(function() {
             if (s && s.parentNode) s.parentNode.removeChild(s);
-        }, 1600);
+        }, 1250);
     })();
     </script>
 

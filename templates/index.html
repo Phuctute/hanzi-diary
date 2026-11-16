@@ -12,23 +12,21 @@ if ('caches' in window) {
 }
 </script>
 
-    <link rel="preload" as="image" href="/static/img/icon-splash.webp?v=1.9.7" type="image/webp">
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
 <style id="splash-style">
-/* ══════ Refresh Overlay Launch Animation (Không nền, Không viền thừa, Chuẩn Icon App) ══════ */
+/* ══════ Ripple Overlay Launch Animation (Không logo, Gợn sóng từ giữa lan toả toàn màn hình) ══════ */
 .splash-overlay {
   position: fixed;
   z-index: 99999;
   inset: 0;
   background: transparent;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
-  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .splash-overlay.is-hiding,
@@ -37,151 +35,124 @@ if ('caches' in window) {
   pointer-events: none;
 }
 
-/* Khung chứa Logo nổi tự nhiên trên nền app - Không vẽ bất kỳ viền thừa nào */
-.splash-logo-wrap {
-  position: relative;
+/* Tâm toả sóng chính giữa màn hình */
+.splash-ripple-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+}
+
+/* Giọt nước rơi ở tâm tạo khởi nguồn gợn sóng */
+.splash-ripple-drop {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 25%, #7dd3fc 70%, rgba(2, 122, 179, 0.8) 100%);
+  box-shadow: 0 0 24px 6px rgba(56, 189, 248, 0.95);
+  opacity: 0;
+  transform: scale(0);
   will-change: transform, opacity;
-  transform: scale(1);
-  margin-top: 0;
-  filter: drop-shadow(0 18px 36px rgba(2, 122, 179, 0.38));
+  animation: splashRippleDropPing 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.splash-logo-box {
-  position: relative;
-  width: clamp(220px, 66.6vw, 440px);
-  height: clamp(220px, 66.6vw, 440px);
-  border-radius: 22.4%;
-  overflow: hidden;
-  background: #027ab3;
+@keyframes splashRippleDropPing {
+  0% { transform: scale(0); opacity: 0; }
+  25% { transform: scale(2.4); opacity: 1; }
+  70% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(0); opacity: 0; }
 }
 
-.splash-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Vệt sáng lướt chéo qua Logo bóng bẩy */
-.splash-shimmer {
+/* 4 Tầng gợn sóng nước lan toả toàn màn hình (Mềm mại, không viền cứng, chuyển sắc dịu) */
+.splash-ripple-wave {
   position: absolute;
-  inset: -60%;
-  width: 220%;
-  height: 220%;
-  background: linear-gradient(
-    115deg,
-    transparent 28%,
-    rgba(255, 255, 255, 0.25) 40%,
-    rgba(255, 235, 120, 0.85) 50%,
-    rgba(255, 255, 255, 1) 52%,
-    rgba(181, 229, 249, 0.8) 56%,
-    transparent 70%
+  width: 130px;
+  height: 130px;
+  margin-top: -65px;
+  margin-left: -65px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0);
+  will-change: transform, opacity;
+  background: radial-gradient(
+    circle,
+    transparent 52%,
+    rgba(56, 189, 248, 0.20) 68%,
+    rgba(255, 255, 255, 0.92) 82%,
+    rgba(2, 122, 179, 0.45) 92%,
+    transparent 99%
   );
-  transform: translateX(-150%) rotate(25deg);
-  pointer-events: none;
-  opacity: 0;
+  box-shadow:
+    0 0 35px 4px rgba(56, 189, 248, 0.50),
+    inset 0 0 24px rgba(255, 255, 255, 0.65);
 }
 
-.splash-overlay.is-animating .splash-shimmer {
-  animation: splashShimmerSweep 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+.splash-ripple-wave.wave-1 {
+  animation: splashRippleWaveSweep 0.95s 0.04s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
+}
+.splash-ripple-wave.wave-2 {
+  animation: splashRippleWaveSweep 1.05s 0.18s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
+}
+.splash-ripple-wave.wave-3 {
+  animation: splashRippleWaveSweep 1.15s 0.32s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
+}
+.splash-ripple-wave.wave-4 {
+  animation: splashRippleWaveSweep 1.25s 0.46s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
 }
 
-@keyframes splashShimmerSweep {
-  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
-  15% { opacity: 1; }
-  85% { opacity: 1; }
-  100% { transform: translateX(150%) rotate(25deg); opacity: 0; }
-}
-
-/* 3 Ngôi sao lấp lánh ở góc tia chớp */
-.splash-sparkle {
-  position: absolute;
-  color: #FFD53D;
-  pointer-events: none;
-  opacity: 0;
-  transform: scale(0) rotate(0deg);
-  filter: drop-shadow(0 0 10px rgba(255, 213, 61, 0.95));
-  z-index: 10;
-  font-family: sans-serif;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.splash-sparkle-1 {
-  top: -12px;
-  right: 22px;
-  font-size: 28px;
-}
-
-.splash-sparkle-2 {
-  top: 26px;
-  right: -16px;
-  font-size: 22px;
-}
-
-.splash-sparkle-3 {
-  top: -24px;
-  right: -6px;
-  font-size: 16px;
-}
-
-.splash-overlay.is-animating .splash-sparkle-1 {
-  animation: splashSparkleBurst 0.65s 0.20s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.splash-overlay.is-animating .splash-sparkle-2 {
-  animation: splashSparkleBurst 0.55s 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.splash-overlay.is-animating .splash-sparkle-3 {
-  animation: splashSparkleBurst 0.50s 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes splashSparkleBurst {
-  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-  50% { transform: scale(1.4) rotate(45deg); opacity: 1; }
-  100% { transform: scale(0) rotate(90deg); opacity: 0; }
-}
-
-/* Chuyển động nảy nhẹ & Tan biến kiểu refresh */
-.splash-overlay.is-animating .splash-logo-wrap {
-  animation: splashLogoRefreshMotion 1.05s cubic-bezier(0.25, 1, 0.3, 1) forwards;
-}
-
-@keyframes splashLogoRefreshMotion {
+@keyframes splashRippleWaveSweep {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale(0.06);
+    opacity: 0;
   }
   18% {
-    transform: scale(0.96) translateY(2px);
-    opacity: 1;
+    opacity: 0.95;
   }
-  45% {
-    transform: scale(1.06) translateY(-4px);
-    opacity: 1;
+  55% {
+    opacity: 0.65;
   }
-  72% {
-    transform: scale(1.02) translateY(-2px);
-    opacity: 1;
+  85% {
+    opacity: 0.25;
   }
   100% {
-    transform: scale(1.30) translateY(0);
+    transform: scale(18);
     opacity: 0;
   }
 }
 
+/* Vầng ánh sáng mỏng dịu toàn màn hình */
+.splash-ripple-sheen {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, rgba(2, 122, 179, 0.04) 45%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: splashRippleSheenFade 1.0s 0.05s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes splashRippleSheenFade {
+  0% { opacity: 0; transform: scale(0.5); }
+  30% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.3); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .splash-shimmer,
-  .splash-sparkle,
-  .splash-overlay.is-animating .splash-logo-wrap {
+  .splash-ripple-drop,
+  .splash-ripple-wave,
+  .splash-ripple-sheen {
     animation: none !important;
   }
   .splash-overlay {
-    transition: opacity 0.2s ease !important;
+    display: none !important;
   }
 }
 </style>
@@ -2410,16 +2381,15 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-                                                                                                                                            <!-- ══════ Refresh Overlay Launch Animation (Không nền, Không viền thừa, Chuẩn Icon App) ══════ -->
+                                                                                                                                                                <!-- ══════ Ripple Overlay Launch Animation (Không logo, Gợn sóng từ giữa lan toả toàn màn hình) ══════ -->
     <div class="splash-overlay" id="splash">
-        <div class="splash-logo-wrap">
-            <div class="splash-logo-box">
-                <img class="splash-logo-img" src="/static/img/icon-splash.webp?v=1.9.7" width="256" height="256" alt="Hanzi Diary">
-                <div class="splash-shimmer"></div>
-            </div>
-            <div class="splash-sparkle splash-sparkle-1">✦</div>
-            <div class="splash-sparkle splash-sparkle-2">✦</div>
-            <div class="splash-sparkle splash-sparkle-3">✦</div>
+        <div class="splash-ripple-sheen"></div>
+        <div class="splash-ripple-center">
+            <div class="splash-ripple-drop"></div>
+            <div class="splash-ripple-wave wave-1"></div>
+            <div class="splash-ripple-wave wave-2"></div>
+            <div class="splash-ripple-wave wave-3"></div>
+            <div class="splash-ripple-wave wave-4"></div>
         </div>
     </div>
     <script>
@@ -2427,28 +2397,10 @@ window.addEventListener('error', function(e) {
         var s = document.getElementById('splash');
         if (!s) return;
 
-        var started = false;
-        function runRefreshAnimation() {
-            if (started) return;
-            started = true;
-
-            // Kích hoạt animation overlay kiểu refresh
-            s.classList.add('is-animating');
-
-            // Sau 800ms khi vệt sáng và sparkles bung toả hoàn toàn, ẩn overlay
-            setTimeout(function() {
-                s.classList.add('is-hiding');
-                setTimeout(function() {
-                    if (s && s.parentNode) s.parentNode.removeChild(s);
-                }, 400);
-            }, 800);
-        }
-
-        requestAnimationFrame(function() {
-            requestAnimationFrame(function() {
-                setTimeout(runRefreshAnimation, 50);
-            });
-        });
+        // Tự động giải phóng phần tử DOM sau khi đợt sóng lan toả hoàn tất (1.2s)
+        setTimeout(function() {
+            if (s && s.parentNode) s.parentNode.removeChild(s);
+        }, 1200);
     })();
     </script>
 

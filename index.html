@@ -10937,7 +10937,10 @@ window.addEventListener('error', function(e) {
                 '誠':'程', '程':'誠', '妳':'你', '你':'妳',
                 '她':'他', '他':'她', '怡':'宜', '宜':'怡',
                 '念':'唸', '唸':'念', '得':'的', '的':'得',
-                '麼':'樣', '樣':'麼', '飯':'餐', '餐':'飯'
+                '麼':'樣', '樣':'麼', '飯':'餐', '餐':'飯',
+                '做':'作', '作':'做', '份':'分', '分':'份',
+                '隻':'只', '只':'隻', '曆':'歷', '歷':'曆',
+                '秘':'祕', '祕':'秘', '拼':'拚', '拚':'拼'
             };
             return variants[c1] === c2 || variants[c2] === c1;
         };
@@ -10950,7 +10953,7 @@ window.addEventListener('error', function(e) {
             if (isMatch(pureHanziArr[cIdx], jItem.char)) {
                 map[cIdx] = jItem.jIdx; cIdx++; jIdxFlat++;
             } else {
-                let maxLookahead = 15, foundSync = false, bestCJump = 0, bestJJump = 0;
+                let maxLookahead = 45, foundSync = false, bestCJump = 0, bestJJump = 0;
                 for (let distance = 1; distance <= maxLookahead && !foundSync; distance++) {
                     for (let cDrop = 0; cDrop <= distance; cDrop++) {
                         let jDrop = distance - cDrop, peekC = cIdx + cDrop, peekJ = jIdxFlat + jDrop;
@@ -10977,7 +10980,10 @@ window.addEventListener('error', function(e) {
         const lines = data.content.split('\n').filter(l => l.trim());
         const viLines = data.vietnamese ? data.vietnamese.split('\n').filter(l => l.trim()) : [];
         
-        let fullContent = lines.map(l => l.split(/[:：]/).slice(1).join(':')).join('');
+        let fullContent = lines.map(l => {
+            let colonIdx = l.search(/[:：]/);
+            return (colonIdx !== -1 && colonIdx <= 15) ? l.slice(colonIdx + 1).trim() : l.trim();
+        }).join('');
         let pureHanziMap = alignHanziPure(fullContent, data.script_json);
 
         let aligned = [];
@@ -10985,10 +10991,20 @@ window.addEventListener('error', function(e) {
         let currentJsonIdx = 0;   
 
         lines.forEach((line, index) => {
-            let parts = line.split(/[:：]/);
-            let speaker = parts[0].trim();
-            let text = getChar(parts.slice(1).join(':').trim());
-            let viText = viLines[index] ? viLines[index].split(/[:：]/).slice(1).join(':').trim() : '';
+            let colonIdx = line.search(/[:：]/);
+            let speaker = '', text = '';
+            if (colonIdx !== -1 && colonIdx <= 15) {
+                speaker = line.slice(0, colonIdx).trim();
+                text = getChar(line.slice(colonIdx + 1).trim());
+            } else {
+                speaker = '';
+                text = getChar(line.trim());
+            }
+            let viText = '';
+            if (viLines[index]) {
+                let viColon = viLines[index].search(/[:：]/);
+                viText = (viColon !== -1 && viColon <= 15) ? viLines[index].slice(viColon + 1).trim() : viLines[index].trim();
+            }
             
             let chars = text.split('');
             // CHỈ SỬ DỤNG PINYIN-PRO ĐÃ ĐƯỢC CUSTOM, BỎ QUA CỘT DATA
@@ -11707,7 +11723,7 @@ window.addEventListener('error', function(e) {
             let s = Math.floor(t % 60);
             document.getElementById('karaokeCurrentTime').innerText = `${m}:${s.toString().padStart(2, '0')}`;
 
-            const LOOKAHEAD = 0.20; // Đón đầu trước 200ms để chữ sáng đồng thời/trước giọng đọc
+            const LOOKAHEAD = 0.08; // Đón đầu 80ms tự nhiên theo tri giác thị giác-thính giác (tránh nhảy quá sớm)
             let activeIdx = -1;
             for(let i=0; i < currentKaraokeLines.length; i++) {
                 let line = currentKaraokeLines[i];
@@ -11716,12 +11732,13 @@ window.addEventListener('error', function(e) {
                 if (start === undefined || start < 0) continue;
 
                 let effectiveStart = Math.max(0, start - LOOKAHEAD);
-                let effectiveEnd = end + 0.3;
+                let effectiveEnd = end + 0.25;
                 if (i < currentKaraokeLines.length - 1) {
                     let nextLine = currentKaraokeLines[i+1];
                     let realNextStart = isCurrentTypeDialogue ? nextLine.startTime : nextLine.start_time;
                     if (realNextStart !== undefined && realNextStart > 0) {
-                        effectiveEnd = Math.max(end, realNextStart - LOOKAHEAD);
+                        // Nới nhẹ theo câu sau nhưng giới hạn tối đa 0.6s để không bị kẹt highlight trong khoảng lặng dài
+                        effectiveEnd = Math.min(Math.max(end + 0.25, realNextStart - LOOKAHEAD), end + 0.6);
                     }
                 }
                 if (t >= effectiveStart && t <= effectiveEnd) {
@@ -13190,7 +13207,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.0.0" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.0.3" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -18341,7 +18358,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.0.2' : '/sw.js?v=2.0.2';
+                const swUrl = isGh ? 'sw.js?v=2.0.3' : '/sw.js?v=2.0.3';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

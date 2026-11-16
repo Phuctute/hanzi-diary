@@ -600,10 +600,29 @@
         document.getElementById('dt-progress').textContent = `${i + 1}/${cues.length}`;
     }
     function updateCurrentPanel() { /* placeholder for future extensions */ }
+
+    // Tính toán mốc thời gian an toàn để tránh nuốt âm đầu / cụt âm đuôi
+    function getCueSafeStart(idx) {
+        if (!cues[idx]) return 0;
+        const rawStart = cues[idx].start_time > 0 ? cues[idx].start_time : 0;
+        const prevEnd = (idx > 0 && cues[idx - 1] && cues[idx - 1].end_time > 0) ? cues[idx - 1].end_time : 0;
+        // Đệm đầu: lùi 120ms để không bị nuốt âm đầu (phụ âm vô thanh b/p/m/f...), không lấn sang câu trước
+        return Math.max(0, Math.max(prevEnd, rawStart - 0.12));
+    }
+
+    function getCueSafeEnd(idx) {
+        if (!cues[idx]) return 3;
+        const rawStart = cues[idx].start_time > 0 ? cues[idx].start_time : 0;
+        const rawEnd = cues[idx].end_time > rawStart ? cues[idx].end_time : rawStart + 3;
+        const nextStart = (idx < cues.length - 1 && cues[idx + 1] && cues[idx + 1].start_time > 0) ? cues[idx + 1].start_time : Infinity;
+        // Đệm đuôi: nới 250ms để nghe trọn vẹn ngữ điệu và âm đuôi, không lấn sang câu sau
+        return Math.min(rawEnd + 0.25, nextStart > rawEnd ? nextStart - 0.05 : rawEnd + 0.25);
+    }
+
     function setCurCue(i, seek) {
         if (i < 0 || i >= cues.length) return;
         curCueIdx = i; highlightCue(i);
-        if (seek && media.ready()) media.seek(cues[i].start_time + 0.02);
+        if (seek && media.ready()) media.seek(getCueSafeStart(i));
     }
     window.dictGoCue = function (i) { setCurCue(i, true); };
     window.dictPrevCue = function () { setCurCue(curCueIdx - 1, true); };
@@ -612,10 +631,10 @@
     window.dictPlayCue = function (idx) {
         const c = cues[idx]; if (!c || !media.ready()) return;
         setCurCue(idx, false);
-        const start = c.start_time > 0 ? c.start_time : 0;
-        const end = c.end_time > start ? c.end_time : start + 3;
+        const start = getCueSafeStart(idx);
+        const end = getCueSafeEnd(idx);
         playUntil = end;
-        media.seek(start + 0.02);
+        media.seek(start);
         media.play();
     };
     window.dictToggleLoop = function () {
@@ -805,12 +824,12 @@
                 document.getElementById('dt-audio-cur').textContent = fmtTime(t);
             }
             if (playUntil != null && t >= playUntil) {
-                if (loopSentence) { media.seek(cues[curCueIdx].start_time + 0.02); }
+                if (loopSentence && cues[curCueIdx]) { media.seek(getCueSafeStart(curCueIdx)); }
                 else { media.pause(); playUntil = null; }
                 return;
             }
-            if (loopSentence && playUntil == null && cues[curCueIdx] && t >= cues[curCueIdx].end_time) {
-                media.seek(cues[curCueIdx].start_time + 0.02);
+            if (loopSentence && playUntil == null && cues[curCueIdx] && t >= getCueSafeEnd(curCueIdx)) {
+                media.seek(getCueSafeStart(curCueIdx));
                 return;
             }
             const idx = dictCueIdxAt(t);

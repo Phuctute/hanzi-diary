@@ -850,9 +850,6 @@ async function dashDictSearchRun(inputId, dropdownId) {
 function dashDictSearchPick(dictId, dropdownId) {
     dashDictSearchClose(dropdownId);
     document.querySelectorAll('.header-dict-panel').forEach(p => p.classList.add('hidden'));
-    const bottomNav = document.getElementById('mobile-bottom-nav');
-    if (bottomNav) bottomNav.classList.remove('hidden');
-    document.body.classList.remove('search-open-mobile');
     if (typeof switchTab === 'function') switchTab('dict-lookup');
     setTimeout(() => window.dispatchEvent(new CustomEvent('dict-lookup-open', { detail: { dict_id: dictId } })), 150);
 }
@@ -864,38 +861,19 @@ function toggleHeaderDictSearch(panelId, inputId) {
     if (!panel) return;
     const opening = panel.classList.contains('hidden');
     panel.classList.toggle('hidden');
-    const bottomNav = document.getElementById('mobile-bottom-nav');
-    if (opening) {
-        if (panelId === 'header-dict-mobile-panel') {
-            if (bottomNav) bottomNav.classList.add('hidden');
-            document.body.classList.add('search-open-mobile');
+    if (opening) setTimeout(() => {
+        const inp = document.getElementById(inputId);
+        if (inp) {
+            inp.focus();
+            const clr = panel.querySelector('[id$="-clear"]');
+            if (clr) clr.classList.toggle('hidden', !inp.value.trim());
         }
-        setTimeout(() => {
-            const inp = document.getElementById(inputId);
-            if (inp) {
-                inp.focus();
-                const clr = panel.querySelector('[id$="-clear"]');
-                if (clr) clr.classList.toggle('hidden', !inp.value.trim());
-            }
-        }, 50);
-    } else {
-        if (panelId === 'header-dict-mobile-panel') {
-            if (bottomNav) bottomNav.classList.remove('hidden');
-            document.body.classList.remove('search-open-mobile');
-        }
-    }
+    }, 50);
 }
 document.addEventListener('click', (ev) => {
     document.querySelectorAll('.header-dict-panel').forEach(panel => {
         const btn = panel.previousElementSibling;
-        if (!panel.contains(ev.target) && !(btn && btn.contains(ev.target))) {
-            panel.classList.add('hidden');
-            if (panel.id === 'header-dict-mobile-panel') {
-                const bottomNav = document.getElementById('mobile-bottom-nav');
-                if (bottomNav) bottomNav.classList.remove('hidden');
-                document.body.classList.remove('search-open-mobile');
-            }
-        }
+        if (!panel.contains(ev.target) && !(btn && btn.contains(ev.target))) panel.classList.add('hidden');
     });
 });
 document.addEventListener('click', (ev) => {

@@ -12,7 +12,7 @@ import gzip
 import mimetypes
 mimetypes.add_type('image/webp', '.webp')
 from datetime import datetime, timedelta
-from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response, redirect
+from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response, redirect, make_response
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 

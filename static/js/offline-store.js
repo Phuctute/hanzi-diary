@@ -1,5 +1,5 @@
 /**
- * Hanzi Diary Offline Data Engine (v1.9.17)
+ * Hanzi Diary Offline Data Engine (v2.0.0)
  * Lưu trữ dạng mô-đun: Core Bundle (~194KB) + Tải theo từng Giáo trình (Curriculum Bundles).
  * Hỗ trợ Web Speech API, IndexedDB và Cache Storage chuẩn đồng bộ với Service Worker.
  */
@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '1.9.17';
+    const CURRENT_VERSION = '2.0.0';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;

@@ -14,7 +14,7 @@ if ('caches' in window) {
 
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;}</style>
 <style id="splash-style">
-/* ══════ Ripple Overlay Launch Animation (Không logo, Gợn sóng từ giữa lan toả toàn màn hình) ══════ */
+/* ══════ Apple Fluid Ripple Launch Animation (Nhẹ nhàng, Mượt mà, Thư thái chuẩn Apple) ══════ */
 .splash-overlay {
   position: fixed;
   z-index: 99999;
@@ -24,9 +24,6 @@ if ('caches' in window) {
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .splash-overlay.is-hiding,
@@ -35,7 +32,7 @@ if ('caches' in window) {
   pointer-events: none;
 }
 
-/* Tâm toả sóng chính giữa màn hình */
+/* Tâm toả sóng thanh thoát giữa màn hình */
 .splash-ripple-center {
   position: absolute;
   top: 50%;
@@ -49,81 +46,77 @@ if ('caches' in window) {
   pointer-events: none;
 }
 
-/* Giọt nước rơi ở tâm tạo khởi nguồn gợn sóng */
-.splash-ripple-drop {
+/* Quầng sáng thở êm dịu ở tâm (Apple Soft Bloom) */
+.splash-ripple-bloom {
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 25%, #7dd3fc 70%, rgba(2, 122, 179, 0.8) 100%);
-  box-shadow: 0 0 24px 6px rgba(56, 189, 248, 0.95);
+  background: radial-gradient(circle, #ffffff 15%, rgba(56, 189, 248, 0.6) 55%, transparent 80%);
+  box-shadow: 0 0 30px 8px rgba(56, 189, 248, 0.55);
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.2);
   will-change: transform, opacity;
-  animation: splashRippleDropPing 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: appleBloom 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes splashRippleDropPing {
-  0% { transform: scale(0); opacity: 0; }
-  25% { transform: scale(2.4); opacity: 1; }
-  70% { transform: scale(1.2); opacity: 0.7; }
-  100% { transform: scale(0); opacity: 0; }
+@keyframes appleBloom {
+  0% { transform: scale(0.2); opacity: 0; }
+  30% { transform: scale(1.4); opacity: 0.95; }
+  70% { transform: scale(1.8); opacity: 0.5; }
+  100% { transform: scale(2.2); opacity: 0; }
 }
 
-/* 4 Tầng gợn sóng nước lan toả toàn màn hình (Mềm mại, không viền cứng, chuyển sắc dịu) */
+/* Làn sóng nước Apple: Chuyển sắc mềm, dải sáng rộng, không viền cứng */
 .splash-ripple-wave {
   position: absolute;
-  width: 130px;
-  height: 130px;
-  margin-top: -65px;
-  margin-left: -65px;
+  width: 140px;
+  height: 140px;
+  margin-top: -70px;
+  margin-left: -70px;
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.1);
   will-change: transform, opacity;
   background: radial-gradient(
     circle,
-    transparent 52%,
-    rgba(56, 189, 248, 0.20) 68%,
-    rgba(255, 255, 255, 0.92) 82%,
-    rgba(2, 122, 179, 0.45) 92%,
-    transparent 99%
+    transparent 45%,
+    rgba(255, 255, 255, 0.90) 65%,
+    rgba(56, 189, 248, 0.50) 80%,
+    rgba(2, 122, 179, 0.25) 92%,
+    transparent 100%
   );
   box-shadow:
-    0 0 35px 4px rgba(56, 189, 248, 0.50),
-    inset 0 0 24px rgba(255, 255, 255, 0.65);
+    0 0 40px 6px rgba(56, 189, 248, 0.45),
+    inset 0 0 25px rgba(255, 255, 255, 0.65);
 }
 
+/* Nhịp điệu thư thái chuẩn Apple: 2 đợt sóng thanh lịch lướt êm ái qua toàn màn hình */
 .splash-ripple-wave.wave-1 {
-  animation: splashRippleWaveSweep 0.95s 0.04s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
-}
-.splash-ripple-wave.wave-2 {
-  animation: splashRippleWaveSweep 1.05s 0.18s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
-}
-.splash-ripple-wave.wave-3 {
-  animation: splashRippleWaveSweep 1.15s 0.32s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
-}
-.splash-ripple-wave.wave-4 {
-  animation: splashRippleWaveSweep 1.25s 0.46s cubic-bezier(0.16, 0.75, 0.25, 1) forwards;
+  animation: appleRippleMotion 1.45s 0.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes splashRippleWaveSweep {
+.splash-ripple-wave.wave-2 {
+  animation: appleRippleMotion 1.55s 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes appleRippleMotion {
   0% {
-    transform: scale(0.06);
+    transform: scale(0.08);
     opacity: 0;
   }
   18% {
     opacity: 0.95;
   }
-  55% {
-    opacity: 0.65;
+  50% {
+    opacity: 0.60;
   }
-  85% {
-    opacity: 0.25;
+  80% {
+    opacity: 0.20;
   }
   100% {
-    transform: scale(18);
+    transform: scale(16);
     opacity: 0;
   }
 }
@@ -132,21 +125,21 @@ if ('caches' in window) {
 .splash-ripple-sheen {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, rgba(2, 122, 179, 0.04) 45%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.12) 0%, rgba(2, 122, 179, 0.03) 45%, transparent 75%);
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
-  animation: splashRippleSheenFade 1.0s 0.05s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  animation: appleSheen 1.4s 0.05s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
 }
 
-@keyframes splashRippleSheenFade {
-  0% { opacity: 0; transform: scale(0.5); }
-  30% { opacity: 1; transform: scale(1); }
+@keyframes appleSheen {
+  0% { opacity: 0; transform: scale(0.6); }
+  30% { opacity: 0.9; transform: scale(1); }
   100% { opacity: 0; transform: scale(1.3); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .splash-ripple-drop,
+  .splash-ripple-bloom,
   .splash-ripple-wave,
   .splash-ripple-sheen {
     animation: none !important;
@@ -2453,15 +2446,13 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-                                                                                                                                                                <!-- ══════ Ripple Overlay Launch Animation (Không logo, Gợn sóng từ giữa lan toả toàn màn hình) ══════ -->
+                                                                                                                                                                                    <!-- ══════ Apple Fluid Ripple Launch Animation (Nhẹ nhàng, Mượt mà, Thư thái chuẩn Apple) ══════ -->
     <div class="splash-overlay" id="splash">
         <div class="splash-ripple-sheen"></div>
         <div class="splash-ripple-center">
-            <div class="splash-ripple-drop"></div>
+            <div class="splash-ripple-bloom"></div>
             <div class="splash-ripple-wave wave-1"></div>
             <div class="splash-ripple-wave wave-2"></div>
-            <div class="splash-ripple-wave wave-3"></div>
-            <div class="splash-ripple-wave wave-4"></div>
         </div>
     </div>
     <script>
@@ -2469,10 +2460,10 @@ window.addEventListener('error', function(e) {
         var s = document.getElementById('splash');
         if (!s) return;
 
-        // Tự động giải phóng phần tử DOM sau khi đợt sóng lan toả hoàn tất (1.2s)
+        // Tự động giải phóng phần tử DOM sau khi 2 làn sóng êm ái hoàn tất (1.6s)
         setTimeout(function() {
             if (s && s.parentNode) s.parentNode.removeChild(s);
-        }, 1200);
+        }, 1600);
     })();
     </script>
 

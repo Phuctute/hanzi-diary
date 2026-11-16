@@ -9,6 +9,8 @@ import urllib.request
 import urllib.parse
 import subprocess
 import gzip
+import mimetypes
+mimetypes.add_type('image/webp', '.webp')
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response, redirect
 
@@ -725,7 +727,7 @@ def get_offline_bundle_data(bundle_type=None, curriculum_id=None):
         
     if _OFFLINE_BUNDLE_JSON is None:
         bundle = {
-            "version": "1.9.3",
+            "version": "1.9.4",
             "curriculums": CURRICULUMS,
             "books": BOOKS,
             "lessons": LESSONS,

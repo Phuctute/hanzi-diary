@@ -8,6 +8,7 @@
 // Xoá cache lỗi v1.4.9 khỏi trình duyệt người dùng ngay lập tức
 if ('caches' in window) {
     caches.delete('hanzi-pwa-v1.4.9').catch(function() {});
+    caches.delete('hanzi-pwa-v2.0.0').catch(function() {});
     caches.delete('hanzi-api-v1.4.9').catch(function() {});
 }
 </script>
@@ -949,9 +950,9 @@ window.addEventListener('error', function(e) {
 
         content="Ứng dụng web hỗ trợ học tiếng Trung Phồn thể với thuật toán Spaced Repetition (SRS), thi thử TOCFL thời gian thực và đánh giá năng lực chi tiết.">
 
-    <meta property="og:image" content="https://p.vql.vn/static/img/og-cover.png?v=20261024_v2">
+    <meta property="og:image" content="https://p.vql.vn/static/img/og-cover.png?v=20261116_v1">
 
-    <meta property="og:image:secure_url" content="https://p.vql.vn/static/img/og-cover.png?v=20261024_v2">
+    <meta property="og:image:secure_url" content="https://p.vql.vn/static/img/og-cover.png?v=20261116_v1">
 
     <meta property="og:image:width" content="1200">
 
@@ -975,7 +976,7 @@ window.addEventListener('error', function(e) {
 
         content="Nền tảng EdTech học tiếng Trung Phồn thể qua Flashcard, luyện viết và thi thử TOCFL chuẩn xác.">
 
-    <meta name="twitter:image" content="https://p.vql.vn/static/img/og-cover.png?v=20261024_v2">
+    <meta name="twitter:image" content="https://p.vql.vn/static/img/og-cover.png?v=20261116_v1">
 
 
 
@@ -1597,12 +1598,13 @@ window.addEventListener('error', function(e) {
 
         /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
         #mobile-bottom-nav {
-            padding-bottom: max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px)) !important;
-            min-height: calc(48px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
+            padding-bottom: max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px)) !important;
+            min-height: calc(42px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
         }
         .mnav-item {
-            min-height: 46px !important;
-            padding-top: 6px !important;
+            min-height: 42px !important;
+            max-height: 44px !important;
+            padding-top: 5px !important;
             padding-bottom: 2px !important;
             display: flex !important;
             flex-direction: column !important;
@@ -1617,20 +1619,20 @@ window.addEventListener('error', function(e) {
         .mnav-item span {
             font-size: 10px !important;
             font-weight: 700 !important;
-            line-height: 1.1 !important;
+            line-height: 1 !important;
             letter-spacing: -0.01em !important;
         }
         #mnav-dynamic-pill {
-            top: 4px !important;
-            height: 40px !important;
-            border-radius: 14px !important;
+            top: 3px !important;
+            height: 36px !important;
+            border-radius: 12px !important;
         }
         #pwa-install-banner {
-            bottom: calc(56px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
+            bottom: calc(52px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
         }
         @media (max-width: 767px) {
             #mainContent {
-                padding-bottom: calc(56px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
+                padding-bottom: calc(52px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
             }
         }
 
@@ -18248,8 +18250,15 @@ window.addEventListener('error', function(e) {
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
         if ('serviceWorker' in navigator) {
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) return;
+                refreshing = true;
+                window.location.reload();
+            });
+
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=2.0.0', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=2.0.1', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();
@@ -18741,8 +18750,8 @@ window.addEventListener('error', function(e) {
                 if (btnRect.width === 0) return;
                 pill.style.left = (btnRect.left - navRect.left + 4) + 'px';
                 pill.style.width = (btnRect.width - 8) + 'px';
-                pill.style.top = '4px';
-                pill.style.height = (btnRect.height - 8) + 'px';
+                pill.style.top = '3px';
+                pill.style.height = (btnRect.height - 6) + 'px';
                 pill.classList.remove('hidden');
             } catch (e) {}
         };

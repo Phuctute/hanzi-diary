@@ -9,6 +9,7 @@
 if ('caches' in window) {
     caches.delete('hanzi-pwa-v1.4.9').catch(function() {});
     caches.delete('hanzi-pwa-v2.0.0').catch(function() {});
+    caches.delete('hanzi-pwa-v2.0.1').catch(function() {});
     caches.delete('hanzi-api-v1.4.9').catch(function() {});
 }
 </script>
@@ -1596,43 +1597,43 @@ window.addEventListener('error', function(e) {
             }
         }
 
-        /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
+        /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator (Nâng cao cân đối như Android) */
         #mobile-bottom-nav {
-            padding-bottom: max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px)) !important;
-            min-height: calc(42px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
+            padding-bottom: max(6px, calc(env(safe-area-inset-bottom, 0px) - 8px)) !important;
+            min-height: calc(52px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 8px))) !important;
         }
         .mnav-item {
-            min-height: 42px !important;
-            max-height: 44px !important;
-            padding-top: 5px !important;
-            padding-bottom: 2px !important;
+            min-height: 52px !important;
+            height: 52px !important;
+            padding-top: 6px !important;
+            padding-bottom: 4px !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
             justify-content: center !important;
         }
         .mnav-item i {
-            font-size: 18px !important;
+            font-size: 19px !important;
             line-height: 1 !important;
-            margin-bottom: 2px !important;
+            margin-bottom: 3px !important;
         }
         .mnav-item span {
-            font-size: 10px !important;
+            font-size: 10.5px !important;
             font-weight: 700 !important;
-            line-height: 1 !important;
+            line-height: 1.1 !important;
             letter-spacing: -0.01em !important;
         }
         #mnav-dynamic-pill {
-            top: 3px !important;
-            height: 36px !important;
-            border-radius: 12px !important;
+            top: 4px !important;
+            height: 44px !important;
+            border-radius: 16px !important;
         }
         #pwa-install-banner {
-            bottom: calc(52px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
+            bottom: calc(58px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 8px))) !important;
         }
         @media (max-width: 767px) {
             #mainContent {
-                padding-bottom: calc(52px + max(6px, calc(env(safe-area-inset-bottom, 0px) / 2 + 4px))) !important;
+                padding-bottom: calc(58px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 8px))) !important;
             }
         }
 
@@ -3242,27 +3243,27 @@ window.addEventListener('error', function(e) {
             class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 flex items-stretch justify-around shadow-[0_-4px_16px_-4px_rgba(0,0,0,0.08)]">
             <div id="mnav-dynamic-pill" class="hidden"></div>
             <button onclick="switchTab('dashboard')" id="mnav-dashboard" data-mnav="dashboard"
-                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-house-chimney text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Trang chủ</span>
             </button>
             <button onclick="switchTab('quiz')" id="mnav-quiz" data-mnav="quiz"
-                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-circle-check text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Trắc nghiệm</span>
             </button>
             <button onclick="switchTab('flashcard')" id="mnav-flashcard" data-mnav="flashcard"
-                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-clone text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Flashcard</span>
             </button>
             <button onclick="switchTab('vocab')" id="mnav-vocab" data-mnav="vocab"
-                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-book-bookmark text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Từ vựng</span>
             </button>
             <button onclick="switchTab('karaoke')" id="mnav-karaoke" data-mnav="karaoke"
-                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-comments text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Hội thoại</span>
             </button>
@@ -18258,7 +18259,7 @@ window.addEventListener('error', function(e) {
             });
 
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js?v=2.0.1', { scope: '/' })
+                navigator.serviceWorker.register('/sw.js?v=2.0.2', { scope: '/' })
                     .then((reg) => {
                         console.log('[PWA] Service Worker registered:', reg.scope);
                         reg.update();
@@ -18750,8 +18751,8 @@ window.addEventListener('error', function(e) {
                 if (btnRect.width === 0) return;
                 pill.style.left = (btnRect.left - navRect.left + 4) + 'px';
                 pill.style.width = (btnRect.width - 8) + 'px';
-                pill.style.top = '3px';
-                pill.style.height = (btnRect.height - 6) + 'px';
+                pill.style.top = '4px';
+                pill.style.height = (btnRect.height - 8) + 'px';
                 pill.classList.remove('hidden');
             } catch (e) {}
         };

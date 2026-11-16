@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v1.9.14';
-const API_CACHE_NAME = 'hanzi-api-v1.9.14';
+const CACHE_NAME = 'hanzi-pwa-v1.9.16';
+const API_CACHE_NAME = 'hanzi-api-v1.9.16';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
@@ -26,7 +26,7 @@ const PRECACHE_ASSETS = [
   new URL('static/js/modules/dictation.js', BASE_SCOPE).href,
   new URL('static/img/icon-192.png', BASE_SCOPE).href,
   new URL('static/img/icon-512.png', BASE_SCOPE).href,
-  new URL('static/img/icon-splash.webp', BASE_SCOPE).href
+  new URL('static/img/splash-artwork-full.webp', BASE_SCOPE).href
 ];
 
 self.addEventListener('install', (event) => {

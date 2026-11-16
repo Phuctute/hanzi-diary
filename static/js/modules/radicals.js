@@ -82,10 +82,12 @@ let radData = null;          // full array
         document.getElementById('rad-daily-name').textContent = `${daily.hanviet} · ${daily.pinyin}`;
         document.getElementById('rad-daily-meaning').textContent = daily.meaning_vi;
         document.getElementById('rad-daily-open').onclick = () => openRadDetail(daily.radical);
-        // animate daily nếu có HanziWriter
-        if (typeof HanziWriter !== 'undefined') {
-            const w = drawWriter('rad-daily-writer', dailyDisp, { width: 88, height: 88, padding: 20, showCharacter: false, strokeColor: '#ffffff', radicalColor: '#ffd166', showOutline: true });
-            if (w) w.loopCharacterAnimation();
+        // Hiển thị bộ thủ sắc nét bằng typography font-tc trên nền kính mờ
+        const dailyWriterBox = document.getElementById('rad-daily-writer');
+        if (dailyWriterBox) {
+            dailyWriterBox.onclick = () => openRadDetail(daily.radical);
+            dailyWriterBox.classList.add('cursor-pointer', 'hover:scale-105', 'transition-transform');
+            dailyWriterBox.innerHTML = `<span id="rad-daily-char" class="text-5xl font-black font-tc text-white select-none drop-shadow-sm">${dailyDisp}</span>`;
         }
         // progress
         const top50 = new Set([...radData].sort((a, b) => a.rank - b.rank).slice(0, RAD_COMMON_N).map(r => r.id));
@@ -150,39 +152,9 @@ let radData = null;          // full array
         </button>`;
     }
 
-    // Chạy HanziWriter (nét trắng, nền xanh) trên từng card khi card lọt vào khung hình — tránh khởi tạo 214 writer cùng lúc.
-    let radCardObserver = null;
+    // Giữ typography font-tc sắc nét trên từng thẻ bộ thủ (vẽ nét động ở modal chi tiết)
     function initRadCardWriters() {
-        if (typeof HanziWriter === 'undefined') return;
-        if (!radCardObserver) {
-            radCardObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-                    const el = entry.target;
-                    radCardObserver.unobserve(el);
-                    const char = el.dataset.radChar;
-                    const textClass = el.dataset.radTextClass || 'text-white';
-                    const w = drawWriter(el.id, char, {
-                        width: el.clientWidth || 72,
-                        height: el.clientHeight || 72,
-                        padding: Math.round((el.clientWidth || 72) * 0.22),
-                        showCharacter: false,
-                        strokeColor: el.dataset.radStroke || '#ffffff',
-                        radicalColor: el.dataset.radRadical || '#ffd166',
-                        showOutline: true,
-                        delayBetweenStrokes: 250,
-                        onLoadCharDataError: function () {
-                            el.innerHTML = `<span class="text-[38px] sm:text-[46px] leading-none font-black ${textClass} font-tc">${char}</span>`;
-                        }
-                    });
-                    if (w) w.loopCharacterAnimation();
-                });
-            }, { rootMargin: '150px' });
-        }
-        document.querySelectorAll('[data-rad-char]:not([data-rad-observed])').forEach(el => {
-            el.dataset.radObserved = '1';
-            radCardObserver.observe(el);
-        });
+        // No-op: giữ font chữ vector sắc nét, tránh biến dạng stroke và quá tải CPU
     }
 
     function renderRadicals() {

@@ -1597,11 +1597,40 @@ window.addEventListener('error', function(e) {
 
         /* Safe Area cho Bottom Nav và Main Content trên Mobile / iPhone Home Indicator */
         #mobile-bottom-nav {
-            padding-bottom: max(10px, env(safe-area-inset-bottom, 12px)) !important;
+            padding-bottom: max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px)) !important;
+            min-height: calc(48px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
+        }
+        .mnav-item {
+            min-height: 46px !important;
+            padding-top: 6px !important;
+            padding-bottom: 2px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .mnav-item i {
+            font-size: 18px !important;
+            line-height: 1 !important;
+            margin-bottom: 2px !important;
+        }
+        .mnav-item span {
+            font-size: 10px !important;
+            font-weight: 700 !important;
+            line-height: 1.1 !important;
+            letter-spacing: -0.01em !important;
+        }
+        #mnav-dynamic-pill {
+            top: 4px !important;
+            height: 40px !important;
+            border-radius: 14px !important;
+        }
+        #pwa-install-banner {
+            bottom: calc(56px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
         }
         @media (max-width: 767px) {
             #mainContent {
-                padding-bottom: calc(72px + env(safe-area-inset-bottom, 12px)) !important;
+                padding-bottom: calc(56px + max(6px, calc(env(safe-area-inset-bottom, 0px) - 2px))) !important;
             }
         }
 
@@ -3068,7 +3097,7 @@ window.addEventListener('error', function(e) {
 
 
 
-    <div class="flex-1 flex flex-col h-[100dvh] overflow-hidden w-full relative">
+    <div class="flex-1 flex flex-col h-full min-h-0 overflow-hidden w-full relative">
 
         <header id="main-app-header" style="padding-top: max(12px, env(safe-area-inset-top, 12px));"
 
@@ -3208,32 +3237,32 @@ window.addEventListener('error', function(e) {
 
         <!-- Bottom nav mobile (kiểu Corodomo): Luyện thi · Flashcard · Shadowing · Từ vựng -->
         <nav id="mobile-bottom-nav"
-            class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 flex items-stretch justify-around shadow-[0_-4px_16px_-4px_rgba(0,0,0,0.08)] pb-[max(10px,env(safe-area-inset-bottom))]">
+            class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 flex items-stretch justify-around shadow-[0_-4px_16px_-4px_rgba(0,0,0,0.08)]">
             <div id="mnav-dynamic-pill" class="hidden"></div>
             <button onclick="switchTab('dashboard')" id="mnav-dashboard" data-mnav="dashboard"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-house-chimney text-lg"></i>
-                <span class="text-[10px] font-bold">Trang chủ</span>
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-house-chimney text-[18px] leading-none mb-0.5"></i>
+                <span class="text-[10px] font-bold leading-tight">Trang chủ</span>
             </button>
             <button onclick="switchTab('quiz')" id="mnav-quiz" data-mnav="quiz"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-circle-check text-lg"></i>
-                <span class="text-[10px] font-bold">Trắc nghiệm</span>
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-circle-check text-[18px] leading-none mb-0.5"></i>
+                <span class="text-[10px] font-bold leading-tight">Trắc nghiệm</span>
             </button>
             <button onclick="switchTab('flashcard')" id="mnav-flashcard" data-mnav="flashcard"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-clone text-lg"></i>
-                <span class="text-[10px] font-bold">Flashcard</span>
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-clone text-[18px] leading-none mb-0.5"></i>
+                <span class="text-[10px] font-bold leading-tight">Flashcard</span>
             </button>
             <button onclick="switchTab('vocab')" id="mnav-vocab" data-mnav="vocab"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-book-bookmark text-lg"></i>
-                <span class="text-[10px] font-bold">Từ vựng</span>
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-book-bookmark text-[18px] leading-none mb-0.5"></i>
+                <span class="text-[10px] font-bold leading-tight">Từ vựng</span>
             </button>
             <button onclick="switchTab('karaoke')" id="mnav-karaoke" data-mnav="karaoke"
-                class="mnav-item flex-1 flex flex-col items-center justify-center gap-0.5 pt-2.5 pb-1 min-h-[52px] text-slate-400 outline-none transition-colors">
-                <i class="fa-solid fa-comments text-lg"></i>
-                <span class="text-[10px] font-bold">Hội thoại</span>
+                class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[46px] text-slate-400 outline-none transition-colors">
+                <i class="fa-solid fa-comments text-[18px] leading-none mb-0.5"></i>
+                <span class="text-[10px] font-bold leading-tight">Hội thoại</span>
             </button>
         </nav>
 

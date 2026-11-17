@@ -47440,6 +47440,25 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:33:42"
+    },
+    {
+      "id": 293,
+      "book_id": 7,
+      "lesson_id": 88,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "跨年活動",
+      "content": "老師：有啊！我小的時候在山上住了七、八年。每年的第一天，我都跟家人一起看日出。\n家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。\n友美：在日本，跨年的時候，很多人在家跟家人一起看電視。但是我喜歡和朋友一起跨年，比在家看電視有趣。\n國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。",
+      "pinyin": "{}",
+      "vietnamese": "Thầy: Có chứ! Hồi nhỏ tôi sống trên núi bảy tám năm. Ngày đầu tiên của mỗi năm, tôi đều cùng gia đình đi xem bình minh.\nGia Lạc: Lúc đón giao thừa, nhà thờ ở Anh có rất nhiều hoạt động, cũng có người đi nghe nhạc.\nHữu Mỹ: Ở Nhật, lúc đón giao thừa, nhiều người ở nhà cùng gia đình xem tivi. Nhưng tôi thích đón giao thừa cùng bạn bè hơn, thú vị hơn ở nhà xem tivi.\nQuốc An: Tôi cũng thích đón giao thừa cùng bạn bè, hơn nữa năm nay thú vị hơn trước nhiều, vì ở Đài Loan cùng chơi với các bạn, cảm thấy rất đặc biệt.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [],
+      "created_at": "2026-11-18 01:49:02",
+      "updated_at": "2026-11-18 01:49:02"
     }
   ],
   "94": [

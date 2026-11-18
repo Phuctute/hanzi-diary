@@ -2147,12 +2147,12 @@ window.addEventListener('error', function(e) {
         }
 
         .segment-active {
-            background-color: rgba(2, 122, 179, 0.13) !important;
-            border-radius: 4px;
+            background-color: transparent !important;
+            box-shadow: none !important;
         }
 
         .segment-active .char-hanzi {
-            color: #026597 !important;
+            color: #027AB3 !important;
             font-weight: 700;
         }
 
@@ -2162,7 +2162,7 @@ window.addEventListener('error', function(e) {
         }
 
         .segment-active .prose-punct {
-            color: #026597 !important;
+            color: #027AB3 !important;
             font-weight: 700;
         }
 
@@ -2212,15 +2212,7 @@ window.addEventListener('error', function(e) {
 
 
 
-        .segment-active .char-hanzi,
-
-        .segment-active .prose-punct,
-
-        .segment-active .py-text {
-
-            color: #027AB3 !important;
-
-        }
+        
 
 
 
@@ -11323,7 +11315,7 @@ window.addEventListener('error', function(e) {
                         let mappedIdx = pureHanziMap[pureHanziGlobalIdx];
                         if (mappedIdx !== undefined) currentJsonIdx = mappedIdx;
                         let segTime = data.script_json[currentJsonIdx] ? data.script_json[currentJsonIdx].start_time : 0;
-                        html += `<div class="prose-word inline-flex flex-col items-center mx-[0.5px] px-[0.5px] segment-char-${currentJsonIdx} align-bottom" data-time="${segTime}" style="line-height: 1.15;"><span class="py-text text-[11px] sm:text-[12px] text-sky-700/80 font-medium font-sans mb-0.5 tracking-tight">${py}</span><span class="char-hanzi text-[19px] sm:text-[22px] text-slate-800 font-semibold font-tc">${char}</span></div>`;
+                        html += `<div class="prose-word inline-flex flex-col items-center mx-[0.5px] px-[0.5px] segment-char-${currentJsonIdx} align-bottom" data-time="${segTime}" style="line-height: 1.15;"><span class="py-text text-[11px] sm:text-[12px] text-slate-400 font-medium font-sans mb-0.5 tracking-tight">${py}</span><span class="char-hanzi text-[19px] sm:text-[22px] text-slate-800 font-semibold font-tc">${char}</span></div>`;
                         pureHanziGlobalIdx++;
                     }
                 }

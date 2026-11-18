@@ -16,6 +16,8 @@ if ('caches' in window) {
     caches.delete('hanzi-pwa-v2.0.4').catch(function() {});
     caches.delete('hanzi-pwa-v2.0.5').catch(function() {});
     caches.delete('hanzi-pwa-v2.0.6').catch(function() {});
+    caches.delete('hanzi-pwa-v2.2.4').catch(function() {});
+    caches.delete('hanzi-api-v2.2.4').catch(function() {});
     caches.delete('hanzi-api-v1.4.9').catch(function() {});
     caches.delete('hanzi-api-v2.0.5').catch(function() {});
     caches.delete('hanzi-api-v2.0.6').catch(function() {});
@@ -11128,29 +11130,63 @@ window.addEventListener('error', function(e) {
     }
 
     // Đảm bảo tab Hội thoại luôn có nội dung khi người dùng mở tab
+    window._lessonContentsCache = window._lessonContentsCache || {};
+
     async function ensureKaraokeHasContent(forcedLid, forceReload = false) {
         const selLesson = document.getElementById('select-lesson');
         let targetLid = forcedLid || ((selLesson && selLesson.value && !selLesson.value.startsWith('topic:')) ? selLesson.value : 1);
+        window._lessonContentsCache = window._lessonContentsCache || {};
 
-        const curData = window.rawKaraokeData || (typeof rawKaraokeData !== 'undefined' ? rawKaraokeData : null);
         const lidNum = parseInt(targetLid, 10);
         const expectedCount = (lidNum >= 75 && lidNum <= 138) ? 3 : 1;
-        if (!forceReload && curData && curData.length >= expectedCount && String(window._karaokeLoadedLessonId) === String(targetLid)) {
+
+        // 1. Tức thì (0ms) từ bộ nhớ RAM cache
+        if (!forceReload && window._lessonContentsCache[targetLid] && window._lessonContentsCache[targetLid].length >= expectedCount) {
+            window.rawKaraokeData = window._lessonContentsCache[targetLid];
+            try { rawKaraokeData = window.rawKaraokeData; } catch(e) {}
+            window._karaokeLoadedLessonId = String(targetLid);
             renderKaraokeContent(currentKaraokeIdx || 0);
             return;
         }
+
+        // 2. Tức thì (0ms) từ biến toàn cục hiện hành
+        const curData = window.rawKaraokeData || (typeof rawKaraokeData !== 'undefined' ? rawKaraokeData : null);
+        if (!forceReload && curData && curData.length >= expectedCount && String(window._karaokeLoadedLessonId) === String(targetLid)) {
+            window._lessonContentsCache[targetLid] = curData;
+            renderKaraokeContent(currentKaraokeIdx || 0);
+            return;
+        }
+
+        // 3. Tức thì (0ms) từ gói dữ liệu ngoại tuyến HanziOffline
+        try {
+            if (!forceReload && window.HanziOffline && typeof window.HanziOffline.getBundle === 'function') {
+                const bundle = window.HanziOffline.getBundle();
+                if (bundle && bundle.lesson_contents && bundle.lesson_contents[targetLid] && bundle.lesson_contents[targetLid].length >= expectedCount) {
+                    const offData = bundle.lesson_contents[targetLid];
+                    window._lessonContentsCache[targetLid] = offData;
+                    window.rawKaraokeData = offData;
+                    try { rawKaraokeData = offData; } catch(e) {}
+                    window._karaokeLoadedLessonId = String(targetLid);
+                    renderKaraokeContent(currentKaraokeIdx || 0);
+                    return;
+                }
+            }
+        } catch(e) {}
+
         const container = document.getElementById('dialogueContainer');
-        if (container) {
+        // Chỉ hiện biểu tượng tải khi khung chưa có sẵn nội dung
+        if (container && (!container.children || container.children.length === 0)) {
             container.innerHTML = `
                 <div class="text-center py-16 px-4 animate-fade-in">
                     <div class="inline-block w-8 h-8 border-3 border-primary border-t-transparent rounded-full animate-spin mb-3"></div>
-                    <div class="text-sm font-bold text-slate-600">Đang tải bài hội thoại...</div>
+                    <div class="text-sm font-bold text-slate-600">Đang nạp bài khóa...</div>
                 </div>`;
         }
         try {
-            let res = await fetch(`/api.php?action=get_lesson_contents&lesson_id=${targetLid}&_t=${Date.now()}`);
+            let res = await fetch(`/api.php?action=get_lesson_contents&lesson_id=${targetLid}`);
             let json = await res.json();
             if (json.success && json.data && json.data.length > 0) {
+                window._lessonContentsCache[targetLid] = json.data;
                 window.rawKaraokeData = json.data;
                 try { rawKaraokeData = json.data; } catch(e) {}
                 window._karaokeLoadedLessonId = String(targetLid);
@@ -11356,8 +11392,14 @@ window.addEventListener('error', function(e) {
         } else {
             stopYouTubePlayer();
             document.getElementById('karaokeVideoContainer').classList.add('hidden');
-            karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.2.5') : "";
-            karaokeAudio.load();
+            karaokeAudio.preload = "auto";
+            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.2.5') : "";
+            if (karaokeAudio.src !== targetAudioSrc) {
+                karaokeAudio.src = targetAudioSrc;
+                if (targetAudioSrc) {
+                    karaokeAudio.load();
+                }
+            }
         }
         resetKaraokeUI();
         buildKaraokeQA(data.qa_json);
@@ -17894,7 +17936,7 @@ window.addEventListener('error', function(e) {
                         window.__lessonSwitchAnim = true;
                         viewEl.style.transition = 'opacity 0.25s ease';
                         viewEl.style.opacity = '0';
-                        await new Promise(r => setTimeout(r, 250));
+                        await new Promise(r => setTimeout(r, 40));
                     }
                     switchTab(activeNav);
                     if (viewEl) {
@@ -17922,13 +17964,17 @@ window.addEventListener('error', function(e) {
             try {
                 const [vocabJson, diagJson] = await Promise.all([
                     fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`).then(r => r.json()).catch(() => []),
-                    fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}&_t=${Date.now()}`).then(r => r.json()).catch(() => ({ success: false, data: [] }))
+                    fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`).then(r => r.json()).catch(() => ({ success: false, data: [] }))
                 ]);
                 vocabData = Array.isArray(vocabJson) ? vocabJson : [];
                 filteredVocabData = [...vocabData];
                 if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
                 rawKaraokeData = (diagJson && diagJson.success && diagJson.data) ? diagJson.data : [];
                 window.rawKaraokeData = rawKaraokeData;
+                window._lessonContentsCache = window._lessonContentsCache || {};
+                if (rawKaraokeData && rawKaraokeData.length > 0) {
+                    window._lessonContentsCache[lessonId] = rawKaraokeData;
+                }
                 window._karaokeLoadedLessonId = String(lessonId);
                 window._dictLoadedLessonId = String(lessonId);
             } catch (err) {
@@ -17952,7 +17998,7 @@ window.addEventListener('error', function(e) {
                     window.__lessonSwitchAnim = true;
                     viewEl.style.transition = 'opacity 0.25s ease';
                     viewEl.style.opacity = '0';
-                    await new Promise(r => setTimeout(r, 250));
+                    await new Promise(r => setTimeout(r, 40));
                 }
                 switchTab(activeNav);
                 if (viewEl) {

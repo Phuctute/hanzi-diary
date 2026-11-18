@@ -1,6 +1,6 @@
-const CACHE_NAME = 'hanzi-pwa-v2.2.4';
-const API_CACHE_NAME = 'hanzi-api-v2.2.4';
-const AUDIO_CACHE_NAME = 'hanzi-audio-v2.2.4';
+const CACHE_NAME = 'hanzi-pwa-v2.2.5';
+const API_CACHE_NAME = 'hanzi-api-v2.2.5';
+const AUDIO_CACHE_NAME = 'hanzi-audio-v2.2.5';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
 const PRECACHE_ASSETS = [
@@ -83,7 +83,7 @@ self.addEventListener('fetch', (event) => {
 
         // 2. Fetch có timeout 3.2s để tránh treo khi đang dùng thì đột ngột mất mạng
         const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-        const timeoutId = controller ? setTimeout(() => controller.abort(), 3200) : null;
+        const timeoutId = controller ? setTimeout(() => controller.abort(), 15000) : null;
 
         try {
           const fetchOptions = controller ? { signal: controller.signal } : {};
@@ -237,7 +237,7 @@ self.addEventListener('fetch', (event) => {
 
   if (isReadOnlyApi) {
     // Network-First for lesson_contents or any request with cache-buster _t
-    if (url.search.includes('_t=') || url.search.includes('action=get_lesson_contents')) {
+    if (url.search.includes('_t=')) {
       event.respondWith(
         fetch(req).then((networkRes) => {
           if (networkRes && networkRes.status === 200) {

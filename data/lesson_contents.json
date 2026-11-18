@@ -47918,17 +47918,173 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 336,
-      "book_id": 7,
-      "lesson_id": 87,
+      "title": "用手機上網（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "國安：喂，中明，半個小時以前我寄了一封電子郵件給你，你看到了嗎？\n中明：剛剛我的手機網路有點兒問題，不能看電子郵件，你寄的是什麼？\n國安：博物館的網址。下禮拜六老師要帶我們去參觀，你可以先看看。\n中明：好。（看看手機）現在沒問題了，我看到了。\n國安：網站上有地址，那個地方在我家附近，從我家出去，往右轉，差不多五分鐘就到了。\n中明：我們應該幾點到？\n國安：早上九點在博物館門口見，要記得準時到。\n中明：我們上個星期六去運動的時候，我到得太晚，真不好意思。下個星期我一定會準時。",
+      "audio_url": "audio/dialogue/7/bk_87_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "國安：喂，中明，半個小時以前我寄了一封電子郵件給你，你看到了嗎？",
+          "start_time": 0.1,
+          "end_time": 7.14
+        },
+        {
+          "id": 2,
+          "text": "中明：剛剛我的手機網路有點兒問題，不能看電子郵件，你寄的是什麼？",
+          "start_time": 7.09,
+          "end_time": 14.12
+        },
+        {
+          "id": 3,
+          "text": "國安：博物館的網址。",
+          "start_time": 14.12,
+          "end_time": 16.84
+        },
+        {
+          "id": 4,
+          "text": "下禮拜六老師要帶我們去參觀，你可以先看看。",
+          "start_time": 16.84,
+          "end_time": 21.73
+        },
+        {
+          "id": 5,
+          "text": "中明：好。",
+          "start_time": 21.73,
+          "end_time": 23.65
+        },
+        {
+          "id": 6,
+          "text": "看看手機）現在沒問題了，我看到了。",
+          "start_time": 23.65,
+          "end_time": 28.0
+        },
+        {
+          "id": 7,
+          "text": "國安：網站上有地址，那個地方在我家附近，從我家出去，往右轉，差不多五分鐘就到了。",
+          "start_time": 28.0,
+          "end_time": 37.04
+        },
+        {
+          "id": 8,
+          "text": "中明：我們應該幾點到？",
+          "start_time": 37.04,
+          "end_time": 39.96
+        },
+        {
+          "id": 9,
+          "text": "國安：早上九點在博物館門口見，要記得準時到。",
+          "start_time": 39.96,
+          "end_time": 45.11
+        },
+        {
+          "id": 10,
+          "text": "中明：我們上個星期六去運動的時候，我到得太晚，真不好意思。",
+          "start_time": 45.11,
+          "end_time": 51.64
+        },
+        {
+          "id": 11,
+          "text": "下個星期我一定會準時。",
+          "start_time": 51.64,
+          "end_time": 54.6
+        }
+      ]
+    },
+    {
+      "title": "在博物館門口（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "老師：博物館五分鐘以後就要開門了，大家都到了吧？\n國安：中明說他快要到了。\n家樂：老師，我們要不要先去排隊買票？\n老師：差不多需要排十分鐘的隊，那好吧，我們先去排隊。\n老師：今天我們打算參觀三個小時，會有人給我們介紹。進去以後，記得要安靜，不可以說話說得太大聲。\n家樂：老師，我剛剛先用手機上網看了很多有趣的圖片，真想馬上就看到博物館裡的東西。\n老師：我知道你非常喜歡歷史，我想你今天一定會很開心。\n家樂：我也在網路上找了很多文章，那些介紹和故事都非常有趣。\n老師：那如果大家有問題就可以問你了。\n家樂：要是我知道，一定會告訴大家！\n國安：中明來了！\n老師：好，我們進去參觀吧。",
+      "audio_url": "audio/dialogue/7/bk_87_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "老師：博物館五分鐘以後就要開門了，大家都到了吧？",
+          "start_time": 0.1,
+          "end_time": 5.58
+        },
+        {
+          "id": 2,
+          "text": "國安：中明說他快要到了。",
+          "start_time": 5.53,
+          "end_time": 8.68
+        },
+        {
+          "id": 3,
+          "text": "家樂：老師，我們要不要先去排隊買票？",
+          "start_time": 8.68,
+          "end_time": 13.24
+        },
+        {
+          "id": 4,
+          "text": "老師：差不多需要排十分鐘的隊，那好吧，我們先去排隊。",
+          "start_time": 13.24,
+          "end_time": 19.51
+        },
+        {
+          "id": 5,
+          "text": "老師：今天我們打算參觀三個小時，會有人給我們介紹。",
+          "start_time": 19.51,
+          "end_time": 25.38
+        },
+        {
+          "id": 6,
+          "text": "進去以後，記得要安靜，不可以說話說得太大聲。",
+          "start_time": 25.38,
+          "end_time": 30.35
+        },
+        {
+          "id": 7,
+          "text": "家樂：老師，我剛剛先用手機上網看了很多有趣的圖片，真想馬上就看到博物館裡的東西。",
+          "start_time": 30.35,
+          "end_time": 39.24
+        },
+        {
+          "id": 8,
+          "text": "老師：我知道你非常喜歡歷史，我想你今天一定會很開心。",
+          "start_time": 39.24,
+          "end_time": 45.26
+        },
+        {
+          "id": 9,
+          "text": "家樂：我也在網路上找了很多文章，那些介紹和故事都非常有趣。",
+          "start_time": 45.26,
+          "end_time": 51.89
+        },
+        {
+          "id": 10,
+          "text": "老師：那如果大家有問題就可以問你了。",
+          "start_time": 51.89,
+          "end_time": 56.34
+        },
+        {
+          "id": 11,
+          "text": "家樂：要是我知道，一定會告訴大家！",
+          "start_time": 56.34,
+          "end_time": 60.56
+        },
+        {
+          "id": 12,
+          "text": "國安：中明來了！",
+          "start_time": 60.56,
+          "end_time": 62.95
+        },
+        {
+          "id": 13,
+          "text": "老師：好，我們進去參觀吧。",
+          "start_time": 62.95,
+          "end_time": 66.51
+        }
+      ]
+    },
+    {
+      "title": "手機和我們的生活（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "手機和我們的生活",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_87.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "我們一天用幾個小時的手機呢？打電話、算錢、看天氣、看地圖、看朋友的留言，都需要手機。\n我上個星期坐捷運去參觀一個科學展。出了捷運站以後，我不知道往哪個方向走，馬上看了手機的網路地圖，然後就知道怎麼走了。我從捷運站出去，先往右轉，過了第一個十字路口，再走五分鐘就到了。有手機真方便！\n我們每天從家裡出去以後，最怕什麼事？忘了帶錢？忘了帶手機？還是手機壞了？如果世界上沒有手機了，我們的生活會怎麼樣呢？",
+      "audio_url": "audio/dialogue/7/bk_87_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -47996,76 +48152,7 @@
           "start_time": 42.24,
           "end_time": 47.02
         }
-      ],
-      "content": "我們一天用幾個小時的手機呢？打電話、算錢、看天氣、看地圖、看朋友的留言，都需要手機。\n我上個星期坐捷運去參觀一個科學展。出了捷運站以後，我不知道往哪個方向走，馬上看了手機的網路地圖，然後就知道怎麼走了。我從捷運站出去，先往右轉，過了第一個十字路口，再走五分鐘就到了。有手機真方便！\n我們每天從家裡出去以後，最怕什麼事？忘了帶錢？忘了帶手機？還是手機壞了？如果世界上沒有手機了，我們的生活會怎麼樣呢？",
-      "vietnamese": "Một ngày chúng ta dùng điện thoại mấy tiếng đồng hồ? Gọi điện thoại, tính tiền, xem thời tiết, xem bản đồ, xem tin nhắn của bạn bè, đều cần đến điện thoại.\nTuần trước tôi đi tàu điện ngầm đến tham quan một triển lãm khoa học. Sau khi ra khỏi ga tàu điện ngầm, tôi không biết nên đi về hướng nào, liền mở ngay bản đồ mạng trên điện thoại, và thế là biết cách đi. Tôi đi ra từ ga tàu điện ngầm, trước tiên rẽ phải, qua ngã tư đầu tiên rồi đi tiếp năm phút là tới nơi. Có điện thoại thật là tiện lợi!\nMỗi ngày sau khi ra khỏi nhà, chúng ta sợ nhất điều gì? Quên mang tiền? Quên mang điện thoại? Hay là điện thoại bị hỏng? Nếu như trên thế giới này không còn điện thoại nữa, cuộc sống của chúng ta sẽ ra sao nhỉ?",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Những việc nào trong cuộc sống cần dùng đến điện thoại?",
-            "zh": "生活中有哪些事情需要用到手機？"
-          },
-          "options": [
-            {
-              "vi": "Gọi điện, tính tiền, xem thời tiết, bản đồ, tin nhắn",
-              "zh": "打電話、算錢、看天氣、地圖和留言"
-            },
-            {
-              "vi": "Chỉ dùng để chơi game",
-              "zh": "只有玩遊戲"
-            },
-            {
-              "vi": "Chỉ dùng để chụp ảnh",
-              "zh": "只有拍照"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Tuần trước tác giả đi xem triển lãm bằng phương tiện gì?",
-            "zh": "作者上星期搭什麼交通工具去看展覽？"
-          },
-          "options": [
-            {
-              "vi": "Tàu điện ngầm (MRT)",
-              "zh": "捷運"
-            },
-            {
-              "vi": "Xe buýt",
-              "zh": "公車"
-            },
-            {
-              "vi": "Xe đạp",
-              "zh": "腳踏車"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Từ ga tàu điện ngầm đi đến triển lãm mất bao lâu?",
-            "zh": "從捷運站到展覽館要走多久？"
-          },
-          "options": [
-            {
-              "vi": "Khoảng 5 phút đi bộ",
-              "zh": "走大約五分鐘"
-            },
-            {
-              "vi": "Nửa tiếng",
-              "zh": "半個小時"
-            },
-            {
-              "vi": "Một tiếng",
-              "zh": "一個小時"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:35:00",
-      "updated_at": "2026-11-18 10:35:00"
+      ]
     }
   ],
   "76": [
@@ -48918,17 +49005,221 @@
       "updated_at": "2026-08-05 15:33:42"
     },
     {
-      "id": 339,
-      "book_id": 7,
-      "lesson_id": 88,
+      "title": "跨年活動（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "老師：家樂，你在台灣住了多久了？參加過台灣的新年活動嗎？\n家樂：我在台灣住了半年了，這是我第一次在台灣過新年。台灣人在一年的最後一天有什麼特別的活動？\n老師：十二月三十一號的晚上，很多城市都有跨年晚會，我最喜歡的是台北 101 的演唱會，有很多表演，又熱鬧又好看。\n家樂：跟朋友一起去一定會很有意思，大家要不要一起去？\n老師：如果大家要去跨年，要多帶一件衣服。去年我在那裡站了一晚，因為時間太久，天氣也太冷，回家以後就感冒了。\n宜文：我家在台北 101 大樓附近，大家可以先來我家，我們一起吃晚飯，再去看演唱會。\n國安：太好了！我們可以每個人都準備一些好吃的東西。\n宜文：老師，請您也跟大家一起來我家，好嗎？\n老師：好啊！那我也準備一些飲料。大家一起跨年吧！",
+      "audio_url": "audio/dialogue/7/bk_88_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "老師：家樂，你在台灣住了多久了？",
+          "start_time": 0.1,
+          "end_time": 4.24
+        },
+        {
+          "id": 2,
+          "text": "參加過台灣的新年活動嗎？",
+          "start_time": 4.19,
+          "end_time": 7.17
+        },
+        {
+          "id": 3,
+          "text": "家樂：我在台灣住了半年了，這是我第一次在台灣過新年。",
+          "start_time": 7.17,
+          "end_time": 12.85
+        },
+        {
+          "id": 4,
+          "text": "台灣人在一年的最後一天有什麼特別的活動？",
+          "start_time": 12.85,
+          "end_time": 17.18
+        },
+        {
+          "id": 5,
+          "text": "老師：十二月三十一號的晚上，很多城市都有跨年晚會，我最喜歡的是台北 101 的演唱會，有很多表演，又熱鬧又好看。",
+          "start_time": 17.18,
+          "end_time": 29.09
+        },
+        {
+          "id": 6,
+          "text": "家樂：跟朋友一起去一定會很有意思，大家要不要一起去？",
+          "start_time": 29.09,
+          "end_time": 34.77
+        },
+        {
+          "id": 7,
+          "text": "老師：如果大家要去跨年，要多帶一件衣服。",
+          "start_time": 34.77,
+          "end_time": 39.71
+        },
+        {
+          "id": 8,
+          "text": "去年我在那裡站了一晚，因為時間太久，天氣也太冷，回家以後就感冒了。",
+          "start_time": 39.71,
+          "end_time": 47.12
+        },
+        {
+          "id": 9,
+          "text": "宜文：我家在台北 101 大樓附近，大家可以先來我家，我們一起吃晚飯，再去看演唱會。",
+          "start_time": 47.12,
+          "end_time": 55.7
+        },
+        {
+          "id": 10,
+          "text": "國安：太好了！",
+          "start_time": 55.7,
+          "end_time": 57.89
+        },
+        {
+          "id": 11,
+          "text": "我們可以每個人都準備一些好吃的東西。",
+          "start_time": 57.89,
+          "end_time": 61.79
+        },
+        {
+          "id": 12,
+          "text": "宜文：老師，請您也跟大家一起來我家，好嗎？",
+          "start_time": 61.79,
+          "end_time": 66.95
+        },
+        {
+          "id": 13,
+          "text": "老師：好啊！",
+          "start_time": 66.95,
+          "end_time": 69.05
+        },
+        {
+          "id": 14,
+          "text": "那我也準備一些飲料。",
+          "start_time": 69.05,
+          "end_time": 71.54
+        },
+        {
+          "id": 15,
+          "text": "大家一起跨年吧！",
+          "start_time": 71.54,
+          "end_time": 73.78
+        }
+      ]
+    },
+    {
+      "title": "在宜文家（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "宜文：歡迎大家，請進！\n家樂：謝謝！妳家前面的公園有很多花跟樹，環境真好！\n國安：我跟友美買了幾瓶酒，也帶了大家都喜歡的餃子、包子和牛肉湯。\n宜文：這麼多東西很重吧？\n國安：不重，我很高興能幫大家準備。\n老師：我買了珍珠奶茶，希望大家會喜歡。\n宜文：大家準備了這麼多東西。老師，請您先拿吧！\n家樂：老師，跨年的時候，如果不想去看演唱會，還有別的活動嗎？\n老師：有啊！我小的時候在山上住了七、八年，每一年的第一天，我都跟家人一起看日出。\n家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。\n友美：在日本，跨年的時候，很多人在家跟家人一起看電視。但是我喜歡和朋友一起跨年，比在家看電視有趣。\n國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。\n宜文：我同意，我也覺得今年很有意思。",
+      "audio_url": "audio/dialogue/7/bk_88_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：歡迎大家，請進！",
+          "start_time": 0.1,
+          "end_time": 3.33
+        },
+        {
+          "id": 2,
+          "text": "家樂：謝謝！",
+          "start_time": 3.27,
+          "end_time": 5.41
+        },
+        {
+          "id": 3,
+          "text": "妳家前面的公園有很多花跟樹，環境真好！",
+          "start_time": 5.41,
+          "end_time": 10.12
+        },
+        {
+          "id": 4,
+          "text": "國安：我跟友美買了幾瓶酒，也帶了大家都喜歡的餃子、包子和牛肉湯。",
+          "start_time": 10.12,
+          "end_time": 17.09
+        },
+        {
+          "id": 5,
+          "text": "宜文：這麼多東西很重吧？",
+          "start_time": 17.09,
+          "end_time": 20.38
+        },
+        {
+          "id": 6,
+          "text": "國安：不重，我很高興能幫大家準備。",
+          "start_time": 20.38,
+          "end_time": 24.57
+        },
+        {
+          "id": 7,
+          "text": "老師：我買了珍珠奶茶，希望大家會喜歡。",
+          "start_time": 24.57,
+          "end_time": 29.3
+        },
+        {
+          "id": 8,
+          "text": "宜文：大家準備了這麼多東西。",
+          "start_time": 29.3,
+          "end_time": 32.83
+        },
+        {
+          "id": 9,
+          "text": "老師，請您先拿吧！",
+          "start_time": 32.83,
+          "end_time": 35.59
+        },
+        {
+          "id": 10,
+          "text": "家樂：老師，跨年的時候，如果不想去看演唱會，還有別的活動嗎？",
+          "start_time": 35.59,
+          "end_time": 42.6
+        },
+        {
+          "id": 11,
+          "text": "老師：有啊！",
+          "start_time": 42.6,
+          "end_time": 44.74
+        },
+        {
+          "id": 12,
+          "text": "我小的時候在山上住了七、八年，每一年的第一天，我都跟家人一起看日出。",
+          "start_time": 44.74,
+          "end_time": 52.16
+        },
+        {
+          "id": 13,
+          "text": "家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。",
+          "start_time": 52.16,
+          "end_time": 58.73
+        },
+        {
+          "id": 14,
+          "text": "友美：在日本，跨年的時候，很多人在家跟家人一起看電視。",
+          "start_time": 58.73,
+          "end_time": 65.11
+        },
+        {
+          "id": 15,
+          "text": "但是我喜歡和朋友一起跨年，比在家看電視有趣。",
+          "start_time": 65.11,
+          "end_time": 70.33
+        },
+        {
+          "id": 16,
+          "text": "國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。",
+          "start_time": 70.33,
+          "end_time": 80.14
+        },
+        {
+          "id": 17,
+          "text": "宜文：我同意，我也覺得今年很有意思。",
+          "start_time": 80.14,
+          "end_time": 84.5
+        }
+      ]
+    },
+    {
+      "title": "跨年（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "跨年",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_88.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "一年的最後一天，每個國家都有慶祝跨年的活動。參加這些活動的年輕人很多，他們喜歡跟朋友去熱鬧的地方玩。在臺灣，年輕人最喜歡的跨年活動是去看演唱會。但是，交通是一個問題，需要很多警察在捷運站幫忙，因為人真的太多了，如果不小心，可能會受傷，所以有的人覺得在家裡看電視比出去玩好。\n今年是我第一次在台灣過新年。我跟老師、同學們先去一個同學家吃晚飯，再去參加101大樓的跨年活動。我覺得最有意思的是看演唱會，很多人一起唱歌、跳舞，真熱鬧。我們都覺得今年在台北跨年是一個最特別的經驗。",
+      "audio_url": "audio/dialogue/7/bk_88_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -48978,76 +49269,7 @@
           "start_time": 47.06,
           "end_time": 51.67
         }
-      ],
-      "content": "一年的最後一天，每個國家都有慶祝跨年的活動。參加這些活動的年輕人很多，他們喜歡跟朋友去熱鬧的地方玩。在臺灣，年輕人最喜歡的跨年活動是去看演唱會。但是，交通是一個問題，需要很多警察在捷運站幫忙，因為人真的太多了，如果不小心，可能會受傷，所以有的人覺得在家裡看電視比出去玩好。\n今年是我第一次在台灣過新年。我跟老師、同學們先去一個同學家吃晚飯，再去參加101大樓的跨年活動。我覺得最有意思的是看演唱會，很多人一起唱歌、跳舞，真熱鬧。我們都覺得今年在台北跨年是一個最特別的經驗。",
-      "vietnamese": "Ngày cuối cùng của một năm, mỗi quốc gia đều có các hoạt động chào đón năm mới. Giới trẻ tham gia các hoạt động này rất đông, họ thích cùng bạn bè đến những nơi náo nhiệt để vui chơi. Ở Đài Loan, hoạt động đón giao thừa mà người trẻ thích nhất là đi xem đêm nhạc hòa nhạc. Tuy nhiên, giao thông là một vấn đề lớn, cần rất nhiều cảnh sát hỗ trợ tại các ga tàu điện ngầm, bởi vì người thực sự quá đông đúc, nếu không cẩn thận có thể bị thương, vì vậy có người cảm thấy ở nhà xem tivi còn thoải mái hơn là ra ngoài.\nNăm nay là lần đầu tiên tôi đón năm mới tại Đài Loan. Tôi cùng thầy giáo và các bạn cùng lớp trước tiên đến nhà một người bạn ăn tối, sau đó cùng đi tham gia hoạt động đón giao thừa tại tòa nhà 101. Tôi thấy thú vị nhất là được xem buổi hòa nhạc, rất nhiều người cùng nhau hát vang, nhảy múa, thực sự vô cùng náo nhiệt. Tất cả chúng tôi đều cảm thấy đón năm mới tại Đài Bắc năm nay là một trải nghiệm đặc biệt nhất.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Hoạt động đón giao thừa người trẻ Đài Loan thích nhất là gì?",
-            "zh": "在台灣，年輕人最喜歡的跨年活動是什麼？"
-          },
-          "options": [
-            {
-              "vi": "Đi xem buổi hòa nhạc (concert)",
-              "zh": "去看演唱會"
-            },
-            {
-              "vi": "Ở nhà ngủ",
-              "zh": "在家睡覺"
-            },
-            {
-              "vi": "Đi leo núi",
-              "zh": "去爬山"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Vì sao cần nhiều cảnh sát hỗ trợ ở ga tàu điện ngầm?",
-            "zh": "為什麼需要很多警察在捷運站幫忙？"
-          },
-          "options": [
-            {
-              "vi": "Người quá đông, tránh bị thương do chen lấn",
-              "zh": "人太多了，避免受傷"
-            },
-            {
-              "vi": "Kiểm tra vé",
-              "zh": "檢查車票"
-            },
-            {
-              "vi": "Bán đồ ăn",
-              "zh": "賣東西"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Tác giả cùng bạn bè đến đâu đón giao thừa?",
-            "zh": "作者跟朋友去哪裡參加跨年活動？"
-          },
-          "options": [
-            {
-              "vi": "Tòa nhà Taipei 101",
-              "zh": "台北101大樓"
-            },
-            {
-              "vi": "Sân bay",
-              "zh": "機場"
-            },
-            {
-              "vi": "Bãi biển",
-              "zh": "海邊"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:35:00",
-      "updated_at": "2026-11-18 10:35:00"
+      ]
     }
   ],
   "94": [

@@ -42630,75 +42630,99 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：友美，妳這個週末要做什麼？",
-          "start_time": 0.1,
-          "end_time": 4.0
+          "text": "有没",
+          "start_time": 0.0,
+          "end_time": 1.0
         },
         {
           "id": 2,
-          "text": "友美：我要在家看書、聽音樂。",
-          "start_time": 3.95,
-          "end_time": 7.74
+          "text": "你这个周末要做什么",
+          "start_time": 1.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "中明：妳星期六下午有空嗎？",
-          "start_time": 7.74,
-          "end_time": 11.1
+          "text": "我要再加看书",
+          "start_time": 5.0,
+          "end_time": 8.0
         },
         {
           "id": 4,
-          "text": "我們一起去喝下午茶，怎麼樣？",
-          "start_time": 11.1,
-          "end_time": 14.59
+          "text": "听音乐",
+          "start_time": 8.0,
+          "end_time": 10.0
         },
         {
           "id": 5,
-          "text": "友美：好啊！",
-          "start_time": 14.59,
-          "end_time": 16.62
+          "text": "你星期六下午有空吗",
+          "start_time": 10.0,
+          "end_time": 13.0
         },
         {
           "id": 6,
-          "text": "你想去哪裡？",
-          "start_time": 16.62,
-          "end_time": 18.57
+          "text": "我们一起去喝下午茶",
+          "start_time": 13.0,
+          "end_time": 16.0
         },
         {
           "id": 7,
-          "text": "中明：我知道一家很不錯的咖啡廳，那裡的冰淇淋很好吃。",
-          "start_time": 18.57,
-          "end_time": 24.36
+          "text": "怎么样",
+          "start_time": 16.0,
+          "end_time": 18.0
         },
         {
           "id": 8,
-          "text": "友美：他們有巧克力冰淇淋嗎？",
-          "start_time": 24.36,
-          "end_time": 27.9
+          "text": "好啊",
+          "start_time": 18.0,
+          "end_time": 20.0
         },
         {
           "id": 9,
-          "text": "中明：有啊！",
-          "start_time": 27.9,
-          "end_time": 30.0
+          "text": "你想去哪里",
+          "start_time": 20.0,
+          "end_time": 23.0
         },
         {
           "id": 10,
-          "text": "他們有很多種冰淇淋。",
-          "start_time": 30.0,
-          "end_time": 32.64
+          "text": "我知道一家很不错的咖啡厅",
+          "start_time": 23.0,
+          "end_time": 28.0
         },
         {
           "id": 11,
-          "text": "友美：我們這個星期六下午兩點半去吧。",
-          "start_time": 32.64,
-          "end_time": 36.79
+          "text": "那里的冰淇淋很好吃",
+          "start_time": 28.0,
+          "end_time": 32.0
         },
         {
           "id": 12,
-          "text": "中明：好。",
-          "start_time": 36.79,
-          "end_time": 38.71
+          "text": "他们有巧克力冰淇淋吗",
+          "start_time": 32.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 13,
+          "text": "有啊",
+          "start_time": 36.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 14,
+          "text": "他们有很多种冰淇淋",
+          "start_time": 38.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 15,
+          "text": "我们这个星期六下午两点半去吧",
+          "start_time": 42.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 16,
+          "text": "好",
+          "start_time": 47.0,
+          "end_time": 48.0
         }
       ]
     },
@@ -42711,69 +42735,111 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：媽，我跟友美要去喝下午茶，可是我的錢包不在房間裡。",
-          "start_time": 0.1,
-          "end_time": 6.47
+          "text": "妈",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "媽媽：客廳的桌子上有一個錢包，是不是你的？",
-          "start_time": 6.42,
-          "end_time": 11.29
+          "text": "我跟游美要去喝下午茶",
+          "start_time": 2.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "中明：那不是我的，是哥哥的。",
-          "start_time": 11.29,
-          "end_time": 14.91
+          "text": "可是我的钱包不在房间里",
+          "start_time": 6.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "我的錢包不在客廳裡。",
-          "start_time": 14.91,
-          "end_time": 17.49
+          "text": "客厅的桌子上有一个钱包",
+          "start_time": 11.0,
+          "end_time": 15.0
         },
         {
           "id": 5,
-          "text": "媽媽：沙發下面呢？",
-          "start_time": 17.49,
-          "end_time": 20.09
+          "text": "是不是你的",
+          "start_time": 15.0,
+          "end_time": 17.0
         },
         {
           "id": 6,
-          "text": "中明：沙發上面、下面跟旁邊都沒有。",
-          "start_time": 20.09,
-          "end_time": 24.61
+          "text": "那不是我的",
+          "start_time": 17.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "媽，妳幫我找，好嗎？",
-          "start_time": 24.61,
-          "end_time": 27.52
+          "text": "是哥哥的",
+          "start_time": 19.0,
+          "end_time": 21.0
         },
         {
           "id": 8,
-          "text": "媽媽：我很忙，現在要去廚房做飯，你再去房間找吧。",
-          "start_time": 27.52,
-          "end_time": 33.26
+          "text": "我的钱包不在客厅里",
+          "start_time": 21.0,
+          "end_time": 25.0
         },
         {
           "id": 9,
-          "text": "中明：啊！",
-          "start_time": 33.26,
-          "end_time": 35.19
+          "text": "沙发下面呢",
+          "start_time": 25.0,
+          "end_time": 28.0
         },
         {
           "id": 10,
-          "text": "在這裡！",
-          "start_time": 35.19,
-          "end_time": 36.7
+          "text": "沙发上面",
+          "start_time": 28.0,
+          "end_time": 30.0
         },
         {
           "id": 11,
-          "text": "錢包在我的書下面。",
-          "start_time": 36.7,
-          "end_time": 39.24
+          "text": "下面跟旁边都没有",
+          "start_time": 30.0,
+          "end_time": 34.0
+        },
+        {
+          "id": 12,
+          "text": "妈",
+          "start_time": 34.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 13,
+          "text": "你帮我找好吗",
+          "start_time": 35.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 14,
+          "text": "我很忙",
+          "start_time": 38.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 15,
+          "text": "现在要去厨房做饭",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 16,
+          "text": "你再去房间找吧",
+          "start_time": 42.0,
+          "end_time": 45.0
+        },
+        {
+          "id": 17,
+          "text": "啊",
+          "start_time": 45.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 18,
+          "text": "在这里钱包在我的书下面",
+          "start_time": 46.0,
+          "end_time": 51.0
         }
       ]
     },
@@ -42786,27 +42852,87 @@
       "script_json": [
         {
           "id": 1,
-          "text": "我的房間裡有一張桌子、一張床跟一張沙發。",
-          "start_time": 0.1,
-          "end_time": 4.61
+          "text": "我的房间",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "沙發前面有一台很新的電視機，可是我不常看電視，我最喜歡在沙發上看書。",
-          "start_time": 4.56,
-          "end_time": 12.21
+          "text": "我的房间里有一张桌子",
+          "start_time": 3.0,
+          "end_time": 8.0
         },
         {
           "id": 3,
-          "text": "我的書很多，有中文書，也有英文書。",
-          "start_time": 12.21,
-          "end_time": 16.4
+          "text": "一张床",
+          "start_time": 8.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "我房間的窗戶很大，我的貓喜歡在窗戶旁邊曬太陽。",
-          "start_time": 16.4,
-          "end_time": 21.62
+          "text": "跟一张沙发",
+          "start_time": 10.0,
+          "end_time": 13.0
+        },
+        {
+          "id": 5,
+          "text": "沙发前面有一台很新的电视机",
+          "start_time": 13.0,
+          "end_time": 19.0
+        },
+        {
+          "id": 6,
+          "text": "可是我不常看电视",
+          "start_time": 19.0,
+          "end_time": 23.0
+        },
+        {
+          "id": 7,
+          "text": "我最喜欢在沙发上看书",
+          "start_time": 23.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 8,
+          "text": "我的书很多",
+          "start_time": 27.0,
+          "end_time": 30.0
+        },
+        {
+          "id": 9,
+          "text": "有中文书",
+          "start_time": 30.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 10,
+          "text": "也有英文书",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 11,
+          "text": "我房间的窗户很大",
+          "start_time": 36.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 12,
+          "text": "我的妈",
+          "start_time": 40.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 13,
+          "text": "喜欢在窗户旁边晒太阳",
+          "start_time": 41.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 14,
+          "text": "后客去打网球吧",
+          "start_time": 47.0,
+          "end_time": 64.06
         }
       ]
     }
@@ -43163,39 +43289,63 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：明天是友美的生日，我想送她一個禮物。",
-          "start_time": 0.1,
-          "end_time": 5.08
+          "text": "明天是有美的生日",
+          "start_time": 0.0,
+          "end_time": 5.76
         },
         {
           "id": 2,
-          "text": "中明：妳想送她什麼？",
-          "start_time": 5.03,
-          "end_time": 7.84
+          "text": "我想送他一个礼物",
+          "start_time": 5.76,
+          "end_time": 8.76
         },
         {
           "id": 3,
-          "text": "宜文：友美愛看書，我想送她兩本中文書，你呢？",
-          "start_time": 7.84,
-          "end_time": 13.21
+          "text": "你想送他什么",
+          "start_time": 8.76,
+          "end_time": 11.76
         },
         {
           "id": 4,
-          "text": "中明：我想買一些花和一個大蛋糕。",
-          "start_time": 13.21,
-          "end_time": 17.09
+          "text": "有美爱看书",
+          "start_time": 11.76,
+          "end_time": 14.76
         },
         {
           "id": 5,
-          "text": "宜文：我們一起去買，好不好？",
-          "start_time": 17.09,
-          "end_time": 20.65
+          "text": "我想送他两本中文书",
+          "start_time": 14.76,
+          "end_time": 18.76
         },
         {
           "id": 6,
-          "text": "中明：好啊！",
-          "start_time": 20.65,
-          "end_time": 22.74
+          "text": "你呢",
+          "start_time": 18.76,
+          "end_time": 20.76
+        },
+        {
+          "id": 7,
+          "text": "我想买一些花和一个大蛋糕",
+          "start_time": 20.76,
+          "end_time": 25.76
+        },
+        {
+          "id": 8,
+          "text": "我们一起去买",
+          "start_time": 25.76,
+          "end_time": 28.76
+        },
+        {
+          "id": 9,
+          "text": "好不好",
+          "start_time": 28.76,
+          "end_time": 30.76
+        },
+        {
+          "id": 10,
+          "text": "好啊",
+          "start_time": 30.76,
+          "end_time": 31.76
         }
       ]
     },
@@ -43208,57 +43358,99 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：這種小鉛筆怎麼樣？",
-          "start_time": 0.1,
-          "end_time": 3.31
+          "text": "这种小千笔怎么样",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "中明：很可愛，友美喜歡可愛的東西。",
-          "start_time": 3.26,
-          "end_time": 7.54
+          "text": "很可爱",
+          "start_time": 4.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "宜文：我們買兩枝，好不好？",
-          "start_time": 7.54,
-          "end_time": 10.99
+          "text": "有美喜欢可爱的东西",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "兩枝五十塊錢。",
-          "start_time": 10.99,
-          "end_time": 13.18
+          "text": "我们买两支",
+          "start_time": 10.0,
+          "end_time": 12.0
         },
         {
           "id": 5,
-          "text": "中明：五十塊錢很便宜！",
-          "start_time": 13.18,
-          "end_time": 16.35
+          "text": "好不好",
+          "start_time": 12.0,
+          "end_time": 14.0
         },
         {
           "id": 6,
-          "text": "妳看，哪個顏色漂亮？",
-          "start_time": 16.35,
-          "end_time": 19.2
+          "text": "两支五十块钱",
+          "start_time": 14.0,
+          "end_time": 18.0
         },
         {
           "id": 7,
-          "text": "宜文：紅色、白色都好看。",
-          "start_time": 19.2,
-          "end_time": 22.73
+          "text": "五十块钱很便宜",
+          "start_time": 18.0,
+          "end_time": 22.0
         },
         {
           "id": 8,
-          "text": "中明：我想友美喜歡白色，她常常穿白色的衣服。",
-          "start_time": 22.73,
-          "end_time": 28.01
+          "text": "你看",
+          "start_time": 22.0,
+          "end_time": 24.0
         },
         {
           "id": 9,
-          "text": "宜文：好，我們買白的。",
-          "start_time": 28.01,
-          "end_time": 31.14
+          "text": "哪个颜色漂亮",
+          "start_time": 24.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 10,
+          "text": "白色",
+          "start_time": 27.0,
+          "end_time": 29.0
+        },
+        {
+          "id": 11,
+          "text": "都好看",
+          "start_time": 29.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 12,
+          "text": "我想",
+          "start_time": 31.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 13,
+          "text": "有美喜欢白色",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 14,
+          "text": "他常常穿白色的衣服",
+          "start_time": 36.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 15,
+          "text": "好",
+          "start_time": 40.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 16,
+          "text": "我们买白的",
+          "start_time": 42.0,
+          "end_time": 45.0
         }
       ]
     },
@@ -43271,21 +43463,81 @@
       "script_json": [
         {
           "id": 1,
-          "text": "今天是友美的生日，她請我、中明和國安一起去她家玩。",
-          "start_time": 0.1,
-          "end_time": 6.01
+          "text": "有美的生日",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "我們送友美花、兩本中文書、兩枝可愛的小鉛筆和一個大蛋糕，她很喜歡這些禮物。",
-          "start_time": 5.96,
-          "end_time": 14.09
+          "text": "今天是有美的生日",
+          "start_time": 3.0,
+          "end_time": 8.0
         },
         {
           "id": 3,
-          "text": "友美請我們吃點心和水果，大家都很開心。",
-          "start_time": 14.09,
-          "end_time": 18.6
+          "text": "他请我",
+          "start_time": 8.0,
+          "end_time": 11.0
+        },
+        {
+          "id": 4,
+          "text": "中民",
+          "start_time": 11.0,
+          "end_time": 13.0
+        },
+        {
+          "id": 5,
+          "text": "和国安一起去他家玩",
+          "start_time": 13.0,
+          "end_time": 17.0
+        },
+        {
+          "id": 6,
+          "text": "我们送有美花",
+          "start_time": 17.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 7,
+          "text": "两本中文书",
+          "start_time": 21.0,
+          "end_time": 24.0
+        },
+        {
+          "id": 8,
+          "text": "两支可爱的小千笔",
+          "start_time": 24.0,
+          "end_time": 28.0
+        },
+        {
+          "id": 9,
+          "text": "可一个大蛋糕",
+          "start_time": 28.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 10,
+          "text": "他很喜欢这些礼物",
+          "start_time": 31.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 11,
+          "text": "有美请我们吃点心",
+          "start_time": 35.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 12,
+          "text": "和水果",
+          "start_time": 39.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 13,
+          "text": "大家都很开心",
+          "start_time": 41.0,
+          "end_time": 44.0
         }
       ]
     }
@@ -43648,45 +43900,63 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：宜文，她是誰？",
-          "start_time": 0.1,
-          "end_time": 3.14
+          "text": "疑问",
+          "start_time": 0.0,
+          "end_time": 3.72
         },
         {
           "id": 2,
-          "text": "宜文：她是新同學，叫友美。",
-          "start_time": 3.09,
-          "end_time": 6.78
+          "text": "他是谁",
+          "start_time": 3.72,
+          "end_time": 5.72
         },
         {
           "id": 3,
-          "text": "她很可愛。",
-          "start_time": 6.78,
-          "end_time": 8.56
+          "text": "他是心同学",
+          "start_time": 5.72,
+          "end_time": 8.72
         },
         {
           "id": 4,
-          "text": "中明：她是哪國人？",
-          "start_time": 8.56,
-          "end_time": 11.2
+          "text": "叫游美",
+          "start_time": 8.72,
+          "end_time": 11.72
         },
         {
           "id": 5,
-          "text": "妳知道嗎？",
-          "start_time": 11.2,
-          "end_time": 12.88
+          "text": "他很可爱",
+          "start_time": 11.72,
+          "end_time": 13.72
         },
         {
           "id": 6,
-          "text": "宜文：我知道，她是日本人。",
-          "start_time": 12.88,
-          "end_time": 16.41
+          "text": "他是哪国人",
+          "start_time": 13.72,
+          "end_time": 16.72
         },
         {
           "id": 7,
-          "text": "中明：她很漂亮。",
-          "start_time": 16.41,
-          "end_time": 18.9
+          "text": "你知道吗",
+          "start_time": 16.72,
+          "end_time": 18.72
+        },
+        {
+          "id": 8,
+          "text": "我知道",
+          "start_time": 18.72,
+          "end_time": 21.72
+        },
+        {
+          "id": 9,
+          "text": "他是日本人",
+          "start_time": 21.72,
+          "end_time": 24.72
+        },
+        {
+          "id": 10,
+          "text": "他很漂亮",
+          "start_time": 24.72,
+          "end_time": 26.72
         }
       ]
     },
@@ -43699,51 +43969,69 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：妳好！",
-          "start_time": 0.1,
-          "end_time": 2.23
+          "text": "你好",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "我是李中明，請問妳叫什麼名字？",
-          "start_time": 2.17,
-          "end_time": 5.89
+          "text": "我是李宗明",
+          "start_time": 2.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "友美：我姓小林，叫友美。",
-          "start_time": 5.89,
-          "end_time": 9.24
+          "text": "请问你叫什么名字",
+          "start_time": 5.0,
+          "end_time": 9.0
         },
         {
           "id": 4,
-          "text": "中明：請問妳是哪國人？",
-          "start_time": 9.24,
-          "end_time": 12.35
+          "text": "我姓小林",
+          "start_time": 9.0,
+          "end_time": 11.0
         },
         {
           "id": 5,
-          "text": "友美：我是日本人，你呢？",
-          "start_time": 12.35,
-          "end_time": 15.61
+          "text": "叫游美",
+          "start_time": 11.0,
+          "end_time": 14.0
         },
         {
           "id": 6,
-          "text": "中明：我是印尼人。",
-          "start_time": 15.61,
-          "end_time": 18.23
+          "text": "请问你是哪国人",
+          "start_time": 14.0,
+          "end_time": 17.0
         },
         {
           "id": 7,
-          "text": "妳喜歡台灣嗎？",
-          "start_time": 18.23,
-          "end_time": 20.34
+          "text": "我是日本人",
+          "start_time": 17.0,
+          "end_time": 20.0
         },
         {
           "id": 8,
-          "text": "友美：我喜歡台灣。",
-          "start_time": 20.34,
-          "end_time": 23.01
+          "text": "你呢",
+          "start_time": 20.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 9,
+          "text": "我是印尼人",
+          "start_time": 21.0,
+          "end_time": 24.0
+        },
+        {
+          "id": 10,
+          "text": "你喜欢台湾吗",
+          "start_time": 24.0,
+          "end_time": 26.0
+        },
+        {
+          "id": 11,
+          "text": "我喜欢台湾",
+          "start_time": 26.0,
+          "end_time": 30.0
         }
       ]
     },
@@ -43756,33 +44044,63 @@
       "script_json": [
         {
           "id": 1,
-          "text": "大家好！",
-          "start_time": 0.1,
-          "end_time": 1.57
+          "text": "自我介绍",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "我姓小林，叫友美，我是日本人。",
-          "start_time": 1.52,
-          "end_time": 5.35
+          "text": "大家早安",
+          "start_time": 3.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "我喜歡臺灣，台灣朋友很可愛。",
-          "start_time": 5.35,
-          "end_time": 9.04
+          "text": "我姓小林",
+          "start_time": 6.0,
+          "end_time": 9.0
         },
         {
           "id": 4,
-          "text": "我愛吃水果，愛喝珍珠奶茶。",
-          "start_time": 9.04,
-          "end_time": 12.54
+          "text": "叫游美",
+          "start_time": 9.0,
+          "end_time": 11.0
         },
         {
           "id": 5,
-          "text": "謝謝大家！",
-          "start_time": 12.54,
-          "end_time": 14.31
+          "text": "我是日本人",
+          "start_time": 11.0,
+          "end_time": 14.0
+        },
+        {
+          "id": 6,
+          "text": "我喜欢台湾",
+          "start_time": 14.0,
+          "end_time": 17.0
+        },
+        {
+          "id": 7,
+          "text": "台湾朋友很可爱",
+          "start_time": 17.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 8,
+          "text": "我爱吃水果",
+          "start_time": 21.0,
+          "end_time": 24.0
+        },
+        {
+          "id": 9,
+          "text": "爱喝珍珠奶茶",
+          "start_time": 24.0,
+          "end_time": 28.0
+        },
+        {
+          "id": 10,
+          "text": "谢谢大家",
+          "start_time": 28.0,
+          "end_time": 31.0
         }
       ]
     }
@@ -44151,75 +44469,105 @@
       "script_json": [
         {
           "id": 1,
-          "text": "友美：元真，我們明天幾點去找妳的韓國朋友？",
-          "start_time": 0.1,
-          "end_time": 5.08
+          "text": "原真",
+          "start_time": 0.0,
+          "end_time": 3.89
         },
         {
           "id": 2,
-          "text": "元真：我們下午四點要到天美飯店，她在那裡等我們。",
-          "start_time": 5.03,
-          "end_time": 10.44
+          "text": "我们明天",
+          "start_time": 3.89,
+          "end_time": 5.89
         },
         {
           "id": 3,
-          "text": "友美：我們要怎麼去？",
-          "start_time": 10.44,
-          "end_time": 13.21
+          "text": "几点去找你的韩国朋友",
+          "start_time": 5.89,
+          "end_time": 8.89
         },
         {
           "id": 4,
-          "text": "坐捷運還是坐公車？",
-          "start_time": 13.21,
-          "end_time": 15.75
+          "text": "我们下午四点",
+          "start_time": 8.89,
+          "end_time": 11.89
         },
         {
           "id": 5,
-          "text": "元真：聽說那家飯店不遠，我想我們可以從學校走路去。",
-          "start_time": 15.75,
-          "end_time": 21.41
+          "text": "要到天美饭店",
+          "start_time": 11.89,
+          "end_time": 13.89
         },
         {
           "id": 6,
-          "text": "友美：可是我不知道怎麼走，妳知道嗎？",
-          "start_time": 21.41,
-          "end_time": 25.69
+          "text": "他在那里等我们",
+          "start_time": 13.89,
+          "end_time": 16.89
         },
         {
           "id": 7,
-          "text": "元真：我也不知道。",
-          "start_time": 25.69,
-          "end_time": 28.2
+          "text": "我们要怎么去",
+          "start_time": 16.89,
+          "end_time": 19.89
         },
         {
           "id": 8,
-          "text": "我們可以先上網看地圖。",
-          "start_time": 28.2,
-          "end_time": 31.01
+          "text": "做节约还是做工程",
+          "start_time": 19.89,
+          "end_time": 23.89
         },
         {
           "id": 9,
-          "text": "友美：啊！",
-          "start_time": 31.01,
-          "end_time": 32.95
+          "text": "听说乐家饭店不远",
+          "start_time": 23.89,
+          "end_time": 26.89
         },
         {
           "id": 10,
-          "text": "上課了！",
-          "start_time": 32.95,
-          "end_time": 34.48
+          "text": "我想我们可以从学校走路去",
+          "start_time": 26.89,
+          "end_time": 31.89
         },
         {
           "id": 11,
-          "text": "我們先上課吧。",
-          "start_time": 34.48,
-          "end_time": 36.56
+          "text": "可是我不知道怎么走",
+          "start_time": 31.89,
+          "end_time": 35.89
         },
         {
           "id": 12,
-          "text": "元真：好。",
-          "start_time": 36.56,
-          "end_time": 38.49
+          "text": "你知道吗",
+          "start_time": 35.89,
+          "end_time": 37.89
+        },
+        {
+          "id": 13,
+          "text": "我也不知道",
+          "start_time": 37.89,
+          "end_time": 40.89
+        },
+        {
+          "id": 14,
+          "text": "我们可以先上网看地图",
+          "start_time": 40.89,
+          "end_time": 43.89
+        },
+        {
+          "id": 15,
+          "text": "上课乐",
+          "start_time": 43.89,
+          "end_time": 46.89
+        },
+        {
+          "id": 16,
+          "text": "我们先上课吧",
+          "start_time": 46.89,
+          "end_time": 49.89
+        },
+        {
+          "id": 17,
+          "text": "好",
+          "start_time": 49.89,
+          "end_time": 51.89
         }
       ]
     },
@@ -44232,63 +44580,99 @@
       "script_json": [
         {
           "id": 1,
-          "text": "元真：友美，妳看，天美飯店在大學路。",
-          "start_time": 0.1,
-          "end_time": 4.83
+          "text": "游美",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "我現在知道怎麼走了。",
-          "start_time": 4.78,
-          "end_time": 7.34
+          "text": "你看",
+          "start_time": 2.0,
+          "end_time": 3.0
         },
         {
           "id": 3,
-          "text": "友美：啊！",
-          "start_time": 7.34,
-          "end_time": 9.28
+          "text": "天美饭店在大学路",
+          "start_time": 3.0,
+          "end_time": 6.0
         },
         {
           "id": 4,
-          "text": "天美飯店在這裡！",
-          "start_time": 9.28,
-          "end_time": 11.53
+          "text": "我现在知道怎么走了",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 5,
-          "text": "我知道這個地方，附近有郵局跟超級市場。",
-          "start_time": 11.53,
-          "end_time": 15.82
+          "text": "天美饭店在这里",
+          "start_time": 10.0,
+          "end_time": 14.0
         },
         {
           "id": 6,
-          "text": "元真：我想走路去一定沒問題。",
-          "start_time": 15.82,
-          "end_time": 19.45
+          "text": "我知道这个地方",
+          "start_time": 14.0,
+          "end_time": 17.0
         },
         {
           "id": 7,
-          "text": "友美：可是我覺得那裡有點兒遠，走路去太累了。",
-          "start_time": 19.45,
-          "end_time": 24.55
+          "text": "附近有游居跟超级市场",
+          "start_time": 17.0,
+          "end_time": 22.0
         },
         {
           "id": 8,
-          "text": "元真：妳想怎麼去？",
-          "start_time": 24.55,
-          "end_time": 27.2
+          "text": "我想走路去一定没问题",
+          "start_time": 22.0,
+          "end_time": 27.0
         },
         {
           "id": 9,
-          "text": "友美：坐捷運又方便又舒服，我們可以坐捷運。",
-          "start_time": 27.2,
-          "end_time": 32.06
+          "text": "可是我觉得那里有点远",
+          "start_time": 27.0,
+          "end_time": 31.0
         },
         {
           "id": 10,
-          "text": "元真：好，我們明天坐捷運去吧。",
-          "start_time": 32.06,
-          "end_time": 36.01
+          "text": "走路去太累了",
+          "start_time": 31.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 11,
+          "text": "你想怎么去",
+          "start_time": 35.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 12,
+          "text": "做节约要方便",
+          "start_time": 38.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 13,
+          "text": "要舒服",
+          "start_time": 41.0,
+          "end_time": 43.0
+        },
+        {
+          "id": 14,
+          "text": "我们可以做节约",
+          "start_time": 43.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 15,
+          "text": "好",
+          "start_time": 46.0,
+          "end_time": 48.0
+        },
+        {
+          "id": 16,
+          "text": "我们明天做节约去吧",
+          "start_time": 48.0,
+          "end_time": 51.0
         }
       ]
     },
@@ -44301,33 +44685,99 @@
       "script_json": [
         {
           "id": 1,
-          "text": "我家附近有三條捷運線，一條紅的、一條綠的和一條藍的。",
-          "start_time": 0.1,
-          "end_time": 5.9
+          "text": "从我家做节约很方便",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "我平常坐紅線去學校上課，週末也坐捷運去運動、看電影。",
-          "start_time": 5.85,
-          "end_time": 11.85
+          "text": "我家附近有三条节约线",
+          "start_time": 4.0,
+          "end_time": 9.0
         },
         {
           "id": 3,
-          "text": "朋友常來找我，他們都覺得坐捷運來我家，又快又方便。",
-          "start_time": 11.85,
-          "end_time": 17.44
+          "text": "一条红的",
+          "start_time": 9.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "從我家到機場也不遠，開車去、坐捷運去都可以。",
-          "start_time": 17.44,
-          "end_time": 22.64
+          "text": "一条绿的",
+          "start_time": 11.0,
+          "end_time": 13.0
         },
         {
           "id": 5,
-          "text": "機場附近的風景也很漂亮，我常常去看風景、看飛機。",
-          "start_time": 22.64,
-          "end_time": 28.45
+          "text": "和一条篮的",
+          "start_time": 13.0,
+          "end_time": 16.0
+        },
+        {
+          "id": 6,
+          "text": "我平常做红线去学校上课",
+          "start_time": 16.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 7,
+          "text": "周末也做节约去运动看电影",
+          "start_time": 21.0,
+          "end_time": 26.0
+        },
+        {
+          "id": 8,
+          "text": "朋友常来找我",
+          "start_time": 26.0,
+          "end_time": 29.0
+        },
+        {
+          "id": 9,
+          "text": "他们都觉得做节约来我家",
+          "start_time": 29.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 10,
+          "text": "又快又方便",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 11,
+          "text": "从我家到机场也不远",
+          "start_time": 36.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 12,
+          "text": "开车去",
+          "start_time": 40.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 13,
+          "text": "做节约去都可以",
+          "start_time": 42.0,
+          "end_time": 45.0
+        },
+        {
+          "id": 14,
+          "text": "机场附近的风景也很漂亮",
+          "start_time": 45.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 15,
+          "text": "我常常去看风景",
+          "start_time": 49.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 16,
+          "text": "看飞机",
+          "start_time": 52.0,
+          "end_time": 54.0
         }
       ]
     }
@@ -44702,57 +45152,99 @@
       "script_json": [
         {
           "id": 1,
-          "text": "國安：今天天氣不錯，海邊的風景也很漂亮，我想去游泳，妳們想去嗎？",
-          "start_time": 0.1,
-          "end_time": 7.65
+          "text": "今天天气不错",
+          "start_time": 0.0,
+          "end_time": 4.86
         },
         {
           "id": 2,
-          "text": "友美：我不會游泳。",
-          "start_time": 7.6,
-          "end_time": 10.21
+          "text": "海边的风景也很漂亮",
+          "start_time": 4.86,
+          "end_time": 8.86
         },
         {
           "id": 3,
-          "text": "宜文，妳會游泳嗎？",
-          "start_time": 10.21,
-          "end_time": 12.89
+          "text": "我想去游泳",
+          "start_time": 8.86,
+          "end_time": 10.86
         },
         {
           "id": 4,
-          "text": "宜文：我會游泳，可是游得不太好。",
-          "start_time": 12.89,
-          "end_time": 16.98
+          "text": "你们想去吗",
+          "start_time": 10.86,
+          "end_time": 13.86
         },
         {
           "id": 5,
-          "text": "國安：我們去跑步，怎麼樣？",
-          "start_time": 16.98,
-          "end_time": 20.39
+          "text": "我不会游泳",
+          "start_time": 13.86,
+          "end_time": 15.86
         },
         {
           "id": 6,
-          "text": "友美：我不喜歡跑步，我跑步跑得很慢。",
-          "start_time": 20.39,
-          "end_time": 24.71
+          "text": "一文",
+          "start_time": 15.86,
+          "end_time": 17.86
         },
         {
           "id": 7,
-          "text": "宜文：打網球怎麼樣？",
-          "start_time": 24.71,
-          "end_time": 27.54
+          "text": "你会游泳吗",
+          "start_time": 17.86,
+          "end_time": 19.86
         },
         {
           "id": 8,
-          "text": "中明說妳的網球打得很好，我們一起去打吧。",
-          "start_time": 27.54,
-          "end_time": 31.96
+          "text": "我会游泳",
+          "start_time": 19.86,
+          "end_time": 21.86
         },
         {
           "id": 9,
-          "text": "友美：好啊。",
-          "start_time": 31.96,
-          "end_time": 34.01
+          "text": "可是游得不太好",
+          "start_time": 21.86,
+          "end_time": 24.86
+        },
+        {
+          "id": 10,
+          "text": "我们去跑步怎么样",
+          "start_time": 24.86,
+          "end_time": 28.86
+        },
+        {
+          "id": 11,
+          "text": "我不喜欢跑步",
+          "start_time": 28.86,
+          "end_time": 31.86
+        },
+        {
+          "id": 12,
+          "text": "我跑步跑得很慢",
+          "start_time": 31.86,
+          "end_time": 35.86
+        },
+        {
+          "id": 13,
+          "text": "打网球怎么样",
+          "start_time": 35.86,
+          "end_time": 37.86
+        },
+        {
+          "id": 14,
+          "text": "中文说你的网球打得很好",
+          "start_time": 37.86,
+          "end_time": 42.86
+        },
+        {
+          "id": 15,
+          "text": "我们一起去打吧",
+          "start_time": 42.86,
+          "end_time": 44.86
+        },
+        {
+          "id": 16,
+          "text": "好啊",
+          "start_time": 44.86,
+          "end_time": 49.48
         }
       ]
     },
@@ -44765,45 +45257,93 @@
       "script_json": [
         {
           "id": 1,
-          "text": "國安：聽說這部電影很有趣，我們晚上一起去看，好不好？",
-          "start_time": 0.1,
-          "end_time": 6.09
+          "text": "听说这部电影很有趣",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "中明：我覺得有一點兒累，我想回家休息。",
-          "start_time": 6.04,
-          "end_time": 10.61
+          "text": "我们晚上一起去看",
+          "start_time": 4.0,
+          "end_time": 7.0
         },
         {
           "id": 3,
-          "text": "國安：你不要常常在家上網、看電腦、玩手機，應該去運動。",
-          "start_time": 10.61,
-          "end_time": 17.21
+          "text": "好不好",
+          "start_time": 7.0,
+          "end_time": 9.0
         },
         {
           "id": 4,
-          "text": "明天我有空，我們可以一起去騎腳踏車。",
-          "start_time": 17.21,
-          "end_time": 21.3
+          "text": "我觉得有一点累",
+          "start_time": 9.0,
+          "end_time": 13.0
         },
         {
           "id": 5,
-          "text": "中明：可是我只想聽音樂、睡覺。",
-          "start_time": 21.3,
-          "end_time": 25.35
+          "text": "我想回家休息",
+          "start_time": 13.0,
+          "end_time": 16.0
         },
         {
           "id": 6,
-          "text": "國安：後天去呢？",
-          "start_time": 25.35,
-          "end_time": 27.73
+          "text": "你不要常常在家上网",
+          "start_time": 16.0,
+          "end_time": 20.0
         },
         {
           "id": 7,
-          "text": "中明：這兩天天氣有點兒冷，我們週末去，好嗎？",
-          "start_time": 27.73,
-          "end_time": 32.95
+          "text": "看电脑",
+          "start_time": 20.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 8,
+          "text": "玩手机",
+          "start_time": 21.0,
+          "end_time": 22.0
+        },
+        {
+          "id": 9,
+          "text": "应该去运动",
+          "start_time": 22.0,
+          "end_time": 25.0
+        },
+        {
+          "id": 10,
+          "text": "明天我有空",
+          "start_time": 25.0,
+          "end_time": 28.0
+        },
+        {
+          "id": 11,
+          "text": "我们可以一起去起搅大车",
+          "start_time": 28.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 12,
+          "text": "可是我只想听音乐睡觉",
+          "start_time": 33.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 13,
+          "text": "后天去呢",
+          "start_time": 39.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 14,
+          "text": "这两天天气有点冷",
+          "start_time": 41.0,
+          "end_time": 45.0
+        },
+        {
+          "id": 15,
+          "text": "我们周末去好吗",
+          "start_time": 45.0,
+          "end_time": 48.0
         }
       ]
     },
@@ -44816,27 +45356,105 @@
       "script_json": [
         {
           "id": 1,
-          "text": "我有幾個好朋友，我們都喜歡學中文、聽音樂、唱歌。",
-          "start_time": 0.1,
-          "end_time": 5.76
+          "text": "我的兴趣",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "中明最愛唱歌，他的中文歌唱得很好。",
-          "start_time": 5.71,
-          "end_time": 9.84
+          "text": "我有几个好朋友",
+          "start_time": 3.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "平常我們都有點兒忙，可是週末我們常一起去運動，宜文游泳游得不錯，國安的籃球打得很好，我喜歡打網球，有時候我們也一起去看運動比賽。",
-          "start_time": 9.84,
-          "end_time": 22.82
+          "text": "我们都喜欢学中文",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "有這幾個好朋友，我真高興！",
-          "start_time": 22.82,
-          "end_time": 26.12
+          "text": "听音乐",
+          "start_time": 10.0,
+          "end_time": 12.0
+        },
+        {
+          "id": 5,
+          "text": "唱歌",
+          "start_time": 12.0,
+          "end_time": 14.0
+        },
+        {
+          "id": 6,
+          "text": "中营最爱唱歌",
+          "start_time": 14.0,
+          "end_time": 18.0
+        },
+        {
+          "id": 7,
+          "text": "他的中文歌唱得很好",
+          "start_time": 18.0,
+          "end_time": 22.0
+        },
+        {
+          "id": 8,
+          "text": "平常我们都有点吗",
+          "start_time": 22.0,
+          "end_time": 26.0
+        },
+        {
+          "id": 9,
+          "text": "可是周末我们常一起去运动",
+          "start_time": 26.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 10,
+          "text": "一文游泳有得不错",
+          "start_time": 31.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 11,
+          "text": "国安的篮球打得很好",
+          "start_time": 35.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 12,
+          "text": "我喜欢打网球",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 13,
+          "text": "有时候我们也一起去看运动比赛",
+          "start_time": 42.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 14,
+          "text": "有这几个好朋友",
+          "start_time": 47.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 15,
+          "text": "我真高兴",
+          "start_time": 49.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 16,
+          "text": "即刻",
+          "start_time": 52.0,
+          "end_time": 65.74
+        },
+        {
+          "id": 17,
+          "text": "怎么到饭店去",
+          "start_time": 65.74,
+          "end_time": 68.74
         }
       ]
     }
@@ -45229,69 +45847,159 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：元真，妳的這條裙子真好看，我很喜歡。",
-          "start_time": 0.1,
-          "end_time": 5.44
+          "text": "原真",
+          "start_time": 0.0,
+          "end_time": 3.79
         },
         {
           "id": 2,
-          "text": "元真：謝謝，這是我去年的生日禮物。",
-          "start_time": 5.39,
-          "end_time": 9.71
+          "text": "你的这条裙子真好看",
+          "start_time": 3.79,
+          "end_time": 6.79
         },
         {
           "id": 3,
-          "text": "宜文：聽說這個牌子的東西很貴，可是很多人喜歡。",
-          "start_time": 9.71,
-          "end_time": 15.03
+          "text": "我很喜欢",
+          "start_time": 6.79,
+          "end_time": 8.79
         },
         {
           "id": 4,
-          "text": "元真：是啊，因為這個牌子很有名，衣服、褲子和裙子也都很好看，所以很多人買。",
-          "start_time": 15.03,
-          "end_time": 23.7
+          "text": "谢谢",
+          "start_time": 8.79,
+          "end_time": 10.79
         },
         {
           "id": 5,
-          "text": "宜文：妳知道去哪裡買這個牌子的衣服嗎？",
-          "start_time": 23.7,
-          "end_time": 27.98
+          "text": "这是我去年的生日礼物",
+          "start_time": 10.79,
+          "end_time": 13.79
         },
         {
           "id": 6,
-          "text": "元真：知道，百貨公司都有，不難找。",
-          "start_time": 27.98,
-          "end_time": 32.49
+          "text": "听说这个牌子的东西很贵",
+          "start_time": 13.79,
+          "end_time": 17.79
         },
         {
           "id": 7,
-          "text": "宜文：我很想去看，可是我最近胖了五公斤，我怕衣服不好買。",
-          "start_time": 32.49,
-          "end_time": 38.77
+          "text": "可是很多人喜欢",
+          "start_time": 17.79,
+          "end_time": 20.79
         },
         {
           "id": 8,
-          "text": "元真：妳胖了嗎？",
-          "start_time": 38.77,
-          "end_time": 41.21
+          "text": "是啊",
+          "start_time": 20.79,
+          "end_time": 22.79
         },
         {
           "id": 9,
-          "text": "我不覺得啊，我跟妳一起去看。",
-          "start_time": 41.21,
-          "end_time": 44.49
+          "text": "因为这个牌子很有名",
+          "start_time": 22.79,
+          "end_time": 25.79
         },
         {
           "id": 10,
-          "text": "我也想去買今年夏天的新衣服。",
-          "start_time": 44.49,
-          "end_time": 47.88
+          "text": "衣服",
+          "start_time": 25.79,
+          "end_time": 27.79
         },
         {
           "id": 11,
-          "text": "宜文：好，我們找時間一起去。",
-          "start_time": 47.88,
-          "end_time": 51.66
+          "text": "裤子",
+          "start_time": 27.79,
+          "end_time": 28.79
+        },
+        {
+          "id": 12,
+          "text": "和裙子",
+          "start_time": 28.79,
+          "end_time": 30.79
+        },
+        {
+          "id": 13,
+          "text": "也都很好看",
+          "start_time": 30.79,
+          "end_time": 32.79
+        },
+        {
+          "id": 14,
+          "text": "所以很多人买",
+          "start_time": 32.79,
+          "end_time": 36.79
+        },
+        {
+          "id": 15,
+          "text": "你知道去哪里买这个牌子的衣服吗",
+          "start_time": 36.79,
+          "end_time": 40.79
+        },
+        {
+          "id": 16,
+          "text": "知道",
+          "start_time": 40.79,
+          "end_time": 42.79
+        },
+        {
+          "id": 17,
+          "text": "百货公司都有",
+          "start_time": 42.79,
+          "end_time": 44.79
+        },
+        {
+          "id": 18,
+          "text": "不难找",
+          "start_time": 44.79,
+          "end_time": 46.79
+        },
+        {
+          "id": 19,
+          "text": "我很想去看",
+          "start_time": 46.79,
+          "end_time": 48.79
+        },
+        {
+          "id": 20,
+          "text": "可是我最近胖了五公斤",
+          "start_time": 48.79,
+          "end_time": 52.79
+        },
+        {
+          "id": 21,
+          "text": "我怕衣服不好买",
+          "start_time": 52.79,
+          "end_time": 55.79
+        },
+        {
+          "id": 22,
+          "text": "你胖了吗",
+          "start_time": 55.79,
+          "end_time": 57.79
+        },
+        {
+          "id": 23,
+          "text": "我不觉得",
+          "start_time": 57.79,
+          "end_time": 59.79
+        },
+        {
+          "id": 24,
+          "text": "我跟你一起去看",
+          "start_time": 59.79,
+          "end_time": 61.79
+        },
+        {
+          "id": 25,
+          "text": "我也想去买今年夏天的新衣服",
+          "start_time": 61.79,
+          "end_time": 65.79
+        },
+        {
+          "id": 26,
+          "text": "好",
+          "start_time": 65.79,
+          "end_time": 67.79
         }
       ]
     },
@@ -45304,81 +46012,129 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：妳看，這條黃色的褲子不錯吧？",
-          "start_time": 0.1,
-          "end_time": 4.42
+          "text": "你看",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "元真：很好看。",
-          "start_time": 4.38,
-          "end_time": 6.74
+          "text": "这条黄色的裤子不错吧",
+          "start_time": 2.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "這條藍的也很漂亮，藍色是今年很流行的顏色。",
-          "start_time": 6.74,
-          "end_time": 11.61
+          "text": "很好看",
+          "start_time": 5.0,
+          "end_time": 8.0
         },
         {
           "id": 4,
-          "text": "宜文：這兩條我都去穿穿看。",
-          "start_time": 11.61,
-          "end_time": 15.11
+          "text": "这条蓝的也很漂亮",
+          "start_time": 8.0,
+          "end_time": 11.0
         },
         {
           "id": 5,
-          "text": "元真：妳覺得怎麼樣？",
-          "start_time": 15.11,
-          "end_time": 17.86
+          "text": "蓝色是今年很流行的颜色",
+          "start_time": 11.0,
+          "end_time": 15.0
         },
         {
           "id": 6,
-          "text": "宜文：都太短，也太小了。",
-          "start_time": 17.86,
-          "end_time": 21.2
+          "text": "这两条我都去穿穿看",
+          "start_time": 15.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "元真：沒關係，我們可以下個週末再來看。",
-          "start_time": 21.2,
-          "end_time": 25.66
+          "text": "你觉得怎么样",
+          "start_time": 19.0,
+          "end_time": 22.0
         },
         {
           "id": 8,
-          "text": "對了，妳要買鞋子吧？",
-          "start_time": 25.66,
-          "end_time": 28.34
+          "text": "都太短",
+          "start_time": 22.0,
+          "end_time": 25.0
         },
         {
           "id": 9,
-          "text": "宜文：是啊，我想買一雙黑色的。",
-          "start_time": 28.34,
-          "end_time": 32.3
+          "text": "也太小了",
+          "start_time": 25.0,
+          "end_time": 27.0
         },
         {
           "id": 10,
-          "text": "元真：鞋子都在一樓，我們到樓下去吧！",
-          "start_time": 32.3,
-          "end_time": 36.77
+          "text": "没关系",
+          "start_time": 27.0,
+          "end_time": 29.0
         },
         {
           "id": 11,
-          "text": "九點了，百貨公司快要關了。",
-          "start_time": 36.77,
-          "end_time": 40.23
+          "text": "我们可以下个周末再来看",
+          "start_time": 29.0,
+          "end_time": 33.0
         },
         {
           "id": 12,
-          "text": "宜文：電梯在那裡！",
-          "start_time": 40.23,
-          "end_time": 42.91
+          "text": "对了",
+          "start_time": 33.0,
+          "end_time": 35.0
         },
         {
           "id": 13,
-          "text": "我們現在去買。",
-          "start_time": 42.91,
-          "end_time": 44.99
+          "text": "你要买鞋子吧",
+          "start_time": 35.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 14,
+          "text": "是啊",
+          "start_time": 38.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 15,
+          "text": "我想买一双黑色的",
+          "start_time": 40.0,
+          "end_time": 43.0
+        },
+        {
+          "id": 16,
+          "text": "鞋子都在一楼",
+          "start_time": 43.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 17,
+          "text": "我们到楼下去吧",
+          "start_time": 46.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 18,
+          "text": "酒点了",
+          "start_time": 49.0,
+          "end_time": 51.0
+        },
+        {
+          "id": 19,
+          "text": "百货公司快要关了",
+          "start_time": 51.0,
+          "end_time": 54.0
+        },
+        {
+          "id": 20,
+          "text": "电梯在那里",
+          "start_time": 54.0,
+          "end_time": 57.0
+        },
+        {
+          "id": 21,
+          "text": "我们现在去买",
+          "start_time": 57.0,
+          "end_time": 60.0
         }
       ]
     },
@@ -45391,21 +46147,123 @@
       "script_json": [
         {
           "id": 1,
-          "text": "百貨公司裡有很多衣服、鞋子和皮包，都是最新的，所以很多年輕女生喜歡到百貨公司去，漂亮的、流行的衣服，她們都想穿穿看。",
-          "start_time": 0.1,
-          "end_time": 12.64
+          "text": "年轻人喜欢新东西",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "很多年輕男生愛在書店看汽車雜誌，汽車很貴，他們不一定可以買新車，可是都看得很開心。",
-          "start_time": 12.59,
-          "end_time": 21.4
+          "text": "百货公司里有很多衣服",
+          "start_time": 4.0,
+          "end_time": 8.0
         },
         {
           "id": 3,
-          "text": "我覺得有的舊東西很不錯，有的新東西也很有趣，我很喜歡看新車、新衣服，可是因為我的錢不多，所以我不常買。",
-          "start_time": 21.4,
-          "end_time": 32.31
+          "text": "鞋子和皮包",
+          "start_time": 8.0,
+          "end_time": 12.0
+        },
+        {
+          "id": 4,
+          "text": "都是最新的",
+          "start_time": 12.0,
+          "end_time": 15.0
+        },
+        {
+          "id": 5,
+          "text": "所以很多年轻女生",
+          "start_time": 15.0,
+          "end_time": 18.0
+        },
+        {
+          "id": 6,
+          "text": "喜欢到百货公司去",
+          "start_time": 18.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 7,
+          "text": "漂亮的",
+          "start_time": 21.0,
+          "end_time": 23.0
+        },
+        {
+          "id": 8,
+          "text": "流行的衣服",
+          "start_time": 23.0,
+          "end_time": 26.0
+        },
+        {
+          "id": 9,
+          "text": "她们都想穿穿看",
+          "start_time": 26.0,
+          "end_time": 29.0
+        },
+        {
+          "id": 10,
+          "text": "很多年轻男生",
+          "start_time": 29.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 11,
+          "text": "爱在书店看汽车杂志",
+          "start_time": 31.0,
+          "end_time": 34.0
+        },
+        {
+          "id": 12,
+          "text": "汽车很贵",
+          "start_time": 34.0,
+          "end_time": 37.0
+        },
+        {
+          "id": 13,
+          "text": "她们不一定可以买新车",
+          "start_time": 37.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 14,
+          "text": "可是都看得很开心",
+          "start_time": 40.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 15,
+          "text": "我觉得有的就东西很不错",
+          "start_time": 44.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 16,
+          "text": "有的新东西也很有趣",
+          "start_time": 49.0,
+          "end_time": 53.0
+        },
+        {
+          "id": 17,
+          "text": "我很喜欢看新车",
+          "start_time": 53.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 18,
+          "text": "新衣服",
+          "start_time": 56.0,
+          "end_time": 57.0
+        },
+        {
+          "id": 19,
+          "text": "可是因为我的钱不多",
+          "start_time": 57.0,
+          "end_time": 61.0
+        },
+        {
+          "id": 20,
+          "text": "所以我不常买",
+          "start_time": 61.0,
+          "end_time": 78.31
         }
       ]
     }
@@ -45774,57 +46632,117 @@
       "script_json": [
         {
           "id": 1,
-          "text": "國安：友美，這幾個句子的意思我不太懂，妳可以教我嗎？",
-          "start_time": 0.1,
-          "end_time": 5.51
+          "text": "有美",
+          "start_time": 0.0,
+          "end_time": 3.76
         },
         {
           "id": 2,
-          "text": "友美：我覺得有點兒難，我也不太懂。",
-          "start_time": 5.46,
-          "end_time": 9.47
+          "text": "这几个句子的意思",
+          "start_time": 3.76,
+          "end_time": 5.76
         },
         {
           "id": 3,
-          "text": "國安：這課真的不好學。",
-          "start_time": 9.47,
-          "end_time": 12.49
+          "text": "我不太懂",
+          "start_time": 5.76,
+          "end_time": 6.76
         },
         {
           "id": 4,
-          "text": "友美：我們可以去問家樂，他非常聰明，我想他懂。",
-          "start_time": 12.49,
-          "end_time": 17.9
+          "text": "你可以教我吗",
+          "start_time": 6.76,
+          "end_time": 9.76
         },
         {
           "id": 5,
-          "text": "國安：那麼我們現在去找他。",
-          "start_time": 17.9,
-          "end_time": 21.11
+          "text": "我觉得有点难",
+          "start_time": 9.76,
+          "end_time": 11.76
         },
         {
           "id": 6,
-          "text": "友美：現在他在上書法課，我們四點去吧。",
-          "start_time": 21.11,
-          "end_time": 25.84
+          "text": "我也不太懂",
+          "start_time": 11.76,
+          "end_time": 14.76
         },
         {
           "id": 7,
-          "text": "國安：可是從四點到五點半我要上英文課，六點去，怎麼樣？",
-          "start_time": 25.84,
-          "end_time": 32.35
+          "text": "这些句子真的不好学",
+          "start_time": 14.76,
+          "end_time": 18.76
         },
         {
           "id": 8,
-          "text": "友美：好。",
-          "start_time": 32.35,
-          "end_time": 34.25
+          "text": "我们可以去问家乐",
+          "start_time": 18.76,
+          "end_time": 21.76
         },
         {
           "id": 9,
-          "text": "我先回宿舍做功課，再跟你一起去找他。",
-          "start_time": 34.25,
-          "end_time": 38.61
+          "text": "她非常聪明",
+          "start_time": 21.76,
+          "end_time": 23.76
+        },
+        {
+          "id": 10,
+          "text": "我想她懂",
+          "start_time": 23.76,
+          "end_time": 26.76
+        },
+        {
+          "id": 11,
+          "text": "那么我们现在去找她",
+          "start_time": 26.76,
+          "end_time": 29.76
+        },
+        {
+          "id": 12,
+          "text": "现在她在上书法课",
+          "start_time": 30.76,
+          "end_time": 33.76
+        },
+        {
+          "id": 13,
+          "text": "我们四点去吧",
+          "start_time": 33.76,
+          "end_time": 36.76
+        },
+        {
+          "id": 14,
+          "text": "可是从四点到五点半",
+          "start_time": 36.76,
+          "end_time": 39.76
+        },
+        {
+          "id": 15,
+          "text": "我要上英文课",
+          "start_time": 39.76,
+          "end_time": 41.76
+        },
+        {
+          "id": 16,
+          "text": "六点去怎么样",
+          "start_time": 41.76,
+          "end_time": 44.76
+        },
+        {
+          "id": 17,
+          "text": "好",
+          "start_time": 44.76,
+          "end_time": 46.76
+        },
+        {
+          "id": 18,
+          "text": "我先回宿舍做功课",
+          "start_time": 46.76,
+          "end_time": 49.76
+        },
+        {
+          "id": 19,
+          "text": "再跟你一起去找她",
+          "start_time": 49.76,
+          "end_time": 54.42
         }
       ]
     },
@@ -45837,63 +46755,105 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：期中考快要到了，老師說我們可以去圖書館對面的大教室看書。",
-          "start_time": 0.1,
-          "end_time": 6.85
+          "text": "其中好快要到了",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "家樂：太好了！",
-          "start_time": 6.8,
-          "end_time": 9.06
+          "text": "老师说",
+          "start_time": 3.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "在那裡看書很舒服。",
-          "start_time": 9.06,
-          "end_time": 11.59
+          "text": "我们可以去图书馆对面的大教室看书",
+          "start_time": 5.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "我們每天都能用那間教室嗎？",
-          "start_time": 11.59,
-          "end_time": 14.72
+          "text": "太好了",
+          "start_time": 10.0,
+          "end_time": 12.0
         },
         {
           "id": 5,
-          "text": "中明：我們班只能禮拜一跟禮拜二下午用。",
-          "start_time": 14.72,
-          "end_time": 19.06
+          "text": "在那里看书很舒服",
+          "start_time": 12.0,
+          "end_time": 15.0
         },
         {
           "id": 6,
-          "text": "家樂：可是這些時間我都有語言交換，不能去。",
-          "start_time": 19.06,
-          "end_time": 24.06
+          "text": "我们每天都能用那间教室吗",
+          "start_time": 15.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "中明：別的時間可以嗎？",
-          "start_time": 24.06,
-          "end_time": 26.99
+          "text": "我们班只能礼拜一跟礼拜二下午用",
+          "start_time": 19.0,
+          "end_time": 25.0
         },
         {
           "id": 8,
-          "text": "家樂：我朋友最近比較忙，別的時間他沒有空。",
-          "start_time": 26.99,
-          "end_time": 31.76
+          "text": "可是",
+          "start_time": 25.0,
+          "end_time": 27.0
         },
         {
           "id": 9,
-          "text": "中明：我們去問老師，也許他可以幫你。",
-          "start_time": 31.76,
-          "end_time": 36.16
+          "text": "这些时间我都有语言交换",
+          "start_time": 27.0,
+          "end_time": 30.0
         },
         {
           "id": 10,
-          "text": "家樂：好，希望老師可以幫我。",
-          "start_time": 36.16,
-          "end_time": 39.89
+          "text": "不能去",
+          "start_time": 30.0,
+          "end_time": 32.0
+        },
+        {
+          "id": 11,
+          "text": "别的时间可以吗",
+          "start_time": 32.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 12,
+          "text": "我朋友最近比较忙",
+          "start_time": 35.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 13,
+          "text": "别的时间她没有空",
+          "start_time": 38.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 14,
+          "text": "我们去问老师",
+          "start_time": 42.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 15,
+          "text": "也许她可以帮你",
+          "start_time": 44.0,
+          "end_time": 48.0
+        },
+        {
+          "id": 16,
+          "text": "好",
+          "start_time": 48.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 17,
+          "text": "希望老师可以帮我",
+          "start_time": 49.0,
+          "end_time": 53.0
         }
       ]
     },
@@ -45906,27 +46866,135 @@
       "script_json": [
         {
           "id": 1,
-          "text": "這個學期開始，從星期一到星期五我都有華語課，每天從上午八點四十分到中午十二點上課，下午一點寫功課，有時候也跟同學練習說中文。",
-          "start_time": 0.1,
-          "end_time": 13.11
+          "text": "我喜欢学中文",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "最近我的台灣朋友想學日文，請我教他，我也請他教我中文。",
-          "start_time": 13.06,
-          "end_time": 19.11
+          "text": "这个学期开始",
+          "start_time": 3.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "現在我非常忙，沒有很多時間讀書，可是因為有語言交換，所以我的中文進步了。",
-          "start_time": 19.11,
-          "end_time": 26.94
+          "text": "从星期一到星期五",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "下個星期華語課有期中考，我有一點兒緊張，所以每天晚上都讀書，也練習寫字，希望下個星期的考試能考得很好。",
-          "start_time": 26.94,
-          "end_time": 37.75
+          "text": "我都有华语课",
+          "start_time": 10.0,
+          "end_time": 12.0
+        },
+        {
+          "id": 5,
+          "text": "每天从上午八点四十分",
+          "start_time": 12.0,
+          "end_time": 16.0
+        },
+        {
+          "id": 6,
+          "text": "到中午十二点上课",
+          "start_time": 16.0,
+          "end_time": 19.0
+        },
+        {
+          "id": 7,
+          "text": "下午一点写功课",
+          "start_time": 19.0,
+          "end_time": 22.0
+        },
+        {
+          "id": 8,
+          "text": "有时候也跟同学练习说中文",
+          "start_time": 22.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 9,
+          "text": "最近我的台湾朋友想学日文",
+          "start_time": 27.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 10,
+          "text": "请我教她",
+          "start_time": 31.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 11,
+          "text": "我也请她教我中文",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 12,
+          "text": "现在我非常忙",
+          "start_time": 36.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 13,
+          "text": "没有很多时间读书",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 14,
+          "text": "可是因为有语言交换",
+          "start_time": 42.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 15,
+          "text": "所以我的中文进步了",
+          "start_time": 46.0,
+          "end_time": 50.0
+        },
+        {
+          "id": 16,
+          "text": "下个星期",
+          "start_time": 50.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 17,
+          "text": "华语课有其中好",
+          "start_time": 52.0,
+          "end_time": 54.0
+        },
+        {
+          "id": 18,
+          "text": "我有一点紧张",
+          "start_time": 54.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 19,
+          "text": "所以每天晚上都读书",
+          "start_time": 56.0,
+          "end_time": 60.0
+        },
+        {
+          "id": 20,
+          "text": "也练习写字",
+          "start_time": 60.0,
+          "end_time": 62.0
+        },
+        {
+          "id": 21,
+          "text": "希望下个星期的考试",
+          "start_time": 62.0,
+          "end_time": 65.0
+        },
+        {
+          "id": 22,
+          "text": "能考得很好",
+          "start_time": 65.0,
+          "end_time": 69.0
         }
       ]
     }
@@ -46301,87 +47369,135 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：天氣好熱，我們去喝飲料，好不好？",
-          "start_time": 0.1,
-          "end_time": 4.92
+          "text": "天气好热",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "友美：好啊！",
-          "start_time": 4.88,
-          "end_time": 6.91
+          "text": "我们去喝饮料",
+          "start_time": 2.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "你想喝什麼？",
-          "start_time": 6.91,
-          "end_time": 8.88
+          "text": "好不好",
+          "start_time": 5.0,
+          "end_time": 7.0
         },
         {
           "id": 4,
-          "text": "咖啡還是茶？",
-          "start_time": 8.88,
-          "end_time": 10.85
+          "text": "好啊",
+          "start_time": 7.0,
+          "end_time": 9.0
         },
         {
           "id": 5,
-          "text": "中明：咖啡、茶，我都喜歡。",
-          "start_time": 10.85,
-          "end_time": 14.62
+          "text": "你想喝什么",
+          "start_time": 9.0,
+          "end_time": 12.0
         },
         {
           "id": 6,
-          "text": "我也很餓，想吃一點兒東西。",
-          "start_time": 14.62,
-          "end_time": 17.99
+          "text": "咖啡还是茶",
+          "start_time": 12.0,
+          "end_time": 16.0
         },
         {
           "id": 7,
-          "text": "友美：這家餐廳人太多，我們去那家餐廳，好嗎？",
-          "start_time": 17.99,
-          "end_time": 23.16
+          "text": "咖啡",
+          "start_time": 16.0,
+          "end_time": 17.0
         },
         {
           "id": 8,
-          "text": "他們的牛肉麵很好吃，也很便宜。",
-          "start_time": 23.16,
-          "end_time": 26.99
+          "text": "茶",
+          "start_time": 17.0,
+          "end_time": 19.0
         },
         {
           "id": 9,
-          "text": "中明：太好了！",
-          "start_time": 26.99,
-          "end_time": 29.29
+          "text": "我都喜欢",
+          "start_time": 19.0,
+          "end_time": 21.0
         },
         {
           "id": 10,
-          "text": "我最愛吃牛肉麵。",
-          "start_time": 29.29,
-          "end_time": 31.57
+          "text": "我也很饿",
+          "start_time": 21.0,
+          "end_time": 24.0
         },
         {
           "id": 11,
-          "text": "他們也賣飲料嗎？",
-          "start_time": 31.57,
-          "end_time": 33.7
+          "text": "想吃一点东西",
+          "start_time": 24.0,
+          "end_time": 27.0
         },
         {
           "id": 12,
-          "text": "友美：他們賣很多種飲料。",
-          "start_time": 33.7,
-          "end_time": 36.9
+          "text": "这家餐厅人太多",
+          "start_time": 27.0,
+          "end_time": 31.0
         },
         {
           "id": 13,
-          "text": "中明：我們現在去，好嗎？",
-          "start_time": 36.9,
-          "end_time": 40.26
+          "text": "我们去那家餐厅好吗",
+          "start_time": 31.0,
+          "end_time": 35.0
         },
         {
           "id": 14,
-          "text": "友美：好。",
-          "start_time": 40.26,
-          "end_time": 42.16
+          "text": "他们的牛肉面很好吃",
+          "start_time": 35.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 15,
+          "text": "也很便宜",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 16,
+          "text": "太好了",
+          "start_time": 42.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 17,
+          "text": "我最爱吃牛肉面",
+          "start_time": 44.0,
+          "end_time": 48.0
+        },
+        {
+          "id": 18,
+          "text": "他们也卖饮料吗",
+          "start_time": 48.0,
+          "end_time": 51.0
+        },
+        {
+          "id": 19,
+          "text": "他们卖很多种饮料",
+          "start_time": 51.0,
+          "end_time": 55.0
+        },
+        {
+          "id": 20,
+          "text": "我们现在去",
+          "start_time": 55.0,
+          "end_time": 58.0
+        },
+        {
+          "id": 21,
+          "text": "好吗",
+          "start_time": 58.0,
+          "end_time": 59.0
+        },
+        {
+          "id": 22,
+          "text": "好",
+          "start_time": 59.0,
+          "end_time": 62.63
         }
       ]
     },
@@ -46394,51 +47510,75 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：小姐，我們要點兩碗牛肉麵和兩杯茶。",
-          "start_time": 0.1,
-          "end_time": 5.1
+          "text": "小姐",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "女店員：請問兩位要紅茶還是綠茶？",
-          "start_time": 5.05,
-          "end_time": 9.31
+          "text": "我们要点两碗牛肉面和两杯茶",
+          "start_time": 2.0,
+          "end_time": 8.0
         },
         {
           "id": 3,
-          "text": "友美：我要紅茶。",
-          "start_time": 9.31,
-          "end_time": 11.81
+          "text": "请问两位要红茶还是绿茶",
+          "start_time": 8.0,
+          "end_time": 14.0
         },
         {
           "id": 4,
-          "text": "中明：請給我們一杯紅茶、一杯綠茶。",
-          "start_time": 11.81,
-          "end_time": 16.11
+          "text": "我要红茶",
+          "start_time": 14.0,
+          "end_time": 17.0
         },
         {
           "id": 5,
-          "text": "請問一共多少錢？",
-          "start_time": 16.11,
-          "end_time": 18.51
+          "text": "请给我们一杯红茶",
+          "start_time": 17.0,
+          "end_time": 22.0
         },
         {
           "id": 6,
-          "text": "女店員：一共兩百一十五塊錢。",
-          "start_time": 18.51,
-          "end_time": 22.21
+          "text": "一杯绿茶",
+          "start_time": 22.0,
+          "end_time": 24.0
         },
         {
           "id": 7,
-          "text": "女店員：找您七百八十五塊錢，謝謝。",
-          "start_time": 22.21,
-          "end_time": 26.8
+          "text": "请问一共多少钱",
+          "start_time": 24.0,
+          "end_time": 28.0
         },
         {
           "id": 8,
-          "text": "中明：一共兩百多塊錢，好便宜！",
-          "start_time": 26.8,
-          "end_time": 30.93
+          "text": "一共两百一十五块钱",
+          "start_time": 28.0,
+          "end_time": 32.0
+        },
+        {
+          "id": 9,
+          "text": "找您七百八十五块钱",
+          "start_time": 32.0,
+          "end_time": 37.0
+        },
+        {
+          "id": 10,
+          "text": "谢谢",
+          "start_time": 37.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 11,
+          "text": "一共两百多块钱",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 12,
+          "text": "好便宜",
+          "start_time": 42.0,
+          "end_time": 44.0
         }
       ]
     },
@@ -46451,27 +47591,87 @@
       "script_json": [
         {
           "id": 1,
-          "text": "台灣夏天的天氣很熱，很多人都喜歡喝飲料。",
-          "start_time": 0.1,
-          "end_time": 4.89
+          "text": "买饮料",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "飲料店很多，他們賣很多種飲料。",
-          "start_time": 4.84,
-          "end_time": 8.6
+          "text": "台湾夏天的天气很热",
+          "start_time": 3.0,
+          "end_time": 7.0
         },
         {
           "id": 3,
-          "text": "果汁、牛奶、咖啡、茶都很好喝，有的很便宜，一杯二十多塊錢。",
-          "start_time": 8.6,
-          "end_time": 15.75
+          "text": "很多人都喜欢喝饮料",
+          "start_time": 7.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "我和朋友都很愛喝，我們每天都去買。",
-          "start_time": 15.75,
-          "end_time": 19.74
+          "text": "饮料店很多",
+          "start_time": 11.0,
+          "end_time": 15.0
+        },
+        {
+          "id": 5,
+          "text": "他们卖很多种饮料",
+          "start_time": 15.0,
+          "end_time": 19.0
+        },
+        {
+          "id": 6,
+          "text": "果汁",
+          "start_time": 19.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 7,
+          "text": "牛奶",
+          "start_time": 21.0,
+          "end_time": 23.0
+        },
+        {
+          "id": 8,
+          "text": "咖啡",
+          "start_time": 23.0,
+          "end_time": 25.0
+        },
+        {
+          "id": 9,
+          "text": "茶",
+          "start_time": 25.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 10,
+          "text": "都很好喝",
+          "start_time": 27.0,
+          "end_time": 29.0
+        },
+        {
+          "id": 11,
+          "text": "有的很便宜",
+          "start_time": 29.0,
+          "end_time": 32.0
+        },
+        {
+          "id": 12,
+          "text": "一杯二十多块钱",
+          "start_time": 32.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 13,
+          "text": "我和朋友都很爱喝",
+          "start_time": 35.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 14,
+          "text": "我们每天都去买",
+          "start_time": 39.0,
+          "end_time": 43.0
         }
       ]
     }
@@ -46870,69 +48070,141 @@
       "script_json": [
         {
           "id": 1,
-          "text": "元真：老師，國安今天要請假。",
-          "start_time": 0.1,
-          "end_time": 3.94
+          "text": "老师",
+          "start_time": 0.0,
+          "end_time": 2.86
         },
         {
           "id": 2,
-          "text": "他發燒了，不能來上課。",
-          "start_time": 3.89,
-          "end_time": 6.88
+          "text": "国安今天要请假",
+          "start_time": 2.86,
+          "end_time": 5.86
         },
         {
           "id": 3,
-          "text": "老師：他發燒了？",
-          "start_time": 6.88,
-          "end_time": 9.35
+          "text": "她发烧了",
+          "start_time": 5.86,
+          "end_time": 7.86
         },
         {
           "id": 4,
-          "text": "那他應該去看醫生。",
-          "start_time": 9.35,
-          "end_time": 11.71
+          "text": "不能来上课",
+          "start_time": 7.86,
+          "end_time": 9.86
         },
         {
           "id": 5,
-          "text": "元真：國安跟我說，他今天去看醫生，他家附近有一家不錯的醫院。",
-          "start_time": 11.71,
-          "end_time": 18.59
+          "text": "她发烧了",
+          "start_time": 9.86,
+          "end_time": 11.86
         },
         {
           "id": 6,
-          "text": "老師：最近很多人感冒，你們要戴口罩，也要常常洗手。",
-          "start_time": 18.59,
-          "end_time": 24.62
+          "text": "那她应该去看医生",
+          "start_time": 11.86,
+          "end_time": 15.86
         },
         {
           "id": 7,
-          "text": "元真：老師，我很健康，不常生病。",
-          "start_time": 24.62,
-          "end_time": 28.98
+          "text": "国安跟我说",
+          "start_time": 15.86,
+          "end_time": 17.86
         },
         {
           "id": 8,
-          "text": "老師：平常不生病的人也要注意。",
-          "start_time": 28.98,
-          "end_time": 32.94
+          "text": "她今天要去看医生",
+          "start_time": 17.86,
+          "end_time": 20.86
         },
         {
           "id": 9,
-          "text": "元真：對，我應該多注意身體健康。",
-          "start_time": 32.94,
-          "end_time": 37.05
+          "text": "她家附近有一家不错的医院",
+          "start_time": 20.86,
+          "end_time": 25.86
         },
         {
           "id": 10,
-          "text": "老師：妳可以帶一些水果去看國安，跟他說應該多喝水，也要多休息。",
-          "start_time": 37.05,
-          "end_time": 44.08
+          "text": "最近很多人感冒",
+          "start_time": 25.86,
+          "end_time": 28.86
         },
         {
           "id": 11,
-          "text": "元真：好，我明天帶一些蘋果去看他。",
-          "start_time": 44.08,
-          "end_time": 48.27
+          "text": "你们要戴口罩",
+          "start_time": 28.86,
+          "end_time": 30.86
+        },
+        {
+          "id": 12,
+          "text": "也要常常洗手",
+          "start_time": 30.86,
+          "end_time": 32.86
+        },
+        {
+          "id": 13,
+          "text": "老师",
+          "start_time": 32.86,
+          "end_time": 34.86
+        },
+        {
+          "id": 14,
+          "text": "我很健康",
+          "start_time": 34.86,
+          "end_time": 36.86
+        },
+        {
+          "id": 15,
+          "text": "不常生病",
+          "start_time": 36.86,
+          "end_time": 38.86
+        },
+        {
+          "id": 16,
+          "text": "平常不生病的人也要注意",
+          "start_time": 38.86,
+          "end_time": 42.86
+        },
+        {
+          "id": 17,
+          "text": "对",
+          "start_time": 42.86,
+          "end_time": 43.86
+        },
+        {
+          "id": 18,
+          "text": "我应该多注意身体健康",
+          "start_time": 43.86,
+          "end_time": 47.86
+        },
+        {
+          "id": 19,
+          "text": "你可以带一些水果去看国安",
+          "start_time": 47.86,
+          "end_time": 51.86
+        },
+        {
+          "id": 20,
+          "text": "跟她说应该多喝水",
+          "start_time": 51.86,
+          "end_time": 54.86
+        },
+        {
+          "id": 21,
+          "text": "也要多休息",
+          "start_time": 54.86,
+          "end_time": 56.86
+        },
+        {
+          "id": 22,
+          "text": "好",
+          "start_time": 56.86,
+          "end_time": 58.86
+        },
+        {
+          "id": 23,
+          "text": "我明天带一些苹果去看她",
+          "start_time": 58.86,
+          "end_time": 62.86
         }
       ]
     },
@@ -46945,75 +48217,93 @@
       "script_json": [
         {
           "id": 1,
-          "text": "醫生：你覺得哪裡不舒服？",
-          "start_time": 0.1,
-          "end_time": 3.27
+          "text": "你觉得哪里不舒服",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "國安：我咳嗽、頭痛，鼻子也不舒服。",
-          "start_time": 3.23,
-          "end_time": 7.74
+          "text": "我可受 头痛 鼻子也不舒服",
+          "start_time": 4.0,
+          "end_time": 9.0
         },
         {
           "id": 3,
-          "text": "醫生：最近天氣冷了，很多人感冒了。",
-          "start_time": 7.74,
-          "end_time": 12.05
+          "text": "最近天气冷了",
+          "start_time": 9.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "國安：對啊！",
-          "start_time": 12.05,
-          "end_time": 14.11
+          "text": "很多人感冒了",
+          "start_time": 11.0,
+          "end_time": 14.0
         },
         {
           "id": 5,
-          "text": "聽說我們學校感冒、發燒的學生很多。",
-          "start_time": 14.11,
-          "end_time": 18.23
+          "text": "对呀",
+          "start_time": 14.0,
+          "end_time": 15.0
         },
         {
           "id": 6,
-          "text": "醫生：最近也有很多人肚子痛。",
-          "start_time": 18.23,
-          "end_time": 21.71
+          "text": "听说我们学校感冒",
+          "start_time": 15.0,
+          "end_time": 18.0
         },
         {
           "id": 7,
-          "text": "國安：是因為吃的東西不乾淨嗎？",
-          "start_time": 21.71,
-          "end_time": 25.4
+          "text": "发烧的学生很多",
+          "start_time": 18.0,
+          "end_time": 21.0
         },
         {
           "id": 8,
-          "text": "醫生：不是，這也是因為感冒。",
-          "start_time": 25.4,
-          "end_time": 29.1
+          "text": "最近也有很多人肚子痛",
+          "start_time": 21.0,
+          "end_time": 25.0
         },
         {
           "id": 9,
-          "text": "國安：請問我需要吃藥嗎？",
-          "start_time": 29.1,
-          "end_time": 32.27
+          "text": "是因为吃的东西不干净吗",
+          "start_time": 25.0,
+          "end_time": 29.0
         },
         {
           "id": 10,
-          "text": "醫生：我會給你三天的藥。",
-          "start_time": 32.27,
-          "end_time": 35.35
+          "text": "不是 这也是因为感冒",
+          "start_time": 29.0,
+          "end_time": 33.0
         },
         {
           "id": 11,
-          "text": "你要記得多喝一點兒水，要是發燒了，就吃紅色的藥。",
-          "start_time": 35.35,
-          "end_time": 40.83
+          "text": "请问 我需要吃药吗",
+          "start_time": 33.0,
+          "end_time": 37.0
         },
         {
           "id": 12,
-          "text": "國安：好，謝謝醫生。",
-          "start_time": 40.83,
-          "end_time": 43.73
+          "text": "我会给你三天的药",
+          "start_time": 37.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 13,
+          "text": "你要记得多喝一点水",
+          "start_time": 40.0,
+          "end_time": 43.0
+        },
+        {
+          "id": 14,
+          "text": "要是发烧了就吃红色的药",
+          "start_time": 43.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 15,
+          "text": "好 谢谢医生",
+          "start_time": 46.0,
+          "end_time": 49.0
         }
       ]
     },
@@ -47026,39 +48316,129 @@
       "script_json": [
         {
           "id": 1,
-          "text": "最近感冒的人很多，我的同學國安也感冒了，今天開始發燒了。",
-          "start_time": 0.1,
-          "end_time": 6.28
+          "text": "我的同学感冒了",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "他打電話跟我說，他不能來上課，請我幫他請假。",
-          "start_time": 6.22,
-          "end_time": 11.53
+          "text": "最近感冒的人很多",
+          "start_time": 3.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "我很擔心他，請他去看醫生，也告訴他要聽醫生的話，不要忘記多喝水、多休息。",
-          "start_time": 11.53,
-          "end_time": 19.52
+          "text": "我的同学国安也感冒了",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "他說他會去看醫生，請我們不要擔心，如果他好了，就會來學校上課。",
-          "start_time": 19.52,
-          "end_time": 26.61
+          "text": "今天开始发烧了",
+          "start_time": 10.0,
+          "end_time": 13.0
         },
         {
           "id": 5,
-          "text": "今天我要帶一些水果去看他，也會跟他說今天的功課。",
-          "start_time": 26.61,
-          "end_time": 31.94
+          "text": "他打电话跟我说",
+          "start_time": 13.0,
+          "end_time": 16.0
         },
         {
           "id": 6,
-          "text": "我們都希望他明天能回學校上課。",
-          "start_time": 31.94,
-          "end_time": 35.67
+          "text": "他不能来上课",
+          "start_time": 16.0,
+          "end_time": 19.0
+        },
+        {
+          "id": 7,
+          "text": "请我帮他请假",
+          "start_time": 19.0,
+          "end_time": 22.0
+        },
+        {
+          "id": 8,
+          "text": "我很担心他",
+          "start_time": 22.0,
+          "end_time": 24.0
+        },
+        {
+          "id": 9,
+          "text": "请他去看医生",
+          "start_time": 24.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 10,
+          "text": "也告诉他要听医生的话",
+          "start_time": 27.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 11,
+          "text": "不要忘记多喝水",
+          "start_time": 31.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 12,
+          "text": "多休息",
+          "start_time": 33.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 13,
+          "text": "他说他会去看医生",
+          "start_time": 35.0,
+          "end_time": 39.0
+        },
+        {
+          "id": 14,
+          "text": "请我们不要担心",
+          "start_time": 39.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 15,
+          "text": "如果他好了",
+          "start_time": 42.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 16,
+          "text": "就会来学校上课",
+          "start_time": 44.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 17,
+          "text": "今天我要带一些水果去看他",
+          "start_time": 47.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 18,
+          "text": "也会跟他说今天的功课",
+          "start_time": 52.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 19,
+          "text": "我们都希望他明天能回学校上课",
+          "start_time": 56.0,
+          "end_time": 62.0
+        },
+        {
+          "id": 20,
+          "text": "历史一刻",
+          "start_time": 62.0,
+          "end_time": 75.24
+        },
+        {
+          "id": 21,
+          "text": "你们是怎么认识的",
+          "start_time": 75.24,
+          "end_time": 78.24
         }
       ]
     }
@@ -47457,69 +48837,117 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：你昨天怎麼沒來上課？",
-          "start_time": 0.1,
-          "end_time": 3.48
+          "text": "你昨天怎么没来上课",
+          "start_time": 0.0,
+          "end_time": 5.73
         },
         {
           "id": 2,
-          "text": "國安：我去參加畫畫比賽。",
-          "start_time": 3.42,
-          "end_time": 6.65
+          "text": "我去参加话话比赛",
+          "start_time": 5.73,
+          "end_time": 8.73
         },
         {
           "id": 3,
-          "text": "你們上課上了什麼？",
-          "start_time": 6.65,
-          "end_time": 8.99
+          "text": "你们上课上了什么",
+          "start_time": 8.73,
+          "end_time": 11.73
         },
         {
           "id": 4,
-          "text": "中明：老師問我們想做什麼工作，大家都說得很高興。",
-          "start_time": 8.99,
-          "end_time": 14.56
+          "text": "老师问我们想做什么工作",
+          "start_time": 11.73,
+          "end_time": 15.73
         },
         {
           "id": 5,
-          "text": "國安：我知道友美想當護理師。",
-          "start_time": 14.56,
-          "end_time": 18.14
+          "text": "大家都说得很高兴",
+          "start_time": 15.73,
+          "end_time": 19.73
         },
         {
           "id": 6,
-          "text": "別的同學呢？",
-          "start_time": 18.14,
-          "end_time": 20.0
+          "text": "我知道油美想当护理师",
+          "start_time": 19.73,
+          "end_time": 22.73
         },
         {
           "id": 7,
-          "text": "中明：宜文希望可以用中文和英文工作，所以她以後想當記者，元真相在銀行工作。",
-          "start_time": 20.0,
-          "end_time": 28.38
+          "text": "别的同学呢",
+          "start_time": 22.73,
+          "end_time": 24.73
         },
         {
           "id": 8,
-          "text": "國安：那你畢業以後想做什麼？",
-          "start_time": 28.38,
-          "end_time": 31.79
+          "text": "移文希望可以用中文和英文工作",
+          "start_time": 24.73,
+          "end_time": 29.73
         },
         {
           "id": 9,
-          "text": "中明：我以前想當大公司的老闆，可是老闆要做的事情太多，現在覺得當醫生比較好。",
-          "start_time": 31.79,
-          "end_time": 39.79
+          "text": "所以她以后想当记者",
+          "start_time": 29.73,
+          "end_time": 32.73
         },
         {
           "id": 10,
-          "text": "那你想做什麼？",
-          "start_time": 39.79,
-          "end_time": 41.85
+          "text": "原真想在银行工作",
+          "start_time": 32.73,
+          "end_time": 36.73
         },
         {
           "id": 11,
-          "text": "國安：當醫生很不錯，但是太忙了，我只想每天可以準時上班、下班。",
-          "start_time": 41.85,
-          "end_time": 49.02
+          "text": "那你毕业以后想做什么",
+          "start_time": 36.73,
+          "end_time": 40.73
+        },
+        {
+          "id": 12,
+          "text": "我以前想当大公司的老板",
+          "start_time": 40.73,
+          "end_time": 44.73
+        },
+        {
+          "id": 13,
+          "text": "可是老板要做的事情太多",
+          "start_time": 44.73,
+          "end_time": 48.73
+        },
+        {
+          "id": 14,
+          "text": "现在觉得当医生比较好",
+          "start_time": 48.73,
+          "end_time": 51.73
+        },
+        {
+          "id": 15,
+          "text": "那你想做什么",
+          "start_time": 51.73,
+          "end_time": 54.73
+        },
+        {
+          "id": 16,
+          "text": "当医生很不错",
+          "start_time": 54.73,
+          "end_time": 56.73
+        },
+        {
+          "id": 17,
+          "text": "但是太忙了",
+          "start_time": 56.73,
+          "end_time": 58.73
+        },
+        {
+          "id": 18,
+          "text": "我只想每天可以准时上班",
+          "start_time": 58.73,
+          "end_time": 62.73
+        },
+        {
+          "id": 19,
+          "text": "下班",
+          "start_time": 62.73,
+          "end_time": 64.73
         }
       ]
     },
@@ -47532,81 +48960,177 @@
       "script_json": [
         {
           "id": 1,
-          "text": "中明：國安，你每天下課以後都要去麵包店工作，辛苦嗎？",
-          "start_time": 0.1,
-          "end_time": 6.22
+          "text": "国安",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "國安：不辛苦。",
-          "start_time": 6.17,
-          "end_time": 8.34
+          "text": "你每天下课以后",
+          "start_time": 2.0,
+          "end_time": 4.0
         },
         {
           "id": 3,
-          "text": "我很喜歡這個工作，因為可以學怎麼做麵包，而且同事也都對我很好。",
-          "start_time": 8.34,
-          "end_time": 15.03
+          "text": "都要去面包店工作",
+          "start_time": 4.0,
+          "end_time": 6.0
         },
         {
           "id": 4,
-          "text": "中明：這樣你在學校的成績，不會有問題嗎？",
-          "start_time": 15.03,
-          "end_time": 19.65
+          "text": "辛苦吗",
+          "start_time": 6.0,
+          "end_time": 9.0
         },
         {
           "id": 5,
-          "text": "國安：不會啊！",
-          "start_time": 19.65,
-          "end_time": 21.85
+          "text": "不辛苦",
+          "start_time": 9.0,
+          "end_time": 10.0
         },
         {
           "id": 6,
-          "text": "我都先做功課，再去工作。",
-          "start_time": 21.85,
-          "end_time": 25.07
+          "text": "我很喜欢这个工作",
+          "start_time": 10.0,
+          "end_time": 13.0
         },
         {
           "id": 7,
-          "text": "中明：我以前在餐廳上班過，因為太累了，常常睡得不夠。",
-          "start_time": 25.07,
-          "end_time": 31.18
+          "text": "因为可以学怎么做面包",
+          "start_time": 13.0,
+          "end_time": 16.0
         },
         {
           "id": 8,
-          "text": "國安：這樣真的很辛苦。",
-          "start_time": 31.18,
-          "end_time": 34.04
+          "text": "而且同事也都对我很好",
+          "start_time": 16.0,
+          "end_time": 21.0
         },
         {
           "id": 9,
-          "text": "中明：有時候早上起得太晚，上課遲到了，而且沒時間準備考試，所以就不做了。",
-          "start_time": 34.04,
-          "end_time": 42.25
+          "text": "这样你在学校的成绩",
+          "start_time": 21.0,
+          "end_time": 24.0
         },
         {
           "id": 10,
-          "text": "國安：我下午四點到六點上班，工作時間不長，所以沒問題。",
-          "start_time": 42.25,
-          "end_time": 48.74
+          "text": "不会有问题吗",
+          "start_time": 24.0,
+          "end_time": 27.0
         },
         {
           "id": 11,
-          "text": "中明：兩個小時也可以嗎？",
-          "start_time": 48.74,
-          "end_time": 52.0
+          "text": "不会啊",
+          "start_time": 27.0,
+          "end_time": 28.0
         },
         {
           "id": 12,
-          "text": "那我們麵包店還需要人嗎？",
+          "text": "我都先做功课",
+          "start_time": 28.0,
+          "end_time": 30.0
+        },
+        {
+          "id": 13,
+          "text": "再去工作",
+          "start_time": 30.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 14,
+          "text": "我以前在餐厅上过班",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 15,
+          "text": "因为太累了",
+          "start_time": 36.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 16,
+          "text": "常常睡得不够",
+          "start_time": 38.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 17,
+          "text": "这样真的很辛苦",
+          "start_time": 40.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 18,
+          "text": "有时候早上起的太晚",
+          "start_time": 44.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 19,
+          "text": "上课遲到了",
+          "start_time": 47.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 20,
+          "text": "而且每时间准备考试",
+          "start_time": 49.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 21,
+          "text": "所以就不做了",
           "start_time": 52.0,
           "end_time": 55.0
         },
         {
-          "id": 13,
-          "text": "國安：不知道，我明天看到老闆的時候，幫你問他。",
+          "id": 22,
+          "text": "我下午4点到6点上班",
           "start_time": 55.0,
-          "end_time": 60.29
+          "end_time": 58.0
+        },
+        {
+          "id": 23,
+          "text": "工作时间不长",
+          "start_time": 58.0,
+          "end_time": 60.0
+        },
+        {
+          "id": 24,
+          "text": "所以没问题",
+          "start_time": 60.0,
+          "end_time": 63.0
+        },
+        {
+          "id": 25,
+          "text": "两个小时也可以吗",
+          "start_time": 63.0,
+          "end_time": 66.0
+        },
+        {
+          "id": 26,
+          "text": "那你们面包店还需要人吗",
+          "start_time": 66.0,
+          "end_time": 70.0
+        },
+        {
+          "id": 27,
+          "text": "不知道",
+          "start_time": 70.0,
+          "end_time": 71.0
+        },
+        {
+          "id": 28,
+          "text": "我明天看到老板的时候",
+          "start_time": 71.0,
+          "end_time": 74.0
+        },
+        {
+          "id": 29,
+          "text": "帮你问他",
+          "start_time": 74.0,
+          "end_time": 77.0
         }
       ]
     },
@@ -47619,21 +49143,105 @@
       "script_json": [
         {
           "id": 1,
-          "text": "昨天我看了一個電視節目，有很多父母在節目上談自己的孩子，他們說現在年輕人覺得結不結婚不重要，快樂比較重要；找工作的時候，錢多不多不重要，重要的是喜不喜歡這個工作。",
-          "start_time": 0.1,
-          "end_time": 16.26
+          "text": "工作",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "節目裡有人說，很多年輕人喜歡在有冷氣的辦公室裡工作，休息時間還可以喝咖啡、上網，工廠裡辛苦的工作沒有人要做，所以工人常常不夠。",
-          "start_time": 16.21,
-          "end_time": 29.59
+          "text": "昨天我看了一个电视节目",
+          "start_time": 3.0,
+          "end_time": 7.0
         },
         {
           "id": 3,
-          "text": "如果大家都只喜歡做舒服的工作，那辛苦的工作誰要做呢？",
-          "start_time": 29.59,
-          "end_time": 35.33
+          "text": "有很多父母在节目上谈自己的孩子",
+          "start_time": 7.0,
+          "end_time": 12.0
+        },
+        {
+          "id": 4,
+          "text": "他们说",
+          "start_time": 12.0,
+          "end_time": 13.0
+        },
+        {
+          "id": 5,
+          "text": "现在年轻人觉得节目结婚不重要",
+          "start_time": 13.0,
+          "end_time": 18.0
+        },
+        {
+          "id": 6,
+          "text": "快乐比较重要",
+          "start_time": 18.0,
+          "end_time": 21.0
+        },
+        {
+          "id": 7,
+          "text": "找工作的时候",
+          "start_time": 21.0,
+          "end_time": 23.0
+        },
+        {
+          "id": 8,
+          "text": "前多不多不重要",
+          "start_time": 23.0,
+          "end_time": 26.0
+        },
+        {
+          "id": 9,
+          "text": "重要的是喜不喜欢这个工作",
+          "start_time": 26.0,
+          "end_time": 30.0
+        },
+        {
+          "id": 10,
+          "text": "节目里有人说",
+          "start_time": 30.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 11,
+          "text": "很多年轻人喜欢在有冷气的办公室里工作",
+          "start_time": 33.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 12,
+          "text": "休息时间还可以喝咖啡",
+          "start_time": 38.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 13,
+          "text": "喝咖啡上网",
+          "start_time": 41.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 14,
+          "text": "工厂里辛苦的工作没有人要做",
+          "start_time": 44.0,
+          "end_time": 48.0
+        },
+        {
+          "id": 15,
+          "text": "所以工人常常不够",
+          "start_time": 48.0,
+          "end_time": 51.0
+        },
+        {
+          "id": 16,
+          "text": "如果大家都只喜欢做舒服的工作",
+          "start_time": 51.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 17,
+          "text": "那辛苦的工作谁要做呢",
+          "start_time": 56.0,
+          "end_time": 73.63
         }
       ]
     }
@@ -48050,87 +49658,117 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：友美，今天的功課妳寫了嗎？",
-          "start_time": 0.1,
-          "end_time": 4.09
+          "text": "有美",
+          "start_time": 0.0,
+          "end_time": 1.0
         },
         {
           "id": 2,
-          "text": "友美：我已經寫了，我現在在寫卡片。",
-          "start_time": 4.04,
-          "end_time": 8.24
+          "text": "今天的功课你写了吗",
+          "start_time": 1.0,
+          "end_time": 5.0
         },
         {
           "id": 3,
-          "text": "宜文：給誰的卡片？",
-          "start_time": 8.24,
-          "end_time": 10.9
+          "text": "我已经写了",
+          "start_time": 5.0,
+          "end_time": 7.0
         },
         {
           "id": 4,
-          "text": "友美：一個新朋友。",
-          "start_time": 10.9,
-          "end_time": 13.46
+          "text": "我现在在写卡片",
+          "start_time": 7.0,
+          "end_time": 10.0
         },
         {
           "id": 5,
-          "text": "妳看，這是他送我的卡片。",
-          "start_time": 13.46,
-          "end_time": 16.7
+          "text": "给谁的卡片",
+          "start_time": 10.0,
+          "end_time": 12.0
         },
         {
           "id": 6,
-          "text": "宜文：他寫的字真好看。",
-          "start_time": 16.7,
-          "end_time": 19.74
+          "text": "一个新朋友",
+          "start_time": 12.0,
+          "end_time": 15.0
         },
         {
           "id": 7,
-          "text": "你們是怎麼認識的？",
-          "start_time": 19.74,
-          "end_time": 22.11
+          "text": "你看 这是他送我的卡片",
+          "start_time": 15.0,
+          "end_time": 19.0
         },
         {
           "id": 8,
-          "text": "友美：我們是上網認識的，我看到他寫的文章，然後留言問了他一個問題，他回答得很有趣。",
-          "start_time": 22.11,
-          "end_time": 30.79
+          "text": "他写的字真好看",
+          "start_time": 19.0,
+          "end_time": 22.0
         },
         {
           "id": 9,
-          "text": "宜文：你們常上網聊天嗎？",
-          "start_time": 30.79,
-          "end_time": 33.98
+          "text": "你们是怎么认识的",
+          "start_time": 22.0,
+          "end_time": 25.0
         },
         {
           "id": 10,
-          "text": "友美：對啊，差不多每個晚上都聊。",
-          "start_time": 33.98,
-          "end_time": 38.08
+          "text": "我们是上网认识的",
+          "start_time": 25.0,
+          "end_time": 28.0
         },
         {
           "id": 11,
-          "text": "昨天他說他想跟我見面。",
-          "start_time": 38.08,
-          "end_time": 41.06
+          "text": "我看到他写的文章",
+          "start_time": 28.0,
+          "end_time": 31.0
         },
         {
           "id": 12,
-          "text": "宜文：妳呢？",
-          "start_time": 41.06,
-          "end_time": 43.11
+          "text": "然后留言问了他一个问题",
+          "start_time": 31.0,
+          "end_time": 34.0
         },
         {
           "id": 13,
-          "text": "妳要跟他見面嗎？",
-          "start_time": 43.11,
-          "end_time": 45.38
+          "text": "他回答得很有趣",
+          "start_time": 34.0,
+          "end_time": 37.0
         },
         {
           "id": 14,
-          "text": "友美：我還沒決定。",
-          "start_time": 45.38,
-          "end_time": 47.99
+          "text": "你们常上网聊天吗",
+          "start_time": 37.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 15,
+          "text": "差不多每个晚上都聊",
+          "start_time": 40.0,
+          "end_time": 44.38
+        },
+        {
+          "id": 16,
+          "text": "昨天他说他想跟我见面",
+          "start_time": 44.38,
+          "end_time": 48.38
+        },
+        {
+          "id": 17,
+          "text": "你呢",
+          "start_time": 48.38,
+          "end_time": 50.38
+        },
+        {
+          "id": 18,
+          "text": "你要跟他见面吗",
+          "start_time": 50.38,
+          "end_time": 52.38
+        },
+        {
+          "id": 19,
+          "text": "我还没决定",
+          "start_time": 52.38,
+          "end_time": 55.38
         }
       ]
     },
@@ -48143,69 +49781,123 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：妳跟那位新朋友見面了沒有？",
-          "start_time": 0.1,
-          "end_time": 4.0
+          "text": "你跟那位新朋友见面了没有",
+          "start_time": 0.0,
+          "end_time": 5.0
         },
         {
           "id": 2,
-          "text": "友美：我還沒決定要不要跟他見面。",
-          "start_time": 3.95,
-          "end_time": 7.81
+          "text": "我还没决定要不要跟他见面",
+          "start_time": 5.0,
+          "end_time": 10.0
         },
         {
           "id": 3,
-          "text": "宜文：妳擔心什麼？",
-          "start_time": 7.81,
-          "end_time": 10.43
+          "text": "你担心什么",
+          "start_time": 10.0,
+          "end_time": 13.0
         },
         {
           "id": 4,
-          "text": "友美：我有點兒緊張，我以前沒有這種經驗，所以覺得這樣有點兒奇怪。",
-          "start_time": 10.43,
-          "end_time": 17.38
+          "text": "我有点紧张",
+          "start_time": 13.0,
+          "end_time": 15.0
         },
         {
           "id": 5,
-          "text": "宜文：妳不要緊張，我有辦法，我跟妳一起去。",
-          "start_time": 17.38,
-          "end_time": 22.49
+          "text": "我以前没有这种经验",
+          "start_time": 15.0,
+          "end_time": 18.0
         },
         {
           "id": 6,
-          "text": "友美：太好了，謝謝妳幫我的忙。",
-          "start_time": 22.49,
-          "end_time": 26.29
+          "text": "所以觉得这样有点奇怪",
+          "start_time": 18.0,
+          "end_time": 22.0
         },
         {
           "id": 7,
-          "text": "宜文：不客氣。",
-          "start_time": 26.29,
-          "end_time": 28.66
+          "text": "你不要紧张",
+          "start_time": 22.0,
+          "end_time": 25.0
         },
         {
           "id": 8,
-          "text": "妳打算什麼時候跟他見面？",
-          "start_time": 28.66,
-          "end_time": 31.88
+          "text": "我有办法",
+          "start_time": 25.0,
+          "end_time": 27.0
         },
         {
           "id": 9,
-          "text": "友美：可能這個週末吧。",
-          "start_time": 31.88,
-          "end_time": 34.81
+          "text": "我跟你一起去",
+          "start_time": 27.0,
+          "end_time": 29.0
         },
         {
           "id": 10,
-          "text": "如果妳有空，我再跟他約時間。",
-          "start_time": 34.81,
-          "end_time": 38.27
+          "text": "太好了",
+          "start_time": 29.0,
+          "end_time": 32.28
         },
         {
           "id": 11,
-          "text": "宜文：有空啊，但是我明天不會來學校，等妳決定了，再給我打電話吧。",
-          "start_time": 38.27,
-          "end_time": 45.48
+          "text": "谢谢你帮我的忙",
+          "start_time": 32.28,
+          "end_time": 35.28
+        },
+        {
+          "id": 12,
+          "text": "不客气",
+          "start_time": 35.28,
+          "end_time": 37.28
+        },
+        {
+          "id": 13,
+          "text": "你打算什么时候跟他见面",
+          "start_time": 37.28,
+          "end_time": 41.28
+        },
+        {
+          "id": 14,
+          "text": "可能这个周末吧",
+          "start_time": 41.28,
+          "end_time": 44.28
+        },
+        {
+          "id": 15,
+          "text": "如果你有空",
+          "start_time": 44.28,
+          "end_time": 46.28
+        },
+        {
+          "id": 16,
+          "text": "我在跟他约时间",
+          "start_time": 46.28,
+          "end_time": 49.28
+        },
+        {
+          "id": 17,
+          "text": "有空啊",
+          "start_time": 49.28,
+          "end_time": 51.28
+        },
+        {
+          "id": 18,
+          "text": "但是我明天不会来学校",
+          "start_time": 51.28,
+          "end_time": 55.28
+        },
+        {
+          "id": 19,
+          "text": "等你决定了",
+          "start_time": 55.28,
+          "end_time": 57.28
+        },
+        {
+          "id": 20,
+          "text": "再给我打电话吧",
+          "start_time": 57.28,
+          "end_time": 59.28
         }
       ]
     },
@@ -48218,57 +49910,147 @@
       "script_json": [
         {
           "id": 1,
-          "text": "今天我跟一個日本女生見面，她姓小林，叫友美。",
-          "start_time": 0.1,
-          "end_time": 5.22
+          "text": "我的新朋友",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "我們是在網路上認識的。",
-          "start_time": 5.17,
-          "end_time": 7.99
+          "text": "今天我跟一个日本女生见面",
+          "start_time": 3.0,
+          "end_time": 8.0
         },
         {
           "id": 3,
-          "text": "友美看了我寫的文章，留言給我，她覺得我很有趣。",
-          "start_time": 7.99,
-          "end_time": 13.14
+          "text": "她姓小林叫油美",
+          "start_time": 8.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "我們常上網聊天，上個星期我寄了張卡片給她，約她見面。",
-          "start_time": 13.14,
-          "end_time": 19.12
+          "text": "我们是在网路上认识的",
+          "start_time": 11.0,
+          "end_time": 15.0
         },
         {
           "id": 5,
-          "text": "我們在一家餐廳見面，友美的同學也來了。",
-          "start_time": 19.12,
-          "end_time": 23.32
+          "text": "油美看了我写的文章",
+          "start_time": 15.0,
+          "end_time": 18.0
         },
         {
           "id": 6,
-          "text": "那家餐廳很有名，菜單也做得很好看、很特別。",
-          "start_time": 23.32,
-          "end_time": 28.5
+          "text": "留言给我",
+          "start_time": 18.0,
+          "end_time": 20.0
         },
         {
           "id": 7,
-          "text": "我們點了幾盤菜，然後開始聊天，聊得很開心，也一起照了幾張相片。",
-          "start_time": 28.5,
-          "end_time": 35.6
+          "text": "她觉得我很有趣",
+          "start_time": 20.0,
+          "end_time": 23.0
         },
         {
           "id": 8,
-          "text": "今天我的心情真好，因為友美太可愛了！",
-          "start_time": 35.6,
-          "end_time": 39.73
+          "text": "我们常上网聊天",
+          "start_time": 23.0,
+          "end_time": 26.0
         },
         {
           "id": 9,
-          "text": "我還想再約她出去，希望以後機會常常跟她見面、聊天。",
-          "start_time": 39.73,
-          "end_time": 45.69
+          "text": "上个星期我记了张卡片给她",
+          "start_time": 26.0,
+          "end_time": 30.0
+        },
+        {
+          "id": 10,
+          "text": "约她见面",
+          "start_time": 30.0,
+          "end_time": 32.0
+        },
+        {
+          "id": 11,
+          "text": "我们在一家餐厅见面",
+          "start_time": 32.0,
+          "end_time": 35.0
+        },
+        {
+          "id": 12,
+          "text": "油美的同学也来了",
+          "start_time": 35.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 13,
+          "text": "那家餐厅很有名",
+          "start_time": 38.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 14,
+          "text": "菜单也做得很好看",
+          "start_time": 40.0,
+          "end_time": 43.0
+        },
+        {
+          "id": 15,
+          "text": "很特别",
+          "start_time": 43.0,
+          "end_time": 44.0
+        },
+        {
+          "id": 16,
+          "text": "我们点了几盘菜",
+          "start_time": 44.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 17,
+          "text": "然后开始聊天",
+          "start_time": 47.0,
+          "end_time": 50.0
+        },
+        {
+          "id": 18,
+          "text": "聊得很开心",
+          "start_time": 50.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 19,
+          "text": "也一起照了几张相片",
+          "start_time": 52.0,
+          "end_time": 55.0
+        },
+        {
+          "id": 20,
+          "text": "今天我的心情真好",
+          "start_time": 55.0,
+          "end_time": 58.0
+        },
+        {
+          "id": 21,
+          "text": "因为油美太可爱了",
+          "start_time": 58.0,
+          "end_time": 61.0
+        },
+        {
+          "id": 22,
+          "text": "我还想再约她出去",
+          "start_time": 61.0,
+          "end_time": 64.0
+        },
+        {
+          "id": 23,
+          "text": "希望以后有机会",
+          "start_time": 64.0,
+          "end_time": 67.0
+        },
+        {
+          "id": 24,
+          "text": "常常跟她见面聊天",
+          "start_time": 67.0,
+          "end_time": 71.0
         }
       ]
     }
@@ -48667,69 +50449,147 @@
       "script_json": [
         {
           "id": 1,
-          "text": "國安：喂，中明，半個小時以前我寄了一封電子郵件給你，你看到了嗎？",
-          "start_time": 0.1,
-          "end_time": 7.14
+          "text": "中明半个小时以前我进了一封电子邮件给你",
+          "start_time": 0.0,
+          "end_time": 7.0
         },
         {
           "id": 2,
-          "text": "中明：剛剛我的手機網路有點兒問題，不能看電子郵件，你寄的是什麼？",
-          "start_time": 7.09,
-          "end_time": 14.12
+          "text": "你看到了吗",
+          "start_time": 7.0,
+          "end_time": 9.0
         },
         {
           "id": 3,
-          "text": "國安：博物館的網址。",
-          "start_time": 14.12,
-          "end_time": 16.84
+          "text": "刚刚我的手机网路有点问题",
+          "start_time": 9.0,
+          "end_time": 14.0
         },
         {
           "id": 4,
-          "text": "下禮拜六老師要帶我們去參觀，你可以先看看。",
-          "start_time": 16.84,
-          "end_time": 21.73
+          "text": "不能看电子邮件",
+          "start_time": 14.0,
+          "end_time": 17.0
         },
         {
           "id": 5,
-          "text": "中明：好。",
-          "start_time": 21.73,
-          "end_time": 23.65
+          "text": "你记得是什么",
+          "start_time": 17.0,
+          "end_time": 19.0
         },
         {
           "id": 6,
-          "text": "看看手機）現在沒問題了，我看到了。",
-          "start_time": 23.65,
-          "end_time": 28.0
+          "text": "我误管的王子",
+          "start_time": 19.0,
+          "end_time": 22.0
         },
         {
           "id": 7,
-          "text": "國安：網站上有地址，那個地方在我家附近，從我家出去，往右轉，差不多五分鐘就到了。",
-          "start_time": 28.0,
-          "end_time": 37.04
+          "text": "下礼拜六",
+          "start_time": 22.0,
+          "end_time": 24.0
         },
         {
           "id": 8,
-          "text": "中明：我們應該幾點到？",
-          "start_time": 37.04,
-          "end_time": 39.96
+          "text": "老师要带我们去参观",
+          "start_time": 24.0,
+          "end_time": 27.0
         },
         {
           "id": 9,
-          "text": "國安：早上九點在博物館門口見，要記得準時到。",
-          "start_time": 39.96,
-          "end_time": 45.11
+          "text": "你可以先看看",
+          "start_time": 27.0,
+          "end_time": 30.0
         },
         {
           "id": 10,
-          "text": "中明：我們上個星期六去運動的時候，我到得太晚，真不好意思。",
-          "start_time": 45.11,
-          "end_time": 51.64
+          "text": "好",
+          "start_time": 30.0,
+          "end_time": 31.0
         },
         {
           "id": 11,
-          "text": "下個星期我一定會準時。",
-          "start_time": 51.64,
-          "end_time": 54.6
+          "text": "现在没问题了",
+          "start_time": 31.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 12,
+          "text": "我看到了",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 13,
+          "text": "网站上有地址",
+          "start_time": 36.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 14,
+          "text": "那个地方在我家附近",
+          "start_time": 38.0,
+          "end_time": 41.0
+        },
+        {
+          "id": 15,
+          "text": "从我家出去",
+          "start_time": 41.0,
+          "end_time": 43.0
+        },
+        {
+          "id": 16,
+          "text": "网右转",
+          "start_time": 43.0,
+          "end_time": 45.0
+        },
+        {
+          "id": 17,
+          "text": "差不多五分钟就到了",
+          "start_time": 45.0,
+          "end_time": 49.0
+        },
+        {
+          "id": 18,
+          "text": "我们应该几点到",
+          "start_time": 49.0,
+          "end_time": 52.0
+        },
+        {
+          "id": 19,
+          "text": "早上九点在博物馆门口见",
+          "start_time": 52.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 20,
+          "text": "要记得准时到",
+          "start_time": 56.0,
+          "end_time": 59.0
+        },
+        {
+          "id": 21,
+          "text": "我们上个星期六去运动的时候",
+          "start_time": 59.0,
+          "end_time": 64.0
+        },
+        {
+          "id": 22,
+          "text": "我到的太晚",
+          "start_time": 64.0,
+          "end_time": 66.0
+        },
+        {
+          "id": 23,
+          "text": "真不好意思",
+          "start_time": 66.0,
+          "end_time": 68.0
+        },
+        {
+          "id": 24,
+          "text": "下个星期我一定会准时",
+          "start_time": 68.0,
+          "end_time": 72.0
         }
       ]
     },
@@ -48742,81 +50602,147 @@
       "script_json": [
         {
           "id": 1,
-          "text": "老師：博物館五分鐘以後就要開門了，大家都到了吧？",
-          "start_time": 0.1,
-          "end_time": 5.58
+          "text": "博物馆五分钟以后就要开门了",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "國安：中明說他快要到了。",
-          "start_time": 5.53,
-          "end_time": 8.68
+          "text": "大家都到了吧",
+          "start_time": 4.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "家樂：老師，我們要不要先去排隊買票？",
-          "start_time": 8.68,
-          "end_time": 13.24
+          "text": "中明说他快要到了",
+          "start_time": 6.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "老師：差不多需要排十分鐘的隊，那好吧，我們先去排隊。",
-          "start_time": 13.24,
-          "end_time": 19.51
+          "text": "老师我们要不要先去排队买票",
+          "start_time": 10.0,
+          "end_time": 15.0
         },
         {
           "id": 5,
-          "text": "老師：今天我們打算參觀三個小時，會有人給我們介紹。",
-          "start_time": 19.51,
-          "end_time": 25.38
+          "text": "差不多需要排十分钟的队",
+          "start_time": 15.0,
+          "end_time": 18.0
         },
         {
           "id": 6,
-          "text": "進去以後，記得要安靜，不可以說話說得太大聲。",
-          "start_time": 25.38,
-          "end_time": 30.35
+          "text": "那好吧",
+          "start_time": 18.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "家樂：老師，我剛剛先用手機上網看了很多有趣的圖片，真想馬上就看到博物館裡的東西。",
-          "start_time": 30.35,
-          "end_time": 39.24
+          "text": "我们先去排队",
+          "start_time": 19.0,
+          "end_time": 22.0
         },
         {
           "id": 8,
-          "text": "老師：我知道你非常喜歡歷史，我想你今天一定會很開心。",
-          "start_time": 39.24,
-          "end_time": 45.26
+          "text": "今天我们打算参观三个小时",
+          "start_time": 22.0,
+          "end_time": 26.0
         },
         {
           "id": 9,
-          "text": "家樂：我也在網路上找了很多文章，那些介紹和故事都非常有趣。",
-          "start_time": 45.26,
-          "end_time": 51.89
+          "text": "会有人给我们介绍",
+          "start_time": 26.0,
+          "end_time": 29.0
         },
         {
           "id": 10,
-          "text": "老師：那如果大家有問題就可以問你了。",
-          "start_time": 51.89,
-          "end_time": 56.34
+          "text": "进去以后记得要安静",
+          "start_time": 29.0,
+          "end_time": 32.0
         },
         {
           "id": 11,
-          "text": "家樂：要是我知道，一定會告訴大家！",
-          "start_time": 56.34,
-          "end_time": 60.56
+          "text": "不可以说话说得太大声",
+          "start_time": 32.0,
+          "end_time": 35.0
         },
         {
           "id": 12,
-          "text": "國安：中明來了！",
-          "start_time": 60.56,
-          "end_time": 62.95
+          "text": "老师",
+          "start_time": 36.0,
+          "end_time": 37.0
         },
         {
           "id": 13,
-          "text": "老師：好，我們進去參觀吧。",
-          "start_time": 62.95,
-          "end_time": 66.51
+          "text": "我刚刚先用手机上网看了很多有趣的图片",
+          "start_time": 37.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 14,
+          "text": "真想马上就看到博物馆里的东西",
+          "start_time": 42.0,
+          "end_time": 47.0
+        },
+        {
+          "id": 15,
+          "text": "我知道你非常喜欢历史",
+          "start_time": 47.0,
+          "end_time": 50.0
+        },
+        {
+          "id": 16,
+          "text": "我想你今天一定会很开心",
+          "start_time": 50.0,
+          "end_time": 55.0
+        },
+        {
+          "id": 17,
+          "text": "我也在网路上找了很多文章",
+          "start_time": 55.0,
+          "end_time": 59.0
+        },
+        {
+          "id": 18,
+          "text": "那些介绍和故事都非常有趣",
+          "start_time": 59.0,
+          "end_time": 63.0
+        },
+        {
+          "id": 19,
+          "text": "那如果大家有问题",
+          "start_time": 63.0,
+          "end_time": 66.0
+        },
+        {
+          "id": 20,
+          "text": "就可以问你了",
+          "start_time": 66.0,
+          "end_time": 68.0
+        },
+        {
+          "id": 21,
+          "text": "要是我知道一定会告诉大家",
+          "start_time": 68.0,
+          "end_time": 73.0
+        },
+        {
+          "id": 22,
+          "text": "中明来了",
+          "start_time": 73.0,
+          "end_time": 76.0
+        },
+        {
+          "id": 23,
+          "text": "好",
+          "start_time": 76.0,
+          "end_time": 77.0
+        },
+        {
+          "id": 24,
+          "text": "我们进去参观吧",
+          "start_time": 77.0,
+          "end_time": 79.0
         }
       ]
     },
@@ -48829,69 +50755,159 @@
       "script_json": [
         {
           "id": 1,
-          "text": "我們一天用幾個小時的手機呢？",
-          "start_time": 0.1,
-          "end_time": 3.33
+          "text": "手机和我们的生活",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "打電話、算錢、看天氣、看地圖、看朋友的留言，都需要手機。",
-          "start_time": 3.27,
-          "end_time": 10.51
+          "text": "我们一天用几个小时的手机呢",
+          "start_time": 4.0,
+          "end_time": 9.0
         },
         {
           "id": 3,
-          "text": "我上個星期坐捷運去參觀一個科學展。",
-          "start_time": 10.51,
-          "end_time": 14.53
+          "text": "打电话",
+          "start_time": 9.0,
+          "end_time": 11.0
         },
         {
           "id": 4,
-          "text": "出了捷運站以後，我不知道往哪個方向走，馬上看了手機的網路地圖，然後就知道怎麼走了。",
-          "start_time": 14.53,
-          "end_time": 23.11
+          "text": "算钱",
+          "start_time": 11.0,
+          "end_time": 12.0
         },
         {
           "id": 5,
-          "text": "我從捷運站出去，先往右轉，過了第一個十字路口，再走五分鐘就到了。",
-          "start_time": 23.11,
-          "end_time": 30.2
+          "text": "看天气",
+          "start_time": 12.0,
+          "end_time": 14.0
         },
         {
           "id": 6,
-          "text": "有手機真方便！",
-          "start_time": 30.2,
-          "end_time": 32.3
+          "text": "看地图",
+          "start_time": 14.0,
+          "end_time": 15.0
         },
         {
           "id": 7,
-          "text": "我們每天從家裡出去以後，最怕什麼事？",
-          "start_time": 32.3,
-          "end_time": 36.58
+          "text": "看朋友的留言",
+          "start_time": 15.0,
+          "end_time": 17.0
         },
         {
           "id": 8,
-          "text": "忘了帶錢？",
-          "start_time": 36.58,
-          "end_time": 38.3
+          "text": "都需要手机",
+          "start_time": 17.0,
+          "end_time": 19.0
         },
         {
           "id": 9,
-          "text": "忘了帶手機？",
-          "start_time": 38.3,
-          "end_time": 40.16
+          "text": "我上个星期",
+          "start_time": 19.0,
+          "end_time": 21.0
         },
         {
           "id": 10,
-          "text": "還是手機壞了？",
-          "start_time": 40.16,
-          "end_time": 42.24
+          "text": "做捷运去参观一个科学展",
+          "start_time": 21.0,
+          "end_time": 25.0
         },
         {
           "id": 11,
-          "text": "如果世界上沒有手機了，我們的生活會怎麼樣呢？",
-          "start_time": 42.24,
-          "end_time": 47.02
+          "text": "除了捷运站以后",
+          "start_time": 25.0,
+          "end_time": 27.0
+        },
+        {
+          "id": 12,
+          "text": "我不知道往哪个方向走",
+          "start_time": 27.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 13,
+          "text": "马上看了手机的网路地图",
+          "start_time": 31.0,
+          "end_time": 34.0
+        },
+        {
+          "id": 14,
+          "text": "然后就知道怎么走了",
+          "start_time": 34.0,
+          "end_time": 38.0
+        },
+        {
+          "id": 15,
+          "text": "我从捷运站出去",
+          "start_time": 38.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 16,
+          "text": "先往右转",
+          "start_time": 40.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 17,
+          "text": "过了第一个十字路口",
+          "start_time": 42.0,
+          "end_time": 45.0
+        },
+        {
+          "id": 18,
+          "text": "再走五分钟就到了",
+          "start_time": 45.0,
+          "end_time": 48.0
+        },
+        {
+          "id": 19,
+          "text": "有手机真方便",
+          "start_time": 48.0,
+          "end_time": 51.0
+        },
+        {
+          "id": 20,
+          "text": "我们每天从家里出去以后",
+          "start_time": 51.0,
+          "end_time": 55.0
+        },
+        {
+          "id": 21,
+          "text": "最怕什么事",
+          "start_time": 55.0,
+          "end_time": 57.0
+        },
+        {
+          "id": 22,
+          "text": "忘了带钱",
+          "start_time": 57.0,
+          "end_time": 59.0
+        },
+        {
+          "id": 23,
+          "text": "忘了带手机",
+          "start_time": 59.0,
+          "end_time": 61.0
+        },
+        {
+          "id": 24,
+          "text": "还是手机坏了",
+          "start_time": 61.0,
+          "end_time": 64.0
+        },
+        {
+          "id": 25,
+          "text": "如果世界上没有手机了",
+          "start_time": 64.0,
+          "end_time": 68.0
+        },
+        {
+          "id": 26,
+          "text": "我们的生活会怎么样呢",
+          "start_time": 68.0,
+          "end_time": 73.76
         }
       ]
     }
@@ -49248,45 +51264,63 @@
       "script_json": [
         {
           "id": 1,
-          "text": "媽媽：今天是星期一，你不去學校嗎？",
-          "start_time": 0.1,
-          "end_time": 4.46
+          "text": "今天是星期一",
+          "start_time": 0.0,
+          "end_time": 4.83
         },
         {
           "id": 2,
-          "text": "中明：我早上沒有課，九點去圖書館。",
-          "start_time": 4.41,
-          "end_time": 8.79
+          "text": "你不去学校吗",
+          "start_time": 4.83,
+          "end_time": 7.83
         },
         {
           "id": 3,
-          "text": "媽媽：中午呢？",
-          "start_time": 8.79,
-          "end_time": 10.99
+          "text": "我早上没有课",
+          "start_time": 7.83,
+          "end_time": 10.83
         },
         {
           "id": 4,
-          "text": "你中午回家嗎？",
-          "start_time": 10.99,
-          "end_time": 13.06
+          "text": "九点去图书馆",
+          "start_time": 10.83,
+          "end_time": 13.83
         },
         {
           "id": 5,
-          "text": "中明：我下午有課，中午不回家。",
-          "start_time": 13.06,
-          "end_time": 16.96
+          "text": "中午呢",
+          "start_time": 13.83,
+          "end_time": 15.83
         },
         {
           "id": 6,
-          "text": "媽媽：你幾點下課？",
-          "start_time": 16.96,
-          "end_time": 19.56
+          "text": "你中午回家吗",
+          "start_time": 15.83,
+          "end_time": 18.83
         },
         {
           "id": 7,
-          "text": "中明：我四點四十分下課。",
-          "start_time": 19.56,
-          "end_time": 22.88
+          "text": "我下午有课",
+          "start_time": 18.83,
+          "end_time": 20.83
+        },
+        {
+          "id": 8,
+          "text": "中午不回家",
+          "start_time": 20.83,
+          "end_time": 23.83
+        },
+        {
+          "id": 9,
+          "text": "你几点下课",
+          "start_time": 23.83,
+          "end_time": 26.83
+        },
+        {
+          "id": 10,
+          "text": "我四点四十分下课",
+          "start_time": 26.83,
+          "end_time": 30.83
         }
       ]
     },
@@ -49299,51 +51333,75 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：今天是星期五，明天是週末，你們要不要來我家？",
-          "start_time": 0.1,
-          "end_time": 5.95
+          "text": "今天是星期五",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "中明：明天是九月二十三號……啊！",
-          "start_time": 5.9,
-          "end_time": 9.76
+          "text": "明天是周末",
+          "start_time": 4.0,
+          "end_time": 7.0
         },
         {
           "id": 3,
-          "text": "是妳的生日！",
-          "start_time": 9.76,
-          "end_time": 11.65
+          "text": "你们要不要来我家",
+          "start_time": 7.0,
+          "end_time": 10.0
         },
         {
           "id": 4,
-          "text": "友美：宜文，生日快樂！",
-          "start_time": 11.65,
-          "end_time": 14.96
+          "text": "明天是九月二十三号",
+          "start_time": 10.0,
+          "end_time": 14.0
         },
         {
           "id": 5,
-          "text": "宜文：謝謝！",
-          "start_time": 14.96,
-          "end_time": 17.15
+          "text": "是你的生日",
+          "start_time": 14.0,
+          "end_time": 18.0
         },
         {
           "id": 6,
-          "text": "明天晚上六點來我家，好不好？",
-          "start_time": 17.15,
-          "end_time": 20.68
+          "text": "一文 生日快乐",
+          "start_time": 18.0,
+          "end_time": 22.0
         },
         {
           "id": 7,
-          "text": "中明：沒問題。",
-          "start_time": 20.68,
-          "end_time": 23.12
+          "text": "谢谢",
+          "start_time": 22.0,
+          "end_time": 24.0
         },
         {
           "id": 8,
-          "text": "友美：好，明天見。",
-          "start_time": 23.12,
-          "end_time": 25.95
+          "text": "明天晚上六点来我家",
+          "start_time": 24.0,
+          "end_time": 28.0
+        },
+        {
+          "id": 9,
+          "text": "好不好",
+          "start_time": 28.0,
+          "end_time": 30.0
+        },
+        {
+          "id": 10,
+          "text": "没问题",
+          "start_time": 30.0,
+          "end_time": 32.0
+        },
+        {
+          "id": 11,
+          "text": "好",
+          "start_time": 32.0,
+          "end_time": 34.0
+        },
+        {
+          "id": 12,
+          "text": "明天见",
+          "start_time": 34.0,
+          "end_time": 36.0
         }
       ]
     },
@@ -49356,21 +51414,81 @@
       "script_json": [
         {
           "id": 1,
-          "text": "友美是學生，十九歲。",
-          "start_time": 0.1,
-          "end_time": 3.05
+          "text": "有美做什么",
+          "start_time": 0.0,
+          "end_time": 3.0
         },
         {
           "id": 2,
-          "text": "她早上六點三十分起床，七點去學校，八點四十分上課；中午十二點下課、吃午飯；下午一點去圖書館；四點回家做飯，晚上六點吃飯，十點睡覺。",
+          "text": "有美是学生",
           "start_time": 3.0,
-          "end_time": 17.74
+          "end_time": 7.0
         },
         {
           "id": 3,
-          "text": "友美很忙！",
-          "start_time": 17.74,
-          "end_time": 19.51
+          "text": "十九岁",
+          "start_time": 7.0,
+          "end_time": 9.0
+        },
+        {
+          "id": 4,
+          "text": "他早上六点三十分起床",
+          "start_time": 9.0,
+          "end_time": 13.0
+        },
+        {
+          "id": 5,
+          "text": "七点去学校",
+          "start_time": 13.0,
+          "end_time": 16.0
+        },
+        {
+          "id": 6,
+          "text": "八点四十分上课",
+          "start_time": 16.0,
+          "end_time": 19.0
+        },
+        {
+          "id": 7,
+          "text": "中午十二点下课",
+          "start_time": 19.0,
+          "end_time": 22.0
+        },
+        {
+          "id": 8,
+          "text": "吃午饭",
+          "start_time": 22.0,
+          "end_time": 24.0
+        },
+        {
+          "id": 9,
+          "text": "下午一点去图书馆",
+          "start_time": 24.0,
+          "end_time": 28.0
+        },
+        {
+          "id": 10,
+          "text": "四点回家做饭",
+          "start_time": 28.0,
+          "end_time": 31.0
+        },
+        {
+          "id": 11,
+          "text": "晚上六点吃饭",
+          "start_time": 31.0,
+          "end_time": 34.0
+        },
+        {
+          "id": 12,
+          "text": "十点睡觉",
+          "start_time": 34.0,
+          "end_time": 37.0
+        },
+        {
+          "id": 13,
+          "text": "有美很忙",
+          "start_time": 37.0,
+          "end_time": 39.0
         }
       ]
     }
@@ -49787,93 +51905,195 @@
       "script_json": [
         {
           "id": 1,
-          "text": "老師：家樂，你在台灣住了多久了？",
-          "start_time": 0.1,
-          "end_time": 4.24
+          "text": "家乐",
+          "start_time": 0.0,
+          "end_time": 2.83
         },
         {
           "id": 2,
-          "text": "參加過台灣的新年活動嗎？",
-          "start_time": 4.19,
-          "end_time": 7.17
+          "text": "你在台湾住了多久了",
+          "start_time": 2.83,
+          "end_time": 5.83
         },
         {
           "id": 3,
-          "text": "家樂：我在台灣住了半年了，這是我第一次在台灣過新年。",
-          "start_time": 7.17,
-          "end_time": 12.85
+          "text": "参加过台湾的新年活动吗",
+          "start_time": 5.83,
+          "end_time": 10.83
         },
         {
           "id": 4,
-          "text": "台灣人在一年的最後一天有什麼特別的活動？",
-          "start_time": 12.85,
-          "end_time": 17.18
+          "text": "我在台湾住了半年了",
+          "start_time": 10.83,
+          "end_time": 13.83
         },
         {
           "id": 5,
-          "text": "老師：十二月三十一號的晚上，很多城市都有跨年晚會，我最喜歡的是台北 101 的演唱會，有很多表演，又熱鬧又好看。",
-          "start_time": 17.18,
-          "end_time": 29.09
+          "text": "这是我第一次在台湾过新年",
+          "start_time": 13.83,
+          "end_time": 17.83
         },
         {
           "id": 6,
-          "text": "家樂：跟朋友一起去一定會很有意思，大家要不要一起去？",
-          "start_time": 29.09,
-          "end_time": 34.77
+          "text": "台湾人在一年的最后一天",
+          "start_time": 17.83,
+          "end_time": 20.83
         },
         {
           "id": 7,
-          "text": "老師：如果大家要去跨年，要多帶一件衣服。",
-          "start_time": 34.77,
-          "end_time": 39.71
+          "text": "有什么特别的活动",
+          "start_time": 20.83,
+          "end_time": 23.83
         },
         {
           "id": 8,
-          "text": "去年我在那裡站了一晚，因為時間太久，天氣也太冷，回家以後就感冒了。",
-          "start_time": 39.71,
-          "end_time": 47.12
+          "text": "12月31号的晚上",
+          "start_time": 23.83,
+          "end_time": 27.83
         },
         {
           "id": 9,
-          "text": "宜文：我家在台北 101 大樓附近，大家可以先來我家，我們一起吃晚飯，再去看演唱會。",
-          "start_time": 47.12,
-          "end_time": 55.7
+          "text": "很多城市都有跨年晚会",
+          "start_time": 27.83,
+          "end_time": 31.83
         },
         {
           "id": 10,
-          "text": "國安：太好了！",
-          "start_time": 55.7,
-          "end_time": 57.89
+          "text": "我最喜欢的是台北101的演唱会",
+          "start_time": 31.83,
+          "end_time": 36.83
         },
         {
           "id": 11,
-          "text": "我們可以每個人都準備一些好吃的東西。",
-          "start_time": 57.89,
-          "end_time": 61.79
+          "text": "有很多表演",
+          "start_time": 36.83,
+          "end_time": 38.83
         },
         {
           "id": 12,
-          "text": "宜文：老師，請您也跟大家一起來我家，好嗎？",
-          "start_time": 61.79,
-          "end_time": 66.95
+          "text": "又热闹 又好看",
+          "start_time": 38.83,
+          "end_time": 41.83
         },
         {
           "id": 13,
-          "text": "老師：好啊！",
-          "start_time": 66.95,
-          "end_time": 69.05
+          "text": "跟朋友一起去",
+          "start_time": 41.83,
+          "end_time": 44.83
         },
         {
           "id": 14,
-          "text": "那我也準備一些飲料。",
-          "start_time": 69.05,
-          "end_time": 71.54
+          "text": "一定会很有意思",
+          "start_time": 44.83,
+          "end_time": 46.83
         },
         {
           "id": 15,
-          "text": "大家一起跨年吧！",
-          "start_time": 71.54,
-          "end_time": 73.78
+          "text": "大家要不要一起去",
+          "start_time": 46.83,
+          "end_time": 49.83
+        },
+        {
+          "id": 16,
+          "text": "如果大家要去跨年",
+          "start_time": 49.83,
+          "end_time": 52.83
+        },
+        {
+          "id": 17,
+          "text": "要多带一件衣服",
+          "start_time": 52.83,
+          "end_time": 55.83
+        },
+        {
+          "id": 18,
+          "text": "去年我在那里站了一晚",
+          "start_time": 55.83,
+          "end_time": 59.83
+        },
+        {
+          "id": 19,
+          "text": "因为时间太久",
+          "start_time": 59.83,
+          "end_time": 61.83
+        },
+        {
+          "id": 20,
+          "text": "天气也太冷",
+          "start_time": 61.83,
+          "end_time": 63.83
+        },
+        {
+          "id": 21,
+          "text": "回家以后就感冒了",
+          "start_time": 63.83,
+          "end_time": 67.83
+        },
+        {
+          "id": 22,
+          "text": "我家在台北101大楼附近",
+          "start_time": 67.83,
+          "end_time": 71.83
+        },
+        {
+          "id": 23,
+          "text": "大家可以先来我家",
+          "start_time": 71.83,
+          "end_time": 74.83
+        },
+        {
+          "id": 24,
+          "text": "我们一起吃晚饭",
+          "start_time": 74.83,
+          "end_time": 77.83
+        },
+        {
+          "id": 25,
+          "text": "再去看演唱会",
+          "start_time": 77.83,
+          "end_time": 80.83
+        },
+        {
+          "id": 26,
+          "text": "太好了",
+          "start_time": 80.83,
+          "end_time": 81.83
+        },
+        {
+          "id": 27,
+          "text": "我们可以每个人都准备一些好吃的东西",
+          "start_time": 81.83,
+          "end_time": 86.83
+        },
+        {
+          "id": 28,
+          "text": "老师",
+          "start_time": 86.83,
+          "end_time": 88.83
+        },
+        {
+          "id": 29,
+          "text": "请您也跟大家一起来我家 好吗",
+          "start_time": 88.83,
+          "end_time": 93.83
+        },
+        {
+          "id": 30,
+          "text": "好啊",
+          "start_time": 93.83,
+          "end_time": 95.83
+        },
+        {
+          "id": 31,
+          "text": "那我也准备一些饮料",
+          "start_time": 95.83,
+          "end_time": 98.83
+        },
+        {
+          "id": 32,
+          "text": "大家一起跨年吧",
+          "start_time": 98.83,
+          "end_time": 100.83
         }
       ]
     },
@@ -49886,105 +52106,213 @@
       "script_json": [
         {
           "id": 1,
-          "text": "宜文：歡迎大家，請進！",
-          "start_time": 0.1,
-          "end_time": 3.33
+          "text": "欢迎大家 请进",
+          "start_time": 0.0,
+          "end_time": 4.0
         },
         {
           "id": 2,
-          "text": "家樂：謝謝！",
-          "start_time": 3.27,
-          "end_time": 5.41
+          "text": "谢谢",
+          "start_time": 4.0,
+          "end_time": 6.0
         },
         {
           "id": 3,
-          "text": "妳家前面的公園有很多花跟樹，環境真好！",
-          "start_time": 5.41,
-          "end_time": 10.12
+          "text": "你家前面的公园",
+          "start_time": 6.0,
+          "end_time": 8.0
         },
         {
           "id": 4,
-          "text": "國安：我跟友美買了幾瓶酒，也帶了大家都喜歡的餃子、包子和牛肉湯。",
-          "start_time": 10.12,
-          "end_time": 17.09
+          "text": "有很多花跟树 环境真好",
+          "start_time": 8.0,
+          "end_time": 12.0
         },
         {
           "id": 5,
-          "text": "宜文：這麼多東西很重吧？",
-          "start_time": 17.09,
-          "end_time": 20.38
+          "text": "我跟游美买了几瓶酒",
+          "start_time": 12.0,
+          "end_time": 16.0
         },
         {
           "id": 6,
-          "text": "國安：不重，我很高興能幫大家準備。",
-          "start_time": 20.38,
-          "end_time": 24.57
+          "text": "也带了大家都喜欢的饺子",
+          "start_time": 16.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "老師：我買了珍珠奶茶，希望大家會喜歡。",
-          "start_time": 24.57,
-          "end_time": 29.3
+          "text": "包子和牛肉汤",
+          "start_time": 19.0,
+          "end_time": 22.0
         },
         {
           "id": 8,
-          "text": "宜文：大家準備了這麼多東西。",
-          "start_time": 29.3,
-          "end_time": 32.83
+          "text": "这么多东西很重吧",
+          "start_time": 22.0,
+          "end_time": 25.0
         },
         {
           "id": 9,
-          "text": "老師，請您先拿吧！",
-          "start_time": 32.83,
-          "end_time": 35.59
+          "text": "不重",
+          "start_time": 25.0,
+          "end_time": 27.0
         },
         {
           "id": 10,
-          "text": "家樂：老師，跨年的時候，如果不想去看演唱會，還有別的活動嗎？",
-          "start_time": 35.59,
-          "end_time": 42.6
+          "text": "我很高兴能帮大家准备",
+          "start_time": 27.0,
+          "end_time": 31.0
         },
         {
           "id": 11,
-          "text": "老師：有啊！",
-          "start_time": 42.6,
-          "end_time": 44.74
+          "text": "我买了珍珠奶茶",
+          "start_time": 31.0,
+          "end_time": 34.0
         },
         {
           "id": 12,
-          "text": "我小的時候在山上住了七、八年，每一年的第一天，我都跟家人一起看日出。",
-          "start_time": 44.74,
-          "end_time": 52.16
+          "text": "希望大家会喜欢",
+          "start_time": 34.0,
+          "end_time": 37.0
         },
         {
           "id": 13,
-          "text": "家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。",
-          "start_time": 52.16,
-          "end_time": 58.73
+          "text": "大家准备了这么多东西",
+          "start_time": 37.0,
+          "end_time": 40.0
         },
         {
           "id": 14,
-          "text": "友美：在日本，跨年的時候，很多人在家跟家人一起看電視。",
-          "start_time": 58.73,
-          "end_time": 65.11
+          "text": "老师 请您先拿吧",
+          "start_time": 40.0,
+          "end_time": 44.0
         },
         {
           "id": 15,
-          "text": "但是我喜歡和朋友一起跨年，比在家看電視有趣。",
-          "start_time": 65.11,
-          "end_time": 70.33
+          "text": "老师 跨年的时候",
+          "start_time": 44.0,
+          "end_time": 47.0
         },
         {
           "id": 16,
-          "text": "國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。",
-          "start_time": 70.33,
-          "end_time": 80.14
+          "text": "如果不想去看演唱会",
+          "start_time": 47.0,
+          "end_time": 50.0
         },
         {
           "id": 17,
-          "text": "宜文：我同意，我也覺得今年很有意思。",
-          "start_time": 80.14,
-          "end_time": 84.5
+          "text": "还有别的活动吗",
+          "start_time": 50.0,
+          "end_time": 53.0
+        },
+        {
+          "id": 18,
+          "text": "有啊",
+          "start_time": 53.0,
+          "end_time": 54.0
+        },
+        {
+          "id": 19,
+          "text": "我小的时候",
+          "start_time": 54.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 20,
+          "text": "在山上住了七八年",
+          "start_time": 56.0,
+          "end_time": 59.0
+        },
+        {
+          "id": 21,
+          "text": "每一年的第一天",
+          "start_time": 59.0,
+          "end_time": 61.0
+        },
+        {
+          "id": 22,
+          "text": "我都跟家人一起看日出",
+          "start_time": 61.0,
+          "end_time": 65.0
+        },
+        {
+          "id": 23,
+          "text": "画年的时候",
+          "start_time": 65.0,
+          "end_time": 67.0
+        },
+        {
+          "id": 24,
+          "text": "英国的教堂有很多活动",
+          "start_time": 67.0,
+          "end_time": 70.0
+        },
+        {
+          "id": 25,
+          "text": "也有人去听音乐会",
+          "start_time": 70.0,
+          "end_time": 74.0
+        },
+        {
+          "id": 26,
+          "text": "在日本画年的时候",
+          "start_time": 74.0,
+          "end_time": 77.0
+        },
+        {
+          "id": 27,
+          "text": "很多人在家跟家人一起看电视",
+          "start_time": 77.0,
+          "end_time": 81.0
+        },
+        {
+          "id": 28,
+          "text": "但是我喜欢和朋友一起画年",
+          "start_time": 81.0,
+          "end_time": 85.0
+        },
+        {
+          "id": 29,
+          "text": "比在家看电视有趣",
+          "start_time": 85.0,
+          "end_time": 88.0
+        },
+        {
+          "id": 30,
+          "text": "我也喜欢跟朋友一起画年",
+          "start_time": 88.0,
+          "end_time": 92.0
+        },
+        {
+          "id": 31,
+          "text": "而且今年比以前有意思多了",
+          "start_time": 92.0,
+          "end_time": 96.0
+        },
+        {
+          "id": 32,
+          "text": "因为在台湾跟你们一起玩",
+          "start_time": 96.0,
+          "end_time": 99.0
+        },
+        {
+          "id": 33,
+          "text": "觉得很特别",
+          "start_time": 99.0,
+          "end_time": 102.0
+        },
+        {
+          "id": 34,
+          "text": "我同意",
+          "start_time": 102.0,
+          "end_time": 104.0
+        },
+        {
+          "id": 35,
+          "text": "我也觉得今年很有意思",
+          "start_time": 104.0,
+          "end_time": 107.0
         }
       ]
     },
@@ -49997,51 +52325,135 @@
       "script_json": [
         {
           "id": 1,
-          "text": "一年的最後一天，每個國家都有慶祝跨年的活動。",
-          "start_time": 0.1,
-          "end_time": 4.96
+          "text": "跨年",
+          "start_time": 0.0,
+          "end_time": 2.0
         },
         {
           "id": 2,
-          "text": "參加這些活動的年輕人很多，他們喜歡跟朋友去熱鬧的地方玩。",
-          "start_time": 4.91,
-          "end_time": 11.03
+          "text": "一年的最后一天",
+          "start_time": 2.0,
+          "end_time": 4.0
         },
         {
           "id": 3,
-          "text": "在臺灣，年輕人最喜歡的跨年活動是去看演唱會。",
-          "start_time": 11.03,
-          "end_time": 16.23
+          "text": "每个国家都有庆祝跨年的活动",
+          "start_time": 4.0,
+          "end_time": 9.0
         },
         {
           "id": 4,
-          "text": "但是，交通是一個問題，需要很多警察在捷運站幫忙，因為人真的太多了，如果不小心，可能會受傷，所以有的人覺得在家裡看電視比出去玩好。",
-          "start_time": 16.23,
-          "end_time": 29.66
+          "text": "参加这些活动的年轻人很多",
+          "start_time": 9.0,
+          "end_time": 13.0
         },
         {
           "id": 5,
-          "text": "今年是我第一次在台灣過新年。",
-          "start_time": 29.66,
-          "end_time": 33.12
+          "text": "他们喜欢跟朋友去热闹的地方玩",
+          "start_time": 13.0,
+          "end_time": 17.0
         },
         {
           "id": 6,
-          "text": "我跟老師、同學們先去一個同學家吃晚飯，再去參加101大樓的跨年活動。",
-          "start_time": 33.12,
-          "end_time": 40.49
+          "text": "在台湾",
+          "start_time": 17.0,
+          "end_time": 19.0
         },
         {
           "id": 7,
-          "text": "我覺得最有意思的是看演唱會，很多人一起唱歌、跳舞，真熱鬧。",
-          "start_time": 40.49,
-          "end_time": 47.06
+          "text": "年轻人最喜欢的跨年活动",
+          "start_time": 19.0,
+          "end_time": 23.0
         },
         {
           "id": 8,
-          "text": "我們都覺得今年在台北跨年是一個最特別的經驗。",
-          "start_time": 47.06,
-          "end_time": 51.67
+          "text": "是去看演唱会",
+          "start_time": 23.0,
+          "end_time": 25.0
+        },
+        {
+          "id": 9,
+          "text": "但是交通是一个问题",
+          "start_time": 25.0,
+          "end_time": 29.0
+        },
+        {
+          "id": 10,
+          "text": "需要很多警察在捷运战帮忙",
+          "start_time": 29.0,
+          "end_time": 33.0
+        },
+        {
+          "id": 11,
+          "text": "因为人真的太多了",
+          "start_time": 33.0,
+          "end_time": 36.0
+        },
+        {
+          "id": 12,
+          "text": "如果不小心可能会受伤",
+          "start_time": 36.0,
+          "end_time": 40.0
+        },
+        {
+          "id": 13,
+          "text": "所以有的人觉得",
+          "start_time": 40.0,
+          "end_time": 42.0
+        },
+        {
+          "id": 14,
+          "text": "在家里看电视比出去玩好",
+          "start_time": 42.0,
+          "end_time": 46.0
+        },
+        {
+          "id": 15,
+          "text": "今年是我第一次在台湾过新年",
+          "start_time": 46.0,
+          "end_time": 51.0
+        },
+        {
+          "id": 16,
+          "text": "我跟老师同学们先去一个同学家吃晚饭",
+          "start_time": 51.0,
+          "end_time": 56.0
+        },
+        {
+          "id": 17,
+          "text": "再去参加101大楼的跨年活动",
+          "start_time": 56.0,
+          "end_time": 60.0
+        },
+        {
+          "id": 18,
+          "text": "我觉得最有意思的是看演唱会",
+          "start_time": 60.0,
+          "end_time": 65.0
+        },
+        {
+          "id": 19,
+          "text": "很多人一起唱歌跳舞",
+          "start_time": 65.0,
+          "end_time": 68.0
+        },
+        {
+          "id": 20,
+          "text": "真热闹",
+          "start_time": 68.0,
+          "end_time": 69.0
+        },
+        {
+          "id": 21,
+          "text": "我们都觉得今年在台北跨年",
+          "start_time": 69.0,
+          "end_time": 73.0
+        },
+        {
+          "id": 22,
+          "text": "是一个最特别的经验",
+          "start_time": 73.0,
+          "end_time": 78.4
         }
       ]
     }

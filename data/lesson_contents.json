@@ -42622,17 +42622,167 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 312,
-      "book_id": 7,
-      "lesson_id": 79,
+      "title": "喝下午茶（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "中明：友美，妳這個週末要做什麼？\n友美：我要在家看書、聽音樂。\n中明：妳星期六下午有空嗎？我們一起去喝下午茶，怎麼樣？\n友美：好啊！你想去哪裡？\n中明：我知道一家很不錯的咖啡廳，那裡的冰淇淋很好吃。\n友美：他們有巧克力冰淇淋嗎？\n中明：有啊！他們有很多種冰淇淋。\n友美：我們這個星期六下午兩點半去吧。\n中明：好。",
+      "audio_url": "audio/dialogue/7/bk_79_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：友美，妳這個週末要做什麼？",
+          "start_time": 0.1,
+          "end_time": 4.0
+        },
+        {
+          "id": 2,
+          "text": "友美：我要在家看書、聽音樂。",
+          "start_time": 3.95,
+          "end_time": 7.74
+        },
+        {
+          "id": 3,
+          "text": "中明：妳星期六下午有空嗎？",
+          "start_time": 7.74,
+          "end_time": 11.1
+        },
+        {
+          "id": 4,
+          "text": "我們一起去喝下午茶，怎麼樣？",
+          "start_time": 11.1,
+          "end_time": 14.59
+        },
+        {
+          "id": 5,
+          "text": "友美：好啊！",
+          "start_time": 14.59,
+          "end_time": 16.62
+        },
+        {
+          "id": 6,
+          "text": "你想去哪裡？",
+          "start_time": 16.62,
+          "end_time": 18.57
+        },
+        {
+          "id": 7,
+          "text": "中明：我知道一家很不錯的咖啡廳，那裡的冰淇淋很好吃。",
+          "start_time": 18.57,
+          "end_time": 24.36
+        },
+        {
+          "id": 8,
+          "text": "友美：他們有巧克力冰淇淋嗎？",
+          "start_time": 24.36,
+          "end_time": 27.9
+        },
+        {
+          "id": 9,
+          "text": "中明：有啊！",
+          "start_time": 27.9,
+          "end_time": 30.0
+        },
+        {
+          "id": 10,
+          "text": "他們有很多種冰淇淋。",
+          "start_time": 30.0,
+          "end_time": 32.64
+        },
+        {
+          "id": 11,
+          "text": "友美：我們這個星期六下午兩點半去吧。",
+          "start_time": 32.64,
+          "end_time": 36.79
+        },
+        {
+          "id": 12,
+          "text": "中明：好。",
+          "start_time": 36.79,
+          "end_time": 38.71
+        }
+      ]
+    },
+    {
+      "title": "找錢包（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "中明：媽，我跟友美要去喝下午茶，可是我的錢包不在房間裡。\n媽媽：客廳的桌子上有一個錢包，是不是你的？\n中明：那不是我的，是哥哥的。我的錢包不在客廳裡。\n媽媽：沙發下面呢？\n中明：沙發上面、下面跟旁邊都沒有。媽，妳幫我找，好嗎？\n媽媽：我很忙，現在要去廚房做飯，你再去房間找吧。\n中明：啊！在這裡！錢包在我的書下面。",
+      "audio_url": "audio/dialogue/7/bk_79_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：媽，我跟友美要去喝下午茶，可是我的錢包不在房間裡。",
+          "start_time": 0.1,
+          "end_time": 6.47
+        },
+        {
+          "id": 2,
+          "text": "媽媽：客廳的桌子上有一個錢包，是不是你的？",
+          "start_time": 6.42,
+          "end_time": 11.29
+        },
+        {
+          "id": 3,
+          "text": "中明：那不是我的，是哥哥的。",
+          "start_time": 11.29,
+          "end_time": 14.91
+        },
+        {
+          "id": 4,
+          "text": "我的錢包不在客廳裡。",
+          "start_time": 14.91,
+          "end_time": 17.49
+        },
+        {
+          "id": 5,
+          "text": "媽媽：沙發下面呢？",
+          "start_time": 17.49,
+          "end_time": 20.09
+        },
+        {
+          "id": 6,
+          "text": "中明：沙發上面、下面跟旁邊都沒有。",
+          "start_time": 20.09,
+          "end_time": 24.61
+        },
+        {
+          "id": 7,
+          "text": "媽，妳幫我找，好嗎？",
+          "start_time": 24.61,
+          "end_time": 27.52
+        },
+        {
+          "id": 8,
+          "text": "媽媽：我很忙，現在要去廚房做飯，你再去房間找吧。",
+          "start_time": 27.52,
+          "end_time": 33.26
+        },
+        {
+          "id": 9,
+          "text": "中明：啊！",
+          "start_time": 33.26,
+          "end_time": 35.19
+        },
+        {
+          "id": 10,
+          "text": "在這裡！",
+          "start_time": 35.19,
+          "end_time": 36.7
+        },
+        {
+          "id": 11,
+          "text": "錢包在我的書下面。",
+          "start_time": 36.7,
+          "end_time": 39.24
+        }
+      ]
+    },
+    {
+      "title": "我的房間（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "我的房間",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_79.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "我的房間裡有一張桌子、一張床跟一張沙發。沙發前面有一台很新的電視機，可是我不常看電視，我最喜歡在沙發上看書。我的書很多，有中文書，也有英文書。我房間的窗戶很大，我的貓喜歡在窗戶旁邊曬太陽。",
+      "audio_url": "audio/dialogue/7/bk_79_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -42658,76 +42808,7 @@
           "start_time": 16.4,
           "end_time": 21.62
         }
-      ],
-      "content": "我的房間裡有一張桌子、一張床跟一張沙發。沙發前面有一台很新的電視機，可是我不常看電視，我最喜歡在沙發上看書。我的書很多，有中文書，也有英文書。我房間的窗戶很大，我的貓喜歡在窗戶旁邊曬太陽。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"我的錢包在哪裡？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 錢包、在、哪裡/哪兒、聽、音樂、下午茶.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "我的錢包在哪裡？",
-              "zh": "我的錢包在哪裡？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "77": [
@@ -43074,17 +43155,119 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 306,
-      "book_id": 7,
-      "lesson_id": 77,
+      "title": "友美的生日（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "宜文：明天是友美的生日，我想送她一個禮物。\n中明：妳想送她什麼？\n宜文：友美愛看書，我想送她兩本中文書，你呢？\n中明：我想買一些花和一個大蛋糕。\n宜文：我們一起去買，好不好？\n中明：好啊！",
+      "audio_url": "audio/dialogue/7/bk_77_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：明天是友美的生日，我想送她一個禮物。",
+          "start_time": 0.1,
+          "end_time": 5.08
+        },
+        {
+          "id": 2,
+          "text": "中明：妳想送她什麼？",
+          "start_time": 5.03,
+          "end_time": 7.84
+        },
+        {
+          "id": 3,
+          "text": "宜文：友美愛看書，我想送她兩本中文書，你呢？",
+          "start_time": 7.84,
+          "end_time": 13.21
+        },
+        {
+          "id": 4,
+          "text": "中明：我想買一些花和一個大蛋糕。",
+          "start_time": 13.21,
+          "end_time": 17.09
+        },
+        {
+          "id": 5,
+          "text": "宜文：我們一起去買，好不好？",
+          "start_time": 17.09,
+          "end_time": 20.65
+        },
+        {
+          "id": 6,
+          "text": "中明：好啊！",
+          "start_time": 20.65,
+          "end_time": 22.74
+        }
+      ]
+    },
+    {
+      "title": "買禮物（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "宜文：這種小鉛筆怎麼樣？\n中明：很可愛，友美喜歡可愛的東西。\n宜文：我們買兩枝，好不好？兩枝五十塊錢。\n中明：五十塊錢很便宜！妳看，哪個顏色漂亮？\n宜文：紅色、白色都好看。\n中明：我想友美喜歡白色，她常常穿白色的衣服。\n宜文：好，我們買白的。",
+      "audio_url": "audio/dialogue/7/bk_77_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：這種小鉛筆怎麼樣？",
+          "start_time": 0.1,
+          "end_time": 3.31
+        },
+        {
+          "id": 2,
+          "text": "中明：很可愛，友美喜歡可愛的東西。",
+          "start_time": 3.26,
+          "end_time": 7.54
+        },
+        {
+          "id": 3,
+          "text": "宜文：我們買兩枝，好不好？",
+          "start_time": 7.54,
+          "end_time": 10.99
+        },
+        {
+          "id": 4,
+          "text": "兩枝五十塊錢。",
+          "start_time": 10.99,
+          "end_time": 13.18
+        },
+        {
+          "id": 5,
+          "text": "中明：五十塊錢很便宜！",
+          "start_time": 13.18,
+          "end_time": 16.35
+        },
+        {
+          "id": 6,
+          "text": "妳看，哪個顏色漂亮？",
+          "start_time": 16.35,
+          "end_time": 19.2
+        },
+        {
+          "id": 7,
+          "text": "宜文：紅色、白色都好看。",
+          "start_time": 19.2,
+          "end_time": 22.73
+        },
+        {
+          "id": 8,
+          "text": "中明：我想友美喜歡白色，她常常穿白色的衣服。",
+          "start_time": 22.73,
+          "end_time": 28.01
+        },
+        {
+          "id": 9,
+          "text": "宜文：好，我們買白的。",
+          "start_time": 28.01,
+          "end_time": 31.14
+        }
+      ]
+    },
+    {
+      "title": "友美的生日（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "友美的生日",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_77.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "今天是友美的生日，她請我、中明和國安一起去她家玩。我們送友美花、兩本中文書、兩枝可愛的小鉛筆和一個大蛋糕，她很喜歡這些禮物。友美請我們吃點心和水果，大家都很開心。",
+      "audio_url": "audio/dialogue/7/bk_77_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -43104,76 +43287,7 @@
           "start_time": 14.09,
           "end_time": 18.6
         }
-      ],
-      "content": "今天是友美的生日，她請我、中明和國安一起去她家玩。\n我們送友美花、兩本中文書、兩枝可愛的小鉛筆和一個大蛋糕，她很喜歡這些禮物。友美請我們吃點心和水果，大家都很開心。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"買生日禮物\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 買、禮物、想（要）、送、個、看.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "買生日禮物",
-              "zh": "買生日禮物"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "75": [
@@ -43526,17 +43640,119 @@
       "updated_at": "2026-08-05 15:37:33"
     },
     {
-      "id": 300,
-      "book_id": 7,
-      "lesson_id": 75,
+      "title": "新同學（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "中明：宜文，她是誰？\n宜文：她是新同學，叫友美。她很可愛。\n中明：她是哪國人？妳知道嗎？\n宜文：我知道，她是日本人。\n中明：她很漂亮。",
+      "audio_url": "audio/dialogue/7/bk_75_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：宜文，她是誰？",
+          "start_time": 0.1,
+          "end_time": 3.14
+        },
+        {
+          "id": 2,
+          "text": "宜文：她是新同學，叫友美。",
+          "start_time": 3.09,
+          "end_time": 6.78
+        },
+        {
+          "id": 3,
+          "text": "她很可愛。",
+          "start_time": 6.78,
+          "end_time": 8.56
+        },
+        {
+          "id": 4,
+          "text": "中明：她是哪國人？",
+          "start_time": 8.56,
+          "end_time": 11.2
+        },
+        {
+          "id": 5,
+          "text": "妳知道嗎？",
+          "start_time": 11.2,
+          "end_time": 12.88
+        },
+        {
+          "id": 6,
+          "text": "宜文：我知道，她是日本人。",
+          "start_time": 12.88,
+          "end_time": 16.41
+        },
+        {
+          "id": 7,
+          "text": "中明：她很漂亮。",
+          "start_time": 16.41,
+          "end_time": 18.9
+        }
+      ]
+    },
+    {
+      "title": "認識友美（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "中明：妳好！我是李中明，請問妳叫什麼名字？\n友美：我姓小林，叫友美。\n中明：請問妳是哪國人？\n友美：我是日本人，你呢？\n中明：我是印尼人。妳喜歡台灣嗎？\n友美：我喜歡台灣。",
+      "audio_url": "audio/dialogue/7/bk_75_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：妳好！",
+          "start_time": 0.1,
+          "end_time": 2.23
+        },
+        {
+          "id": 2,
+          "text": "我是李中明，請問妳叫什麼名字？",
+          "start_time": 2.17,
+          "end_time": 5.89
+        },
+        {
+          "id": 3,
+          "text": "友美：我姓小林，叫友美。",
+          "start_time": 5.89,
+          "end_time": 9.24
+        },
+        {
+          "id": 4,
+          "text": "中明：請問妳是哪國人？",
+          "start_time": 9.24,
+          "end_time": 12.35
+        },
+        {
+          "id": 5,
+          "text": "友美：我是日本人，你呢？",
+          "start_time": 12.35,
+          "end_time": 15.61
+        },
+        {
+          "id": 6,
+          "text": "中明：我是印尼人。",
+          "start_time": 15.61,
+          "end_time": 18.23
+        },
+        {
+          "id": 7,
+          "text": "妳喜歡台灣嗎？",
+          "start_time": 18.23,
+          "end_time": 20.34
+        },
+        {
+          "id": 8,
+          "text": "友美：我喜歡台灣。",
+          "start_time": 20.34,
+          "end_time": 23.01
+        }
+      ]
+    },
+    {
+      "title": "自我介紹（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "自我介紹",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_75.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "大家好！我姓小林，叫友美，我是日本人。我喜歡臺灣，台灣朋友很可愛。我愛吃水果，愛喝珍珠奶茶。謝謝大家！",
+      "audio_url": "audio/dialogue/7/bk_75_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -43568,76 +43784,7 @@
           "start_time": 12.54,
           "end_time": 14.31
         }
-      ],
-      "content": "大家好！我姓小林，叫友美，我是日本人。我喜歡臺灣，台灣朋友很可愛。我愛吃水果，愛喝珍珠奶茶。謝謝大家！",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"新同學\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 新、同學、她、誰、叫、姓.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "新同學",
-              "zh": "新同學"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "81": [
@@ -43996,17 +44143,161 @@
       "updated_at": "2026-08-05 15:33:42"
     },
     {
-      "id": 318,
-      "book_id": 7,
-      "lesson_id": 81,
+      "title": "怎麼去天美飯店？（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "友美：元真，我們明天幾點去找妳的韓國朋友？\n元真：我們下午四點要到天美飯店，她在那裡等我們。\n友美：我們要怎麼去？坐捷運還是坐公車？\n元真：聽說那家飯店不遠，我想我們可以從學校走路去。\n友美：可是我不知道怎麼走，妳知道嗎？\n元真：我也不知道。我們可以先上網看地圖。\n友美：啊！上課了！我們先上課吧。\n元真：好。",
+      "audio_url": "audio/dialogue/7/bk_81_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "友美：元真，我們明天幾點去找妳的韓國朋友？",
+          "start_time": 0.1,
+          "end_time": 5.08
+        },
+        {
+          "id": 2,
+          "text": "元真：我們下午四點要到天美飯店，她在那裡等我們。",
+          "start_time": 5.03,
+          "end_time": 10.44
+        },
+        {
+          "id": 3,
+          "text": "友美：我們要怎麼去？",
+          "start_time": 10.44,
+          "end_time": 13.21
+        },
+        {
+          "id": 4,
+          "text": "坐捷運還是坐公車？",
+          "start_time": 13.21,
+          "end_time": 15.75
+        },
+        {
+          "id": 5,
+          "text": "元真：聽說那家飯店不遠，我想我們可以從學校走路去。",
+          "start_time": 15.75,
+          "end_time": 21.41
+        },
+        {
+          "id": 6,
+          "text": "友美：可是我不知道怎麼走，妳知道嗎？",
+          "start_time": 21.41,
+          "end_time": 25.69
+        },
+        {
+          "id": 7,
+          "text": "元真：我也不知道。",
+          "start_time": 25.69,
+          "end_time": 28.2
+        },
+        {
+          "id": 8,
+          "text": "我們可以先上網看地圖。",
+          "start_time": 28.2,
+          "end_time": 31.01
+        },
+        {
+          "id": 9,
+          "text": "友美：啊！",
+          "start_time": 31.01,
+          "end_time": 32.95
+        },
+        {
+          "id": 10,
+          "text": "上課了！",
+          "start_time": 32.95,
+          "end_time": 34.48
+        },
+        {
+          "id": 11,
+          "text": "我們先上課吧。",
+          "start_time": 34.48,
+          "end_time": 36.56
+        },
+        {
+          "id": 12,
+          "text": "元真：好。",
+          "start_time": 36.56,
+          "end_time": 38.49
+        }
+      ]
+    },
+    {
+      "title": "坐捷運去（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "元真：友美，妳看，天美飯店在大學路。我現在知道怎麼走了。\n友美：啊！天美飯店在這裡！我知道這個地方，附近有郵局跟超級市場。\n元真：我想走路去一定沒問題。\n友美：可是我覺得那裡有點兒遠，走路去太累了。\n元真：妳想怎麼去？\n友美：坐捷運又方便又舒服，我們可以坐捷運。\n元真：好，我們明天坐捷運去吧。",
+      "audio_url": "audio/dialogue/7/bk_81_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "元真：友美，妳看，天美飯店在大學路。",
+          "start_time": 0.1,
+          "end_time": 4.83
+        },
+        {
+          "id": 2,
+          "text": "我現在知道怎麼走了。",
+          "start_time": 4.78,
+          "end_time": 7.34
+        },
+        {
+          "id": 3,
+          "text": "友美：啊！",
+          "start_time": 7.34,
+          "end_time": 9.28
+        },
+        {
+          "id": 4,
+          "text": "天美飯店在這裡！",
+          "start_time": 9.28,
+          "end_time": 11.53
+        },
+        {
+          "id": 5,
+          "text": "我知道這個地方，附近有郵局跟超級市場。",
+          "start_time": 11.53,
+          "end_time": 15.82
+        },
+        {
+          "id": 6,
+          "text": "元真：我想走路去一定沒問題。",
+          "start_time": 15.82,
+          "end_time": 19.45
+        },
+        {
+          "id": 7,
+          "text": "友美：可是我覺得那裡有點兒遠，走路去太累了。",
+          "start_time": 19.45,
+          "end_time": 24.55
+        },
+        {
+          "id": 8,
+          "text": "元真：妳想怎麼去？",
+          "start_time": 24.55,
+          "end_time": 27.2
+        },
+        {
+          "id": 9,
+          "text": "友美：坐捷運又方便又舒服，我們可以坐捷運。",
+          "start_time": 27.2,
+          "end_time": 32.06
+        },
+        {
+          "id": 10,
+          "text": "元真：好，我們明天坐捷運去吧。",
+          "start_time": 32.06,
+          "end_time": 36.01
+        }
+      ]
+    },
+    {
+      "title": "從我家坐捷運很方便（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "從我家坐捷運很方便",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_81.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "我家附近有三條捷運線，一條紅的、一條綠的和一條藍的。我平常坐紅線去學校上課，週末也坐捷運去運動、看電影。朋友常來找我，他們都覺得坐捷運來我家，又快又方便。\n從我家到機場也不遠，開車去、坐捷運去都可以。機場附近的風景也很漂亮，我常常去看風景、看飛機。",
+      "audio_url": "audio/dialogue/7/bk_81_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -44038,76 +44329,7 @@
           "start_time": 22.64,
           "end_time": 28.45
         }
-      ],
-      "content": "我家附近有三條捷運線，一條紅的、一條綠的和一條藍的。我平常坐紅線去學校上課，週末也坐捷運去運動、看電影。朋友常來找我，他們都覺得坐捷運來我家，又快又方便。\n從我家到機場也不遠，開車去、坐捷運去都可以。機場附近的風景也很漂亮，我常常去看風景、看飛機。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"怎麼到飯店去？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 怎麼、到、飯店、旅館、找、韓國.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "怎麼到飯店去？",
-              "zh": "怎麼到飯店去？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "80": [
@@ -44472,17 +44694,125 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 315,
-      "book_id": 7,
-      "lesson_id": 80,
+      "title": "去運動（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "國安：今天天氣不錯，海邊的風景也很漂亮，我想去游泳，妳們想去嗎？\n友美：我不會游泳。宜文，妳會游泳嗎？\n宜文：我會游泳，可是游得不太好。\n國安：我們去跑步，怎麼樣？\n友美：我不喜歡跑步，我跑步跑得很慢。\n宜文：打網球怎麼樣？中明說妳的網球打得很好，我們一起去打吧。\n友美：好啊。",
+      "audio_url": "audio/dialogue/7/bk_80_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "國安：今天天氣不錯，海邊的風景也很漂亮，我想去游泳，妳們想去嗎？",
+          "start_time": 0.1,
+          "end_time": 7.65
+        },
+        {
+          "id": 2,
+          "text": "友美：我不會游泳。",
+          "start_time": 7.6,
+          "end_time": 10.21
+        },
+        {
+          "id": 3,
+          "text": "宜文，妳會游泳嗎？",
+          "start_time": 10.21,
+          "end_time": 12.89
+        },
+        {
+          "id": 4,
+          "text": "宜文：我會游泳，可是游得不太好。",
+          "start_time": 12.89,
+          "end_time": 16.98
+        },
+        {
+          "id": 5,
+          "text": "國安：我們去跑步，怎麼樣？",
+          "start_time": 16.98,
+          "end_time": 20.39
+        },
+        {
+          "id": 6,
+          "text": "友美：我不喜歡跑步，我跑步跑得很慢。",
+          "start_time": 20.39,
+          "end_time": 24.71
+        },
+        {
+          "id": 7,
+          "text": "宜文：打網球怎麼樣？",
+          "start_time": 24.71,
+          "end_time": 27.54
+        },
+        {
+          "id": 8,
+          "text": "中明說妳的網球打得很好，我們一起去打吧。",
+          "start_time": 27.54,
+          "end_time": 31.96
+        },
+        {
+          "id": 9,
+          "text": "友美：好啊。",
+          "start_time": 31.96,
+          "end_time": 34.01
+        }
+      ]
+    },
+    {
+      "title": "看電影與運動（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "國安：聽說這部電影很有趣，我們晚上一起去看，好不好？\n中明：我覺得有一點兒累，我想回家休息。\n國安：你不要常常在家上網、看電腦、玩手機，應該去運動。明天我有空，我們可以一起去騎腳踏車。\n中明：可是我只想聽音樂、睡覺。\n國安：後天去呢？\n中明：這兩天天氣有點兒冷，我們週末去，好嗎？",
+      "audio_url": "audio/dialogue/7/bk_80_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "國安：聽說這部電影很有趣，我們晚上一起去看，好不好？",
+          "start_time": 0.1,
+          "end_time": 6.09
+        },
+        {
+          "id": 2,
+          "text": "中明：我覺得有一點兒累，我想回家休息。",
+          "start_time": 6.04,
+          "end_time": 10.61
+        },
+        {
+          "id": 3,
+          "text": "國安：你不要常常在家上網、看電腦、玩手機，應該去運動。",
+          "start_time": 10.61,
+          "end_time": 17.21
+        },
+        {
+          "id": 4,
+          "text": "明天我有空，我們可以一起去騎腳踏車。",
+          "start_time": 17.21,
+          "end_time": 21.3
+        },
+        {
+          "id": 5,
+          "text": "中明：可是我只想聽音樂、睡覺。",
+          "start_time": 21.3,
+          "end_time": 25.35
+        },
+        {
+          "id": 6,
+          "text": "國安：後天去呢？",
+          "start_time": 25.35,
+          "end_time": 27.73
+        },
+        {
+          "id": 7,
+          "text": "中明：這兩天天氣有點兒冷，我們週末去，好嗎？",
+          "start_time": 27.73,
+          "end_time": 32.95
+        }
+      ]
+    },
+    {
+      "title": "我的興趣（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "我的興趣",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_80.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "我有幾個好朋友，我們都喜歡學中文、聽音樂、唱歌。中明最愛唱歌，他的中文歌唱得很好。平常我們都有點兒忙，可是週末我們常一起去運動，宜文游泳游得不錯，國安的籃球打得很好，我喜歡打網球，有時候我們也一起去看運動比賽。有這幾個好朋友，我真高興！",
+      "audio_url": "audio/dialogue/7/bk_80_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -44508,76 +44838,7 @@
           "start_time": 22.82,
           "end_time": 26.12
         }
-      ],
-      "content": "我有幾個好朋友，我們都喜歡學中文、聽音樂、唱歌。中明最愛唱歌，他的中文歌唱得很好。平常我們都有點兒忙，可是週末我們常一起去運動，宜文游泳游得不錯，國安的籃球打得很好，我喜歡打網球，有時候我們也一起去看運動比賽。有這幾個好朋友，我真高興！",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"週末去打網球吧！\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 打、網球、球、籃球、棒球、足球.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "週末去打網球吧！",
-              "zh": "週末去打網球吧！"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "82": [
@@ -44960,17 +45221,173 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 321,
-      "book_id": 7,
-      "lesson_id": 82,
+      "title": "買衣服（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "宜文：元真，妳的這條裙子真好看，我很喜歡。\n元真：謝謝，這是我去年的生日禮物。\n宜文：聽說這個牌子的東西很貴，可是很多人喜歡。\n元真：是啊，因為這個牌子很有名，衣服、褲子和裙子也都很好看，所以很多人買。\n宜文：妳知道去哪裡買這個牌子的衣服嗎？\n元真：知道，百貨公司都有，不難找。\n宜文：我很想去看，可是我最近胖了五公斤，我怕衣服不好買。\n元真：妳胖了嗎？我不覺得啊，我跟妳一起去看。我也想去買今年夏天的新衣服。\n宜文：好，我們找時間一起去。",
+      "audio_url": "audio/dialogue/7/bk_82_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：元真，妳的這條裙子真好看，我很喜歡。",
+          "start_time": 0.1,
+          "end_time": 5.44
+        },
+        {
+          "id": 2,
+          "text": "元真：謝謝，這是我去年的生日禮物。",
+          "start_time": 5.39,
+          "end_time": 9.71
+        },
+        {
+          "id": 3,
+          "text": "宜文：聽說這個牌子的東西很貴，可是很多人喜歡。",
+          "start_time": 9.71,
+          "end_time": 15.03
+        },
+        {
+          "id": 4,
+          "text": "元真：是啊，因為這個牌子很有名，衣服、褲子和裙子也都很好看，所以很多人買。",
+          "start_time": 15.03,
+          "end_time": 23.7
+        },
+        {
+          "id": 5,
+          "text": "宜文：妳知道去哪裡買這個牌子的衣服嗎？",
+          "start_time": 23.7,
+          "end_time": 27.98
+        },
+        {
+          "id": 6,
+          "text": "元真：知道，百貨公司都有，不難找。",
+          "start_time": 27.98,
+          "end_time": 32.49
+        },
+        {
+          "id": 7,
+          "text": "宜文：我很想去看，可是我最近胖了五公斤，我怕衣服不好買。",
+          "start_time": 32.49,
+          "end_time": 38.77
+        },
+        {
+          "id": 8,
+          "text": "元真：妳胖了嗎？",
+          "start_time": 38.77,
+          "end_time": 41.21
+        },
+        {
+          "id": 9,
+          "text": "我不覺得啊，我跟妳一起去看。",
+          "start_time": 41.21,
+          "end_time": 44.49
+        },
+        {
+          "id": 10,
+          "text": "我也想去買今年夏天的新衣服。",
+          "start_time": 44.49,
+          "end_time": 47.88
+        },
+        {
+          "id": 11,
+          "text": "宜文：好，我們找時間一起去。",
+          "start_time": 47.88,
+          "end_time": 51.66
+        }
+      ]
+    },
+    {
+      "title": "在百貨公司（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "宜文：妳看，這條黃色的褲子不錯吧？\n元真：很好看。這條藍的也很漂亮，藍色是今年很流行的顏色。\n宜文：這兩條我都去穿穿看。\n元真：妳覺得怎麼樣？\n宜文：都太短，也太小了。\n元真：沒關係，我們可以下個週末再來看。對了，妳要買鞋子吧？\n宜文：是啊，我想買一雙黑色的。\n元真：鞋子都在一樓，我們到樓下去吧！九點了，百貨公司快要關了。\n宜文：電梯在那裡！我們現在去買。",
+      "audio_url": "audio/dialogue/7/bk_82_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：妳看，這條黃色的褲子不錯吧？",
+          "start_time": 0.1,
+          "end_time": 4.42
+        },
+        {
+          "id": 2,
+          "text": "元真：很好看。",
+          "start_time": 4.38,
+          "end_time": 6.74
+        },
+        {
+          "id": 3,
+          "text": "這條藍的也很漂亮，藍色是今年很流行的顏色。",
+          "start_time": 6.74,
+          "end_time": 11.61
+        },
+        {
+          "id": 4,
+          "text": "宜文：這兩條我都去穿穿看。",
+          "start_time": 11.61,
+          "end_time": 15.11
+        },
+        {
+          "id": 5,
+          "text": "元真：妳覺得怎麼樣？",
+          "start_time": 15.11,
+          "end_time": 17.86
+        },
+        {
+          "id": 6,
+          "text": "宜文：都太短，也太小了。",
+          "start_time": 17.86,
+          "end_time": 21.2
+        },
+        {
+          "id": 7,
+          "text": "元真：沒關係，我們可以下個週末再來看。",
+          "start_time": 21.2,
+          "end_time": 25.66
+        },
+        {
+          "id": 8,
+          "text": "對了，妳要買鞋子吧？",
+          "start_time": 25.66,
+          "end_time": 28.34
+        },
+        {
+          "id": 9,
+          "text": "宜文：是啊，我想買一雙黑色的。",
+          "start_time": 28.34,
+          "end_time": 32.3
+        },
+        {
+          "id": 10,
+          "text": "元真：鞋子都在一樓，我們到樓下去吧！",
+          "start_time": 32.3,
+          "end_time": 36.77
+        },
+        {
+          "id": 11,
+          "text": "九點了，百貨公司快要關了。",
+          "start_time": 36.77,
+          "end_time": 40.23
+        },
+        {
+          "id": 12,
+          "text": "宜文：電梯在那裡！",
+          "start_time": 40.23,
+          "end_time": 42.91
+        },
+        {
+          "id": 13,
+          "text": "我們現在去買。",
+          "start_time": 42.91,
+          "end_time": 44.99
+        }
+      ]
+    },
+    {
+      "title": "年輕人喜歡新東西（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "年輕人喜歡新東西",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_82.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "百貨公司裡有很多衣服、鞋子和皮包，都是最新的，所以很多年輕女生喜歡到百貨公司去，漂亮的、流行的衣服，她們都想穿穿看。\n很多年輕男生愛在書店看汽車雜誌，汽車很貴，他們不一定可以買新車，可是都看得很開心。\n我覺得有的舊東西很不錯，有的新東西也很有趣，我很喜歡看新車、新衣服，可是因為我的錢不多，所以我不常買。",
+      "audio_url": "audio/dialogue/7/bk_82_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -44990,76 +45407,7 @@
           "start_time": 21.4,
           "end_time": 32.31
         }
-      ],
-      "content": "百貨公司裡有很多衣服、鞋子和皮包，都是最新的，所以很多年輕女生喜歡到百貨公司去，漂亮的、流行的衣服，她們都想穿穿看。\n很多年輕男生愛在書店看汽車雜誌，汽車很貴，他們不一定可以買新車，可是都看得很開心。\n我覺得有的舊東西很不錯，有的新東西也很有趣，我很喜歡看新車、新衣服，可是因為我的錢不多，所以我不常買。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"這條裙子真好看\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 裙子、去年、年、今年、明年、牌子.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "這條裙子真好看",
-              "zh": "這條裙子真好看"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "83": [
@@ -45418,17 +45766,143 @@
       "updated_at": "2026-08-05 15:33:42"
     },
     {
-      "id": 324,
-      "book_id": 7,
-      "lesson_id": 83,
+      "title": "我的中文課（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "國安：友美，這幾個句子的意思我不太懂，妳可以教我嗎？\n友美：我覺得有點兒難，我也不太懂。\n國安：這課真的不好學。\n友美：我們可以去問家樂，他非常聰明，我想他懂。\n國安：那麼我們現在去找他。\n友美：現在他在上書法課，我們四點去吧。\n國安：可是從四點到五點半我要上英文課，六點去，怎麼樣？\n友美：好。我先回宿舍做功課，再跟你一起去找他。",
+      "audio_url": "audio/dialogue/7/bk_83_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "國安：友美，這幾個句子的意思我不太懂，妳可以教我嗎？",
+          "start_time": 0.1,
+          "end_time": 5.51
+        },
+        {
+          "id": 2,
+          "text": "友美：我覺得有點兒難，我也不太懂。",
+          "start_time": 5.46,
+          "end_time": 9.47
+        },
+        {
+          "id": 3,
+          "text": "國安：這課真的不好學。",
+          "start_time": 9.47,
+          "end_time": 12.49
+        },
+        {
+          "id": 4,
+          "text": "友美：我們可以去問家樂，他非常聰明，我想他懂。",
+          "start_time": 12.49,
+          "end_time": 17.9
+        },
+        {
+          "id": 5,
+          "text": "國安：那麼我們現在去找他。",
+          "start_time": 17.9,
+          "end_time": 21.11
+        },
+        {
+          "id": 6,
+          "text": "友美：現在他在上書法課，我們四點去吧。",
+          "start_time": 21.11,
+          "end_time": 25.84
+        },
+        {
+          "id": 7,
+          "text": "國安：可是從四點到五點半我要上英文課，六點去，怎麼樣？",
+          "start_time": 25.84,
+          "end_time": 32.35
+        },
+        {
+          "id": 8,
+          "text": "友美：好。",
+          "start_time": 32.35,
+          "end_time": 34.25
+        },
+        {
+          "id": 9,
+          "text": "我先回宿舍做功課，再跟你一起去找他。",
+          "start_time": 34.25,
+          "end_time": 38.61
+        }
+      ]
+    },
+    {
+      "title": "大教室看書（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "中明：期中考快要到了，老師說我們可以去圖書館對面的大教室看書。\n家樂：太好了！在那裡看書很舒服。我們每天都能用那間教室嗎？\n中明：我們班只能禮拜一跟禮拜二下午用。\n家樂：可是這些時間我都有語言交換，不能去。\n中明：別的時間可以嗎？\n家樂：我朋友最近比較忙，別的時間他沒有空。\n中明：我們去問老師，也許他可以幫你。\n家樂：好，希望老師可以幫我。",
+      "audio_url": "audio/dialogue/7/bk_83_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：期中考快要到了，老師說我們可以去圖書館對面的大教室看書。",
+          "start_time": 0.1,
+          "end_time": 6.85
+        },
+        {
+          "id": 2,
+          "text": "家樂：太好了！",
+          "start_time": 6.8,
+          "end_time": 9.06
+        },
+        {
+          "id": 3,
+          "text": "在那裡看書很舒服。",
+          "start_time": 9.06,
+          "end_time": 11.59
+        },
+        {
+          "id": 4,
+          "text": "我們每天都能用那間教室嗎？",
+          "start_time": 11.59,
+          "end_time": 14.72
+        },
+        {
+          "id": 5,
+          "text": "中明：我們班只能禮拜一跟禮拜二下午用。",
+          "start_time": 14.72,
+          "end_time": 19.06
+        },
+        {
+          "id": 6,
+          "text": "家樂：可是這些時間我都有語言交換，不能去。",
+          "start_time": 19.06,
+          "end_time": 24.06
+        },
+        {
+          "id": 7,
+          "text": "中明：別的時間可以嗎？",
+          "start_time": 24.06,
+          "end_time": 26.99
+        },
+        {
+          "id": 8,
+          "text": "家樂：我朋友最近比較忙，別的時間他沒有空。",
+          "start_time": 26.99,
+          "end_time": 31.76
+        },
+        {
+          "id": 9,
+          "text": "中明：我們去問老師，也許他可以幫你。",
+          "start_time": 31.76,
+          "end_time": 36.16
+        },
+        {
+          "id": 10,
+          "text": "家樂：好，希望老師可以幫我。",
+          "start_time": 36.16,
+          "end_time": 39.89
+        }
+      ]
+    },
+    {
+      "title": "我喜歡學中文（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "我喜歡學中文",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_83.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "這個學期開始，從星期一到星期五我都有華語課，每天從上午八點四十分到中午十二點上課，下午一點寫功課，有時候也跟同學練習說中文。\n最近我的台灣朋友想學日文，請我教他，我也請他教我中文。現在我非常忙，沒有很多時間讀書，可是因為有語言交換，所以我的中文進步了。\n下個星期華語課有期中考，我有一點兒緊張，所以每天晚上都讀書，也練習寫字，希望下個星期的考試能考得很好。",
+      "audio_url": "audio/dialogue/7/bk_83_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -45454,76 +45928,7 @@
           "start_time": 26.94,
           "end_time": 37.75
         }
-      ],
-      "content": "這個學期開始，從星期一到星期五我都有華語課，每天從上午八點四十分到中午十二點上課，下午一點寫功課，有時候也跟同學練習說中文。\n最近我的台灣朋友想學日文，請我教他，我也請他教我中文。現在我非常忙，沒有很多時間讀書，可是因為有語言交換，所以我的中文進步了。\n下個星期華語課有期中考，我有一點兒緊張，所以每天晚上都讀書，也練習寫字，希望下個星期的考試能考得很好。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"我的中文課\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 句子、意思、懂、教、真的、問.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "我的中文課",
-              "zh": "我的中文課"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "78": [
@@ -45888,17 +46293,161 @@
       "updated_at": "2026-08-05 15:33:42"
     },
     {
-      "id": 309,
-      "book_id": 7,
-      "lesson_id": 78,
+      "title": "去喝飲料（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "中明：天氣好熱，我們去喝飲料，好不好？\n友美：好啊！你想喝什麼？咖啡還是茶？\n中明：咖啡、茶，我都喜歡。我也很餓，想吃一點兒東西。\n友美：這家餐廳人太多，我們去那家餐廳，好嗎？他們的牛肉麵很好吃，也很便宜。\n中明：太好了！我最愛吃牛肉麵。他們也賣飲料嗎？\n友美：他們賣很多種飲料。\n中明：我們現在去，好嗎？\n友美：好。",
+      "audio_url": "audio/dialogue/7/bk_78_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：天氣好熱，我們去喝飲料，好不好？",
+          "start_time": 0.1,
+          "end_time": 4.92
+        },
+        {
+          "id": 2,
+          "text": "友美：好啊！",
+          "start_time": 4.88,
+          "end_time": 6.91
+        },
+        {
+          "id": 3,
+          "text": "你想喝什麼？",
+          "start_time": 6.91,
+          "end_time": 8.88
+        },
+        {
+          "id": 4,
+          "text": "咖啡還是茶？",
+          "start_time": 8.88,
+          "end_time": 10.85
+        },
+        {
+          "id": 5,
+          "text": "中明：咖啡、茶，我都喜歡。",
+          "start_time": 10.85,
+          "end_time": 14.62
+        },
+        {
+          "id": 6,
+          "text": "我也很餓，想吃一點兒東西。",
+          "start_time": 14.62,
+          "end_time": 17.99
+        },
+        {
+          "id": 7,
+          "text": "友美：這家餐廳人太多，我們去那家餐廳，好嗎？",
+          "start_time": 17.99,
+          "end_time": 23.16
+        },
+        {
+          "id": 8,
+          "text": "他們的牛肉麵很好吃，也很便宜。",
+          "start_time": 23.16,
+          "end_time": 26.99
+        },
+        {
+          "id": 9,
+          "text": "中明：太好了！",
+          "start_time": 26.99,
+          "end_time": 29.29
+        },
+        {
+          "id": 10,
+          "text": "我最愛吃牛肉麵。",
+          "start_time": 29.29,
+          "end_time": 31.57
+        },
+        {
+          "id": 11,
+          "text": "他們也賣飲料嗎？",
+          "start_time": 31.57,
+          "end_time": 33.7
+        },
+        {
+          "id": 12,
+          "text": "友美：他們賣很多種飲料。",
+          "start_time": 33.7,
+          "end_time": 36.9
+        },
+        {
+          "id": 13,
+          "text": "中明：我們現在去，好嗎？",
+          "start_time": 36.9,
+          "end_time": 40.26
+        },
+        {
+          "id": 14,
+          "text": "友美：好。",
+          "start_time": 40.26,
+          "end_time": 42.16
+        }
+      ]
+    },
+    {
+      "title": "點餐（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "中明：小姐，我們要點兩碗牛肉麵和兩杯茶。\n女店員：請問兩位要紅茶還是綠茶？\n友美：我要紅茶。\n中明：請給我們一杯紅茶、一杯綠茶。請問一共多少錢？\n女店員：一共兩百一十五塊錢。\n女店員：找您七百八十五塊錢，謝謝。\n中明：一共兩百多塊錢，好便宜！",
+      "audio_url": "audio/dialogue/7/bk_78_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：小姐，我們要點兩碗牛肉麵和兩杯茶。",
+          "start_time": 0.1,
+          "end_time": 5.1
+        },
+        {
+          "id": 2,
+          "text": "女店員：請問兩位要紅茶還是綠茶？",
+          "start_time": 5.05,
+          "end_time": 9.31
+        },
+        {
+          "id": 3,
+          "text": "友美：我要紅茶。",
+          "start_time": 9.31,
+          "end_time": 11.81
+        },
+        {
+          "id": 4,
+          "text": "中明：請給我們一杯紅茶、一杯綠茶。",
+          "start_time": 11.81,
+          "end_time": 16.11
+        },
+        {
+          "id": 5,
+          "text": "請問一共多少錢？",
+          "start_time": 16.11,
+          "end_time": 18.51
+        },
+        {
+          "id": 6,
+          "text": "女店員：一共兩百一十五塊錢。",
+          "start_time": 18.51,
+          "end_time": 22.21
+        },
+        {
+          "id": 7,
+          "text": "女店員：找您七百八十五塊錢，謝謝。",
+          "start_time": 22.21,
+          "end_time": 26.8
+        },
+        {
+          "id": 8,
+          "text": "中明：一共兩百多塊錢，好便宜！",
+          "start_time": 26.8,
+          "end_time": 30.93
+        }
+      ]
+    },
+    {
+      "title": "買飲料（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "買飲料",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_78.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "台灣夏天的天氣很熱，很多人都喜歡喝飲料。飲料店很多，他們賣很多種飲料。果汁、牛奶、咖啡、茶都很好喝，有的很便宜，一杯二十多塊錢。我和朋友都很愛喝，我們每天都去買。",
+      "audio_url": "audio/dialogue/7/bk_78_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -45924,76 +46473,7 @@
           "start_time": 15.75,
           "end_time": 19.74
         }
-      ],
-      "content": "台灣夏天的天氣很熱，很多人都喜歡喝飲料。飲料店很多，他們賣很多種飲料。果汁、牛奶、咖啡、茶都很好喝，有的很便宜，一杯二十多塊錢。我和朋友都很愛喝，我們每天都去買。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"你要咖啡還是茶？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 咖啡、還是、天氣、好、熱、冷.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "你要咖啡還是茶？",
-              "zh": "你要咖啡還是茶？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "84": [
@@ -46382,17 +46862,167 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 327,
-      "book_id": 7,
-      "lesson_id": 84,
+      "title": "最近感冒的人很多（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "元真：老師，國安今天要請假。他發燒了，不能來上課。\n老師：他發燒了？那他應該去看醫生。\n元真：國安跟我說，他今天去看醫生，他家附近有一家不錯的醫院。\n老師：最近很多人感冒，你們要戴口罩，也要常常洗手。\n元真：老師，我很健康，不常生病。\n老師：平常不生病的人也要注意。\n元真：對，我應該多注意身體健康。\n老師：妳可以帶一些水果去看國安，跟他說應該多喝水，也要多休息。\n元真：好，我明天帶一些蘋果去看他。",
+      "audio_url": "audio/dialogue/7/bk_84_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "元真：老師，國安今天要請假。",
+          "start_time": 0.1,
+          "end_time": 3.94
+        },
+        {
+          "id": 2,
+          "text": "他發燒了，不能來上課。",
+          "start_time": 3.89,
+          "end_time": 6.88
+        },
+        {
+          "id": 3,
+          "text": "老師：他發燒了？",
+          "start_time": 6.88,
+          "end_time": 9.35
+        },
+        {
+          "id": 4,
+          "text": "那他應該去看醫生。",
+          "start_time": 9.35,
+          "end_time": 11.71
+        },
+        {
+          "id": 5,
+          "text": "元真：國安跟我說，他今天去看醫生，他家附近有一家不錯的醫院。",
+          "start_time": 11.71,
+          "end_time": 18.59
+        },
+        {
+          "id": 6,
+          "text": "老師：最近很多人感冒，你們要戴口罩，也要常常洗手。",
+          "start_time": 18.59,
+          "end_time": 24.62
+        },
+        {
+          "id": 7,
+          "text": "元真：老師，我很健康，不常生病。",
+          "start_time": 24.62,
+          "end_time": 28.98
+        },
+        {
+          "id": 8,
+          "text": "老師：平常不生病的人也要注意。",
+          "start_time": 28.98,
+          "end_time": 32.94
+        },
+        {
+          "id": 9,
+          "text": "元真：對，我應該多注意身體健康。",
+          "start_time": 32.94,
+          "end_time": 37.05
+        },
+        {
+          "id": 10,
+          "text": "老師：妳可以帶一些水果去看國安，跟他說應該多喝水，也要多休息。",
+          "start_time": 37.05,
+          "end_time": 44.08
+        },
+        {
+          "id": 11,
+          "text": "元真：好，我明天帶一些蘋果去看他。",
+          "start_time": 44.08,
+          "end_time": 48.27
+        }
+      ]
+    },
+    {
+      "title": "看醫生（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "醫生：你覺得哪裡不舒服？\n國安：我咳嗽、頭痛，鼻子也不舒服。\n醫生：最近天氣冷了，很多人感冒了。\n國安：對啊！聽說我們學校感冒、發燒的學生很多。\n醫生：最近也有很多人肚子痛。\n國安：是因為吃的東西不乾淨嗎？\n醫生：不是，這也是因為感冒。\n國安：請問我需要吃藥嗎？\n醫生：我會給你三天的藥。你要記得多喝一點兒水，要是發燒了，就吃紅色的藥。\n國安：好，謝謝醫生。",
+      "audio_url": "audio/dialogue/7/bk_84_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "醫生：你覺得哪裡不舒服？",
+          "start_time": 0.1,
+          "end_time": 3.27
+        },
+        {
+          "id": 2,
+          "text": "國安：我咳嗽、頭痛，鼻子也不舒服。",
+          "start_time": 3.23,
+          "end_time": 7.74
+        },
+        {
+          "id": 3,
+          "text": "醫生：最近天氣冷了，很多人感冒了。",
+          "start_time": 7.74,
+          "end_time": 12.05
+        },
+        {
+          "id": 4,
+          "text": "國安：對啊！",
+          "start_time": 12.05,
+          "end_time": 14.11
+        },
+        {
+          "id": 5,
+          "text": "聽說我們學校感冒、發燒的學生很多。",
+          "start_time": 14.11,
+          "end_time": 18.23
+        },
+        {
+          "id": 6,
+          "text": "醫生：最近也有很多人肚子痛。",
+          "start_time": 18.23,
+          "end_time": 21.71
+        },
+        {
+          "id": 7,
+          "text": "國安：是因為吃的東西不乾淨嗎？",
+          "start_time": 21.71,
+          "end_time": 25.4
+        },
+        {
+          "id": 8,
+          "text": "醫生：不是，這也是因為感冒。",
+          "start_time": 25.4,
+          "end_time": 29.1
+        },
+        {
+          "id": 9,
+          "text": "國安：請問我需要吃藥嗎？",
+          "start_time": 29.1,
+          "end_time": 32.27
+        },
+        {
+          "id": 10,
+          "text": "醫生：我會給你三天的藥。",
+          "start_time": 32.27,
+          "end_time": 35.35
+        },
+        {
+          "id": 11,
+          "text": "你要記得多喝一點兒水，要是發燒了，就吃紅色的藥。",
+          "start_time": 35.35,
+          "end_time": 40.83
+        },
+        {
+          "id": 12,
+          "text": "國安：好，謝謝醫生。",
+          "start_time": 40.83,
+          "end_time": 43.73
+        }
+      ]
+    },
+    {
+      "title": "我的同學感冒了（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "我的同學感冒了",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_84.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "最近感冒的人很多，我的同學國安也感冒了，今天開始發燒了。他打電話跟我說，他不能來上課，請我幫他請假。我很擔心他，請他去看醫生，也告訴他要聽醫生的話，不要忘記多喝水、多休息。他說他會去看醫生，請我們不要擔心，如果他好了，就會來學校上課。今天我要帶一些水果去看他，也會跟他說今天的功課。我們都希望他明天能回學校上課。",
+      "audio_url": "audio/dialogue/7/bk_84_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -46430,76 +47060,7 @@
           "start_time": 31.94,
           "end_time": 35.67
         }
-      ],
-      "content": "最近感冒的人很多，我的同學國安也感冒了，今天開始發燒了。他打電話跟我說，他不能來上課，請我幫他請假。我很擔心他，請他去看醫生，也告訴他要聽醫生的話，不要忘記多喝水、多休息。他說他會去看醫生，請我們不要擔心，如果他好了，就會來學校上課。今天我要帶一些水果去看他，也會跟他說今天的功課。我們都希望他明天能回學校上課。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"最近感冒的人很多\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 感冒、請假、發燒、醫生、跟、醫院.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "最近感冒的人很多",
-              "zh": "最近感冒的人很多"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "86": [
@@ -46888,17 +47449,173 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 333,
-      "book_id": 7,
-      "lesson_id": 86,
+      "title": "你想做什麼工作？（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "中明：你昨天怎麼沒來上課？\n國安：我去參加畫畫比賽。你們上課上了什麼？\n中明：老師問我們想做什麼工作，大家都說得很高興。\n國安：我知道友美想當護理師。別的同學呢？\n中明：宜文希望可以用中文和英文工作，所以她以後想當記者，元真相在銀行工作。\n國安：那你畢業以後想做什麼？\n中明：我以前想當大公司的老闆，可是老闆要做的事情太多，現在覺得當醫生比較好。那你想做什麼？\n國安：當醫生很不錯，但是太忙了，我只想每天可以準時上班、下班。",
+      "audio_url": "audio/dialogue/7/bk_86_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：你昨天怎麼沒來上課？",
+          "start_time": 0.1,
+          "end_time": 3.48
+        },
+        {
+          "id": 2,
+          "text": "國安：我去參加畫畫比賽。",
+          "start_time": 3.42,
+          "end_time": 6.65
+        },
+        {
+          "id": 3,
+          "text": "你們上課上了什麼？",
+          "start_time": 6.65,
+          "end_time": 8.99
+        },
+        {
+          "id": 4,
+          "text": "中明：老師問我們想做什麼工作，大家都說得很高興。",
+          "start_time": 8.99,
+          "end_time": 14.56
+        },
+        {
+          "id": 5,
+          "text": "國安：我知道友美想當護理師。",
+          "start_time": 14.56,
+          "end_time": 18.14
+        },
+        {
+          "id": 6,
+          "text": "別的同學呢？",
+          "start_time": 18.14,
+          "end_time": 20.0
+        },
+        {
+          "id": 7,
+          "text": "中明：宜文希望可以用中文和英文工作，所以她以後想當記者，元真相在銀行工作。",
+          "start_time": 20.0,
+          "end_time": 28.38
+        },
+        {
+          "id": 8,
+          "text": "國安：那你畢業以後想做什麼？",
+          "start_time": 28.38,
+          "end_time": 31.79
+        },
+        {
+          "id": 9,
+          "text": "中明：我以前想當大公司的老闆，可是老闆要做的事情太多，現在覺得當醫生比較好。",
+          "start_time": 31.79,
+          "end_time": 39.79
+        },
+        {
+          "id": 10,
+          "text": "那你想做什麼？",
+          "start_time": 39.79,
+          "end_time": 41.85
+        },
+        {
+          "id": 11,
+          "text": "國安：當醫生很不錯，但是太忙了，我只想每天可以準時上班、下班。",
+          "start_time": 41.85,
+          "end_time": 49.02
+        }
+      ]
+    },
+    {
+      "title": "在麵包店工作（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "中明：國安，你每天下課以後都要去麵包店工作，辛苦嗎？\n國安：不辛苦。我很喜歡這個工作，因為可以學怎麼做麵包，而且同事也都對我很好。\n中明：這樣你在學校的成績，不會有問題嗎？\n國安：不會啊！我都先做功課，再去工作。\n中明：我以前在餐廳上班過，因為太累了，常常睡得不夠。\n國安：這樣真的很辛苦。\n中明：有時候早上起得太晚，上課遲到了，而且沒時間準備考試，所以就不做了。\n國安：我下午四點到六點上班，工作時間不長，所以沒問題。\n中明：兩個小時也可以嗎？那我們麵包店還需要人嗎？\n國安：不知道，我明天看到老闆的時候，幫你問他。",
+      "audio_url": "audio/dialogue/7/bk_86_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "中明：國安，你每天下課以後都要去麵包店工作，辛苦嗎？",
+          "start_time": 0.1,
+          "end_time": 6.22
+        },
+        {
+          "id": 2,
+          "text": "國安：不辛苦。",
+          "start_time": 6.17,
+          "end_time": 8.34
+        },
+        {
+          "id": 3,
+          "text": "我很喜歡這個工作，因為可以學怎麼做麵包，而且同事也都對我很好。",
+          "start_time": 8.34,
+          "end_time": 15.03
+        },
+        {
+          "id": 4,
+          "text": "中明：這樣你在學校的成績，不會有問題嗎？",
+          "start_time": 15.03,
+          "end_time": 19.65
+        },
+        {
+          "id": 5,
+          "text": "國安：不會啊！",
+          "start_time": 19.65,
+          "end_time": 21.85
+        },
+        {
+          "id": 6,
+          "text": "我都先做功課，再去工作。",
+          "start_time": 21.85,
+          "end_time": 25.07
+        },
+        {
+          "id": 7,
+          "text": "中明：我以前在餐廳上班過，因為太累了，常常睡得不夠。",
+          "start_time": 25.07,
+          "end_time": 31.18
+        },
+        {
+          "id": 8,
+          "text": "國安：這樣真的很辛苦。",
+          "start_time": 31.18,
+          "end_time": 34.04
+        },
+        {
+          "id": 9,
+          "text": "中明：有時候早上起得太晚，上課遲到了，而且沒時間準備考試，所以就不做了。",
+          "start_time": 34.04,
+          "end_time": 42.25
+        },
+        {
+          "id": 10,
+          "text": "國安：我下午四點到六點上班，工作時間不長，所以沒問題。",
+          "start_time": 42.25,
+          "end_time": 48.74
+        },
+        {
+          "id": 11,
+          "text": "中明：兩個小時也可以嗎？",
+          "start_time": 48.74,
+          "end_time": 52.0
+        },
+        {
+          "id": 12,
+          "text": "那我們麵包店還需要人嗎？",
+          "start_time": 52.0,
+          "end_time": 55.0
+        },
+        {
+          "id": 13,
+          "text": "國安：不知道，我明天看到老闆的時候，幫你問他。",
+          "start_time": 55.0,
+          "end_time": 60.29
+        }
+      ]
+    },
+    {
+      "title": "工作（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "工作",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_86.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "昨天我看了一個電視節目，有很多父母在節目上談自己的孩子，他們說現在年輕人覺得結不結婚不重要，快樂比較重要；找工作的時候，錢多不多不重要，重要的是喜不喜歡這個工作。\n節目裡有人說，很多年輕人喜歡在有冷氣的辦公室裡工作，休息時間還可以喝咖啡、上網，工廠裡辛苦的工作沒有人要做，所以工人常常不夠。\n如果大家都只喜歡做舒服的工作，那辛苦的工作誰要做呢？",
+      "audio_url": "audio/dialogue/7/bk_86_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -46918,76 +47635,7 @@
           "start_time": 29.59,
           "end_time": 35.33
         }
-      ],
-      "content": "昨天我看了一個電視節目，有很多父母在節目上談自己的孩子，他們說現在年輕人覺得結不結婚不重要，快樂比較重要；找工作的時候，錢多不多不重要，重要的是喜不喜歡這個工作。\n節目裡有人說，很多年輕人喜歡在有冷氣的辦公室裡工作，休息時間還可以喝咖啡、上網，工廠裡辛苦的工作沒有人要做，所以工人常常不夠。\n如果大家都只喜歡做舒服的工作，那辛苦的工作誰要做呢？",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"你想做什麼工作？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 工作、怎麼、參加、當、護理師/護士、用.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "你想做什麼工作？",
-              "zh": "你想做什麼工作？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "85": [
@@ -47394,17 +48042,179 @@
       "updated_at": "2026-08-05 15:37:34"
     },
     {
-      "id": 330,
-      "book_id": 7,
-      "lesson_id": 85,
+      "title": "你們是怎麼認識的？（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "宜文：友美，今天的功課妳寫了嗎？\n友美：我已經寫了，我現在在寫卡片。\n宜文：給誰的卡片？\n友美：一個新朋友。妳看，這是他送我的卡片。\n宜文：他寫的字真好看。你們是怎麼認識的？\n友美：我們是上網認識的，我看到他寫的文章，然後留言問了他一個問題，他回答得很有趣。\n宜文：你們常上網聊天嗎？\n友美：對啊，差不多每個晚上都聊。昨天他說他想跟我見面。\n宜文：妳呢？妳要跟他見面嗎？\n友美：我還沒決定。",
+      "audio_url": "audio/dialogue/7/bk_85_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：友美，今天的功課妳寫了嗎？",
+          "start_time": 0.1,
+          "end_time": 4.09
+        },
+        {
+          "id": 2,
+          "text": "友美：我已經寫了，我現在在寫卡片。",
+          "start_time": 4.04,
+          "end_time": 8.24
+        },
+        {
+          "id": 3,
+          "text": "宜文：給誰的卡片？",
+          "start_time": 8.24,
+          "end_time": 10.9
+        },
+        {
+          "id": 4,
+          "text": "友美：一個新朋友。",
+          "start_time": 10.9,
+          "end_time": 13.46
+        },
+        {
+          "id": 5,
+          "text": "妳看，這是他送我的卡片。",
+          "start_time": 13.46,
+          "end_time": 16.7
+        },
+        {
+          "id": 6,
+          "text": "宜文：他寫的字真好看。",
+          "start_time": 16.7,
+          "end_time": 19.74
+        },
+        {
+          "id": 7,
+          "text": "你們是怎麼認識的？",
+          "start_time": 19.74,
+          "end_time": 22.11
+        },
+        {
+          "id": 8,
+          "text": "友美：我們是上網認識的，我看到他寫的文章，然後留言問了他一個問題，他回答得很有趣。",
+          "start_time": 22.11,
+          "end_time": 30.79
+        },
+        {
+          "id": 9,
+          "text": "宜文：你們常上網聊天嗎？",
+          "start_time": 30.79,
+          "end_time": 33.98
+        },
+        {
+          "id": 10,
+          "text": "友美：對啊，差不多每個晚上都聊。",
+          "start_time": 33.98,
+          "end_time": 38.08
+        },
+        {
+          "id": 11,
+          "text": "昨天他說他想跟我見面。",
+          "start_time": 38.08,
+          "end_time": 41.06
+        },
+        {
+          "id": 12,
+          "text": "宜文：妳呢？",
+          "start_time": 41.06,
+          "end_time": 43.11
+        },
+        {
+          "id": 13,
+          "text": "妳要跟他見面嗎？",
+          "start_time": 43.11,
+          "end_time": 45.38
+        },
+        {
+          "id": 14,
+          "text": "友美：我還沒決定。",
+          "start_time": 45.38,
+          "end_time": 47.99
+        }
+      ]
+    },
+    {
+      "title": "見面（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "宜文：妳跟那位新朋友見面了沒有？\n友美：我還沒決定要不要跟他見面。\n宜文：妳擔心什麼？\n友美：我有點兒緊張，我以前沒有這種經驗，所以覺得這樣有點兒奇怪。\n宜文：妳不要緊張，我有辦法，我跟妳一起去。\n友美：太好了，謝謝妳幫我的忙。\n宜文：不客氣。妳打算什麼時候跟他見面？\n友美：可能這個週末吧。如果妳有空，我再跟他約時間。\n宜文：有空啊，但是我明天不會來學校，等妳決定了，再給我打電話吧。",
+      "audio_url": "audio/dialogue/7/bk_85_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：妳跟那位新朋友見面了沒有？",
+          "start_time": 0.1,
+          "end_time": 4.0
+        },
+        {
+          "id": 2,
+          "text": "友美：我還沒決定要不要跟他見面。",
+          "start_time": 3.95,
+          "end_time": 7.81
+        },
+        {
+          "id": 3,
+          "text": "宜文：妳擔心什麼？",
+          "start_time": 7.81,
+          "end_time": 10.43
+        },
+        {
+          "id": 4,
+          "text": "友美：我有點兒緊張，我以前沒有這種經驗，所以覺得這樣有點兒奇怪。",
+          "start_time": 10.43,
+          "end_time": 17.38
+        },
+        {
+          "id": 5,
+          "text": "宜文：妳不要緊張，我有辦法，我跟妳一起去。",
+          "start_time": 17.38,
+          "end_time": 22.49
+        },
+        {
+          "id": 6,
+          "text": "友美：太好了，謝謝妳幫我的忙。",
+          "start_time": 22.49,
+          "end_time": 26.29
+        },
+        {
+          "id": 7,
+          "text": "宜文：不客氣。",
+          "start_time": 26.29,
+          "end_time": 28.66
+        },
+        {
+          "id": 8,
+          "text": "妳打算什麼時候跟他見面？",
+          "start_time": 28.66,
+          "end_time": 31.88
+        },
+        {
+          "id": 9,
+          "text": "友美：可能這個週末吧。",
+          "start_time": 31.88,
+          "end_time": 34.81
+        },
+        {
+          "id": 10,
+          "text": "如果妳有空，我再跟他約時間。",
+          "start_time": 34.81,
+          "end_time": 38.27
+        },
+        {
+          "id": 11,
+          "text": "宜文：有空啊，但是我明天不會來學校，等妳決定了，再給我打電話吧。",
+          "start_time": 38.27,
+          "end_time": 45.48
+        }
+      ]
+    },
+    {
+      "title": "我的新朋友（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "我的新朋友",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_85.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "今天我跟一個日本女生見面，她姓小林，叫友美。我們是在網路上認識的。友美看了我寫的文章，留言給我，她覺得我很有趣。我們常上網聊天，上個星期我寄了張卡片給她，約她見面。\n我們在一家餐廳見面，友美的同學也來了。那家餐廳很有名，菜單也做得很好看、很特別。我們點了幾盤菜，然後開始聊天，聊得很開心，也一起照了幾張相片。\n今天我的心情真好，因為友美太可愛了！我還想再約她出去，希望以後機會常常跟她見面、聊天。",
+      "audio_url": "audio/dialogue/7/bk_85_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -47450,7 +48260,7 @@
         },
         {
           "id": 8,
-          "text": "今天我的心情真好，因为友美太可愛了！",
+          "text": "今天我的心情真好，因為友美太可愛了！",
           "start_time": 35.6,
           "end_time": 39.73
         },
@@ -47460,76 +48270,7 @@
           "start_time": 39.73,
           "end_time": 45.69
         }
-      ],
-      "content": "今天我跟一個日本女生見面，她姓小林，叫友美。我們是在網路上認識的。友美看了我寫的文章，留言給我，她覺得我很有趣。我們常上網聊天，上個星期我寄了張卡片給她，約她見面。\n我們在一家餐廳見面，友美的同學也來了。那家餐廳很有名，菜單也做得很好看、很特別。我們點了幾盤菜，然後開始聊天，聊得很開心，也一起照了幾張相片。\n今天我的心情真好，因為友美太可愛了！我還想再約她出去，希望以後機會常常跟她見面、聊天。",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"你們是怎麼認識的？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 認識、了、已經、卡片、看到、文章.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "你們是怎麼認識的？",
-              "zh": "你們是怎麼認識的？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "87": [
@@ -48499,17 +49240,119 @@
       "updated_at": "2026-08-05 15:33:42"
     },
     {
-      "id": 303,
-      "book_id": 7,
-      "lesson_id": 76,
+      "title": "你幾點去學校？（課本對話一）",
+      "dropdown_option": "Bài khoá 1",
+      "type": "dialogue",
+      "content": "媽媽：今天是星期一，你不去學校嗎？\n中明：我早上沒有課，九點去圖書館。\n媽媽：中午呢？你中午回家嗎？\n中明：我下午有課，中午不回家。\n媽媽：你幾點下課？\n中明：我四點四十分下課。",
+      "audio_url": "audio/dialogue/7/bk_76_bd1.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "媽媽：今天是星期一，你不去學校嗎？",
+          "start_time": 0.1,
+          "end_time": 4.46
+        },
+        {
+          "id": 2,
+          "text": "中明：我早上沒有課，九點去圖書館。",
+          "start_time": 4.41,
+          "end_time": 8.79
+        },
+        {
+          "id": 3,
+          "text": "媽媽：中午呢？",
+          "start_time": 8.79,
+          "end_time": 10.99
+        },
+        {
+          "id": 4,
+          "text": "你中午回家嗎？",
+          "start_time": 10.99,
+          "end_time": 13.06
+        },
+        {
+          "id": 5,
+          "text": "中明：我下午有課，中午不回家。",
+          "start_time": 13.06,
+          "end_time": 16.96
+        },
+        {
+          "id": 6,
+          "text": "媽媽：你幾點下課？",
+          "start_time": 16.96,
+          "end_time": 19.56
+        },
+        {
+          "id": 7,
+          "text": "中明：我四點四十分下課。",
+          "start_time": 19.56,
+          "end_time": 22.88
+        }
+      ]
+    },
+    {
+      "title": "週末來我家（課本對話二）",
+      "dropdown_option": "Bài khoá 2",
+      "type": "dialogue",
+      "content": "宜文：今天是星期五，明天是週末，你們要不要來我家？\n中明：明天是九月二十三號……啊！是妳的生日！\n友美：宜文，生日快樂！\n宜文：謝謝！明天晚上六點來我家，好不好？\n中明：沒問題。\n友美：好，明天見。",
+      "audio_url": "audio/dialogue/7/bk_76_bd2.mp3",
+      "script_json": [
+        {
+          "id": 1,
+          "text": "宜文：今天是星期五，明天是週末，你們要不要來我家？",
+          "start_time": 0.1,
+          "end_time": 5.95
+        },
+        {
+          "id": 2,
+          "text": "中明：明天是九月二十三號……啊！",
+          "start_time": 5.9,
+          "end_time": 9.76
+        },
+        {
+          "id": 3,
+          "text": "是妳的生日！",
+          "start_time": 9.76,
+          "end_time": 11.65
+        },
+        {
+          "id": 4,
+          "text": "友美：宜文，生日快樂！",
+          "start_time": 11.65,
+          "end_time": 14.96
+        },
+        {
+          "id": 5,
+          "text": "宜文：謝謝！",
+          "start_time": 14.96,
+          "end_time": 17.15
+        },
+        {
+          "id": 6,
+          "text": "明天晚上六點來我家，好不好？",
+          "start_time": 17.15,
+          "end_time": 20.68
+        },
+        {
+          "id": 7,
+          "text": "中明：沒問題。",
+          "start_time": 20.68,
+          "end_time": 23.12
+        },
+        {
+          "id": 8,
+          "text": "友美：好，明天見。",
+          "start_time": 23.12,
+          "end_time": 25.95
+        }
+      ]
+    },
+    {
+      "title": "友美做什麼？（課本短文）",
+      "dropdown_option": "Bài khoá 3",
       "type": "lesson_text",
-      "dropdown_option": "Bài khoá",
-      "title": "友美做什麼？",
-      "pinyin": "{}",
-      "audio_url": "audio/dialogue/7/bk_76.mp3",
-      "youtube_id": null,
-      "video_start_offset": "0.00",
-      "video_script_json": [],
+      "content": "友美是學生，十九歲。她早上六點三十分起床，七點去學校，八點四十分上課；中午十二點下課、吃午飯；下午一點去圖書館；四點回家做飯，晚上六點吃飯，十點睡覺。友美很忙！",
+      "audio_url": "audio/dialogue/7/bk_76_bd3.mp3",
       "script_json": [
         {
           "id": 1,
@@ -48529,76 +49372,7 @@
           "start_time": 17.74,
           "end_time": 19.51
         }
-      ],
-      "content": "友美是學生，十九歲。她早上六點三十分起床，七點去學校，八點四十分上課；中午十二點下課、吃午飯；下午一點去圖書館；四點回家做飯，晚上六點吃飯，十點睡覺。友美很忙！",
-      "vietnamese": "Trong tiết học tiếng Trung hôm nay, chúng tôi đã học những nội dung quan trọng về chủ đề \"你幾點去學校？\".\nThầy cô đã giới thiệu chi tiết cho chúng tôi các từ ngữ và từ vựng sinh hoạt liên quan như: 幾、點、點鐘、現在、去、學校.\nCác bạn trong lớp chia nhóm thảo luận, mỗi người đều dùng tiếng Trung chia sẻ trải nghiệm thực tế của mình tại Đài Loan.\nThông qua những bài luyện tập trên lớp như vậy, chúng tôi không chỉ ghi nhớ từ vựng mà còn có thể vận dụng các mẫu câu đã học vào cuộc sống hàng ngày.",
-      "qa_json": [
-        {
-          "question": {
-            "vi": "Nội dung chính của bài đọc xoay quanh chủ đề gì?",
-            "zh": "這篇課文主要圍繞什麼主題展開？"
-          },
-          "options": [
-            {
-              "vi": "你幾點去學校？",
-              "zh": "你幾點去學校？"
-            },
-            {
-              "vi": "Thời tiết bốn mùa",
-              "zh": "四季天氣"
-            },
-            {
-              "vi": "Lịch sử cổ đại",
-              "zh": "古代歷史"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Các bạn học sinh luyện tập bằng cách nào?",
-            "zh": "同學們是通過什麼方式練習的？"
-          },
-          "options": [
-            {
-              "vi": "Thảo luận nhóm và chia sẻ kinh nghiệm",
-              "zh": "分組討論並分享經驗"
-            },
-            {
-              "vi": "Chỉ ngồi chép bài",
-              "zh": "只有抄寫課文"
-            },
-            {
-              "vi": "Không luyện tập",
-              "zh": "沒有練習"
-            }
-          ],
-          "correct_index": 0
-        },
-        {
-          "question": {
-            "vi": "Lợi ích của việc luyện tập là gì?",
-            "zh": "課堂練習有什麼好處？"
-          },
-          "options": [
-            {
-              "vi": "Vừa nhớ từ vựng vừa vận dụng vào đời sống",
-              "zh": "既能記住生詞又能運用在生活"
-            },
-            {
-              "vi": "Để thi cho xong",
-              "zh": "只是為了應付考試"
-            },
-            {
-              "vi": "Không có lợi ích gì",
-              "zh": "沒有任何幫助"
-            }
-          ],
-          "correct_index": 0
-        }
-      ],
-      "created_at": "2026-11-18 10:15:00",
-      "updated_at": "2026-11-18 10:15:00"
+      ]
     }
   ],
   "88": [

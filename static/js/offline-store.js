@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.2.5';
+    const CURRENT_VERSION = '2.2.6';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
@@ -173,7 +173,9 @@
     async function fetchBundleFile(candidates) {
         for (const url of candidates) {
             try {
-                const res = await fetch(url);
+                const sep = url.includes('?') ? '&' : '?';
+                const bustUrl = `${url}${sep}_v=${CURRENT_VERSION}&_t=${Date.now()}`;
+                const res = await fetch(bustUrl);
                 if (res && res.ok) return await res.json();
             } catch(e) {}
         }

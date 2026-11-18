@@ -42620,6 +42620,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 298,
+      "book_id": 7,
+      "lesson_id": 79,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "找錢包",
+      "content": "今天下午，大同在教室裡找不到他的黑色錢包，心裡非常著急。\n同學們都主動幫忙他在教室的桌子下、椅子旁仔細尋找。\n後來，老師提醒他看看背包裡面的夾層。\n大同一看，原來錢包一直都在他的背包最底下，大家看見都笑了。",
+      "pinyin": "{}",
+      "vietnamese": "Chiều nay, Đại Đồng không tìm thấy chiếc ví đen của mình trong lớp học, trong lòng vô cùng sốt ruột.\nCác bạn cùng lớp đều nhiệt tình giúp bạn ấy tìm kỹ dưới gầm bàn và cạnh ghế.\nSau đó, thầy giáo nhắc bạn ấy kiểm tra thử ngăn phụ bên trong ba lô.\nĐại Đồng vừa nhìn vào thì hóa ra chiếc ví vẫn nằm ngay dưới đáy ba lô, mọi người thấy vậy đều bật cười.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "大同找不到什麼東西？",
+            "vi": "Đại Đồng không tìm thấy đồ vật gì?"
+          },
+          "options": [
+            {
+              "zh": "手機",
+              "vi": "Điện thoại"
+            },
+            {
+              "zh": "黑色錢包",
+              "vi": "Ví màu đen"
+            },
+            {
+              "zh": "中文課本",
+              "vi": "Sách tiếng Trung"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "誰提醒大同看背包裡面？",
+            "vi": "Ai nhắc Đại Đồng xem bên trong ba lô?"
+          },
+          "options": [
+            {
+              "zh": "同學",
+              "vi": "Bạn học"
+            },
+            {
+              "zh": "老師",
+              "vi": "Thầy giáo"
+            },
+            {
+              "zh": "室友",
+              "vi": "Bạn cùng phòng"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "錢包最後在哪裡找到？",
+            "vi": "Chiếc ví cuối cùng được tìm thấy ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "桌子底下",
+              "vi": "Dưới bàn"
+            },
+            {
+              "zh": "背包最底下",
+              "vi": "Dưới đáy ba lô"
+            },
+            {
+              "zh": "圖書館",
+              "vi": "Thư viện"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "77": [
@@ -42964,6 +43047,89 @@
       ],
       "created_at": "2026-07-15 01:14:21",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 296,
+      "book_id": 7,
+      "lesson_id": 77,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "買生日禮物",
+      "content": "明天是友美的生日，同學們想送她一個特別的禮物。\n詩涵和建宇今天下午去學校附近的大書店挑選禮物。\n書店裡有很多好看的書和可愛的文具。\n最後他們買了一本介紹台灣風景的書和一張漂亮的生日卡片。",
+      "pinyin": "{}",
+      "vietnamese": "Ngày mai là sinh nhật của Hữu Mỹ, các bạn học muốn tặng bạn ấy một món quà đặc biệt.\nThi Hàm và Kiến Vũ chiều nay đến nhà sách lớn gần trường để chọn quà.\nTrong nhà sách có rất nhiều sách đẹp và văn phòng phẩm dễ thương.\nCuối cùng họ đã mua một cuốn sách giới thiệu phong cảnh Đài Loan và một tấm thiệp sinh nhật rất đẹp.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "明天是誰的生日？",
+            "vi": "Ngày mai là sinh nhật của ai?"
+          },
+          "options": [
+            {
+              "zh": "詩涵",
+              "vi": "Thi Hàm"
+            },
+            {
+              "zh": "友美",
+              "vi": "Hữu Mỹ"
+            },
+            {
+              "zh": "建宇",
+              "vi": "Kiến Vũ"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "他們在哪裡挑選禮物？",
+            "vi": "Họ chọn quà ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "夜市",
+              "vi": "Chợ đêm"
+            },
+            {
+              "zh": "百貨公司",
+              "vi": "Trung tâm thương mại"
+            },
+            {
+              "zh": "學校附近的書店",
+              "vi": "Nhà sách gần trường"
+            }
+          ],
+          "correct_index": 2
+        },
+        {
+          "question": {
+            "zh": "他們最後買了什麼禮物？",
+            "vi": "Cuối cùng họ đã mua món quà gì?"
+          },
+          "options": [
+            {
+              "zh": "衣服和鞋子",
+              "vi": "Quần áo và giày"
+            },
+            {
+              "zh": "書和卡片",
+              "vi": "Sách và thiệp"
+            },
+            {
+              "zh": "蛋糕和飲料",
+              "vi": "Bánh kem và đồ uống"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "75": [
@@ -43314,6 +43480,89 @@
       ],
       "created_at": "2026-07-15 00:02:06",
       "updated_at": "2026-08-05 15:37:33"
+    },
+    {
+      "id": 294,
+      "book_id": 7,
+      "lesson_id": 75,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "新同學與新生活",
+      "content": "今天是中文課開學的第一天，教室裡來了幾位新同學。\n那位長得很漂亮的女生叫佐藤愛，她是從日本東京來的。\n她說她很喜歡台灣的生活，也很喜歡認識新朋友。\n下課以後，大家一起跟她打招呼，歡迎她來到我們的班級。",
+      "pinyin": "{}",
+      "vietnamese": "Hôm nay là ngày đầu tiên khai giảng lớp tiếng Trung, trong lớp có vài bạn học mới đến.\nBạn nữ trông rất xinh xắn kia tên là Sato Ái, bạn ấy đến từ Tokyo, Nhật Bản.\nBạn ấy nói rất thích cuộc sống ở Đài Loan, và cũng rất thích làm quen với những người bạn mới.\nSau khi tan học, mọi người cùng nhau chào hỏi và nhiệt liệt chào đón bạn ấy đến với lớp học của chúng tôi.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "新同學叫什麼名字？",
+            "vi": "Bạn học mới tên là gì?"
+          },
+          "options": [
+            {
+              "zh": "佐藤愛",
+              "vi": "Sato Ái"
+            },
+            {
+              "zh": "李中明",
+              "vi": "Lý Trung Minh"
+            },
+            {
+              "zh": "林宜文",
+              "vi": "Lâm Ý Văn"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "佐藤愛是哪國人？",
+            "vi": "Sato Ái là người nước nào?"
+          },
+          "options": [
+            {
+              "zh": "美國人",
+              "vi": "Người Mỹ"
+            },
+            {
+              "zh": "日本人",
+              "vi": "Người Nhật"
+            },
+            {
+              "zh": "印尼人",
+              "vi": "Người Indonesia"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "大家下課後做什麼？",
+            "vi": "Mọi người làm gì sau giờ học?"
+          },
+          "options": [
+            {
+              "zh": "去圖書館看書",
+              "vi": "Đi thư viện đọc sách"
+            },
+            {
+              "zh": "跟新同學打招呼",
+              "vi": "Chào hỏi bạn học mới"
+            },
+            {
+              "zh": "一起去喝咖啡",
+              "vi": "Cùng nhau đi uống cà phê"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "81": [
@@ -43670,6 +43919,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:33:42"
+    },
+    {
+      "id": 300,
+      "book_id": 7,
+      "lesson_id": 81,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "搭捷運遊台北",
+      "content": "台北的捷運系統非常乾淨而且快速，是旅行時最方便的交通工具。\n如果你想去台北101，只要搭乘紅色的淡水信義線就能直達。\n在捷運站裡買一張悠遊卡，搭捷運和公車都可以直接刷卡扣款。\n很多外國遊客都稱讚台北的捷運既安全又準時。",
+      "pinyin": "{}",
+      "vietnamese": "Hệ thống tàu điện ngầm (MRT) ở Đài Bắc rất sạch sẽ và nhanh chóng, là phương tiện giao thông tiện lợi nhất khi đi du lịch.\nNếu bạn muốn đến tòa tháp Taipei 101, chỉ cần đi tuyến Đỏ Đạm Thủy - Tín Nghĩa là có thể tới thẳng nơi.\nMua một chiếc thẻ EasyCard (Du Du Ca) ở ga tàu, bạn có thể quẹt thẻ trực tiếp khi đi cả MRT lẫn xe buýt.\nRất nhiều du khách nước ngoài đều khen ngợi tàu điện ngầm Đài Bắc vừa an toàn lại vừa đúng giờ.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "在台北最方便的交通工具是什麼？",
+            "vi": "Phương tiện giao thông tiện nhất ở Đài Bắc là gì?"
+          },
+          "options": [
+            {
+              "zh": "計程車",
+              "vi": "Taxi"
+            },
+            {
+              "zh": "捷運",
+              "vi": "Tàu điện ngầm (MRT)"
+            },
+            {
+              "zh": "火車",
+              "vi": "Tàu hỏa"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "去台北101可以搭乘哪條捷運線？",
+            "vi": "Đi Taipei 101 có thể đi tuyến MRT nào?"
+          },
+          "options": [
+            {
+              "zh": "淡水信義線（紅線）",
+              "vi": "Tuyến Đạm Thủy - Tín Nghĩa (Tuyến đỏ)"
+            },
+            {
+              "zh": "板南線（藍線）",
+              "vi": "Tuyến Bản Nam (Tuyến xanh)"
+            },
+            {
+              "zh": "中和新蘆線（橘線）",
+              "vi": "Tuyến Trung Hòa - Tân Lô (Tuyến cam)"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "搭公車和捷運可以用什麼卡？",
+            "vi": "Đi xe buýt và MRT có thể dùng thẻ gì?"
+          },
+          "options": [
+            {
+              "zh": "學生證",
+              "vi": "Thẻ học sinh"
+            },
+            {
+              "zh": "悠遊卡",
+              "vi": "Thẻ EasyCard (悠遊卡)"
+            },
+            {
+              "zh": "信用卡",
+              "vi": "Thẻ tín dụng"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "80": [
@@ -44032,6 +44364,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 299,
+      "book_id": 7,
+      "lesson_id": 80,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "週末的運動時光",
+      "content": "每個週末，語言中心的外國學生都會相約去學校操場運動。\n有人喜歡打網球，有人喜歡在球場上打籃球，還有人喜歡慢跑。\n運動不僅能鍛鍊身體，也能讓平時緊張的學習壓力得到放鬆。\n運動結束後，大家常常一起去學校旁邊的小吃店吃牛肉麵。",
+      "pinyin": "{}",
+      "vietnamese": "Mỗi dịp cuối tuần, các bạn sinh viên quốc tế ở trung tâm ngôn ngữ thường hẹn nhau ra sân trường vận động thể thao.\nCó bạn thích đánh tennis, có bạn thích chơi bóng rổ trên sân, lại có bạn thích chạy bộ nhẹ nhàng.\nTập thể dục không chỉ giúp rèn luyện sức khỏe mà còn giúp giải tỏa căng thẳng sau những giờ học bận rộn.\nSau khi vận động xong, mọi người thường rủ nhau đến quán ăn cạnh trường ăn mì thịt bò.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "學生們週末常常做什麼？",
+            "vi": "Cuối tuần các sinh viên thường làm gì?"
+          },
+          "options": [
+            {
+              "zh": "在家睡覺",
+              "vi": "Ở nhà ngủ"
+            },
+            {
+              "zh": "到操場運動",
+              "vi": "Đến sân trường tập thể thao"
+            },
+            {
+              "zh": "去看電影",
+              "vi": "Đi xem phim"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "運動對學生有什麼好處？",
+            "vi": "Tập thể thao mang lại lợi ích gì cho sinh viên?"
+          },
+          "options": [
+            {
+              "zh": "鍛鍊身體、放鬆壓力",
+              "vi": "Rèn luyện sức khỏe, giải tỏa áp lực"
+            },
+            {
+              "zh": "省錢",
+              "vi": "Tiết kiệm tiền"
+            },
+            {
+              "zh": "早點睡覺",
+              "vi": "Ngủ sớm hơn"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "運動結束後他們去吃什麼？",
+            "vi": "Sau khi tập xong họ đi ăn món gì?"
+          },
+          "options": [
+            {
+              "zh": "小籠包",
+              "vi": "Tiểu long bao"
+            },
+            {
+              "zh": "牛肉麵",
+              "vi": "Mì thịt bò"
+            },
+            {
+              "zh": "臭豆腐",
+              "vi": "Đậu hũ thối"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "82": [
@@ -44412,6 +44827,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 301,
+      "book_id": 7,
+      "lesson_id": 82,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "逛街買新衣",
+      "content": "換季的時候，百貨公司和夜市的服裝店經常會有折扣活動。\n美玲今天和朋友去百貨公司買衣服，她挑選了一條淡藍色的裙子。\n試穿以後，朋友誇讚這條裙子既合身又顯得有氣質。\n店員還告訴她今天全館打八折，美玲開心地買下了這條裙子。",
+      "pinyin": "{}",
+      "vietnamese": "Mỗi khi chuyển mùa, các trung tâm thương mại và cửa hàng quần áo ở chợ đêm thường có chương trình giảm giá.\nHôm nay Mỹ Linh cùng bạn đi trung tâm thương mại mua quần áo, bạn ấy đã chọn một chiếc váy màu xanh nhạt.\nSau khi mặc thử, bạn bè khen chiếc váy này vừa vặn lại tôn lên vẻ thanh lịch.\nNhân viên cửa hàng còn thông báo hôm nay toàn bộ cửa hàng được giảm giá 20%, Mỹ Linh vui vẻ mua ngay chiếc váy đó.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "美玲今天買了什麼？",
+            "vi": "Hôm nay Mỹ Linh đã mua món đồ gì?"
+          },
+          "options": [
+            {
+              "zh": "一雙鞋子",
+              "vi": "Một đôi giày"
+            },
+            {
+              "zh": "一條淡藍色的裙子",
+              "vi": "Một chiếc váy màu xanh nhạt"
+            },
+            {
+              "zh": "一件外套",
+              "vi": "Một chiếc áo khoác"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "朋友覺得美玲穿這條裙子怎麼樣？",
+            "vi": "Bạn bè cảm thấy Mỹ Linh mặc chiếc váy này thế nào?"
+          },
+          "options": [
+            {
+              "zh": "太長了",
+              "vi": "Quá dài"
+            },
+            {
+              "zh": "合身又有氣質",
+              "vi": "Vừa vặn lại có khí chất"
+            },
+            {
+              "zh": "顏色太暗",
+              "vi": "Màu quá tối"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "今天店裡有什麼優惠？",
+            "vi": "Hôm nay trong tiệm có ưu đãi gì?"
+          },
+          "options": [
+            {
+              "zh": "買一送一",
+              "vi": "Mua 1 tặng 1"
+            },
+            {
+              "zh": "全館打八折",
+              "vi": "Toàn bộ giảm 20% (打八折)"
+            },
+            {
+              "zh": "送小禮物",
+              "vi": "Tặng quà nhỏ"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "83": [
@@ -44768,6 +45266,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:33:42"
+    },
+    {
+      "id": 302,
+      "book_id": 7,
+      "lesson_id": 83,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "學中文的樂趣",
+      "content": "學中文一開始雖然覺得聲調和漢字有點難，但是越學越有意思。\n老師在課堂上經常帶大家玩遊戲、分組練習對話。\n同學之間遇到不懂的生詞，大家都會互相討論、熱心幫忙。\n現在大家都敢在台灣的小吃店自己用中文點菜了。",
+      "pinyin": "{}",
+      "vietnamese": "Học tiếng Trung ban đầu tuy thấy thanh điệu và chữ Hán hơi khó, nhưng càng học lại càng thấy thú vị.\nThầy cô trên lớp thường xuyên tổ chức trò chơi và cho mọi người chia nhóm luyện tập đối thoại.\nGiữa các bạn học khi gặp từ mới chưa hiểu đều cùng nhau thảo luận và nhiệt tình giúp đỡ.\nBây giờ mọi người đều đã tự tin tự mình dùng tiếng Trung gọi món ở các quán ăn Đài Loan rồi.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "剛學中文時什麼覺得比較難？",
+            "vi": "Mới học tiếng Trung thấy phần nào tương đối khó?"
+          },
+          "options": [
+            {
+              "zh": "聲調和漢字",
+              "vi": "Thanh điệu và chữ Hán"
+            },
+            {
+              "zh": "文法規則",
+              "vi": "Quy tắc ngữ pháp"
+            },
+            {
+              "zh": "聽力",
+              "vi": "Kỹ năng nghe"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "老師在課堂上常做什麼？",
+            "vi": "Thầy cô trên lớp thường làm gì?"
+          },
+          "options": [
+            {
+              "zh": "一直考試",
+              "vi": "Liên tục cho thi"
+            },
+            {
+              "zh": "玩遊戲、練習對話",
+              "vi": "Chơi trò chơi, luyện đối thoại"
+            },
+            {
+              "zh": "只念課文",
+              "vi": "Chỉ đọc bài khóa"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "現在學生們敢用中文做什麼？",
+            "vi": "Bây giờ các sinh viên đã dám dùng tiếng Trung làm gì?"
+          },
+          "options": [
+            {
+              "zh": "自己點菜",
+              "vi": "Tự gọi món ăn"
+            },
+            {
+              "zh": "上台演講",
+              "vi": "Lên bục phát biểu"
+            },
+            {
+              "zh": "寫小說",
+              "vi": "Viết tiểu thuyết"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "78": [
@@ -45130,6 +45711,89 @@
       ],
       "created_at": "2026-07-15 01:14:21",
       "updated_at": "2026-08-05 15:33:42"
+    },
+    {
+      "id": 297,
+      "book_id": 7,
+      "lesson_id": 78,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "台灣的飲品文化",
+      "content": "台灣的街上有很多飲料店和咖啡廳，買飲料非常方便。\n天氣熱的時候，大家喜歡點一杯冰的珍珠奶茶或者芒果冰沙。\n到了冬天，熱烏龍茶和熱咖啡就特別受歡迎。\n在台灣買飲料，還可以自己選擇要加多少冰塊和甜度。",
+      "pinyin": "{}",
+      "vietnamese": "Trên đường phố Đài Loan có rất nhiều quán trà sữa và quán cà phê, mua đồ uống vô cùng tiện lợi.\nKhi thời tiết nóng nực, mọi người thích gọi một ly trà sữa trân châu đá hoặc sinh tố xoài mát lạnh.\nĐến mùa đông, trà Ô Long nóng và cà phê nóng lại đặc biệt được yêu thích.\nMua đồ uống ở Đài Loan, bạn còn có thể tự mình lựa chọn lượng đá và lượng đường theo ý thích.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "天氣熱的時候大家喜歡喝什麼？",
+            "vi": "Khi thời tiết nóng mọi người thích uống gì?"
+          },
+          "options": [
+            {
+              "zh": "熱烏龍茶",
+              "vi": "Trà Ô Long nóng"
+            },
+            {
+              "zh": "冰珍珠奶茶",
+              "vi": "Trà sữa trân châu đá"
+            },
+            {
+              "zh": "熱黑咖啡",
+              "vi": "Cà phê đen nóng"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "在台灣買飲料可以選擇什麼？",
+            "vi": "Mua đồ uống ở Đài Loan có thể chọn gì?"
+          },
+          "options": [
+            {
+              "zh": "冰塊和甜度",
+              "vi": "Lượng đá và độ ngọt"
+            },
+            {
+              "zh": "杯子的顏色",
+              "vi": "Màu sắc của ly"
+            },
+            {
+              "zh": "吸管的長短",
+              "vi": "Độ dài của ống hút"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "這篇課文主要介紹什麼？",
+            "vi": "Bài khóa này chủ yếu giới thiệu về điều gì?"
+          },
+          "options": [
+            {
+              "zh": "台灣的天氣",
+              "vi": "Thời tiết Đài Loan"
+            },
+            {
+              "zh": "台灣的飲品文化",
+              "vi": "Văn hóa đồ uống Đài Loan"
+            },
+            {
+              "zh": "台灣的交通",
+              "vi": "Giao thông Đài Loan"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "84": [
@@ -45516,6 +46180,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 303,
+      "book_id": 7,
+      "lesson_id": 84,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "看醫生與保持健康",
+      "content": "最近天氣變化很大，很多人不小心吹了冷風就感冒了。\n國安昨天晚上發高燒，頭很痛，今天早上請假去診所看醫生。\n醫生給他檢查以後，交代他要按時吃藥、多喝溫開水。\n生病的時候一定要好好休息，平時多注意保暖，身體才能快點恢復。",
+      "pinyin": "{}",
+      "vietnamese": "Dạo gần đây thời tiết thay đổi thất thường, nhiều người bất cẩn bị trúng gió lạnh là cảm cúm ngay.\nQuốc An tối hôm qua bị sốt cao, đầu rất đau, sáng nay đã xin nghỉ học để đến phòng khám gặp bác sĩ.\nBác sĩ sau khi khám xong đã dặn dò bạn ấy phải uống thuốc đúng giờ và uống nhiều nước ấm.\nKhi bị ốm nhất định phải nghỉ ngơi thật tốt, thường ngày chú ý giữ ấm thì cơ thể mới nhanh chóng bình phục.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "國安昨晚怎麼了？",
+            "vi": "Quốc An tối qua bị làm sao?"
+          },
+          "options": [
+            {
+              "zh": "肚子痛",
+              "vi": "Đau bụng"
+            },
+            {
+              "zh": "發高燒、頭痛",
+              "vi": "Sốt cao, đau đầu"
+            },
+            {
+              "zh": "腳受傷",
+              "vi": "Chân bị thương"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "醫生交代國安要做什麼？",
+            "vi": "Bác sĩ dặn dò Quốc An phải làm gì?"
+          },
+          "options": [
+            {
+              "zh": "多吃冰淇淋",
+              "vi": "Ăn nhiều kem"
+            },
+            {
+              "zh": "按時吃藥、多喝溫水",
+              "vi": "Uống thuốc đúng giờ, uống nhiều nước ấm"
+            },
+            {
+              "zh": "天天去運動",
+              "vi": "Ngày nào cũng đi tập thể thao"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "生病時應該怎麼做？",
+            "vi": "Khi bị bệnh nên làm gì?"
+          },
+          "options": [
+            {
+              "zh": "熬夜看書",
+              "vi": "Thức đêm đọc sách"
+            },
+            {
+              "zh": "好好休息、注意保暖",
+              "vi": "Nghỉ ngơi tốt, chú ý giữ ấm"
+            },
+            {
+              "zh": "去吹冷風",
+              "vi": "Đi hóng gió lạnh"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "86": [
@@ -45902,6 +46649,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 305,
+      "book_id": 7,
+      "lesson_id": 86,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "未來的職業夢想",
+      "content": "每個人的心裡都有屬於自己的職業夢想與目標。\n班上的俊傑希望畢業後能在跨國貿易公司當一名業務員。\n詩涵對中文教育充滿熱情，她打算將來當一名華語老師。\n只要平時認真學習專業知識，打好語言基礎，夢想總有一天會實現。",
+      "pinyin": "{}",
+      "vietnamese": "Trong lòng mỗi người đều có ước mơ và mục tiêu nghề nghiệp của riêng mình.\nTuấn Kiệt trong lớp hy vọng sau khi tốt nghiệp có thể làm nhân viên kinh doanh tại một công ty thương mại đa quốc gia.\nThi Hàm tràn đầy nhiệt huyết với giáo dục tiếng Trung, bạn ấy dự định tương lai sẽ làm một giáo viên dạy tiếng Hoa.\nChỉ cần thường ngày chăm chỉ học hỏi kiến thức chuyên môn, xây dựng nền tảng ngôn ngữ vững chắc, ước mơ nhất định sẽ có ngày trở thành hiện thực.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "俊傑畢業後想從事什麼工作？",
+            "vi": "Sau khi tốt nghiệp Tuấn Kiệt muốn làm công việc gì?"
+          },
+          "options": [
+            {
+              "zh": "貿易公司業務員",
+              "vi": "Nhân viên kinh doanh công ty thương mại"
+            },
+            {
+              "zh": "廚師",
+              "vi": "Đầu bếp"
+            },
+            {
+              "zh": "工程師",
+              "vi": "Kỹ sư"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "詩涵未來打算做什麼？",
+            "vi": "Thi Hàm tương lai dự định làm gì?"
+          },
+          "options": [
+            {
+              "zh": "當導遊",
+              "vi": "Làm hướng dẫn viên du lịch"
+            },
+            {
+              "zh": "當華語老師",
+              "vi": "Làm giáo viên dạy tiếng Hoa"
+            },
+            {
+              "zh": "開店",
+              "vi": "Mở tiệm kinh doanh"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "實現夢想需要怎麼做？",
+            "vi": "Để thực hiện ước mơ cần phải làm gì?"
+          },
+          "options": [
+            {
+              "zh": "認真學習、打好基礎",
+              "vi": "Chăm chỉ học tập, xây nền tảng vững chắc"
+            },
+            {
+              "zh": "每天去旅遊",
+              "vi": "Ngày nào cũng đi du lịch"
+            },
+            {
+              "zh": "等待運氣",
+              "vi": "Chờ đợi vận may"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "85": [
@@ -46306,6 +47136,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 304,
+      "book_id": 7,
+      "lesson_id": 85,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "結識新朋友的故事",
+      "content": "現代人認識新朋友的方式很多，網路上也有許多語言交換的平台。\n志明在網路上認識了一位想學越南語的台灣大學生。\n他們每週六下午相約在圖書館碰面，互相練習中文和越南文。\n透過語言交流，他們不僅提高了外語水平，也成為了無話不談的好朋友。",
+      "pinyin": "{}",
+      "vietnamese": "Người thời nay có rất nhiều phương thức để kết bạn mới, trên mạng cũng có rất nhiều nền tảng trao đổi ngôn ngữ.\nChí Minh quen một bạn sinh viên đại học Đài Loan muốn học tiếng Việt qua mạng.\nMỗi chiều thứ Bảy họ hẹn gặp nhau ở thư viện để cùng nhau luyện tập tiếng Trung và tiếng Việt.\nThông qua việc giao lưu ngôn ngữ, họ không chỉ nâng cao trình độ ngoại ngữ mà còn trở thành đôi bạn thân thiết tâm sự đủ mọi chuyện.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "志明是怎麼認識那位台灣學生的？",
+            "vi": "Chí Minh quen bạn sinh viên Đài Loan qua cách nào?"
+          },
+          "options": [
+            {
+              "zh": "在網路上認識",
+              "vi": "Quen biết qua mạng"
+            },
+            {
+              "zh": "在火車上遇到",
+              "vi": "Gặp trên tàu hỏa"
+            },
+            {
+              "zh": "高中同學",
+              "vi": "Bạn học cấp ba"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "他們每週六去哪裡練習語言？",
+            "vi": "Mỗi thứ Bảy họ đến đâu luyện tập ngôn ngữ?"
+          },
+          "options": [
+            {
+              "zh": "夜市",
+              "vi": "Chợ đêm"
+            },
+            {
+              "zh": "圖書館",
+              "vi": "Thư viện"
+            },
+            {
+              "zh": "電影院",
+              "vi": "Rạp chiếu phim"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "語言交流對他們有什麼好處？",
+            "vi": "Giao lưu ngôn ngữ đem lại lợi ích gì cho họ?"
+          },
+          "options": [
+            {
+              "zh": "提高外語水平、成為好友",
+              "vi": "Nâng cao ngoại ngữ, thành bạn tốt"
+            },
+            {
+              "zh": "可以賺很多錢",
+              "vi": "Kiếm được nhiều tiền"
+            },
+            {
+              "zh": "不用做功課",
+              "vi": "Không phải làm bài tập"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "87": [
@@ -46692,6 +47605,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 306,
+      "book_id": 7,
+      "lesson_id": 87,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "智慧手機與現代生活",
+      "content": "智慧型手機已經成為現代人日常生活中不可缺少的一部分。\n出門在外，我們用手機查公車路線、看電子地圖，再也不怕迷路。\n在台灣買東西、搭計程車，只要拿出手機刷一下行動支付就能快速付款。\n科技帶來了便利，但我們也別忘了放下手機，多和身邊的朋友面對面交談。",
+      "pinyin": "{}",
+      "vietnamese": "Điện thoại thông minh đã trở thành một phần không thể thiếu trong cuộc sống thường nhật của con người hiện đại.\nKhi ra ngoài, chúng ta dùng điện thoại tra cứu lộ trình xe buýt, xem bản đồ điện tử, không còn lo bị lạc đường nữa.\nMua sắm hay đi taxi ở Đài Loan, chỉ cần lấy điện thoại quét thanh toán di động là có thể trả tiền nhanh chóng.\nCông nghệ đem lại rất nhiều tiện lợi, nhưng chúng ta cũng đừng quên thỉnh thoảng hãy đặt điện thoại xuống để trò chuyện trực tiếp nhiều hơn cùng bạn bè xung quanh.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "出門時手機可以幫我們做什麼？",
+            "vi": "Khi ra ngoài điện thoại có thể giúp ta làm gì?"
+          },
+          "options": [
+            {
+              "zh": "查公車路線和地圖",
+              "vi": "Tra cứu lộ trình xe buýt và bản đồ"
+            },
+            {
+              "zh": "做飯",
+              "vi": "Nấu cơm"
+            },
+            {
+              "zh": "開車",
+              "vi": "Lái xe"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在台灣買東西用手機怎麼付款？",
+            "vi": "Ở Đài Loan mua đồ dùng điện thoại thanh toán thế nào?"
+          },
+          "options": [
+            {
+              "zh": "寄支票",
+              "vi": "Gửi séc"
+            },
+            {
+              "zh": "行動支付刷卡",
+              "vi": "Quẹt thanh toán di động"
+            },
+            {
+              "zh": "打電話給銀行",
+              "vi": "Gọi điện cho ngân hàng"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "作者建議我們平時也要注意什麼？",
+            "vi": "Tác giả khuyên chúng ta thường ngày cũng nên chú ý điều gì?"
+          },
+          "options": [
+            {
+              "zh": "買最新的手機",
+              "vi": "Mua điện thoại mới nhất"
+            },
+            {
+              "zh": "放下手機，多面對面交談",
+              "vi": "Đặt điện thoại xuống, trò chuyện trực tiếp nhiều hơn"
+            },
+            {
+              "zh": "二十四小時上網",
+              "vi": "Lên mạng 24/24"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "76": [
@@ -47036,6 +48032,89 @@
       ],
       "created_at": "2026-07-15 01:14:21",
       "updated_at": "2026-08-05 15:33:42"
+    },
+    {
+      "id": 295,
+      "book_id": 7,
+      "lesson_id": 76,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "大衛的一天",
+      "content": "大衛每天早上七點半起床，八點吃早餐。\n他每天早上八點半出門，坐捷運去語言中心上中文課。\n中文課從早上九點開始，一直上到中午十二點。\n下午他常常去圖書館看書、做作業，五點半才回宿舍。",
+      "pinyin": "{}",
+      "vietnamese": "Đại Vệ mỗi ngày đều thức dậy lúc 7 giờ rưỡi sáng, 8 giờ ăn bữa sáng.\nBạn ấy rời nhà lúc 8 giờ rưỡi mỗi sáng, đi tàu điện ngầm đến trung tâm ngôn ngữ học tiếng Trung.\nTiết học tiếng Trung bắt đầu từ 9 giờ sáng và học liên tục đến 12 giờ trưa.\nBuổi chiều bạn ấy thường đến thư viện đọc sách, làm bài tập, đến 5 giờ rưỡi mới về ký túc xá.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "大衛早上幾點起床？",
+            "vi": "Đại Vệ thức dậy lúc mấy giờ sáng?"
+          },
+          "options": [
+            {
+              "zh": "六點半",
+              "vi": "6 giờ rưỡi"
+            },
+            {
+              "zh": "七點半",
+              "vi": "7 giờ rưỡi"
+            },
+            {
+              "zh": "八點半",
+              "vi": "8 giờ rưỡi"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "大衛怎麼去語言中心？",
+            "vi": "Đại Vệ đến trung tâm ngôn ngữ bằng phương tiện gì?"
+          },
+          "options": [
+            {
+              "zh": "坐公車",
+              "vi": "Đi xe buýt"
+            },
+            {
+              "zh": "走路",
+              "vi": "Đi bộ"
+            },
+            {
+              "zh": "坐捷運",
+              "vi": "Đi MRT (tàu điện ngầm)"
+            }
+          ],
+          "correct_index": 2
+        },
+        {
+          "question": {
+            "zh": "大衛下午常常在哪裡做作業？",
+            "vi": "Buổi chiều Đại Vệ thường làm bài tập ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "圖書館",
+              "vi": "Thư viện"
+            },
+            {
+              "zh": "咖啡廳",
+              "vi": "Quán cà phê"
+            },
+            {
+              "zh": "宿舍",
+              "vi": "Ký túc xá"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "88": [
@@ -47448,9 +48527,9 @@
       "type": "lesson_text",
       "dropdown_option": "Bài khoá",
       "title": "跨年活動",
-      "content": "老師：有啊！我小的時候在山上住了七、八年。每年的第一天，我都跟家人一起看日出。\n家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。\n友美：在日本，跨年的時候，很多人在家跟家人一起看電視。但是我喜歡和朋友一起跨年，比在家看電視有趣。\n國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。",
+      "content": "老師：有啊！我小的時候在山上住了七、八年。每年的第一天，我都跟家人一起看日出。\n家樂：跨年的時候，英國的教堂有很多活動，也有人去聽音樂會。\n友美：在日本，跨年的時候，很多人在家跟家人一起看電視。但是我喜歡和朋友一起跨年，比在家看電視有趣。\n國安：我也喜歡跟朋友一起跨年，而且今年比以前有意思多了，因為在台灣跟你們一起玩，覺得很特別。\n宜文：我同意，我也覺得今年很有意思。",
       "pinyin": "{}",
-      "vietnamese": "Thầy: Có chứ! Hồi nhỏ tôi sống trên núi bảy tám năm. Ngày đầu tiên của mỗi năm, tôi đều cùng gia đình đi xem bình minh.\nGia Lạc: Lúc đón giao thừa, nhà thờ ở Anh có rất nhiều hoạt động, cũng có người đi nghe nhạc.\nHữu Mỹ: Ở Nhật, lúc đón giao thừa, nhiều người ở nhà cùng gia đình xem tivi. Nhưng tôi thích đón giao thừa cùng bạn bè hơn, thú vị hơn ở nhà xem tivi.\nQuốc An: Tôi cũng thích đón giao thừa cùng bạn bè, hơn nữa năm nay thú vị hơn trước nhiều, vì ở Đài Loan cùng chơi với các bạn, cảm thấy rất đặc biệt.",
+      "vietnamese": "Thầy: Có chứ! Hồi nhỏ tôi sống trên núi bảy tám năm. Ngày đầu tiên của mỗi năm, tôi đều cùng gia đình đi xem bình minh.\nGia Lạc: Lúc đón giao thừa, nhà thờ ở Anh có rất nhiều hoạt động, cũng có người đi nghe nhạc.\nHữu Mỹ: Ở Nhật, lúc đón giao thừa, nhiều người ở nhà cùng gia đình xem tivi. Nhưng tôi thích đón giao thừa cùng bạn bè hơn, thú vị hơn ở nhà xem tivi.\nQuốc An: Tôi cũng thích đón giao thừa cùng bạn bè, hơn nữa năm nay thú vị hơn trước nhiều, vì ở Đài Loan cùng chơi với các bạn, cảm thấy rất đặc biệt.\nÝ Văn: Tôi đồng ý, tôi cũng thấy năm nay rất thú vị.",
       "audio_url": null,
       "youtube_id": null,
       "video_start_offset": "0.00",
@@ -47458,7 +48537,7 @@
       "script_json": [],
       "qa_json": [],
       "created_at": "2026-11-18 01:49:02",
-      "updated_at": "2026-11-18 01:49:02"
+      "updated_at": "2026-11-18 07:21:24"
     }
   ],
   "94": [
@@ -47809,6 +48888,89 @@
       ],
       "created_at": "2026-08-04 12:25:27",
       "updated_at": "2026-08-04 12:46:52"
+    },
+    {
+      "id": 311,
+      "book_id": 8,
+      "lesson_id": 94,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "熱鬧非凡的台灣夜市",
+      "content": "夜市是台灣最具代表性的常民文化之一，也是遊客絕不能錯過的地方。\n夜市裡香氣四溢，鹽酥雞、蚵仔煎、大腸包小腸等道地小吃應有盡有。\n除了美食，夜市裡還有很多賣流行服飾、手機配件和小遊戲的攤位。\n一邊品嚐銅板美食，一邊感受滿滿的人情味，這就是台灣夜市的獨特魅力。",
+      "pinyin": "{}",
+      "vietnamese": "Chợ đêm là một trong những nét văn hóa dân dã tiêu biểu nhất của Đài Loan, đồng thời là nơi du khách tuyệt đối không thể bỏ lỡ.\nTrong chợ đêm hương thơm ngào ngạt, gà rán muối giòn, hàu chiên trứng, xúc xích kẹp cơm nếp và đủ các món ăn vặt trứ danh.\nBên cạnh ẩm thực, chợ đêm còn có vô số quầy hàng bán quần áo thời trang, phụ kiện điện thoại và các trò chơi thú vị.\nVừa thưởng thức những món ăn đường phố giá rẻ, vừa cảm nhận sự đượm đà tình người, đó chính là sức hút độc đáo của chợ đêm Đài Loan.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "夜市是台灣什麼樣的文化代表？",
+            "vi": "Chợ đêm đại diện cho nét văn hóa gì của Đài Loan?"
+          },
+          "options": [
+            {
+              "zh": "常民文化與美食代表",
+              "vi": "Văn hóa dân dã và đại diện ẩm thực"
+            },
+            {
+              "zh": "高科技展覽",
+              "vi": "Triển lãm công nghệ cao"
+            },
+            {
+              "zh": "古代宮廷文化",
+              "vi": "Văn hóa cung đình cổ đại"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "夜市裡除了小吃還有什麼？",
+            "vi": "Trong chợ đêm ngoài đồ ăn còn có gì?"
+          },
+          "options": [
+            {
+              "zh": "服飾、配件與小遊戲",
+              "vi": "Quần áo, phụ kiện và trò chơi"
+            },
+            {
+              "zh": "賣大型家具",
+              "vi": "Bán đồ nội thất lớn"
+            },
+            {
+              "zh": "汽車展示",
+              "vi": "Trưng bày ô tô"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "台灣夜市的獨特魅力是什麼？",
+            "vi": "Sức hút độc đáo của chợ đêm Đài Loan là gì?"
+          },
+          "options": [
+            {
+              "zh": "銅板美食與滿滿人情味",
+              "vi": "Món ngon giá bình dân và đượm tình người"
+            },
+            {
+              "zh": "東西非常昂貴",
+              "vi": "Đồ đạc rất đắt đỏ"
+            },
+            {
+              "zh": "沒有人說話",
+              "vi": "Không có ai nói chuyện"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "90": [],
@@ -48232,6 +49394,89 @@
       ],
       "created_at": "2026-07-15 10:57:22",
       "updated_at": "2026-08-05 15:37:34"
+    },
+    {
+      "id": 307,
+      "book_id": 7,
+      "lesson_id": 89,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "十二生肖的民間傳說",
+      "content": "十二生肖是華人傳統文化中非常古老又有趣的一種紀年方式。\n傳說中，玉皇大帝舉辦了一場動物渡河比賽，排在第一名的是聰明的老鼠。\n每一種生肖動物在民間文化中都有不同的象徵意義，比如龍代表威嚴與吉祥。\n在台灣，每年過年時大家都會討論今年是哪一個生肖的本命年。",
+      "pinyin": "{}",
+      "vietnamese": "Mười hai con giáp là một phương thức tính năm vô cùng cổ xưa và thú vị trong văn hóa truyền thống của người Hoa.\nTương truyền rằng, Ngọc Hoàng Thượng Đế đã tổ chức một cuộc thi vượt sông cho các loài vật, về đích đầu tiên là chú Chuột thông minh.\nMỗi một con giáp trong văn hóa dân gian đều mang những ý nghĩa biểu trưng khác nhau, ví như Rồng đại diện cho uy nghiêm và cát tường.\nTại Đài Loan, mỗi dịp Tết đến xuân về mọi người đều bàn luận sôi nổi xem năm nay là năm bản mệnh của con giáp nào.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "傳說中比賽得到第一名的是哪種動物？",
+            "vi": "Trong truyền thuyết loài vật nào về nhất cuộc thi?"
+          },
+          "options": [
+            {
+              "zh": "老虎",
+              "vi": "Con Hổ"
+            },
+            {
+              "zh": "老鼠",
+              "vi": "Con Chuột"
+            },
+            {
+              "zh": "龍",
+              "vi": "Con Rồng"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "在傳統文化中「龍」代表什麼？",
+            "vi": "Trong văn hóa truyền thống con Rồng đại diện cho điều gì?"
+          },
+          "options": [
+            {
+              "zh": "威嚴與吉祥",
+              "vi": "Uy nghiêm và cát tường"
+            },
+            {
+              "zh": "膽小與害羞",
+              "vi": "Nhút nhát và e thẹn"
+            },
+            {
+              "zh": "勤勞與節儉",
+              "vi": "Cần cù và tiết kiệm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "十二生肖是用來做什麼的？",
+            "vi": "Mười hai con giáp được dùng để làm gì?"
+          },
+          "options": [
+            {
+              "zh": "測量距離",
+              "vi": "Đo khoảng cách"
+            },
+            {
+              "zh": "傳統的紀年方式",
+              "vi": "Phương thức tính năm truyền thống"
+            },
+            {
+              "zh": "計算年齡的大小",
+              "vi": "Tính kích cỡ tuổi tác"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "97": [
@@ -48582,6 +49827,89 @@
       ],
       "created_at": "2026-08-04 12:25:30",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 314,
+      "book_id": 8,
+      "lesson_id": 97,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "花蓮的太魯閣之旅",
+      "content": "花蓮位於台灣東部，擁有令人讚嘆的壯麗自然景觀與海岸風光。\n放長假的時候，許多人喜歡搭乘台鐵火車前往花蓮，享受慢節奏的悠閒步調。\n太魯閣國家公園裡的大理石峽谷和清澈溪流，每年都吸引無數國內外登山愛好者。\n站在峽谷深處仰望巍峨的山壁，讓人深刻感受到大自然的偉大與神奇。",
+      "pinyin": "{}",
+      "vietnamese": "Hoa Liên nằm ở phía đông Đài Loan, sở hữu cảnh sắc thiên nhiên hùng vĩ và cảnh quan bờ biển tuyệt đẹp khiến người ta phải trầm trồ.\nVào kỳ nghỉ dài, nhiều người thích đi tàu hỏa Đài Thiết đến Hoa Liên để tận hưởng nhịp sống thư thả và an yên.\nNhững hẻm núi đá cẩm thạch và dòng suối trong vắt ở Công viên quốc gia Taroko mỗi năm thu hút vô số tín đồ leo núi trong và ngoài nước.\nĐứng sâu trong hẻm núi ngước nhìn vách núi sừng sững, con người càng cảm nhận sâu sắc sự vĩ đại và kỳ diệu của mẹ thiên nhiên.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "花蓮位於台灣的哪個方位？",
+            "vi": "Hoa Liên nằm ở hướng nào của Đài Loan?"
+          },
+          "options": [
+            {
+              "zh": "東部",
+              "vi": "Phía Đông"
+            },
+            {
+              "zh": "西部",
+              "vi": "Phía Tây"
+            },
+            {
+              "zh": "北部",
+              "vi": "Phía Bắc"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "太魯閣國家公園以什麼景觀聞名？",
+            "vi": "Công viên quốc gia Taroko nổi tiếng với cảnh quan gì?"
+          },
+          "options": [
+            {
+              "zh": "大理石峽谷與清澈溪流",
+              "vi": "Hẻm núi đá cẩm thạch và suối trong"
+            },
+            {
+              "zh": "沙漠景觀",
+              "vi": "Cảnh quan sa mạc"
+            },
+            {
+              "zh": "現代高樓大廈",
+              "vi": "Tòa nhà chọc trời hiện đại"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "去花蓮旅行很多人喜歡搭乘什麼交通工具？",
+            "vi": "Đi du lịch Hoa Liên nhiều người thích đi phương tiện gì?"
+          },
+          "options": [
+            {
+              "zh": "高鐵",
+              "vi": "Tàu cao tốc (HSR)"
+            },
+            {
+              "zh": "台鐵火車",
+              "vi": "Tàu hỏa Đài Thiết (TRA)"
+            },
+            {
+              "zh": "輪船",
+              "vi": "Tàu thủy"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "91": [
@@ -48950,6 +50278,89 @@
       ],
       "created_at": "2026-08-04 12:25:24",
       "updated_at": "2026-08-04 12:46:52"
+    },
+    {
+      "id": 308,
+      "book_id": 8,
+      "lesson_id": 91,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "認識新朋友與校園生活",
+      "content": "開學第二週，校園裡的氣氛漸漸熱絡了起來。\n來自各個國家的留學生聚在國際交誼廳裡，互相分享家鄉的美食與風俗。\n剛開始大家難免有些靦腆，但一句熱情的問候很快拉近了彼此的距離。\n在多元文化的環境裡學習，不僅能開闊眼界，也能結交到一輩子的摯友。",
+      "pinyin": "{}",
+      "vietnamese": "Bước sang tuần học thứ hai, bầu không khí trong khuôn viên trường dần trở nên sôi nổi hơn hẳn.\nCác bạn lưu học sinh đến từ nhiều quốc gia tụ họp trong phòng giao lưu quốc tế, cùng nhau chia sẻ về ẩm thực và phong tục quê hương.\nMới đầu mọi người khó tránh khỏi đôi chút e dè, nhưng một lời chào nhiệt tình đã nhanh chóng kéo gần khoảng cách đôi bên.\nHọc tập trong môi trường đa văn hóa không chỉ giúp mở rộng tầm mắt mà còn kết giao được những người bạn tri kỷ suốt đời.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "留學生們在哪裡互相交流？",
+            "vi": "Các lưu học sinh giao lưu với nhau ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "國際交誼廳",
+              "vi": "Phòng giao lưu quốc tế"
+            },
+            {
+              "zh": "體育館",
+              "vi": "Nhà thi đấu thể thao"
+            },
+            {
+              "zh": "學校餐廳",
+              "vi": "Nhà ăn trường"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "大家一開始心情感覺如何？",
+            "vi": "Mới đầu tâm trạng mọi người cảm thấy thế nào?"
+          },
+          "options": [
+            {
+              "zh": "有點靦腆害羞",
+              "vi": "Hơi e dè, ngại ngùng"
+            },
+            {
+              "zh": "非常生氣",
+              "vi": "Rất tức giận"
+            },
+            {
+              "zh": "完全不想講話",
+              "vi": "Hoàn toàn không muốn nói chuyện"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "多元文化的學習環境有什麼好處？",
+            "vi": "Môi trường đa văn hóa đem lại lợi ích gì?"
+          },
+          "options": [
+            {
+              "zh": "不用上課",
+              "vi": "Không phải đi học"
+            },
+            {
+              "zh": "開闊眼界、結交摯友",
+              "vi": "Mở rộng tầm mắt, kết giao bạn tốt"
+            },
+            {
+              "zh": "每天都有免費食物",
+              "vi": "Ngày nào cũng có đồ ăn miễn phí"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "93": [
@@ -49318,6 +50729,89 @@
       ],
       "created_at": "2026-08-04 12:25:27",
       "updated_at": "2026-08-04 12:46:52"
+    },
+    {
+      "id": 310,
+      "book_id": 8,
+      "lesson_id": 93,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "在台北租屋的經驗",
+      "content": "在台北租房子，首先要考慮交通位置、房租預算以及周邊生活機能。\n大部分外國學生喜歡租在離捷運站近或者學校步行可達的套房。\n看房子的時候，要特別注意採光是否良好、水電費如何計算，以及有沒有對外窗。\n簽約前一定要仔細閱讀租約內容，確認押金退還規定，保障自己的租屋權益。",
+      "pinyin": "{}",
+      "vietnamese": "Thuê nhà ở Đài Bắc, trước tiên cần cân nhắc vị trí giao thông, ngân sách tiền thuê và tiện ích sinh hoạt xung quanh.\nPhần lớn du học sinh thích thuê những căn phòng khép kín (套房) gần ga tàu điện ngầm hoặc đi bộ đến trường được.\nKhi đi xem phòng, cần đặc biệt lưu ý ánh sáng có tốt không, tiền điện nước tính thế nào và có cửa sổ hướng ra ngoài không.\nTrước khi ký hợp đồng nhất định phải đọc kỹ các điều khoản, xác nhận quy định hoàn trả tiền cọc để đảm bảo quyền lợi thuê nhà của mình.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "租房子首先要考慮什麼？",
+            "vi": "Thuê nhà trước tiên cần cân nhắc điều gì?"
+          },
+          "options": [
+            {
+              "zh": "交通、預算與生活機能",
+              "vi": "Giao thông, ngân sách và tiện ích sinh hoạt"
+            },
+            {
+              "zh": "房東的長相",
+              "vi": "Tướng mạo chủ nhà"
+            },
+            {
+              "zh": "附近有沒有夜總會",
+              "vi": "Gần đó có quán bar không"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "看房時要特別注意什麼？",
+            "vi": "Khi xem phòng cần đặc biệt chú ý điều gì?"
+          },
+          "options": [
+            {
+              "zh": "房間牆壁的顏色",
+              "vi": "Màu sắc bức tường"
+            },
+            {
+              "zh": "採光、水電計算與對外窗",
+              "vi": "Ánh sáng, cách tính điện nước và cửa sổ"
+            },
+            {
+              "zh": "門牌號碼吉不吉利",
+              "vi": "Số nhà có may mắn không"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "簽約前確認押金規定的目的是什麼？",
+            "vi": "Mục đích xác nhận quy định tiền cọc trước khi ký là gì?"
+          },
+          "options": [
+            {
+              "zh": "跟房東當朋友",
+              "vi": "Làm bạn với chủ nhà"
+            },
+            {
+              "zh": "保障自己的租屋權益",
+              "vi": "Đảm bảo quyền lợi thuê nhà của bản thân"
+            },
+            {
+              "zh": "讓房租便宜一半",
+              "vi": "Để tiền thuê giảm một nửa"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "96": [
@@ -49668,6 +51162,89 @@
       ],
       "created_at": "2026-08-04 12:25:29",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 313,
+      "book_id": 8,
+      "lesson_id": 96,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "相約KTV唱出青春",
+      "content": "在台灣，去KTV唱歌是年輕人聯絡感情、舒緩壓力的最佳消遣之一。\n期中考結束那天，全班同學一起包了一間大包廂唱歌慶祝。\n大家點了許多流行歌曲，有些人擅長唱快歌帶動氣氛，有些人則深情演繹慢歌。\n包廂裡充滿了歡聲笑語，大家在歌聲中度過了一個難忘的狂歡之夜。",
+      "pinyin": "{}",
+      "vietnamese": "Ở Đài Loan, đi hát KTV là một trong những hình thức giải trí tuyệt vời nhất để giới trẻ gắn kết tình cảm và giải tỏa áp lực.\nVào ngày kết thúc kỳ thi giữa kỳ, cả lớp đã cùng nhau thuê một phòng hát lớn để ăn mừng xả hơi.\nMọi người chọn rất nhiều bài hát thịnh hành, có bạn khéo hát bài sôi động khuấy động bầu không khí, có bạn lại sâu lắng thể hiện những khúc ca trữ tình.\nTrong phòng hát tràn ngập tiếng cười nói rộn rã, mọi người đã trải qua một đêm vui chơi khó quên trong lời ca tiếng hát.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "年輕人去KTV唱歌常為了什麼？",
+            "vi": "Giới trẻ đi hát KTV thường để làm gì?"
+          },
+          "options": [
+            {
+              "zh": "聯絡感情、舒緩壓力",
+              "vi": "Gắn kết tình cảm, giải tỏa áp lực"
+            },
+            {
+              "zh": "為了考試練習",
+              "vi": "Để luyện thi"
+            },
+            {
+              "zh": "做商業談判",
+              "vi": "Đàm phán kinh doanh"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "同學們在什麼時候去KTV慶祝？",
+            "vi": "Các bạn học đi KTV mừng vào lúc nào?"
+          },
+          "options": [
+            {
+              "zh": "期中考結束那天",
+              "vi": "Ngày thi giữa kỳ kết thúc"
+            },
+            {
+              "zh": "開學前一天",
+              "vi": "Một ngày trước khi khai giảng"
+            },
+            {
+              "zh": "星期一清晨",
+              "vi": "Sáng sớm thứ Hai"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "大家在包廂裡的氛圍怎麼樣？",
+            "vi": "Bầu không khí trong phòng hát thế nào?"
+          },
+          "options": [
+            {
+              "zh": "嚴肅安靜",
+              "vi": "Nghiêm túc yên lặng"
+            },
+            {
+              "zh": "充滿歡聲笑語",
+              "vi": "Tràn ngập tiếng cười nói hân hoan"
+            },
+            {
+              "zh": "大家都睡著了",
+              "vi": "Ai nấy đều ngủ thiếp đi"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "99": [
@@ -50000,6 +51577,89 @@
       ],
       "created_at": "2026-08-04 12:25:33",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 316,
+      "book_id": 8,
+      "lesson_id": 99,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "面對期末考的心態",
+      "content": "每到期末考週，校園圖書館總是座無虛席，到處都能看見埋頭苦讀的身影。\n面對即將到來的考試，有些同學感到焦慮不安，甚至晚上睡不好覺。\n老師建議大家要制定合理的複習進度，不要把所有內容都留到最後一晚死記硬背。\n維持規律的作息、保持平靜自信的心態，才是考出理想成績的關鍵。",
+      "pinyin": "{}",
+      "vietnamese": "Cứ mỗi độ đến tuần thi cuối kỳ, thư viện trường luôn kín chỗ ngồi, đâu đâu cũng thấy bóng dáng người học miệt mài dùi mài kinh sử.\nĐối diện với kỳ thi sắp tới, một số bạn học cảm thấy âu lo bồn chồn, thậm chí ban đêm ngủ không tròn giấc.\nThầy cô khuyên nhủ mọi người nên lập kế hoạch ôn tập hợp lý, chớ để dồn toàn bộ nội dung đến đêm cuối cùng mới học vẹt nhồi nhét.\nDuy trì thói quen sinh hoạt điều độ, giữ tâm thế tự tin bình thản mới là chìa khóa đạt được kết quả lý tưởng.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "期末考週圖書館的情況如何？",
+            "vi": "Tình hình thư viện vào tuần thi cuối kỳ thế nào?"
+          },
+          "options": [
+            {
+              "zh": "座無虛席、很多人讀書",
+              "vi": "Kín chỗ ngồi, rất đông người học"
+            },
+            {
+              "zh": "非常冷清沒人去",
+              "vi": "Rất vắng vẻ không ai đến"
+            },
+            {
+              "zh": "關門整修",
+              "vi": "Đóng cửa sửa chữa"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "老師建議學生如何複習？",
+            "vi": "Thầy cô khuyên sinh viên nên ôn tập thế nào?"
+          },
+          "options": [
+            {
+              "zh": "考前一晚通宵死記",
+              "vi": "Thức thâu đêm học vẹt trước ngày thi"
+            },
+            {
+              "zh": "制定合理的複習進度",
+              "vi": "Lập tiến độ ôn tập hợp lý"
+            },
+            {
+              "zh": "直接放棄不要考",
+              "vi": "Bỏ cuộc không thi nữa"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "考出好成績的關鍵是什麼？",
+            "vi": "Chìa khóa để thi đạt điểm tốt là gì?"
+          },
+          "options": [
+            {
+              "zh": "規律作息與平靜自信",
+              "vi": "Sinh hoạt điều độ và bình tĩnh tự tin"
+            },
+            {
+              "zh": "喝很多咖啡不睡覺",
+              "vi": "Uống nhiều cà phê không ngủ"
+            },
+            {
+              "zh": "帶很多幸運物",
+              "vi": "Mang nhiều đồ may mắn"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "100": [
@@ -50338,6 +51998,89 @@
       ],
       "created_at": "2026-08-04 12:25:34",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 317,
+      "book_id": 8,
+      "lesson_id": 100,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "全民健身新風潮",
+      "content": "隨著健康意識的提升，下班下課後去健身房運動已經成為一種流行趨勢。\n台灣各個行政區都設有平價又設備齊全的國民運動中心，受到市民的歡迎。\n很多人在那裡游泳、重訓，或者參加熱鬧的瑜珈與有氧舞蹈課程。\n持之以恆地運動，不僅能改善體態，還能讓心情變得更加開朗充實。",
+      "pinyin": "{}",
+      "vietnamese": "Cùng với sự nâng cao của ý thức bảo vệ sức khỏe, việc sau giờ làm hoặc tan học đến phòng gym tập luyện đã trở thành một trào lưu thịnh hành.\nCác quận huyện ở Đài Loan đều có các trung tâm thể thao quốc dân giá bình dân với đầy đủ trang thiết bị hiện đại, rất được người dân ưa chuộng.\nNhiều người đến đó bơi lội, tập tạ hoặc tham gia các lớp yoga và aerobic sôi nổi.\nKiên trì vận động không chỉ giúp cải thiện vóc dáng mà còn khiến tinh thần trở nên sảng khoái và tràn đầy năng lượng.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "台灣各個區設有什麼受到市民歡迎的場所？",
+            "vi": "Các quận ở Đài Loan có địa điểm nào được người dân đón nhận?"
+          },
+          "options": [
+            {
+              "zh": "國民運動中心",
+              "vi": "Trung tâm thể thao quốc dân"
+            },
+            {
+              "zh": "大型遊樂園",
+              "vi": "Công viên giải trí lớn"
+            },
+            {
+              "zh": "賭場",
+              "vi": "Sòng bạc"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "人們常在運動中心做哪些運動？",
+            "vi": "Mọi người thường tập những môn gì ở trung tâm thể thao?"
+          },
+          "options": [
+            {
+              "zh": "游泳、重訓與瑜珈",
+              "vi": "Bơi lội, tập tạ và yoga"
+            },
+            {
+              "zh": "滑雪",
+              "vi": "Trượt tuyết"
+            },
+            {
+              "zh": "賽車",
+              "vi": "Đua xe"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "持之以恆運動有什麼益處？",
+            "vi": "Kiên trì tập thể thao có lợi ích gì?"
+          },
+          "options": [
+            {
+              "zh": "改善體態、心情開朗",
+              "vi": "Cải thiện vóc dáng, tinh thần phấn chấn"
+            },
+            {
+              "zh": "容易疲倦生病",
+              "vi": "Dễ mệt mỏi và ốm yếu"
+            },
+            {
+              "zh": "增加生活負擔",
+              "vi": "Tăng thêm gánh nặng cuộc sống"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "103": [
@@ -50694,6 +52437,89 @@
       ],
       "created_at": "2026-08-04 12:25:35",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 320,
+      "book_id": 8,
+      "lesson_id": 103,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "挑選筆電的心得",
+      "content": "隨著課業報告與遠距學習的需求增加，筆記型電腦已是大學生的必備工具。\n在購買筆電之前，最好先根據自己的使用需求來評估處理器性能與記憶體容量。\n如果是文科學生，輕薄便攜、續航力長的機種往往是優先考量。\n前往三創科技商場或光華商場多比價、詢問售後保固，才能買到物超所值的電腦。",
+      "pinyin": "{}",
+      "vietnamese": "Cùng với sự gia tăng nhu cầu làm báo cáo bài tập và học tập từ xa, máy tính xách tay (laptop) đã là công cụ thiết yếu của sinh viên đại học.\nTrước khi mua laptop, tốt nhất nên căn cứ vào nhu cầu sử dụng thực tế để đánh giá hiệu năng chip xử lý và dung lượng RAM.\nNếu là sinh viên khối xã hội, những dòng máy mỏng nhẹ dễ mang theo cùng thời lượng pin dài lâu thường là ưu tiên hàng đầu.\nĐến các trung tâm công nghệ như Syntrend hay Quang Hoa để so sánh giá và hỏi kỹ chế độ bảo hành hậu mãi mới mua được chiếc máy đáng đồng tiền bát gạo.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "買筆電前應先根據什麼評估性能？",
+            "vi": "Trước khi mua laptop nên dựa vào điều gì để đánh giá hiệu năng?"
+          },
+          "options": [
+            {
+              "zh": "自己的實際使用需求",
+              "vi": "Nhu cầu sử dụng thực tế của bản thân"
+            },
+            {
+              "zh": "哪一台最昂貴",
+              "vi": "Cái nào đắt tiền nhất"
+            },
+            {
+              "zh": "朋友買哪一台就買哪一台",
+              "vi": "Bạn mua cái nào mua theo cái đó"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "文科學生常優先考量哪種類型的筆電？",
+            "vi": "Sinh viên xã hội thường ưu tiên dòng laptop loại nào?"
+          },
+          "options": [
+            {
+              "zh": "又重又厚的大電腦",
+              "vi": "Máy to nặng và dày"
+            },
+            {
+              "zh": "輕薄便攜、續航力長",
+              "vi": "Mỏng nhẹ dễ mang, thời lượng pin dài"
+            },
+            {
+              "zh": "專門挖礦的電腦",
+              "vi": "Máy chuyên cày tiền ảo"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "台北著名的科技商場有哪些？",
+            "vi": "Các trung tâm công nghệ nổi tiếng ở Đài Bắc gồm có?"
+          },
+          "options": [
+            {
+              "zh": "三創科技商場與光華商場",
+              "vi": "Trung tâm Syntrend và chợ công nghệ Quang Hoa"
+            },
+            {
+              "zh": "士林夜市",
+              "vi": "Chợ đêm Sĩ Lâm"
+            },
+            {
+              "zh": "陽明山公園",
+              "vi": "Công viên Dương Minh Sơn"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "104": [
@@ -51026,6 +52852,89 @@
       ],
       "created_at": "2026-08-04 12:25:36",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 321,
+      "book_id": 8,
+      "lesson_id": 104,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "年年有餘與年菜文化",
+      "content": "農曆除夕夜的圍爐年夜飯，是一年之中華人家庭最重視的團圓時刻。\n年夜飯的餐桌上一定要有一條完整的魚，象徵著「年年有餘」的吉祥涵義。\n此外，長年菜象徵長命百歲，發糕象徵步步高升，每一道年菜都承載著美好祝願。\n全家人歡聚一堂享用美食，伴隨著長輩發紅包的歡笑聲，迎接著新一年的到來。",
+      "pinyin": "{}",
+      "vietnamese": "Bữa cơm tất niên đêm trừ tịch là khoảnh khắc đoàn viên được các gia đình người Hoa coi trọng nhất trong suốt một năm.\nTrên mâm cỗ tất niên nhất định phải có một con cá nguyên vẹn, mang ý nghĩa cát tường sâu sắc \"niên niên hữu dư\" (quanh năm dư dả, do chữ Cá \"Ngư\" đồng âm với chữ \"Dư\").\nBên cạnh đó, rau trường niên tượng trưng trường thọ bách niên, bánh phát tài tượng trưng bước bước thăng tiến, món ăn Tết nào cũng gửi gắm những lời chúc tụng tốt lành.\nCả nhà quây quần sum họp thưởng thức phong vị ngày xuân, hòa cùng tiếng cười mừng rỡ khi nhận phong bao lì xì của bậc trưởng bối, hân hoan đón chào năm mới.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "年夜飯餐桌上的魚象徵什麼吉祥寓意？",
+            "vi": "Con cá trên mâm cỗ tất niên tượng trưng cho ý nghĩa tốt lành nào?"
+          },
+          "options": [
+            {
+              "zh": "年年有餘",
+              "vi": "Quanh năm dư dả (Niên niên hữu dư)"
+            },
+            {
+              "zh": "游水很快",
+              "vi": "Bơi lội rất nhanh"
+            },
+            {
+              "zh": "天天有肉",
+              "vi": "Ngày nào cũng có thịt"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "「長年菜」在年菜中代表什麼祝願？",
+            "vi": "\"Rau trường niên\" trong mâm cơm Tết mang lời chúc gì?"
+          },
+          "options": [
+            {
+              "zh": "長命百歲",
+              "vi": "Trường thọ trăm tuổi"
+            },
+            {
+              "zh": "步步高升",
+              "vi": "Từng bước thăng quan tiến chức"
+            },
+            {
+              "zh": "大富大貴",
+              "vi": "Đại phú đại quý"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "除夕夜長輩通常會給晚輩什麼？",
+            "vi": "Đêm trừ tịch người lớn thường trao tặng hậu bối món quà gì?"
+          },
+          "options": [
+            {
+              "zh": "紅包壓歲錢",
+              "vi": "Bao lì xì mừng tuổi"
+            },
+            {
+              "zh": "作業題目",
+              "vi": "Đề bài tập về nhà"
+            },
+            {
+              "zh": "舊衣服",
+              "vi": "Quần áo cũ"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "95": [
@@ -51370,6 +53279,89 @@
       ],
       "created_at": "2026-08-04 12:25:28",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 312,
+      "book_id": 8,
+      "lesson_id": 95,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "溫馨的家庭聚會",
+      "content": "週末，宜文熱情邀請班上的幾位外國同學到家裡做客。\n宜文的媽媽準備了一整桌道地的家常菜，每一道料理都色香味俱全。\n同學們圍坐在客廳裡，一邊品嚐台灣媽媽的手藝，一邊愉快地分享生活點滴。\n這次溫馨的聚會，讓身處異鄉的留學生們感受到了家的溫暖。",
+      "pinyin": "{}",
+      "vietnamese": "Cuối tuần, Ý Văn nhiệt tình mời mấy bạn học quốc tế trong lớp đến nhà làm khách.\nMẹ của Ý Văn đã chuẩn bị một bàn đầy những món ăn cơm nhà chuẩn vị, món nào cũng đủ sắc hương vị quyến rũ.\nCác bạn cùng quây quần bên phòng khách, vừa thưởng thức tài nghệ nấu nướng của mẹ người Đài, vừa vui vẻ kể cho nhau nghe những mẩu chuyện đời thường.\nBuổi tụ họp ấm cúng này đã mang đến cho những du học sinh xa quê cảm giác ấm áp như đang ở chính ngôi nhà của mình.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "誰邀請同學們去家裡做客？",
+            "vi": "Ai đã mời các bạn học đến nhà làm khách?"
+          },
+          "options": [
+            {
+              "zh": "宜文",
+              "vi": "Ý Văn"
+            },
+            {
+              "zh": "老師",
+              "vi": "Thầy giáo"
+            },
+            {
+              "zh": "大同",
+              "vi": "Đại Đồng"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "宜文的媽媽準備了什麼？",
+            "vi": "Mẹ của Ý Văn đã chuẩn bị những gì?"
+          },
+          "options": [
+            {
+              "zh": "道地的家常菜",
+              "vi": "Những món ăn gia đình chuẩn vị"
+            },
+            {
+              "zh": "外送速食漢堡",
+              "vi": "Bánh burger đồ ăn nhanh"
+            },
+            {
+              "zh": "只有飲料和水果",
+              "vi": "Chỉ có đồ uống và hoa quả"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "這次聚會帶給留學生什麼感受？",
+            "vi": "Buổi gặp mặt mang lại cảm xúc gì cho các lưu học sinh?"
+          },
+          "options": [
+            {
+              "zh": "家的溫暖",
+              "vi": "Sự ấm áp như ở nhà"
+            },
+            {
+              "zh": "覺得很緊張",
+              "vi": "Cảm thấy rất căng thẳng"
+            },
+            {
+              "zh": "吃得不習慣",
+              "vi": "Ăn không quen miệng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "101": [
@@ -51720,9 +53712,176 @@
       ],
       "created_at": "2026-08-04 12:25:35",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 318,
+      "book_id": 8,
+      "lesson_id": 101,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "大學的精彩社團",
+      "content": "大學生活除了課業學習之外，多采多姿的學生社團也是重要的一環。\n每年開學初期的「社團博覽會」上，各個社團都會各展所長招攬新社員。\n從吉他社、熱舞社等文藝性社團，到志工服務社和戶外登山社，種類十分多元。\n參加社團能結交志同道合的好友，也能學會團隊合作與活動組織的能力。",
+      "pinyin": "{}",
+      "vietnamese": "Đời sống đại học ngoài bài vở học tập ra thì các câu lạc bộ sinh viên đa màu sắc cũng là một mắt xích vô cùng quan trọng.\nVào đợt \"Hội chợ câu lạc bộ\" đầu mỗi năm học, từng câu lạc bộ đều phô diễn sở trường để chiêu mộ thành viên mới.\nTừ các câu lạc bộ văn nghệ như ghi-ta, nhảy hiện đại, cho đến câu lạc bộ tình nguyện và leo núi dã ngoại, thể loại vô cùng phong phú.\nTham gia câu lạc bộ giúp kết bạn với những người cùng chung chí hướng, đồng thời rèn giũa kỹ năng làm việc nhóm và tổ chức sự kiện.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "開學初期的什麼活動會招募新社員？",
+            "vi": "Sự kiện nào đầu năm học dùng để chiêu mộ thành viên mới?"
+          },
+          "options": [
+            {
+              "zh": "社團博覽會",
+              "vi": "Hội chợ câu lạc bộ (社團博覽會)"
+            },
+            {
+              "zh": "期中考試",
+              "vi": "Kỳ thi giữa kỳ"
+            },
+            {
+              "zh": "畢業典禮",
+              "vi": "Lễ tốt nghiệp"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "大學社團的種類怎麼樣？",
+            "vi": "Các thể loại câu lạc bộ đại học như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "非常單一只有一種",
+              "vi": "Rất đơn điệu chỉ có một loại"
+            },
+            {
+              "zh": "種類十分多元",
+              "vi": "Thể loại vô cùng phong phú, đa dạng"
+            },
+            {
+              "zh": "只有運動社團",
+              "vi": "Chỉ có câu lạc bộ thể thao"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "參加社團能學會什麼能力？",
+            "vi": "Tham gia câu lạc bộ có thể học được năng lực gì?"
+          },
+          "options": [
+            {
+              "zh": "團隊合作與組織能力",
+              "vi": "Làm việc nhóm và kỹ năng tổ chức"
+            },
+            {
+              "zh": "修電腦的能力",
+              "vi": "Năng lực sửa máy tính"
+            },
+            {
+              "zh": "炒股票的能力",
+              "vi": "Năng lực chơi cổ phiếu"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
-  "107": [],
+  "107": [
+    {
+      "id": 324,
+      "book_id": 9,
+      "lesson_id": 107,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "追逐夢想的勇氣",
+      "content": "每個人在成長的過程中，心中都會埋下一顆關於未來的夢想種子。\n有人渴望成為舞台上光芒四射的藝術家，有人則立志投身科研改變世界。\n追求夢想的道路往往充滿波折與考驗，甚至會遭遇旁人的質疑與現實的阻礙。\n但只要堅定信念、腳踏實地勇敢前行，那些汗水終將化為璀璨的成果。",
+      "pinyin": "{}",
+      "vietnamese": "Trong quá trình trưởng thành của mỗi con người, trong tim đều gieo xuống một hạt giống ước mơ về tương lai.\nCó người khao khát trở thành nghệ sĩ tỏa sáng rực rỡ trên sân khấu, có người lại lập chí cống hiến cho nghiên cứu khoa học để thay đổi thế giới.\nCon đường theo đuổi ước mơ thường đầy rẫy sóng gió và thử thách, thậm chí phải đối mặt với sự hoài nghi của người xung quanh và rào cản của thực tế.\nNhưng chỉ cần kiên định niềm tin, vững bước chân dũng cảm tiến về phía trước, những giọt mồ hôi ấy rốt cuộc sẽ kết tinh thành những thành quả rạng ngời.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "追求夢想的道路往往充滿什麼？",
+            "vi": "Con đường theo đuổi ước mơ thường ngập tràn điều gì?"
+          },
+          "options": [
+            {
+              "zh": "波折、考驗與現實阻礙",
+              "vi": "Sóng gió, thử thách và rào cản thực tế"
+            },
+            {
+              "zh": "平坦無阻",
+              "vi": "Bằng phẳng không chút trở ngại"
+            },
+            {
+              "zh": "只有別人的掌聲",
+              "vi": "Chỉ toàn tiếng vỗ tay của người khác"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "要實現夢想需要什麼樣的精神？",
+            "vi": "Để thực hiện ước mơ cần tinh thần như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "堅定信念、腳踏實地前行",
+              "vi": "Kiên định niềm tin, vững vàng tiến bước"
+            },
+            {
+              "zh": "遇到困難馬上放棄",
+              "vi": "Gặp khó khăn là bỏ cuộc ngay"
+            },
+            {
+              "zh": "只說不做",
+              "vi": "Chỉ nói mà không làm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "這篇課文的核心主旨是什麼？",
+            "vi": "Chủ đề cốt lõi của bài khóa này là gì?"
+          },
+          "options": [
+            {
+              "zh": "勇敢追逐自己的夢想",
+              "vi": "Dũng cảm theo đuổi ước mơ của bản thân"
+            },
+            {
+              "zh": "抱怨現實的不公平",
+              "vi": "Than vãn sự bất công của hiện thực"
+            },
+            {
+              "zh": "討論如何賺快錢",
+              "vi": "Bàn về cách kiếm tiền nhanh"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "98": [
     {
       "id": 275,
@@ -52047,6 +54206,89 @@
       ],
       "created_at": "2026-08-04 12:25:32",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 315,
+      "book_id": 8,
+      "lesson_id": 98,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "超商集點的樂趣",
+      "content": "台灣的便利商店密度極高，而超商的「集點換好禮」更是掀起風潮的促銷活動。\n只要消費滿額就能獲得一張集點貼紙，集滿足夠的點數就可以兌換可愛公仔或生活用品。\n為了換到限量的聯名卡通商品，許多上班族和學生每天都會互相交換多餘的貼紙。\n這種集點文化不僅增添了消費的樂趣，也成了同事朋友間熱門的話題。",
+      "pinyin": "{}",
+      "vietnamese": "Mật độ cửa hàng tiện lợi ở Đài Loan cực kỳ dày đặc, và hoạt động \"tích điểm đổi quà\" tại siêu thị tiện lợi lại càng là trào lưu khuyến mãi nổi bật.\nChỉ cần tiêu dùng đủ mức là nhận được một con tem tích điểm, gom đủ số điểm quy định có thể đổi những bức tượng nhỏ xinh xắn hoặc đồ dùng đời sống.\nĐể đổi được các món đồ hoạt hình phiên bản giới hạn, rất nhiều nhân viên văn phòng và học sinh ngày ngày đổi chéo tem thừa cho nhau.\nVăn hóa tích điểm này không chỉ làm tăng thêm niềm vui khi mua sắm, mà còn trở thành chủ đề rôm rả giữa bạn bè và đồng nghiệp.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "集滿超商點數可以做什麼？",
+            "vi": "Gom đủ điểm ở cửa hàng tiện lợi có thể làm gì?"
+          },
+          "options": [
+            {
+              "zh": "兌換可愛公仔或生活用品",
+              "vi": "Đổi tượng hoạt hình hoặc đồ gia dụng"
+            },
+            {
+              "zh": "當現金存進銀行",
+              "vi": "Gửi vào ngân hàng thành tiền mặt"
+            },
+            {
+              "zh": "報名上大學",
+              "vi": "Đăng ký học đại học"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "大家為什麼會互相交換貼紙？",
+            "vi": "Tại sao mọi người lại trao đổi tem cho nhau?"
+          },
+          "options": [
+            {
+              "zh": "為了集齊點數換限量商品",
+              "vi": "Để gom đủ điểm đổi đồ giới hạn"
+            },
+            {
+              "zh": "因為貼紙太多沒地方放",
+              "vi": "Vì quá nhiều tem không có chỗ để"
+            },
+            {
+              "zh": "老師規定的作業",
+              "vi": "Bài tập thầy cô giao"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "集點文化給生活帶來了什麼？",
+            "vi": "Văn hóa tích điểm mang lại điều gì cho cuộc sống?"
+          },
+          "options": [
+            {
+              "zh": "增添消費樂趣與社交話題",
+              "vi": "Thêm niềm vui mua sắm và chủ đề trò chuyện"
+            },
+            {
+              "zh": "造成很大的經濟負擔",
+              "vi": "Gây gánh nặng kinh tế lớn"
+            },
+            {
+              "zh": "浪費時間",
+              "vi": "Lãng phí thời gian"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
   "102": [
@@ -52391,10 +54633,261 @@
       ],
       "created_at": "2026-08-04 12:25:35",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 319,
+      "book_id": 8,
+      "lesson_id": 102,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "職場之路與創業思維",
+      "content": "面對未來的職業規劃，有人嚮往進入大企業穩定升遷，有人則渴望自主創業。\n當一名基層職員，可以在成熟的體制中積累專業經驗，學習團隊溝通與跨部門協作。\n而選擇自己當老闆開公司，雖然背負著資金與市場的雙重壓力，卻能擁有更高的自主權。\n無論選擇哪條道路，具備主動學習的態度與解決問題的實力，都是成功的基石。",
+      "pinyin": "{}",
+      "vietnamese": "Đối diện với định hướng nghề nghiệp tương lai, có người ao ước bước chân vào doanh nghiệp lớn để thăng tiến ổn định, lại có người khao khát tự mình khởi nghiệp.\nLàm một nhân viên cấp cơ sở, ta có thể tích lũy kinh nghiệm chuyên môn trong hệ thống bài bản, học cách giao tiếp và phối hợp liên phòng ban.\nCòn chọn tự mình làm sếp mở công ty, tuy phải gánh vác áp lực kép về vốn liếng và thị trường, nhưng lại có quyền tự chủ cao hơn.\nDù lựa chọn ngã rẽ nào, sở hữu thái độ chủ động học hỏi cùng năng lực giải quyết vấn đề thực tế mới là nền tảng vững chắc của thành công.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "在企業當基層職員可以積累什麼？",
+            "vi": "Làm nhân viên trong doanh nghiệp có thể tích lũy điều gì?"
+          },
+          "options": [
+            {
+              "zh": "專業經驗與協作能力",
+              "vi": "Kinh nghiệm chuyên môn và năng lực hợp tác"
+            },
+            {
+              "zh": "無窮無盡的財富",
+              "vi": "Của cải vô tận"
+            },
+            {
+              "zh": "完全不需要工作",
+              "vi": "Hoàn toàn không cần làm việc"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "自主創業需要承擔什麼？",
+            "vi": "Tự khởi nghiệp cần phải gánh vác điều gì?"
+          },
+          "options": [
+            {
+              "zh": "資金與市場的雙重壓力",
+              "vi": "Áp lực kép về vốn liếng và thị trường"
+            },
+            {
+              "zh": "老闆的責罵",
+              "vi": "Lời trách mắng của cấp trên"
+            },
+            {
+              "zh": "每個月的考試",
+              "vi": "Các bài thi hàng tháng"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "無論哪條路，成功的基石是什麼？",
+            "vi": "Dù con đường nào, nền tảng của thành công là gì?"
+          },
+          "options": [
+            {
+              "zh": "主動學習與解決問題的實力",
+              "vi": "Chủ động học hỏi và năng lực giải quyết vấn đề"
+            },
+            {
+              "zh": "只靠家庭背景",
+              "vi": "Chỉ dựa vào gia thế"
+            },
+            {
+              "zh": "投機取巧",
+              "vi": "Đầu cơ chụp giật"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
-  "110": [],
-  "111": [],
+  "110": [
+    {
+      "id": 327,
+      "book_id": 9,
+      "lesson_id": 110,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "歡慶新生：寶寶滿月之禮",
+      "content": "在華人傳統習俗中，嬰兒出生滿一個月被稱為「滿月」，是全家的一大喜事。\n父母為了向親友宣告新生命的降臨，會分送特製的滿月油飯與紅蛋。\n如果是生女兒，現代許多年輕父母也會選擇精緻可口的西式彌月蛋糕。\n親朋好友收到禮品後，也會回贈嬰兒衣物或紅包，獻上對小寶寶最誠摯的健康祝福。",
+      "pinyin": "{}",
+      "vietnamese": "Trong phong tục truyền thống của người Hoa, em bé tròn một tháng tuổi được gọi là \"Mãn Nguyệt\" (đầy tháng), là niềm vui lớn của cả dòng tộc.\nĐể thông báo với người thân bạn bè về sự chào đời của một sinh linh bé nhỏ, cha mẹ sẽ gửi tặng xôi dầu đầy tháng (油飯) cùng trứng nhuộm đỏ.\nNếu sinh con gái, nhiều bậc phụ huynh trẻ hiện đại cũng thường chọn những hộp bánh kem đầy tháng kiểu Âu thanh nhã, thơm ngon.\nNgười thân bạn bè sau khi nhận được lễ vật cũng sẽ đáp lễ bằng quần áo sơ sinh hoặc phong bao lì xì, gửi gắm lời chúc phúc sức khỏe chân thành nhất tới bé yêu.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "嬰兒出生滿一個月在傳統上稱為什麼？",
+            "vi": "Em bé sinh ra tròn một tháng trong truyền thống gọi là gì?"
+          },
+          "options": [
+            {
+              "zh": "滿月",
+              "vi": "Mãn nguyệt (Đầy tháng)"
+            },
+            {
+              "zh": "抓周",
+              "vi": "Tróc chu (Thôi nôi)"
+            },
+            {
+              "zh": "成人禮",
+              "vi": "Lễ trưởng thành"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "父母通常會分送什麼傳統食物分享喜悅？",
+            "vi": "Cha mẹ thường biếu món ăn truyền thống nào để chia sẻ niềm vui?"
+          },
+          "options": [
+            {
+              "zh": "滿月油飯與紅蛋",
+              "vi": "Xôi dầu đầy tháng và trứng đỏ"
+            },
+            {
+              "zh": "月餅",
+              "vi": "Bánh trung thu"
+            },
+            {
+              "zh": "粽子",
+              "vi": "Bánh tét, bánh chưng"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "親友收到彌月禮後會如何回禮？",
+            "vi": "Người thân nhận được quà đầy tháng sẽ đáp lễ thế nào?"
+          },
+          "options": [
+            {
+              "zh": "回贈嬰兒衣物或紅包祝賀",
+              "vi": "Tặng lại quần áo sơ sinh hoặc lì xì chúc mừng"
+            },
+            {
+              "zh": "不予理會",
+              "vi": "Không quan tâm bỏ qua"
+            },
+            {
+              "zh": "送大人的化妝品",
+              "vi": "Tặng mỹ phẩm của người lớn"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "111": [
+    {
+      "id": 328,
+      "book_id": 9,
+      "lesson_id": 111,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "認識自然災害與防災意識",
+      "content": "台灣地處環太平洋地震帶，夏秋之際又常面臨太平洋颱風的侵襲。\n面對頻繁的自然考驗，台灣社會建立了一套嚴謹而迅速的防災預警機制。\n每個家庭都應常備包含手電筒、飲用水、乾糧與急救藥品的防災避難包。\n平時落實防震演練，災時保持冷靜不慌亂，才能將災害帶來的損失降至最低。",
+      "pinyin": "{}",
+      "vietnamese": "Đài Loan tọa lạc ngay trên vành đai địa chấn Thái Bình Dương, vào tiết hạ thu lại thường xuyên hứng chịu những cơn bão nhiệt đới đổ bộ.\nĐối diện với những thử thách thường trực của thiên nhiên, xã hội Đài Loan đã xây dựng một cơ chế dự báo cảnh báo thiên tai chặt chẽ và thần tốc.\nMỗi gia đình đều nên chuẩn bị sẵn túi cứu hộ khẩn cấp chứa đèn pin, nước uống, lương khô và túi thuốc sơ cứu.\nThường ngày nghiêm túc diễn tập phòng chống động đất, khi thiên tai xảy ra giữ vững bình tĩnh không hoảng loạn, mới có thể giảm thiểu thiệt hại xuống mức thấp nhất.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "台灣常見的自然災害主要有哪些？",
+            "vi": "Các thảm họa thiên nhiên thường gặp ở Đài Loan chủ yếu gồm có?"
+          },
+          "options": [
+            {
+              "zh": "地震與颱風",
+              "vi": "Động đất và bão lũ"
+            },
+            {
+              "zh": "火山爆發與雪崩",
+              "vi": "Núi lửa phun trào và lở tuyết"
+            },
+            {
+              "zh": "海嘯與沙漠化",
+              "vi": "Sóng thần và sa mạc hóa"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "家庭防災避難包裡應該準備什麼？",
+            "vi": "Túi cứu hộ gia đình nên chuẩn bị những đồ vật gì?"
+          },
+          "options": [
+            {
+              "zh": "手電筒、水、乾糧與藥品",
+              "vi": "Đèn pin, nước, lương khô và thuốc men"
+            },
+            {
+              "zh": "金條和名牌包",
+              "vi": "Vàng thỏi và túi hàng hiệu"
+            },
+            {
+              "zh": "重型玩具",
+              "vi": "Đồ chơi nặng cồng kềnh"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "面對地震發生時最重要的心態是？",
+            "vi": "Khi động đất xảy ra tâm thái quan trọng nhất là gì?"
+          },
+          "options": [
+            {
+              "zh": "保持冷靜不慌亂",
+              "vi": "Giữ bình tĩnh không hoảng loạn"
+            },
+            {
+              "zh": "大聲尖叫到處亂跑",
+              "vi": "Hét lớn rồi chạy toán loạn"
+            },
+            {
+              "zh": "跳樓逃生",
+              "vi": "Nhảy lầu thoát thân"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "106": [
     {
       "id": 291,
@@ -52719,9 +55212,176 @@
       ],
       "created_at": "2026-08-04 12:25:37",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 323,
+      "book_id": 8,
+      "lesson_id": 106,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "地球村裡的國際友誼",
+      "content": "現代科技縮短了世界的地理距離，也讓跨國界的文化交流變得更加緊密。\n來自五湖四海的朋友齊聚台灣學習華語，在互動中了解彼此國家的獨特文化。\n求同存異、抱持開放包容的胸襟，是促進跨文化理解與世界和諧的基石。\n這段在台灣結下的真摯國際情誼，將成為大家一生中最珍貴美好的回憶。",
+      "pinyin": "{}",
+      "vietnamese": "Khoa học công nghệ hiện đại đã thu hẹp khoảng cách địa lý của toàn cầu, đồng thời khiến cho sự giao lưu văn hóa xuyên biên giới ngày càng gắn kết chặt chẽ.\nNhững người bạn từ bốn biển năm châu hội tụ về Đài Loan học tiếng Hoa, trong sự tương tác lẫn nhau đã hiểu thêm về văn hóa đặc sắc của đất nước bạn bè.\nTìm kiếm điểm tương đồng và tôn trọng sự khác biệt, giữ tấm lòng rộng mở bao dung chính là nền móng thúc đẩy sự thấu hiểu đa văn hóa và hòa bình thế giới.\nTình bạn quốc tế chân thành kết duyên tại Đài Loan này sẽ trở thành những hồi ức trân quý và tươi đẹp nhất trong suốt cuộc đời của mỗi người.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "跨國文化交流中什麼胸襟最重要？",
+            "vi": "Trong giao lưu văn hóa quốc tế tấm lòng nào là quan trọng nhất?"
+          },
+          "options": [
+            {
+              "zh": "開放包容、求同存異",
+              "vi": "Cởi mở bao dung, tìm điểm chung và tôn trọng khác biệt"
+            },
+            {
+              "zh": "封閉排外",
+              "vi": "Khép kín bài ngoại"
+            },
+            {
+              "zh": "只接受自己的文化",
+              "vi": "Chỉ chấp nhận văn hóa của riêng mình"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "來自各國的學生聚集在台灣主要做什麼？",
+            "vi": "Học sinh các nước tề tựu ở Đài Loan chủ yếu để làm gì?"
+          },
+          "options": [
+            {
+              "zh": "學習華語與文化交流",
+              "vi": "Học tiếng Hoa và giao lưu văn hóa"
+            },
+            {
+              "zh": "來台定居退休",
+              "vi": "Đến định cư dưỡng già"
+            },
+            {
+              "zh": "參加職業運動賽事",
+              "vi": "Thi đấu thể thao chuyên nghiệp"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "這段在台灣的友誼對大家而言是？",
+            "vi": "Tình bạn ở Đài Loan đối với mọi người là gì?"
+          },
+          "options": [
+            {
+              "zh": "一生中最珍貴的回憶",
+              "vi": "Kỷ niệm trân quý nhất suốt cuộc đời"
+            },
+            {
+              "zh": "很快就會忘記的事",
+              "vi": "Chuyện sẽ nhanh chóng quên đi"
+            },
+            {
+              "zh": "微不足道的經歷",
+              "vi": "Trải nghiệm không đáng bận tâm"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
-  "112": [],
+  "112": [
+    {
+      "id": 329,
+      "book_id": 9,
+      "lesson_id": 112,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "慢活慢享：都會休閒新風尚",
+      "content": "在生活步調緊湊的現代都市裡，追求工作與生活平衡的「慢活」蔚為潮流。\n休假時，越來越多人選擇遠離塵囂，走進大自然露營、在河濱公園騎自行車。\n也有人喜歡待在隱密巷弄裡的特色獨立書店，點一杯單品咖啡度過愜意午後。\n放慢腳步聆聽內心的聲音，是重新找回生活熱情與身心靈平衡的最好良藥。",
+      "pinyin": "{}",
+      "vietnamese": "Trong các đô thị hiện đại với nhịp sống hối hả, việc theo đuổi sự cân bằng giữa công việc và đời sống mang tên \"sống chậm\" đang trở thành trào lưu.\nKhi được nghỉ, ngày càng nhiều người chọn rời xa khói bụi ồn ã, hòa mình vào thiên nhiên cắm trại hoặc đạp xe dạo quanh công viên ven sông.\nLại có những người thích ngồi trong những tiệm sách độc lập yên bình khuất sâu trong con ngõ nhỏ, nhâm nhi một tách cà phê thơm ngát suốt buổi chiều êm ả.\nChậm lại bước chân lắng nghe tiếng lòng của chính mình, đó chính là liều thuốc hữu hiệu nhất để tìm lại ngọn lửa nhiệt huyết và sự an yên trong tâm hồn.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "「慢活」生活方式追求的是什麼？",
+            "vi": "Lối sống \"sống chậm\" hướng tới điều gì?"
+          },
+          "options": [
+            {
+              "zh": "工作與生活的和諧平衡",
+              "vi": "Sự cân bằng hài hòa giữa công việc và đời sống"
+            },
+            {
+              "zh": "天天躺著不工作",
+              "vi": "Ngày nào cũng nằm lười không làm việc"
+            },
+            {
+              "zh": "花光所有積蓄",
+              "vi": "Tiêu sạch toàn bộ tiền tiết kiệm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "文中提到哪些都市休閒活動？",
+            "vi": "Bài viết đề cập tới các hoạt động giải trí đô thị nào?"
+          },
+          "options": [
+            {
+              "zh": "露營、騎自行車與逛特色書店",
+              "vi": "Cắm trại, đạp xe và ghé tiệm sách độc lập"
+            },
+            {
+              "zh": "賭博與賽馬",
+              "vi": "Đánh bạc và đua ngựa"
+            },
+            {
+              "zh": "通宵打線上遊戲",
+              "vi": "Thức thâu đêm cày game online"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "放慢生活腳步能帶來什麼好處？",
+            "vi": "Chậm lại nhịp sống mang tới lợi ích gì?"
+          },
+          "options": [
+            {
+              "zh": "找回熱情與身心靈平衡",
+              "vi": "Tìm lại nhiệt huyết và cân bằng thân-tâm-trí"
+            },
+            {
+              "zh": "工資自動加倍",
+              "vi": "Lương tự động tăng gấp đôi"
+            },
+            {
+              "zh": "長生不老",
+              "vi": "Trường sinh bất lão"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "105": [
     {
       "id": 289,
@@ -53064,10 +55724,261 @@
       ],
       "created_at": "2026-08-04 12:25:37",
       "updated_at": "2026-08-04 12:46:53"
+    },
+    {
+      "id": 322,
+      "book_id": 8,
+      "lesson_id": 105,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "孔子的智慧與儒家哲思",
+      "content": "孔子是中國歷史上偉大的思想家與教育家，創立了影響深遠的儒家學派。\n他提倡「有教無類」與「因材施教」，認為每個人都有受教育的權利。\n孔子所強調的「仁」與「禮」，提醒人們在人際交往中要心存仁愛、互相尊重。\n兩千多年過去了，孔子的道德智慧依然深刻影響著東亞各國的文化與價值觀。",
+      "pinyin": "{}",
+      "vietnamese": "Khổng Tử là nhà tư tưởng và nhà giáo dục vĩ đại trong lịch sử Trung Hoa, người sáng lập nên học phái Nho gia với tầm ảnh hưởng sâu rộng.\nÔng chủ trương \"hữu giáo vô loại\" (dạy dỗ không phân biệt sang hèn) và \"nhân tài thi giáo\" (tùy theo tố chất từng người mà có phương pháp dạy thích hợp), cho rằng ai ai cũng có quyền được học tập.\nChữ \"Nhân\" và \"Lễ\" mà Khổng Tử đề cao luôn nhắc nhở con người trong giao tiếp ứng xử phải có lòng nhân ái và biết tôn trọng lẫn nhau.\nHơn hai ngàn năm đã trôi qua, nhưng trí tuệ đạo đức của Khổng Tử vẫn in đậm dấu ấn sâu sắc trong văn hóa và hệ giá trị của các quốc gia Đông Á.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "孔子在教育上提倡什麼理念？",
+            "vi": "Khổng Tử đề xướng quan điểm nào trong giáo dục?"
+          },
+          "options": [
+            {
+              "zh": "有教無類與因材施教",
+              "vi": "Hữu giáo vô loại và nhân tài thi giáo"
+            },
+            {
+              "zh": "只有貴族才能讀書",
+              "vi": "Chỉ quý tộc mới được đi học"
+            },
+            {
+              "zh": "完全不需要老師",
+              "vi": "Hoàn toàn không cần thầy giáo"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "孔子所創立的是哪一個思想學派？",
+            "vi": "Khổng Tử sáng lập nên học phái tư tưởng nào?"
+          },
+          "options": [
+            {
+              "zh": "儒家學派",
+              "vi": "Nho gia (儒家)"
+            },
+            {
+              "zh": "法家學派",
+              "vi": "Pháp gia (法家)"
+            },
+            {
+              "zh": "道家學派",
+              "vi": "Đạo gia (道家)"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "儒家思想強調的「仁」提醒人們什麼？",
+            "vi": "Chữ \"Nhân\" trong Nho gia nhắc nhở con người điều gì?"
+          },
+          "options": [
+            {
+              "zh": "心存仁愛、互相尊重",
+              "vi": "Lòng nhân ái và tôn trọng lẫn nhau"
+            },
+            {
+              "zh": "只顧自己利益",
+              "vi": "Chỉ mưu cầu lợi ích cá nhân"
+            },
+            {
+              "zh": "用武力解決問題",
+              "vi": "Dùng vũ lực giải quyết vấn đề"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
-  "113": [],
-  "114": [],
+  "113": [
+    {
+      "id": 330,
+      "book_id": 9,
+      "lesson_id": 113,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "背包客的孤獨與精彩",
+      "content": "獨自背起行囊踏上未知的旅途，是許多背包客磨礪自我、探索世界的成年禮。\n青年旅館的交誼廳是背包客交流資訊的殿堂，一張地圖就能聊起跨國故事。\n旅途中雖難免面臨迷路、語言不通或突發狀況的考驗，卻也激發出無限的應變智慧。\n那些在路途中遇見的陌生善意與壯美山河，將化為一生受用不盡的生命養分。",
+      "pinyin": "{}",
+      "vietnamese": "Một mình khoác ba lô lên vai dấn thân vào hành trình khám phá những miền đất lạ, đó là lễ trưởng thành tôi luyện bản thân của biết bao dân du lịch bụi.\nPhòng sinh hoạt chung của những nhà trọ thanh niên (hostel) là thánh đường kết nối thông tin, chỉ với một tấm bản đồ là có thể mở ra những mẩu chuyện xuyên biên giới.\nDù trên bước đường rong ruổi khó tránh khỏi những thử thách lạc đường, bất đồng ngôn ngữ hay sự cố bất ngờ, nhưng chính điều đó lại kích thích trí tuệ ứng biến vô hạn.\nNhững lòng tốt của người lạ bắt gặp trên đường cùng cảnh sắc non sông tráng lệ sẽ hóa thành nguồn dưỡng chất quý báu theo ta suốt cuộc đời.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "背包客常在哪裡交流旅遊資訊與故事？",
+            "vi": "Dân du lịch bụi thường trao đổi thông tin và câu chuyện ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "青年旅館交誼廳",
+              "vi": "Phòng sinh hoạt chung nhà trọ thanh niên (Hostel)"
+            },
+            {
+              "zh": "五星級豪華飯店",
+              "vi": "Khách sạn 5 sao sang trọng"
+            },
+            {
+              "zh": "大使館辦公室",
+              "vi": "Văn phòng đại sứ quán"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "獨自旅行中的突發考驗能激發出什麼？",
+            "vi": "Những thử thách bất ngờ khi đi du lịch một mình kích thích điều gì?"
+          },
+          "options": [
+            {
+              "zh": "應變與解決問題的智慧",
+              "vi": "Trí tuệ ứng biến và giải quyết vấn đề"
+            },
+            {
+              "zh": "對世界的恐懼怨恨",
+              "vi": "Sự sợ hãi oán hận thế giới"
+            },
+            {
+              "zh": "想要馬上回家的念頭",
+              "vi": "Ý nghĩ muốn quay về nhà ngay lập tức"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "背包客旅行的核心意義在於？",
+            "vi": "Ý nghĩa cốt lõi của những chuyến du lịch bụi là gì?"
+          },
+          "options": [
+            {
+              "zh": "探索世界、磨礪自我",
+              "vi": "Khám phá thế giới, tôi luyện bản thân"
+            },
+            {
+              "zh": "為了炫耀拍照發朋友圈",
+              "vi": "Để khoe mẽ chụp ảnh đăng mạng xã hội"
+            },
+            {
+              "zh": "買很多名牌特產",
+              "vi": "Mua nhiều đặc sản hàng hiệu"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "114": [
+    {
+      "id": 331,
+      "book_id": 9,
+      "lesson_id": 114,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "穿搭哲學與個人品味",
+      "content": "服裝不僅是遮風禦寒的日常用品，更是個人審美品味與生活態度的外在延伸。\n真正的穿搭高手不盲目追逐昂貴的名牌，而是懂得依據場合挑選得體大方的衣著。\n整潔乾淨的儀容搭配剪裁合身的服飾，能自然散發出自信從容的迷人氣場。\n穿出自己的風格、感到舒適自在，就是展現個人品味的最佳註解。",
+      "pinyin": "{}",
+      "vietnamese": "Trang phục không đơn thuần là vật dụng thường nhật để che chắn gió sương, mà còn là sự nối dài biểu hiện gu thẩm mỹ và thái độ sống của mỗi cá nhân.\nMột người sành ăn mặc thực thụ sẽ không mù quáng chạy theo những món hàng hiệu đắt đỏ, mà biết khéo léo chọn trang phục nhã nhặn, lịch thiệp phù hợp với từng hoàn cảnh.\nDiện mạo sạch sẽ chỉn chu kết hợp cùng những bộ đồ vừa vặn tôn dáng sẽ tự nhiên toát lên khí chất tự tin và phong thái đĩnh đạc cuốn hút.\nMặc lên phong cách của riêng mình, cảm thấy thoải mái và tự tại, đó chính là lời chú giải tuyệt vời nhất cho gu thẩm mỹ cá nhân.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "真正的穿搭高手有什麼特點？",
+            "vi": "Người có gu ăn mặc thực thụ có đặc điểm gì?"
+          },
+          "options": [
+            {
+              "zh": "不盲從名牌，依場合穿著得體",
+              "vi": "Không mù quáng theo hàng hiệu, mặc trang phục phù hợp hoàn cảnh"
+            },
+            {
+              "zh": "一定要身穿最昂貴的衣服",
+              "vi": "Nhất định phải mặc đồ đắt đỏ nhất"
+            },
+            {
+              "zh": "每天都穿同一套衣服",
+              "vi": "Ngày nào cũng mặc y nguyên một bộ"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "什麼樣的裝扮能散發出自信氣場？",
+            "vi": "Kiểu trang phục nào giúp toát lên thần thái tự tin?"
+          },
+          "options": [
+            {
+              "zh": "整潔乾淨且剪裁合身",
+              "vi": "Sạch sẽ gọn gàng và may đo vừa vặn"
+            },
+            {
+              "zh": "奇裝異服又髒又破",
+              "vi": "Kỳ dị quái đản lại bẩn rách"
+            },
+            {
+              "zh": "寬大到拖地的衣服",
+              "vi": "Rộng thùng thình quét đất"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "展現個人品味的最佳方式是？",
+            "vi": "Cách tốt nhất để thể hiện gu thẩm mỹ cá nhân là gì?"
+          },
+          "options": [
+            {
+              "zh": "穿出自己的風格與舒適自在",
+              "vi": "Mặc lên phong cách riêng và thấy thoải mái tự tại"
+            },
+            {
+              "zh": "完全模仿流行偶像",
+              "vi": "Bắt chước hoàn toàn theo thần tượng"
+            },
+            {
+              "zh": "穿大家都覺得奇怪的衣服",
+              "vi": "Mặc đồ mà ai nhìn vào cũng thấy kỳ quặc"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "92": [
     {
       "id": 263,
@@ -53392,35 +56303,2302 @@
       ],
       "created_at": "2026-08-04 12:25:25",
       "updated_at": "2026-08-04 12:46:52"
+    },
+    {
+      "id": 309,
+      "book_id": 8,
+      "lesson_id": 92,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "獨立生活與分擔家事",
+      "content": "自己搬出來住以後，我才體會到父母平時打理家務的辛苦。\n每天下課回宿舍，不僅要自己煮飯、洗碗，還得定期打掃房間、倒垃圾。\n我和室友訂了一張家務輪流表，誰負責掃地，誰負責丟垃圾，分工非常明確。\n分擔家事雖然繁瑣，但也培養了我們獨立生活與照顧自己的能力。",
+      "pinyin": "{}",
+      "vietnamese": "Sau khi tự dọn ra ở riêng, tôi mới thấu hiểu được nỗi vất vả của cha mẹ khi quán xuyến việc nhà thường ngày.\nMỗi ngày tan học về phòng, không chỉ phải tự nấu cơm, rửa bát, mà còn phải định kỳ quét dọn phòng ốc, đổ rác.\nTôi và bạn cùng phòng đã lập một bảng phân công việc nhà luân phiên, ai quét nhà, ai đổ rác đều phân chia rất rõ ràng.\nChia sẻ việc nhà tuy vụn vặt nhưng đã rèn luyện cho chúng tôi khả năng sống tự lập và tự chăm sóc bản thân.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "搬出來住以後作者體會到了什麼？",
+            "vi": "Sau khi ra ở riêng tác giả thấu hiểu điều gì?"
+          },
+          "options": [
+            {
+              "zh": "父母打理家務的辛苦",
+              "vi": "Nỗi vất vả quán xuyến việc nhà của cha mẹ"
+            },
+            {
+              "zh": "外面東西不好吃",
+              "vi": "Đồ ăn ngoài không ngon"
+            },
+            {
+              "zh": "自己住很無聊",
+              "vi": "Ở một mình rất buồn chán"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "作者和室友怎麼分擔家務？",
+            "vi": "Tác giả và bạn cùng phòng phân chia việc nhà thế nào?"
+          },
+          "options": [
+            {
+              "zh": "請清潔工來打掃",
+              "vi": "Thuê người giúp việc đến dọn"
+            },
+            {
+              "zh": "訂了一張家務輪流表",
+              "vi": "Lập bảng phân công việc nhà luân phiên"
+            },
+            {
+              "zh": "誰有空誰做",
+              "vi": "Ai rảnh thì làm"
+            }
+          ],
+          "correct_index": 1
+        },
+        {
+          "question": {
+            "zh": "分擔家事培養了什麼能力？",
+            "vi": "Chia sẻ việc nhà rèn luyện năng lực gì?"
+          },
+          "options": [
+            {
+              "zh": "賺錢能力",
+              "vi": "Khả năng kiếm tiền"
+            },
+            {
+              "zh": "獨立生活與自我照顧",
+              "vi": "Sống tự lập và tự chăm sóc bản thân"
+            },
+            {
+              "zh": "運動能力",
+              "vi": "Năng lực thể thao"
+            }
+          ],
+          "correct_index": 1
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
     }
   ],
-  "118": [],
-  "109": [],
-  "115": [],
-  "108": [],
-  "116": [],
-  "120": [],
-  "123": [],
-  "124": [],
-  "117": [],
-  "121": [],
-  "128": [],
-  "125": [],
-  "127": [],
-  "122": [],
-  "131": [],
-  "133": [],
-  "132": [],
-  "134": [],
-  "136": [],
-  "135": [],
-  "130": [],
-  "137": [],
-  "138": [],
+  "118": [
+    {
+      "id": 335,
+      "book_id": 9,
+      "lesson_id": 118,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "職場求職與面試制勝之道",
+      "content": "求職面試是進入理想職場的第一道關卡，也是全方位展示個人實力的絕佳舞台。\n面試前，深入研究應徵企業的企業文化、核心產品與市場定位是必備的功課。\n面試當天，端莊得體的儀容舉止、清晰自信的口語表達，能給主考官留下極佳的第一印象。\n面對專業提問時，條理分明地闡述過往專案成果，展現解決難題的韌性，正是脫穎而出的關鍵。",
+      "pinyin": "{}",
+      "vietnamese": "Phỏng vấn xin việc là ải cửa đầu tiên để bước chân vào môi trường làm việc mơ ước, đồng thời là sân khấu tuyệt vời để phô diễn toàn diện thực lực bản thân.\nTrước buổi phỏng vấn, nghiên cứu thấu đáo về văn hóa doanh nghiệp, sản phẩm cốt lõi và định vị thị trường của công ty ứng tuyển là bài học bắt buộc.\nVào ngày phỏng vấn, tác phong đĩnh đạc trang nhã cùng cách diễn đạt mạch lạc tự tin sẽ để lại ấn tượng ban đầu cực kỳ ấn tượng trong mắt nhà tuyển dụng.\nKhi đối diện với các câu hỏi chuyên môn, trình bày khúc chiết rõ ràng về những dự án từng thực hiện, thể hiện bản lĩnh kiên cường trước khó khăn chính là chìa khóa để nổi bật vượt trội.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "面試前必備的準備功課是什麼？",
+            "vi": "Sự chuẩn bị bắt buộc trước phỏng vấn là gì?"
+          },
+          "options": [
+            {
+              "zh": "深入研究應徵企業的文化與產品",
+              "vi": "Nghiên cứu sâu về văn hóa và sản phẩm của doanh nghiệp"
+            },
+            {
+              "zh": "打聽面試官的八卦私事",
+              "vi": "Dò hỏi chuyện đời tư người phỏng vấn"
+            },
+            {
+              "zh": "什麼都不用準備靠運氣",
+              "vi": "Không cần chuẩn bị gì phó mặc vận may"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "面試時如何給主考官留下好印象？",
+            "vi": "Làm thế nào để gây ấn tượng tốt với giám khảo khi phỏng vấn?"
+          },
+          "options": [
+            {
+              "zh": "儀容得體、表達清晰自信",
+              "vi": "Tác phong lịch thiệp, diễn đạt rõ ràng tự tin"
+            },
+            {
+              "zh": "誇大其詞吹噓自己",
+              "vi": "Nói khoác phóng đại bản thân"
+            },
+            {
+              "zh": "全程低頭不說話",
+              "vi": "Suốt buổi cúi gầm mặt không nói lời nào"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在眾多競爭者中脫穎而出的關鍵在於？",
+            "vi": "Chìa khóa nổi bật giữa các ứng viên nằm ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "條理分明展現專業與解決問題實力",
+              "vi": "Mạch lạc rõ ràng thể hiện chuyên môn và năng lực gỡ rối"
+            },
+            {
+              "zh": "答應老闆任何無理要求",
+              "vi": "Đồng ý mọi yêu sách vô lý của sếp"
+            },
+            {
+              "zh": "主動要求最低工資",
+              "vi": "Chủ động đòi mức lương thấp nhất"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "109": [
+    {
+      "id": 326,
+      "book_id": 9,
+      "lesson_id": 109,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "聰明消費：貨比三家不吃虧",
+      "content": "古語說「貨比三家不吃虧」，在電子商務普及的今天依然是消費金律。\n購買高單價的家電或3C產品時，善用比價網站可以迅速掌握各大平台的優惠折扣。\n除了關注價格高低，更要仔細查看商品的買家評價、售後保固及退換貨條款。\n理性分析、拒絕衝動購物，才能將辛苦賺來的薪水發揮最大的價值。",
+      "pinyin": "{}",
+      "vietnamese": "Lời xưa dạy \"Khảo sát ba tiệm chẳng sợ thiệt\", trong thời đại thương mại điện tử phát triển hôm nay vẫn là kim chỉ nam tiêu dùng.\nKhi mua các mặt hàng gia dụng giá cao hay đồ công nghệ, khéo tận dụng các website so sánh giá có thể nhanh chóng nắm bắt ưu đãi của các sàn lớn.\nBên cạnh việc để mắt tới mức giá cao thấp, càng cần phải xem kỹ đánh giá của người mua trước, thời hạn bảo hành và quy định đổi trả hàng.\nPhân tích lý trí, kiên quyết nói không với mua sắm bốc đồng mới có thể phát huy tối đa giá trị của đồng lương mà bản thân vất vả làm ra.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "「貨比三家不吃虧」是什麼意思？",
+            "vi": "\"Khảo sát ba tiệm không sợ thiệt\" mang ý nghĩa gì?"
+          },
+          "options": [
+            {
+              "zh": "多比較再買不容易受騙吃虧",
+              "vi": "So sánh nhiều nơi trước khi mua sẽ tránh bị thiệt"
+            },
+            {
+              "zh": "一次要在三家店各買一樣東西",
+              "vi": "Mỗi lần phải mua đồ ở cả ba tiệm"
+            },
+            {
+              "zh": "去三家店吃免費食物",
+              "vi": "Đến ba tiệm ăn đồ miễn phí"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "網購除了看價格，還要特別注意什麼？",
+            "vi": "Mua sắm online ngoài giá cả còn cần lưu ý điều gì?"
+          },
+          "options": [
+            {
+              "zh": "買家評價與退換貨條款",
+              "vi": "Đánh giá của người mua và quy định đổi trả"
+            },
+            {
+              "zh": "賣家的大頭貼",
+              "vi": "Ảnh đại diện của người bán"
+            },
+            {
+              "zh": "網站的背景音樂",
+              "vi": "Nhạc nền của trang web"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "怎樣才能發揮薪水的最大價值？",
+            "vi": "Làm thế nào để phát huy tối đa giá trị của đồng lương?"
+          },
+          "options": [
+            {
+              "zh": "理性分析、拒絕衝動購物",
+              "vi": "Phân tích lý trí, từ chối mua sắm bốc đồng"
+            },
+            {
+              "zh": "看到促銷就全買",
+              "vi": "Thấy khuyến mãi là mua hết"
+            },
+            {
+              "zh": "把錢全部借給別人",
+              "vi": "Đem hết tiền cho người khác mượn"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "115": [
+    {
+      "id": 332,
+      "book_id": 9,
+      "lesson_id": 115,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "學歷與實力的思辨",
+      "content": "在文憑至上的傳統觀念下，大眾往往認為考上名牌大學才是通往成功的唯一保證。\n然而隨著時代多元發展，具備實務技能、創意思維與溝通能力的人才更顯珍貴。\n許多在各行各業發光發熱的傑出達人，依靠的是對專業的執著與不懈的鑽研。\n學歷固然是一張敲門磚，但終身學習的毅力與解決問題的實力才是立足長遠的關鍵。",
+      "pinyin": "{}",
+      "vietnamese": "Dưới lăng kính quan niệm truyền thống chuộng bằng cấp, công chúng thường cho rằng thi đỗ đại học danh tiếng mới là tấm vé bảo đảm duy nhất chạm tay tới thành công.\nThế nhưng cùng sự phát triển đa dạng của thời đại mới, những nhân tài sở hữu kỹ năng thực chiến, tư duy sáng tạo cùng khả năng giao tiếp lại càng trở nên vô giá.\nRất nhiều chuyên gia tài hoa đang tỏa sáng rực rỡ trong các ngành nghề dựa vào chính sự say mê nghề nghiệp và tinh thần nghiên cứu miệt mài không ngừng nghỉ.\nBằng cấp bằng khen tuy là viên gạch gõ cửa đầu tiên, nhưng nghị lực học tập suốt đời cùng thực lực giải quyết vấn đề mới là chìa khóa đứng vững dài lâu.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "現代社會更看重人才的哪些特質？",
+            "vi": "Xã hội hiện đại coi trọng phẩm chất nào của nhân tài hơn?"
+          },
+          "options": [
+            {
+              "zh": "實務技能、創新與溝通實力",
+              "vi": "Kỹ năng thực chiến, sáng tạo và năng lực giao tiếp"
+            },
+            {
+              "zh": "只看考試分數的高低",
+              "vi": "Chỉ nhìn vào điểm số bài thi cao hay thấp"
+            },
+            {
+              "zh": "家庭背景有多顯赫",
+              "vi": "Gia thế hiển hách đến đâu"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "學歷在職涯發展中扮演什麼角色？",
+            "vi": "Bằng cấp đóng vai trò gì trong sự nghiệp?"
+          },
+          "options": [
+            {
+              "zh": "敲門磚，後續仍需靠實力立足",
+              "vi": "Gạch gõ cửa, về sau vẫn phải dựa vào thực lực để đứng vững"
+            },
+            {
+              "zh": "一輩子永遠不用愁的保證",
+              "vi": "Bảo đảm cả đời không phải lo nghĩ"
+            },
+            {
+              "zh": "完全沒有任何作用",
+              "vi": "Hoàn toàn không có chút tác dụng nào"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "立足長遠發展的真正關鍵是？",
+            "vi": "Chìa khóa then chốt để phát triển lâu dài là gì?"
+          },
+          "options": [
+            {
+              "zh": "終身學習的毅力與解決問題能力",
+              "vi": "Nghị lực học tập suốt đời và năng lực giải quyết vấn đề"
+            },
+            {
+              "zh": "畢業後就停止學習",
+              "vi": "Sau khi tốt nghiệp thì ngừng học"
+            },
+            {
+              "zh": "只跟名牌學校的人做朋友",
+              "vi": "Chỉ làm bạn với người học trường danh tiếng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "108": [
+    {
+      "id": 325,
+      "book_id": 9,
+      "lesson_id": 108,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "無所不能的便利商店",
+      "content": "台灣的便利商店可謂全世界生活機能最完整、最不可思議的零售據點。\n在這裡，顧客不僅能買到三餐便當、現煮咖啡，還能繳交各類水電帳單與學費。\n更令人驚嘆的是，收發國內外包裹、列印文件、預購高鐵車票都能一站搞定。\n全年無休、亮著溫暖燈光的便利超商，已成為台灣社會不可或缺的守護站。",
+      "pinyin": "{}",
+      "vietnamese": "Cửa hàng tiện lợi ở Đài Loan có thể nói là điểm bán lẻ có tiện ích hoàn chỉnh và đáng kinh ngạc nhất trên thế giới.\nTại đây, khách hàng không chỉ mua được cơm hộp ba bữa, cà phê pha tại chỗ, mà còn có thể nộp đủ các loại hóa đơn điện nước và học phí.\nĐiều đáng ngạc nhiên hơn nữa là việc gửi nhận bưu kiện trong và ngoài nước, in ấn tài liệu, đặt mua vé tàu cao tốc đều có thể hoàn tất tại một điểm dừng duy nhất.\nMở cửa suốt năm không nghỉ với ánh đèn ấm áp luôn sáng, siêu thị tiện lợi đã trở thành trạm dừng chân thiết yếu của xã hội Đài Loan.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "在台灣超商可以辦理哪些生活服務？",
+            "vi": "Ở siêu thị tiện lợi Đài Loan có thể giải quyết các dịch vụ đời sống nào?"
+          },
+          "options": [
+            {
+              "zh": "繳費、寄包裹、買車票與餐點",
+              "vi": "Nộp phí, gửi bưu kiện, mua vé tàu và đồ ăn"
+            },
+            {
+              "zh": "看病動手術",
+              "vi": "Khám bệnh phẫu thuật"
+            },
+            {
+              "zh": "辦理結婚手續",
+              "vi": "Làm thủ tục kết hôn"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "便利商店在台灣社會扮演什麼角色？",
+            "vi": "Cửa hàng tiện lợi đóng vai trò gì trong xã hội Đài Loan?"
+          },
+          "options": [
+            {
+              "zh": "不可或缺的生活生活守護站",
+              "vi": "Trạm bảo vệ đời sống không thể thiếu"
+            },
+            {
+              "zh": "可有可無的小店鋪",
+              "vi": "Cửa tiệm nhỏ có cũng được không có cũng không sao"
+            },
+            {
+              "zh": "只賣昂貴奢侈品的地方",
+              "vi": "Nơi chỉ bán đồ xa xỉ đắt tiền"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "台灣便利商店的營業時間通常是？",
+            "vi": "Thời gian hoạt động của cửa hàng tiện lợi Đài Loan thường là?"
+          },
+          "options": [
+            {
+              "zh": "全年無休二十四小時",
+              "vi": "24/24 suốt năm không nghỉ"
+            },
+            {
+              "zh": "只有白天營業",
+              "vi": "Chỉ mở ban ngày"
+            },
+            {
+              "zh": "週末不營業",
+              "vi": "Cuối tuần không mở cửa"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "116": [
+    {
+      "id": 333,
+      "book_id": 9,
+      "lesson_id": 116,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "預防醫學：健康檢查的重要性",
+      "content": "現代人平時忙於工作與學業，往往容易忽視身體發出的疲勞與亞健康警訊。\n定期安排健康檢查，透過科學儀器檢測各項生理指標，是落實預防醫學的基石。\n許多潛在的疾病在初期並沒有明顯症狀，唯有早期發現才能掌握黃金治療期。\n投資健康就是投資人生最寶貴的資產，擁有強健的體魄才能走得更遠更穩。",
+      "pinyin": "{}",
+      "vietnamese": "Con người hiện đại thường bận bịu với công việc và học hành, thường rất dễ lơ là trước những tín hiệu mệt mỏi và cảnh báo suy nhược mà cơ thể phát ra.\nĐịnh kỳ sắp xếp đi kiểm tra sức khỏe tổng quát, thông qua các thiết bị y tế hiện đại tầm soát các chỉ số sinh lý, đó chính là nền tảng của y học dự phòng.\nNhiều căn bệnh tiềm ẩn ở giai đoạn đầu không hề có triệu chứng rõ rệt, chỉ khi phát hiện sớm mới có thể nắm bắt thời kỳ vàng để điều trị dứt điểm.\nĐầu tư cho sức khỏe chính là đầu tư cho tài sản vô giá nhất của đời người, có một thể chất tráng kiện mới có thể tiến bước xa hơn và vững chãi hơn.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "定期健康檢查的主要目的是什麼？",
+            "vi": "Mục đích chính của khám sức khỏe định kỳ là gì?"
+          },
+          "options": [
+            {
+              "zh": "早期發現潛在疾病、落實預防",
+              "vi": "Phát hiện sớm bệnh tiềm ẩn, thực hiện phòng ngừa"
+            },
+            {
+              "zh": "為了向公司請假休息",
+              "vi": "Để xin nghỉ phép ở công ty"
+            },
+            {
+              "zh": "拍照片發社群媒體",
+              "vi": "Chụp ảnh đăng lên mạng xã hội"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "許多疾病在初期的特點是什麼？",
+            "vi": "Đặc điểm của nhiều căn bệnh trong giai đoạn đầu là gì?"
+          },
+          "options": [
+            {
+              "zh": "沒有明顯的自覺症狀",
+              "vi": "Không có triệu chứng nhận biết rõ ràng"
+            },
+            {
+              "zh": "一定會劇烈疼痛",
+              "vi": "Nhất định sẽ đau đớn dữ dội"
+            },
+            {
+              "zh": "身體會變得很輕盈",
+              "vi": "Cơ thể sẽ trở nên rất nhẹ nhõm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "人生最寶貴的資產是什麼？",
+            "vi": "Tài sản trân quý nhất của đời người là gì?"
+          },
+          "options": [
+            {
+              "zh": "健康的身體與體魄",
+              "vi": "Cơ thể khỏe mạnh và thể chất cường tráng"
+            },
+            {
+              "zh": "名貴的手錶與跑車",
+              "vi": "Đồng hồ đắt tiền và siêu xe"
+            },
+            {
+              "zh": "社群帳號的追蹤人數",
+              "vi": "Lượng người theo dõi tài khoản mạng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "120": [
+    {
+      "id": 337,
+      "book_id": 9,
+      "lesson_id": 120,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "七夕浪漫傳說與東方情人節",
+      "content": "農曆七月初七是東方傳統的七夕節，流傳著牛郎與織女淒美動人的愛情神話。\n相傳相愛的兩人被王母娘娘以銀河分隔，唯有在每年的七夕夜晚，喜鵲才會搭成橋樑讓他們相會。\n古代女子會在七夕夜向織女祈求心靈手巧、覓得良緣，稱為「乞巧節」。\n如今七夕已演變為華人世界的浪漫情人節，情侶們互贈禮品、共進晚餐，祈願愛情長久美滿。",
+      "pinyin": "{}",
+      "vietnamese": "Mùng bảy tháng bảy âm lịch là ngày tết Thất Tịch truyền thống của phương Đông, lưu truyền câu chuyện thần thoại tình yêu đẫm lệ và cảm động giữa Ngưu Lang và Chức Nữ.\nTương truyền đôi lứa yêu nhau bị Tây Vương Mẫu chia cắt bởi dải Ngân Hà thăm thẳm, duy chỉ vào đêm Thất Tịch hàng năm, muôn đàn chim hỷ thước (chim khách) mới kết thành cây cầu Ô Thước để họ tương phùng.\nThời cổ xưa, các thiếu nữ thường hướng về sao Chức Nữ cầu khấn đôi tay khéo léo và se duyên gặp được lương duyên như ý, gọi là lễ \"Khất Xảo\" (xin sự khéo léo).\nNgày nay Thất Tịch đã chuyển mình thành ngày lễ tình nhân lãng mạn của thế giới người Hoa, các cặp đôi trao gửi quà tặng, cùng dùng bữa tối ấm áp, nguyện ước tình yêu bền lâu viên mãn.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "七夕傳說中相愛的主角是誰？",
+            "vi": "Nhân vật chính yêu nhau trong truyền thuyết Thất Tịch là ai?"
+          },
+          "options": [
+            {
+              "zh": "牛郎與織女",
+              "vi": "Ngưu Lang và Chức Nữ"
+            },
+            {
+              "zh": "后羿與嫦娥",
+              "vi": "Hậu Nghệ và Hằng Nga"
+            },
+            {
+              "zh": "梁山伯與祝英台",
+              "vi": "Lương Sơn Bá và Chúc Anh Đài"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "古代女子在七夕向織女祈求什麼？",
+            "vi": "Thiếu nữ thời xưa cầu xin điều gì từ Chức Nữ vào đêm Thất Tịch?"
+          },
+          "options": [
+            {
+              "zh": "乞求心靈手巧與美好姻緣",
+              "vi": "Cầu đôi tay khéo léo và mối nhân duyên tốt lành"
+            },
+            {
+              "zh": "希望考上狀元",
+              "vi": "Mong thi đỗ Trạng nguyên"
+            },
+            {
+              "zh": "祈求農作物豐收",
+              "vi": "Cầu mùa màng bội thu"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "傳說中什麼動物會搭成橋樑讓兩人相會？",
+            "vi": "Loài chim nào trong truyền thuyết kết thành cầu cho đôi lứa gặp nhau?"
+          },
+          "options": [
+            {
+              "zh": "喜鵲",
+              "vi": "Chim hỷ thước (chim khách)"
+            },
+            {
+              "zh": "天鵝",
+              "vi": "Thiên nga"
+            },
+            {
+              "zh": "老鷹",
+              "vi": "Đại bàng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "123": [
+    {
+      "id": 340,
+      "book_id": 10,
+      "lesson_id": 123,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "老友重逢與歲月沉澱",
+      "content": "時隔多年，昔日同窗好友再次相聚於充滿懷舊氛圍的茶館裡。\n一句真摯的「好久不見」，瞬間喚醒了塵封已久的青春回憶與歡笑。\n儘管彼此在各自的領域經歷了不同的人生起伏，那份純粹的情誼卻未曾褪色。\n在忙碌浮躁的世俗生活中，擁有知心好友的陪伴，是心靈最堅實溫暖的依靠。",
+      "pinyin": "{}",
+      "vietnamese": "Cách biệt nhiều năm, những người bạn đồng môn năm xưa lại hội ngộ bên quán trà đượm màu hoài niệm.\nMột câu nói chân tình \"Lâu rồi không gặp\" thoáng chốc đã đánh thức những ký ức thanh xuân và tiếng cười rộn rã tưởng như đã ngủ yên.\nDẫu cho mỗi người đều đã trải qua những thăng trầm khác biệt trên con đường riêng, nhưng mối tình cảm tinh khôi năm ấy chẳng hề phai nhạt.\nGiữa dòng đời xô bồ vội vã, có được sự đồng hành của những người bạn tri kỷ chính là điểm tựa ấm áp và vững chãi nhất cho tâm hồn.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "昔日同窗好友在哪裡重逢聚會？",
+            "vi": "Những người bạn đồng môn năm xưa hội ngộ ở đâu?"
+          },
+          "options": [
+            {
+              "zh": "充滿懷舊氛圍的茶館",
+              "vi": "Quán trà đượm màu hoài niệm"
+            },
+            {
+              "zh": "吵鬧的火車站",
+              "vi": "Ga tàu ồn ào"
+            },
+            {
+              "zh": "繁忙的辦公室",
+              "vi": "Văn phòng bận rộn"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "見面時哪一句話喚醒了青春回憶？",
+            "vi": "Khi gặp nhau câu nói nào đã đánh thức ký ức tuổi trẻ?"
+          },
+          "options": [
+            {
+              "zh": "好久不見",
+              "vi": "Lâu rồi không gặp (好久不見)"
+            },
+            {
+              "zh": "你借我錢",
+              "vi": "Cậu cho tớ mượn tiền"
+            },
+            {
+              "zh": "你是誰呀",
+              "vi": "Cậu là ai thế"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在忙碌生活中知心好友是什麼樣的存在？",
+            "vi": "Trong cuộc sống bận rộn bạn tri kỷ là điểm tựa như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "心靈堅實溫暖的依靠",
+              "vi": "Điểm tựa ấm áp và vững chãi của tâm hồn"
+            },
+            {
+              "zh": "增加麻煩的人",
+              "vi": "Người tăng thêm rắc rối"
+            },
+            {
+              "zh": "無關緊要的路人",
+              "vi": "Người qua đường không quan trọng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "124": [
+    {
+      "id": 341,
+      "book_id": 10,
+      "lesson_id": 124,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "金融科技與現代銀行體驗",
+      "content": "隨著金融科技的日新月異，傳統銀行的臨櫃業務模式正經歷著巨大變革。\n如今透過智慧型手機上的行動網銀，就能隨時隨地完成轉帳、換匯與基金投資。\n臨櫃辦理開戶或申請貸款時，專員的專業分析與資產配置建議依然不可替代。\n數位金融普及不僅大幅提升了資金流動效率，也讓個人的財務規劃更加便捷自主。",
+      "pinyin": "{}",
+      "vietnamese": "Cùng sự đổi thay từng ngày của công nghệ tài chính (FinTech), mô hình giao dịch tại quầy của các ngân hàng truyền thống đang trải qua những biến chuyển to lớn.\nGiờ đây thông qua ứng dụng ngân hàng số trên điện thoại thông minh, ta có thể chuyển khoản, đổi ngoại tệ và đầu tư chứng chỉ quỹ mọi lúc mọi nơi.\nKhi đến quầy làm thủ tục mở tài khoản hay xin vay vốn, sự phân tích chuyên sâu và tư vấn phân bổ tài sản của chuyên viên vẫn giữ vai trò không thể thay thế.\nSự phổ cập của tài chính số không chỉ nâng cao rõ rệt hiệu quả luân chuyển dòng tiền, mà còn giúp việc hoạch định tài chính cá nhân trở nên chủ động và thuận tiện hơn bao giờ hết.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "透過行動網銀現在可以輕鬆完成哪些業務？",
+            "vi": "Qua ứng dụng ngân hàng số hiện nay có thể hoàn tất việc gì?"
+          },
+          "options": [
+            {
+              "zh": "轉帳、換匯與基金理財",
+              "vi": "Chuyển khoản, đổi ngoại tệ và quản lý tài chính"
+            },
+            {
+              "zh": "印製紙鈔",
+              "vi": "Tự in tiền giấy"
+            },
+            {
+              "zh": "開車上班",
+              "vi": "Lái xe đi làm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "到銀行臨櫃辦理時什麼角色依然重要？",
+            "vi": "Khi đến quầy ngân hàng vai trò của ai vẫn rất quan trọng?"
+          },
+          "options": [
+            {
+              "zh": "專員的專業分析與資產配置",
+              "vi": "Sự phân tích chuyên nghiệp và tư vấn phân bổ của chuyên viên"
+            },
+            {
+              "zh": "警衛的武器展示",
+              "vi": "Màn phô diễn vũ khí của bảo vệ"
+            },
+            {
+              "zh": "排隊的人數多少",
+              "vi": "Số lượng người xếp hàng đông hay ít"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "數位金融的普及帶來了什麼好處？",
+            "vi": "Phổ cập tài chính số mang lại lợi ích gì?"
+          },
+          "options": [
+            {
+              "zh": "資金運作高效且財務規劃便捷",
+              "vi": "Vận hành dòng tiền hiệu quả và hoạch định tài chính tiện lợi"
+            },
+            {
+              "zh": "大家都不用存錢了",
+              "vi": "Mọi người đều không cần gửi tiết kiệm nữa"
+            },
+            {
+              "zh": "所有東西都變免費",
+              "vi": "Mọi thứ đều trở thành miễn phí"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "117": [
+    {
+      "id": 334,
+      "book_id": 9,
+      "lesson_id": 117,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "網路交友的機遇與陷阱",
+      "content": "社群媒體與交友軟體的興起，徹底改變了現代人拓展人脈與結識伴侶的途徑。\n隔著螢幕聊天雖然輕鬆自在，但虛擬世界的背後也潛藏著身份假冒與詐騙陷阱。\n在未深入了解對方底細之前，切莫輕易透露個人隱私資訊或牽涉金錢往來。\n若相約線下見面，務必選擇人潮眾多的公共場合，並告知親友行程以策安全。",
+      "pinyin": "{}",
+      "vietnamese": "Sự nở rộ của mạng xã hội và các ứng dụng hẹn hò đã thay đổi hoàn toàn cách thức mở rộng mạng lưới quan hệ và tìm kiếm bạn đời của con người hôm nay.\nTrò chuyện cách qua màn hình tuy mang lại cảm giác thoải mái tự do, nhưng đằng sau thế giới ảo cũng ẩn chứa không ít cạm bẫy mạo danh và lừa đảo.\nKhi chưa tìm hiểu thấu đáo về lai lịch đối phương, tuyệt đối chớ nhẹ dạ tiết lộ thông tin riêng tư cá nhân hay dính dáng tới các giao dịch tiền nong.\nNếu hẹn gặp mặt ngoài đời thực, nhất thiết phải chọn những chốn công cộng đông người qua lại, đồng thời thông báo lịch trình cho người thân để đảm bảo an toàn tuyệt đối.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "虛擬網路交友潛藏著什麼風險？",
+            "vi": "Kết bạn qua mạng ảo ẩn chứa những rủi ro nào?"
+          },
+          "options": [
+            {
+              "zh": "身份假冒與各類詐騙陷阱",
+              "vi": "Mạo danh danh tính và cạm bẫy lừa đảo"
+            },
+            {
+              "zh": "手機容易當機",
+              "vi": "Điện thoại dễ bị đơ"
+            },
+            {
+              "zh": "打字速度變慢",
+              "vi": "Tốc độ gõ phím bị chậm lại"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "與網友互動時切忌做什麼？",
+            "vi": "Khi tương tác với bạn mạng tuyệt đối tránh làm điều gì?"
+          },
+          "options": [
+            {
+              "zh": "輕信透露隱私與牽涉金錢借貸",
+              "vi": "Nhẹ dạ lộ thông tin riêng tư và dính dáng vay mượn tiền"
+            },
+            {
+              "zh": "禮貌性打招呼問候",
+              "vi": "Chào hỏi lịch sự"
+            },
+            {
+              "zh": "討論天氣與新聞",
+              "vi": "Thảo luận về thời tiết và tin tức"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "與網友初次線下見面應注意什麼？",
+            "vi": "Lần đầu gặp mặt trực tiếp bạn mạng nên chú ý điều gì?"
+          },
+          "options": [
+            {
+              "zh": "約在人多公共場所並告知親友",
+              "vi": "Hẹn nơi công cộng đông người và báo cho người thân"
+            },
+            {
+              "zh": "約在偏僻無人的山區",
+              "vi": "Hẹn ở vùng đồi núi hẻo lánh vắng người"
+            },
+            {
+              "zh": "直接去對方家裡留宿",
+              "vi": "Đến thẳng nhà đối phương ngủ lại"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "121": [
+    {
+      "id": 338,
+      "book_id": 9,
+      "lesson_id": 121,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "走讀淡水：河畔古蹟與歷史風華",
+      "content": "位於台北盆地西北隅的淡水，是一座揉合了多元歷史沉澱與浪漫水岸景致的古鎮。\n漫步在淡水老街，紅毛城巍峨的紅磚城牆默默見證了十七世紀荷蘭與西班牙的殖民滄桑。\n不遠處的滬尾礮臺與真理大學的牛津學堂，更訴說著清末自強運動與西方宣教士行醫辦學的軌跡。\n每當夕陽染紅淡水河口與觀音山脈，那如詩如畫的落日餘暉總令人流連忘返。",
+      "pinyin": "{}",
+      "vietnamese": "Nằm ở góc tây bắc của bồn địa Đài Bắc, Đạm Thủy là một thị trấn cổ giao thoa giữa những tầng tích lịch sử đa sắc màu và phong cảnh sông nước lãng mạn.\nTản bộ dọc theo phố cổ Đạm Thủy, bức tường gạch đỏ sừng sững của thành Hồng Mao (Fort San Domingo) âm thầm chứng kiến những thăng trầm thuộc địa thế kỷ 17 của Hà Lan và Tây Ban Nha.\nCách đó không xa, pháo đài Hỗ Vĩ và Oxford College của Đại học Aletheia lại kể tiếp câu chuyện về phong trào Tự cường cuối đời Thanh cùng dấu chân các giáo sĩ phương Tây đến lập trường khám bệnh.\nMỗi độ hoàng hôn nhuộm đỏ cửa sông Đạm Thủy và dãy núi Quan Âm, ánh ráng chiều đẹp như tranh vẽ ấy luôn khiến du khách say đắm chẳng nỡ rời chân.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "紅毛城見證了哪一時期的殖民歷史？",
+            "vi": "Thành Hồng Mao chứng kiến lịch sử thuộc địa của thời kỳ nào?"
+          },
+          "options": [
+            {
+              "zh": "十七世紀荷蘭與西班牙時期",
+              "vi": "Thời kỳ Hà Lan và Tây Ban Nha thế kỷ 17"
+            },
+            {
+              "zh": "二十世紀美軍駐台時期",
+              "vi": "Thời kỳ quân đội Mỹ đồn trú thế kỷ 20"
+            },
+            {
+              "zh": "唐代海上絲綢之路",
+              "vi": "Con đường tơ lụa trên biển thời Đường"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "淡水著名的經典自然景觀是什麼？",
+            "vi": "Cảnh quan tự nhiên kinh điển nức tiếng của Đạm Thủy là gì?"
+          },
+          "options": [
+            {
+              "zh": "淡水夕陽染紅河口落日餘暉",
+              "vi": "Hoàng hôn Đạm Thủy nhuộm đỏ ráng chiều cửa sông"
+            },
+            {
+              "zh": "高山大瀑布",
+              "vi": "Thác nước khổng lồ trên núi cao"
+            },
+            {
+              "zh": "熱帶雨林叢林",
+              "vi": "Rừng rậm nhiệt đới"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "淡水這座小鎮帶有什麼樣的文化特質？",
+            "vi": "Thị trấn Đạm Thủy mang đặc trưng văn hóa như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "融合多元歷史沉澱與水岸風光",
+              "vi": "Hòa quyện giữa trầm tích lịch sử đa dạng và cảnh sắc sông nước"
+            },
+            {
+              "zh": "只有現代高科技廠房",
+              "vi": "Chỉ toàn các nhà xưởng công nghệ cao hiện đại"
+            },
+            {
+              "zh": "純粹的農業水稻田",
+              "vi": "Thuần túy là đồng ruộng lúa nước"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "128": [
+    {
+      "id": 345,
+      "book_id": 10,
+      "lesson_id": 128,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "音樂盛宴：演唱會的震撼狂歡",
+      "content": "現場演唱會擁有強大的感染力，是任何數位音軌都無法複製的沉浸式體驗。\n萬人體育館內燈光璀璨，隨著震撼的低音鼓點響起，全場歌迷揮舞著螢光棒齊聲合唱。\n歌手在舞台上傾情燃燒的生命能量，透過旋律直接擊中每位聽眾內心深處的共鳴。\n這種台上台下心意相通的狂歡之夜，釋放了積累的疲憊，化為前行不懈的滿滿動力。",
+      "pinyin": "{}",
+      "vietnamese": "Đêm nhạc biểu diễn trực tiếp sở hữu sức lan tỏa mãnh liệt, là trải nghiệm đắm chìm chân thực mà không một bản thu âm kỹ thuật số nào có thể thay thế được.\nBên trong nhà thi đấu vạn người ánh đèn lộng lẫy, hòa cùng nhịp trống trầm bổng vang dội, muôn ngàn người hâm mộ vẫy cao những chiếc gậy phát sáng đồng thanh hòa giọng.\nNguồn năng lượng cuộn trào mà người ca sĩ cháy hết mình trên sân khấu thông qua từng giai điệu đã chạm tới nơi sâu thẳm nhất trong tâm hồn của mỗi khán thính giả.\nĐêm hội cuồng nhiệt khi trái tim trên sân khấu và dưới khán đài hòa chung một nhịp đập đã cuốn trôi đi những mỏi mệt chất chứa, biến thành nguồn động lực dồi dào để tiếp tục vững bước.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "現場演唱會相較於錄音檔案有何獨特之處？",
+            "vi": "Buổi hòa nhạc trực tiếp có điểm độc đáo gì so với bản thu âm?"
+          },
+          "options": [
+            {
+              "zh": "強大的沉浸感與台上台下的情感共鳴",
+              "vi": "Sự đắm chìm mạnh mẽ và cộng hưởng cảm xúc đôi bên"
+            },
+            {
+              "zh": "聲音比耳機小很多",
+              "vi": "Âm thanh nhỏ hơn nhiều so với tai nghe"
+            },
+            {
+              "zh": "歌手不會現場唱歌",
+              "vi": "Ca sĩ không hát trực tiếp"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "全場歌迷通常會做什麼互動？",
+            "vi": "Người hâm mộ trong khán đài thường có tương tác gì?"
+          },
+          "options": [
+            {
+              "zh": "揮舞螢光棒並齊聲合唱",
+              "vi": "Vẫy gậy phát sáng và cùng nhau hát vang"
+            },
+            {
+              "zh": "低頭看書寫功課",
+              "vi": "Cúi đầu đọc sách làm bài tập"
+            },
+            {
+              "zh": "安靜坐在原地睡覺",
+              "vi": "Ngồi yên tại chỗ ngủ"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "享受演唱會狂歡能為生活帶來什麼？",
+            "vi": "Tận hưởng đêm nhạc cuồng nhiệt mang lại điều gì cho cuộc sống?"
+          },
+          "options": [
+            {
+              "zh": "釋放疲憊、重獲前行動力",
+              "vi": "Giải tỏa mệt mỏi, nạp lại năng lượng để bước tiếp"
+            },
+            {
+              "zh": "更加疲憊厭倦生活",
+              "vi": "Càng mệt mỏi và chán chường cuộc sống"
+            },
+            {
+              "zh": "破壞自己的人際關係",
+              "vi": "Phá hỏng các mối quan hệ của bản thân"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "125": [
+    {
+      "id": 342,
+      "book_id": 10,
+      "lesson_id": 125,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "智慧消費：網購停看聽",
+      "content": "跨境電商與一鍵下單的普及，讓足不出戶的線上購物成為現代人的消費常態。\n然而琳瑯滿目的打折優惠背後，也充斥著誇大不實的商品廣告與仿冒劣質品。\n下單前落實「停看聽」，核實賣家信用評等、詳讀鑑賞期政策並比對實物反饋。\n保持清醒理性、守護交易安全，才能享受便捷網購帶來的舒適與樂趣。",
+      "pinyin": "{}",
+      "vietnamese": "Sự phổ biến của thương mại điện tử xuyên biên giới cùng tính năng đặt hàng một chạm đã biến việc mua sắm online tại nhà thành thói quen tiêu dùng thường nhật của người hiện đại.\nTuy nhiên đằng sau những chương trình giảm giá hoa cả mắt, cũng tràn lan không ít quảng cáo phóng đại sai sự thật cùng các mặt hàng giả mạo kém chất lượng.\nTrước khi chốt đơn hãy thực hiện nguyên tắc \"dừng, nhìn, lắng nghe\": xác minh điểm tín nhiệm của người bán, đọc kỹ chính sách thời hạn đổi trả và đối chiếu phản hồi thực tế của khách hàng.\nGiữ một cái đầu tỉnh táo lý trí, bảo vệ an toàn giao dịch mới có thể tận hưởng trọn vẹn sự thoải mái và niềm vui mà mua sắm online mang lại.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "網購下單前應該落實什麼原則？",
+            "vi": "Trước khi đặt đơn online nên thực hiện nguyên tắc gì?"
+          },
+          "options": [
+            {
+              "zh": "停看聽，核實賣家信用與評價",
+              "vi": "Dừng, nhìn, nghe: kiểm tra uy tín người bán và đánh giá"
+            },
+            {
+              "zh": "閉著眼睛隨便刷卡",
+              "vi": "Nhắm mắt quẹt thẻ bừa bãi"
+            },
+            {
+              "zh": "只挑圖片修得最漂亮的買",
+              "vi": "Chỉ chọn mua món có ảnh sửa đẹp nhất"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "虛假優惠背後常隱藏著什麼風險？",
+            "vi": "Đằng sau ưu đãi giả tạo thường ẩn chứa rủi ro nào?"
+          },
+          "options": [
+            {
+              "zh": "誇大不實與仿冒劣質商品",
+              "vi": "Quảng cáo phóng đại và hàng giả hàng nhái kém chất lượng"
+            },
+            {
+              "zh": "快遞送貨太快",
+              "vi": "Giao hàng quá nhanh"
+            },
+            {
+              "zh": "包裝太過精緻",
+              "vi": "Bao bì quá tinh tế"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "如何才能享受網購的樂趣？",
+            "vi": "Làm thế nào mới tận hưởng được niềm vui mua sắm online?"
+          },
+          "options": [
+            {
+              "zh": "保持理性思考、維護交易安全",
+              "vi": "Giữ tư duy lý tính, bảo đảm an toàn giao dịch"
+            },
+            {
+              "zh": "天天借錢買奢侈品",
+              "vi": "Ngày nào cũng vay tiền mua đồ xa xỉ"
+            },
+            {
+              "zh": "不看商品規格隨便下單",
+              "vi": "Không thèm đọc thông số cứ thế đặt hàng"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "127": [
+    {
+      "id": 344,
+      "book_id": 10,
+      "lesson_id": 127,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "綠色循環：資源回收的日常實踐",
+      "content": "面對日益嚴峻的全球暖化與環境污染，資源回收與減塑生活刻不容緩。\n台灣的垃圾不落地與細緻分類政策，多年來已深植人心並成為國際環保典範。\n將廢紙、寶特瓶、廢電池落實精確分類，才能提高資源再利用的回收效率。\n自備環保餐具與購物袋，從源頭減少廢棄物產生，攜手守護綠色永續的地球家園。",
+      "pinyin": "{}",
+      "vietnamese": "Đối diện với tình trạng ấm lên toàn cầu và ô nhiễm môi trường ngày một khốc liệt, việc tái chế tài nguyên và lối sống giảm thiểu rác thải nhựa là việc cấp bách không thể trì hoãn.\nChính sách rác không chạm đất và phân loại rác chi tiết của Đài Loan nhiều năm qua đã in sâu vào nếp sống người dân và trở thành hình mẫu bảo vệ môi trường của thế giới.\nThực hiện phân loại rác chuẩn xác giấy vụn, chai nhựa PET, pin phế thải mới có thể nâng cao hiệu suất tái sinh của tài nguyên tái chế.\nTự mang theo hộp đũa cá nhân và túi mua sắm bảo vệ môi trường, giảm thiểu rác thải ngay từ nguồn, cùng chung tay gìn giữ mái nhà trái đất xanh tươi và bền vững.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "台灣在環保方面以什麼政策受到國際肯定？",
+            "vi": "Đài Loan được quốc tế ghi nhận nhờ chính sách môi trường nào?"
+          },
+          "options": [
+            {
+              "zh": "垃圾不落地與細緻分類制度",
+              "vi": "Chính sách rác không chạm đất và phân loại rác chi tiết"
+            },
+            {
+              "zh": "把垃圾全部倒進大海",
+              "vi": "Đổ toàn bộ rác xuống biển"
+            },
+            {
+              "zh": "禁止市民丟任何垃圾",
+              "vi": "Cấm người dân vứt bất kỳ rác nào"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "精確分類廢棄物的主要目的是？",
+            "vi": "Mục đích chính của việc phân loại rác chính xác là gì?"
+          },
+          "options": [
+            {
+              "zh": "提高資源再利用的回收效率",
+              "vi": "Nâng cao hiệu suất tái chế tái sử dụng tài nguyên"
+            },
+            {
+              "zh": "增加清潔隊員的工作負擔",
+              "vi": "Tăng thêm gánh nặng cho nhân viên vệ sinh"
+            },
+            {
+              "zh": "把家裡塞滿廢品",
+              "vi": "Làm cho nhà chất đầy phế liệu"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "從源頭減少垃圾產生的最佳做法是？",
+            "vi": "Cách tốt nhất để giảm rác thải từ nguồn là gì?"
+          },
+          "options": [
+            {
+              "zh": "自備環保餐具與可重複購物袋",
+              "vi": "Tự mang theo bát đũa cá nhân và túi dùng nhiều lần"
+            },
+            {
+              "zh": "天天使用一次性塑膠袋",
+              "vi": "Ngày nào cũng dùng túi ni lông một lần"
+            },
+            {
+              "zh": "吃完外帶餐具隨手丟在路上",
+              "vi": "Ăn xong đồ mang về vứt luôn hộp ra đường"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "122": [
+    {
+      "id": 339,
+      "book_id": 9,
+      "lesson_id": 122,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "珍惜糧食：永續飲食的實踐",
+      "content": "全球每年有數以億噸計的優質食物在生產、運輸與消費環節中被無端浪費。\n「惜食」並非只是口號，而是每一位地球公民落實環境永續的具體行動。\n點餐時量力而行落實「光盤行動」，購買食材時接納長相不完美但品質無虞的「醜食」。\n尊重每一粒得來不易的米糧，感恩大自然的慷慨饋贈，從餐桌開始愛護我們的地球。",
+      "pinyin": "{}",
+      "vietnamese": "Mỗi năm trên toàn cầu có hàng trăm triệu tấn thực phẩm chất lượng cao bị lãng phí vô cớ trong các khâu sản xuất, vận chuyển và tiêu thụ.\n\"Tiết kiệm đồ ăn\" không đơn thuần là khẩu hiệu hô hào, mà là hành động cụ thể của mỗi công dân toàn cầu nhằm hiện thực hóa sự bền vững của môi trường.\nKhi gọi món hãy lượng sức ăn để thực hiện phong trào \"vét sạch đĩa\", khi mua nguyên liệu hãy đón nhận cả những nông sản có hình dáng không hoàn hảo nhưng phẩm chất an toàn.\nTrân trọng từng hạt ngọc thực chắt chiu khó nhọc làm ra, biết ơn sự ban tặng hào phóng của mẹ thiên nhiên, hãy bắt đầu yêu lấy trái đất này từ chính bàn ăn của mỗi gia đình.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "全球每年食物浪費的狀況如何？",
+            "vi": "Tình trạng lãng phí thực phẩm hàng năm trên toàn cầu như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "數以億噸計的食物被無端浪費",
+              "vi": "Hàng trăm triệu tấn thực phẩm bị lãng phí vô cớ"
+            },
+            {
+              "zh": "完全沒有任何浪費",
+              "vi": "Hoàn toàn không có chút lãng phí nào"
+            },
+            {
+              "zh": "只浪費幾公斤",
+              "vi": "Chỉ lãng phí vài cân"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在餐桌上如何落實惜食精神？",
+            "vi": "Làm thế nào để thực hiện tinh thần tiết kiệm trên bàn ăn?"
+          },
+          "options": [
+            {
+              "zh": "吃多少點多少、落實光盤",
+              "vi": "Ăn bao nhiêu gọi bấy nhiêu, ăn sạch thức ăn trên đĩa"
+            },
+            {
+              "zh": "點滿整張桌子吃一口就丟",
+              "vi": "Gọi kín cả bàn ăn một miếng rồi bỏ"
+            },
+            {
+              "zh": "不吃蔬菜只吃肉",
+              "vi": "Không ăn rau củ chỉ ăn thịt"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "接納「醜食」反映了什麼樣的態度？",
+            "vi": "Đón nhận những nông sản xấu xí phản ánh thái độ gì?"
+          },
+          "options": [
+            {
+              "zh": "注重品質本質、減少食材浪費",
+              "vi": "Chú trọng bản chất chất lượng, giảm bớt lãng phí"
+            },
+            {
+              "zh": "隨便敷衍了事",
+              "vi": "Qua loa đại khái cho xong"
+            },
+            {
+              "zh": "貪圖便宜吃壞掉的食物",
+              "vi": "Ham rẻ ăn đồ ôi thiu hỏng hóc"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "131": [
+    {
+      "id": 348,
+      "book_id": 10,
+      "lesson_id": 131,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "放手與陪伴：現代家庭教育觀",
+      "content": "許多為人父母者出於對孩子的關愛，往往習慣性地包辦子女人生中所有的選擇。\n過度的保護與高壓的期望，有時反而會禁錮孩子的想像力，剝奪他們獨立思考的權利。\n適時學會放手，尊重孩子的興趣與個性發展，鼓勵他們在挫折中學會自我承擔。\n最好的教育並非為孩子鋪平所有道路，而是以溫暖的信任陪伴他們走出屬於自己的路。",
+      "pinyin": "{}",
+      "vietnamese": "Rất nhiều bậc làm cha mẹ xuất phát từ tình thương yêu con trẻ, thường có thói quen bao bọc và quyết định thay toàn bộ những lựa chọn trong cuộc đời con cái.\nSự bảo bọc thái quá cùng kỳ vọng quá nặng nề đôi khi lại giam cầm trí tưởng tượng, tước đoạt đi quyền được tư duy độc lập của con trẻ.\nBiết buông tay đúng lúc, tôn trọng sở thích và sự phát triển cá tính riêng của con, khuyến khích con biết tự gánh vác trách nhiệm từ những vấp ngã thất bại.\nNền giáo dục tốt đẹp nhất không phải là trải phẳng mọi con đường cho con đi, mà là dùng niềm tin ấm áp đồng hành cùng con bước đi trên con đường của chính mình.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "過度的保護和期望可能對孩子造成什麼影響？",
+            "vi": "Bảo bọc thái quá và kỳ vọng áp lực có thể gây ảnh hưởng gì tới con cái?"
+          },
+          "options": [
+            {
+              "zh": "禁錮想像力並剝奪獨立思考",
+              "vi": "Kìm hãm trí tưởng tượng và tước đoạt tư duy độc lập"
+            },
+            {
+              "zh": "讓孩子變成大天才",
+              "vi": "Làm cho con trẻ thành thiên tài lớn"
+            },
+            {
+              "zh": "讓孩子完全不生病",
+              "vi": "Làm cho con hoàn toàn không bao giờ ốm"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "現代家庭教育提倡家長應該學會什麼？",
+            "vi": "Giáo dục gia đình hiện đại khuyên cha mẹ nên học được điều gì?"
+          },
+          "options": [
+            {
+              "zh": "適時放手，尊重孩子的個性發展",
+              "vi": "Buông tay đúng lúc, tôn trọng sự phát triển cá tính của con"
+            },
+            {
+              "zh": "嚴格規定孩子未來的每一個職業",
+              "vi": "Quy định nghiêm ngặt từng nghề nghiệp tương lai của con"
+            },
+            {
+              "zh": "完全不管孩子的死活",
+              "vi": "Hoàn toàn phó mặc không quan tâm tới con"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "最好的家庭教育理念是？",
+            "vi": "Quan niệm giáo dục gia đình tuyệt vời nhất là gì?"
+          },
+          "options": [
+            {
+              "zh": "以溫暖信任陪伴孩子走出自己的路",
+              "vi": "Dùng niềm tin ấm áp đồng hành cùng con bước trên con đường riêng"
+            },
+            {
+              "zh": "為孩子鋪好所有捷徑避免一切挫折",
+              "vi": "Trải sẵn đường tắt để con không bao giờ gặp trắc trở"
+            },
+            {
+              "zh": "把孩子送去國外永遠不見面",
+              "vi": "Gửi con ra nước ngoài mãi mãi không gặp lại"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "133": [
+    {
+      "id": 350,
+      "book_id": 10,
+      "lesson_id": 133,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "紅氈喜宴：台灣婚禮習俗漫談",
+      "content": "在台灣，傳統婚禮是一場融合了敬天祖禮儀與親友溫馨祝願的盛大喜事。\n迎親當天，新郎需通過伴娘們層層幽默的「闖關考驗」，才能順利迎娶美麗的新娘。\n喜宴會場往往鋪設喜氣洋洋的紅地毯，十二道豐盛佳餚寓意著十全十美、圓滿富足。\n親友們滿懷欣喜獻上賀禮紅包，共同舉杯祝福這對新人百年好合、永結同心。",
+      "pinyin": "{}",
+      "vietnamese": "Ở Đài Loan, đám cưới truyền thống là một đại sự hỷ hoan hòa quyện giữa các nghi lễ kính bái tổ tiên trang trọng cùng muôn ngàn lời chúc phúc ấm áp của người thân bạn hữu.\nVào ngày đón dâu, chú rể phải vượt qua những màn \"thử thách vượt ải\" đầy hóm hỉnh của dàn phù dâu mới có thể thuận lợi rước được cô dâu xinh đẹp về dinh.\nHội trường tiệc cưới luôn trải thảm đỏ ngập tràn hỷ khí, mười hai món ăn thịnh soạn mang ngụ ý thập toàn thập mỹ, viên mãn ấm no.\nQuan viên hai họ hân hoan trao gửi phong bao mừng hỷ, cùng nâng ly chúc tụng đôi tân lang tân nương trăm năm hạnh phúc, vĩnh kết đồng tâm.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "迎親時新郎通常需要通過什麼考驗？",
+            "vi": "Khi đón dâu chú rể thường phải trải qua thử thách gì?"
+          },
+          "options": [
+            {
+              "zh": "伴娘們設計的幽默闖關遊戲",
+              "vi": "Những trò chơi vượt ải hài hước do dàn phù dâu thiết kế"
+            },
+            {
+              "zh": "現場跑十公里馬拉松",
+              "vi": "Chạy marathon 10 km tại chỗ"
+            },
+            {
+              "zh": "通過高難度數學考試",
+              "vi": "Vượt qua bài thi toán học hóc búa"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "喜宴上的豐盛佳餚帶有什麼吉祥寓意？",
+            "vi": "Những món ăn thịnh soạn trong tiệc cưới mang ngụ ý cát tường gì?"
+          },
+          "options": [
+            {
+              "zh": "十全十美、圓滿富足",
+              "vi": "Thập toàn thập mỹ, viên mãn ấm no"
+            },
+            {
+              "zh": "吃完就要立刻離開",
+              "vi": "Ăn xong là phải rời đi ngay lập tức"
+            },
+            {
+              "zh": "比誰吃得最多最快",
+              "vi": "Thi xem ai ăn nhiều và nhanh nhất"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "親友舉杯向新人送上什麼核心祝福？",
+            "vi": "Người thân nâng ly gửi lời chúc cốt lõi gì tới đôi bạn trẻ?"
+          },
+          "options": [
+            {
+              "zh": "百年好合、永結同心",
+              "vi": "Trăm năm hòa hợp, vĩnh kết đồng tâm"
+            },
+            {
+              "zh": "祝你們天天加班",
+              "vi": "Chúc hai bạn ngày nào cũng tăng ca"
+            },
+            {
+              "zh": "生意早日破產",
+              "vi": "Làm ăn sớm ngày phá sản"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "132": [
+    {
+      "id": 349,
+      "book_id": 10,
+      "lesson_id": 132,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "塞翁失馬：不幸中的大幸",
+      "content": "人生旅途中總會遇到意料之外的波折，看似不幸的意外有時卻暗藏轉機。\n成語「塞翁失馬，焉知非福」正說明了福禍相依、相輔相成的深奧哲理。\n一場錯過的航班可能讓你避開了惡劣風暴，一次求職的失敗或許為你開啟了創業契機。\n面對困境常懷感恩與豁達之心，在逆境中看見希望的光芒，這就是生活的豁達智慧。",
+      "pinyin": "{}",
+      "vietnamese": "Trên hành trình vạn dặm của kiếp nhân sinh khó tránh khỏi những trắc trở ngoài ý muốn, những tai ương tưởng như rủi ro đôi khi lại ẩn chứa những bước ngoặt bất ngờ.\nĐiển tích thành ngữ \"Tái ông thất mã, an tri phi phúc\" (Tái ông mất ngựa, họa phúc khôn lường) đã nói lên đạo lý sâu xa về sự nương tựa chuyển hóa lẫn nhau giữa phúc và họa.\nMột chuyến bay bị lỡ dở có thể giúp bạn tránh khỏi một cơn bão dữ, một lần phỏng vấn xin việc thất bại biết đâu lại mở ra cánh cửa khởi nghiệp rực rỡ.\nĐối diện nghịch cảnh luôn giữ tâm thế khoáng đạt và lòng biết ơn, nhìn thấy ánh sáng hy vọng trong cơn bĩ cực, đó chính là trí tuệ豁đạt của cuộc đời.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "成語「塞翁失馬，焉知非福」表達了什麼哲理？",
+            "vi": "Thành ngữ \"Tái ông thất mã\" thể hiện triết lý gì?"
+          },
+          "options": [
+            {
+              "zh": "福禍相依，壞事有時可能帶來轉機",
+              "vi": "Họa phúc nương nhau, điều xấu đôi khi mang lại bước ngoặt may mắn"
+            },
+            {
+              "zh": "養馬一定要很小心",
+              "vi": "Nuôi ngựa nhất định phải rất cẩn thận"
+            },
+            {
+              "zh": "只要出門就一定會倒楣",
+              "vi": "Hễ bước chân ra cửa là xui xẻo"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "文中舉了哪一個轉禍為福的例子？",
+            "vi": "Trong bài nêu ví dụ chuyển họa thành phúc nào?"
+          },
+          "options": [
+            {
+              "zh": "錯過航班可能避開風暴",
+              "vi": "Lỡ chuyến bay có thể tránh được cơn bão dữ"
+            },
+            {
+              "zh": "考試考零分被老師讚揚",
+              "vi": "Thi 0 điểm được thầy cô ngợi khen"
+            },
+            {
+              "zh": "錢包弄丟直接暴富",
+              "vi": "Làm mất ví tiền bỗng chốc hóa thành đại gia"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "面對人生逆境時最需要的態度是？",
+            "vi": "Khi đối diện nghịch cảnh thái độ cần thiết nhất là gì?"
+          },
+          "options": [
+            {
+              "zh": "常懷感恩豁達、看見希望光芒",
+              "vi": "Luôn giữ lòng biết ơn khoáng đạt, nhìn thấy ánh sáng hy vọng"
+            },
+            {
+              "zh": "怨天尤人、終日消沉",
+              "vi": "Oán trời trách người, suốt ngày ủ rũ tiêu cực"
+            },
+            {
+              "zh": "向身邊的所有人大發脾氣",
+              "vi": "Nổi giận đùng đùng với mọi người xung quanh"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "134": [
+    {
+      "id": 351,
+      "book_id": 10,
+      "lesson_id": 134,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "行行出狀元：多元時代的職涯光芒",
+      "content": "古語云「三百六十行，行行出狀元」，生動詮釋了職業無貴賤、行行皆可立足的真理。\n在現代社會裡，無論是研發尖端科技的晶片工程師，還是守護餐桌的有機農夫，都值得敬重。\n專注於手中的每一件細節，將一份工作做到極致的「職人精神」，正是社會前行的力量。\n找到屬於自己的熱忱所在，堅持不懈地精進技能，任何平凡的崗位都能綻放出耀眼的光芒。",
+      "pinyin": "{}",
+      "vietnamese": "Lời xưa đúc kết \"Ba trăm sáu mươi nghề, nghề nào cũng có Trạng nguyên\", diễn giải sinh động chân lý nghề nghiệp không phân sang hèn, chốn nào cũng có thể lập thân dựng nghiệp.\nTrong xã hội hiện đại, dù là kỹ sư chip bán dẫn nghiên cứu công nghệ mũi nhọn, hay người nông dân cần mẫn với nông nghiệp hữu cơ nuôi sống bàn ăn, thảy đều đáng được trân quý tôn vinh.\nTập trung vào từng chi tiết nhỏ nhặt nhất, mài giũa một công việc đạt tới độ chuẩn mực tột đỉnh mang tên \"tinh thần nghệ nhân\" (職人精神), chính là động lực thúc đẩy xã hội tiến lên.\nTìm được ngọn lửa đam mê của chính bản thân, kiên trì trau dồi tay nghề không mệt mỏi, bất kỳ vị trí bình dị nào cũng đều có thể tỏa ra luồng hào quang rực rỡ.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "「行行出狀元」表達了什麼職業觀？",
+            "vi": "\"Nghề nào cũng có Trạng nguyên\" biểu đạt quan niệm nghề nghiệp gì?"
+          },
+          "options": [
+            {
+              "zh": "職業無分貴賤，行行皆能成就非凡",
+              "vi": "Nghề nghiệp không phân sang hèn, nghề nào cũng thành tựu phi thường"
+            },
+            {
+              "zh": "只有當官才是最好的工作",
+              "vi": "Chỉ có làm quan mới là nghề tốt nhất"
+            },
+            {
+              "zh": "天天換工作才是聰明人",
+              "vi": "Ngày nào cũng đổi việc mới là người khôn ngoan"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "什麼是推動社會進步的「職人精神」？",
+            "vi": "\"Tinh thần nghệ nhân\" thúc đẩy xã hội tiến bộ là gì?"
+          },
+          "options": [
+            {
+              "zh": "專注細節，將工作做到極致與精準",
+              "vi": "Chăm chút chi tiết, làm công việc tới mức độ tinh xảo chuẩn mực"
+            },
+            {
+              "zh": "做事敷衍馬虎，差不多就好",
+              "vi": "Làm việc qua loa đại khái, tàm tạm là được"
+            },
+            {
+              "zh": "只追求最快完成領工資",
+              "vi": "Chỉ mưu cầu làm cho nhanh để nhận tiền"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在任何平凡崗位上發光發熱的前提是？",
+            "vi": "Tiền đề để tỏa sáng ở bất kỳ vị trí bình dị nào là gì?"
+          },
+          "options": [
+            {
+              "zh": "找到熱忱所在並持續精進技能",
+              "vi": "Tìm thấy đam mê và liên tục trau dồi kỹ năng"
+            },
+            {
+              "zh": "抱怨工資太低工作太累",
+              "vi": "Than vãn lương thấp công việc mệt mỏi"
+            },
+            {
+              "zh": "等待別人幫自己完成一切",
+              "vi": "Chờ đợi người khác làm hộ tất cả cho mình"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "136": [
+    {
+      "id": 353,
+      "book_id": 10,
+      "lesson_id": 136,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "月圓人團圓：中秋月餅的傳承",
+      "content": "農曆八月十五的中秋佳節，是一年之中象徵花好月圓、闔家團圓的浪漫夜晚。\n月餅是中秋節最不可或缺的應景美食，從酥脆的蛋黃酥到濃郁的廣式月餅，口味繽紛。\n每逢中秋，全家人圍坐在院子裡一邊品嚐親手烘焙的月餅，一邊抬頭仰望皎潔明月。\n那一枚小巧圓滿的月餅，包裹著對遊子平安的深情思念，也傳承著千百年來的中華文化溫情。",
+      "pinyin": "{}",
+      "vietnamese": "Tết Trung thu rằm tháng tám âm lịch là một đêm trăng lãng mạn tượng trưng cho hoa thơm trăng tròn, gia đình đoàn viên sum họp nhất trong năm.\nBánh trung thu là món ẩm thực không thể thiếu của ngày lễ, từ những chiếc bánh trứng muối ngàn lớp thơm giòn (蛋黃酥) cho tới bánh nướng Quảng Đông đậm đà, mùi vị muôn màu muôn vẻ.\nMỗi dịp Trung thu, cả nhà quây quần bên góc sân thưởng thức những chiếc bánh tự tay nướng thơm lừng, cùng ngước nhìn vầng trăng sáng trong vằng vặc trên cao.\nChiếc bánh tròn vành vạnh nhỏ xinh ấy gói trọn nỗi niềm thương nhớ người con xa xứ bình an, đồng thời trao truyền ngọn lửa văn hóa ấm áp ngàn đời của người phương Đông.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "農曆八月十五的中秋節象徵什麼寓意？",
+            "vi": "Tết Trung thu rằm tháng tám tượng trưng cho ý nghĩa gì?"
+          },
+          "options": [
+            {
+              "zh": "闔家團圓、花好月圓",
+              "vi": "Gia đình sum họp đoàn viên, hoa thơm trăng tròn"
+            },
+            {
+              "zh": "寒冬來臨的悲傷",
+              "vi": "Nỗi buồn khi mùa đông lạnh giá ùa về"
+            },
+            {
+              "zh": "出門遠行打仗",
+              "vi": "Lên đường ra trận xa xôi"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "中秋節最具代表性的傳統美食是什麼？",
+            "vi": "Món ăn truyền thống tiêu biểu nhất của tết Trung thu là gì?"
+          },
+          "options": [
+            {
+              "zh": "月餅與蛋黃酥",
+              "vi": "Bánh trung thu và bánh trứng muối (蛋黃酥)"
+            },
+            {
+              "zh": "粽子",
+              "vi": "Bánh chưng, bánh tét"
+            },
+            {
+              "zh": "春捲",
+              "vi": "Nem cuốn, chả giò"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "小小的月餅寄託了人們什麼情感？",
+            "vi": "Chiếc bánh trung thu nhỏ bé gửi gắm tình cảm gì của con người?"
+          },
+          "options": [
+            {
+              "zh": "對遠方親人平安的深切思念與祝福",
+              "vi": "Nỗi nhớ thương và lời chúc bình an sâu sắc tới người thân phương xa"
+            },
+            {
+              "zh": "比誰的月餅最大最好看",
+              "vi": "So đo xem bánh của ai to và đẹp nhất"
+            },
+            {
+              "zh": "希望快點長大賺錢",
+              "vi": "Mong nhanh chóng lớn lên để kiếm tiền"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "135": [
+    {
+      "id": 352,
+      "book_id": 10,
+      "lesson_id": 135,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "人工智慧與機器人科技大展",
+      "content": "一年一度的國際機器人與智慧自動化展覽會上，尖端科技的最新突破令人目不暇給。\n具備自主學習能力的人工智慧機器人，在精準醫療手術、智慧物流分揀中大顯身手。\n仿真服務機器人更能以流暢的自然語言與觀眾對話，提供導覽諮詢與情感陪伴。\n科技的飛速革新重塑著人類生產與生活的方式，也為未來的智慧文明開啟了無限想像。",
+      "pinyin": "{}",
+      "vietnamese": "Tại triển lãm quốc tế thường niên về robot và tự động hóa thông minh, những bước đột phá mới nhất của công nghệ mũi nhọn khiến người xem choáng ngợp không rời mắt.\nNhững robot trí tuệ nhân tạo (AI) sở hữu năng lực tự học hỏi đang phô diễn tài nghệ xuất chúng trong các ca phẫu thuật y tế chuẩn xác và phân loại logistics thông minh.\nCác robot dịch vụ mô phỏng hình người thậm chí có thể giao tiếp tự nhiên bằng ngôn ngữ lưu loát với khách tham quan, cung cấp thông tin hướng dẫn và đồng hành cảm xúc.\nSự đổi mới thần tốc của khoa học công nghệ đang tái định hình phương thức sản xuất và sinh hoạt của loài người, đồng thời mở ra những chân trời tưởng tượng vô hạn cho nền văn minh trí tuệ tương lai.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "AI機器人在現代醫療領域有何應用？",
+            "vi": "Robot AI có ứng dụng gì trong lĩnh vực y tế hiện đại?"
+          },
+          "options": [
+            {
+              "zh": "輔助醫生執行精準手術",
+              "vi": "Hỗ trợ bác sĩ thực hiện các ca phẫu thuật chuẩn xác"
+            },
+            {
+              "zh": "代替病人生病",
+              "vi": "Ốm thay cho bệnh nhân"
+            },
+            {
+              "zh": "負責製造醫院所有的病床",
+              "vi": "Chịu trách nhiệm sản xuất mọi giường bệnh"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "仿真服務型機器人具備什麼互動特點？",
+            "vi": "Robot dịch vụ mô phỏng sở hữu đặc điểm tương tác nào?"
+          },
+          "options": [
+            {
+              "zh": "自然語言流暢對話與情感陪伴",
+              "vi": "Giao tiếp tự nhiên lưu loát và đồng hành cảm xúc"
+            },
+            {
+              "zh": "完全聽不懂人類說話",
+              "vi": "Hoàn toàn không hiểu tiếng người nói"
+            },
+            {
+              "zh": "只能發出刺耳的雜音",
+              "vi": "Chỉ phát ra những tiếng rè chói tai"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "機器人科技的革新為人類帶來了什麼？",
+            "vi": "Sự cách tân của công nghệ robot đem lại điều gì cho nhân loại?"
+          },
+          "options": [
+            {
+              "zh": "重塑生產生活方式，開啟未來想像",
+              "vi": "Tái định hình sản xuất đời sống, mở ra chân trời tương lai"
+            },
+            {
+              "zh": "讓所有人類停止工作",
+              "vi": "Khiến cho toàn bộ con người ngừng làm việc"
+            },
+            {
+              "zh": "摧毀所有的地球資源",
+              "vi": "Hủy diệt mọi tài nguyên của trái đất"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "130": [
+    {
+      "id": 347,
+      "book_id": 10,
+      "lesson_id": 130,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "快快做，慢慢活：現代人的時間智慧",
+      "content": "「快工作，慢生活」是當代高壓社會中，許多優秀專業人士奉行的人生哲學。\n在職場上追求專注專注、講求效率與執行力，迅速果斷地完成工作任務。\n走出辦公室後，則應主動切換生活節奏，放慢步調享受烹飪、閱讀或陪伴親友。\n張弛有度、收放自如，懂得在快節奏的時代中守護內心的寧靜，才是真正的人生贏家。",
+      "pinyin": "{}",
+      "vietnamese": "\"Làm việc nhanh, sống chậm lại\" là triết lý nhân sinh được nhiều chuyên gia ưu tú tôn sùng trong xã hội đầy áp lực ngày nay.\nỞ nơi làm việc, hãy theo đuổi sự tập trung cao độ, đề cao hiệu suất và năng lực thực thi, giải quyết công việc một cách mau lẹ và dứt khoát.\nBước chân ra khỏi văn phòng, hãy chủ động chuyển đổi nhịp điệu sinh hoạt, chậm rãi thưởng thức niềm vui nấu nướng, đọc sách hay bên cạnh người thân yêu.\nCăng chùng có chừng mực, thu phát tự tại, biết cách gìn giữ sự an yên trong tâm hồn giữa một thời đại hối hả mới thực sự là người chiến thắng của cuộc đời.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "「快工作，慢生活」的核心精神是什麼？",
+            "vi": "Tinh thần cốt lõi của \"Làm việc nhanh, sống chậm lại\" là gì?"
+          },
+          "options": [
+            {
+              "zh": "工作講求效率專注，生活學會放慢享受",
+              "vi": "Công việc đề cao hiệu suất, đời sống biết sống chậm hưởng thụ"
+            },
+            {
+              "zh": "工作時天天偷懶摸魚",
+              "vi": "Trong giờ làm việc ngày nào cũng lười biếng trốn việc"
+            },
+            {
+              "zh": "二十四小時都在公司加班",
+              "vi": "24/24 đều ở công ty tăng ca"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "下班後如何有效切換生活節奏？",
+            "vi": "Sau khi tan ca làm thế nào chuyển đổi nhịp sống hiệu quả?"
+          },
+          "options": [
+            {
+              "zh": "享受烹飪、閱讀或陪伴親友",
+              "vi": "Tận hưởng nấu ăn, đọc sách hoặc bên cạnh người thân"
+            },
+            {
+              "zh": "繼續用手機處理工作郵件到半夜",
+              "vi": "Tiếp tục dùng điện thoại xử lý email công việc đến nửa đêm"
+            },
+            {
+              "zh": "向同事抱怨所有的煩惱",
+              "vi": "Than vãn mọi muộn phiền với đồng nghiệp"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在快節奏時代裡真正的贏家懂得什麼？",
+            "vi": "Người chiến thắng đích thực giữa thời đại hối hả hiểu được điều gì?"
+          },
+          "options": [
+            {
+              "zh": "張弛有度，守護內心寧靜",
+              "vi": "Căng chùng nhịp nhàng, gìn giữ sự an tĩnh trong tâm"
+            },
+            {
+              "zh": "永遠不睡覺賺最多錢",
+              "vi": "Không bao giờ ngủ để kiếm nhiều tiền nhất"
+            },
+            {
+              "zh": "不管任何人只顧自己",
+              "vi": "Không quan tâm đến ai chỉ biết bản thân"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "137": [
+    {
+      "id": 354,
+      "book_id": 10,
+      "lesson_id": 137,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "典藏千年：臺北故宮的文明瑰寶",
+      "content": "座落於台北外雙溪翠綠山巒間的國立故宮博物院，是舉世聞名的中華文化寶庫。\n館內典藏了近七十萬件涵蓋玉器、青銅器、名家書畫與陶瓷的稀世宮廷珍寶。\n舉世聞名的「翠玉白菜」以天然玉石色彩巧妙雕琢，象徵純潔無瑕與子孫綿延。\n漫步在展廳中細細品味歷代巨匠的精湛造詣，令人為源遠流長的華夏文明由衷讚嘆。",
+      "pinyin": "{}",
+      "vietnamese": "Tọa lạc giữa những rặng núi xanh biếc vùng Ngoại Song Khê Đài Bắc, Viện Bảo tàng Cố cung Quốc gia là kho tàng văn hóa Trung Hoa lừng danh khắp thế giới.\nNơi đây lưu giữ gần bảy trăm ngàn hiện vật cung đình vô giá bao gồm đồ ngọc, đồ đồng xanh, thư họa của các danh gia lừng lẫy và gốm sứ tinh xảo.\nKiệt tác trứ danh thế giới \"Thúy Ngọc Bạch Thái\" (Bắp cải ngọc bích) khéo léo tận dụng sắc thái tự nhiên của khối ngọc phỉ thúy, tượng trưng cho sự thuần khiết không tì vết và con đàn cháu đống.\nTản bộ giữa các gian trưng bày ngắm nhìn tài nghệ xuất quỷ nhập thần của các bậc đại danh họa qua từng triều đại, lòng người bất giác dâng trào niềm thán phục trước một nền văn minh nghìn năm tráng lệ.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "臺北故宮博物院收藏了多少件文化瑰寶？",
+            "vi": "Bảo tàng Cố Cung Đài Bắc lưu giữ bao nhiêu hiện vật văn hóa quý giá?"
+          },
+          "options": [
+            {
+              "zh": "近七十萬件宮廷珍寶",
+              "vi": "Gần bảy trăm ngàn món trân bảo cung đình"
+            },
+            {
+              "zh": "只有幾十件複製品",
+              "vi": "Chỉ có vài chục món đồ phục chế"
+            },
+            {
+              "zh": "一百件外國油畫",
+              "vi": "Một trăm bức tranh sơn dầu nước ngoài"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "鎮館之寶「翠玉白菜」象徵著什麼涵義？",
+            "vi": "Báu vật \"Bắp cải ngọc bích\" mang ý nghĩa biểu trưng gì?"
+          },
+          "options": [
+            {
+              "zh": "純潔無瑕與子孫代代綿延",
+              "vi": "Thuần khiết không tì vết và con đàn cháu đống đời đời"
+            },
+            {
+              "zh": "好吃的蔬菜沙拉",
+              "vi": "Món salad rau củ ngon miệng"
+            },
+            {
+              "zh": "冬天買菜很便宜",
+              "vi": "Mùa đông mua rau rất rẻ"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "故宮博物院座落在台北的哪裡？",
+            "vi": "Bảo tàng Cố Cung tọa lạc ở đâu tại Đài Bắc?"
+          },
+          "options": [
+            {
+              "zh": "外雙溪綠色山巒之間",
+              "vi": "Giữa những rặng núi xanh Ngoại Song Khê"
+            },
+            {
+              "zh": "台北101大樓頂樓",
+              "vi": "Tầng thượng tòa tháp Taipei 101"
+            },
+            {
+              "zh": "地下捷運站裡面",
+              "vi": "Bên trong ga tàu điện ngầm dưới lòng đất"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "138": [
+    {
+      "id": 355,
+      "book_id": 10,
+      "lesson_id": 138,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "更快更高更強：奧運的體育精神",
+      "content": "四年一度的奧林匹克運動會，是全球規模最大、最振奮人心的國際體育盛事。\n來自世界兩百多個國家和地區的頂尖健兒齊聚一堂，在公平競技中挑戰人體極限。\n賽場上那些跌倒後頑強爬起、即使落後依然咬牙奔向終點的身影，最令世人動容。\n「相互理解、友誼、團結與公平競爭」的奧林匹克精神，跨越了國界，點亮了全人類的夢想。",
+      "pinyin": "{}",
+      "vietnamese": "Thế vận hội Olympic bốn năm một lần là ngày hội thể thao quốc tế có quy mô lớn nhất và làm nức lòng hàng triệu triệu người trên khắp hành tinh.\nCác vận động viên đỉnh cao đến từ hơn hai trăm quốc gia và vùng lãnh thổ cùng hội tụ so tài, thách thức mọi giới hạn của cơ thể con người trong tinh thần thi đấu công bằng.\nTrên đấu trường, những hình ảnh ngã xuống rồi kiên cường gượng dậy, dẫu bị tụt lại phía sau vẫn nghiến chặt răng dốc toàn lực lao về vạch đích, là điều khiến toàn thế giới xúc động nghẹn ngào nhất.\nTinh thần Olympic \"Thấu hiểu lẫn nhau, hữu nghị, đoàn kết và cạnh tranh công bằng\" đã vượt qua mọi ranh giới quốc gia, thắp sáng ước mơ cao đẹp của toàn nhân loại.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "奧林匹克運動會每隔幾年舉辦一次？",
+            "vi": "Thế vận hội Olympic được tổ chức định kỳ mấy năm một lần?"
+          },
+          "options": [
+            {
+              "zh": "四年一度",
+              "vi": "Bốn năm một lần (四年一度)"
+            },
+            {
+              "zh": "每年都辦",
+              "vi": "Năm nào cũng tổ chức"
+            },
+            {
+              "zh": "十年一次",
+              "vi": "Mười năm một lần"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "在奧運賽場上最令人動容的畫面是？",
+            "vi": "Khoảnh khắc xúc động lòng người nhất trên đấu trường Olympic là gì?"
+          },
+          "options": [
+            {
+              "zh": "跌倒後頑強爬起、堅持奔向終點",
+              "vi": "Ngã xuống kiên cường đứng dậy, kiên trì lao về đích"
+            },
+            {
+              "zh": "輸了比賽大聲痛罵裁判",
+              "vi": "Thua trận mắng chửi trọng tài thậm tệ"
+            },
+            {
+              "zh": "拿了獎金立刻買豪宅",
+              "vi": "Nhận tiền thưởng lập tức mua biệt thự"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "奧林匹克的核心精神包含哪些？",
+            "vi": "Tinh thần cốt lõi của Olympic bao gồm những yếu tố nào?"
+          },
+          "options": [
+            {
+              "zh": "友誼、團結與公平競爭",
+              "vi": "Hữu nghị, đoàn kết và cạnh tranh công bằng"
+            },
+            {
+              "zh": "不擇手段一定要贏",
+              "vi": "Bất chấp thủ đoạn nhất định phải thắng"
+            },
+            {
+              "zh": "商業廣告賺錢第一",
+              "vi": "Quảng cáo thương mại kiếm tiền là trên hết"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "140": [],
-  "119": [],
-  "126": [],
-  "129": [],
+  "119": [
+    {
+      "id": 336,
+      "book_id": 9,
+      "lesson_id": 119,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "雲端科技重塑智慧生活",
+      "content": "隨著高速網路與大數據的蓬勃發展，雲端運算技術已深植於我們生活的每個角落。\n從手機照片即時備份、雲端硬碟跨平台協作，到串流影音娛樂，都仰賴雲端架構的支援。\n企業透過雲端佈署彈性調整資源，大幅降低了伺服器硬體的維護成本與門檻。\n然而在享受雲端便利的同時，資料隱私安全與網路防護也成了不容忽視的重大課題。",
+      "pinyin": "{}",
+      "vietnamese": "Cùng sự bùng nổ của mạng tốc độ cao và dữ liệu lớn (Big Data), công nghệ điện toán đám mây đã cắm rễ sâu vào từng ngõ ngách của cuộc sống chúng ta.\nTừ việc sao lưu ảnh điện thoại tức thời, phối hợp tài liệu đa nền tảng trên ổ đĩa đám mây, cho đến xem phim nghe nhạc trực tuyến, tất thảy đều dựa vào sự nâng đỡ của kiến trúc đám mây.\nCác doanh nghiệp thông qua việc triển khai trên đám mây có thể linh hoạt điều tiết tài nguyên, cắt giảm mạnh mẽ chi phí bảo trì và rào cản phần cứng máy chủ.\nTuy nhiên song song với việc tận hưởng sự tiện ích vượt trội ấy, vấn đề bảo mật an toàn quyền riêng tư dữ liệu và an ninh mạng cũng trở thành bài toán trọng đại không thể xem nhẹ.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "日常生活中哪一項應用屬於雲端技術？",
+            "vi": "Ứng dụng nào trong đời sống thuộc về công nghệ đám mây?"
+          },
+          "options": [
+            {
+              "zh": "手機照片自動備份與線上共編文件",
+              "vi": "Tự động sao lưu ảnh và cùng chỉnh sửa văn bản online"
+            },
+            {
+              "zh": "用紙筆寫日記",
+              "vi": "Dùng bút giấy viết nhật ký"
+            },
+            {
+              "zh": "看傳統黑膠唱片",
+              "vi": "Nghe đĩa than truyền thống"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "雲端佈署為企業帶來了什麼效益？",
+            "vi": "Triển khai đám mây đem lại hiệu quả gì cho doanh nghiệp?"
+          },
+          "options": [
+            {
+              "zh": "彈性調整資源、降低硬體成本",
+              "vi": "Điều tiết linh hoạt tài nguyên, giảm chi phí phần cứng"
+            },
+            {
+              "zh": "完全不需要任何工程師",
+              "vi": "Hoàn toàn không cần bất kỳ kỹ sư nào"
+            },
+            {
+              "zh": "企業不用繳稅",
+              "vi": "Doanh nghiệp không phải đóng thuế"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "享受雲端便利的同時需面對什麼課題？",
+            "vi": "Khi tận hưởng đám mây cần đối mặt bài toán nào?"
+          },
+          "options": [
+            {
+              "zh": "資料隱私與網路資訊安全",
+              "vi": "Quyền riêng tư dữ liệu và an toàn thông tin mạng"
+            },
+            {
+              "zh": "電腦螢幕太亮的問題",
+              "vi": "Vấn đề màn hình máy tính quá sáng"
+            },
+            {
+              "zh": "鍵盤聲音太響",
+              "vi": "Tiếng gõ bàn phím quá to"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "126": [
+    {
+      "id": 343,
+      "book_id": 10,
+      "lesson_id": 126,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "一葉一乾坤：東方茶道之美",
+      "content": "茶不僅是一道解渴生津的傳統飲品，更是東方文化中靜心修德的精神載體。\n從茶葉採摘、萎凋、焙火的繁複工藝，到沖泡時注水、溫杯、候湯的細膩節奏，皆蘊含學問。\n品飲一杯醇厚的台灣凍頂烏龍或清雅的高山茶，能讓人沉澱思緒、品味回甘。\n以茶會友、以茶靜心，在喧囂塵世中體悟「茶禪一味」的高雅意境。",
+      "pinyin": "{}",
+      "vietnamese": "Trà không chỉ là thức uống truyền thống để giải khát thanh nhiệt, mà còn là kết tinh tinh thần tu dưỡng tĩnh tâm trong văn hóa phương Đông.\nTừ quy trình công phu hái lá, hong héo, sao lửa cho đến nhịp điệu tỉ mỉ khi rót nước, tráng chén, đợi sôi, tất cả đều ẩn chứa những đạo lý thâm sâu.\nNhấp một ngụm trà Ô Long Đống Đỉnh Đài Loan đậm đà hay trà cao sơn thanh tao, con người có thể lắng đọng tâm tư, cảm nhận dư vị ngọt hậu đọng lại nơi cuống họng.\nDùng trà kết bạn, mượn trà tịnh tâm, giữa chốn hồng trần huyên náo lĩnh hội cảnh giới thanh cao tao nhã \"Trà Thiền nhất vị\".",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "在東方文化中茶扮演什麼樣的精神角色？",
+            "vi": "Trong văn hóa phương Đông trà đóng vai trò tinh thần như thế nào?"
+          },
+          "options": [
+            {
+              "zh": "靜心修德的精神載體",
+              "vi": "Vật phẩm kết tinh tu dưỡng và tĩnh tâm"
+            },
+            {
+              "zh": "代替三餐的主食",
+              "vi": "Món ăn chính thay thế ba bữa"
+            },
+            {
+              "zh": "用來清潔餐具的清潔劑",
+              "vi": "Chất tẩy rửa dùng để rửa chén"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "文中提到的台灣名茶有什麼特色？",
+            "vi": "Danh trà Đài Loan được nhắc đến trong bài có đặc sắc gì?"
+          },
+          "options": [
+            {
+              "zh": "滋味醇厚、回甘悠長",
+              "vi": "Hương vị đậm đà, hậu ngọt dài lâu"
+            },
+            {
+              "zh": "加了很多糖非常甜",
+              "vi": "Bỏ rất nhiều đường ngọt gắt"
+            },
+            {
+              "zh": "像辣椒一樣嗆辣",
+              "vi": "Cay nồng như ớt"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "「茶禪一味」體現了何種生活意境？",
+            "vi": "\"Trà Thiền nhất vị\" thể hiện cảnh giới sống nào?"
+          },
+          "options": [
+            {
+              "zh": "在茶香中尋求心靈沉靜與超脫",
+              "vi": "Tìm kiếm sự tĩnh lặng và thanh thoát nơi hương trà"
+            },
+            {
+              "zh": "追求奢華的名利享受",
+              "vi": "Mưu cầu danh lợi xa hoa"
+            },
+            {
+              "zh": "只在廟裡才能喝茶",
+              "vi": "Chỉ có ở trong chùa mới được uống trà"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
+  "129": [
+    {
+      "id": 346,
+      "book_id": 10,
+      "lesson_id": 129,
+      "type": "lesson_text",
+      "dropdown_option": "Bài khoá",
+      "title": "溫情同遊：全家自助旅行的意義",
+      "content": "規劃一場全家自助旅行，是凝聚家族親情、創造共同美好回憶的絕佳契機。\n行程安排上需兼顧長輩的體力負荷與小孩的玩樂興趣，步調應力求寬鬆舒適。\n大家一起查閱地圖、討論景點、尋覓在地美食，在分工協作中增進了彼此的了解。\n旅途中的風景固然美麗，但家人相伴在身旁的溫暖笑容，才是旅行中最珍貴的風景。",
+      "pinyin": "{}",
+      "vietnamese": "Lên kế hoạch cho một chuyến du lịch tự túc của cả gia đình là cơ hội tuyệt vời để gắn kết tình thân và cùng nhau kiến tạo những hồi ức tươi đẹp.\nTrong khâu sắp xếp lịch trình, cần cân đối giữa sức bền của người lớn tuổi và niềm hứng thú vui chơi của trẻ nhỏ, nhịp độ chuyến đi nên hướng tới sự thư thái, dễ chịu.\nMọi người cùng nhau tra cứu bản đồ, bàn bạc địa điểm tham quan, kiếm tìm những món ngon bản địa, qua sự phân công phối hợp mà càng thấu hiểu nhau sâu sắc hơn.\nCảnh sắc dọc đường dẫu muôn phần tráng lệ, nhưng nụ cười ấm áp của người thân bên cạnh mới chính là cảnh quan vô giá nhất của cả chuyến đi.",
+      "audio_url": null,
+      "youtube_id": null,
+      "video_start_offset": "0.00",
+      "video_script_json": [],
+      "script_json": [],
+      "qa_json": [
+        {
+          "question": {
+            "zh": "規劃全家自助旅行時，行程應注意什麼？",
+            "vi": "Khi lên kế hoạch du lịch gia đình cần lưu ý điều gì?"
+          },
+          "options": [
+            {
+              "zh": "兼顧長幼體力與興趣，步調寬鬆",
+              "vi": "Cân đối thể lực già trẻ và sở thích, nhịp độ thư thái"
+            },
+            {
+              "zh": "一天安排十個景點瘋狂趕路",
+              "vi": "Một ngày xếp mười điểm tham quan chạy đua điên cuồng"
+            },
+            {
+              "zh": "只去大人喜歡的高檔商場",
+              "vi": "Chỉ đến trung tâm thương mại cao cấp người lớn thích"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "全家共同規劃旅行對親情有何助益？",
+            "vi": "Cả nhà cùng lên kế hoạch mang lại lợi ích gì cho tình thân?"
+          },
+          "options": [
+            {
+              "zh": "在分工協作中增進理解與感情",
+              "vi": "Gia tăng sự thấu hiểu và tình cảm qua phân công hợp tác"
+            },
+            {
+              "zh": "容易每天大吵一架",
+              "vi": "Dễ cãi vã to tiếng hàng ngày"
+            },
+            {
+              "zh": "浪費電話通訊費",
+              "vi": "Lãng phí cước viễn thông"
+            }
+          ],
+          "correct_index": 0
+        },
+        {
+          "question": {
+            "zh": "家庭旅行中最珍貴的風景是什麼？",
+            "vi": "Cảnh tượng quý giá nhất trong chuyến đi gia đình là gì?"
+          },
+          "options": [
+            {
+              "zh": "家人相伴的溫暖笑容",
+              "vi": "Nụ cười ấm áp khi gia đình sum vầy bên nhau"
+            },
+            {
+              "zh": "五星級飯店的裝潢",
+              "vi": "Nội thất của khách sạn 5 sao"
+            },
+            {
+              "zh": "路邊昂貴的紀念品",
+              "vi": "Những món quà lưu niệm đắt đỏ bên đường"
+            }
+          ],
+          "correct_index": 0
+        }
+      ],
+      "created_at": "2026-11-18 08:48:16",
+      "updated_at": "2026-11-18 08:48:16"
+    }
+  ],
   "139": [],
   "142": [],
   "141": [],

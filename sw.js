@@ -1,5 +1,5 @@
-const CACHE_NAME = 'hanzi-pwa-v2.0.5';
-const API_CACHE_NAME = 'hanzi-api-v2.0.5';
+const CACHE_NAME = 'hanzi-pwa-v2.0.6';
+const API_CACHE_NAME = 'hanzi-api-v2.0.6';
 const AUDIO_CACHE_NAME = 'hanzi-audio-v1';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
@@ -224,7 +224,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 5. Read-only APIs: Stale-While-Revalidate
+  // 5. Read-only APIs: Network-First for lesson_contents, Stale-While-Revalidate for others
   const isReadOnlyApi = url.pathname.includes('api.php') && (
     url.search.includes('action=get_curriculum_types') ||
     url.search.includes('action=get_books') ||
@@ -236,6 +236,19 @@ self.addEventListener('fetch', (event) => {
   );
 
   if (isReadOnlyApi) {
+    // Network-First for lesson_contents or any request with cache-buster _t
+    if (url.search.includes('_t=') || url.search.includes('action=get_lesson_contents')) {
+      event.respondWith(
+        fetch(req).then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            caches.open(API_CACHE_NAME).then((cache) => cache.put(req, networkRes.clone())).catch(() => {});
+          }
+          return networkRes;
+        }).catch(() => caches.match(req))
+      );
+      return;
+    }
+
     event.respondWith(
       caches.open(API_CACHE_NAME).then((cache) => {
         return cache.match(req).then((cached) => {

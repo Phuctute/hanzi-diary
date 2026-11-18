@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.0.8';
+    const CURRENT_VERSION = '2.0.9';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
@@ -459,11 +459,24 @@
 
     // Khởi tạo
     async function init() {
-        // 1. Nạp từ IndexedDB nếu đã có sẵn
-        cachedBundle = await loadBundleFromDB();
-        if (cachedBundle) {
-            syncState = 'ready';
-            updateUIBadge();
+        const storedVer = localStorage.getItem(OFFLINE_VER_KEY);
+        if (storedVer !== CURRENT_VERSION) {
+            // Phiên bản mới: xoá cache bundle cũ trong IndexedDB để tránh giữ data bài học cũ
+            try {
+                const db = await openDB();
+                if (db) {
+                    const tx = db.transaction(STORE_NAME, 'readwrite');
+                    tx.objectStore(STORE_NAME).clear();
+                }
+            } catch(e) {}
+            cachedBundle = null;
+        } else {
+            // 1. Nạp từ IndexedDB nếu đã có sẵn
+            cachedBundle = await loadBundleFromDB();
+            if (cachedBundle) {
+                syncState = 'ready';
+                updateUIBadge();
+            }
         }
 
         // 2. Tự tải Core Bundle nếu chưa có hoặc phiên bản cũ

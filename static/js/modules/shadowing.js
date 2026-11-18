@@ -72,6 +72,7 @@
     window.initShadowing = function () { loadTopics(); loadVideos(); renderSpeedBtn(); syncCCBtnState(); };
 
     async function loadTopics() {
+        if (topics && topics.length > 0) { renderTopicChips(); return; }
         try { const r = await fetch('/api.php?action=get_shadowing_topics'); const j = await r.json(); topics = j.success ? (j.data || []) : []; }
         catch (e) { topics = []; }
         renderTopicChips();
@@ -90,6 +91,7 @@
     window.shadowSetTopic = function (t) { filterTopic = t; renderTopicChips(); renderGrid(); };
 
     async function loadVideos() {
+        if (videos && videos.length > 0) { renderGrid(); return; }
         try { const r = await fetch('/api.php?action=get_shadowing_videos'); const j = await r.json(); videos = j.success ? (j.data || []) : []; }
         catch (e) { videos = []; }
         const prevScroll = savedShadowLibraryScroll || (document.getElementById('mainContent')?.scrollTop || 0);

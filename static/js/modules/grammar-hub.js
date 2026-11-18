@@ -53,16 +53,26 @@
     }
 
     // ============ 1. Top hay dùng: Tab Bar ============
+    var _gmhTopnCache = null;
     function gmhLoadTopNTabs() {
-        fetch('/api.php?action=get_grammar_tags&tag_type=top_n').then(function (r) { return r.json(); }).then(function (res) {
-            var wrap = document.getElementById('gmh-topn-tabbar');
-            var tags = (res && res.success && Array.isArray(res.data)) ? res.data : [];
+        var wrap = document.getElementById('gmh-topn-tabbar');
+        if (!wrap) return;
+        if (_gmhTopnCache) {
+            renderTopnTags(_gmhTopnCache);
+            return;
+        }
+        function renderTopnTags(tags) {
             wrap.innerHTML = tags.length ? tags.map(function (t) {
                 var safeName = String(t.tag_name).replace(/'/g, "\\'");
                 var cnt = parseInt(t.grammar_count, 10) || 0;
                 return '<button type="button" class="gmh-tab" id="gmh-tab-' + t.tag_id + '" onclick="gmhSelectTopTab(' + t.tag_id + ',\'' + safeName + '\')">' + t.tag_name + ' <span class="opacity-70">(' + cnt + ')</span></button>';
             }).join('') : '<div class="text-slate-400 text-xs py-2">Chưa có dữ liệu Top ngữ pháp.</div>';
-        }).catch(function () { document.getElementById('gmh-topn-tabbar').innerHTML = ''; });
+        }
+        fetch('/api.php?action=get_grammar_tags&tag_type=top_n').then(function (r) { return r.json(); }).then(function (res) {
+            var tags = (res && res.success && Array.isArray(res.data)) ? res.data : [];
+            _gmhTopnCache = tags;
+            renderTopnTags(tags);
+        }).catch(function () { if (!wrap.innerHTML) wrap.innerHTML = ''; });
     }
     window.gmhSelectTopTab = function (tagId, tagName) {
         var st = gmhBlockState.topn;

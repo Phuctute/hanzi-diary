@@ -114,6 +114,7 @@
     }
 
     async function loadTopics() {
+        if (topics && topics.length > 0) { renderTopicChips(); return; }
         try { const r = await fetch('/api.php?action=get_shadowing_topics'); const j = await r.json(); topics = j.success ? (j.data || []) : []; }
         catch (e) { topics = []; }
         renderTopicChips();
@@ -132,6 +133,7 @@
     window.dictSetTopic = function (t) { filterTopic = t; renderTopicChips(); renderVideoGrid(); };
 
     async function loadVideos() {
+        if (videos && videos.length > 0) { renderVideoGrid(); return; }
         try { const r = await fetch('/api.php?action=get_shadowing_videos'); const j = await r.json(); videos = j.success ? (j.data || []) : []; }
         catch (e) { videos = []; }
         renderVideoGrid();

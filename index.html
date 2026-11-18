@@ -18002,30 +18002,65 @@ window.addEventListener('error', function(e) {
 
             }
 
-            // Tải song song (Parallel Promise.all) tiết kiệm 50% thời gian chờ mạng khi đổi bài
-            try {
-                const [vocabJson, diagJson] = await Promise.all([
-                    fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`).then(r => r.json()).catch(() => []),
-                    fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`).then(r => r.json()).catch(() => ({ success: false, data: [] }))
-                ]);
-                vocabData = Array.isArray(vocabJson) ? vocabJson : [];
+            // 1. Kiểm tra RAM cache hoặc Offline Bundle để hiển thị tức thì (0ms) không cần chờ mạng
+            window._vocabCache = window._vocabCache || {};
+            window._lessonContentsCache = window._lessonContentsCache || {};
+
+            let instantVocab = window._vocabCache[lessonId] || null;
+            let instantDiag = window._lessonContentsCache[lessonId] || null;
+
+            if (!instantVocab || !instantDiag) {
+                try {
+                    if (window.HanziOffline && typeof window.HanziOffline.getBundle === 'function') {
+                        const bundle = window.HanziOffline.getBundle();
+                        if (bundle) {
+                            if (!instantVocab && bundle.lesson_vocab && bundle.lesson_vocab[lessonId]) {
+                                instantVocab = bundle.lesson_vocab[lessonId];
+                                window._vocabCache[lessonId] = instantVocab;
+                            }
+                            if (!instantDiag && bundle.lesson_contents && bundle.lesson_contents[lessonId]) {
+                                instantDiag = bundle.lesson_contents[lessonId];
+                                window._lessonContentsCache[lessonId] = instantDiag;
+                            }
+                        }
+                    }
+                } catch(e) {}
+            }
+
+            if (instantVocab) {
+                vocabData = Array.isArray(instantVocab) ? instantVocab : [];
                 filteredVocabData = [...vocabData];
                 if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
-                rawKaraokeData = (diagJson && diagJson.success && diagJson.data) ? diagJson.data : [];
+                window._dictLoadedLessonId = String(lessonId);
+            }
+            if (instantDiag) {
+                rawKaraokeData = Array.isArray(instantDiag) ? instantDiag : [];
                 window.rawKaraokeData = rawKaraokeData;
-                window._lessonContentsCache = window._lessonContentsCache || {};
-                if (rawKaraokeData && rawKaraokeData.length > 0) {
-                    window._lessonContentsCache[lessonId] = rawKaraokeData;
+                window._karaokeLoadedLessonId = String(lessonId);
+            }
+
+            // 2. Tải/đồng bộ từ mạng ngầm để cập nhật dữ liệu mới nhất
+            try {
+                const [vocabJson, diagJson] = await Promise.all([
+                    fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`).then(r => r.json()).catch(() => null),
+                    fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`).then(r => r.json()).catch(() => null)
+                ]);
+                if (Array.isArray(vocabJson) && vocabJson.length > 0) {
+                    vocabData = vocabJson;
+                    filteredVocabData = [...vocabData];
+                    window._vocabCache[lessonId] = vocabData;
+                    if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
+                    window._dictLoadedLessonId = String(lessonId);
                 }
-                window._karaokeLoadedLessonId = String(lessonId);
-                window._dictLoadedLessonId = String(lessonId);
+                if (diagJson && diagJson.success && Array.isArray(diagJson.data) && diagJson.data.length > 0) {
+                    rawKaraokeData = diagJson.data;
+                    window.rawKaraokeData = rawKaraokeData;
+                    window._lessonContentsCache[lessonId] = rawKaraokeData;
+                    window._karaokeLoadedLessonId = String(lessonId);
+                }
             } catch (err) {
-                vocabData = [];
-                filteredVocabData = [];
-                rawKaraokeData = [];
-                window.rawKaraokeData = [];
-                window._karaokeLoadedLessonId = String(lessonId);
-                window._dictLoadedLessonId = String(lessonId);
+                if (!instantVocab) { vocabData = []; filteredVocabData = []; }
+                if (!instantDiag) { rawKaraokeData = []; window.rawKaraokeData = []; }
             }
 
             

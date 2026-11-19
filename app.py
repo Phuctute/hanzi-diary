@@ -1951,9 +1951,7 @@ def admin_content_api():
 def api_notifications():
     return jsonify({"success": True, "count": 0, "data": []})
 
-@app.route("/api_leaderboard.php", methods=["GET", "POST"])
-def api_leaderboard():
-    return jsonify({"success": True, "data": [], "me": None})
+
 
 @app.route("/index.php")
 def serve_index_php():

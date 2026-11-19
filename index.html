@@ -6,9 +6,9 @@
     <base href="/hanzi-diary/">
 
 <script>
-// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.6
+// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.7
 (function() {
-    const CURRENT_APP_VER = '2.2.6';
+    const CURRENT_APP_VER = '2.2.7';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -21,7 +21,7 @@
         if ('caches' in window) {
             caches.keys().then(function(keys) {
                 keys.forEach(function(k) {
-                    if (!k.includes('v2.2.6')) caches.delete(k);
+                    if (!k.includes('v2.2.7')) caches.delete(k);
                 });
             }).catch(function() {});
         }
@@ -935,14 +935,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.6">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.6">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.6">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.6">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.6">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.6">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.6">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.6">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.7">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.7">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.7">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.7">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.7">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.7">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.7">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.7">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1130,7 +1130,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.2.6">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.2.7">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1143,11 +1143,11 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.2.6" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.2.7" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.2.6"></script>
+    <script src="static/js/offline-store.js?v=2.2.7"></script>
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
 
 
 
@@ -3008,7 +3008,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.6" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.6';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.7" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.7';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
         </div>
@@ -3166,7 +3166,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.6</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.7</span>
             </div>
 
             </nav>
@@ -4031,7 +4031,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.2.7" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4190,7 +4190,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.2.7" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4705,7 +4705,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.2.7" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4778,7 +4778,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/writing.js?v=2.2.7" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4944,7 +4944,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.2.7" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -12233,7 +12233,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.2.7" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12614,7 +12614,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.2.7" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12724,7 +12724,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.2.7" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12795,7 +12795,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.2.7" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -13149,7 +13149,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.2.7" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13354,7 +13354,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.2.6" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.2.7" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -14889,7 +14889,7 @@ window.addEventListener('error', function(e) {
                     if(greet) greet.innerText = 'Chào bạn! 👋';
                     const tocflIc = document.getElementById('nav-tocfl-icon');
                     if(tocflIc) tocflIc.className = 'fa-solid fa-award w-5 text-center text-accent text-lg transition-colors';
-                    openLoginPage();
+                    
                 }
             } catch(e) { /* network error — giữ nguyên trạng thái */ }
         }
@@ -15122,357 +15122,6 @@ window.addEventListener('error', function(e) {
         // Chuyển sang trang đăng nhập độc lập (/login) thay vì hiện modal cũ.
         // targetPath: dùng khi trang đích chưa kịp pushState (vd: bị chặn bởi guest-lock-popup
         // trước khi URL đổi) — không thì mặc định lấy URL hiện tại.
-        function openLoginPage(targetPath) {
-            const cb = targetPath || (window.location.pathname + window.location.search);
-            window.location.href = '/login?callbackUrl=' + encodeURIComponent(cb);
-        }
-
-        function toggleLoginPwd() {
-            const input = document.getElementById('login-pwd');
-            if (!input) return;
-            const isHidden = input.type === 'password';
-            input.type = isHidden ? 'text' : 'password';
-            const eyeShow = document.getElementById('login-eye-show');
-            if (eyeShow) eyeShow.classList.toggle('hidden', isHidden);
-            const eyeHide = document.getElementById('login-eye-hide');
-            if (eyeHide) eyeHide.classList.toggle('hidden', !isHidden);
-        }
-
-        function toggleAuthForm(type) {
-            const err = document.getElementById('auth-error');
-            if (err) err.classList.add('hidden');
-            const suc = document.getElementById('auth-success');
-            if (suc) suc.classList.add('hidden');
-
-            const forms = ['login', 'register-step1', 'register-step2', 'forgot-step1', 'forgot-step2'];
-            forms.forEach(f => {
-                const el = document.getElementById('form-' + f);
-                if (el) el.classList.add('hidden');
-            });
-
-            const quickAuth = document.getElementById('quick-auth-block');
-            const showQuickAuth = (type === 'login' || type === 'register_step1');
-            if (quickAuth) quickAuth.classList.toggle('hidden', !showQuickAuth);
-
-            const emailAuth = document.getElementById('email-auth-forms');
-            if (emailAuth) emailAuth.classList.remove('hidden');
-            const toggleBtn = document.getElementById('toggle-email-auth');
-            if (toggleBtn) toggleBtn.classList.add('hidden');
-
-            const titleEl = document.getElementById('auth-title');
-            const formEl = document.getElementById('form-' + (type === 'register_step1' ? 'register-step1' : (type === 'register_step2' ? 'register-step2' : (type === 'forgot' ? 'forgot-step1' : (type === 'forgot_step2' ? 'forgot-step2' : 'login')))));
-            if (formEl) formEl.classList.remove('hidden');
-
-            if (titleEl) {
-                if (type === 'login') titleEl.innerText = 'Đăng nhập hệ thống';
-                else if (type === 'register_step1') titleEl.innerText = 'Tạo tài khoản';
-                else if (type === 'register_step2') titleEl.innerText = 'Xác thực Email';
-                else if (type === 'forgot') titleEl.innerText = 'Quên mật khẩu';
-                else if (type === 'forgot_step2') titleEl.innerText = 'Đặt lại mật khẩu';
-            }
-        }
-
-        function toggleEmailAuth() {
-            const emailAuth = document.getElementById('email-auth-forms');
-            if (emailAuth) emailAuth.classList.remove('hidden');
-            const toggleBtn = document.getElementById('toggle-email-auth');
-            if (toggleBtn) toggleBtn.classList.add('hidden');
-        }
-
-        function showAuthMsg(type, text) {
-            const err = document.getElementById('auth-error'); 
-            const suc = document.getElementById('auth-success');
-            if (err) err.classList.add('hidden'); 
-            if (suc) suc.classList.add('hidden');
-            if (type === 'error' && err) { err.innerText = text; err.classList.remove('hidden'); }
-            if (type === 'success' && suc) { suc.innerText = text; suc.classList.remove('hidden'); }
-
-            else { suc.innerText = text; suc.classList.remove('hidden'); }
-
-        }
-
-
-
-        async function handleLogin(e) {
-
-            e.preventDefault();
-
-            const email = document.getElementById('login-email').value;
-
-            const pwd = document.getElementById('login-pwd').value;
-
-            try {
-
-                const res = await fetch('/api.php?action=login', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ email: email, password: pwd })
-
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-
-                    localStorage.setItem('td_user', JSON.stringify(data.user));
-
-                    checkLoginStatus();
-
-                } else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi kết nối máy chủ!'); }
-
-        }
-
-
-
-        // Phát hiện in-app browser (Zalo/Facebook/TikTok...) — Google chặn OAuth trong WebView (lỗi 403 disallowed_useragent)
-        function detectInAppBrowser() {
-            var ua = navigator.userAgent || '';
-            var rules = [
-                { re: /Zalo/i, name: 'Zalo' },
-                { re: /FBAN|FBAV|FB_IAB|FBIOS/i, name: 'Facebook' },
-                { re: /Instagram/i, name: 'Instagram' },
-                { re: /Messenger/i, name: 'Messenger' },
-                { re: /BytedanceWebview|musical_ly|TikTok/i, name: 'TikTok' },
-                { re: /Line\//i, name: 'Line' }
-            ];
-            for (var i = 0; i < rules.length; i++) {
-                if (rules[i].re.test(ua)) return rules[i].name;
-            }
-            return null;
-        }
-
-        (function showInAppWarningIfNeeded() {
-            var app = detectInAppBrowser();
-            if (!app) return;
-            var banner = document.getElementById('inapp-browser-warning');
-            var nameEl = document.getElementById('inapp-browser-name');
-            if (nameEl) nameEl.textContent = app;
-            if (banner) banner.classList.remove('hidden');
-        })();
-
-        async function handleGoogleLogin(response) {
-
-            const id_token = response.credential;
-
-            try {
-
-                const res = await fetch('/api.php?action=google_login', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ id_token: id_token })
-
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-
-                    showAuthMsg('success', 'Đăng nhập Google thành công!');
-
-                    localStorage.setItem('td_user', JSON.stringify(data.user));
-
-                    setTimeout(() => checkLoginStatus(), 1000); 
-
-                } else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi kết nối máy chủ!'); }
-
-        }
-
-        // ===== Đăng nhập/Đăng ký bằng Zalo (OAuth v4, PKCE) =====
-        // TODO: thay ZALO_APP_ID bằng App ID thật sau khi tạo app trên developers.zalo.me
-        const ZALO_APP_ID = '3468239213783704823';
-
-        function b64urlEncode(buf) {
-            return btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-        }
-
-        async function handleZaloLogin() {
-            if (!ZALO_APP_ID || ZALO_APP_ID.indexOf('REPLACE') === 0) {
-                showAuthMsg('error', 'Đăng nhập Zalo chưa được cấu hình. Vui lòng dùng Google hoặc Email.');
-                return;
-            }
-            const verifier = Array.from(crypto.getRandomValues(new Uint8Array(32))).map(b => ('0' + b.toString(16)).slice(-2)).join('');
-            sessionStorage.setItem('zalo_code_verifier', verifier);
-            const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier));
-            const challenge = b64urlEncode(digest);
-            const state = Math.random().toString(36).slice(2);
-            sessionStorage.setItem('zalo_state', state);
-            const redirectUri = encodeURIComponent(window.location.origin + '/zalo_callback.php');
-            window.location.href = `https://oauth.zaloapp.com/v4/permission?app_id=${ZALO_APP_ID}&redirect_uri=${redirectUri}&code_challenge=${challenge}&state=${state}`;
-        }
-
-        let currentRegEmail = '';
-
-        async function handleRegisterStep1(e) {
-
-            e.preventDefault();
-
-            const btn = document.getElementById('btn-reg-1');
-
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang gửi mail...'; btn.disabled = true;
-
-            
-
-            const name = document.getElementById('reg-name').value;
-
-            const phone = document.getElementById('reg-phone').value; 
-
-            currentRegEmail = document.getElementById('reg-email').value;
-
-            
-
-            try {
-
-                const res = await fetch('/api.php?action=request_register_otp', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ email: currentRegEmail, full_name: name, phone: phone }) 
-
-                });
-
-                const data = await res.json();
-
-                btn.innerHTML = 'LẤY MÃ XÁC NHẬN QUA EMAIL'; btn.disabled = false;
-
-                
-
-                if (data.success) {
-
-                    document.getElementById('display-reg-email').innerText = currentRegEmail;
-
-                    toggleAuthForm('register_step2');
-
-                    if (data.show_otp) {
-                        document.getElementById('reg-otp').value = data.show_otp;
-                        showAuthMsg('success', 'Mã xác nhận của bạn: ' + data.show_otp + ' (đã tự điền sẵn, nếu email có tới bạn cũng có thể dùng mã trong mail).');
-                    }
-
-                } else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi kết nối!'); btn.innerHTML = 'LẤY MÃ XÁC NHẬN QUA EMAIL'; btn.disabled = false; }
-
-        }
-
-
-
-        async function handleRegisterStep2(e) {
-
-            e.preventDefault();
-
-            const otp = document.getElementById('reg-otp').value;
-
-            const pwd = document.getElementById('reg-pwd').value;
-
-            try {
-
-                const res = await fetch('/api.php?action=verify_register_and_set_pass', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ email: currentRegEmail, otp: otp, password: pwd })
-
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-
-                    showAuthMsg('success', data.message);
-
-                    setTimeout(() => toggleAuthForm('login'), 2000);
-
-                } else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi kết nối!'); }
-
-        }
-
-
-
-        let currentForgotEmail = '';
-
-        async function handleForgotStep1(e) {
-
-            e.preventDefault();
-
-            const btn = document.getElementById('btn-forgot-1');
-
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Đang xử lý...'; btn.disabled = true;
-
-            currentForgotEmail = document.getElementById('forgot-email').value;
-
-            
-
-            try {
-
-                const res = await fetch('/api.php?action=request_reset_otp', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ email: currentForgotEmail })
-
-                });
-
-                const data = await res.json();
-
-                btn.innerHTML = 'GỬI MÃ KHÔI PHỤC'; btn.disabled = false;
-
-                if (data.success) {
-                    toggleAuthForm('forgot_step2');
-                    if (data.show_otp) {
-                        document.getElementById('forgot-otp').value = data.show_otp;
-                        showAuthMsg('success', 'Mã xác nhận của bạn: ' + data.show_otp + ' (đã tự điền sẵn, nếu email có tới bạn cũng có thể dùng mã trong mail).');
-                    }
-                } 
-
-                else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi mạng'); btn.innerHTML = 'GỬI MÃ KHÔI PHỤC'; btn.disabled = false; }
-
-        }
-
-
-
-        async function handleForgotStep2(e) {
-
-            e.preventDefault();
-
-            const otp = document.getElementById('forgot-otp').value;
-
-            const pwd = document.getElementById('forgot-pwd').value;
-
-            try {
-
-                const res = await fetch('/api.php?action=verify_and_reset_pass', {
-
-                    method: 'POST', headers: { 'Content-Type': 'application/json' },
-
-                    body: JSON.stringify({ email: currentForgotEmail, otp: otp, password: pwd })
-
-                });
-
-                const data = await res.json();
-
-                if (data.success) {
-
-                    showAuthMsg('success', data.message);
-
-                    setTimeout(() => toggleAuthForm('login'), 2000);
-
-                } else { showAuthMsg('error', data.message); }
-
-            } catch (error) { showAuthMsg('error', 'Lỗi mạng'); }
-
-        }
-
-
-
         function logout() {
             // Gọi server để xóa token ghi nhớ + cookie, nếu không sẽ bị đăng nhập lại tự động.
             fetch('/api.php?action=logout').catch(() => {}).finally(() => {
@@ -17185,7 +16834,7 @@ window.addEventListener('error', function(e) {
         async function loadDashboardData() {
             initDashboardStatic();
             if (!window.__dashRoadmapLoaded) loadDashRoadmap();
-            loadDashLeaderboard();
+            // loadDashLeaderboard();
             renderDashResume();
             renderDashSrsWidget();
 
@@ -17287,7 +16936,7 @@ window.addEventListener('error', function(e) {
         }
 
         async function doDailyCheckIn() {
-            if (!currentUser) { openLoginPage(); return; }
+            if (!currentUser) {  return; }
             const btn = document.getElementById('dash-checkin-btn');
             if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5"></i>Đang điểm danh…'; }
             try {
@@ -17303,7 +16952,7 @@ window.addEventListener('error', function(e) {
                         showSrsNotify('success', `🔥 Điểm danh thành công! +${j.points_awarded} điểm. Streak ${j.current_streak} ngày.`);
                     }
                 } else if (j.code === 'NO_SESSION') {
-                    openLoginPage();
+                    
                 }
             } catch (e) {
                 if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-calendar-check mr-1.5"></i>Điểm danh hôm nay <span class="opacity-70">+5</span>'; }
@@ -17315,7 +16964,7 @@ window.addEventListener('error', function(e) {
             const box = document.getElementById('dash-resume');
             if (!box) return;
             if (!currentUser) {
-                box.innerHTML = `<button onclick="openLoginPage()" class="w-full text-left text-sm text-white/90 hover:text-white font-medium py-2">Đăng nhập để lưu tiến độ học <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></button>`;
+                box.innerHTML = `<button onclick="" class="w-full text-left text-sm text-white/90 hover:text-white font-medium py-2">Đăng nhập để lưu tiến độ học <i class="fa-solid fa-arrow-right ml-1 text-xs"></i></button>`;
                 return;
             }
             try {
@@ -18546,7 +18195,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.2.6' : '/sw.js?v=2.2.6';
+                const swUrl = isGh ? 'sw.js?v=2.2.7' : '/sw.js?v=2.2.7';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

@@ -2996,14 +2996,14 @@ window.addEventListener('error', function(e) {
 
     <div id="sidebarBackdrop" onclick="toggleSidebar()"
 
-        class="fixed inset-0 bg-brandNavy/60 backdrop-blur-sm z-40 hidden transition-opacity duration-300 md:hidden">
+        class="fixed inset-0 bg-brandNavy/60 backdrop-blur-sm z-[110] hidden transition-opacity duration-300 md:hidden">
 
     </div>
 
 
     <aside id="sidebar" style="padding-top: env(safe-area-inset-top, 0px);"
 
-        class="fixed md:relative w-[280px] h-full sidebar-gradient flex flex-col shrink-0 z-50 shadow-2xl md:shadow-none border-r border-white/5 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
+        class="fixed md:relative w-[280px] h-full sidebar-gradient flex flex-col shrink-0 z-[120] shadow-2xl md:shadow-none border-r border-white/5 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
 
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
@@ -3181,7 +3181,7 @@ window.addEventListener('error', function(e) {
 
         <header id="main-app-header" style="padding-top: max(12px, env(safe-area-inset-top, 12px));"
 
-            class="relative h-auto md:h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-3 md:py-0 shrink-0 z-20 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] w-full gap-3 md:gap-4 transition-all">
+            class="relative h-auto md:h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 py-3 md:py-0 shrink-0 z-[70] shadow-[0_2px_10px_-3px_rgba(0,0,0,0.05)] w-full gap-3 md:gap-4 transition-all">
 
             <div class="flex items-center justify-between w-full md:w-auto">
 
@@ -3208,7 +3208,7 @@ window.addEventListener('error', function(e) {
                     <button aria-label="Tra từ điển" onclick="toggleHeaderDictSearch('header-dict-mobile-panel','header-dict-mobile-search')" class="w-10 h-10 rounded-xl bg-slate-50 text-slate-500 active:bg-slate-200 active:text-primary flex items-center justify-center transition-colors outline-none border border-slate-200 shadow-sm">
                         <i class="fa-solid fa-magnifying-glass text-sm"></i>
                     </button>
-                    <div id="header-dict-mobile-panel" style="top: calc(100% + 8px); left: 12px; right: 12px; max-width: 32rem; margin: 0 auto;" class="header-dict-panel hidden absolute bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
+                    <div id="header-dict-mobile-panel" style="top: calc(100% + 8px); left: 12px; right: 12px; max-width: 32rem; margin: 0 auto;" class="header-dict-panel hidden absolute bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-[80]">
                         <div class="relative flex items-center">
                             <input id="header-dict-mobile-search"
                                 oninput="dashDictSearchDebounced('header-dict-mobile-search','header-dict-mobile-dropdown','header-dict-mobile-clear')"
@@ -3246,7 +3246,7 @@ window.addEventListener('error', function(e) {
                 <button aria-label="Tra từ điển" onclick="toggleHeaderDictSearch('header-dict-desktop-panel','header-dict-desktop-search')" class="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 text-slate-500 hover:bg-primary hover:text-white hover:border-primary active:scale-95 transition-all outline-none flex items-center justify-center shadow-sm">
                     <i class="fa-solid fa-magnifying-glass text-sm"></i>
                 </button>
-                <div id="header-dict-desktop-panel" style="top: calc(100% + 10px); width: min(480px, 92vw);" class="header-dict-panel hidden absolute right-0 bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-50">
+                <div id="header-dict-desktop-panel" style="top: calc(100% + 10px); width: min(480px, 92vw);" class="header-dict-panel hidden absolute right-0 bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 z-[80]">
                     <div class="relative flex items-center">
                         <input id="header-dict-desktop-search"
                             oninput="dashDictSearchDebounced('header-dict-desktop-search','header-dict-desktop-dropdown','header-dict-desktop-clear')"
@@ -5487,7 +5487,7 @@ window.addEventListener('error', function(e) {
     class="-mt-2 sm:-mt-3 md:-mt-6 hidden h-full flex-col max-w-5xl mx-auto w-full relative">
 
     <header
-        class="shrink-0 z-40 glass border border-slate-200 shadow-sm p-2 flex flex-col md:flex-row items-center justify-between gap-2 w-full rounded-2xl mb-2 sm:mb-4 relative">
+        class="shrink-0 z-20 glass border border-slate-200 shadow-sm p-2 flex flex-col md:flex-row items-center justify-between gap-2 w-full rounded-2xl mb-2 sm:mb-4 relative">
         <div id="karaokeHeaderTopRow" class="flex items-center justify-between w-full md:w-1/4 shrink-0">
             <div class="flex items-center gap-3 flex-1 min-w-0">
                 <div
@@ -14462,6 +14462,16 @@ window.addEventListener('error', function(e) {
             // Đóng mọi panel search khác đang mở trong header (mobile/desktop) trước khi mở panel này
             document.querySelectorAll('.header-dict-panel').forEach(p => { if (p.id !== panelId) p.classList.add('hidden'); });
             panel.classList.toggle('hidden');
+
+            const appHeader = document.getElementById('main-app-header');
+            if (appHeader) {
+                if (!panel.classList.contains('hidden')) {
+                    appHeader.style.zIndex = '100';
+                } else {
+                    appHeader.style.zIndex = '';
+                }
+            }
+
             if (wasHidden) {
                 const input = document.getElementById(inputId);
                 if (input) setTimeout(() => {
@@ -14472,11 +14482,19 @@ window.addEventListener('error', function(e) {
             }
         }
         document.addEventListener('click', (e) => {
+            let anyOpen = false;
             document.querySelectorAll('.header-dict-panel').forEach(panel => {
                 if (panel.classList.contains('hidden')) return;
-                if (e.target.closest('.header-dict-panel') || e.target.closest('[id^="header-dict-search-wrap"]')) return;
+                if (e.target.closest('.header-dict-panel') || e.target.closest('[id^="header-dict-search-wrap"]')) {
+                    anyOpen = true;
+                    return;
+                }
                 panel.classList.add('hidden');
             });
+            const appHeader = document.getElementById('main-app-header');
+            if (appHeader && !anyOpen) {
+                appHeader.style.zIndex = '';
+            }
         });
 
         /* ===== Đổi chữ Hán đang học (Phồn thể / Giản thể) — đồng bộ cả 2 dropdown mobile & desktop ===== */

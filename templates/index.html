@@ -5,9 +5,9 @@
 <head>
 
 <script>
-// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.8
+// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.9
 (function() {
-    const CURRENT_APP_VER = '2.2.8';
+    const CURRENT_APP_VER = '2.2.9';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -20,7 +20,7 @@
         if ('caches' in window) {
             caches.keys().then(function(keys) {
                 keys.forEach(function(k) {
-                    if (!k.includes('v2.2.8')) caches.delete(k);
+                    if (!k.includes('v2.2.9')) caches.delete(k);
                 });
             }).catch(function() {});
         }
@@ -934,14 +934,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.8">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.8">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.8">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.8">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.8">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.8">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.8">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.9">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.9">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.9">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.9">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.9">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.9">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.9">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.9">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1129,7 +1129,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.2.8">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.2.9">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1142,9 +1142,9 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.2.8" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.2.9" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.2.8"></script>
+    <script src="static/js/offline-store.js?v=2.2.9"></script>
 
     
 
@@ -3007,7 +3007,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.8" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.8';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.9" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.9';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
         </div>
@@ -3165,7 +3165,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.8</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.9</span>
             </div>
 
             </nav>
@@ -4030,7 +4030,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.2.9" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4189,7 +4189,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.2.9" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4704,7 +4704,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.2.9" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4777,7 +4777,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/writing.js?v=2.2.9" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4943,7 +4943,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.2.9" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -12232,7 +12232,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.2.9" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12613,7 +12613,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.2.9" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12723,7 +12723,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.2.9" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12794,7 +12794,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.2.9" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -13148,7 +13148,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.2.9" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13353,7 +13353,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.2.8" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.2.9" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -14991,7 +14991,7 @@ window.addEventListener('error', function(e) {
 
                 loadSrsDashboard();
 
-                if (typeof notifApp !== 'undefined' && notifApp.init) notifApp.init();
+                
 
             } else {
 
@@ -15066,75 +15066,6 @@ window.addEventListener('error', function(e) {
             }
 
         }
-
-        // ================= THÔNG BÁO (comment/tag) CHO USER =================
-        // Không còn chuông riêng trên header — thông báo được gộp vào tab "Thông báo"
-        // của widget chat nổi (xem community.php: widgetChatApp). notifApp chỉ lo dữ liệu
-        // (đếm chưa đọc để hiển thị badge trên nút chat nổi, danh sách, đánh dấu đã đọc).
-        const notifApp = {
-            pollTimer: null,
-
-            init() {
-                this.fetchUnreadCount();
-                this.startPolling();
-                document.addEventListener('visibilitychange', () => {
-                    if (document.hidden) {
-                        this.stopPolling();
-                    } else {
-                        this.fetchUnreadCount();
-                        this.startPolling();
-                    }
-                });
-            },
-
-            startPolling() {
-                if (this.pollTimer) clearInterval(this.pollTimer);
-                this.pollTimer = setInterval(() => this.fetchUnreadCount(), 30000);
-            },
-
-            stopPolling() {
-                if (this.pollTimer) {
-                    clearInterval(this.pollTimer);
-                    this.pollTimer = null;
-                }
-            },
-
-            async fetchUnreadCount() {
-                try {
-                    const res = await fetch('/api_notifications.php?action=GET_UNREAD_COUNT');
-                    const result = await res.json();
-                    if (result.success && typeof widgetChatApp !== 'undefined') widgetChatApp.renderNotifBadge(result.count);
-                } catch (e) { /* polling im lặng, không làm phiền user */ }
-            },
-
-            async fetchList() {
-                try {
-                    const res = await fetch('/api_notifications.php?action=GET_LIST&limit=20');
-                    const result = await res.json();
-                    if (!result.success) throw new Error(result.message);
-                    return result.data;
-                } catch (e) {
-                    return null;
-                }
-            },
-
-            async markRead(id) {
-                try {
-                    await fetch('/api_notifications.php?action=MARK_READ', {
-                        method: 'POST', headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id })
-                    });
-                    this.fetchUnreadCount();
-                } catch (e) { /* silent */ }
-            },
-
-            async markAllRead() {
-                try {
-                    await fetch('/api_notifications.php?action=MARK_ALL_READ', { method: 'POST' });
-                    this.fetchUnreadCount();
-                } catch (e) { /* silent */ }
-            }
-        };
 
         // Chuyển sang trang đăng nhập độc lập (/login) thay vì hiện modal cũ.
         // targetPath: dùng khi trang đích chưa kịp pushState (vd: bị chặn bởi guest-lock-popup
@@ -15755,7 +15686,7 @@ window.addEventListener('error', function(e) {
 
                         if (v === 'karaoke') el.classList.add('flex');
 
-                        if (v === 'leaderboard' && typeof lbLoad === 'function') lbLoad();
+                        
 
                         if (!isInitial && !window.__lessonSwitchAnim) el.classList.add('animate-fade-in');
 
@@ -16851,8 +16782,7 @@ window.addEventListener('error', function(e) {
         async function loadDashboardData() {
             initDashboardStatic();
             if (!window.__dashRoadmapLoaded) loadDashRoadmap();
-            // loadDashLeaderboard();
-            renderDashResume();
+                        renderDashResume();
             renderDashSrsWidget();
 
             const guestBtn = document.getElementById('dash-streak-guest');
@@ -17293,51 +17223,6 @@ window.addEventListener('error', function(e) {
                 <span class="w-7 h-7 rounded-full bg-slate-100 text-primary flex items-center justify-center text-[11px] font-bold overflow-hidden shrink-0">${av}</span>
                 <span class="flex-1 min-w-0 text-[12px] font-bold text-slate-700 truncate">${dashEsc(u.full_name || 'Học viên')}</span>
                 <span class="text-[12px] font-black text-indigo-500 tabular-nums shrink-0">${dashNum(u.score)}${unit}</span></div>`;
-        }
-
-        // ---- Vinh danh tuần (Dual-Leaderboard: điểm tuần, reset Thứ 2) ----
-        function dashLbRow(u) {
-            const isMe = currentUser && u.user_id === currentUser.id;
-            const medal = u.rank === 1 ? 'text-amber-500' : u.rank === 2 ? 'text-slate-400' : u.rank === 3 ? 'text-orange-400' : 'text-slate-300';
-            const rankTxt = u.rank <= 3
-                ? `<i class="fa-solid fa-medal ${medal} text-base"></i>`
-                : `<span class="font-black ${medal} text-sm tabular-nums">${u.rank}</span>`;
-            const avInner = u.avatar
-                ? `<img src="${dashEsc(u.avatar)}" class="w-full h-full rounded-full object-cover">`
-                : `<span class="w-full h-full rounded-full bg-slate-100 text-primary flex items-center justify-center text-xs font-bold">${dashEsc((u.full_name || '?').charAt(0).toUpperCase())}</span>`;
-            return `<div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-xl ${isMe ? 'bg-primary/5' : ''} hover:bg-slate-50 transition-colors">
-                <span class="w-6 text-center shrink-0 flex items-center justify-center">${rankTxt}</span>
-                <span class="td-avatar-wrap ${u.frame ? dashEsc(u.frame) : ''} w-8 h-8 shrink-0 overflow-hidden">${avInner}</span>
-                <span class="flex-1 min-w-0">
-                    <span class="block text-[13px] font-bold ${isMe ? 'text-primary' : 'text-slate-700'} truncate">${dashEsc(u.full_name || 'Học viên')} ${u.badge ? dashEsc(u.badge) : ''}${isMe ? ' <span class="text-[10px] font-black">(Bạn)</span>' : ''}</span>
-                    <span class="block text-[10px] font-semibold text-slate-400">Lv${u.level} · ${dashEsc(u.level_title || '')}</span>
-                </span>
-                <span class="text-[13px] font-black text-slate-500 tabular-nums shrink-0">${(u.points || 0).toLocaleString('vi-VN')}</span></div>`;
-        }
-        async function loadDashLeaderboard() {
-            const box = document.getElementById('dash-leaderboard');
-            if (!box) return;
-            try {
-                const r = await fetch('/api_leaderboard.php?action=alltime&limit=50');
-                const j = await r.json();
-                if (!j.success || !Array.isArray(j.data) || !j.data.length) {
-                    box.innerHTML = '<div class="text-sm text-slate-400 py-2">Chưa có ai ghi điểm — học ngay để lên top! 🚀</div>';
-                    return;
-                }
-                box.innerHTML = j.data.map(dashLbRow).join('');
-                const mr = document.getElementById('dash-myrank');
-                if (mr) {
-                    if (j.me) {
-                        mr.classList.remove('hidden');
-                        mr.innerHTML = `<div class="flex items-center gap-2.5 px-1.5 py-1.5 rounded-xl bg-primary/5">
-                            <span class="w-6 text-center shrink-0 font-black text-primary text-sm tabular-nums">${j.me.rank}</span>
-                            <span class="flex-1 min-w-0 text-[13px] font-black text-primary truncate">Bạn · Lv${j.me.level}</span>
-                            <span class="text-[13px] font-black text-primary tabular-nums shrink-0">${(j.me.points || 0).toLocaleString('vi-VN')}</span></div>`;
-                    } else {
-                        mr.classList.add('hidden');
-                    }
-                }
-            } catch (e) { box.innerHTML = ''; }
         }
 
         // ---- Banner slider ----
@@ -18153,7 +18038,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.2.8' : '/sw.js?v=2.2.8';
+                const swUrl = isGh ? 'sw.js?v=2.2.9' : '/sw.js?v=2.2.9';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

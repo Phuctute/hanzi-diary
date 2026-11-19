@@ -1,6 +1,6 @@
-const CACHE_NAME = 'hanzi-pwa-v2.2.7';
-const API_CACHE_NAME = 'hanzi-api-v2.2.7';
-const AUDIO_CACHE_NAME = 'hanzi-audio-v2.2.7';
+const CACHE_NAME = 'hanzi-pwa-v2.2.9';
+const API_CACHE_NAME = 'hanzi-api-v2.2.9';
+const AUDIO_CACHE_NAME = 'hanzi-audio-v2.2.9';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
 const PRECACHE_ASSETS = [
@@ -224,15 +224,28 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 5. Read-only APIs: Network-First for lesson_contents, Stale-While-Revalidate for others
-  const isReadOnlyApi = url.pathname.includes('api.php') && (
-    url.search.includes('action=get_curriculum_types') ||
-    url.search.includes('action=get_books') ||
-    url.search.includes('action=get_lessons') ||
-    url.search.includes('action=get_vocabularies') ||
-    url.search.includes('action=get_lesson_contents') ||
-    url.search.includes('action=get_grammar_tags') ||
-    url.search.includes('action=get_top_shadowing_videos')
+  // 4b. External CDNs & Web Fonts: Stale-While-Revalidate with opaque support
+  if (url.hostname.includes('jsdelivr.net') || url.hostname.includes('googleapis.com') || url.hostname.includes('gstatic.com') || url.hostname.includes('cloudflare.com')) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(req).then((cached) => {
+          const fetchPromise = fetch(req).then((networkRes) => {
+            if (networkRes && (networkRes.status === 200 || networkRes.type === 'opaque')) {
+              cache.put(req, networkRes.clone());
+            }
+            return networkRes;
+          }).catch(() => cached);
+          return cached || fetchPromise;
+        });
+      })
+    );
+    return;
+  }
+
+  // 5. Read-only APIs: Stale-While-Revalidate (Network-First nếu có _t=)
+  const isReadOnlyApi = (url.pathname.includes('api.php') || url.pathname.startsWith('/api/')) && (
+    !url.search.includes('action=logout') &&
+    !url.pathname.includes('/api/tts')
   );
 
   if (isReadOnlyApi) {

@@ -6,9 +6,9 @@
     <base href="/hanzi-diary/">
 
 <script>
-// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.7
+// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.2.8
 (function() {
-    const CURRENT_APP_VER = '2.2.7';
+    const CURRENT_APP_VER = '2.2.8';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -21,7 +21,7 @@
         if ('caches' in window) {
             caches.keys().then(function(keys) {
                 keys.forEach(function(k) {
-                    if (!k.includes('v2.2.7')) caches.delete(k);
+                    if (!k.includes('v2.2.8')) caches.delete(k);
                 });
             }).catch(function() {});
         }
@@ -935,14 +935,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.7">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.7">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.7">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.7">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.7">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.7">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.7">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.7">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.2.8">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.2.8">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.2.8">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.2.8">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.2.8">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.2.8">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.2.8">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.2.8">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1130,7 +1130,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.2.7">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.2.8">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1143,9 +1143,9 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.2.7" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.2.8" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.2.7"></script>
+    <script src="static/js/offline-store.js?v=2.2.8"></script>
 
     
 
@@ -1315,14 +1315,14 @@ window.addEventListener('error', function(e) {
             filter: none !important;
         }
 
-        /* Apple-style chuyển tab: mượt mà, đàn hồi tự nhiên */
+        /* Chuyển tab mượt mà, không giật dịch chuyển layout */
         @keyframes tabFadeIn {
-            0% { opacity: 0; transform: translateY(8px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
         .animate-fade-in {
-            animation: tabFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-            will-change: opacity, transform;
+            animation: tabFadeIn 0.15s ease-out forwards !important;
+            will-change: opacity;
         }
 
         /* Cross-dissolve lesson switch: dùng opacity transition, không animation để tránh flash */
@@ -3008,7 +3008,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Giữ để làm mới trang (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.7" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.7';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.2.8" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.2.8';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
         </div>
@@ -3166,7 +3166,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.7</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.2.8</span>
             </div>
 
             </nav>
@@ -4031,7 +4031,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.2.8" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4190,7 +4190,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.2.8" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4705,7 +4705,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.2.8" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4778,7 +4778,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/writing.js?v=2.2.8" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -4944,7 +4944,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.2.8" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -12233,7 +12233,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.2.8" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12614,7 +12614,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.2.8" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12724,7 +12724,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.2.8" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12795,7 +12795,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.2.8" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -13149,7 +13149,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.2.8" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13354,7 +13354,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.2.7" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.2.8" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -17561,8 +17561,28 @@ window.addEventListener('error', function(e) {
 
 
 
-        async function loadVocabulariesAndContent(lessonId) {
+        function refreshActiveLessonView() {
+            const activeNavEl = document.querySelector('.nav-item.active') || document.querySelector('.mnav-item.active');
+            const activeNav = activeNavEl ? (activeNavEl.id ? activeNavEl.id.replace('nav-', '') : (activeNavEl.dataset.mnav || '')) : (window.currentTab || '');
 
+            if (activeNav === 'vocab') {
+                if (typeof renderVocabList === 'function') renderVocabList();
+            } else if (activeNav === 'karaoke') {
+                if (typeof renderKaraokeContent === 'function') renderKaraokeContent(0);
+            } else if (activeNav === 'flashcard') {
+                if (typeof initFlashcard === 'function') initFlashcard();
+            } else if (activeNav === 'quiz') {
+                if (typeof initQuiz === 'function') initQuiz();
+            } else if (activeNav === 'writing') {
+                if (typeof initWritingStudio === 'function') initWritingStudio();
+            } else if (activeNav === 'listening') {
+                if (typeof initWriting === 'function') initWriting();
+            } else if (activeNav === 'dictation') {
+                if (typeof initDictationTab === 'function') initDictationTab();
+            }
+        }
+
+        async function loadVocabulariesAndContent(lessonId) {
             if (!lessonId) return;
 
             window.currentLessonId = parseInt(lessonId);
@@ -17577,78 +17597,28 @@ window.addEventListener('error', function(e) {
             window.dispatchEvent(new CustomEvent('lessonChanged', { detail: { lessonId } }));
 
             isSrsMode = false;
-
-            if (typeof currentKaraokeIdx !== 'undefined') {
-
-                currentKaraokeIdx = 0;
-
-            }
-
-            if (typeof dictContentIdx !== 'undefined') {
-
-                dictContentIdx = 0;
-
-            }
+            if (typeof currentKaraokeIdx !== 'undefined') currentKaraokeIdx = 0;
+            if (typeof dictContentIdx !== 'undefined') dictContentIdx = 0;
 
             if (typeof lessonId === 'string' && lessonId.startsWith('topic:')) {
-
                 const topic = lessonId.slice('topic:'.length);
-
                 try {
-
                     const resLessons = await fetch(`/api.php?action=get_lessons_by_topic&topic=${encodeURIComponent(topic)}`);
-
                     const topicLessons = await resLessons.json();
-
                     const vocabLists = await Promise.all((Array.isArray(topicLessons) ? topicLessons : []).map(l =>
-
                         fetch(`/api.php?action=get_vocabularies&lesson_id=${l.lesson_id}`).then(r => r.json()).catch(() => [])
-
                     ));
-
                     vocabData = vocabLists.flat().filter(Boolean);
-
                 } catch (err) { vocabData = []; }
 
                 filteredVocabData = [...vocabData];
                 if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
-
                 rawKaraokeData = [];
                 window.rawKaraokeData = [];
                 window._dictLoadedLessonId = String(lessonId);
 
-                const activeNavEl = document.querySelector('.nav-item.active');
-                const activeNav = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
-
-                if (['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'writing', 'dictation'].includes(activeNav)) {
-                    // Cross-dissolve: fade out → switch → fade in không giật
-                    const viewEl = document.getElementById(`view-${activeNav}`);
-                    if (viewEl && !viewEl.classList.contains('hidden')) {
-                        window.__lessonSwitchAnim = true;
-                        viewEl.style.transition = 'opacity 0.25s ease';
-                        viewEl.style.opacity = '0';
-                        await new Promise(r => setTimeout(r, 40));
-                    }
-                    switchTab(activeNav);
-                    if (viewEl) {
-                        viewEl.classList.remove('animate-fade-in');
-                        viewEl.style.transition = 'opacity 0.28s ease';
-                        viewEl.style.opacity = '0';
-                        requestAnimationFrame(() => {
-                            viewEl.style.opacity = '1';
-                            setTimeout(() => {
-                                viewEl.style.transition = '';
-                                viewEl.style.opacity = '';
-                                window.__lessonSwitchAnim = false;
-                            }, 280);
-                        });
-                    } else {
-                        window.__lessonSwitchAnim = false;
-                    }
-                }
-
+                refreshActiveLessonView();
                 return;
-
             }
 
             // 1. Kiểm tra RAM cache hoặc Offline Bundle để hiển thị tức thì (0ms) không cần chờ mạng
@@ -17676,77 +17646,59 @@ window.addEventListener('error', function(e) {
                 } catch(e) {}
             }
 
+            let hadInstant = false;
             if (instantVocab) {
                 vocabData = Array.isArray(instantVocab) ? instantVocab : [];
                 filteredVocabData = [...vocabData];
                 if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
                 window._dictLoadedLessonId = String(lessonId);
+                hadInstant = true;
             }
             if (instantDiag) {
                 rawKaraokeData = Array.isArray(instantDiag) ? instantDiag : [];
                 window.rawKaraokeData = rawKaraokeData;
                 window._karaokeLoadedLessonId = String(lessonId);
+                hadInstant = true;
             }
 
-            // 2. Tải/đồng bộ từ mạng ngầm để cập nhật dữ liệu mới nhất
+            // Hiển thị ngay lập tức không giật nháy nếu đã có sẵn trong cache/offline
+            if (hadInstant) {
+                refreshActiveLessonView();
+            }
+
+            // 2. Tải/đồng bộ từ mạng ngầm để cập nhật dữ liệu mới nhất mà không giật nháy màn hình
             try {
                 const [vocabJson, diagJson] = await Promise.all([
                     fetch(`/api.php?action=get_vocabularies&lesson_id=${lessonId}`).then(r => r.json()).catch(() => null),
                     fetch(`/api.php?action=get_lesson_contents&lesson_id=${lessonId}`).then(r => r.json()).catch(() => null)
                 ]);
+                let dataChanged = false;
                 if (Array.isArray(vocabJson) && vocabJson.length > 0) {
                     vocabData = vocabJson;
                     filteredVocabData = [...vocabData];
                     window._vocabCache[lessonId] = vocabData;
                     if (typeof preloadLessonAudio === 'function') preloadLessonAudio(vocabData);
                     window._dictLoadedLessonId = String(lessonId);
+                    dataChanged = true;
                 }
                 if (diagJson && diagJson.success && Array.isArray(diagJson.data) && diagJson.data.length > 0) {
                     rawKaraokeData = diagJson.data;
                     window.rawKaraokeData = rawKaraokeData;
                     window._lessonContentsCache[lessonId] = rawKaraokeData;
                     window._karaokeLoadedLessonId = String(lessonId);
+                    dataChanged = true;
+                }
+                if (!hadInstant || dataChanged) {
+                    refreshActiveLessonView();
                 }
             } catch (err) {
                 if (!instantVocab) { vocabData = []; filteredVocabData = []; }
                 if (!instantDiag) { rawKaraokeData = []; window.rawKaraokeData = []; }
-            }
-
-            
-
-            const activeNavEl = document.querySelector('.nav-item.active');
-            const activeNav = activeNavEl ? activeNavEl.id.replace('nav-', '') : '';
-
-            if(['vocab', 'flashcard', 'listening', 'quiz', 'karaoke', 'writing', 'dictation'].includes(activeNav)) {
-                // Cross-dissolve: fade out → switch → fade in không giật
-                const viewEl = document.getElementById(`view-${activeNav}`);
-                if (viewEl && !viewEl.classList.contains('hidden')) {
-                    window.__lessonSwitchAnim = true;
-                    viewEl.style.transition = 'opacity 0.25s ease';
-                    viewEl.style.opacity = '0';
-                    await new Promise(r => setTimeout(r, 40));
-                }
-                switchTab(activeNav);
-                if (viewEl) {
-                    viewEl.classList.remove('animate-fade-in');
-                    viewEl.style.transition = 'opacity 0.28s ease';
-                    viewEl.style.opacity = '0';
-                    requestAnimationFrame(() => {
-                        viewEl.style.opacity = '1';
-                        setTimeout(() => {
-                            viewEl.style.transition = '';
-                            viewEl.style.opacity = '';
-                            window.__lessonSwitchAnim = false;
-                        }, 280);
-                    });
-                } else {
-                    window.__lessonSwitchAnim = false;
+                if (!hadInstant) {
+                    refreshActiveLessonView();
                 }
             }
-
         }
-
-
 
         function openReportModal(moduleName, itemId) {}
 
@@ -17936,18 +17888,7 @@ window.addEventListener('error', function(e) {
 
 
 
-            // 2. Ghi nhận Click & Khôi phục Bài Học khi bị mất đồng bộ
 
-            document.addEventListener('click', (e) => {
-                if (e.target && e.target.id === 'select-lesson') {
-                    const sel = e.target;
-                    if (sel.value && (String(window.__lastLoadedLessonId) !== String(sel.value) || window.__isCustomVocabActive || !vocabData || vocabData.length === 0)) {
-                        if (typeof loadVocabulariesAndContent === 'function') {
-                            loadVocabulariesAndContent(sel.value);
-                        }
-                    }
-                }
-            });
 
             document.addEventListener('change', (e) => {
 
@@ -18195,7 +18136,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.2.7' : '/sw.js?v=2.2.7';
+                const swUrl = isGh ? 'sw.js?v=2.2.8' : '/sw.js?v=2.2.8';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

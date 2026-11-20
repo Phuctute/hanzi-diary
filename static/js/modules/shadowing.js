@@ -570,7 +570,7 @@
         const c = cues[i];
         if (!c) return;
         const dur = Math.max(0.001, c.end_time - c.start_time);
-        const p = Math.min(1, Math.max(0, (t - c.start_time) / dur));
+        const p = Math.min(1, Math.max(0, (t - c.start_time + 0.12) / dur));
         const n = Math.round(p * chars.length);
         chars.forEach((s, k) => s.classList.toggle('sd-ch-on', k < n));
     }
@@ -856,9 +856,11 @@
 
     // Trả về chỉ số câu (cue) chứa thời điểm t, hoặc -1 nếu không khớp câu nào.
     function cueIdxAt(t) {
+        const LEAD_IN = 0.25;
         for (let i = 0; i < cues.length; i++) {
-            const st = cues[i].start_time;
-            const en = (i < cues.length - 1) ? Math.min(cues[i].end_time + 0.3, cues[i + 1].start_time) : cues[i].end_time + 0.3;
+            const st = Math.max(0, cues[i].start_time - LEAD_IN);
+            const nextSt = (i < cues.length - 1) ? Math.max(0, cues[i + 1].start_time - LEAD_IN) : Infinity;
+            const en = Math.min((i < cues.length - 1) ? Math.min(cues[i].end_time + 0.3, cues[i + 1].start_time) : cues[i].end_time + 0.3, nextSt);
             if (t >= st && t <= en) return i;
         }
         return -1;
@@ -885,7 +887,7 @@
             if (idx !== -1 && idx !== curCueIdx) { curCueIdx = idx; highlightCue(idx); updateCurrentPanel(); }
             // Tô sáng từng chữ chạy theo audio trong câu hiện tại
             if (idx !== -1) paintCueChars(idx, t);
-        }, 100);
+        }, 35);
     }
     function stopPoll() { if (poll) { clearInterval(poll); poll = null; } }
 

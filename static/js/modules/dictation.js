@@ -807,9 +807,11 @@
     };
     // Trả về chỉ số câu chứa thời điểm t, hoặc -1 nếu không khớp câu nào
     function dictCueIdxAt(t) {
+        const LEAD_IN = 0.25;
         for (let i = 0; i < cues.length; i++) {
-            const st = cues[i].start_time;
-            const en = (i < cues.length - 1) ? Math.min(cues[i].end_time + 0.3, cues[i + 1].start_time) : cues[i].end_time + 0.3;
+            const st = Math.max(0, cues[i].start_time - LEAD_IN);
+            const nextSt = (i < cues.length - 1) ? Math.max(0, cues[i + 1].start_time - LEAD_IN) : Infinity;
+            const en = Math.min((i < cues.length - 1) ? Math.min(cues[i].end_time + 0.3, cues[i + 1].start_time) : cues[i].end_time + 0.3, nextSt);
             if (t >= st && t <= en) return i;
         }
         return -1;
@@ -839,7 +841,7 @@
                 curCueIdx = idx;
                 highlightCue(idx);
             }
-        }, 100);
+        }, 35);
     }
     function stopPoll() { if (poll) { clearInterval(poll); poll = null; } }
 

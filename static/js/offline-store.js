@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.2.11';
+    const CURRENT_VERSION = '2.3.1';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;

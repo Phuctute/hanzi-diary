@@ -48,12 +48,14 @@
         var box = document.getElementById('vnh-save-modal-groups');
         box.innerHTML = '<div class="text-center text-slate-400 text-xs py-3"><i class="fa-solid fa-spinner fa-spin"></i></div>';
         fetch('/api.php?action=notebook_group_list').then(function (r) { return r.json(); }).then(function (res) {
-            var groups = (res.success && res.groups) ? res.groups : [];
+            var groups = (res.success && (res.groups || res.data)) ? (res.groups || res.data) : [];
             if (!groups.length) { box.innerHTML = '<div class="text-center text-slate-400 text-xs py-2">Chưa có sổ tay riêng nào.</div>'; return; }
             box.innerHTML = groups.map(function (g) {
-                return '<button onclick="vnhSaveModalPick(' + g.group_id + ')" class="w-full text-left px-4 py-3 rounded-xl bg-slate-50 hover:bg-amber-50 font-bold text-sm text-slate-600 flex items-center justify-between transition-colors">' +
+                var gid = g.group_id || g.id || 1;
+                var cnt = (typeof g.word_count !== 'undefined') ? g.word_count : (Array.isArray(g.words) ? g.words.length : 0);
+                return '<button onclick="vnhSaveModalPick(' + gid + ')" class="w-full text-left px-4 py-3 rounded-xl bg-slate-50 hover:bg-amber-50 font-bold text-sm text-slate-600 flex items-center justify-between transition-colors">' +
                     '<span><i class="fa-solid fa-book-bookmark text-primary mr-2"></i>' + g.name + '</span>' +
-                    '<span class="text-xs text-slate-400">' + (g.word_count || 0) + ' từ</span></button>';
+                    '<span class="text-xs text-slate-400">' + cnt + ' từ</span></button>';
             }).join('');
         }).catch(function () { box.innerHTML = ''; });
     };
@@ -267,8 +269,15 @@
             var words = (res && res.success && Array.isArray(res.data)) ? res.data : [];
             if (!words.length) { alert('Chủ đề "' + tagName + '" chưa có từ vựng.'); return; }
             window.__isCustomVocabActive = true;
+            window.__customVocabTitle = tagName;
             window.__lastLoadedLessonId = null;
-            vocabData = words.map(function (w) { return Object.assign({}, w, { vocab_id: w.dict_id }); });
+            vocabData = words.map(function (w) {
+                return Object.assign({}, w, {
+                    vocab_id: w.dict_id || w.id || w.vocab_id,
+                    dict_id: w.dict_id || w.id || w.vocab_id,
+                    definition: w.definition || w.first_meaning_vi || w.meaning_vi || ''
+                });
+            });
             if (typeof filteredVocabData !== 'undefined') filteredVocabData = vocabData.slice();
             if (typeof selectedBand !== 'undefined') selectedBand = 0;
             switchTab('vocab');
@@ -279,12 +288,14 @@
     function vnhGroupCard(g, i) {
         var th = HUB_THEMES[i % HUB_THEMES.length];
         var icon = 'fa-solid fa-book-bookmark';
+        var gid = g.group_id || g.id || 1;
+        var cnt = (typeof g.word_count !== 'undefined') ? g.word_count : (Array.isArray(g.words) ? g.words.length : 0);
         var safeName = String(g.name).replace(/'/g, "\\'");
-        return '<button type="button" class="vnh-hub-card group relative overflow-hidden text-left flex flex-col rounded-2xl p-3.5 sm:p-4 bg-gradient-to-br ' + th.grad + ' ring-1 ' + th.ring + ' shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 transition-all duration-300" style="--hub-shadow:' + th.hover + '" onclick="vnhOpenGroupDetail(' + g.group_id + ', \'' + safeName + '\')">' +
+        return '<button type="button" class="vnh-hub-card group relative overflow-hidden text-left flex flex-col rounded-2xl p-3.5 sm:p-4 bg-gradient-to-br ' + th.grad + ' ring-1 ' + th.ring + ' shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1.5 transition-all duration-300" style="--hub-shadow:' + th.hover + '" onclick="vnhOpenGroupDetail(' + gid + ', \'' + safeName + '\')">' +
                 '<i class="' + icon + ' absolute -right-2 -bottom-2 text-5xl ' + th.wm + ' group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500 pointer-events-none"></i>' +
                 '<span class="relative z-10 w-9 h-9 rounded-xl bg-gradient-to-br ' + th.iconBg + ' text-white flex items-center justify-center text-xs shadow-lg ' + th.iconShadow + ' mb-2.5 group-hover:scale-110 group-hover:-rotate-3 transition-transform"><i class="' + icon + '"></i></span>' +
                 '<h4 class="relative z-10 font-black text-slate-800 text-[12.5px] sm:text-[13px] leading-tight truncate">' + g.name + '</h4>' +
-                '<p class="relative z-10 text-slate-500 text-[11px] mt-1 font-medium">' + (g.word_count || 0) + ' từ</p>' +
+                '<p class="relative z-10 text-slate-500 text-[11px] mt-1 font-medium">' + cnt + ' từ</p>' +
                 '<span class="hub-arrow relative z-10 mt-auto pt-1.5 inline-flex items-center gap-1 ' + th.text + ' text-[10.5px] font-black">Mở <i class="fa-solid fa-arrow-right text-[8px]"></i></span>' +
             '</button>';
     }
@@ -430,6 +441,23 @@
             } else { alert(res.message || 'Không thể thêm từ.'); }
         }).catch(function () {});
     };
+    window.vnhViewAsVocabList = function () {
+        if (!vnhState.currentGroupWords || !vnhState.currentGroupWords.length) { alert('Sổ tay này chưa có từ nào.'); return; }
+        window.__isCustomVocabActive = true;
+        window.__customVocabTitle = vnhState.currentGroupName || 'Sổ tay cá nhân';
+        window.__lastLoadedLessonId = null;
+        vocabData = vnhState.currentGroupWords.map(function (it) {
+            return Object.assign({}, it, {
+                vocab_id: it.vocab_id || it.dict_id,
+                dict_id: it.dict_id || it.vocab_id,
+                definition: it.definition || it.first_meaning_vi || it.meaning_vi || ''
+            });
+        });
+        if (typeof filteredVocabData !== 'undefined') filteredVocabData = vocabData.slice();
+        if (typeof selectedBand !== 'undefined') selectedBand = 0;
+        switchTab('vocab');
+    };
+
     window.vnhReviewFlashcard = function () {
         if (!vnhState.currentGroupWords.length) { alert('Sổ tay này chưa có từ nào để ôn tập.'); return; }
         var customWords = vnhState.currentGroupWords.map(function (it) {

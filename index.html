@@ -6,9 +6,9 @@
     <base href="/hanzi-diary/">
 
 <script>
-// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.3.6
+// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.3.7
 (function() {
-    const CURRENT_APP_VER = '2.3.6';
+    const CURRENT_APP_VER = '2.3.7';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -21,7 +21,7 @@
         if ('caches' in window) {
             caches.keys().then(function(keys) {
                 keys.forEach(function(k) {
-                    if (!k.includes('v2.3.6')) caches.delete(k);
+                    if (!k.includes('v2.3.7')) caches.delete(k);
                 });
             }).catch(function() {});
         }
@@ -3106,7 +3106,7 @@ window.addEventListener('error', function(e) {
             <!-- ============ LUYỆN TẬP: gộp 1 nhóm theo yêu cầu 20260719 ============ -->
             <div class="px-8 mb-1 mt-4 text-[10px] font-extrabold text-white/40 uppercase tracking-[1.5px]">Luyện tập</div>
 
-            <a href="javascript:void(0)" onclick="switchTab('vocab')" id="nav-vocab"
+            <a href="javascript:void(0)" onclick="window.__isCustomVocabActive = false; switchTab('vocab')" id="nav-vocab"
 
                 class="nav-item flex items-center gap-3.5 px-5 py-2.5 cursor-pointer">
 
@@ -3225,7 +3225,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.3.6</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.3.7</span>
             </div>
 
             </nav>
@@ -3393,7 +3393,7 @@ window.addEventListener('error', function(e) {
                 <i class="fa-solid fa-clone text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Flashcard</span>
             </button>
-            <button onclick="switchTab('vocab')" id="mnav-vocab" data-mnav="vocab"
+            <button onclick="window.__isCustomVocabActive = false; switchTab('vocab')" id="mnav-vocab" data-mnav="vocab"
                 class="mnav-item flex-1 flex flex-col items-center justify-center pt-1.5 pb-0.5 min-h-[52px] text-slate-400 outline-none transition-colors">
                 <i class="fa-solid fa-book-bookmark text-[18px] leading-none mb-0.5"></i>
                 <span class="text-[10px] font-bold leading-tight">Từ vựng</span>
@@ -3952,6 +3952,7 @@ window.addEventListener('error', function(e) {
                     <h4 id="vnh-group-detail-name" class="text-sm font-black text-brandNavy truncate"></h4>
                 </div>
                 <div class="flex items-center gap-2">
+                    <button type="button" onclick="vnhViewAsVocabList()" class="vnh-btn-flash"><i class="fa-solid fa-list-ul"></i> Xem từ vựng</button>
                     <button type="button" onclick="vnhReviewFlashcard()" class="vnh-btn-flash"><i class="fa-solid fa-clone"></i> Ôn tập Flashcard</button>
                     <button type="button" onclick="vnhDeleteGroup()" class="w-8 h-8 rounded-full bg-slate-50 text-slate-400 hover:text-td-red flex items-center justify-center" title="Xóa sổ tay"><i class="fa-solid fa-trash-can text-sm"></i></button>
                 </div>
@@ -4407,6 +4408,21 @@ window.addEventListener('error', function(e) {
         } catch (e) {}
         
         let html = '';
+        if (window.__isCustomVocabActive) {
+            html += `
+            <div class="mb-4 flex items-center justify-between gap-3 bg-gradient-to-r from-primary/10 to-amber-500/10 border border-primary/20 rounded-2xl p-3.5 sm:p-4 shadow-sm">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-8 h-8 rounded-xl bg-primary text-white flex items-center justify-center text-xs shrink-0 shadow-sm"><i class="fa-solid fa-book-bookmark"></i></span>
+                    <div class="min-w-0">
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Sổ tay từ vựng</div>
+                        <div class="text-sm sm:text-base font-black text-slate-800 truncate">${window.__customVocabTitle || 'Chủ đề'} (${filteredVocabData.length} từ)</div>
+                    </div>
+                </div>
+                <button type="button" onclick="switchTab('vocab-notebook-hub')" class="px-3.5 py-1.5 rounded-xl bg-white text-primary hover:bg-primary hover:text-white border border-primary/20 text-xs font-bold transition-all shrink-0 flex items-center gap-1.5 shadow-xs">
+                    <i class="fa-solid fa-arrow-left"></i> <span>Quay lại sổ tay</span>
+                </button>
+            </div>`;
+        }
         // ── POS colour helper ──────────────────────────────────
         function getPosClass(posRaw) {
             if (!posRaw) return 'pos-default';
@@ -15816,7 +15832,7 @@ window.addEventListener('error', function(e) {
             const lessonSelectors = document.getElementById('lesson-selectors');
             const showLessonTabs = ['vocab', 'flashcard', 'quiz', 'karaoke', 'writing', 'typing', 'listening', 'dictation'];
             if (lessonSelectors) {
-                if (showLessonTabs.includes(tabName)) {
+                if (showLessonTabs.includes(tabName) && !(tabName === 'vocab' && window.__isCustomVocabActive)) {
                     lessonSelectors.classList.remove('hidden');
                     lessonSelectors.classList.add('flex');
                 } else {
@@ -15904,7 +15920,9 @@ window.addEventListener('error', function(e) {
 
             };
 
-            const pageTitle = titleMap[tabName] || (tabName.charAt(0).toUpperCase() + tabName.slice(1));
+            const pageTitle = (tabName === 'vocab' && window.__isCustomVocabActive && window.__customVocabTitle)
+                ? window.__customVocabTitle
+                : (titleMap[tabName] || (tabName.charAt(0).toUpperCase() + tabName.slice(1)));
 
             document.getElementById('pageTitle').innerText = pageTitle;
 
@@ -15935,25 +15953,34 @@ window.addEventListener('error', function(e) {
 
 
             if (tabName === 'vocab') {
-                const les = document.getElementById('select-lesson');
-                const lid = les ? les.value : null;
-                const needReload = window.__isCustomVocabActive || 
-                                   window.__isNotebookFlashcard || 
-                                   !vocabData || 
-                                   vocabData.length === 0 || 
-                                   (lid && String(window.__lastLoadedLessonId) !== String(lid));
+                if (window.__isCustomVocabActive) {
+                    if (typeof renderVocabList === 'function') renderVocabList();
+                    const pageTitle = document.getElementById('pageTitle');
+                    if (pageTitle && window.__customVocabTitle) pageTitle.textContent = window.__customVocabTitle;
+                    const lessonSelectors = document.getElementById('lesson-selectors');
+                    if (lessonSelectors) {
+                        lessonSelectors.classList.add('hidden');
+                        lessonSelectors.classList.remove('flex');
+                    }
+                } else {
+                    const les = document.getElementById('select-lesson');
+                    const lid = les ? les.value : null;
+                    const needReload = window.__isNotebookFlashcard || 
+                                       !vocabData || 
+                                       vocabData.length === 0 || 
+                                       (lid && String(window.__lastLoadedLessonId) !== String(lid));
 
-                window.__isCustomVocabActive = false;
-                window.__isNotebookFlashcard = false;
+                    window.__isNotebookFlashcard = false;
 
-                if (needReload && lid && typeof loadVocabulariesAndContent === 'function') {
-                    loadVocabulariesAndContent(lid).then(() => {
-                        if (typeof renderVocabList === 'function') renderVocabList();
-                    });
-                } else if (!lid && les && les.options.length <= 1) {
-                    if (typeof loadBooksAll === 'function') loadBooksAll();
-                } else if (typeof renderVocabList === 'function') {
-                    renderVocabList();
+                    if (needReload && lid && typeof loadVocabulariesAndContent === 'function') {
+                        loadVocabulariesAndContent(lid).then(() => {
+                            if (typeof renderVocabList === 'function') renderVocabList();
+                        });
+                    } else if (!lid && les && les.options.length <= 1) {
+                        if (typeof loadBooksAll === 'function') loadBooksAll();
+                    } else if (typeof renderVocabList === 'function') {
+                        renderVocabList();
+                    }
                 }
             }
 

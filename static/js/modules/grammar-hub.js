@@ -35,10 +35,15 @@
     function gmhCheckDeepLink() {
         var m = /^#grammar-(\d+)/.exec(window.location.hash || '');
         if (m) {
+            var gid = parseInt(m[1], 10);
             if (typeof switchTab === 'function' && window.currentTab !== 'grammar-hub') {
                 switchTab('grammar-hub', false);
             }
-            gmhOpenDetail(parseInt(m[1], 10));
+            if (typeof gmhOpenDetail === 'function') {
+                gmhOpenDetail(gid);
+            } else if (typeof window.gmhOpenDetail === 'function') {
+                window.gmhOpenDetail(gid);
+            }
         }
     }
 
@@ -46,15 +51,18 @@
     window.addEventListener('hashchange', function () {
         var m = /^#grammar-(\d+)/.exec(window.location.hash || '');
         if (m) {
+            var gid = parseInt(m[1], 10);
             if (typeof switchTab === 'function' && window.currentTab !== 'grammar-hub') {
                 switchTab('grammar-hub', false);
             }
-            gmhOpenDetail(parseInt(m[1], 10));
-        } else if (window.gmhCurrentDetailId) {
-            var overlay = document.getElementById('gmh-detail-overlay');
-            if (overlay && !overlay.classList.contains('hidden')) {
-                window.gmhCloseDetail();
+            if (typeof gmhOpenDetail === 'function') {
+                gmhOpenDetail(gid);
+            } else if (typeof window.gmhOpenDetail === 'function') {
+                window.gmhOpenDetail(gid);
             }
+        } else if (window.gmhCurrentDetailId) {
+            if (typeof gmhCloseDetail === 'function') gmhCloseDetail();
+            else if (typeof window.gmhCloseDetail === 'function') window.gmhCloseDetail();
         }
     });
 
@@ -306,7 +314,7 @@
     }
     window.gmhSpeak = gmhSpeak;
 
-    window.gmhOpenDetail = function (grammarId) {
+    function gmhOpenDetail(grammarId) {
         window.gmhCurrentDetailId = grammarId;
         var overlay = document.getElementById('gmh-detail-overlay');
         var body = document.getElementById('gmh-detail-body');
@@ -327,8 +335,10 @@
             body.innerHTML = gmhDetailHtml(data);
             gmhLoadContexts(grammarId);
         }).catch(function () { body.innerHTML = '<div class="text-center text-slate-400 text-sm py-16">Lỗi tải dữ liệu.</div>'; });
-    };
-    window.gmhCloseDetail = function () {
+    }
+    window.gmhOpenDetail = gmhOpenDetail;
+
+    function gmhCloseDetail() {
         window.gmhCurrentDetailId = null;
         var overlay = document.getElementById('gmh-detail-overlay');
         if (overlay) overlay.classList.add('hidden');
@@ -337,7 +347,8 @@
             var targetPath = window.location.pathname.includes('github.io') ? window.location.pathname : (window.location.pathname || '/grammar-hub');
             history.replaceState(null, '', targetPath + window.location.search);
         }
-    };
+    }
+    window.gmhCloseDetail = gmhCloseDetail;
 
     function gmhDetailHtml(g) {
         var examplesHtml = (g.examples || []).map(function (ex) {
@@ -411,68 +422,58 @@
             box.innerHTML = html;
         }).catch(function () {});
     }
+    function gmhCopyText(text) {
+        var ok = false;
+        try {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            ta.style.top = '-9999px';
+            ta.setAttribute('readonly', '');
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            ta.setSelectionRange(0, 99999);
+            ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+        } catch (e) {
+            ok = false;
+        }
+        if (!ok && navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).catch(function () {});
+            ok = true;
+        }
+        return ok;
+    }
+
     window.gmhShareGrammar = function (grammarId, patternZh, titleVi, btnEl) {
         var origin = window.location.origin;
         var isGh = window.location.hostname.includes('github.io');
         var path = isGh ? window.location.pathname : '/grammar-hub';
         var shareUrl = origin + path + '#grammar-' + grammarId;
 
-        var cleanPattern = (patternZh || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
-        var cleanTitle = (titleVi || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
-        var shareTitle = 'Ngữ pháp: ' + cleanPattern + (cleanTitle ? ' (' + cleanTitle + ')' : '');
-        var shareText = 'Học ngữ pháp tiếng Trung: ' + cleanPattern + (cleanTitle ? ' - ' + cleanTitle : '');
+        // 1. Luôn sao chép ngay lập tức vào clipboard đồng bộ (đảm bảo 100% thành công trên mọi trình duyệt/webview)
+        gmhCopyText(shareUrl);
+        if (btnEl) gmhToast(btnEl, 'Đã copy link');
 
-        // 1. Thử dùng Web Share API (native share sheet trên mobile: Zalo, Messenger, Copy link...)
-        if (navigator.share) {
-            var shareData = {
+        // 2. Trên điện thoại / máy tính bảng: kích hoạt thêm Web Share sheet (Zalo, Messenger, v.v.)
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile && navigator.share) {
+            var cleanPattern = (patternZh || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
+            var cleanTitle = (titleVi || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
+            var shareTitle = 'Ngữ pháp: ' + cleanPattern + (cleanTitle ? ' (' + cleanTitle + ')' : '');
+            var shareText = 'Học ngữ pháp tiếng Trung: ' + cleanPattern + (cleanTitle ? ' - ' + cleanTitle : '');
+
+            navigator.share({
                 title: shareTitle,
                 text: shareText,
                 url: shareUrl
-            };
-            navigator.share(shareData).then(function () {
+            }).then(function () {
                 if (btnEl) gmhToast(btnEl, 'Đã chia sẻ');
-            }).catch(function (err) {
-                if (err && err.name === 'AbortError') return;
-                gmhCopyFallback(shareUrl, btnEl);
-            });
-            return;
+            }).catch(function () {});
         }
-
-        // 2. Fallback sang Clipboard Copy nếu không có Web Share API
-        gmhCopyFallback(shareUrl, btnEl);
     };
-
-    function gmhCopyFallback(text, btnEl) {
-        if (navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function () {
-                if (btnEl) gmhToast(btnEl, 'Đã copy link');
-            }).catch(function () {
-                execCopy(text, btnEl);
-            });
-        } else {
-            execCopy(text, btnEl);
-        }
-    }
-
-    function execCopy(text, btnEl) {
-        try {
-            var textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-9999px';
-            textArea.style.top = '-9999px';
-            textArea.setAttribute('readonly', '');
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            textArea.setSelectionRange(0, 99999);
-            var successful = document.execCommand('copy');
-            document.body.removeChild(textArea);
-            if (btnEl) gmhToast(btnEl, successful ? 'Đã copy link' : 'Không thể copy');
-        } catch (err) {
-            if (btnEl) gmhToast(btnEl, 'Không thể copy');
-        }
-    }
 
     window.gmhToast = function (el, msg) {
         if (!el) return;

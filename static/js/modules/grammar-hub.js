@@ -34,7 +34,35 @@
     // Mở thẳng modal chi tiết nếu URL có #grammar-<id> (chia sẻ link).
     function gmhCheckDeepLink() {
         var m = /^#grammar-(\d+)/.exec(window.location.hash || '');
-        if (m) gmhOpenDetail(parseInt(m[1], 10));
+        if (m) {
+            if (typeof switchTab === 'function' && window.currentTab !== 'grammar-hub') {
+                switchTab('grammar-hub', false);
+            }
+            gmhOpenDetail(parseInt(m[1], 10));
+        }
+    }
+
+    // Lắng nghe hashchange khi người dùng click vào link ngữ pháp hoặc dùng nút Back/Forward
+    window.addEventListener('hashchange', function () {
+        var m = /^#grammar-(\d+)/.exec(window.location.hash || '');
+        if (m) {
+            if (typeof switchTab === 'function' && window.currentTab !== 'grammar-hub') {
+                switchTab('grammar-hub', false);
+            }
+            gmhOpenDetail(parseInt(m[1], 10));
+        } else if (window.gmhCurrentDetailId) {
+            var overlay = document.getElementById('gmh-detail-overlay');
+            if (overlay && !overlay.classList.contains('hidden')) {
+                window.gmhCloseDetail();
+            }
+        }
+    });
+
+    // Tự động kiểm tra deep link ngay khi script tải xong
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', gmhCheckDeepLink);
+    } else {
+        gmhCheckDeepLink();
     }
 
     function gmhHubCardHtml(t, i, onclickFn, blockKey) {
@@ -282,10 +310,13 @@
         window.gmhCurrentDetailId = grammarId;
         var overlay = document.getElementById('gmh-detail-overlay');
         var body = document.getElementById('gmh-detail-body');
+        if (!overlay || !body) return;
         overlay.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         body.innerHTML = '<div class="text-center text-slate-400 text-sm py-16"><i class="fa-solid fa-spinner fa-spin"></i></div>';
-        history.replaceState(null, '', '#grammar-' + grammarId);
+        if (window.location.hash !== '#grammar-' + grammarId) {
+            history.replaceState(null, '', '#grammar-' + grammarId);
+        }
         fetch('/api.php?action=grammar_detail&grammar_id=' + grammarId).then(function (r) { return r.json(); }).then(function (res) {
             if (!res || !res.success) { body.innerHTML = '<div class="text-center text-slate-400 text-sm py-16">Không tải được nội dung.</div>'; return; }
             var data = res.data;
@@ -299,9 +330,13 @@
     };
     window.gmhCloseDetail = function () {
         window.gmhCurrentDetailId = null;
-        document.getElementById('gmh-detail-overlay').classList.add('hidden');
+        var overlay = document.getElementById('gmh-detail-overlay');
+        if (overlay) overlay.classList.add('hidden');
         document.body.style.overflow = '';
-        if (/^#grammar-/.test(window.location.hash)) history.replaceState(null, '', window.location.pathname + window.location.search);
+        if (/^#grammar-/.test(window.location.hash)) {
+            var targetPath = window.location.pathname.includes('github.io') ? window.location.pathname : (window.location.pathname || '/grammar-hub');
+            history.replaceState(null, '', targetPath + window.location.search);
+        }
     };
 
     function gmhDetailHtml(g) {
@@ -327,7 +362,7 @@
         ) : '';
 
         var safePattern = String(g.pattern_zh).replace(/'/g, "\\'").replace(/"/g, '&quot;');
-        var shareUrl = window.location.origin + window.location.pathname + '#grammar-' + g.grammar_id;
+        var safeTitle = String(g.title_vi || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
         return (
             '<div class="flex items-start justify-between gap-3 flex-wrap pr-10">' +
@@ -341,7 +376,7 @@
             '<div class="flex flex-wrap gap-2 mt-4">' +
                 '<button type="button" class="gmh-bookmark-btn' + (g.is_bookmarked ? ' is-saved' : '') + '" id="gmh-bookmark-btn" onclick="gmhToggleBookmark(' + g.grammar_id + ')"><i class="fa-solid fa-bookmark"></i> ' + (g.is_bookmarked ? 'Đã lưu Flashcard' : 'Lưu vào Flashcard') + '</button>' +
                 '<button type="button" class="gmh-bookmark-btn" onclick="gmhSpeak(\'' + safePattern + '\')"><i class="fa-solid fa-volume-high"></i> Nghe cấu trúc</button>' +
-                '<button type="button" class="gmh-bookmark-btn" onclick="navigator.clipboard && navigator.clipboard.writeText(\'' + shareUrl + '\'); gmhToast(this,\'Đã copy link\');"><i class="fa-solid fa-share-nodes"></i> Chia sẻ link</button>' +
+                '<button type="button" class="gmh-bookmark-btn" onclick="gmhShareGrammar(' + g.grammar_id + ', \'' + safePattern + '\', \'' + safeTitle + '\', this)"><i class="fa-solid fa-share-nodes"></i> Chia sẻ link</button>' +
             '</div>' +
             '<div class="gmh-detail-explain">' + g.explanation_vi + '</div>' +
             (g.structure_note ? '<div class="gmh-detail-structure"><i class="fa-solid fa-diagram-project mr-1.5"></i>Cấu trúc: ' + g.structure_note + '</div>' : '') +
@@ -376,10 +411,82 @@
             box.innerHTML = html;
         }).catch(function () {});
     }
+    window.gmhShareGrammar = function (grammarId, patternZh, titleVi, btnEl) {
+        var origin = window.location.origin;
+        var isGh = window.location.hostname.includes('github.io');
+        var path = isGh ? window.location.pathname : '/grammar-hub';
+        var shareUrl = origin + path + '#grammar-' + grammarId;
+
+        var cleanPattern = (patternZh || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
+        var cleanTitle = (titleVi || '').replace(/\\'/g, "'").replace(/&quot;/g, '"');
+        var shareTitle = 'Ngữ pháp: ' + cleanPattern + (cleanTitle ? ' (' + cleanTitle + ')' : '');
+        var shareText = 'Học ngữ pháp tiếng Trung: ' + cleanPattern + (cleanTitle ? ' - ' + cleanTitle : '');
+
+        // 1. Thử dùng Web Share API (native share sheet trên mobile: Zalo, Messenger, Copy link...)
+        if (navigator.share) {
+            var shareData = {
+                title: shareTitle,
+                text: shareText,
+                url: shareUrl
+            };
+            navigator.share(shareData).then(function () {
+                if (btnEl) gmhToast(btnEl, 'Đã chia sẻ');
+            }).catch(function (err) {
+                if (err && err.name === 'AbortError') return;
+                gmhCopyFallback(shareUrl, btnEl);
+            });
+            return;
+        }
+
+        // 2. Fallback sang Clipboard Copy nếu không có Web Share API
+        gmhCopyFallback(shareUrl, btnEl);
+    };
+
+    function gmhCopyFallback(text, btnEl) {
+        if (navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+                if (btnEl) gmhToast(btnEl, 'Đã copy link');
+            }).catch(function () {
+                execCopy(text, btnEl);
+            });
+        } else {
+            execCopy(text, btnEl);
+        }
+    }
+
+    function execCopy(text, btnEl) {
+        try {
+            var textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-9999px';
+            textArea.style.top = '-9999px';
+            textArea.setAttribute('readonly', '');
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            textArea.setSelectionRange(0, 99999);
+            var successful = document.execCommand('copy');
+            document.body.removeChild(textArea);
+            if (btnEl) gmhToast(btnEl, successful ? 'Đã copy link' : 'Không thể copy');
+        } catch (err) {
+            if (btnEl) gmhToast(btnEl, 'Không thể copy');
+        }
+    }
+
     window.gmhToast = function (el, msg) {
-        var old = el.innerHTML;
-        el.innerHTML = '<i class="fa-solid fa-check"></i> ' + msg;
-        setTimeout(function () { el.innerHTML = old; }, 1500);
+        if (!el) return;
+        if (!el.dataset.originalHtml) {
+            el.dataset.originalHtml = el.innerHTML;
+        }
+        el.innerHTML = '<i class="fa-solid fa-check mr-1"></i> ' + msg;
+        clearTimeout(el._toastTimer);
+        el._toastTimer = setTimeout(function () {
+            if (el.dataset.originalHtml) {
+                el.innerHTML = el.dataset.originalHtml;
+                delete el.dataset.originalHtml;
+            }
+        }, 1800);
     };
 
     window.gmhToggleBookmark = function (grammarId) {

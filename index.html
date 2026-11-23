@@ -2142,10 +2142,10 @@ window.addEventListener('error', function(e) {
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
-            row-gap: 1.15rem;
+            row-gap: 1.35rem;
             column-gap: 0;
             text-align: left;
-            line-height: 2.3rem;
+            line-height: 2.7rem;
         }
 
         .prose-word {
@@ -2185,8 +2185,8 @@ window.addEventListener('error', function(e) {
         }
 
         #dialogueContainer.hide-global-pinyin .prose-paragraph {
-            row-gap: 0.5rem;
-            line-height: 2.2rem;
+            row-gap: 0.75rem;
+            line-height: 2.6rem;
         }
 
         .prose-word .char-hanzi,
@@ -10981,7 +10981,7 @@ window.addEventListener('error', function(e) {
         useYT = false;
         stopVideoPolling();
         document.getElementById('karaokeVideoContainer').classList.add('hidden');
-        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.11') : "";
+        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.12') : "";
         karaokeAudio.load();
         resetKaraokeUI();
         // Report #karaoke-stuck-video: sau khi lỗi, YouTube IFrame API giữ nguyên màn hình
@@ -11508,7 +11508,7 @@ window.addEventListener('error', function(e) {
                             <span class="text-[10px] sm:text-xs font-bold text-slate-400 mb-1.5 px-2 uppercase tracking-widest">${getChar(line.speaker)}</span>
                             <div class="bubble-${isLeft ? 'left' : 'right'} ${isLeft ? 'rounded-[24px] rounded-tl-sm' : 'rounded-[24px] rounded-tr-sm'} p-3 sm:p-4">
                                 ${line.wordHtml}
-                                <div id="trans-${idx}" class="trans-text hidden mt-1 pt-1.5 border-t border-slate-200/60 text-[13px] sm:text-[14px] text-slate-600 font-medium leading-relaxed">${line.vi}</div>
+                                <div id="trans-${idx}" class="trans-text hidden mt-1.5 pt-2 border-t border-slate-200/70 text-[14px] sm:text-[15px] text-slate-700 font-medium leading-relaxed">${line.vi}</div>
                             </div>
                         </div>
                         ${!isLeft ? `<div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent text-primaryDark flex items-center justify-center font-bold shrink-0 text-xs sm:text-sm mt-5 shadow-sm border-2 border-white">${getChar(line.speaker[0])}</div>` : ''}
@@ -11546,7 +11546,7 @@ window.addEventListener('error', function(e) {
                         let segTime = data.script_json[currentJsonIdx] ? data.script_json[currentJsonIdx].start_time : 0;
                         let isLowerPunct = /^[，。、：；]$/.test(char);
                         let punctClass = isLowerPunct ? "prose-punct punct-lower" : "prose-punct";
-                        html += `<div class="prose-word prose-punct-wrap inline-flex items-baseline segment-char-${currentJsonIdx} align-bottom mr-1" data-time="${segTime}"><span class="${punctClass} text-[19px] sm:text-[22px] text-slate-700 font-semibold font-tc">${char}</span></div>`;
+                        html += `<div class="prose-word prose-punct-wrap inline-flex items-baseline segment-char-${currentJsonIdx} align-bottom mr-1" data-time="${segTime}"><span class="${punctClass} text-[23px] sm:text-[26px] md:text-[28px] text-slate-700 font-semibold font-tc">${char}</span></div>`;
                     } else {
                         let py = pyArray[pyIndex] || '';
                         pyIndex++; 
@@ -11554,14 +11554,14 @@ window.addEventListener('error', function(e) {
                         let mappedIdx = pureHanziMap[pureHanziGlobalIdx];
                         if (mappedIdx !== undefined) currentJsonIdx = mappedIdx;
                         let segTime = data.script_json[currentJsonIdx] ? data.script_json[currentJsonIdx].start_time : 0;
-                        html += `<div class="prose-word inline-flex flex-col items-center mx-[0.5px] px-[0.5px] segment-char-${currentJsonIdx} align-bottom" data-time="${segTime}" style="line-height: 1.15;"><span class="py-text text-[11px] sm:text-[12px] text-slate-400 font-medium font-sans mb-0.5 tracking-tight">${py}</span><span class="char-hanzi text-[19px] sm:text-[22px] text-slate-800 font-semibold font-tc">${char}</span></div>`;
+                        html += `<div class="prose-word inline-flex flex-col items-center mx-[0.5px] px-[0.5px] segment-char-${currentJsonIdx} align-bottom" data-time="${segTime}" style="line-height: 1.15;"><span class="py-text text-[12px] sm:text-[13px] md:text-[14px] text-slate-400 font-medium font-sans mb-0.5 tracking-tight">${py}</span><span class="char-hanzi text-[23px] sm:text-[26px] md:text-[28px] text-slate-800 font-semibold font-tc">${char}</span></div>`;
                         pureHanziGlobalIdx++;
                     }
                 }
                 html += `</div>`;
                 if (viStr) {
                     html += `
-                    <div id="trans-${pIdx}" class="trans-text hidden mt-2.5 pl-3 border-l-2 border-primary/50 text-slate-600 text-xs sm:text-sm font-normal italic leading-relaxed">
+                    <div id="trans-${pIdx}" class="trans-text hidden mt-3.5 p-3.5 sm:p-4 rounded-xl bg-slate-50 border-l-4 border-primary text-slate-700 text-[14px] sm:text-[15px] md:text-[16px] font-medium not-italic leading-relaxed shadow-xs">
                         ${viStr}
                     </div>`;
                 }
@@ -11595,7 +11595,7 @@ window.addEventListener('error', function(e) {
             stopYouTubePlayer();
             document.getElementById('karaokeVideoContainer').classList.add('hidden');
             karaokeAudio.preload = "auto";
-            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.11') : "";
+            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.12') : "";
             if (karaokeAudio.src !== targetAudioSrc) {
                 karaokeAudio.src = targetAudioSrc;
                 if (targetAudioSrc) {

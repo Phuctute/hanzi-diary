@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.4.6';
+    const CURRENT_VERSION = '2.4.7';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
@@ -75,101 +75,89 @@
                 headers: { 'Content-Type': 'application/json', 'X-Offline-Preload': '1' }
             });
 
-            // Curriculums
+            // 1. Caching nhanh các danh mục cốt lõi
             if (bundle.curriculums) {
-                await cache.put('/api.php?action=get_curriculum_types', jsonResp(bundle.curriculums));
-                await cache.put('/api/curriculums', jsonResp(bundle.curriculums));
+                cache.put('/api.php?action=get_curriculum_types', jsonResp(bundle.curriculums)).catch(() => {});
+                cache.put('/api/curriculums', jsonResp(bundle.curriculums)).catch(() => {});
             }
 
-            // Books
             if (bundle.books) {
-                await cache.put('/api.php?action=get_books', jsonResp(bundle.books));
-                await cache.put('/api/books', jsonResp(bundle.books));
+                cache.put('/api.php?action=get_books', jsonResp(bundle.books)).catch(() => {});
+                cache.put('/api/books', jsonResp(bundle.books)).catch(() => {});
                 if (bundle.curriculums) {
                     for (const c of bundle.curriculums) {
                         const cb = bundle.books.filter(b => String(b.curriculum_type_id) === String(c.id));
-                        await cache.put(`/api.php?action=get_books&curriculum_id=${c.id}`, jsonResp(cb));
-                        await cache.put(`/api/books?curriculum_id=${c.id}`, jsonResp(cb));
+                        cache.put(`/api.php?action=get_books&curriculum_id=${c.id}`, jsonResp(cb)).catch(() => {});
+                        cache.put(`/api/books?curriculum_id=${c.id}`, jsonResp(cb)).catch(() => {});
                     }
                 }
             }
 
-            // Lessons
             if (bundle.lessons) {
-                await cache.put('/api.php?action=get_lessons', jsonResp(bundle.lessons));
-                await cache.put('/api/lessons', jsonResp(bundle.lessons));
+                cache.put('/api.php?action=get_lessons', jsonResp(bundle.lessons)).catch(() => {});
+                cache.put('/api/lessons', jsonResp(bundle.lessons)).catch(() => {});
                 if (bundle.books) {
                     for (const b of bundle.books) {
                         const bl = bundle.lessons.filter(l => String(l.book_id) === String(b.book_id));
-                        await cache.put(`/api.php?action=get_lessons&book_id=${b.book_id}`, jsonResp(bl));
-                        await cache.put(`/api/lessons?book_id=${b.book_id}`, jsonResp(bl));
+                        cache.put(`/api.php?action=get_lessons&book_id=${b.book_id}`, jsonResp(bl)).catch(() => {});
+                        cache.put(`/api/lessons?book_id=${b.book_id}`, jsonResp(bl)).catch(() => {});
                     }
                 }
             }
 
-            // Vocabularies & Contents (Lưu theo từng bài khi có)
-            if (bundle.lesson_vocab) {
-                for (const lid in bundle.lesson_vocab) {
-                    const vocabs = bundle.lesson_vocab[lid] || [];
-                    await cache.put(`/api.php?action=get_vocabularies&lesson_id=${lid}`, jsonResp(vocabs));
-                    await cache.put(`/api/vocabularies?lesson_id=${lid}`, jsonResp(vocabs));
-                }
-            }
-            if (bundle.lesson_contents) {
-                for (const lid in bundle.lesson_contents) {
-                    const cnt = bundle.lesson_contents[lid] || [];
-                    await cache.put(`/api.php?action=get_lesson_contents&lesson_id=${lid}`, jsonResp({ success: true, data: cnt }));
-                    await cache.put(`/api/lesson_contents?lesson_id=${lid}`, jsonResp(cnt));
-                }
-            }
-
-            // Grammar, Radicals, Measure Words, Dict Tags
             if (bundle.grammar) {
-                await cache.put('/api.php?action=get_grammar', jsonResp({ success: true, data: bundle.grammar }));
-                await cache.put('/api/grammar', jsonResp(bundle.grammar));
+                cache.put('/api.php?action=get_grammar', jsonResp({ success: true, data: bundle.grammar })).catch(() => {});
+                cache.put('/api/grammar', jsonResp(bundle.grammar)).catch(() => {});
             }
             if (bundle.radicals) {
-                await cache.put('/api.php?action=get_radicals', jsonResp({ success: true, data: bundle.radicals }));
-                await cache.put('/api/radicals', jsonResp(bundle.radicals));
+                cache.put('/api.php?action=get_radicals', jsonResp({ success: true, data: bundle.radicals })).catch(() => {});
+                cache.put('/api/radicals', jsonResp(bundle.radicals)).catch(() => {});
             }
             if (bundle.measure_words) {
-                await cache.put('/api.php?action=get_measure_words', jsonResp({ success: true, data: bundle.measure_words }));
-                await cache.put('/api/measure_words', jsonResp(bundle.measure_words));
+                cache.put('/api.php?action=get_measure_words', jsonResp({ success: true, data: bundle.measure_words })).catch(() => {});
+                cache.put('/api/measure_words', jsonResp(bundle.measure_words)).catch(() => {});
             }
-            if (bundle.dict_tags) {
-                await cache.put('/api.php?action=get_dict_tags', jsonResp({ success: true, data: bundle.dict_tags }));
-                await cache.put('/api.php?action=get_dict_tags&category=doi-song', jsonResp({ success: true, data: bundle.dict_tags.filter(t => t.category === 'doi-song') }));
-                await cache.put('/api.php?action=get_dict_tags&category=chuyen-nganh', jsonResp({ success: true, data: bundle.dict_tags.filter(t => t.category === 'chuyen-nganh') }));
-            }
-            if (bundle.tag_vocab) {
-                for (const tid in bundle.tag_vocab) {
-                    const tv = bundle.tag_vocab[tid] || [];
-                    await cache.put(`/api.php?action=get_tag_vocab&tag_id=${tid}`, jsonResp({ success: true, data: tv }));
-                    await cache.put(`/api/vocab_by_tag&tag_id=${tid}`, jsonResp({ success: true, data: tv }));
+
+            // 2. Caching theo đợt ngầm (chunking) cho từ vựng và bài khoá để không bao giờ nghẽn luồng UI
+            const scheduleWork = (task) => {
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(task, { timeout: 1500 });
+                } else {
+                    setTimeout(task, 40);
                 }
-            }
+            };
 
-            // Topics
-            if (bundle.lessons) {
-                const topics = Array.from(new Set(bundle.lessons.map(l => l.topic).filter(Boolean)));
-                await cache.put('/api.php?action=get_lesson_topics', jsonResp(topics));
+            const vocabEntries = bundle.lesson_vocab ? Object.entries(bundle.lesson_vocab) : [];
+            let vIdx = 0;
+            function processVocabChunk() {
+                const chunk = vocabEntries.slice(vIdx, vIdx + 15);
+                vIdx += 15;
+                for (const [lid, vocabs] of chunk) {
+                    cache.put(`/api.php?action=get_vocabularies&lesson_id=${lid}`, jsonResp(vocabs)).catch(() => {});
+                    cache.put(`/api/vocabularies?lesson_id=${lid}`, jsonResp(vocabs)).catch(() => {});
+                }
+                if (vIdx < vocabEntries.length) scheduleWork(processVocabChunk);
             }
-            if (bundle.shadowing_topics) {
-                await cache.put('/api.php?action=get_shadowing_topics', jsonResp({ success: true, data: bundle.shadowing_topics }));
-            }
+            if (vocabEntries.length > 0) scheduleWork(processVocabChunk);
 
-            // Fallback endpoints
-            await cache.put('/api.php?action=get_last_position', jsonResp({ success: true, data: { book_id: 1, lesson_id: 1, module: 'flashcard' } }));
-            await cache.put('/api.php?action=notebook_group_list', jsonResp({ success: true, groups: [{ group_id: 1, name: 'Từ vựng yêu thích', word_count: 0, color: 'blue' }] }));
-            await cache.put('/api.php?action=get_notebook_groups', jsonResp({ success: true, groups: [{ group_id: 1, name: 'Từ vựng yêu thích', word_count: 0, color: 'blue' }] }));
-            await cache.put('/api.php?action=notebook_group_words', jsonResp({ success: true, words: [] }));
-            await cache.put('/api_notifications.php?action=GET_UNREAD_COUNT', jsonResp({ success: true, count: 0, notifications: [] }));
+            const contentEntries = bundle.lesson_contents ? Object.entries(bundle.lesson_contents) : [];
+            let cIdx = 0;
+            function processContentChunk() {
+                const chunk = contentEntries.slice(cIdx, cIdx + 15);
+                cIdx += 15;
+                for (const [lid, cnt] of chunk) {
+                    cache.put(`/api.php?action=get_lesson_contents&lesson_id=${lid}`, jsonResp({ success: true, data: cnt })).catch(() => {});
+                    cache.put(`/api/lesson_contents?lesson_id=${lid}`, jsonResp(cnt)).catch(() => {});
+                }
+                if (cIdx < contentEntries.length) scheduleWork(processContentChunk);
+            }
+            if (contentEntries.length > 0) scheduleWork(processContentChunk);
+
         } catch (e) {
-            console.warn('[HanziOffline] Cache storage preload warning:', e);
+            console.warn('[HanziOffline] populateCacheStorage deferred warning:', e);
         }
     }
 
-    // Helper: fetch file from local data or API
     async function fetchBundleFile(candidates) {
         for (const url of candidates) {
             try {
@@ -206,7 +194,7 @@
         cachedBundle.downloaded_curriculums = cachedBundle.downloaded_curriculums || [];
 
         await saveBundleToDB(cachedBundle);
-        await populateCacheStorage(cachedBundle);
+        populateCacheStorage(cachedBundle).catch(() => {});
         localStorage.setItem(OFFLINE_VER_KEY, CURRENT_VERSION);
         syncState = 'ready';
         updateUIBadge();
@@ -243,7 +231,7 @@
             }
 
             await saveBundleToDB(cachedBundle);
-            await populateCacheStorage(cData);
+            populateCacheStorage(cData).catch(() => {});
 
             console.log(`[HanziOffline] Đã tải xong giáo trình #${cid} (${cData.curriculum_name || ''})`);
             try {
@@ -291,7 +279,7 @@
                 cachedBundle = full;
                 cachedBundle.downloaded_curriculums = [1, 2, 3];
                 await saveBundleToDB(full);
-                await populateCacheStorage(full);
+                populateCacheStorage(full).catch(() => {});
             } else {
                 await syncCore();
                 if (cachedBundle && cachedBundle.curriculums) {
@@ -427,15 +415,38 @@
         }
     }
 
-    // Intercept native fetch
+    // Intercept native fetch: Zero-Delay Cache-First cho dữ liệu giáo trình / bài học
     const _origFetch = window.fetch;
     window.fetch = async function(input, init) {
+        const urlStr = typeof input === 'string' ? input : (input && input.url ? input.url : '');
+        const method = (init && init.method) ? init.method.toUpperCase() : 'GET';
+
+        // 1. Cache-First: Phục vụ tức thì (0ms) các yêu cầu đọc dữ liệu bài học / từ vựng
+        if (method === 'GET' && urlStr && (urlStr.includes('/api.php') || urlStr.includes('/api/'))) {
+            const isMutation = /action=(save|update|delete|submit|report|login|register|logout|srs)/i.test(urlStr);
+            if (!isMutation) {
+                if (!cachedBundle) {
+                    try { cachedBundle = await loadBundleFromDB(); } catch (e) {}
+                }
+                const fastResp = handleOfflineApi(urlStr);
+                if (fastResp) {
+                    // Stale-While-Revalidate: Kiểm tra cập nhật mạng nền mà không bao giờ chặn UI
+                    if (navigator.onLine) {
+                        setTimeout(() => {
+                            _origFetch(input, init).catch(() => {});
+                        }, 500);
+                    }
+                    return fastResp; // TRẢ VỀ TỨC THÌ (0ms)
+                }
+            }
+        }
+
+        // 2. Yêu cầu ghi hoặc dữ liệu chưa có sẵn trong offline bundle: Gọi mạng bình thường
         try {
             const res = await _origFetch.apply(this, arguments);
             if (res && res.status >= 200 && res.status < 400) return res;
             throw new Error('Response status ' + (res ? res.status : 'null'));
         } catch (err) {
-            const urlStr = typeof input === 'string' ? input : (input && input.url ? input.url : '');
             if (urlStr && (urlStr.includes('/api.php') || urlStr.includes('/api/'))) {
                 if (!cachedBundle) {
                     try { cachedBundle = await loadBundleFromDB(); } catch (e) {}
@@ -459,6 +470,31 @@
         version: CURRENT_VERSION
     };
 
+    function preloadActiveCurriculum() {
+        if (!navigator.onLine) return;
+        try {
+            let activeCid = parseInt(localStorage.getItem('hanzi_last_curriculum') || '1', 10);
+            if (isNaN(activeCid) || activeCid < 1 || activeCid > 3) activeCid = 1;
+            
+            const scheduleSync = (cid) => {
+                if (window.HanziOffline && !window.HanziOffline.isCurriculumDownloaded(cid)) {
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(() => window.HanziOffline.syncCurriculum(cid).catch(() => {}), { timeout: 4000 });
+                    } else {
+                        setTimeout(() => window.HanziOffline.syncCurriculum(cid).catch(() => {}), 1500);
+                    }
+                }
+            };
+
+            // Ưu tiên nạp trước giáo trình đang chọn
+            scheduleSync(activeCid);
+            // Nạp thêm giáo trình 2 (Thời Đại) nếu đang ở giáo trình 1
+            if (activeCid !== 2) {
+                setTimeout(() => scheduleSync(2), 6000);
+            }
+        } catch(e) {}
+    }
+
     // Khởi tạo
     async function init() {
         const storedVer = localStorage.getItem(OFFLINE_VER_KEY);
@@ -478,27 +514,28 @@
             if (cachedBundle) {
                 syncState = 'ready';
                 updateUIBadge();
+                preloadActiveCurriculum();
             }
         }
 
-        // 2. Tự tải Core Bundle nếu chưa có hoặc phiên bản cũ
+        // 2. Tự tải Core Bundle siêu tốc nếu chưa có hoặc cập nhật phiên bản mới
         if (navigator.onLine && (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION)) {
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => syncCore().catch(() => {}), { timeout: 8000 });
-            } else {
-                setTimeout(() => syncCore().catch(() => {}), 3000);
-            }
+            setTimeout(() => {
+                syncCore().then(() => {
+                    preloadActiveCurriculum();
+                }).catch(() => {});
+            }, 100);
         }
 
         // 3. Lắng nghe trạng thái mạng
         window.addEventListener('online', () => {
             updateUIBadge();
             if (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION) {
-                syncCore().catch(() => {});
+                syncCore().then(() => preloadActiveCurriculum()).catch(() => {});
             }
         });
         window.addEventListener('offline', updateUIBadge);
-        setTimeout(updateUIBadge, 500);
+        setTimeout(updateUIBadge, 300);
     }
 
     if (document.readyState === 'loading') {

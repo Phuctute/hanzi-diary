@@ -30,231 +30,215 @@
 
     <style>html,body{background-color:#f0f4f8!important;color-scheme:light;margin:0;padding:0;overscroll-behavior-y:none;}</style>
 <style id="splash-style">
-/* ══════ Cyber Tech Laser & Stream Lines Launch Overlay (Chỉ mỗi hoạt ảnh line công nghệ overlay) ══════ */
-.splash-overlay {
+/* ══════ Native Motion Graphics Launch Animation (Android / iOS / PC) ══════ */
+.splash {
   position: fixed;
   z-index: 99999;
   inset: 0;
-  background: transparent;
-  pointer-events: none;
+  background-color: #f0f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
+  pointer-events: auto;
   opacity: 1;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
 }
 
-.splash-overlay.is-hiding,
-.splash-overlay.is-hidden {
+.splash.is-hiding,
+.splash.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-/* 1. Tia laser chân trời bung từ tâm ra 2 biên (Cyber Horizon Split) */
-.tech-horizon-beam {
+/* Vòng hào quang xanh dịu phía sau logo */
+.splash-aura {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4) 15%, #ffffff 50%, rgba(56, 189, 248, 0.4) 85%, transparent);
-  box-shadow: 0 0 20px 3px rgba(56, 189, 248, 0.9), 0 0 40px rgba(2, 122, 179, 0.6);
-  will-change: width, opacity;
+  width: clamp(260px, 70vw, 360px);
+  height: clamp(260px, 70vw, 360px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 122, 179, 0.18) 0%, rgba(2, 122, 179, 0.04) 50%, transparent 70%);
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.splash.is-animating .splash-aura {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* Sóng xung kích đồ hoạ phát ra khi bắt đầu animation */
+.splash-shockwave {
+  position: absolute;
+  width: clamp(170px, 48vw, 215px);
+  height: clamp(170px, 48vw, 215px);
+  border-radius: 50%;
+  border: 2px solid rgba(2, 122, 179, 0.6);
+  box-shadow: 0 0 25px rgba(2, 122, 179, 0.5), inset 0 0 15px rgba(255, 213, 61, 0.4);
+  pointer-events: none;
   opacity: 0;
+  transform: scale(0.9);
 }
 
-.splash-overlay.is-active .tech-horizon-beam {
-  animation: techHorizonExpand 0.85s 0.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.splash.is-animating .splash-shockwave {
+  animation: splashShockwaveExpand 0.75s 0.12s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
 }
 
-@keyframes techHorizonExpand {
-  0% { width: 0; opacity: 0; }
-  20% { opacity: 1; }
-  60% { width: 100vw; opacity: 0.9; }
-  100% { width: 110vw; opacity: 0; }
+@keyframes splashShockwaveExpand {
+  0% { transform: scale(0.95); opacity: 0.85; border-width: 3px; }
+  60% { opacity: 0.5; }
+  100% { transform: scale(2.8); opacity: 0; border-width: 1px; }
 }
 
-/* 2. Tia quét laser dọc Holographic quét toàn màn hình từ trên xuống */
-.tech-scanner-bar {
+/* Khung chứa Logo */
+.splash-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  transform: scale(1);
+}
+
+.splash-logo-box {
+  position: relative;
+  width: clamp(170px, 48vw, 215px);
+  height: clamp(170px, 48vw, 215px);
+  border-radius: clamp(36px, 10vw, 48px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px -10px rgba(2, 122, 179, 0.38), 0 10px 24px -6px rgba(0, 0, 0, 0.14);
+}
+
+.splash-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vệt sáng lướt chéo qua Logo đồ hoạ */
+.splash-shimmer {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
   background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(56, 189, 248, 0.3) 15%,
-    rgba(56, 189, 248, 0.95) 45%,
-    #ffffff 50%,
-    rgba(56, 189, 248, 0.95) 55%,
-    rgba(56, 189, 248, 0.3) 85%,
-    transparent 100%
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 42%,
+    rgba(255, 235, 120, 0.75) 50%,
+    rgba(255, 255, 255, 0.95) 52%,
+    rgba(255, 255, 255, 0.25) 58%,
+    transparent 68%
   );
-  box-shadow: 
-    0 0 16px 2.5px rgba(56, 189, 248, 0.95),
-    0 0 35px 5px rgba(2, 122, 179, 0.6);
-  will-change: transform, opacity;
-  opacity: 0;
-}
-
-.splash-overlay.is-active .tech-scanner-bar {
-  animation: techScannerSweepDown 1.2s 0.1s cubic-bezier(0.2, 0.85, 0.25, 1) forwards;
-}
-
-.tech-scanner-bar::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -45px;
-  height: 45px;
-  background: linear-gradient(to bottom, transparent, rgba(56, 189, 248, 0.12));
-  pointer-events: none;
-}
-
-@keyframes techScannerSweepDown {
-  0% { transform: translateY(-50px); opacity: 0; }
-  12% { opacity: 1; }
-  85% { opacity: 0.95; }
-  100% { transform: translateY(105vh); opacity: 0; }
-}
-
-/* 3. Các đường line laser dữ liệu tốc độ cao lướt ngang màn hình */
-.tech-stream-line {
-  position: absolute;
-  height: 1.5px;
-  border-radius: 999px;
-  pointer-events: none;
-  will-change: transform, opacity;
-  opacity: 0;
-}
-
-.stream-1 {
-  top: 28%;
-  left: -240px;
-  width: 220px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
-  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
-}
-.splash-overlay.is-active .stream-1 {
-  animation: techStreamRight 0.95s 0.15s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
-}
-.stream-1::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: -2.5px;
-  width: 6.5px;
-  height: 6.5px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
-}
-
-.stream-2 {
-  top: 55%;
-  right: -280px;
-  width: 260px;
-  background: linear-gradient(270deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
-  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
-}
-.splash-overlay.is-active .stream-2 {
-  animation: techStreamLeft 1.05s 0.25s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
-}
-.stream-2::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: -2.5px;
-  width: 6.5px;
-  height: 6.5px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
-}
-
-.stream-3 {
-  top: 76%;
-  left: -260px;
-  width: 240px;
-  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6) 40%, #ffffff 85%, #38bdf8 100%);
-  box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.9);
-}
-.splash-overlay.is-active .stream-3 {
-  animation: techStreamRight 1.0s 0.38s cubic-bezier(0.16, 0.85, 0.25, 1) forwards;
-}
-.stream-3::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: -2.5px;
-  width: 6.5px;
-  height: 6.5px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 12px 3px rgba(56, 189, 248, 1);
-}
-
-@keyframes techStreamRight {
-  0% { transform: translateX(0); opacity: 0; }
-  18% { opacity: 1; }
-  82% { opacity: 0.95; }
-  100% { transform: translateX(120vw); opacity: 0; }
-}
-
-@keyframes techStreamLeft {
-  0% { transform: translateX(0); opacity: 0; }
-  18% { opacity: 1; }
-  82% { opacity: 0.95; }
-  100% { transform: translateX(-120vw); opacity: 0; }
-}
-
-/* 4. Khung ngắm HUD 4 góc (Sci-Fi HUD Target Brackets) - Safe Area Compatible */
-.tech-hud-corner {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  border-color: rgba(56, 189, 248, 0.75);
-  border-style: solid;
+  transform: translateX(-150%) rotate(25deg);
   pointer-events: none;
   opacity: 0;
 }
 
-.splash-overlay.is-active .tech-hud-corner {
-  animation: techHudLock 0.95s 0.08s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.splash.is-animating .splash-shimmer {
+  animation: splashShimmerSweep 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-.hud-tl { top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px)); left: max(16px, calc(env(safe-area-inset-left, 0px) + 12px)); border-width: 2px 0 0 2px; }
-.hud-tr { top: max(16px, calc(env(safe-area-inset-top, 0px) + 12px)); right: max(16px, calc(env(safe-area-inset-right, 0px) + 12px)); border-width: 2px 2px 0 0; }
-.hud-bl { bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 16px)); left: max(16px, calc(env(safe-area-inset-left, 0px) + 12px)); border-width: 0 0 2px 2px; }
-.hud-br { bottom: max(16px, calc(env(safe-area-inset-bottom, 0px) + 16px)); right: max(16px, calc(env(safe-area-inset-right, 0px) + 12px)); border-width: 0 2px 2px 0; }
-
-@keyframes techHudLock {
-  0% { transform: scale(1.35); opacity: 0; }
-  25% { transform: scale(1); opacity: 1; }
-  75% { opacity: 0.85; }
-  100% { transform: scale(0.96); opacity: 0; }
+@keyframes splashShimmerSweep {
+  0% { transform: translateX(-150%) rotate(25deg); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(150%) rotate(25deg); opacity: 0; }
 }
 
-/* ══════ Safe Area Support for iPhone Notch & Dynamic Island ══════ */
-:root {
-  --sat: env(safe-area-inset-top, 0px);
-  --sab: env(safe-area-inset-bottom, 0px);
+/* Các ngôi sao lấp lánh ở góc tia chớp */
+.splash-sparkle {
+  position: absolute;
+  color: #FFD53D;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  filter: drop-shadow(0 0 8px rgba(255, 213, 61, 0.95));
+  z-index: 10;
+  font-family: sans-serif;
+  font-weight: 900;
+  line-height: 1;
 }
 
-#main-app-header {
-  padding-top: max(12px, env(safe-area-inset-top, 12px)) !important;
+.splash-sparkle-1 {
+  top: -8px;
+  right: 14px;
+  font-size: 24px;
 }
-@media (min-width: 768px) {
-  #main-app-header {
-    padding-top: 0 !important;
+
+.splash-sparkle-2 {
+  top: 18px;
+  right: -12px;
+  font-size: 16px;
+}
+
+.splash-sparkle-3 {
+  top: -20px;
+  right: -4px;
+  font-size: 14px;
+}
+
+.splash.is-animating .splash-sparkle-1 {
+  animation: splashSparkleBurst 0.6s 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash.is-animating .splash-sparkle-2 {
+  animation: splashSparkleBurst 0.5s 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.splash.is-animating .splash-sparkle-3 {
+  animation: splashSparkleBurst 0.45s 0.36s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashSparkleBurst {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  50% { transform: scale(1.4) rotate(45deg); opacity: 1; }
+  100% { transform: scale(0) rotate(90deg); opacity: 0; }
+}
+
+/* Chuyển động đồ hoạ của Logo */
+.splash.is-animating .splash-logo-wrap {
+  animation: splashLogoGraphicMotion 0.85s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashLogoGraphicMotion {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 20px 48px -10px rgba(2, 122, 179, 0.38)) drop-shadow(0 10px 24px -6px rgba(0, 0, 0, 0.14));
+  }
+  25% {
+    transform: scale(0.96) translateY(2px);
+    filter: drop-shadow(0 14px 30px -8px rgba(2, 122, 179, 0.3)) drop-shadow(0 6px 16px -4px rgba(0, 0, 0, 0.1));
+  }
+  50% {
+    transform: scale(1.08) translateY(-4px);
+    filter: drop-shadow(0 30px 60px -10px rgba(2, 122, 179, 0.55)) drop-shadow(0 14px 28px -6px rgba(0, 0, 0, 0.2));
+  }
+  70% {
+    transform: scale(1.04) translateY(-1px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6) translateY(0);
+    opacity: 0;
+    filter: drop-shadow(0 40px 80px rgba(2, 122, 179, 0)) blur(10px);
   }
 }
 
-#sidebar {
-  padding-top: env(safe-area-inset-top, 0px) !important;
+@media (prefers-reduced-motion: reduce) {
+  .splash-shockwave,
+  .splash-shimmer,
+  .splash-sparkle,
+  .splash.is-animating .splash-logo-wrap {
+    animation: none !important;
+  }
+  .splash {
+    transition: opacity 0.2s ease !important;
+  }
 }
 </style>
     <!-- ══════ Zero-Flash Instant Early Route Resolution (Chống nháy Trang chủ khi Refresh F5) ══════ -->
@@ -2702,56 +2686,46 @@ window.addEventListener('error', function(e) {
 </script>
 <body
     class="flex h-[100dvh] font-sans text-slate-700 overflow-hidden selection:bg-primary selection:text-white relative bg-[#f0f4f8]" style="background-color: #f0f4f8;">
-    <!-- ══════ Cyber Tech Laser & Stream Lines Launch Overlay (Chỉ mỗi hoạt ảnh line công nghệ overlay) ══════ -->
-    <div class="splash-overlay" id="splash">
-        <div class="tech-hud-corner hud-tl"></div>
-        <div class="tech-hud-corner hud-tr"></div>
-        <div class="tech-hud-corner hud-bl"></div>
-        <div class="tech-hud-corner hud-br"></div>
-        <div class="tech-horizon-beam"></div>
-        <div class="tech-scanner-bar"></div>
-        <div class="tech-stream-line stream-1"></div>
-        <div class="tech-stream-line stream-2"></div>
-        <div class="tech-stream-line stream-3"></div>
+        <!-- ══════ Native Motion Graphics Launch Animation (Android / iOS / PC) ══════ -->
+    <div class="splash" id="splash">
+        <div class="splash-aura"></div>
+        <div class="splash-shockwave"></div>
+        <div class="splash-logo-wrap">
+            <div class="splash-logo-box">
+                <img class="splash-logo-img" src="static/img/icon-splash.webp?v=2.3.13" onerror="this.onerror=null;this.src='static/img/icon-512.png?v=2.3.13'" width="256" height="256" alt="Hanzi Diary">
+                <div class="splash-shimmer"></div>
+            </div>
+            <div class="splash-sparkle splash-sparkle-1">✦</div>
+            <div class="splash-sparkle splash-sparkle-2">✦</div>
+            <div class="splash-sparkle splash-sparkle-3">✦</div>
+        </div>
     </div>
     <script>
     (function initAppSplash() {
         var s = document.getElementById('splash');
         if (!s) return;
 
-        // Cho phép chạy hiệu ứng hoạt ảnh khi mở app lần đầu HOẶC khi người dùng bấm/giữ làm mới (Refresh)
-        try {
-            var isRefresh = sessionStorage.getItem('is_app_refresh') === '1';
-            if (sessionStorage.getItem('app_splash_shown') && !isRefresh) {
-                if (s && s.parentNode) s.parentNode.removeChild(s);
-                return;
-            }
-            if (isRefresh) {
-                sessionStorage.removeItem('is_app_refresh');
-            }
-            sessionStorage.setItem('app_splash_shown', '1');
-        } catch (e) {}
+        var started = false;
+        function runGraphicAnimation() {
+            if (started) return;
+            started = true;
+            s.classList.add('is-animating');
 
-        function play() {
-            requestAnimationFrame(function() {
-                requestAnimationFrame(function() {
-                    s.classList.add('is-active');
-                });
-            });
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', play);
-        } else {
-            play();
-        }
-
-        setTimeout(function() {
-            s.classList.add('is-hiding');
+            // Sau 600ms khi vệt sáng lướt qua xong, mờ dần chuyển vào app
             setTimeout(function() {
-                if (s && s.parentNode) s.parentNode.removeChild(s);
-            }, 400);
-        }, 1200);
+                s.classList.add('is-hiding');
+                setTimeout(function() {
+                    if (s && s.parentNode) s.parentNode.removeChild(s);
+                }, 380);
+            }, 620);
+        }
+
+        // Bắt đầu nháy hiện animation sau 180ms để đảm bảo hình ảnh đã gắn vào DOM
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                setTimeout(runGraphicAnimation, 180);
+            });
+        });
     })();
     </script>
 
@@ -10981,7 +10955,7 @@ window.addEventListener('error', function(e) {
         useYT = false;
         stopVideoPolling();
         document.getElementById('karaokeVideoContainer').classList.add('hidden');
-        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.12') : "";
+        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.13') : "";
         karaokeAudio.load();
         resetKaraokeUI();
         // Report #karaoke-stuck-video: sau khi lỗi, YouTube IFrame API giữ nguyên màn hình
@@ -11595,7 +11569,7 @@ window.addEventListener('error', function(e) {
             stopYouTubePlayer();
             document.getElementById('karaokeVideoContainer').classList.add('hidden');
             karaokeAudio.preload = "auto";
-            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.12') : "";
+            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.13') : "";
             if (karaokeAudio.src !== targetAudioSrc) {
                 karaokeAudio.src = targetAudioSrc;
                 if (targetAudioSrc) {

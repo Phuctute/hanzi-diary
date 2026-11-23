@@ -67,12 +67,12 @@ Trung Minh: Chúng mình đi bây giờ nhé, được không?
 Tomomi: Được.""",
 
     "78_1": """Trung Minh: Chị ơi, chúng tôi muốn gọi hai bát mì bò và hai cốc trà.
-Nhân viên: Xin hỏi hai bạn dùng hồng trà hay trà xanh ạ?
-Tomomi: Mình lấy hồng trà.
-Trung Minh: Cho chúng mình một cốc hồng trà và một cốc trà xanh nhé. Xin hỏi tất cả hết bao nhiêu tiền?
-Nhân viên: Dạ của hai bạn hết tổng cộng hai trăm mười lăm tệ.
-Nhân viên: Gửi lại hai bạn bảy trăm tám mươi lăm tệ, cảm ơn hai bạn nhiều!
-Trung Minh: Tất cả có hơn hai trăm tệ thôi, rẻ thật đấy!""",
+Nhân viên nữ: Xin hỏi hai vị muốn dùng hồng trà hay là trà xanh?
+Tomomi: Tôi muốn hồng trà.
+Trung Minh: Xin cho chúng tôi một cốc hồng trà, một cốc trà xanh. Xin hỏi tất cả hết bao nhiêu tiền?
+Nhân viên nữ: Tổng cộng hết hai trăm mười lăm tệ.
+Nhân viên nữ: Trả lại quý khách bảy trăm tám mươi lăm tệ, xin cảm ơn.
+Trung Minh: Tổng cộng hơn hai trăm tệ thôi, rẻ thật đấy!""",
 
     "78_2": """Thời tiết mùa hè ở Đài Loan rất nóng, rất nhiều người đều thích uống nước giải khát. Có rất nhiều quán đồ uống, họ bán rất nhiều loại. Nước hoa quả, sữa tươi, cà phê, trà đều rất ngon, có loại rất rẻ, một cốc hơn hai mươi tệ. Tôi và bạn bè đều rất thích uống, ngày nào chúng tôi cũng đi mua.""",
 

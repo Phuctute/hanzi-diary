@@ -855,28 +855,38 @@ function dashDictSearchPick(dictId, dropdownId) {
     setTimeout(() => window.dispatchEvent(new CustomEvent('dict-lookup-open', { detail: { dict_id: dictId } })), 150);
 }
 
-// Ô search Header: gọn 1 icon trên header, bấm mới bung panel search (không chiếm thêm dòng nào).
-function toggleHeaderDictSearch(panelId, inputId) {
-    document.querySelectorAll('.header-dict-panel').forEach(p => { if (p.id !== panelId) p.classList.add('hidden'); });
-    const panel = document.getElementById(panelId);
-    if (!panel) return;
-    const opening = panel.classList.contains('hidden');
-    panel.classList.toggle('hidden');
-    if (opening) setTimeout(() => {
-        const inp = document.getElementById(inputId);
-        if (inp) {
-            inp.focus();
-            const clr = panel.querySelector('[id$="-clear"]');
-            if (clr) clr.classList.toggle('hidden', !inp.value.trim());
+// Ô search Header: gọi hàm toàn cục hoặc đồng bộ nếu chưa định nghĩa
+if (typeof window.toggleHeaderDictSearch !== 'function') {
+    window.toggleHeaderDictSearch = function(panelId, inputId) {
+        document.querySelectorAll('.header-dict-panel').forEach(p => { if (p.id !== panelId) p.classList.add('hidden'); });
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+        const willOpen = panel.classList.contains('hidden');
+        panel.classList.toggle('hidden');
+        const appHeader = document.getElementById('main-app-header');
+        if (willOpen) {
+            if (appHeader) {
+                appHeader.style.zIndex = '150';
+                appHeader.classList.add('header-search-active');
+            }
+            if (typeof openSearchBackdrop === 'function') openSearchBackdrop();
+            setTimeout(() => {
+                const inp = document.getElementById(inputId);
+                if (inp) {
+                    inp.focus();
+                    const clr = panel.querySelector('[id$="-clear"]');
+                    if (clr) clr.classList.toggle('hidden', !inp.value.trim());
+                }
+            }, 50);
+        } else {
+            if (appHeader) {
+                appHeader.style.zIndex = '';
+                appHeader.classList.remove('header-search-active');
+            }
+            if (typeof closeSearchBackdrop === 'function') closeSearchBackdrop();
         }
-    }, 50);
+    };
 }
-document.addEventListener('click', (ev) => {
-    document.querySelectorAll('.header-dict-panel').forEach(panel => {
-        const btn = panel.previousElementSibling;
-        if (!panel.contains(ev.target) && !(btn && btn.contains(ev.target))) panel.classList.add('hidden');
-    });
-});
 document.addEventListener('click', (ev) => {
     ['dash-dict', 'header-dict-desktop', 'header-dict-mobile', 'vocab-dict'].forEach(prefix => {
         const box = document.getElementById(`${prefix}-search`);

@@ -5,9 +5,9 @@
 <head>
 
 <script>
-// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.4.0
+// Tự động dọn dẹp triệt để cache và DB phiên bản cũ khi bump lên v2.4.1
 (function() {
-    const CURRENT_APP_VER = '2.4.0';
+    const CURRENT_APP_VER = '2.4.1';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -20,7 +20,7 @@
         if ('caches' in window) {
             caches.keys().then(function(keys) {
                 keys.forEach(function(k) {
-                    if (!k.includes('v2.4.0')) caches.delete(k);
+                    if (!k.includes('v2.4.1')) caches.delete(k);
                 });
             }).catch(function() {});
         }
@@ -945,14 +945,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.4.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.4.0">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.4.0">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.4.0">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.4.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.4.0">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.4.0">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.4.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.4.1">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.4.1">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.4.1">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.4.1">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.4.1">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.4.1">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.4.1">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.4.1">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1140,7 +1140,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.4.0">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.4.1">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1153,9 +1153,9 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.4.0" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.4.1" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.4.0"></script>
+    <script src="static/js/offline-store.js?v=2.4.1"></script>
 
     
 
@@ -3112,7 +3112,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Chạm để về Trang chủ · Giữ 0.7s để làm mới (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.4.0" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.4.0';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.4.1" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.4.1';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
 
@@ -3271,7 +3271,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.4.0</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.4.1</span>
             </div>
 
             </nav>
@@ -4137,7 +4137,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.4.1" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4297,7 +4297,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.4.1" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4827,7 +4827,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.4.1" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4900,7 +4900,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/writing.js?v=2.4.1" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -5066,7 +5066,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.4.1" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -5690,7 +5690,7 @@ window.addEventListener('error', function(e) {
         </div>
     </div>
 
-    <div class="flex-1 overflow-y-auto pb-36 px-3 sm:px-6 custom-scrollbar" id="karaokeScrollArea">
+    <div class="flex-1 overflow-y-auto pb-36 px-3 sm:px-6 custom-scrollbar scroll-smooth" id="karaokeScrollArea">
         <div id="dialogueContainer" class="flex flex-col gap-3 sm:gap-5 relative z-10 pt-2 pb-12"></div>
 
         <!-- Q&A NGHE HIỂU — luôn hiện ngay dưới Hội thoại, không cần nghe hết mới thấy.
@@ -11594,6 +11594,9 @@ window.addEventListener('error', function(e) {
             }
         }
         resetKaraokeUI();
+        const scArea = document.getElementById('karaokeScrollArea');
+        if (scArea) scArea.scrollTop = 0;
+        krLastUserScrollTime = 0;
         buildKaraokeQA(data.qa_json);
 
         
@@ -11622,7 +11625,7 @@ window.addEventListener('error', function(e) {
         for (const el of candidates) {
             const txt = (el.textContent || '').replace(/\s+/g, '');
             if (txt.includes(target)) {
-                if (typeof smartScroll === 'function') smartScroll(el); else el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                krLastUserScrollTime = 0; if (typeof smartScroll === 'function') smartScroll(el, true); else el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 el.style.transition = 'background-color .4s';
                 el.style.backgroundColor = '#FEF3C7';
                 setTimeout(() => { el.style.backgroundColor = ''; }, 2200);
@@ -11728,7 +11731,8 @@ window.addEventListener('error', function(e) {
         if (karaokeQAData.length === 0) return;
         playKaraokeChime();
         const block = document.getElementById('karaokeQABlock');
-        if (typeof smartScroll === 'function') smartScroll(block);
+        krLastUserScrollTime = 0;
+        if (typeof smartScroll === 'function') smartScroll(block, true);
     }
 
     function submitKaraokeQA() {
@@ -11878,56 +11882,62 @@ window.addEventListener('error', function(e) {
                     vocabSection.classList.add('hidden');
                 }
 
-                if (typeof smartScroll === 'function') smartScroll(block);
+                krLastUserScrollTime = 0;
+                if (typeof smartScroll === 'function') smartScroll(block, true);
             })
             .catch(() => { block.classList.add('hidden'); });
     }
 
-    let targetScrollY = null;
-    let isAutoScrolling = false;
+    let krLastUserScrollTime = 0;
 
-    function lerpScroll() {
-        if (targetScrollY === null) { isAutoScrolling = false; return; }
-        let scrollArea = document.getElementById('karaokeScrollArea');
-        let currentY = scrollArea.scrollTop;
-        let diff = targetScrollY - currentY;
-        if (Math.abs(diff) < 1) {
-            scrollArea.scrollTop = targetScrollY;
-            targetScrollY = null;
-            isAutoScrolling = false;
-            return;
-        }
-        scrollArea.scrollTop = currentY + diff * 0.18;
-        requestAnimationFrame(lerpScroll);
-    }
-
-    function smartScroll(element) {
-        if (!element) return;
+    function smartScroll(element, force = false) {
+        if (!element || !element.getBoundingClientRect) return;
         const scrollArea = document.getElementById('karaokeScrollArea');
-        const rect = element.getBoundingClientRect();
-        const areaRect = scrollArea.getBoundingClientRect();
-        
-        if (rect.top < areaRect.top + 100 || rect.bottom > areaRect.bottom - 150) {
-            targetScrollY = scrollArea.scrollTop + (rect.top - areaRect.top) - (areaRect.height / 3);
-            const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
-            if (targetScrollY < 0) targetScrollY = 0;
-            if (targetScrollY > maxScroll) targetScrollY = maxScroll;
+        if (!scrollArea) return;
 
-            if (!isAutoScrolling) {
-                isAutoScrolling = true;
-                requestAnimationFrame(lerpScroll);
-            }
+        // Nếu người dùng vừa chủ động cuộn tay trong 3.5s qua (đang lướt đọc bài), không ép cuộn trừ khi có cờ force
+        if (!force && (Date.now() - krLastUserScrollTime < 3500)) return;
+
+        const rect = element.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return;
+        const areaRect = scrollArea.getBoundingClientRect();
+        if (!areaRect.height) return;
+
+        let targetScrollTop;
+        if (rect.height > areaRect.height * 0.6) {
+            // Khối lớn (như phần Q&A hoặc Ôn tập sau bài): cuộn để đỉnh khối cách mép trên 16px
+            const diff = (rect.top - areaRect.top) - 16;
+            targetScrollTop = scrollArea.scrollTop + diff;
+        } else {
+            // Dòng thoại hoặc câu đọc: định vị tâm điểm dòng thoại tại vị trí đọc mắt tự nhiên (~38% chiều cao khung nhìn)
+            const elemCenterRel = (rect.top - areaRect.top) + (rect.height / 2);
+            const targetOffset = areaRect.height * 0.38;
+            const diff = elemCenterRel - targetOffset;
+            if (Math.abs(diff) < 8) return;
+            targetScrollTop = scrollArea.scrollTop + diff;
         }
+
+        const maxScroll = scrollArea.scrollHeight - scrollArea.clientHeight;
+        if (targetScrollTop < 0) targetScrollTop = 0;
+        if (targetScrollTop > maxScroll) targetScrollTop = maxScroll;
+
+        if (Math.abs(scrollArea.scrollTop - targetScrollTop) < 4) return;
+
+        scrollArea.scrollTo({
+            top: targetScrollTop,
+            behavior: 'smooth'
+        });
     }
 
-    function cancelAutoScroll() { targetScrollY = null; }
+    function cancelAutoScroll() { krLastUserScrollTime = Date.now(); }
 
     function setupKaraokeEvents() {
         const scrollArea = document.getElementById('karaokeScrollArea');
         if(scrollArea) {
-            scrollArea.addEventListener('wheel', cancelAutoScroll, {passive: true});
-            scrollArea.addEventListener('touchstart', cancelAutoScroll, {passive: true});
-            scrollArea.addEventListener('touchmove', cancelAutoScroll, {passive: true});
+            const onUserScroll = () => { krLastUserScrollTime = Date.now(); };
+            scrollArea.addEventListener('wheel', onUserScroll, {passive: true});
+            scrollArea.addEventListener('touchstart', onUserScroll, {passive: true});
+            scrollArea.addEventListener('touchmove', onUserScroll, {passive: true});
             // Video ẩn khi phát chỉ hiện lại lúc cuộn lên tối đa -> theo dõi cuộn để cập nhật.
             scrollArea.addEventListener('scroll', krUpdateVideoVisibility, {passive: true});
         }
@@ -11948,6 +11958,9 @@ window.addEventListener('error', function(e) {
                 if (sel && !sel.isCollapsed && sel.toString().trim()) return;
                 let segment = e.target.closest('.dialogue-row') || e.target.closest('.prose-word') || e.target.closest('[data-time]');
                 if (segment) {
+                    krLastUserScrollTime = 0;
+                    let row = segment.closest('.dialogue-row') || segment;
+                    if (row && typeof smartScroll === 'function') smartScroll(row, true);
                     let time = parseFloat(segment.getAttribute('data-time'));
                     if (!isNaN(time) && time >= 0) {
                         if (useYT) {
@@ -12235,17 +12248,18 @@ window.addEventListener('error', function(e) {
             seekKaraokeAudioWhenReady(time);
         }
 
+        krLastUserScrollTime = 0;
         lastKaraokeActiveLineIdx = idx;
         if (isCurrentTypeDialogue) {
             document.querySelectorAll('.dialogue-row').forEach(el => el.classList.remove('karaoke-active'));
             let row = document.getElementById(`karaoke-line-${idx}`);
             if (row) {
                 row.classList.add('karaoke-active');
-                if (typeof smartScroll === 'function') smartScroll(row);
+                if (typeof smartScroll === 'function') smartScroll(row, true);
             }
         } else {
             let proseEl = document.querySelector(`.segment-char-${idx}`);
-            if (proseEl && typeof smartScroll === 'function') smartScroll(proseEl);
+            if (proseEl && typeof smartScroll === 'function') smartScroll(proseEl, true);
         }
     }
 
@@ -12400,7 +12414,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.4.1" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12781,7 +12795,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.4.1" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12891,7 +12905,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.4.1" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12962,7 +12976,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.4.1" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -13316,7 +13330,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.4.1" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13521,7 +13535,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.4.0" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.4.1" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -18369,7 +18383,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.4.0' : '/sw.js?v=2.4.0';
+                const swUrl = isGh ? 'sw.js?v=2.4.1' : '/sw.js?v=2.4.1';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

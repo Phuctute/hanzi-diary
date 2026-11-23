@@ -1,3 +1,33 @@
+    window.copyFcExample = function(btn, text) {
+        if (!text) return;
+        const cleanText = text.replace(/&quot;/g, '"');
+        function onSuccess() {
+            if (btn) {
+                const icon = btn.querySelector('i');
+                if (icon) {
+                    icon.className = 'fa-solid fa-check text-xs sm:text-sm text-emerald-600';
+                    setTimeout(() => { icon.className = 'fa-regular fa-copy text-xs sm:text-sm pointer-events-none'; }, 1500);
+                }
+            }
+            if (typeof showToast === 'function') showToast('Đã sao chép ví dụ!');
+        }
+        function fallback() {
+            const ta = document.createElement('textarea');
+            ta.value = cleanText;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); onSuccess(); } catch (e) {}
+            document.body.removeChild(ta);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(cleanText).then(onSuccess).catch(fallback);
+        } else {
+            fallback();
+        }
+    };
+
 let fcSrsScope = 'lesson';
     let fcSrsDonut = null, fcSrsBucketChart = null;
     let fcDueNowVocab = [];
@@ -619,7 +649,16 @@ let fcSrsScope = 'lesson';
         });
 
         wrapper.addEventListener('click', (e) => {
-            if (didSwipe) { e.stopImmediatePropagation(); didSwipe = false; }
+            if (didSwipe) { e.stopImmediatePropagation(); didSwipe = false; return; }
+            const sel = window.getSelection && window.getSelection();
+            if (sel && !sel.isCollapsed && sel.toString().trim()) {
+                e.stopImmediatePropagation();
+                return;
+            }
+            if (e.target.closest('.fc-example-item, #fc-examples, #fc-contexts-section, .fc-interactive-text, button, a')) {
+                e.stopImmediatePropagation();
+                return;
+            }
         }, true);
     }
 
@@ -879,20 +918,36 @@ let fcSrsScope = 'lesson';
             const primaryList = v.examples.slice(0, maxPrimary);
             const extraList = v.examples.slice(maxPrimary);
 
+            function renderInteractiveFcSentence(sent) {
+                if (!sent) return '';
+                return sent.split('').map(ch => {
+                    if (/[\u4e00-\u9fa5]/.test(ch)) {
+                        return `<span class="char-hanzi hover:text-primary transition-colors cursor-pointer select-text">${ch}</span>`;
+                    }
+                    return `<span class="prose-punct select-text">${ch}</span>`;
+                }).join('');
+            }
+
             const buildExampleCard = (ex) => {
                 const parsedEx = parseExamplePattern(getChar(ex.examples_hanzi));
-                let uiHanzi = parsedEx.role ? `<span class="inline-block bg-primary/10 text-primary text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 rounded-md mr-1 sm:mr-2 align-middle border border-primary/20">[${parsedEx.role}]</span>${parsedEx.sentence}` : parsedEx.sentence;
+                const interactiveSentence = renderInteractiveFcSentence(parsedEx.sentence);
+                let uiHanzi = parsedEx.role ? `<span class="inline-block bg-primary/10 text-primary text-[9px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 rounded-md mr-1 sm:mr-2 align-middle border border-primary/20 select-none">[${parsedEx.role}]</span>${interactiveSentence}` : interactiveSentence;
                 const safeTextEx = parsedEx.sentence.replace(/"/g, '&quot;');
                 return `
-                <div class="fc-example-item border border-slate-200 rounded-xl sm:rounded-2xl p-3 sm:p-4 relative bg-[#f8fbff] mb-2 sm:mb-2.5 last:mb-0 transition-all duration-300">
+                <div class="fc-example-item border border-slate-200/90 rounded-xl sm:rounded-2xl p-3 sm:p-4 relative bg-[#f8fbff] mb-2 sm:mb-2.5 last:mb-0 transition-all duration-300 select-text cursor-default" onclick="event.stopPropagation();" style="user-select: text; -webkit-user-select: text;">
                     <div class="flex justify-between items-start gap-2 sm:gap-3 mb-1.5 sm:mb-2">
-                        <div class="text-sm sm:text-base text-slate-800 leading-relaxed pr-6 font-bold font-tc tracking-wide">${uiHanzi}</div>
-                        <button type="button" class="fc-ex-audio-btn bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 active:bg-primary active:text-white transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none" data-text="${encodeURIComponent(safeTextEx)}" onclick="event.stopPropagation(); playTTS(this.getAttribute('data-text'), event)" title="Nghe ví dụ">
-                            <i class="fa-solid fa-volume-high text-xs sm:text-sm pointer-events-none transition-transform"></i>
-                        </button>
+                        <div class="text-sm sm:text-base text-slate-800 leading-relaxed pr-2 font-bold font-tc tracking-wide flex-wrap flex-1 select-text">${uiHanzi}</div>
+                        <div class="flex items-center gap-1.5 shrink-0" onclick="event.stopPropagation();">
+                            <button type="button" class="fc-ex-copy-btn bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-primary active:scale-95 transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none cursor-pointer" onclick="event.stopPropagation(); copyFcExample(this, '${safeTextEx}')" title="Sao chép câu ví dụ">
+                                <i class="fa-regular fa-copy text-xs sm:text-sm pointer-events-none"></i>
+                            </button>
+                            <button type="button" class="fc-ex-audio-btn bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 active:bg-primary active:text-white transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none cursor-pointer" data-text="${encodeURIComponent(safeTextEx)}" onclick="event.stopPropagation(); playTTS(this.getAttribute('data-text'), event)" title="Nghe ví dụ">
+                                <i class="fa-solid fa-volume-high text-xs sm:text-sm pointer-events-none transition-transform"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="text-primary font-bold text-xs sm:text-sm mb-1">${ex.examples_pinyin}</div>
-                    <div class="text-xs sm:text-sm text-slate-600 font-medium">${ex.examples_translation}</div>
+                    <div class="text-primary font-bold text-xs sm:text-sm mb-1 select-text" style="user-select: text; -webkit-user-select: text;">${ex.examples_pinyin}</div>
+                    <div class="text-xs sm:text-sm text-slate-600 font-medium select-text" style="user-select: text; -webkit-user-select: text;">${ex.examples_translation}</div>
                 </div>`;
             };
 

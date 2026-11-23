@@ -4689,7 +4689,7 @@ window.addEventListener('error', function(e) {
                     </span>
                 </div>
 
-                <div id="fc-face-back" class="absolute w-full h-full backface-hidden bg-white border border-slate-100 rounded-[32px] rotate-y-180 overflow-hidden flex flex-col">
+                <div id="fc-face-back" class="absolute w-full h-full backface-hidden bg-white border border-slate-100 rounded-[32px] rotate-y-180 overflow-hidden flex flex-col select-text" style="user-select: text; -webkit-user-select: text;">
                     <div id="fc-back-scroll" class="w-full h-full overflow-y-auto p-6 sm:p-10 flex flex-col custom-scrollbar relative">
                         <div class="mb-4 sm:mb-5 border-b border-slate-100 pb-4 sm:pb-5 pr-8">
                             <span class="inline-block bg-slate-100 text-slate-500 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2">Pinyin</span>
@@ -4711,7 +4711,7 @@ window.addEventListener('error', function(e) {
                         </div>
                         <div class="mb-3">
                             <span class="inline-block bg-emerald-50 text-emerald-600 font-bold text-[9px] sm:text-[10px] px-2 py-1 rounded-md uppercase tracking-widest mb-2 border border-emerald-100">Ví dụ tiêu biểu</span>
-                            <div id="fc-examples" class="space-y-2.5"></div>
+                            <div id="fc-examples" class="space-y-2.5 select-text" style="user-select: text; -webkit-user-select: text;" onclick="event.stopPropagation();"></div>
                         </div>
                         <div id="fc-contexts-section" class="mb-3 hidden" onclick="event.stopPropagation();">
                             <button type="button" onclick="event.stopPropagation(); toggleFcContexts();" id="fc-contexts-toggle-btn" class="w-full flex items-center justify-between text-left py-2 px-3 bg-amber-50/80 hover:bg-amber-100/80 border border-amber-200/90 rounded-xl transition-all outline-none">
@@ -4801,7 +4801,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.4.5" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.4.6" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -14203,7 +14203,9 @@ window.addEventListener('error', function(e) {
     var t = e.target;
     if (!t || !t.closest) return;
     if (t.closest('#hz-tip')) return;
-    if (t.closest(INTERACTIVE_CONTROLS)) { hide(); return; }
+    var inFcExample = t.closest('.fc-example-item, #fc-examples');
+    if (!inFcExample && t.closest(INTERACTIVE_CONTROLS)) { hide(); return; }
+    if (inFcExample && t.closest('button, a')) { hide(); return; }
     var sel = window.getSelection && window.getSelection();
     if (sel && !sel.isCollapsed && sel.toString().trim()) return;
     if (selectAt(e.clientX, e.clientY, t)) e.stopPropagation();

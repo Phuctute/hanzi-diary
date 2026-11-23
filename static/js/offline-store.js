@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.4.7';
+    const CURRENT_VERSION = '2.4.8';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
@@ -415,38 +415,15 @@
         }
     }
 
-    // Intercept native fetch: Zero-Delay Cache-First cho dữ liệu giáo trình / bài học
+    // Intercept native fetch (Chỉ can thiệp khi ngoại tuyến / mất mạng)
     const _origFetch = window.fetch;
     window.fetch = async function(input, init) {
-        const urlStr = typeof input === 'string' ? input : (input && input.url ? input.url : '');
-        const method = (init && init.method) ? init.method.toUpperCase() : 'GET';
-
-        // 1. Cache-First: Phục vụ tức thì (0ms) các yêu cầu đọc dữ liệu bài học / từ vựng
-        if (method === 'GET' && urlStr && (urlStr.includes('/api.php') || urlStr.includes('/api/'))) {
-            const isMutation = /action=(save|update|delete|submit|report|login|register|logout|srs)/i.test(urlStr);
-            if (!isMutation) {
-                if (!cachedBundle) {
-                    try { cachedBundle = await loadBundleFromDB(); } catch (e) {}
-                }
-                const fastResp = handleOfflineApi(urlStr);
-                if (fastResp) {
-                    // Stale-While-Revalidate: Kiểm tra cập nhật mạng nền mà không bao giờ chặn UI
-                    if (navigator.onLine) {
-                        setTimeout(() => {
-                            _origFetch(input, init).catch(() => {});
-                        }, 500);
-                    }
-                    return fastResp; // TRẢ VỀ TỨC THÌ (0ms)
-                }
-            }
-        }
-
-        // 2. Yêu cầu ghi hoặc dữ liệu chưa có sẵn trong offline bundle: Gọi mạng bình thường
         try {
             const res = await _origFetch.apply(this, arguments);
             if (res && res.status >= 200 && res.status < 400) return res;
             throw new Error('Response status ' + (res ? res.status : 'null'));
         } catch (err) {
+            const urlStr = typeof input === 'string' ? input : (input && input.url ? input.url : '');
             if (urlStr && (urlStr.includes('/api.php') || urlStr.includes('/api/'))) {
                 if (!cachedBundle) {
                     try { cachedBundle = await loadBundleFromDB(); } catch (e) {}

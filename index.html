@@ -10981,7 +10981,7 @@ window.addEventListener('error', function(e) {
         useYT = false;
         stopVideoPolling();
         document.getElementById('karaokeVideoContainer').classList.add('hidden');
-        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.2.5') : "";
+        karaokeAudio.src = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.11') : "";
         karaokeAudio.load();
         resetKaraokeUI();
         // Report #karaoke-stuck-video: sau khi lỗi, YouTube IFrame API giữ nguyên màn hình
@@ -11151,7 +11151,17 @@ window.addEventListener('error', function(e) {
                 '間':'间', '间':'間', '問':'问', '问':'問',
                 '請':'请', '请':'請', '熱':'热', '热':'熱',
                 '鬧':'闹', '闹':'鬧', '計':'计', '计':'計',
-                '劃':'划', '划':'劃', '網':'网', '网':'網'
+                '劃':'划', '划':'劃', '網':'网', '网':'網',
+                '兒':'儿', '儿':'兒', '嗎':'吗', '吗':'嗎',
+                '現':'现', '现':'現', '醫':'医', '医':'醫',
+                '藥':'药', '药':'藥', '溫':'温', '温':'溫',
+                '還':'还', '还':'還', '帶':'带', '带':'帶',
+                '邊':'边', '边':'邊', '體':'体', '体':'體',
+                '動':'动', '动':'動', '圓':'圆', '圆':'圓',
+                '條':'条', '条':'條', '聽':'听', '听':'聽',
+                '說':'说', '说':'說', '經':'经', '经':'經',
+                '險':'险', '险':'險', '錢':'钱', '钱':'錢',
+                '買':'买', '买':'買', '賣':'卖', '卖':'賣'
             };
             return variants[c1] === c2 || variants[c2] === c1;
         };
@@ -11585,7 +11595,7 @@ window.addEventListener('error', function(e) {
             stopYouTubePlayer();
             document.getElementById('karaokeVideoContainer').classList.add('hidden');
             karaokeAudio.preload = "auto";
-            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.2.5') : "";
+            const targetAudioSrc = data.audio_url ? (AUDIO_BASE_URL + data.audio_url + (data.audio_url.includes('?') ? '&' : '?') + 'v=2.3.11') : "";
             if (karaokeAudio.src !== targetAudioSrc) {
                 karaokeAudio.src = targetAudioSrc;
                 if (targetAudioSrc) {

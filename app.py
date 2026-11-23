@@ -33,6 +33,38 @@ def load_json(filename, default=None):
         print(f"Error loading {filename}: {e}")
         return default
 
+def save_json_atomic(filepath, data):
+    if not filepath:
+        return
+    d = os.path.dirname(filepath)
+    if d:
+        os.makedirs(d, exist_ok=True)
+    tmp_path = f"{filepath}.tmp.{os.getpid()}_{int(time.time()*1000)}"
+    try:
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False)
+        os.replace(tmp_path, filepath)
+    except Exception as e:
+        if os.path.exists(tmp_path):
+            try: os.remove(tmp_path)
+            except OSError: pass
+
+def save_bytes_atomic(filepath, content_bytes):
+    if not filepath:
+        return
+    d = os.path.dirname(filepath)
+    if d:
+        os.makedirs(d, exist_ok=True)
+    tmp_path = f"{filepath}.tmp.{os.getpid()}_{int(time.time()*1000)}"
+    try:
+        with open(tmp_path, "wb") as f:
+            f.write(content_bytes)
+        os.replace(tmp_path, filepath)
+    except Exception as e:
+        if os.path.exists(tmp_path):
+            try: os.remove(tmp_path)
+            except OSError: pass
+
 # Load datasets into memory on startup
 print("Loading datasets into memory...")
 CURRICULUMS = load_json("curriculums.json", [])
@@ -420,10 +452,15 @@ def add_cors_headers(response):
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
     return response
 
+ALLOWED_DATA_EXTS = {".json", ".gz", ".webp", ".png", ".jpg", ".jpeg", ".txt", ".mp3"}
+
 @app.route("/data/<path:filename>")
 def serve_data_files(filename):
     if filename.startswith("image_cache/"):
         return proxy_image(filename[len("image_cache/"):])
+    ext = os.path.splitext(filename)[1].lower()
+    if ext not in ALLOWED_DATA_EXTS or ".." in filename or filename.startswith(("/", "\\", ".")):
+        return "Not Found", 404
     resp = send_from_directory(DATA_DIR, filename)
     resp.headers["Access-Control-Allow-Origin"] = "*"
     resp.headers["Cache-Control"] = "public, max-age=86400"
@@ -1599,18 +1636,20 @@ def api_php():
                 return jsonify(json.load(f))
         return jsonify({"success": True, "data": []})
     elif action == "get_exam_detail":
-        eid = request.args.get("exam_id") or request.args.get("id")
+        raw_eid = request.args.get("exam_id") or request.args.get("id") or ""
+        eid = re.sub(r"[^a-zA-Z0-9_-]", "", str(raw_eid))
+        if not eid:
+            return jsonify({"success": False, "message": "Thiếu mã đề thi"}), 400
         cache_path = os.path.join(DATA_DIR, "exam_cache", f"exam_{eid}.json")
         if os.path.exists(cache_path):
             with open(cache_path, "r", encoding="utf-8") as f:
                 return jsonify(json.load(f))
         try:
             url = f"https://zh.taiwandiary.vn/api.php?action=get_exam_detail&exam_id={eid}"
-            cmd = ["curl", "-s", "-H", "User-Agent: Mozilla/5.0", url]
-            out = subprocess.check_output(cmd, timeout=15)
-            data = json.loads(out)
-            with open(cache_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False)
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            save_json_atomic(cache_path, data)
             return jsonify(data)
         except Exception as e:
             return jsonify({"success": False, "message": f"Lỗi tải đề thi: {e}"})
@@ -1621,11 +1660,10 @@ def api_php():
                 return jsonify(json.load(f))
         try:
             url = "https://zh.taiwandiary.vn/api.php?action=get_cat_exam_detail"
-            cmd = ["curl", "-s", "-H", "User-Agent: Mozilla/5.0", url]
-            out = subprocess.check_output(cmd, timeout=20)
-            data = json.loads(out)
-            with open(cat_path, "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False)
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            save_json_atomic(cat_path, data)
             return jsonify(data)
         except Exception as e:
             return jsonify({"success": False, "message": f"Lỗi tải đề CAT: {e}"})
@@ -1864,7 +1902,11 @@ os.makedirs(AUDIO_CACHE_DIR, exist_ok=True)
 
 @app.route("/audio/<path:filepath>")
 def proxy_audio(filepath):
-    cache_path = os.path.join(AUDIO_CACHE_DIR, filepath)
+    if ".." in filepath or filepath.startswith(("/", "\\")):
+        return "Invalid path", 400
+    cache_path = os.path.abspath(os.path.join(AUDIO_CACHE_DIR, filepath))
+    if not cache_path.startswith(os.path.abspath(AUDIO_CACHE_DIR)):
+        return "Invalid path", 400
     if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
         resp = send_file(cache_path, mimetype="audio/mpeg")
         resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
@@ -1872,12 +1914,10 @@ def proxy_audio(filepath):
     
     url = f"https://zh.taiwandiary.vn/audio/{filepath}"
     try:
-        os.makedirs(os.path.dirname(cache_path), exist_ok=True)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
         with urllib.request.urlopen(req, timeout=15) as resp:
             content = resp.read()
-            with open(cache_path, "wb") as f:
-                f.write(content)
+            save_bytes_atomic(cache_path, content)
         resp = send_file(cache_path, mimetype="audio/mpeg")
         resp.headers["Cache-Control"] = "public, max-age=31536000, immutable"
         return resp
@@ -1889,7 +1929,11 @@ os.makedirs(IMAGE_CACHE_DIR, exist_ok=True)
 
 @app.route("/image/<path:filepath>")
 def proxy_image(filepath):
-    cache_path = os.path.join(IMAGE_CACHE_DIR, filepath)
+    if ".." in filepath or filepath.startswith(("/", "\\")):
+        return "Invalid path", 400
+    cache_path = os.path.abspath(os.path.join(IMAGE_CACHE_DIR, filepath))
+    if not cache_path.startswith(os.path.abspath(IMAGE_CACHE_DIR)):
+        return "Invalid path", 400
     if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
         mime = "image/webp" if filepath.endswith(".webp") else ("image/png" if filepath.endswith(".png") else "image/jpeg")
         resp = send_file(cache_path, mimetype=mime)
@@ -1919,8 +1963,7 @@ def proxy_image(filepath):
             content = resp.read()
             if content.startswith(b"<!DOCTYPE") or content.startswith(b"<html") or b"LiteSpeed" in content[:200]:
                 return "Not Found", 404
-            with open(cache_path, "wb") as f:
-                f.write(content)
+            save_bytes_atomic(cache_path, content)
         mime = resp.headers.get("content-type", "image/webp")
         resp = send_file(cache_path, mimetype=mime)
         resp.headers["Cache-Control"] = "public, max-age=2592000"
@@ -1930,10 +1973,10 @@ def proxy_image(filepath):
 
 @app.route("/dict/<path:filename>")
 def serve_dict_file(filename):
-    file_path = os.path.join(DATA_DIR, filename)
-    if os.path.exists(file_path):
-        return send_file(file_path, mimetype="application/json")
-    return "Not Found", 404
+    ext = os.path.splitext(filename)[1].lower()
+    if ext != ".json" or ".." in filename or filename.startswith(("/", "\\", ".")):
+        return "Not Found", 404
+    return send_from_directory(DATA_DIR, filename, mimetype="application/json")
 
 @app.route("/admin_content_api.php")
 def admin_content_api():

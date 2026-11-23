@@ -850,6 +850,7 @@ async function dashDictSearchRun(inputId, dropdownId) {
 function dashDictSearchPick(dictId, dropdownId) {
     dashDictSearchClose(dropdownId);
     document.querySelectorAll('.header-dict-panel').forEach(p => p.classList.add('hidden'));
+    if (typeof closeAllSearch === 'function') closeAllSearch();
     if (typeof switchTab === 'function') switchTab('dict-lookup');
     setTimeout(() => window.dispatchEvent(new CustomEvent('dict-lookup-open', { detail: { dict_id: dictId } })), 150);
 }

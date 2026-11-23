@@ -79,156 +79,148 @@ Trung Minh: Tổng cộng hơn hai trăm tệ thôi, rẻ thật đấy!""",
     # ------------------ Lesson 79 (Bài 5) ------------------
     "79_0": """Trung Minh: Tomomi, cuối tuần này cậu định làm gì?
 Tomomi: Mình định ở nhà đọc sách, nghe nhạc.
-Trung Minh: Mình muốn mời cậu đến nhà hàng gần trường uống trà chiều, cậu thấy thế nào?
-Tomomi: Được chứ, nghe nói bánh ngọt và trà ở đó ngon lắm.
-Trung Minh: Chúng mình đi lúc hai giờ chiều nhé, được không?
-Tomomi: Hai giờ chiều mình phải dọn dẹp phòng, ba giờ được không?
-Trung Minh: Ba giờ được đấy, mình qua đón cậu nhé.
-Tomomi: Cảm ơn cậu! Hẹn cuối tuần gặp nhé.
-Trung Minh: Hẹn gặp lại.""",
+Trung Minh: Chiều thứ Bảy cậu có rảnh không? Chúng mình cùng đi uống trà chiều được không?
+Tomomi: Được chứ! Cậu muốn đi đâu?
+Trung Minh: Mình biết một quán cà phê rất hay, kem ở đó ngon lắm.
+Tomomi: Ở đó có kem sô-cô-la không?
+Trung Minh: Có chứ! Họ có rất nhiều loại kem.
+Tomomi: Chiều thứ Bảy này hai giờ rưỡi chúng mình đi nhé.
+Trung Minh: Được thôi.""",
 
     "79_1": """Trung Minh: Mẹ ơi, con với Tomomi chuẩn bị đi uống trà chiều, nhưng ví tiền của con không có trong phòng.
 Mẹ: Trên bàn phòng khách có một chiếc ví, có phải của con không?
-Trung Minh: Không phải ạ, chiếc trên bàn là của bố.
-Mẹ: Con thử tìm trong túi áo khoác xem sao.
-Trung Minh: A, thấy rồi! Nó nằm trong túi áo khoác trên ghế sofa.
-Mẹ: Đi cẩn thận nhé, đừng về muộn quá đấy.
-Trung Minh: Vâng ạ, con chào mẹ!""",
+Trung Minh: Đó không phải của con, là của anh trai ạ. Ví của con không có trong phòng khách.
+Mẹ: Thế dưới ghế sofa thì sao?
+Trung Minh: Trên, dưới và bên cạnh ghế sofa đều không có. Mẹ giúp con tìm với, được không ạ?
+Mẹ: Mẹ đang bận lắm, giờ phải vào bếp nấu cơm rồi, con quay lại phòng tìm tiếp đi.
+Trung Minh: A! Ở đây rồi! Ví tiền nằm ở dưới quyển sách của con.""",
 
     "79_2": """Trong phòng của tôi có một chiếc bàn, một chiếc giường và một chiếc ghế sofa. Phía trước ghế sofa có một chiếc tivi rất mới, nhưng tôi không hay xem tivi, tôi thích nhất là ngồi trên ghế sofa đọc sách. Tôi có rất nhiều sách, có cả sách tiếng Trung lẫn sách tiếng Anh. Cửa sổ phòng tôi rất lớn, chú mèo của tôi thích nằm cạnh cửa sổ tắm nắng.""",
 
     # ------------------ Lesson 80 (Bài 6) ------------------
     "80_0": """Quốc An: Hôm nay thời tiết đẹp thật, phong cảnh bờ biển cũng rất đẹp, mình muốn đi bơi, các cậu có muốn đi không?
 Tomomi: Mình không biết bơi. Nghi Văn, cậu biết bơi không?
-Nghi Văn: Mình biết bơi, nhưng hôm nay mình có chút việc bận, không đi được.
-Quốc An: Tiếc thật đấy! Thế Tomomi có muốn ra biển đi dạo không?
-Tomomi: Được chứ, mình thích ngắm biển lắm.
-Quốc An: Vậy chúng mình cùng đi dạo bên bờ biển nhé.
-Tomomi: Đi thôi!""",
+Nghi Văn: Mình biết bơi, nhưng bơi không giỏi lắm.
+Quốc An: Thế chúng mình đi chạy bộ thì sao?
+Tomomi: Mình không thích chạy bộ, mình chạy chậm lắm.
+Nghi Văn: Chơi quần vợt thì thế nào? Trung Minh bảo cậu đánh quần vợt rất cừ, chúng mình cùng đi chơi nhé.
+Tomomi: Được thôi.""",
 
     "80_1": """Quốc An: Nghe nói bộ phim này rất hay, tối nay chúng mình cùng đi xem nhé, được không?
 Trung Minh: Mình thấy hơi mệt một chút, mình muốn về nhà nghỉ ngơi.
-Quốc An: Vậy ngày mai thì sao? Ngày mai cậu rảnh không?
-Trung Minh: Chiều mai mình phải đi chơi bóng rổ với bạn rồi.
-Quốc An: Cậu chơi bóng rổ giỏi thế à? Hôm nào dạy mình với nhé.
-Trung Minh: Được thôi, cuối tuần sau chúng mình cùng đi chơi thể thao.""",
+Quốc An: Cậu đừng suốt ngày ở nhà lên mạng, nhìn máy tính, nghịch điện thoại, nên đi tập thể thao đi. Ngày mai mình rảnh, chúng mình có thể cùng đi đạp xe.
+Trung Minh: Nhưng mình chỉ muốn nghe nhạc, ngủ một giấc thôi.
+Quốc An: Thế ngày kia đi được không?
+Trung Minh: Hai hôm nay trời hơi lạnh, cuối tuần chúng mình đi, được không?""",
 
     "80_2": """Tôi có vài người bạn thân, chúng tôi đều thích học tiếng Trung, nghe nhạc và ca hát. Trung Minh thích hát nhất, cậu ấy hát bài hát tiếng Trung rất hay. Bình thường chúng tôi đều hơi bận, nhưng cuối tuần chúng tôi thường cùng nhau đi tập thể thao, Nghi Văn bơi khá tốt, Quốc An chơi bóng rổ rất cừ, tôi thì thích chơi quần vợt, thỉnh thoảng chúng tôi cũng cùng nhau đi xem thi đấu thể thao. Có những người bạn này, tôi thực sự rất vui!""",
 
     # ------------------ Lesson 81 (Bài 7) ------------------
-    "81_0": """Tomomi: Cuối tuần này các cậu có kế hoạch gì chưa?
-Nghi Văn: Mình muốn đi Đạm Thủy ngắm hoàng hôn, nghe nói ở đó đẹp lắm.
-Trung Minh: Đi Đạm Thủy bằng cách nào tiện nhất nhỉ?
-Nghi Văn: Chúng mình có thể đi tàu điện ngầm (MRT), vừa nhanh lại vừa tiện.
-Tomomi: Từ trường mình đi tàu điện ngầm đến Đạm Thủy mất bao lâu?
-Nghi Văn: Khoảng chừng bốn mươi phút thôi.
-Trung Minh: Vậy chúng mình hẹn nhau ở ga tàu điện ngầm lúc hai giờ chiều thứ Bảy nhé?
-Tomomi: Nhất trí, thứ Bảy gặp nhau nhé!""",
+    "81_0": """Tomomi: Nguyên Chân, ngày mai mấy giờ chúng mình đi tìm bạn người Hàn Quốc của cậu?
+Nguyên Chân: Bốn giờ chiều chúng mình phải đến khách sạn Thiên Mỹ, bạn ấy đợi chúng mình ở đó.
+Tomomi: Chúng mình đi bằng cách nào? Đi tàu điện ngầm hay đi xe buýt?
+Nguyên Chân: Nghe nói khách sạn đó không xa, mình nghĩ chúng mình có thể đi bộ từ trường đến.
+Tomomi: Nhưng mình không biết đường đi, cậu có biết không?
+Nguyên Chân: Mình cũng không biết. Chúng mình có thể lên mạng xem bản đồ trước.
+Tomomi: A! Đến giờ vào học rồi! Chúng mình vào học trước đã nhé.
+Nguyên Chân: Được thôi.""",
 
-    "81_1": """Nghi Văn: Đạm Thủy đông vui thật đấy, nhiều món ăn vặt quá!
-Trung Minh: Các cậu nhìn kìa, bên kia có bán bánh cá và trứng sắt Đạm Thủy nổi tiếng đấy.
-Tomomi: Mùi thơm quá, chúng mình mua ăn thử đi!
-Nghi Văn: Được, để mình đi mua trứng sắt, Trung Minh mua nước uống nhé.
-Trung Minh: Ok, các cậu đợi mình một lát.
-Tomomi: Hoàng hôn ở đây đẹp quá, chúng mình chụp bức ảnh kỷ niệm đi!
-Nghi Văn: Nào, một, hai, ba, cười lên nào!""",
+    "81_1": """Nguyên Chân: Tomomi, cậu xem này, khách sạn Thiên Mỹ ở đường Đại Học. Giờ mình biết đường đi rồi.
+Tomomi: A! Khách sạn Thiên Mỹ ở đây này! Mình biết chỗ này, gần đó có bưu điện và siêu thị.
+Nguyên Chân: Mình nghĩ đi bộ đến đó chắc chắn không thành vấn đề.
+Tomomi: Nhưng mình thấy chỗ đó hơi xa, đi bộ thì mệt lắm.
+Nguyên Chân: Vậy cậu muốn đi bằng cách nào?
+Tomomi: Đi tàu điện ngầm vừa tiện vừa thoải mái, chúng mình có thể đi tàu điện ngầm.
+Nguyên Chân: Được, vậy ngày mai chúng mình đi tàu điện ngầm nhé.""",
 
-    "81_2": """Đạm Thủy là một địa điểm du lịch rất nổi tiếng ở phía bắc Đài Loan. Nơi đây có phong cảnh bờ sông tuyệt đẹp, phố cổ nhộn nhịp và nhiều món ăn truyền thống đặc sắc. Rất nhiều du khách thích đến đây vào buổi chiều tà để ngắm hoàng hôn buông xuống trên mặt biển.
-Từ trung tâm thành phố Đài Bắc, chỉ cần đi tàu điện ngầm tuyến màu đỏ là có thể đến thẳng Đạm Thủy rất dễ dàng. Cuối tuần cùng bạn bè đi dạo phố cổ, ăn món ngon và tận hưởng làn gió mát từ dòng sông quả thực là một trải nghiệm vô cùng thú vị.""",
+    "81_2": """Gần nhà tôi có ba tuyến tàu điện ngầm, một tuyến màu đỏ, một tuyến màu xanh lá và một tuyến màu xanh dương. Ngày thường tôi đi tuyến màu đỏ đến trường đi học, cuối tuần cũng đi tàu điện ngầm đi tập thể thao, xem phim. Bạn bè thường đến tìm tôi, họ đều thấy đi tàu điện ngầm đến nhà tôi vừa nhanh vừa tiện lợi.
+Từ nhà tôi đến sân bay cũng không xa, lái xe đi hay đi tàu điện ngầm đều được. Phong cảnh gần sân bay cũng rất đẹp, tôi thường đến đó ngắm cảnh và ngắm máy bay.""",
 
     # ------------------ Lesson 82 (Bài 8) ------------------
-    "82_0": """Quốc An: Trung Minh, cậu đang làm gì đấy?
-Trung Minh: Mình đang tìm địa chỉ một nhà hàng trên mạng, tối nay định mời bạn đi ăn.
-Quốc An: Cậu muốn ăn món gì? Món Đài Loan hay món phương Tây?
-Trung Minh: Bạn mình thích ăn lẩu, cậu biết quanh đây có quán lẩu nào ngon không?
-Quốc An: Có một quán lẩu cay Tứ Xuyên ở ngay góc đường bên kia, ngon mà giá cả cũng hợp lý lắm.
-Trung Minh: Quán đó đi bộ từ đây mất bao lâu?
-Quốc An: Đi thẳng khoảng năm phút, đến ngã tư rẽ phải là thấy ngay.
-Trung Minh: Cảm ơn cậu nhé, tối nay mình sẽ ghé qua thử.
-Quốc An: Chúc hai người ngon miệng!""",
+    "82_0": """Nghi Văn: Nguyên Chân, chiếc váy này của cậu đẹp thật đấy, mình thích lắm.
+Nguyên Chân: Cảm ơn cậu, đây là quà sinh nhật năm ngoái của mình đấy.
+Nghi Văn: Nghe nói đồ của thương hiệu này đắt lắm, nhưng rất nhiều người thích.
+Nguyên Chân: Đúng vậy, vì thương hiệu này rất nổi tiếng, áo, quần và váy đều rất đẹp nên nhiều người mua.
+Nghi Văn: Cậu biết mua quần áo của thương hiệu này ở đâu không?
+Nguyên Chân: Trung tâm thương mại có bán đấy, cậu có muốn đi xem không?
+Nghi Văn: Mình muốn đi, nhưng dạo này mình tăng ba cân rồi, sợ không mua được đồ vừa vặn.
+Nguyên Chân: Cậu béo lên á? Mình chẳng nhận ra đấy. Mình có thể đi cùng cậu xem thử.
+Nghi Văn: Được thôi!""",
 
-    "82_1": """Nghi Văn: Tomomi, hôm nay chúng mình đi siêu thị mua sắm nhé?
-Tomomi: Được chứ, tủ lạnh nhà mình cũng hết đồ ăn rồi.
-Nghi Văn: Cậu cần mua những thứ gì?
-Tomomi: Mình muốn mua rau tươi, thịt gà, trứng gà và một ít hoa quả.
-Nghi Văn: Siêu thị lớn đối diện trường đang có chương trình giảm giá nhiều mặt hàng đấy.
-Tomomi: Thế thì tốt quá, chúng mình mang theo túi đựng đồ nhé để bảo vệ môi trường.
-Nghi Văn: Đúng vậy, chúng mình đi thôi nào!
-Tomomi: Đợi mình lấy ví tiền và điện thoại đã nhé.
-Nghi Văn: Được, mình chờ cậu ở cửa ký túc xá.""",
+    "82_1": """Nghi Văn: Cậu xem này, chiếc quần màu vàng này được không?
+Tomomi: Chiếc quần màu vàng này đẹp thì có đẹp, nhưng hơi ngắn một chút. Mình thấy chiếc màu xanh dương đằng kia đẹp hơn.
+Nghi Văn: Được, để mình mặc thử cả hai chiếc xem sao.
+Tomomi: Chiếc màu xanh dương này hơi rộng một chút, mình thấy chiếc màu vàng hợp với cậu hơn.
+Nghi Văn: Được rồi, vậy mình mua chiếc màu vàng này nhé.
+Tomomi: Cậu chẳng phải còn muốn mua giày nữa sao?
+Nghi Văn: Giày ở tầng mấy thế?
+Tomomi: Ở tầng hai, thang máy ở phía trước, chúng mình qua xem đi.
+Nghi Văn: Được thôi.""",
 
-    "82_2": """Ở Đài Loan, việc đi mua sắm vô cùng thuận tiện. Ngoài các siêu thị lớn mở cửa hàng ngày, khắp nơi trên các con phố đều có các cửa hàng tiện lợi như 7-Eleven và FamilyMart phục vụ 24/24 giờ.
-Tại cửa hàng tiện lợi, mọi người không chỉ có thể mua đồ ăn thức uống mà còn có thể thanh toán hóa đơn, gửi nhận bưu phẩm và rút tiền mặt. Đối với du học sinh nước ngoài, cuộc sống tiện lợi ở Đài Loan thực sự khiến cho việc sinh hoạt trở nên vô cùng thoải mái và dễ dàng.
-Mỗi khi cần mua đồ dùng hàng ngày, chúng tôi chỉ cần bước chân xuống phố là có thể tìm thấy mọi thứ mình cần.""",
+    "82_2": """Trong trung tâm thương mại có rất nhiều quần áo, giày dép và túi xách, đều là những mẫu mới nhất, vì thế rất nhiều bạn nữ trẻ thích đến trung tâm thương mại, quần áo đẹp và thời trang họ đều muốn mặc thử xem sao.
+Rất nhiều bạn nam trẻ lại thích ở hiệu sách xem tạp chí xe hơi, xe hơi rất đắt, họ không nhất thiết có thể mua được xe mới nhưng xem cũng thấy rất vui.
+Tôi cảm thấy có những đồ cũ dùng rất tốt, có những đồ mới cũng rất thú vị, tôi rất thích ngắm xe mới, quần áo mới, nhưng vì tiền của tôi không nhiều nên tôi không hay mua.""",
 
     # ------------------ Lesson 83 (Bài 9) ------------------
-    "83_0": """Bác sĩ: Cháu cảm thấy khó chịu ở chỗ nào?
-Trung Minh: Cháu bị sốt từ tối qua, đầu đau và cổ họng cũng rất rát ạ.
-Bác sĩ: Để bác đo nhiệt độ cho cháu xem nào... Ba mươi tám độ năm, cháu bị sốt nhẹ rồi.
-Trung Minh: Cháu có bị cúm không ạ?
-Bác sĩ: Cháu chỉ bị cảm lạnh thông thường thôi, thời tiết dạo này thay đổi thất thường lắm.
-Trung Minh: Cháu cần uống thuốc gì ạ?
-Bác sĩ: Bác kê cho cháu thuốc hạ sốt và thuốc giảm đau họng, uống sau bữa ăn nhé.
-Trung Minh: Vâng, cháu cảm ơn bác sĩ nhiều ạ!""",
+    "83_0": """Quốc An: Tomomi, ý nghĩa của mấy câu này mình không hiểu lắm, cậu chỉ cho mình được không?
+Tomomi: Câu nào thế? Để mình xem nào.
+Quốc An: Câu thứ sáu và câu thứ bảy.
+Tomomi: Câu thứ sáu là "Tôi bình thường rất ít xem tivi", nghĩa là tôi không thường xem tivi. Câu thứ bảy là "Phòng của tôi to hơn phòng của cậu ấy", nghĩa là phòng tôi to, phòng cậu ấy nhỏ.
+Quốc An: Mình hiểu rồi, cảm ơn cậu nhé!
+Tomomi: Không có gì đâu.""",
 
-    "83_1": """Tomomi: Trung Minh, nghe nói hôm qua cậu bị ốm phải đi khám bệnh à?
-Trung Minh: Đúng vậy, hôm qua mình sốt cao nhưng hôm nay uống thuốc đã đỡ nhiều rồi.
-Tomomi: Cậu đã ăn cháo chưa? Bị ốm thì nên ăn đồ thanh đạm thôi.
-Trung Minh: Mình vừa ăn một chút rồi. Cảm ơn cậu đã hỏi thăm nhé.
-Tomomi: Cậu nhớ uống nhiều nước ấm và ngủ nhiều vào nhé, bài học hôm nay để mình ghi chép giúp cho.
-Trung Minh: Cậu chu đáo quá, cảm ơn Tomomi nhiều lắm!
-Tomomi: Không có gì đâu, bạn bè giúp đỡ nhau là chuyện bình thường mà. Mau khỏe lại nhé!
-Trung Minh: Ừ, hẹn gặp lại cậu trên lớp sớm.""",
+    "83_1": """Trung Minh: Sắp đến kỳ thi giữa kỳ rồi, thầy giáo bảo chúng mình có thể đến phòng học lớn đối diện thư viện để ôn bài.
+Tomomi: Phòng học đó rất rộng, lại yên tĩnh nữa.
+Trung Minh: Đúng vậy, nhiều bạn học thích đến đó đọc sách, ôn tập chuẩn bị thi.
+Tomomi: Chiều nay chúng mình cùng đi nhé, được không?
+Trung Minh: Được chứ, hai giờ chiều hẹn gặp ở cửa phòng học nhé.""",
 
     "83_2": """Mùa đông ở Đài Loan không quá lạnh như phương bắc, nhưng khi có gió mùa đông bắc tràn về thì nhiệt độ cũng giảm khá nhanh và trời thường có mưa phùn. Thời tiết này rất dễ khiến mọi người bị cảm cúm nếu không chú ý giữ ấm cơ thể.
 Khi bị ốm ở Đài Loan, việc đi khám bệnh rất thuận tiện vì hệ thống bảo hiểm y tế toàn dân ở đây rất phát triển. Các phòng khám tư nhân và bệnh viện đều có bác sĩ tận tình chăm sóc.
 Mọi người luôn nhắc nhở nhau phải ăn uống đầy đủ chất dinh dưỡng, uống nhiều nước ấm và thường xuyên tập thể dục để giữ gìn sức khỏe thật tốt.""",
 
     # ------------------ Lesson 84 (Bài 10) ------------------
-    "84_0": """Gia Lạc: Nghi Văn, kỳ nghỉ đông này cậu có về nước không?
-Nghi Văn: Mình không về, mình muốn ở lại Đài Loan du lịch vài nơi.
-Gia Lạc: Cậu đã lên kế hoạch đi đâu chưa?
-Nghi Văn: Mình muốn đi Đài Nam, nghe nói ở đó có rất nhiều di tích lịch sử và món ăn truyền thống nổi tiếng.
-Gia Lạc: Đài Nam tuyệt vời lắm! Mình từng đến đó vào năm ngoái, ẩm thực đường phố ngon không cưỡng lại được.
-Nghi Văn: Cậu đi bằng phương tiện gì thế?
-Gia Lạc: Mình đi tàu cao tốc (HSR), chỉ mất gần hai tiếng từ Đài Bắc là tới nơi rồi.
-Nghi Văn: Nhanh vậy sao? Mình cũng sẽ đặt vé tàu cao tốc.
-Gia Lạc: Nhớ đặt vé sớm nhé, dịp lễ tết vé tàu thường hết rất nhanh đấy.""",
+    "84_0": """Nguyên Chân: Thưa thầy, hôm nay Quốc An xin nghỉ học ạ. Cậu ấy bị sốt, không đến lớp học được.
+Thầy giáo: Cậu ấy bị sốt à? Vậy cậu ấy nên đi khám bác sĩ.
+Nguyên Chân: Quốc An nói với em hôm nay cậu ấy sẽ đi khám bác sĩ, gần nhà cậu ấy có một bệnh viện khá tốt.
+Thầy giáo: Dạo này nhiều người bị cảm cúm lắm, các em nhớ đeo khẩu trang và cũng phải thường xuyên rửa tay nhé.
+Nguyên Chân: Thưa thầy, em khỏe mạnh lắm, ít khi bị ốm.
+Thầy giáo: Người bình thường không ốm cũng vẫn phải chú ý giữ gìn.
+Nguyên Chân: Vâng ạ, em nên chú ý sức khỏe nhiều hơn.
+Thầy giáo: Em có thể mang một ít hoa quả đến thăm Quốc An, dặn cậu ấy nên uống nhiều nước và nghỉ ngơi nhiều.
+Nguyên Chân: Vâng, ngày mai em sẽ mang một ít táo đến thăm cậu ấy ạ.""",
 
-    "84_1": """Nghi Văn: Chào anh, cho tôi hỏi đường đến miếu Khổng Tử đi thế nào ạ?
-Người qua đường: Cô đi thẳng theo con đường này, qua hai ngã tư đèn đỏ rồi rẽ trái là đến.
-Nghi Văn: Từ đây đi bộ đến đó mất bao lâu ạ?
-Người qua đường: Khoảng chừng mười phút thôi cô nhé.
-Nghi Văn: Xung quanh miếu Khổng Tử có quán ăn nào ngon không anh?
-Người qua đường: Có nhiều lắm, đối diện miếu có con phố cổ bán mì Đan Tử và bánh tráng tôm rất nổi tiếng.
-Nghi Văn: Nghe hấp dẫn quá! Cảm ơn anh nhiều nhé!
-Người qua đường: Không có chi, chúc cô có chuyến tham quan vui vẻ!
-Nghi Văn: Cảm ơn anh, chào anh ạ!
-Người qua đường: Chào cô!""",
+    "84_1": """Bác sĩ: Cháu cảm thấy khó chịu ở chỗ nào?
+Quốc An: Cháu bị ho, đau đầu, mũi cũng khó chịu ạ.
+Bác sĩ: Dạo này trời trở lạnh rồi, nhiều người bị cảm cúm lắm.
+Quốc An: Đúng vậy ạ! Nghe nói trường cháu học sinh bị cảm, bị sốt nhiều lắm.
+Bác sĩ: Dạo này cũng có nhiều người bị đau bụng nữa.
+Quốc An: Có phải do đồ ăn thức uống không sạch sẽ không ạ?
+Bác sĩ: Không phải, đó cũng là do bị cảm cúm đấy.
+Quốc An: Xin hỏi cháu có cần uống thuốc không ạ?
+Bác sĩ: Bác sẽ kê cho cháu thuốc uống trong ba ngày. Cháu nhớ uống nhiều nước một chút, nếu bị sốt thì uống viên thuốc màu đỏ nhé.
+Quốc An: Vâng, cháu cảm ơn bác sĩ ạ.""",
 
     "84_2": """Dạo này có rất nhiều người bị cảm cúm, bạn học Quốc An của tôi cũng bị cảm rồi, hôm nay bắt đầu phát sốt. Cậu ấy gọi điện thoại cho tôi nói rằng không thể đến lớp được và nhờ tôi xin phép nghỉ giúp. Tôi rất lo lắng cho cậu ấy, bảo cậu ấy đi khám bác sĩ, đồng thời dặn dò phải nghe lời bác sĩ, đừng quên uống nhiều nước và nghỉ ngơi nhiều. Cậu ấy bảo sẽ đi khám bác sĩ và bảo chúng tôi đừng quá lo, khi nào khỏi bệnh sẽ quay lại trường đi học. Hôm nay tôi dự định mang theo ít hoa quả đến thăm cậu ấy và nói cho cậu ấy biết bài tập hôm nay. Tất cả chúng tôi đều hy vọng ngày mai cậu ấy có thể quay lại trường đi học.""",
 
     # ------------------ Lesson 85 (Bài 11) ------------------
-    "85_0": """Quốc An: Tomomi, cậu đang tìm kiếm phòng trọ à?
-Tomomi: Đúng vậy, kỳ sau mình muốn dọn ra ngoài ở để có không gian yên tĩnh tự học.
-Quốc An: Cậu muốn tìm phòng kiểu như thế nào?
-Tomomi: Mình muốn tìm một căn phòng khép kín nhỏ, có cửa sổ thoáng mát, gần trạm xe buýt hoặc tàu điện ngầm.
-Quốc An: Tiền thuê phòng dự tính mỗi tháng khoảng bao nhiêu?
-Tomomi: Khoảng tầm tám nghìn đến một vạn Đài tệ là vừa sức mình.
-Quốc An: Bạn mình vừa trả một căn phòng rất đẹp gần trường, để mình liên hệ chủ nhà giúp cậu nhé.
-Tomomi: Ôi thế thì may mắn quá! Căn phòng đó có đồ đạc sẵn chưa?
-Quốc An: Có đầy đủ giường, bàn học, điều hòa và tủ lạnh rồi, chỉ việc dọn vào ở thôi.
-Tomomi: Tuyệt vời quá, cảm ơn Quốc An nhiều lắm!""",
+    "85_0": """Nghi Văn: Tomomi, bài tập hôm nay cậu đã làm chưa?
+Tomomi: Mình làm rồi, nhưng không biết viết có đúng không nữa.
+Nghi Văn: Để mình xem nào... Cậu viết tốt lắm mà! Tiếng Trung của cậu tiến bộ nhiều thật đấy.
+Tomomi: Cảm ơn cậu! Vì dạo này mình hay lên mạng trò chuyện với bạn bè Đài Loan nên tiếng Trung mới tiến bộ hơn.
+Nghi Văn: Thật thế à? Các cậu quen nhau như thế nào?
+Tomomi: Chúng mình quen nhau trên trang web của Trung tâm Hoa ngữ đấy.
+Nghi Văn: Tuyệt quá! Mình cũng muốn kết bạn qua mạng.
+Tomomi: Đơn giản lắm, để mình chỉ cho cậu.""",
 
-    "85_1": """Tomomi: Cháu chào bác chủ nhà ạ, cháu đến xem phòng theo lời giới thiệu của Quốc An.
-Chủ nhà: Chào cháu, mời cháu vào xem. Căn phòng này vừa mới sơn sửa lại đấy.
-Tomomi: Phòng ốc sạch sẽ và sáng sủa quá bác ạ. Tiền thuê mỗi tháng là bao nhiêu ạ?
-Chủ nhà: Mỗi tháng chín nghìn tệ, đã bao gồm tiền nước và tiền internet rồi nhé.
-Tomomi: Thế còn tiền điện thì tính thế nào ạ?
-Chủ nhà: Mỗi phòng đều có công tơ điện riêng, cứ tính năm tệ một số điện.
-Tomomi: Cháu thấy mức giá này rất hợp lý. Nếu cháu thuê thì khi nào có thể dọn vào ạ?
-Chủ nhà: Cuối tuần này sau khi ký hợp đồng là cháu có thể chuyển đồ đến ở ngay.
-Tomomi: Vâng, vậy cháu xin phép thuê căn này ạ!""",
+    "85_1": """Nghi Văn: Cậu đã gặp mặt người bạn mới đó chưa?
+Tomomi: Hôm qua chúng mình gặp nhau rồi.
+Nghi Văn: Các cậu gặp nhau ở đâu thế?
+Tomomi: Chúng mình hẹn gặp ở ga tàu điện ngầm, sau đó cùng đi quán cà phê uống trà chiều.
+Nghi Văn: Bạn ấy là người thế nào?
+Tomomi: Bạn ấy rất nhiệt tình, lại lịch sự nữa, đã chỉ cho mình rất nhiều tiếng Trung.
+Nghi Văn: Hay quá! Lần sau các cậu gặp nhau, nhớ rủ mình đi cùng với nhé.
+Tomomi: Được thôi, không thành vấn đề.""",
 
     "85_2": """Đối với sinh viên quốc tế khi theo học tại Đài Loan, việc thuê phòng trọ là một trải nghiệm rèn luyện tính tự lập rất tốt. Phần lớn các bạn năm thứ nhất thường chọn ở ký túc xá của trường để làm quen với môi trường sống và kết thêm nhiều bạn mới.
 Từ năm thứ hai trở đi, nhiều bạn chuyển ra ngoài thuê phòng riêng để có cuộc sống tự do và thoải mái hơn về mặt giờ giấc. Khi đi thuê phòng, việc tìm hiểu kỹ các điều khoản hợp đồng, chi phí điện nước và môi trường an ninh xung quanh khu vực là điều vô cùng quan trọng.
@@ -244,72 +236,69 @@ Nghi Văn: Được thế thì tốt quá! Cậu học giỏi chữ Hán nhất 
 Trung Minh: Chúng ta hẹn nhau lúc hai giờ chiều ở tầng ba thư viện nhé.
 Nghi Văn: Cảm ơn Trung Minh, chiều gặp lại nhé!""",
 
-    "86_1": """Thầy giáo: Các em chú ý, hôm nay lớp chúng ta sẽ làm bài kiểm tra giữa kỳ trong vòng sáu mươi phút.
-Trung Minh: Thưa thầy, phần thi nghe có được nghe hai lần không ạ?
-Thầy giáo: Mỗi đoạn đối thoại các em sẽ được nghe hai lần, hãy chú ý lắng nghe thật cẩn thận.
-Tomomi: Thưa thầy, phần trắc nghiệm có được dùng bút chì không ạ?
-Thầy giáo: Các em nên dùng bút mực màu đen hoặc xanh để làm bài nhé.
-Nghi Văn: Thưa thầy, khi nào thì có kết quả bài thi ạ?
-Thầy giáo: Thứ Hai tuần sau thầy sẽ phát bài và sửa lỗi chi tiết cho cả lớp.
-Trung Minh: Chúng em đã sẵn sàng rồi ạ!
-Thầy giáo: Tốt lắm, chúc tất cả các em làm bài thật tốt. Bây giờ thầy phát đề nhé.
-Cả lớp: Chúng em cảm ơn thầy ạ!""",
+    "86_1": """Trung Minh: Quốc An, mỗi ngày sau khi tan học cậu đều phải đến tiệm bánh mì làm việc, có vất vả không?
+Quốc An: Hơi vất vả một chút, nhưng thú vị lắm.
+Trung Minh: Cậu làm gì ở tiệm bánh mì thế?
+Quốc An: Mình phụ làm bánh mì, và cũng bán bánh mì nữa.
+Trung Minh: Nghe nói bánh mì cậu làm ngon lắm.
+Quốc An: Cảm ơn cậu! Mình hy vọng sau này có thể mở một tiệm bánh mì của riêng mình.
+Trung Minh: Tuyệt vời quá! Sau này nhất định ngày nào mình cũng đến mua bánh mì của cậu.""",
 
-    "86_2": """Việc học một ngôn ngữ mới luôn đòi hỏi sự kiên trì và phương pháp học tập đúng đắn. Đối với các bạn học sinh nước ngoài học tiếng Trung tại Đài Loan, việc nhớ được mặt chữ và viết đúng các nét chữ phồn thể là một thử thách không nhỏ.
-Tuy nhiên, khi kiên nhẫn luyện tập mỗi ngày và mạnh dạn giao tiếp với người bản xứ, vốn từ vựng và phản xạ ngôn ngữ của các bạn sẽ tiến bộ vượt bậc theo thời gian.
-Mỗi kỳ thi không chỉ là dịp để đánh giá kết quả học tập mà còn giúp các bạn nhận ra những điểm cần hoàn thiện để ngày càng nói tiếng Trung trôi chảy và tự tin hơn.""",
+    "86_2": """Hôm qua tôi có xem một chương trình truyền hình, có rất nhiều bậc phụ huynh trò chuyện về con cái mình, họ nói rằng giới trẻ ngày nay thấy việc kết hôn hay không không quan trọng, vui vẻ hạnh phúc quan trọng hơn; khi tìm việc làm, lương nhiều hay ít không quan trọng, điều quan trọng là công việc có thú vị hay không, có học hỏi được điều gì hay không.
+Có bạn trẻ muốn mở quán cà phê, mở tiệm hoa, có bạn lại muốn làm họa sĩ, nhà văn. Cha mẹ hy vọng con cái tìm được công việc ổn định, nhưng con cái lại càng mong muốn được làm những việc mình yêu thích.
+Tôi nghĩ chỉ cần nỗ lực, làm công việc mình yêu thích cũng có thể sống rất tốt.""",
 
     # ------------------ Lesson 87 (Bài 13) ------------------
-    "87_0": """Quốc An: Alo, Trung Minh à, nửa tiếng trước mình vừa gửi cho cậu một bức email, cậu đã xem chưa?
-Trung Minh: Vừa nãy mạng điện thoại của mình bị chập chờn một chút nên chưa mở xem được, cậu gửi gì thế?
-Quốc An: Mình gửi thông tin về chuyến đi dã ngoại vào cuối tuần này của câu lạc bộ, cậu xem có đi được không nhé.
-Trung Minh: Hay quá, mình vừa kết nối lại được mạng rồi, để mình mở hộp thư ra xem ngay đây.
-Quốc An: Nhớ phản hồi sớm cho mình trước năm giờ chiều để mình chốt danh sách nhé.
-Trung Minh: Ok, mình đọc xong sẽ nhắn tin lại cho cậu ngay.
-Quốc An: Cảm ơn cậu nhé, lát nói chuyện sau.
-Trung Minh: Được, lát gặp lại.""",
+    "87_0": """Quốc An: Alo, Trung Minh à, nửa tiếng trước mình gửi cho cậu một bức email, cậu đã xem chưa?
+Trung Minh: Vừa nãy mạng điện thoại của mình bị trục trặc một chút, không mở email được, cậu gửi gì thế?
+Quốc An: Địa chỉ trang web của bảo tàng đấy. Thứ Bảy tuần sau thầy giáo dẫn chúng mình đi tham quan, cậu có thể lên xem trước.
+Trung Minh: Được rồi. (Xem điện thoại) Giờ mạng ổn rồi, mình thấy rồi.
+Quốc An: Trên trang web có ghi địa chỉ, nơi đó ở gần nhà mình, từ nhà mình đi ra rẽ phải, đi khoảng năm phút là đến nơi rồi.
+Trung Minh: Chúng mình nên đến lúc mấy giờ?
+Quốc An: Chín giờ sáng hẹn gặp ở cửa bảo tàng nhé, nhớ phải đến đúng giờ đấy.
+Trung Minh: Thứ Bảy tuần trước lúc đi thể thao mình đến muộn quá, thật là ngại. Tuần sau nhất định mình sẽ đến đúng giờ.""",
 
-    "87_1": """Thầy giáo: Bảo tàng còn năm phút nữa là mở cửa rồi, mọi người đã đến đông đủ chưa các em?
-Quốc An: Thưa thầy, Trung Minh nhắn tin bảo cậu ấy sắp tới nơi rồi ạ.
-Thầy giáo: Tốt, trong lúc chờ bạn thì thầy nhắc nhở một số quy định khi tham quan bảo tàng nhé.
-Tomomi: Thưa thầy, bên trong bảo tàng có được chụp ảnh không ạ?
-Thầy giáo: Các em được phép chụp ảnh nhưng tuyệt đối không được bật đèn flash để bảo vệ hiện vật cổ nhé.
-Nghi Văn: Có được mang đồ ăn và nước uống vào bên trong không thầy?
-Thầy giáo: Không được mang đồ ăn vào khu vực trưng bày đâu em, chỉ được để trong túi xách thôi.
-Trung Minh: Thưa thầy, em xin lỗi thầy và cả lớp, em vừa đến rồi ạ!
-Thầy giáo: Được rồi, em xếp hàng cùng các bạn nào. Bây giờ chúng ta cùng vào trong nhé.
-Quốc An: Trung Minh ơi, đứng vào đây với mình này.
-Trung Minh: Cảm ơn cậu, may quá vừa kịp giờ.
-Thầy giáo: Nào, các em đi theo thầy hướng dẫn viên nhé.""",
+    "87_1": """Thầy giáo: Còn năm phút nữa là bảo tàng mở cửa rồi, mọi người đều đến đủ rồi chứ các em?
+Quốc An: Thưa thầy, Trung Minh nói bạn ấy sắp tới nơi rồi ạ.
+Gia Lạc: Thầy ơi, chúng em có nên đi xếp hàng mua vé trước không ạ?
+Thầy giáo: Chắc cần phải xếp hàng khoảng mười phút đấy, vậy được thôi, chúng ta đi xếp hàng trước nào.
+Thầy giáo: Hôm nay chúng ta dự định tham quan trong ba tiếng, sẽ có người thuyết minh giới thiệu cho chúng ta. Sau khi vào trong, các em nhớ phải giữ trật tự, không được nói chuyện quá to nhé.
+Gia Lạc: Thưa thầy, vừa nãy em dùng điện thoại lên mạng xem rất nhiều hình ảnh thú vị, em muốn vào xem ngay những hiện vật trong bảo tàng quá.
+Thầy giáo: Thầy biết em rất thích lịch sử, thầy nghĩ hôm nay em chắc chắn sẽ rất vui.
+Gia Lạc: Em cũng tìm được rất nhiều bài viết trên mạng, những lời giới thiệu và câu chuyện đó đều vô cùng thú vị.
+Thầy giáo: Vậy nếu các bạn có câu hỏi gì thì có thể hỏi em được rồi.
+Gia Lạc: Nếu em biết, em nhất định sẽ nói cho mọi người biết ạ!
+Quốc An: Trung Minh đến rồi kìa!
+Thầy giáo: Được rồi, chúng ta cùng vào trong tham quan nhé.""",
 
     "87_2": """Chiếc điện thoại thông minh ngày nay đã trở thành một phần không thể thiếu trong đời sống hiện đại của chúng ta. Từ việc liên lạc, tra cứu thông tin, xem bản đồ đến việc thanh toán tiền bạc, mọi thứ đều có thể thực hiện chỉ với vài thao tác trên màn hình.
 Tuần trước khi đến tham quan viện bảo tàng khoa học, nhờ có ứng dụng bản đồ trên điện thoại mà tôi đã dễ dàng tìm được đường đi chính xác từ ga tàu điện ngầm mà không hề bị lạc đường.
 Điện thoại thông minh thực sự mang lại sự thuận tiện tuyệt vời, giúp cuộc sống học tập và sinh hoạt của du học sinh trở nên dễ dàng hơn bao giờ hết.""",
 
     # ------------------ Lesson 88 (Bài 14) ------------------
-    "88_0": """Thầy giáo: Gia Lạc, em sống ở Đài Loan được bao lâu rồi? Đã từng tham gia các hoạt động đón năm mới ở Đài Loan chưa?
-Gia Lạc: Thưa thầy, em sống ở Đài Loan được nửa năm rồi ạ, đây là lần đầu tiên em đón năm mới tại đây. Người Đài Loan vào ngày cuối cùng của năm thường có hoạt động gì đặc biệt ạ?
-Thầy giáo: Đêm giao thừa ở Đài Bắc rất náo nhiệt, nổi tiếng nhất là đại nhạc hội và màn bắn pháo hoa từ tòa tháp Taipei 101.
-Gia Lạc: Nghe thú vị quá ạ! Tối hôm đó chắc đông người lắm thầy nhỉ?
-Thầy giáo: Đúng vậy, hàng trăm nghìn người từ khắp nơi đều đổ về quảng trường tòa thị chính để cùng nhau đếm ngược chào năm mới.
-Gia Lạc: Em nhất định sẽ rủ các bạn cùng đi trải nghiệm không khí tuyệt vời này.
-Thầy giáo: Em nhớ mặc áo ấm và đi lại cẩn thận nhé, vì đêm đó các phương tiện giao thông công cộng sẽ rất đông đúc đấy.
-Gia Lạc: Vâng ạ, em cảm ơn thầy đã nhắc nhở!
-Thầy giáo: Chúc em có một đêm giao thừa đáng nhớ nhé!""",
+    "88_0": """Thầy giáo: Gia Lạc, em sống ở Đài Loan được bao lâu rồi? Em đã từng tham gia hoạt động đón năm mới ở Đài Loan chưa?
+Gia Lạc: Em sống ở Đài Loan được nửa năm rồi ạ, đây là lần đầu tiên em đón năm mới tại Đài Loan. Người Đài Loan vào ngày cuối cùng của năm thường có hoạt động gì đặc biệt ạ?
+Thầy giáo: Đêm ngày 31 tháng 12, rất nhiều thành phố đều có đêm hội đếm ngược đón giao thừa, thầy thích nhất là đại nhạc hội ở Taipei 101, có rất nhiều tiết mục biểu diễn, vừa náo nhiệt vừa hấp dẫn.
+Gia Lạc: Đại nhạc hội mấy giờ thì kết thúc ạ?
+Thầy giáo: Khoảng chừng một giờ đêm thì kết thúc.
+Gia Lạc: Năm nay em cũng muốn đến Taipei 101 xem thử.
+Nghi Văn: Ở đó đông người lắm, đi tàu điện ngầm hay đi xe buýt đều rất bất tiện. Hay là mọi người cùng đến nhà mình đón giao thừa đi!
+Nghi Văn: Mỗi người chúng mình có thể chuẩn bị một vài món ăn ngon mang đến.
+Thầy giáo: Được đấy! Vậy thầy cũng sẽ chuẩn bị một ít đồ uống. Mọi người cùng nhau đón năm mới nhé!""",
 
-    "88_1": """Nghi Văn: Chào mừng các bạn đến nhà mình, mời mọi người vào trong!
-Gia Lạc: Cảm ơn cậu! Công viên phía trước nhà cậu nhiều hoa và cây xanh quá, không khí trong lành thật đấy!
-Tomomi: Nghi Văn ơi, chúng mình mang theo bánh ngọt và hoa quả đến cùng chung vui này.
-Nghi Văn: Các cậu chu đáo quá, cảm ơn mọi người nhiều nhé. Mau vào phòng khách ngồi đi.
-Trung Minh: Nhà cậu trang trí đón Tết đẹp quá, trên tường còn treo cả câu đối đỏ nữa kìa.
-Nghi Văn: Mẹ mình tự tay viết câu đối đấy, chúc mọi người năm mới bình an và nhiều may mắn.
-Quốc An: Tuyệt vời quá! Chúc gia đình cậu năm mới vạn sự như ý nhé.
-Nghi Văn: Cảm ơn Quốc An! Bữa tối hôm nay mẹ mình chuẩn bị món lẩu gia đình để chúng mình cùng ăn cho ấm cúng.
-Gia Lạc: Mùa đông được quây quần bên nồi lẩu nóng hổi thế này thì không gì sánh bằng!
-Tomomi: Đúng thế, chúng mình cùng nhau nâng ly chúc mừng năm mới nào!
-Tất cả: Chúc mừng năm mới! Bình an và hạnh phúc!
-Nghi Văn: Nào, mọi người cùng ăn nhiệt tình nhé!
-Trung Minh: Ngon quá, cảm ơn lòng hiếu khách của gia đình cậu!""",
+    "88_1": """Nghi Văn: Chào mừng mọi người, mời vào trong!
+Gia Lạc: Cảm ơn cậu! Công viên phía trước nhà cậu có rất nhiều hoa và cây xanh, môi trường sống tuyệt thật đấy!
+Quốc An: Mình và Tomomi có mua mấy chai rượu, và cũng mang theo sủi cảo, bánh bao và canh bò mà mọi người đều thích.
+Nghi Văn: Nhiều đồ thế này chắc nặng lắm nhỉ?
+Quốc An: Không nặng đâu, mình rất vui vì được chuẩn bị cho mọi người.
+Thầy giáo: Thầy có mua trà sữa trân châu, hy vọng mọi người sẽ thích.
+Nghi Văn: Mọi người chuẩn bị nhiều đồ ngon quá. Thầy ơi, xin mời thầy dùng trước ạ!
+Gia Lạc: Thưa thầy, lúc đón giao thừa nếu không muốn đi xem nhạc hội thì còn có hoạt động nào khác không ạ?
+Thầy giáo: Có chứ! Hồi nhỏ thầy sống trên núi khoảng bảy, tám năm, ngày đầu tiên của mỗi năm thầy đều cùng gia đình ngắm bình minh.
+Gia Lạc: Khi đón năm mới, các nhà thờ ở Anh có rất nhiều hoạt động, cũng có người đi nghe hòa nhạc.
+Tomomi: Ở Nhật Bản, lúc giao thừa nhiều người ở nhà cùng gia đình xem tivi. Nhưng mình thích đón năm mới cùng bạn bè, thú vị hơn xem tivi ở nhà nhiều.
+Quốc An: Mình cũng thích đón năm mới cùng bạn bè, hơn nữa năm nay thú vị hơn trước rất nhiều, vì được ở Đài Loan vui chơi cùng các cậu, cảm thấy rất đặc biệt.
+Nghi Văn: Mình đồng ý, mình cũng thấy năm nay vô cùng thú vị.""",
 
     "88_2": """Vào ngày cuối cùng của năm, mỗi quốc gia trên thế giới đều có những phong tục và hoạt động đặc sắc để chào đón thời khắc chuyển giao năm mới. Tại Đài Loan, giới trẻ đặc biệt hào hứng tham gia các buổi đại nhạc hội ngoài trời và chiêm ngưỡng màn pháo hoa ngoạn mục tại tháp Taipei 101.
 Đây là dịp tuyệt vời để bạn bè cùng nhau tụ họp, thưởng thức bữa cơm tất niên ấm áp và cùng đếm ngược những giây phút cuối cùng của năm cũ. Dù dòng người đông đúc trên các con phố và trạm tàu điện ngầm có đôi chút vất vả, nhưng niềm hân hoan rạng rỡ trên từng gương mặt đã tạo nên một kỷ niệm đón năm mới vô cùng thiêng liêng và khó quên trong lòng mỗi người du học sinh.""",
@@ -371,5 +360,6 @@ Quốc An: (Xem ảnh) Cậu cười tươi và rạng rỡ quá, phong cảnh t
 
     "90_2": """Đài Loan bốn bề đều là biển cả, phía tây giáp với Trung Quốc đại lục, phía nam giáp với Philippines; mùa hè không oi bức như Philippines, mùa đông lại không buốt giá như miền bắc Trung Quốc. Diện tích Đài Loan không lớn, nhỏ hơn Hà Lan một chút, chiều dài từ bắc chí nam chỉ vỏn vẹn ba trăm tám mươi lăm cây số, nhưng nơi đây có cả núi non trùng điệp lẫn biển xanh bao la, những danh lam thắng cảnh tươi đẹp nhiều vô kể, hơn nữa giao thông đi lại vô cùng thuận tiện, từ vùng núi cao di chuyển ra đến bờ biển không mất quá nhiều thời gian, một số người nước ngoài cảm thấy điều này vô cùng thú vị.
 Thành phố nổi tiếng nhất của Đài Loan chính là Đài Bắc, hệ thống tàu điện ngầm của Đài Bắc vừa thuận tiện lại vừa sạch sẽ tinh tươm, người đi làm và học sinh sinh viên đi học bằng tàu điện ngầm rất đông đúc, những du khách đến du lịch cũng rất thích trải nghiệm tàu điện ngầm của Đài Bắc.
-Hàng năm có rất nhiều du khách quốc tế đến Đài Loan du lịch, họ đặc biệt thích ghé thăm các khu chợ đêm sầm uất, bởi vì đồ ăn thức uống ở đó vô cùng phong phú đa dạng, không khí lại vô cùng náo nhiệt, du khách còn có thể tham gia rất nhiều trò chơi dân gian hấp dẫn. Những món ăn nổi tiếng nhất phải kể đến là tiểu long bao, mì bò thơm ngon và trà sữa trân châu, người dân Đài Loan vô cùng yêu thích, và đông đảo du khách nước ngoài cũng mê mẩn không kém."""
+Hàng năm có rất nhiều du khách quốc tế đến Đài Loan du lịch, họ đặc biệt thích ghé thăm các khu chợ đêm sầm uất, bởi vì đồ ăn thức uống ở đó vô cùng phong phú đa dạng, không khí lại vô cùng náo nhiệt, du khách còn có thể tham gia rất nhiều trò chơi dân gian hấp dẫn. Những món ăn nổi tiếng nhất phải kể đến là tiểu long bao, mì bò thơm ngon và trà sữa trân châu, người dân Đài Loan vô cùng yêu thích, và đông đảo du khách nước ngoài cũng mê mẩn không kém.""",
+
 }

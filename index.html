@@ -5,9 +5,9 @@
 <head>
 
 <script>
-// Tự động dọn dẹp triệt để cache và cập nhật Service Worker lên v2.5.0
+// Tự động dọn dẹp triệt để cache và cập nhật Service Worker lên v2.5.1
 (function() {
-    const CURRENT_APP_VER = '2.5.0';
+    const CURRENT_APP_VER = '2.5.1';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -932,14 +932,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.5.0">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.5.0">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.5.0">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.5.0">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.5.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.5.0">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.5.0">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.5.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.5.1">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.5.1">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.5.1">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.5.1">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.5.1">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.5.1">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.5.1">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.5.1">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1127,7 +1127,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.5.0">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.5.1">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1140,9 +1140,9 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.5.0" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.5.1" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.5.0"></script>
+    <script src="static/js/offline-store.js?v=2.5.1"></script>
 
     
 
@@ -3089,7 +3089,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Chạm để về Trang chủ · Giữ 0.7s để làm mới (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.5.0" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.5.0';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.5.1" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.5.1';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
 
@@ -3248,7 +3248,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.5.0</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.5.1</span>
             </div>
 
             </nav>
@@ -4114,7 +4114,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.5.1" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4274,7 +4274,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.5.1" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4804,7 +4804,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.5.1" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4877,7 +4877,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/writing.js?v=2.5.1" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -5043,7 +5043,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.5.1" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -12401,7 +12401,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.5.1" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -12782,7 +12782,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.5.1" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -12892,7 +12892,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.5.1" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -12963,7 +12963,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.5.1" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -13317,7 +13317,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.5.1" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -13522,7 +13522,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.5.0" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.5.1" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -17847,6 +17847,101 @@ window.addEventListener('error', function(e) {
             }
         }
 
+                // Bộ tải trước bài học liền kề (Adjacent Lesson Pre-fetch N+1 / N-1)
+        const __prefetchedLessons = new Set();
+        function prefetchAdjacentLessons(currentLessonId) {
+            if (!currentLessonId || (typeof currentLessonId === 'string' && currentLessonId.startsWith('topic:'))) return;
+            if (typeof navigator !== 'undefined' && !navigator.onLine) return;
+
+            const lessonSelect = document.getElementById('select-lesson');
+            if (!lessonSelect || !lessonSelect.options || lessonSelect.options.length <= 1) return;
+
+            let currentIdx = lessonSelect.selectedIndex;
+            if (currentIdx <= 0) {
+                for (let i = 1; i < lessonSelect.options.length; i++) {
+                    if (String(lessonSelect.options[i].value) === String(currentLessonId)) {
+                        currentIdx = i;
+                        break;
+                    }
+                }
+            }
+            if (currentIdx <= 0) return;
+
+            const targetIds = [];
+            // Ưu tiên nạp trước bài N+1
+            if (currentIdx + 1 < lessonSelect.options.length) {
+                const nextVal = lessonSelect.options[currentIdx + 1].value;
+                if (nextVal && !nextVal.startsWith('topic:')) targetIds.push(nextVal);
+            }
+            // Nạp trước bài N-1 (nếu có)
+            if (currentIdx - 1 >= 1) {
+                const prevVal = lessonSelect.options[currentIdx - 1].value;
+                if (prevVal && !prevVal.startsWith('topic:')) targetIds.push(prevVal);
+            }
+
+            const fetchSingleLesson = async (lId) => {
+                if (!lId || __prefetchedLessons.has(String(lId))) return;
+                __prefetchedLessons.add(String(lId));
+
+                window._vocabCache = window._vocabCache || {};
+                window._lessonContentsCache = window._lessonContentsCache || {};
+
+                // Nếu đã có trong RAM cache hoặc offline bundle thì không cần tải lại
+                if (window._vocabCache[lId] && window._lessonContentsCache[lId]) return;
+
+                try {
+                    const promises = [];
+                    if (!window._vocabCache[lId]) {
+                        promises.push(
+                            fetch(`/api.php?action=get_vocabularies&lesson_id=${lId}`, { priority: 'low' })
+                                .then(r => r.json())
+                                .then(data => {
+                                    if (Array.isArray(data) && data.length > 0) {
+                                        window._vocabCache[lId] = data;
+                                        if (typeof preloadAudio === 'function') {
+                                            const urls = data.slice(0, 6).map(v => (v && v.hanzi) ? ttsLocalPath(v.hanzi) : null).filter(Boolean);
+                                            preloadAudio(urls);
+                                        }
+                                    }
+                                })
+                                .catch(() => {})
+                        );
+                    }
+                    if (!window._lessonContentsCache[lId]) {
+                        promises.push(
+                            fetch(`/api.php?action=get_lesson_contents&lesson_id=${lId}`, { priority: 'low' })
+                                .then(r => r.json())
+                                .then(data => {
+                                    if (data && data.success && Array.isArray(data.data)) {
+                                        window._lessonContentsCache[lId] = data.data;
+                                    }
+                                })
+                                .catch(() => {})
+                        );
+                    }
+                    await Promise.all(promises);
+                } catch (e) {}
+            };
+
+            const trigger = () => {
+                targetIds.forEach((id, idx) => {
+                    setTimeout(() => {
+                        if ('requestIdleCallback' in window) {
+                            requestIdleCallback(() => fetchSingleLesson(id), { timeout: 3500 });
+                        } else {
+                            fetchSingleLesson(id);
+                        }
+                    }, idx * 400);
+                });
+            };
+
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(trigger, { timeout: 2000 });
+            } else {
+                setTimeout(trigger, 1000);
+            }
+        }
+
         async function loadVocabulariesAndContent(lessonId) {
             if (!lessonId) return;
 
@@ -17933,6 +18028,12 @@ window.addEventListener('error', function(e) {
             // Hiển thị ngay lập tức không giật nháy nếu đã có sẵn trong cache/offline
             if (hadInstant) {
                 refreshActiveLessonView();
+            } else {
+                // Phản hồi tức thì: hiển thị khung chờ nhẹ để người dùng biết app đang tải
+                const vList = document.getElementById('vocab-list-container');
+                if (vList && (!vocabData || vocabData.length === 0)) {
+                    vList.innerHTML = `<div class="p-8 text-center text-slate-400 animate-pulse"><i class="fa-solid fa-circle-notch fa-spin text-2xl text-primary mb-2"></i><p class="text-xs font-semibold">Đang tải bài học...</p></div>`;
+                }
             }
 
             // 2. Tải/đồng bộ từ mạng ngầm để cập nhật dữ liệu mới nhất mà không giật nháy màn hình
@@ -17974,6 +18075,11 @@ window.addEventListener('error', function(e) {
                 if (!hadInstant) {
                     refreshActiveLessonView();
                 }
+            }
+
+            // 3. Tự động nạp trước bài học kế tiếp (Adjacent Lesson Pre-fetch N+1) để chuyển bài 0ms
+            if (typeof prefetchAdjacentLessons === 'function') {
+                prefetchAdjacentLessons(lessonId);
             }
         }
 
@@ -18411,7 +18517,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.5.0' : '/sw.js?v=2.5.0';
+                const swUrl = isGh ? 'sw.js?v=2.5.1' : '/sw.js?v=2.5.1';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

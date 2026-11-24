@@ -470,13 +470,42 @@ def serve_data_files(filename):
 def health_check():
     return "OK", 200, {"Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-cache"}
 
+_INDEX_HTML_CACHE = None
+_INDEX_HTML_MTIME = 0
+_INDEX_HTML_ETAG = ""
+
+def get_index_response():
+    global _INDEX_HTML_CACHE, _INDEX_HTML_MTIME, _INDEX_HTML_ETAG
+    index_path = os.path.join(BASE_DIR, "templates", "index.html")
+    try:
+        mtime = os.path.getmtime(index_path)
+    except OSError:
+        mtime = 0
+    if _INDEX_HTML_CACHE is None or mtime != _INDEX_HTML_MTIME:
+        try:
+            with open(index_path, "r", encoding="utf-8") as f:
+                _INDEX_HTML_CACHE = f.read()
+            _INDEX_HTML_MTIME = mtime
+            _INDEX_HTML_ETAG = f'"{hashlib.md5(_INDEX_HTML_CACHE.encode("utf-8")).hexdigest()[:16]}"'
+        except Exception as e:
+            print(f"Error loading index.html: {e}")
+            return make_response(render_template("index.html"))
+
+    if request.headers.get("If-None-Match") == _INDEX_HTML_ETAG:
+        res = Response(status=304)
+        res.headers["ETag"] = _INDEX_HTML_ETAG
+        res.headers["Cache-Control"] = "no-cache, must-revalidate"
+        return res
+
+    res = make_response(_INDEX_HTML_CACHE)
+    res.headers["Content-Type"] = "text/html; charset=utf-8"
+    res.headers["ETag"] = _INDEX_HTML_ETAG
+    res.headers["Cache-Control"] = "no-cache, must-revalidate"
+    return res
+
 @app.route("/")
 def index():
-    resp = make_response(render_template("index.html"))
-    resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    resp.headers["Pragma"] = "no-cache"
-    resp.headers["Expires"] = "0"
-    return resp
+    return get_index_response()
 
 @app.route("/manifest.json")
 def serve_manifest():
@@ -2017,7 +2046,7 @@ def serve_page(page):
         "measure_words", "luong-tu", "vocab-notebook-hub", "calculator", "dict-lookup", "dict_lookup.php"
     }
     if page in valid_pages:
-        return render_template("index.html")
+        return get_index_response()
     return "Not Found", 404
 
 if __name__ == "__main__":

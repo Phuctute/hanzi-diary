@@ -1,6 +1,6 @@
-const CACHE_NAME = 'hanzi-pwa-v2.4.8';
-const API_CACHE_NAME = 'hanzi-api-v2.4.8';
-const AUDIO_CACHE_NAME = 'hanzi-audio-v2.4.8';
+const CACHE_NAME = 'hanzi-pwa-v2.4.9';
+const API_CACHE_NAME = 'hanzi-api-v2.4.9';
+const AUDIO_CACHE_NAME = 'hanzi-audio-v2.4.9';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
 const PRECACHE_ASSETS = [
@@ -243,36 +243,26 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 5. Read-only APIs: Stale-While-Revalidate (Network-First nếu có _t=)
+    // 5. Read-only APIs: Network-First with Cache Fallback (không bao giờ bị kẹt dữ liệu rỗng)
   const isReadOnlyApi = (url.pathname.includes('api.php') || url.pathname.startsWith('/api/')) && (
     !url.search.includes('action=logout') &&
     !url.pathname.includes('/api/tts')
   );
 
   if (isReadOnlyApi) {
-    // Network-First for lesson_contents or any request with cache-buster _t
-    if (url.search.includes('_t=')) {
-      event.respondWith(
-        fetch(req).then((networkRes) => {
-          if (networkRes && networkRes.status === 200) {
-            caches.open(API_CACHE_NAME).then((cache) => cache.put(req, networkRes.clone())).catch(() => {});
-          }
-          return networkRes;
-        }).catch(() => caches.match(req))
-      );
-      return;
-    }
-
     event.respondWith(
-      caches.open(API_CACHE_NAME).then((cache) => {
-        return cache.match(req).then((cached) => {
-          const fetchPromise = fetch(req).then((networkRes) => {
-            if (networkRes && networkRes.status === 200) {
-              cache.put(req, networkRes.clone());
-            }
-            return networkRes;
-          }).catch(() => cached);
-          return cached || fetchPromise;
+      fetch(req).then((networkRes) => {
+        if (networkRes && networkRes.status === 200) {
+          caches.open(API_CACHE_NAME).then((cache) => cache.put(req, networkRes.clone())).catch(() => {});
+        }
+        return networkRes;
+      }).catch(async () => {
+        const cache = await caches.open(API_CACHE_NAME);
+        const cached = await cache.match(req);
+        if (cached) return cached;
+        return new Response(JSON.stringify({ error: 'offline', data: [] }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
         });
       })
     );

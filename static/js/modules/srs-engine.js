@@ -878,7 +878,18 @@ let fcSrsScope = 'lesson';
         }
         if (typeof preloadAudio === 'function' && Array.isArray(flashcardList)) {
             const nextCards = flashcardList.slice(currentFlashcardIdx + 1, currentFlashcardIdx + 5);
-            preloadAudio(nextCards.map(c => ttsLocalPath(c.hanzi)));
+            const preloadList = nextCards.map(c => ttsLocalPath(c.hanzi));
+            // Đồng thời preload các câu ví dụ của thẻ hiện tại và thẻ kế tiếp để nghe tức thì
+            const cardsToCheck = [flashcardList[currentFlashcardIdx], flashcardList[currentFlashcardIdx + 1]].filter(Boolean);
+            cardsToCheck.forEach(card => {
+                if (card && card.examples && card.examples.length > 0) {
+                    card.examples.slice(0, 2).forEach(ex => {
+                        const parsed = parseExamplePattern(getChar(ex.examples_hanzi));
+                        if (parsed && parsed.sentence) preloadList.push(ttsLocalPath(parsed.sentence));
+                    });
+                }
+            });
+            preloadAudio(preloadList);
         }
         document.getElementById('fc-face-front').style.boxShadow = '';
         if(flashcardList.length === 0) return;
@@ -941,7 +952,7 @@ let fcSrsScope = 'lesson';
                             <button type="button" class="fc-ex-copy-btn bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-primary active:scale-95 transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none cursor-pointer" onclick="event.stopPropagation(); copyFcExample(this, '${safeTextEx}')" title="Sao chép câu ví dụ">
                                 <i class="fa-regular fa-copy text-xs sm:text-sm pointer-events-none"></i>
                             </button>
-                            <button type="button" class="fc-ex-audio-btn bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 active:bg-primary active:text-white transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none cursor-pointer" data-text="${encodeURIComponent(safeTextEx)}" onclick="event.stopPropagation(); playTTS(this.getAttribute('data-text'), event)" title="Nghe ví dụ">
+                            <button type="button" class="fc-ex-audio-btn bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-700 active:bg-primary active:text-white transition-all shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full shadow-sm flex items-center justify-center border-0 outline-none cursor-pointer" data-text="${encodeURIComponent(safeTextEx)}" onpointerenter="if(typeof preloadAudio==='function')preloadAudio(ttsLocalPath(decodeURIComponent(this.getAttribute('data-text'))))" onclick="event.stopPropagation(); playTTS(this.getAttribute('data-text'), event)" title="Nghe ví dụ">
                                 <i class="fa-solid fa-volume-high text-xs sm:text-sm pointer-events-none transition-transform"></i>
                             </button>
                         </div>

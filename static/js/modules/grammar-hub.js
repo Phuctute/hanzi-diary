@@ -333,6 +333,9 @@
                 if (Array.isArray(bm)) data.is_bookmarked = bm.map(String).includes(String(grammarId));
             } catch (e) {}
             body.innerHTML = gmhDetailHtml(data);
+            if (data && data.examples && typeof preloadAudio === 'function' && typeof ttsLocalPath === 'function') {
+                preloadAudio(data.examples.map(function(ex) { return ttsLocalPath(ex.example_zh); }));
+            }
             gmhLoadContexts(grammarId);
         }).catch(function () { body.innerHTML = '<div class="text-center text-slate-400 text-sm py-16">Lỗi tải dữ liệu.</div>'; });
     }
@@ -354,7 +357,7 @@
         var examplesHtml = (g.examples || []).map(function (ex) {
             var safeZh = String(ex.example_zh).replace(/'/g, "\\'").replace(/"/g, '&quot;');
             return '<div class="gmh-example">' +
-                '<button type="button" class="gmh-speak-btn" onclick="gmhSpeak(\'' + safeZh + '\', event)" title="Nghe phát âm"><i class="fa-solid fa-volume-high pointer-events-none transition-transform"></i></button>' +
+                '<button type="button" class="gmh-speak-btn" onpointerenter="if(typeof preloadAudio===\'function\'&&typeof ttsLocalPath===\'function\')preloadAudio(ttsLocalPath(\'' + safeZh + '\'))" onclick="gmhSpeak(\'' + safeZh + '\', event)" title="Nghe phát âm"><i class="fa-solid fa-volume-high pointer-events-none transition-transform"></i></button>' +
                 '<div class="min-w-0"><div class="e-zh">' + ex.example_zh + '</div>' +
                 (ex.example_pinyin ? '<div class="e-pinyin">' + ex.example_pinyin + '</div>' : '') +
                 '<div class="e-vi">' + ex.example_vi + '</div></div>' +

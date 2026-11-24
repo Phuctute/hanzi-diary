@@ -10,6 +10,10 @@ import urllib.parse
 import subprocess
 import gzip
 import mimetypes
+try:
+    import edge_tts
+except ImportError:
+    edge_tts = None
 mimetypes.add_type('image/webp', '.webp')
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response, redirect, make_response
@@ -538,7 +542,7 @@ def serve_pwa_sounds(filename):
     return resp
 
 def generate_tts_mp3(text):
-    clean_text = text.strip()[:100]
+    clean_text = text.strip()[:200]
     if not clean_text:
         return None
     import hashlib
@@ -553,6 +557,20 @@ def generate_tts_mp3(text):
     voices = ["zh-TW-HsiaoChenNeural", "zh-TW-YunJheNeural", "zh-CN-XiaoxiaoNeural"]
     
     for voice in voices:
+        # Ưu tiên dùng trực tiếp thư viện Python edge_tts (nhanh gấp đôi subprocess)
+        if edge_tts is not None:
+            try:
+                async def _gen():
+                    comm = edge_tts.Communicate(clean_text, voice)
+                    await comm.save(tmp_path)
+                asyncio.run(_gen())
+                if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:
+                    os.replace(tmp_path, cache_path)
+                    return cache_path
+            except Exception:
+                pass
+
+        # Fallback qua CLI subprocess nếu môi trường cần
         try:
             cmd = ["edge-tts", "--voice", voice, "--text", clean_text, "--write-media", tmp_path]
             res = subprocess.run(cmd, timeout=5, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -574,7 +592,8 @@ def generate_tts_mp3(text):
 
 @app.route("/audio/tts/<path:filename>")
 def serve_audio_tts(filename):
-    text = filename.replace(".mp3", "").strip()
+    text = filename[:-4] if filename.endswith(".mp3") else filename
+    text = text.strip()
     if not text:
         return "Missing text", 400
     cache_path = generate_tts_mp3(text)
@@ -1945,6 +1964,9 @@ def proxy_audio(filepath):
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
         with urllib.request.urlopen(req, timeout=15) as resp:
+            ct = resp.headers.get("Content-Type", "").lower()
+            if "audio" not in ct and "octet-stream" not in ct:
+                return "Audio not found", 404
             content = resp.read()
             save_bytes_atomic(cache_path, content)
         resp = send_file(cache_path, mimetype="audio/mpeg")

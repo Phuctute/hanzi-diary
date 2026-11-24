@@ -18587,9 +18587,13 @@ window.addEventListener('error', function(e) {
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
         if ('serviceWorker' in navigator) {
-            // Không tự ý reload khi controllerchange để tránh bị nháy refresh ngoài ý muốn
+            let swRefreshing = false;
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 console.log('[PWA] Service Worker controller changed');
+                if (!swRefreshing) {
+                    swRefreshing = true;
+                    window.location.reload();
+                }
             });
 
             window.addEventListener('load', () => {

@@ -7,7 +7,7 @@
 <script>
 // Tự động dọn dẹp triệt để cache và cập nhật Service Worker lên v2.5.2
 (function() {
-    const CURRENT_APP_VER = '2.5.2';
+    const CURRENT_APP_VER = '2.5.3';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -3017,7 +3017,17 @@ window.addEventListener('error', function(e) {
         @media (max-width: 767px) {
             #sidebar {
                 z-index: 999 !important;
-                box-shadow: 8px 0 32px rgba(0, 0, 0, 0.35);
+                box-shadow: none !important;
+            }
+            #sidebar.-translate-x-full {
+                transform: translateX(calc(-100% - 60px)) !important;
+                box-shadow: none !important;
+                pointer-events: none !important;
+            }
+            body.sidebar-open #sidebar {
+                box-shadow: 8px 0 32px rgba(0, 0, 0, 0.35) !important;
+                transform: translateX(0) !important;
+                pointer-events: auto !important;
             }
             body.sidebar-open {
                 overflow: hidden !important;
@@ -3084,7 +3094,7 @@ window.addEventListener('error', function(e) {
     </div>
 
     <aside id="sidebar" style="padding-top: env(safe-area-inset-top, 0px);"
-        class="fixed md:relative w-[280px] h-full sidebar-gradient flex flex-col shrink-0 z-[120] shadow-2xl md:shadow-none border-r border-white/5 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
+        class="fixed md:relative w-[280px] h-full sidebar-gradient flex flex-col shrink-0 z-[120] shadow-none md:shadow-none border-r border-white/5 transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0">
 
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Chạm để về Trang chủ · Giữ 0.7s để làm mới (F5)">

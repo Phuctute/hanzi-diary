@@ -812,7 +812,7 @@ async function dashDictSearchRun(inputId, dropdownId) {
     if (!q) { dd.classList.add('hidden'); dd.innerHTML = ''; return; }
 
     function renderDashResults(json) {
-        const entries = (json.data || []).slice(0, 8);
+        const entries = (json.data || []).slice(0, 10);
         if (!entries.length) {
             dd.innerHTML = dictRenderAiTranslationFallback(json.ai_translation);
         } else {

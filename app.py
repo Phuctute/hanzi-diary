@@ -266,6 +266,17 @@ for w in ALL_VOCAB:
     cm = CHAR_META.get(first_c, {})
     
     hz_vars = [v.strip().lower() for v in hz.split("/") if v.strip()]
+    
+    def _clean_core_vi(s):
+        s = re.sub(r'\(.*?\)', '', s)
+        s = re.sub(r'\[.*?\]', '', s)
+        return s.strip().lower()
+
+    core_meanings = [_clean_core_vi(m) for m in re.split(r'[;,/]', defn) if _clean_core_vi(m)]
+    first_core = core_meanings[0] if core_meanings else _clean_core_vi(defn)
+    core_meanings_clean = [remove_vn_tones(m) for m in core_meanings]
+    first_core_clean = remove_vn_tones(first_core)
+
     item = {
         "dict_id": did,
         "vocab_id": w.get("vocab_id") or did,
@@ -280,6 +291,10 @@ for w in ALL_VOCAB:
         "definition": defn,
         "first_meaning_vi": first_vi,
         "first_meaning_vi_clean": remove_vn_tones(first_vi).lower(),
+        "core_meanings": core_meanings,
+        "core_meanings_clean": core_meanings_clean,
+        "first_core": first_core,
+        "first_core_clean": first_core_clean,
         "vn_clean": remove_vn_tones(defn),
         "radical": cm.get("radical") if len(hz) == 1 else None,
         "stroke_count": cm.get("stroke_count") if len(hz) == 1 else None,
@@ -1329,48 +1344,81 @@ def api_php():
             elif q_raw in hz or q_raw in simp or q_trad in hz or any(q_raw in v for v in variants):
                 score = 20 + len(hz)
             else:
+                core_list = item.get("core_meanings", [])
+                first_c = item.get("first_core", "")
+                core_list_c = item.get("core_meanings_clean", [])
+                first_c_clean = item.get("first_core_clean", "")
+
                 if is_vn:
                     # Explicit Vietnamese with diacritics: prioritize semantic definition match
-                    if first_vi == q_raw:
+                    # Level 1: Nghĩa cốt lõi trùng khớp hoàn toàn (e.g. 'tuần' -> 禮拜, 星期, 週)
+                    if any(m == q_raw for m in core_list) or first_c == q_raw:
+                        score = 1
+                    # Level 2: Nghĩa cốt lõi bắt đầu bằng 'query ' (e.g. 'tuần sau', 'tuần lễ')
+                    elif any(m.startswith(q_raw + " ") for m in core_list):
+                        score = 4
+                    # Level 3: Nghĩa cốt lõi kết thúc bằng ' query' (e.g. 'cuối tuần')
+                    elif any(m.endswith(" " + q_raw) for m in core_list):
                         score = 5
-                    elif re.search(r"\b" + re.escape(q_raw) + r"\b", first_vi):
-                        score = 12
-                    elif first_vi.startswith(q_raw):
-                        score = 18
+                    # Level 4: Khớp từ trọn vẹn trong các nghĩa cốt lõi
+                    elif any(re.search(r"\b" + re.escape(q_raw) + r"\b", m) for m in core_list):
+                        score = 8
+                    # Level 5: Khớp từ trọn vẹn trong toàn bộ phần dịch nghĩa
                     elif re.search(r"\b" + re.escape(q_raw) + r"\b", defn):
-                        score = 25
+                        score = 15
                     elif q_raw in defn:
-                        score = 40
+                        score = 25
                 else:
                     # Unaccented or Pinyin: balanced scoring
-                    if first_vi_c == q_vn:
-                        score = 8
-                    elif py == q_raw or (q_py and py_c == q_py):
-                        score = 14 + (0 if item["tocfl_band"] and item["tocfl_band"] <= 2 else 5)
-                    elif re.search(r"\b" + re.escape(q_vn) + r"\b", first_vi_c):
-                        score = 20
-                    elif first_vi_c.startswith(q_vn):
-                        score = 26
+                    # Level 1: Pinyin trùng khớp hoàn toàn
+                    if py == q_raw or (q_py and py_c == q_py):
+                        score = 2
+                    # Level 2: Nghĩa không dấu trùng khớp hoàn toàn (e.g. 'tuan' -> 禮拜, 星期, 週)
+                    elif any(m == q_vn for m in core_list_c) or first_c_clean == q_vn:
+                        score = 3
+                    # Level 3: Pinyin bắt đầu bằng cụm tìm kiếm
                     elif q_py and len(q_py) >= 2 and py_c.startswith(q_py):
-                        score = 32 + len(py_c)
-                    elif re.search(r"\b" + re.escape(q_vn) + r"\b", defn_c):
-                        score = 42
+                        score = 6 + len(py_c)
+                    # Level 4: Nghĩa không dấu bắt đầu bằng 'tuan '
+                    elif any(m.startswith(q_vn + " ") for m in core_list_c):
+                        score = 7
+                    # Level 5: Nghĩa không dấu kết thúc bằng ' tuan'
+                    elif any(m.endswith(" " + q_vn) for m in core_list_c):
+                        score = 8
+                    # Level 6: Khớp từ trọn vẹn trong nghĩa không dấu
+                    elif any(re.search(r"\b" + re.escape(q_vn) + r"\b", m) for m in core_list_c):
+                        score = 11
                     elif q_py and len(q_py) >= 2 and any(s.startswith(q_py) for s in item.get("pinyin_syllables", [])):
-                        score = 50 + len(py_c)
+                        score = 16 + len(py_c)
+                    elif re.search(r"\b" + re.escape(q_vn) + r"\b", defn_c):
+                        score = 20
                     elif q_vn in defn_c:
-                        score = 65
+                        score = 30
             
             if score < 999:
+                norm_base = hz.split("/")[0].strip()
                 band = item["tocfl_band"] or 99
-                matches.append((score, len(first_vi), band, -item["ex_len"], len(hz), item))
+                # Ưu tiên: Điểm khớp (score) -> Cấp độ từ phổ biến (TOCFL Band 1-3 trước Band 5-6) -> Độ dài nghĩa ngắn gọn
+                matches.append((score, band, len(item.get("first_core") or hz), -item["ex_len"], len(hz), norm_base, item))
                 
         matches.sort(key=lambda x: (x[0], x[1], x[2], x[3], x[4]))
         
+        # Deduplicate kết quả theo chữ Hán cơ bản (loại bỏ từ trùng lặp dạng 週末 và 週末/周末)
+        dedup_items = []
+        seen_base = set()
+        for m in matches:
+            norm_b = m[5]
+            if norm_b in seen_base:
+                continue
+            seen_base.add(norm_b)
+            dedup_items.append(m[6])
+            if len(dedup_items) >= 20:
+                break
+        
         limit = 20
-        top_items = matches[:limit]
+        top_items = dedup_items[:limit]
         res_data = []
-        for idx, m in enumerate(top_items):
-            it = m[5]
+        for idx, it in enumerate(top_items):
             res_data.append({
                 "dict_id": it["dict_id"],
                 "hanzi": it["hanzi"],

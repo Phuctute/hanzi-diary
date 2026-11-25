@@ -62,17 +62,44 @@ function dictRenderDropdownActive() {
     if (activeEl) activeEl.scrollIntoView({ block: 'nearest' });
 }
 
-// Không có mục từ điển khớp — nếu API đã dịch được (cụm/câu dài), hiển thị bản dịch thô
-// kèm nhãn rõ ràng thay vì báo "không tìm thấy". Không có dict_id nên không cho click mở chi tiết.
+// Không có mục từ điển khớp — nếu API đã tự dịch được (cụm/câu/từ chưa có trong mục từ),
+// hiển thị thẻ kết quả dịch thông minh với chữ Hán Phồn thể, Pinyin, Hán-Việt và nút nghe phát âm TTS.
 function dictRenderAiTranslationFallback(aiTranslation) {
-    if (!aiTranslation || !aiTranslation.hanzi) {
-        return '<div class="p-4 text-sm text-slate-400 text-center">Không tìm thấy kết quả.</div>';
+    if (!aiTranslation || (!aiTranslation.hanzi && !aiTranslation.translated)) {
+        return '<div class="p-4 text-sm text-slate-400 text-center">Không tìm thấy kết quả trong từ điển.</div>';
     }
-    return `<div class="p-4 border-b border-slate-100 bg-amber-50/60">
-        <div class="text-[11px] font-bold text-amber-600 uppercase tracking-wide mb-1">
-            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Bản dịch AI (chưa có trong từ điển)
+    const zh = (aiTranslation.hanzi || aiTranslation.translated || '').trim();
+    const query = (aiTranslation.query || '').trim();
+    const meaning = (aiTranslation.meaning_vi || (aiTranslation.is_chinese_input ? aiTranslation.translated : query) || '').trim();
+
+    // Pinyin: ưu tiên từ server, nếu thiếu tự động dùng pinyinPro
+    let py = (aiTranslation.pinyin || '').trim();
+    if (!py && typeof pinyinPro !== 'undefined' && typeof pinyinPro.pinyin === 'function' && zh) {
+        try { py = pinyinPro.pinyin(zh); } catch (e) {}
+    }
+
+    const hv = aiTranslation.han_viet ? `<span class="inline-block text-[11px] font-semibold text-amber-700 bg-amber-100/90 px-2 py-0.5 rounded-md">Hán-Việt: ${aiTranslation.han_viet}</span>` : '';
+    const safeZh = zh.replace(/'/g, "\\'");
+    const escapedZh = encodeURIComponent(safeZh);
+
+    return `<div class="p-4 border-b border-slate-100 bg-gradient-to-br from-amber-50/90 via-orange-50/50 to-amber-50/30">
+        <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wide flex items-center gap-1.5">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>Bản dịch tự động (chưa có trong từ điển)
+            </span>
+            <button type="button" onclick="playTTS('${escapedZh}', event)" class="w-8 h-8 rounded-full bg-white text-amber-600 hover:bg-amber-600 hover:text-white border border-amber-200/90 shadow-2xs flex items-center justify-center transition-all cursor-pointer shrink-0" title="Nghe phát âm">
+                <i class="fa-solid fa-volume-high text-xs pointer-events-none"></i>
+            </button>
         </div>
-        <div class="text-hanzi-sm font-black text-slate-800">${aiTranslation.hanzi}</div>
+        <div class="flex items-baseline gap-2.5 flex-wrap">
+            <span class="text-xl sm:text-2xl font-black font-chinese-tc text-slate-800 leading-tight">${zh}</span>
+            ${py ? `<span class="text-xs sm:text-sm font-bold text-primary">${py}</span>` : ''}
+            ${hv}
+        </div>
+        ${meaning ? `<div class="text-xs sm:text-sm text-slate-600 mt-2 font-medium flex items-center gap-1.5">
+            <span class="text-slate-400 font-normal">Nghĩa:</span>
+            <span class="text-slate-800 font-semibold">${meaning}</span>
+        </div>` : ''}
     </div>`;
 }
 

@@ -464,6 +464,139 @@ def translate_chinese_to_vi(text):
 
     return None
 
+def auto_translate_bidirectional(text):
+    text = (text or "").strip()
+    if not text or len(text) > 300:
+        return None
+
+    # Check memory cache
+    cache_key = "auto_trans_" + hashlib.md5(text.lower().encode("utf-8")).hexdigest()
+    if cache_key in TRANSLATE_MEM_CACHE:
+        return TRANSLATE_MEM_CACHE[cache_key]
+
+    cache_file = os.path.join(TRANS_CACHE_DIR, f"{cache_key}.json")
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                res = json.load(f)
+                if res and isinstance(res, dict) and (res.get("translated") or res.get("hanzi")):
+                    TRANSLATE_MEM_CACHE[cache_key] = res
+                    return res
+        except Exception:
+            pass
+
+    is_chinese = bool(re.search(r'[\u4e00-\u9fff]', text))
+    target_lang = "vi" if is_chinese else "zh-TW"
+    source_lang = "zh-TW" if is_chinese else "auto"
+
+    translated = ""
+    detected_src = source_lang
+    trans_source = "google"
+
+    # 1. Primary: Google clients5
+    try:
+        url = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl={source_lang}&tl={target_lang}&q={urllib.parse.quote(text)}"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        })
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            if isinstance(data, list) and len(data) > 0:
+                first = data[0]
+                if isinstance(first, list) and len(first) > 0 and isinstance(first[0], str):
+                    translated = "".join(seg[0] for seg in data if isinstance(seg, list) and seg and seg[0])
+                    if len(first) > 1 and isinstance(first[1], str):
+                        detected_src = first[1]
+                elif isinstance(first, str):
+                    translated = " ".join(data)
+            elif isinstance(data, str):
+                translated = data
+            if translated:
+                trans_source = "google_clients5"
+    except Exception:
+        pass
+
+    # 2. Fallback 1: Google gtx
+    if not translated:
+        try:
+            url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_lang}&tl={target_lang}&dt=t&q={urllib.parse.quote(text)}"
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+            with urllib.request.urlopen(req, timeout=3.5) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                if isinstance(data, list) and len(data) > 0 and isinstance(data[0], list):
+                    translated = "".join(seg[0] for seg in data[0] if seg and seg[0])
+                    if translated:
+                        trans_source = "google_gtx"
+        except Exception:
+            pass
+
+    # 3. Fallback 2: MyMemory API
+    if not translated:
+        try:
+            pair = "zh-TW|vi" if is_chinese else "vi|zh-TW"
+            url = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(text)}&langpair={pair}"
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            })
+            with urllib.request.urlopen(req, timeout=3.5) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                mm_txt = data.get("responseData", {}).get("translatedText")
+                if mm_txt and "MYMEMORY WARNING" not in mm_txt.upper():
+                    translated = mm_txt
+                    trans_source = "mymemory"
+        except Exception:
+            pass
+
+    if not translated:
+        return None
+
+    if not is_chinese:
+        zh_text = to_traditional(translated)
+        vi_text = text
+    else:
+        zh_text = to_traditional(text)
+        vi_text = translated
+
+    # Compute Pinyin & Han-Viet for Chinese characters
+    py_parts = []
+    hv_parts = []
+    for c in zh_text:
+        if '\u4e00' <= c <= '\u9fff':
+            cm = CHAR_META.get(c) or {}
+            c_py = cm.get("pinyin")
+            if not c_py:
+                it = CN_VI_DICT.get(c)
+                if it and isinstance(it, dict):
+                    c_py = it.get("py")
+            if c_py:
+                py_parts.append(c_py.split(",")[0].strip())
+
+            c_hv = cm.get("han_viet") or HANVIET_DICT.get(c)
+            if c_hv:
+                hv_parts.append(c_hv.capitalize())
+
+    res = {
+        "query": text,
+        "translated": translated,
+        "hanzi": zh_text,
+        "meaning_vi": vi_text,
+        "pinyin": " ".join(py_parts) if py_parts else "",
+        "han_viet": " ".join(hv_parts) if hv_parts else "",
+        "target_lang": target_lang,
+        "source_lang": detected_src,
+        "is_chinese_input": is_chinese,
+        "source": trans_source
+    }
+
+    TRANSLATE_MEM_CACHE[cache_key] = res
+    try:
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(res, f, ensure_ascii=False)
+    except Exception:
+        pass
+
+    return res
+
 @app.after_request
 def add_cors_headers(response):
     response.headers["Access-Control-Allow-Origin"] = "*"
@@ -1432,10 +1565,14 @@ def api_php():
                 "hanzi_simplified": it["hanzi_simplified"]
             })
             
+        ai_trans = None
+        if not res_data:
+            ai_trans = auto_translate_bidirectional(q)
+
         return jsonify({
             "success": True,
             "data": res_data,
-            "ai_translation": {"hanzi": q, "source": "ai"} if not res_data else None
+            "ai_translation": ai_trans
         })
     elif action in ("dict_lookup_detail", "get_vocab_detail"):
         did = request.args.get("dict_id") or request.args.get("vocab_id") or request.args.get("id")

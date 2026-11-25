@@ -148,31 +148,48 @@ if os.path.exists(st_path):
 _od_s2tw = None
 _od_tw2s = None
 _libopencc = None
-for _libname in ["libopencc.so.1.1", "/usr/lib/x86_64-linux-gnu/libopencc.so.1.1", "libopencc.so.2", "libopencc.so"]:
-    try:
-        import ctypes
-        _cand = ctypes.cdll.LoadLibrary(_libname)
-        _cand.opencc_open.argtypes = [ctypes.c_char_p]
-        _cand.opencc_open.restype = ctypes.c_void_p
-        _cand.opencc_convert_utf8.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_size_t]
-        _cand.opencc_convert_utf8.restype = ctypes.c_void_p
-        _cand.opencc_convert_utf8_free.argtypes = [ctypes.c_void_p]
-        _cand.opencc_convert_utf8_free.restype = None
-        _cand.opencc_close.argtypes = [ctypes.c_void_p]
-        _cand.opencc_close.restype = ctypes.c_int
-        _s2tw = _cand.opencc_open(b"s2tw.json")
-        _tw2s = _cand.opencc_open(b"tw2s.json")
-        if _s2tw and _tw2s:
-            _libopencc = _cand
-            _od_s2tw = _s2tw
-            _od_tw2s = _tw2s
-            print(f"OpenCC library initialized via {_libname}")
-            break
-    except Exception:
-        continue
+_py_opencc_s2tw = None
+_py_opencc_tw2s = None
+try:
+    import opencc as _py_opencc_mod
+    _py_opencc_s2tw = _py_opencc_mod.OpenCC("s2tw.json")
+    _py_opencc_tw2s = _py_opencc_mod.OpenCC("tw2s.json")
+    print("OpenCC Python package initialized (s2tw/tw2s)")
+except Exception:
+    _py_opencc_s2tw = None
+    _py_opencc_tw2s = None
+
+if not (_py_opencc_s2tw and _py_opencc_tw2s):
+    for _libname in ["libopencc.so.1.1", "/usr/lib/x86_64-linux-gnu/libopencc.so.1.1", "libopencc.so.2", "libopencc.so"]:
+        try:
+            import ctypes
+            _cand = ctypes.cdll.LoadLibrary(_libname)
+            _cand.opencc_open.argtypes = [ctypes.c_char_p]
+            _cand.opencc_open.restype = ctypes.c_void_p
+            _cand.opencc_convert_utf8.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_size_t]
+            _cand.opencc_convert_utf8.restype = ctypes.c_void_p
+            _cand.opencc_convert_utf8_free.argtypes = [ctypes.c_void_p]
+            _cand.opencc_convert_utf8_free.restype = None
+            _cand.opencc_close.argtypes = [ctypes.c_void_p]
+            _cand.opencc_close.restype = ctypes.c_int
+            _s2tw = _cand.opencc_open(b"s2tw.json")
+            _tw2s = _cand.opencc_open(b"tw2s.json")
+            if _s2tw and _tw2s:
+                _libopencc = _cand
+                _od_s2tw = _s2tw
+                _od_tw2s = _tw2s
+                print(f"OpenCC library initialized via {_libname}")
+                break
+        except Exception:
+            continue
 
 def to_simplified(s):
     if not s: return ""
+    if _py_opencc_tw2s:
+        try:
+            return _py_opencc_tw2s.convert(s)
+        except Exception:
+            pass
     if _libopencc and _od_tw2s:
         try:
             import ctypes
@@ -187,6 +204,11 @@ def to_simplified(s):
 
 def to_traditional(s):
     if not s: return ""
+    if _py_opencc_s2tw:
+        try:
+            return _py_opencc_s2tw.convert(s)
+        except Exception:
+            pass
     if _libopencc and _od_s2tw:
         try:
             import ctypes
@@ -324,20 +346,116 @@ for it in DICT_INDEX:
         TOCFL_VOCAB[b].append(it)
 print(f"Indexed TOCFL_VOCAB: {', '.join(f'Band {k}: {len(v)}' for k, v in TOCFL_VOCAB.items())}")
 
+def _cache_mem_put(key, val):
+    if len(TRANSLATE_MEM_CACHE) >= 1000:
+        try:
+            TRANSLATE_MEM_CACHE.pop(next(iter(TRANSLATE_MEM_CACHE)))
+        except StopIteration:
+            pass
+    TRANSLATE_MEM_CACHE[key] = val
+
+def _build_pinyin(zh_text, gtx_rm=""):
+    rm = (gtx_rm or "").strip()
+    if rm and not re.search(r'[\u4e00-\u9fff]', rm):
+        # Lowercase leading capital from sentence-case while keeping tone diacritics
+        return rm.lower()
+    py_str = ""
+    try:
+        py_str = _gen_pinyin(zh_text).strip()
+    except Exception:
+        pass
+    if not py_str:
+        py_parts = []
+        for c in zh_text:
+            if '\u4e00' <= c <= '\u9fff':
+                cm = CHAR_META.get(c) or {}
+                c_py = cm.get("pinyin") or (CN_VI_DICT.get(c) or {}).get("py")
+                if c_py:
+                    py_parts.append(c_py.split(",")[0].strip())
+        py_str = " ".join(py_parts)
+    return py_str
+
+def _fetch_machine_translation(text, source_lang, target_lang):
+    """Fetch translation (+ Taiwan-aware Pinyin via Google dt=rm) with fallbacks."""
+    zh_is_target = target_lang.startswith("zh")
+    # 1. Google gtx with dt=t&dt=rm: 1 call returns both translation & Taiwan Pinyin
+    try:
+        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_lang}&tl={target_lang}&dt=t&dt=rm&q={urllib.parse.quote(text)}"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        })
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        segs = data[0] if isinstance(data, list) and data and isinstance(data[0], list) else []
+        translated = "".join(s[0] for s in segs if isinstance(s, list) and len(s) >= 2 and s[0] and s[1] is not None)
+        rm_idx = 2 if zh_is_target else 3
+        rm = " ".join(
+            s[rm_idx] for s in segs
+            if isinstance(s, list) and s[0] is None and len(s) > rm_idx and isinstance(s[rm_idx], str) and s[rm_idx]
+        ).strip()
+        detected = data[2] if isinstance(data, list) and len(data) > 2 and isinstance(data[2], str) else source_lang
+        if translated:
+            return translated, rm, detected, "google_gtx"
+    except Exception:
+        pass
+
+    # 2. Fallback 1: Google clients5 (resistant to rate-limit)
+    try:
+        url = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl={source_lang}&tl={target_lang}&q={urllib.parse.quote(text)}"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        })
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        translated = ""
+        detected = source_lang
+        if isinstance(data, list) and len(data) > 0:
+            first = data[0]
+            if isinstance(first, list) and len(first) > 0 and isinstance(first[0], str):
+                translated = "".join(seg[0] for seg in data if isinstance(seg, list) and seg and seg[0])
+                if len(first) > 1 and isinstance(first[1], str):
+                    detected = first[1]
+            elif isinstance(first, str):
+                translated = " ".join(data)
+        elif isinstance(data, str):
+            translated = data
+        if translated:
+            return translated, "", detected, "google"
+    except Exception:
+        pass
+
+    # 3. Fallback 2: MyMemory API
+    try:
+        pair = "zh-TW|vi" if not zh_is_target else "vi|zh-TW"
+        url = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(text)}&langpair={pair}"
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Referer": "https://zh.taiwandiary.vn/"
+        })
+        with urllib.request.urlopen(req, timeout=3.5) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        mm_txt = data.get("responseData", {}).get("translatedText")
+        if mm_txt and "MYMEMORY WARNING" not in mm_txt.upper():
+            return mm_txt, "", source_lang, "mymemory"
+    except Exception:
+        pass
+
+    return "", "", source_lang, ""
+
 def translate_chinese_to_vi(text):
     text = (text or "").strip()
     if not text:
         return None
-    if text in TRANSLATE_MEM_CACHE:
-        return TRANSLATE_MEM_CACHE[text]
-    cache_key = hashlib.md5(text.encode("utf-8")).hexdigest()
+    cache_key = "vi_trans_v2_" + hashlib.md5(text.encode("utf-8")).hexdigest()
+    if cache_key in TRANSLATE_MEM_CACHE:
+        return TRANSLATE_MEM_CACHE[cache_key]
     cache_file = os.path.join(TRANS_CACHE_DIR, f"{cache_key}.json")
     if os.path.exists(cache_file):
         try:
             with open(cache_file, "r", encoding="utf-8") as f:
                 res = json.load(f)
                 if res and isinstance(res, dict) and res.get("vi"):
-                    TRANSLATE_MEM_CACHE[text] = res
+                    _cache_mem_put(cache_key, res)
                     return res
         except Exception:
             pass
@@ -365,12 +483,8 @@ def translate_chinese_to_vi(text):
                 "part_of_speech": match_item.get("part_of_speech") or "Từ vựng",
                 "source": "dict_lesson"
             }
-            TRANSLATE_MEM_CACHE[text] = res
-            try:
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(res, f, ensure_ascii=False)
-            except Exception:
-                pass
+            _cache_mem_put(cache_key, res)
+            save_json_atomic(cache_file, res)
             return res
 
         d_item = CN_VI_DICT.get(clean_text) or CN_VI_DICT.get(trad_text) or CN_VI_DICT.get(simp_text)
@@ -383,75 +497,21 @@ def translate_chinese_to_vi(text):
                 "part_of_speech": "Từ vựng",
                 "source": "dict_cn_vi"
             }
-            TRANSLATE_MEM_CACHE[text] = res
-            try:
-                with open(cache_file, "w", encoding="utf-8") as f:
-                    json.dump(res, f, ensure_ascii=False)
-            except Exception:
-                pass
+            _cache_mem_put(cache_key, res)
+            save_json_atomic(cache_file, res)
             return res
 
     # 2. Machine translation for phrases, sentences, or unlisted terms
-    translated_vi = ""
-    trans_source = ""
+    translated_vi, gtx_rm, _, trans_source = _fetch_machine_translation(text, "zh-TW", "vi")
 
-    # Primary: Google clients5 (no rate limit / 429)
-    try:
-        url = "https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=vi&q=" + urllib.parse.quote(text)
-        req = urllib.request.Request(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        })
-        with urllib.request.urlopen(req, timeout=3.5) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            if isinstance(data, list) and len(data) > 0:
-                first = data[0]
-                if isinstance(first, list) and len(first) > 0 and isinstance(first[0], str):
-                    translated_vi = "".join(seg[0] for seg in data if isinstance(seg, list) and seg and seg[0])
-                elif isinstance(first, str):
-                    translated_vi = " ".join(data)
-            elif isinstance(data, str):
-                translated_vi = data
-            if translated_vi:
-                trans_source = "google"
-    except Exception as e:
-        print(f"clients5 translate error for {text}: {e}")
-
-    # Fallback 1: Google gtx
-    if not translated_vi:
-        try:
-            url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=vi&dt=t&q=" + urllib.parse.quote(text)
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
-            with urllib.request.urlopen(req, timeout=3.5) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                if isinstance(data, list) and len(data) > 0 and isinstance(data[0], list):
-                    translated_vi = "".join(seg[0] for seg in data[0] if seg and seg[0])
-                    if translated_vi:
-                        trans_source = "google_gtx"
-        except Exception:
-            pass
-
-    # Fallback 2: MyMemory API
-    if not translated_vi:
-        try:
-            url = "https://api.mymemory.translated.net/get?q=" + urllib.parse.quote(text) + "&langpair=zh-TW|vi"
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://zh.taiwandiary.vn/"})
-            with urllib.request.urlopen(req, timeout=3.5) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                mm_txt = data.get("responseData", {}).get("translatedText")
-                if mm_txt and "MYMEMORY WARNING" not in mm_txt.upper():
-                    translated_vi = mm_txt
-                    trans_source = "mymemory"
-        except Exception:
-            pass
-
-    # Fallback 3: Sino-Vietnamese reading for short characters
+    # Fallback: Sino-Vietnamese reading for short characters
     if not translated_vi and len(clean_text) <= 4:
         hv_parts = []
         for c in trad_text:
             cm = CHAR_META.get(c)
             hv = (cm.get("han_viet") if cm else None) or HANVIET_DICT.get(c)
             if hv:
-                hv_parts.append(hv)
+                hv_parts.append(hv.split(",")[0].strip())
         if hv_parts and len(hv_parts) == len(trad_text):
             translated_vi = "Âm Hán-Việt: " + " ".join(hv_parts)
             trans_source = "hanviet"
@@ -460,15 +520,11 @@ def translate_chinese_to_vi(text):
         res = {
             "q": text,
             "vi": translated_vi,
-            "pinyin": "",
+            "pinyin": _build_pinyin(trad_text, gtx_rm),
             "source": trans_source
         }
-        TRANSLATE_MEM_CACHE[text] = res
-        try:
-            with open(cache_file, "w", encoding="utf-8") as f:
-                json.dump(res, f, ensure_ascii=False)
-        except Exception:
-            pass
+        _cache_mem_put(cache_key, res)
+        save_json_atomic(cache_file, res)
         return res
 
     return None
@@ -478,8 +534,8 @@ def auto_translate_bidirectional(text):
     if not text or len(text) > 300:
         return None
 
-    # Check memory cache
-    cache_key = "auto_trans_" + hashlib.md5(text.lower().encode("utf-8")).hexdigest()
+    # v2 cache key ensures clean Taiwan Pinyin & avoids pre-fix stale entries
+    cache_key = "auto_trans_v2_" + hashlib.md5(text.lower().encode("utf-8")).hexdigest()
     if cache_key in TRANSLATE_MEM_CACHE:
         return TRANSLATE_MEM_CACHE[cache_key]
 
@@ -489,7 +545,7 @@ def auto_translate_bidirectional(text):
             with open(cache_file, "r", encoding="utf-8") as f:
                 res = json.load(f)
                 if res and isinstance(res, dict) and (res.get("translated") or res.get("hanzi")):
-                    TRANSLATE_MEM_CACHE[cache_key] = res
+                    _cache_mem_put(cache_key, res)
                     return res
         except Exception:
             pass
@@ -498,95 +554,21 @@ def auto_translate_bidirectional(text):
     target_lang = "vi" if is_chinese else "zh-TW"
     source_lang = "zh-TW" if is_chinese else "auto"
 
-    translated = ""
-    detected_src = source_lang
-    trans_source = "google"
-
-    # 1. Primary: Google clients5
-    try:
-        url = f"https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl={source_lang}&tl={target_lang}&q={urllib.parse.quote(text)}"
-        req = urllib.request.Request(url, headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        })
-        with urllib.request.urlopen(req, timeout=3.5) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            if isinstance(data, list) and len(data) > 0:
-                first = data[0]
-                if isinstance(first, list) and len(first) > 0 and isinstance(first[0], str):
-                    translated = "".join(seg[0] for seg in data if isinstance(seg, list) and seg and seg[0])
-                    if len(first) > 1 and isinstance(first[1], str):
-                        detected_src = first[1]
-                elif isinstance(first, str):
-                    translated = " ".join(data)
-            elif isinstance(data, str):
-                translated = data
-            if translated:
-                trans_source = "google_clients5"
-    except Exception:
-        pass
-
-    # 2. Fallback 1: Google gtx
-    if not translated:
-        try:
-            url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_lang}&tl={target_lang}&dt=t&q={urllib.parse.quote(text)}"
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
-            with urllib.request.urlopen(req, timeout=3.5) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                if isinstance(data, list) and len(data) > 0 and isinstance(data[0], list):
-                    translated = "".join(seg[0] for seg in data[0] if seg and seg[0])
-                    if translated:
-                        trans_source = "google_gtx"
-        except Exception:
-            pass
-
-    # 3. Fallback 2: MyMemory API
-    if not translated:
-        try:
-            pair = "zh-TW|vi" if is_chinese else "vi|zh-TW"
-            url = f"https://api.mymemory.translated.net/get?q={urllib.parse.quote(text)}&langpair={pair}"
-            req = urllib.request.Request(url, headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-            })
-            with urllib.request.urlopen(req, timeout=3.5) as resp:
-                data = json.loads(resp.read().decode("utf-8"))
-                mm_txt = data.get("responseData", {}).get("translatedText")
-                if mm_txt and "MYMEMORY WARNING" not in mm_txt.upper():
-                    translated = mm_txt
-                    trans_source = "mymemory"
-        except Exception:
-            pass
-
+    translated, gtx_rm, detected_src, trans_source = _fetch_machine_translation(text, source_lang, target_lang)
     if not translated:
         return None
 
     if not is_chinese:
         zh_text = to_traditional(translated)
+        # Skip echoing non-Chinese gibberish/numbers back when Google couldn't translate to Chinese
+        if not re.search(r'[\u4e00-\u9fff]', zh_text):
+            return None
         vi_text = text
     else:
         zh_text = to_traditional(text)
         vi_text = translated
 
-    # Compute Pinyin & Han-Viet for Chinese characters
-    # Dùng pypinyin để sinh Pinyin chuẩn theo ngữ cảnh (xử lý đa âm, thanh điệu đúng)
-    py_str = ""
-    try:
-        py_str = _gen_pinyin(zh_text).strip()
-    except Exception:
-        pass
-    if not py_str:
-        # Fallback: tra CHAR_META theo từng ký tự
-        py_parts = []
-        for c in zh_text:
-            if '\u4e00' <= c <= '\u9fff':
-                cm = CHAR_META.get(c) or {}
-                c_py = cm.get("pinyin")
-                if not c_py:
-                    it = CN_VI_DICT.get(c)
-                    if it and isinstance(it, dict):
-                        c_py = it.get("py")
-                if c_py:
-                    py_parts.append(c_py.split(",")[0].strip())
-        py_str = " ".join(py_parts)
+    py_str = _build_pinyin(zh_text, gtx_rm)
 
     hv_parts = []
     for c in zh_text:
@@ -594,7 +576,7 @@ def auto_translate_bidirectional(text):
             cm = CHAR_META.get(c) or {}
             c_hv = cm.get("han_viet") or HANVIET_DICT.get(c)
             if c_hv:
-                hv_parts.append(c_hv.capitalize())
+                hv_parts.append(c_hv.split(",")[0].strip().capitalize())
 
     res = {
         "query": text,
@@ -609,13 +591,8 @@ def auto_translate_bidirectional(text):
         "source": trans_source
     }
 
-    TRANSLATE_MEM_CACHE[cache_key] = res
-    try:
-        with open(cache_file, "w", encoding="utf-8") as f:
-            json.dump(res, f, ensure_ascii=False)
-    except Exception:
-        pass
-
+    _cache_mem_put(cache_key, res)
+    save_json_atomic(cache_file, res)
     return res
 
 @app.after_request
@@ -1587,7 +1564,7 @@ def api_php():
             })
             
         ai_trans = None
-        if not res_data:
+        if not res_data and (len(q) >= 2 or re.search(r'[\u4e00-\u9fff]', q)):
             ai_trans = auto_translate_bidirectional(q)
 
         return jsonify({

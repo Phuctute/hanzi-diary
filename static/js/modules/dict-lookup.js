@@ -8,8 +8,8 @@ function dictLookupDebounced() {
     const btn = document.getElementById('dict-lookup-clear');
     if (btn && inp) btn.classList.toggle('hidden', !inp.value.trim());
     clearTimeout(dictDebounceTimer);
-    // 200ms: đủ nhanh để cảm giác tức thì, nhưng tránh bắn API dồn dập khi gõ nhanh
-    dictDebounceTimer = setTimeout(dictSearchDropdownRun, 200);
+    // 280ms: đủ nhanh cho tra cứu tức thì nhưng giảm request thừa khi gõ Telex tiếng Việt
+    dictDebounceTimer = setTimeout(dictSearchDropdownRun, 280);
 }
 
 function dictLookupClearInput() {
@@ -68,37 +68,36 @@ function dictRenderAiTranslationFallback(aiTranslation) {
     if (!aiTranslation || (!aiTranslation.hanzi && !aiTranslation.translated)) {
         return '<div class="p-4 text-sm text-slate-400 text-center">Không tìm thấy kết quả trong từ điển.</div>';
     }
+    const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     const zh = (aiTranslation.hanzi || aiTranslation.translated || '').trim();
     const query = (aiTranslation.query || '').trim();
     const meaning = (aiTranslation.meaning_vi || (aiTranslation.is_chinese_input ? aiTranslation.translated : query) || '').trim();
 
-    // Pinyin: ưu tiên từ server, nếu thiếu tự động dùng pinyinPro
+    // Pinyin: ưu tiên chuỗi chuẩn từ server (Google dt=rm / pypinyin), chỉ fallback pinyinPro khi server trống
     let py = (aiTranslation.pinyin || '').trim();
     if (!py && typeof pinyinPro !== 'undefined' && typeof pinyinPro.pinyin === 'function' && zh) {
         try { py = pinyinPro.pinyin(zh); } catch (e) {}
     }
 
-    const hv = aiTranslation.han_viet ? `<span class="inline-block text-[11px] font-semibold text-amber-700 bg-amber-100/90 px-2 py-0.5 rounded-md">Hán-Việt: ${aiTranslation.han_viet}</span>` : '';
-    const safeZh = zh.replace(/'/g, "\\'");
-    const escapedZh = encodeURIComponent(safeZh);
+    const hv = aiTranslation.han_viet ? `<span class="inline-block text-[11px] font-semibold text-amber-700 bg-amber-100/90 px-2 py-0.5 rounded-md">Hán-Việt: ${esc(aiTranslation.han_viet)}</span>` : '';
 
     return `<div class="p-4 border-b border-slate-100 bg-gradient-to-br from-amber-50/90 via-orange-50/50 to-amber-50/30">
         <div class="flex items-center justify-between gap-2 mb-2">
             <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wide flex items-center gap-1.5">
                 <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i>Bản dịch tự động (chưa có trong từ điển)
             </span>
-            <button type="button" onclick="playTTS('${escapedZh}', event)" class="w-8 h-8 rounded-full bg-white text-amber-600 hover:bg-amber-600 hover:text-white border border-amber-200/90 shadow-2xs flex items-center justify-center transition-all cursor-pointer shrink-0" title="Nghe phát âm">
+            <button type="button" data-text="${encodeURIComponent(zh)}" onclick="playTTS(this.getAttribute('data-text'), event)" class="w-8 h-8 rounded-full bg-white text-amber-600 hover:bg-amber-600 hover:text-white border border-amber-200/90 shadow-2xs flex items-center justify-center transition-all cursor-pointer shrink-0" title="Nghe phát âm">
                 <i class="fa-solid fa-volume-high text-xs pointer-events-none"></i>
             </button>
         </div>
         <div class="flex items-baseline gap-2.5 flex-wrap">
-            <span class="text-xl sm:text-2xl font-black font-chinese-tc text-slate-800 leading-tight">${zh}</span>
-            ${py ? `<span class="text-xs sm:text-sm font-bold text-primary">${py}</span>` : ''}
+            <span class="text-xl sm:text-2xl font-black font-chinese-tc text-slate-800 leading-tight">${esc(zh)}</span>
+            ${py ? `<span class="text-xs sm:text-sm font-bold text-primary">${esc(py)}</span>` : ''}
             ${hv}
         </div>
         ${meaning ? `<div class="text-xs sm:text-sm text-slate-600 mt-2 font-medium flex items-center gap-1.5">
             <span class="text-slate-400 font-normal">Nghĩa:</span>
-            <span class="text-slate-800 font-semibold">${meaning}</span>
+            <span class="text-slate-800 font-semibold">${esc(meaning)}</span>
         </div>` : ''}
     </div>`;
 }
@@ -118,23 +117,34 @@ async function dictGetToken() {
         return { ts: Math.floor(Date.now() / 1000), token: '' };
     }
 }
-async function dictAuthedFetch(url) {
+async function dictAuthedFetch(url, signal) {
+    const opts = signal ? { referrerPolicy: 'same-origin', signal } : { referrerPolicy: 'same-origin' };
     try {
         const t = await dictGetToken();
         const sep = url.includes('?') ? '&' : '?';
-        return fetch(`${url}${sep}ts=${t?.ts || ''}&token=${t?.token || ''}`, { referrerPolicy: 'same-origin' });
+        return fetch(`${url}${sep}ts=${t?.ts || ''}&token=${t?.token || ''}`, opts);
     } catch (e) {
-        return fetch(url, { referrerPolicy: 'same-origin' });
+        if (e && e.name === 'AbortError') throw e;
+        return fetch(url, opts);
     }
 }
 
+let _dictSearchCtrl = null;
 async function dictSearchDropdownRun(forceOpenFirst) {
     const q = document.getElementById('dict-search-input').value.trim();
     const dd = document.getElementById('dict-search-dropdown');
-    if (!q) { dictCloseDropdown(); return; }
+    if (!q) {
+        if (_dictSearchCtrl) { _dictSearchCtrl.abort(); _dictSearchCtrl = null; }
+        dictCloseDropdown();
+        return;
+    }
+    if (_dictSearchCtrl) _dictSearchCtrl.abort();
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    _dictSearchCtrl = ctrl;
     try {
-        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`);
+        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`, ctrl ? ctrl.signal : undefined);
         const json = await res.json();
+        if (_dictSearchCtrl !== ctrl) return;
         const entries = (json.data || []).slice(0, 10);
         dictDropdownEntries = entries;
         dictDropdownActiveIdx = -1;
@@ -155,7 +165,10 @@ async function dictSearchDropdownRun(forceOpenFirst) {
         }).join('');
         dd.classList.remove('hidden');
         if (forceOpenFirst) dictLookupOpenDetail(entries[0].dict_id);
-    } catch (e) { dictCloseDropdown(); }
+    } catch (e) {
+        if (e && e.name === 'AbortError') return;
+        dictCloseDropdown();
+    }
 }
 
 document.addEventListener('click', (ev) => {
@@ -793,6 +806,7 @@ window.addEventListener('dict-lookup-open', (ev) => {
 // quả sẽ chuyển sang tab Từ điển và mở thẳng trang chi tiết từ đó.
 // ============================================================
 const dictQuickSearchTimers = {};
+const _dashDictCtrls = {};
 function dashDictSearchDebounced(inputId, dropdownId, clearBtnId) {
     inputId = inputId || 'dash-dict-search'; dropdownId = dropdownId || 'dash-dict-dropdown';
     const inp = document.getElementById(inputId);
@@ -803,7 +817,7 @@ function dashDictSearchDebounced(inputId, dropdownId, clearBtnId) {
         btn.style.display = hasVal ? 'flex' : 'none';
     }
     clearTimeout(dictQuickSearchTimers[inputId]);
-    dictQuickSearchTimers[inputId] = setTimeout(() => dashDictSearchRun(inputId, dropdownId), 200);
+    dictQuickSearchTimers[inputId] = setTimeout(() => dashDictSearchRun(inputId, dropdownId), 280);
 }
 function dashDictClearInput(inputId, dropdownId, clearBtnId) {
     const inp = document.getElementById(inputId);
@@ -816,6 +830,7 @@ function dashDictClearInput(inputId, dropdownId, clearBtnId) {
         btn.classList.add('hidden');
         btn.style.display = 'none';
     }
+    if (_dashDictCtrls[inputId]) { _dashDictCtrls[inputId].abort(); delete _dashDictCtrls[inputId]; }
     dashDictSearchClose(dropdownId);
 }
 function dashDictSearchClose(dropdownId) {
@@ -824,7 +839,11 @@ function dashDictSearchClose(dropdownId) {
 }
 function dashDictSearchEnter(inputId, dropdownId) {
     const dd = document.getElementById(dropdownId || 'dash-dict-dropdown');
-    if (!dd || dd.classList.contains('hidden')) return;
+    if (!dd || dd.classList.contains('hidden')) {
+        clearTimeout(dictQuickSearchTimers[inputId || 'dash-dict-search']);
+        dashDictSearchRun(inputId, dropdownId);
+        return;
+    }
     const firstBtn = dd.querySelector('button');
     if (firstBtn) firstBtn.click();
 }
@@ -836,7 +855,10 @@ async function dashDictSearchRun(inputId, dropdownId) {
     const dd = document.getElementById(dropdownId);
     if (!input || !dd) return;
     const q = input.value.trim();
-    if (!q) { dd.classList.add('hidden'); dd.innerHTML = ''; return; }
+    if (!q) {
+        if (_dashDictCtrls[inputId]) { _dashDictCtrls[inputId].abort(); delete _dashDictCtrls[inputId]; }
+        dd.classList.add('hidden'); dd.innerHTML = ''; return;
+    }
 
     function renderDashResults(json) {
         const entries = (json.data || []).slice(0, 10);
@@ -859,20 +881,29 @@ async function dashDictSearchRun(inputId, dropdownId) {
     }
 
     if (_dashDictCache.has(q)) {
+        if (_dashDictCtrls[inputId]) { _dashDictCtrls[inputId].abort(); delete _dashDictCtrls[inputId]; }
         renderDashResults(_dashDictCache.get(q));
         return;
     }
 
+    if (_dashDictCtrls[inputId]) _dashDictCtrls[inputId].abort();
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    _dashDictCtrls[inputId] = ctrl;
+
     try {
-        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`);
+        const res = await dictAuthedFetch(`/api.php?action=dict_lookup_search&q=${encodeURIComponent(q)}`, ctrl ? ctrl.signal : undefined);
         const json = await res.json();
+        if (_dashDictCtrls[inputId] !== ctrl) return;
         _dashDictCache.set(q, json);
         if (_dashDictCache.size > 80) {
             const firstK = _dashDictCache.keys().next().value;
             _dashDictCache.delete(firstK);
         }
         renderDashResults(json);
-    } catch (e) { dd.classList.add('hidden'); }
+    } catch (e) {
+        if (e && e.name === 'AbortError') return;
+        dd.classList.add('hidden');
+    }
 }
 function dashDictSearchPick(dictId, dropdownId) {
     dashDictSearchClose(dropdownId);

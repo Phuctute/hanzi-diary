@@ -14,6 +14,15 @@ try:
     import edge_tts
 except ImportError:
     edge_tts = None
+try:
+    import pypinyin as _pypinyin
+    from pypinyin import Style as _PYStyle
+    def _gen_pinyin(zh_text):
+        return " ".join(_pypinyin.lazy_pinyin(zh_text, style=_PYStyle.TONE))
+except ImportError:
+    _pypinyin = None
+    def _gen_pinyin(zh_text):
+        return ""
 mimetypes.add_type('image/webp', '.webp')
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template, send_from_directory, send_file, Response, redirect, make_response
@@ -558,19 +567,31 @@ def auto_translate_bidirectional(text):
         vi_text = translated
 
     # Compute Pinyin & Han-Viet for Chinese characters
-    py_parts = []
+    # Dùng pypinyin để sinh Pinyin chuẩn theo ngữ cảnh (xử lý đa âm, thanh điệu đúng)
+    py_str = ""
+    try:
+        py_str = _gen_pinyin(zh_text).strip()
+    except Exception:
+        pass
+    if not py_str:
+        # Fallback: tra CHAR_META theo từng ký tự
+        py_parts = []
+        for c in zh_text:
+            if '\u4e00' <= c <= '\u9fff':
+                cm = CHAR_META.get(c) or {}
+                c_py = cm.get("pinyin")
+                if not c_py:
+                    it = CN_VI_DICT.get(c)
+                    if it and isinstance(it, dict):
+                        c_py = it.get("py")
+                if c_py:
+                    py_parts.append(c_py.split(",")[0].strip())
+        py_str = " ".join(py_parts)
+
     hv_parts = []
     for c in zh_text:
         if '\u4e00' <= c <= '\u9fff':
             cm = CHAR_META.get(c) or {}
-            c_py = cm.get("pinyin")
-            if not c_py:
-                it = CN_VI_DICT.get(c)
-                if it and isinstance(it, dict):
-                    c_py = it.get("py")
-            if c_py:
-                py_parts.append(c_py.split(",")[0].strip())
-
             c_hv = cm.get("han_viet") or HANVIET_DICT.get(c)
             if c_hv:
                 hv_parts.append(c_hv.capitalize())
@@ -580,7 +601,7 @@ def auto_translate_bidirectional(text):
         "translated": translated,
         "hanzi": zh_text,
         "meaning_vi": vi_text,
-        "pinyin": " ".join(py_parts) if py_parts else "",
+        "pinyin": py_str,
         "han_viet": " ".join(hv_parts) if hv_parts else "",
         "target_lang": target_lang,
         "source_lang": detected_src,

@@ -1222,16 +1222,32 @@ window.addEventListener('beforeunload', function (e) {
     }
     // ────────────────────────────────────────────────────────────────
 
-    // ── Gợi ý khi làm bài: Pinyin (nạp lazy thư viện pinyin-pro) + Dịch/Mẹo ──
+    // ── Gợi ý khi làm bài: Pinyin (dùng local pinyin-pro) + Dịch/Mẹo ──
+    let __pinyinLoadPromise = null;
     function loadPinyinPro() {
-        return new Promise((resolve, reject) => {
-            if (window.pinyinPro && window.pinyinPro.pinyin) { resolve(); return; }
+        if (window.pinyinPro && window.pinyinPro.pinyin) return Promise.resolve();
+        if (__pinyinLoadPromise) return __pinyinLoadPromise;
+        __pinyinLoadPromise = new Promise((resolve, reject) => {
             let s = document.createElement('script');
-            s.src = 'https://cdn.jsdelivr.net/npm/pinyin-pro@3/dist/index.js';
-            s.onload = () => (window.pinyinPro && window.pinyinPro.pinyin) ? resolve() : reject(new Error('no global'));
-            s.onerror = () => reject(new Error('load fail'));
+            s.src = '/static/js/pinyin-pro.js';
+            s.onload = () => {
+                if (window.pinyinPro && window.pinyinPro.pinyin) {
+                    if (typeof initPinyinCustomDict === 'function') {
+                        try { initPinyinCustomDict(); } catch (e) {}
+                    }
+                    resolve();
+                } else {
+                    __pinyinLoadPromise = null;
+                    reject(new Error('no global'));
+                }
+            };
+            s.onerror = () => {
+                __pinyinLoadPromise = null;
+                reject(new Error('load fail'));
+            };
             document.head.appendChild(s);
         });
+        return __pinyinLoadPromise;
     }
 
     // Trạng thái gợi ý — giữ xuyên suốt các câu (bật 1 lần, câu sau tự áp dụng)
@@ -1320,44 +1336,30 @@ window.addEventListener('beforeunload', function (e) {
         }
     }
 
-    // Dịch chữ Hán -> tiếng Việt. Ưu tiên Backend -> Google -> MyMemory. Có cache.
+    // Dịch chữ Hán -> tiếng Việt. Ưu tiên Backend (/api.php?action=translate_zh), chỉ fallback trực tiếp khi API cục bộ lỗi.
     async function translateToVi(zh) {
         if (hintTranslateCache[zh] !== undefined) return hintTranslateCache[zh];
         let vi = '';
-        // 0) Thử Backend API (/api.php?action=translate_zh)
+        // 1) Ưu tiên Backend API (/api.php?action=translate_zh — có từ điển + cache server chuẩn Đài Loan)
         try {
             let res0 = await fetch('/api.php?action=translate_zh&q=' + encodeURIComponent(zh));
-            let d0 = await res0.json();
-            if (d0 && d0.success && d0.data && d0.data.vi) vi = d0.data.vi;
+            if (res0.ok) {
+                let d0 = await res0.json();
+                if (d0 && d0.success && d0.data && d0.data.vi) vi = d0.data.vi;
+            }
         } catch (e) { }
-        // 1) Fallback Google translate clients5 (dict-chrome-ex)
+        // 2) Fallback duy nhất nếu API cục bộ lỗi / chưa có bản dịch
         if (!vi) {
             try {
-                let url = 'https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=vi&q=' + encodeURIComponent(zh);
+                let url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-TW&tl=vi&dt=t&q=' + encodeURIComponent(zh);
                 let res = await fetch(url);
-                let data = await res.json();
-                if (Array.isArray(data) && data[0] && Array.isArray(data[0]) && data[0][0]) vi = data[0][0];
-                else if (Array.isArray(data) && typeof data[0] === 'string') vi = data.join(' ');
-            } catch (e) { }
-        }
-        // 2) Fallback Google translate gtx
-        if (!vi) {
-            try {
-                let url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-CN&tl=vi&dt=t&q=' + encodeURIComponent(zh);
-                let res = await fetch(url);
-                let data = await res.json();
-                if (Array.isArray(data) && Array.isArray(data[0])) vi = data[0].map(seg => (seg && seg[0]) ? seg[0] : '').join('');
-            } catch (e) { }
-        }
-        // 3) Fallback MyMemory nếu Google lỗi
-        if (!vi) {
-            try {
-                let res2 = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(zh) + '&langpair=zh-CN|vi');
-                let d2 = await res2.json();
-                vi = (d2 && d2.responseData && d2.responseData.translatedText) ? d2.responseData.translatedText : '';
+                if (res.ok) {
+                    let data = await res.json();
+                    if (Array.isArray(data) && Array.isArray(data[0])) vi = data[0].map(seg => (seg && seg[0]) ? seg[0] : '').join('');
+                }
             } catch (e) { vi = ''; }
         }
-        hintTranslateCache[zh] = vi;
+        if (vi) hintTranslateCache[zh] = vi;
         return vi;
     }
     // ────────────────────────────────────────────────────────────────

@@ -31,7 +31,7 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "data")
-TTS_CACHE_DIR = os.path.join(BASE_DIR, "tts_cache")
+TTS_CACHE_DIR = os.path.join(DATA_DIR, "tts_cache")
 os.makedirs(TTS_CACHE_DIR, exist_ok=True)
 
 # Helper to load JSON
@@ -786,7 +786,9 @@ DICT_CACHE_DIR = os.path.join(DATA_DIR, "dict_cache")
 os.makedirs(DICT_CACHE_DIR, exist_ok=True)
 
 def get_rich_dict_detail(did, hanzi=None):
-    cache_file = os.path.join(DICT_CACHE_DIR, f"{did}.json") if did else None
+    raw_did = str(did).strip() if did is not None else ""
+    safe_did = raw_did if re.fullmatch(r"[a-zA-Z0-9_-]+", raw_did) else ""
+    cache_file = os.path.join(DICT_CACHE_DIR, f"{safe_did}.json") if safe_did else None
     data = None
     if cache_file and os.path.exists(cache_file):
         try:
@@ -795,7 +797,7 @@ def get_rich_dict_detail(did, hanzi=None):
         except Exception:
             pass
 
-    if not data and did:
+    if not data and safe_did:
         try:
             req_t = urllib.request.Request("https://zh.taiwandiary.vn/api.php?action=dict_search_token", headers={
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -805,7 +807,7 @@ def get_rich_dict_detail(did, hanzi=None):
             t_json = json.loads(resp_t.read().decode("utf-8"))
             ts, token = t_json["ts"], t_json["token"]
 
-            url = f"https://zh.taiwandiary.vn/api.php?action=dict_lookup_detail&dict_id={did}&ts={ts}&token={token}"
+            url = f"https://zh.taiwandiary.vn/api.php?action=dict_lookup_detail&dict_id={safe_did}&ts={ts}&token={token}"
             req = urllib.request.Request(url, headers={
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
                 "Referer": "https://zh.taiwandiary.vn/"
@@ -815,15 +817,14 @@ def get_rich_dict_detail(did, hanzi=None):
             if res.get("success") and res.get("data"):
                 data = res["data"]
                 if cache_file:
-                    with open(cache_file, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False)
+                    save_json_atomic(cache_file, data)
         except Exception as e:
-            print(f"Remote fetch for dict_id={did} failed: {e}")
+            print(f"Remote fetch for dict_id={safe_did} failed: {e}")
 
     if not data:
         word = None
-        if did:
-            word = next((w for w in ALL_VOCAB if str(w.get("dict_id") or w.get("vocab_id") or w.get("id")) == str(did)), None)
+        if safe_did:
+            word = next((w for w in ALL_VOCAB if str(w.get("dict_id") or w.get("vocab_id") or w.get("id")) == safe_did), None)
         if not word and hanzi:
             word = next((w for w in ALL_VOCAB if (w.get("hanzi") or "").lower() == hanzi.lower()), None)
         if word:
@@ -943,10 +944,11 @@ _OFFLINE_BUNDLE_GZ = None
 def get_offline_bundle_data(bundle_type=None, curriculum_id=None):
     global _OFFLINE_BUNDLE_JSON, _OFFLINE_BUNDLE_GZ
     
+    cid = str(curriculum_id).strip() if curriculum_id is not None else ""
     if bundle_type == "core":
         fn = "offline_core.json"
-    elif curriculum_id:
-        fn = f"offline_curriculum_{curriculum_id}.json"
+    elif cid and re.fullmatch(r"[0-9]+", cid):
+        fn = f"offline_curriculum_{cid}.json"
     else:
         fn = "offline_bundle.json"
         
@@ -999,6 +1001,17 @@ def api_offline_bundle():
     resp.headers["Access-Control-Allow-Origin"] = "*"
     return resp
 
+_ALL_DICTATION_JSON = json.dumps({
+    "success": True,
+    "data": [
+        it
+        for items in LESSON_CONTENTS.values()
+        if isinstance(items, list)
+        for it in items
+        if isinstance(it, dict) and it.get("type") in ("dialogue", "paragraph", "passage")
+    ]
+}, ensure_ascii=False)
+
 @app.route("/api.php", methods=["GET", "POST"])
 def api_php():
     action = request.args.get("action") or request.form.get("action") or ""
@@ -1033,14 +1046,9 @@ def api_php():
         lid = request.args.get("lesson_id")
         return jsonify({"success": True, "data": LESSON_CONTENTS.get(str(lid), []) if lid else []})
     elif action == "get_all_dictation_contents":
-        out = []
-        for lid, items in LESSON_CONTENTS.items():
-            if not isinstance(items, list):
-                continue
-            for it in items:
-                if isinstance(it, dict) and it.get("type") in ("dialogue", "paragraph", "passage"):
-                    out.append(it)
-        return jsonify({"success": True, "data": out})
+        resp = Response(_ALL_DICTATION_JSON, mimetype="application/json")
+        resp.headers["Cache-Control"] = "public, max-age=3600"
+        return resp
     elif action == "get_dict_tags":
         cat = request.args.get("category")
         tags = [t for t in DICT_TAGS if t.get("category") == cat] if cat else DICT_TAGS
@@ -1053,7 +1061,9 @@ def api_php():
         try:
             b_val = int(band)
             data = TOCFL_VOCAB.get(b_val, [])
-            return jsonify({"success": True, "data": data, "total": len(data), "band": b_val})
+            resp = jsonify({"success": True, "data": data, "total": len(data), "band": b_val})
+            resp.headers["Cache-Control"] = "public, max-age=3600"
+            return resp
         except (ValueError, TypeError):
             return jsonify({"success": False, "message": "Invalid band", "data": []})
     elif action == "get_char_meta":
@@ -1125,8 +1135,14 @@ def api_php():
         band = request.args.get("band")
         search = request.args.get("search", "").strip().lower()
         tag_id = request.args.get("tag_id")
-        page = int(request.args.get("page", 1))
-        page_size = int(request.args.get("page_size", 10))
+        try:
+            page = max(1, int(request.args.get("page", 1)))
+        except (ValueError, TypeError):
+            page = 1
+        try:
+            page_size = max(1, min(100, int(request.args.get("page_size", 10))))
+        except (ValueError, TypeError):
+            page_size = 10
         res = GRAMMAR
         if tag_id:
             try:
@@ -1299,14 +1315,16 @@ def api_php():
         return jsonify({"success": True, "data": res, "total": len(res)})
     elif action == "get_shadowing_video":
         vid = request.args.get("id")
-        cache_dir = os.path.join(DATA_DIR, "shadowing_cache")
-        cache_file = os.path.join(cache_dir, f"{vid}.json")
-        if os.path.exists(cache_file):
-            try:
-                with open(cache_file, "r", encoding="utf-8") as f:
-                    return jsonify(json.load(f))
-            except Exception:
-                pass
+        safe_vid = re.sub(r"[^a-zA-Z0-9_-]", "", str(vid or ""))
+        if safe_vid:
+            cache_dir = os.path.join(DATA_DIR, "shadowing_cache")
+            cache_file = os.path.join(cache_dir, f"{safe_vid}.json")
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, "r", encoding="utf-8") as f:
+                        return jsonify(json.load(f))
+                except Exception:
+                    pass
         v_local = next((v for v in SHADOWING_VIDEOS if str(v.get("id")) == str(vid)), None)
         return jsonify({"success": True if v_local else False, "data": v_local or {}})
     elif action == "dict_search_token":
@@ -1404,11 +1422,7 @@ def api_php():
             res = json.loads(resp.read().decode("utf-8"))
             if res.get("success") and res.get("data"):
                 data = res["data"]
-                try:
-                    with open(cache_file, "w", encoding="utf-8") as f:
-                        json.dump(data, f, ensure_ascii=False)
-                except Exception:
-                    pass
+                save_json_atomic(cache_file, data)
                 return jsonify({"success": True, "data": data})
         except Exception as e:
             print(f"Remote lookup_hanzi fetch error for {q}: {e}")
@@ -1446,6 +1460,8 @@ def api_php():
         q_py = clean_pinyin_search(q_raw)
         q_vn = remove_vn_tones(q_raw)
         q_norm = norm_hz(q_raw)
+        q_raw_word_re = re.compile(r"\b" + re.escape(q_raw) + r"\b") if is_vn else None
+        q_vn_word_re = re.compile(r"\b" + re.escape(q_vn) + r"\b") if not is_vn else None
         
         matches = []
         for item in DICT_INDEX:
@@ -1492,10 +1508,10 @@ def api_php():
                     elif any(m.endswith(" " + q_raw) for m in core_list):
                         score = 5
                     # Level 4: Khớp từ trọn vẹn trong các nghĩa cốt lõi
-                    elif any(re.search(r"\b" + re.escape(q_raw) + r"\b", m) for m in core_list):
+                    elif any(q_raw_word_re.search(m) for m in core_list):
                         score = 8
                     # Level 5: Khớp từ trọn vẹn trong toàn bộ phần dịch nghĩa
-                    elif re.search(r"\b" + re.escape(q_raw) + r"\b", defn):
+                    elif q_raw_word_re.search(defn):
                         score = 15
                     elif q_raw in defn:
                         score = 25
@@ -1517,11 +1533,11 @@ def api_php():
                     elif any(m.endswith(" " + q_vn) for m in core_list_c):
                         score = 8
                     # Level 6: Khớp từ trọn vẹn trong nghĩa không dấu
-                    elif any(re.search(r"\b" + re.escape(q_vn) + r"\b", m) for m in core_list_c):
+                    elif any(q_vn_word_re.search(m) for m in core_list_c):
                         score = 11
                     elif q_py and len(q_py) >= 2 and any(s.startswith(q_py) for s in item.get("pinyin_syllables", [])):
                         score = 16 + len(py_c)
-                    elif re.search(r"\b" + re.escape(q_vn) + r"\b", defn_c):
+                    elif q_vn_word_re.search(defn_c):
                         score = 20
                     elif q_vn in defn_c:
                         score = 30
@@ -2081,8 +2097,14 @@ def api_shadowing_topics():
 @app.route("/api/shadowing_videos")
 def api_shadowing_videos():
     topic = request.args.get("topic")
-    page = int(request.args.get("page", 1))
-    limit = int(request.args.get("limit", 20))
+    try:
+        page = max(1, int(request.args.get("page", 1)))
+    except (ValueError, TypeError):
+        page = 1
+    try:
+        limit = max(1, min(100, int(request.args.get("limit", 20))))
+    except (ValueError, TypeError):
+        limit = 20
 
     res = SHADOWING_VIDEOS
     if topic:

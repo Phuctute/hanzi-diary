@@ -158,7 +158,10 @@
     };
 
     function vnhLoadRoadmap() {
-        fetch('/api.php?action=get_curriculum_types').then(function (r) { return r.json(); }).then(function (types) {
+        var req = (typeof window.getCurriculumsCached === 'function')
+            ? window.getCurriculumsCached()
+            : Promise.resolve([]);
+        req.then(function (types) {
             var dd = (types || []).find(function (t) { return /đương\s*đại/i.test(t.name || ''); });
             var sd = (types || []).find(function (t) { return /thời\s*đại/i.test(t.name || ''); });
             if (dd) vnhLoadBooks(dd, 'vnh-daidai-row', 'vnh-daidai-count', 'Đương Đại'); else document.getElementById('vnh-daidai-count').textContent = '0 cuốn';

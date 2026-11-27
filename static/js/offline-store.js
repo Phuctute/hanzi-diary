@@ -10,7 +10,7 @@
     const DB_VERSION = 1;
     const STORE_NAME = 'data';
     const OFFLINE_VER_KEY = 'hanzi_offline_version';
-    const CURRENT_VERSION = '2.5.7';
+    const CURRENT_VERSION = '2.5.8';
     const API_CACHE_NAME = 'hanzi-api-v' + CURRENT_VERSION;
 
     let dbInstance = null;
@@ -453,26 +453,27 @@
             let activeCid = parseInt(localStorage.getItem('hanzi_last_curriculum') || '1', 10);
             if (isNaN(activeCid) || activeCid < 1 || activeCid > 3) activeCid = 1;
             
-            const scheduleSync = (cid) => {
-                if (window.HanziOffline && !window.HanziOffline.isCurriculumDownloaded(cid)) {
-                    if ('requestIdleCallback' in window) {
-                        requestIdleCallback(() => window.HanziOffline.syncCurriculum(cid).catch(() => {}), { timeout: 4000 });
-                    } else {
-                        setTimeout(() => window.HanziOffline.syncCurriculum(cid).catch(() => {}), 1500);
+            const scheduleSync = (cid, delayMs) => {
+                setTimeout(() => {
+                    if (window.HanziOffline && !window.HanziOffline.isCurriculumDownloaded(cid)) {
+                        if ('requestIdleCallback' in window) {
+                            requestIdleCallback(() => window.HanziOffline.syncCurriculum(cid).catch(() => {}), { timeout: 6000 });
+                        } else {
+                            window.HanziOffline.syncCurriculum(cid).catch(() => {});
+                        }
                     }
-                }
+                }, delayMs);
             };
 
-            // Ưu tiên nạp trước giáo trình đang chọn
-            scheduleSync(activeCid);
-            // Nạp thêm giáo trình 2 (Thời Đại) nếu đang ở giáo trình 1
+            // Đợi app mở mượt xong hẳn rồi mới tải ngầm giáo trình (~8MB+) khi rảnh
+            scheduleSync(activeCid, 6000);
             if (activeCid !== 2) {
-                setTimeout(() => scheduleSync(2), 6000);
+                scheduleSync(2, 14000);
             }
         } catch(e) {}
     }
 
-    // Khởi tạo
+    // Khởi tạo nhẹ, không chặn main thread lúc mở app
     async function init() {
         const storedVer = localStorage.getItem(OFFLINE_VER_KEY);
         if (storedVer !== CURRENT_VERSION) {
@@ -485,39 +486,65 @@
                 }
             } catch(e) {}
             cachedBundle = null;
-        } else {
-            // 1. Nạp từ IndexedDB nếu đã có sẵn
+        } else if (!navigator.onLine) {
+            // Chỉ nạp toàn bộ bundle (10-27MB) từ IndexedDB lên RAM khi thật sự offline
             cachedBundle = await loadBundleFromDB();
             if (cachedBundle) {
                 syncState = 'ready';
                 updateUIBadge();
-                preloadActiveCurriculum();
             }
+        } else {
+            syncState = 'ready';
+            updateUIBadge();
         }
 
-        // 2. Tự tải Core Bundle siêu tốc nếu chưa có hoặc cập nhật phiên bản mới
-        if (navigator.onLine && (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION)) {
-            setTimeout(() => {
+        // Tự tải Core Bundle ở nền sau khi trang đã ổn định hoàn toàn
+        if (navigator.onLine && localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION) {
+            const runSync = () => {
                 syncCore().then(() => {
                     preloadActiveCurriculum();
                 }).catch(() => {});
-            }, 100);
+            };
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(runSync, { timeout: 5000 });
+            } else {
+                setTimeout(runSync, 2500);
+            }
         }
 
-        // 3. Lắng nghe trạng thái mạng
+        // Lắng nghe trạng thái mạng
         window.addEventListener('online', () => {
             updateUIBadge();
-            if (!cachedBundle || localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION) {
+            if (localStorage.getItem(OFFLINE_VER_KEY) !== CURRENT_VERSION) {
                 syncCore().then(() => preloadActiveCurriculum()).catch(() => {});
             }
         });
-        window.addEventListener('offline', updateUIBadge);
-        setTimeout(updateUIBadge, 300);
+        window.addEventListener('offline', async () => {
+            if (!cachedBundle) {
+                try { cachedBundle = await loadBundleFromDB(); } catch (e) {}
+            }
+            updateUIBadge();
+        });
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+    function scheduleInit() {
+        if (!navigator.onLine) {
+            init();
+            return;
+        }
+        // Khi đang online, chờ trang load + splash kết thúc (~2.5s) để không tranh CPU/IO lúc mở app
+        setTimeout(() => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => init(), { timeout: 3000 });
+            } else {
+                init();
+            }
+        }, 2500);
+    }
+
+    if (document.readyState === 'complete') {
+        scheduleInit();
     } else {
-        init();
+        window.addEventListener('load', scheduleInit, { once: true });
     }
 })();

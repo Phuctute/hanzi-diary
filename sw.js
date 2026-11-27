@@ -1,6 +1,6 @@
-const CACHE_NAME = 'hanzi-pwa-v2.5.7';
-const API_CACHE_NAME = 'hanzi-api-v2.5.7';
-const AUDIO_CACHE_NAME = 'hanzi-audio-v2.5.7';
+const CACHE_NAME = 'hanzi-pwa-v2.5.8';
+const API_CACHE_NAME = 'hanzi-api-v2.5.8';
+const AUDIO_CACHE_NAME = 'hanzi-audio-v2.5.8';
 
 const BASE_SCOPE = self.registration ? self.registration.scope : '/';
 const PRECACHE_ASSETS = [
@@ -9,8 +9,8 @@ const PRECACHE_ASSETS = [
   new URL('static/css/tw.css', BASE_SCOPE).href,
   new URL('static/vendor/fontawesome/css/all.min.css', BASE_SCOPE).href,
   new URL('static/js/hanzi-writer.min.js', BASE_SCOPE).href,
-  new URL('static/js/opencc-full.js', BASE_SCOPE).href,
   new URL('static/js/pinyin-pro.js', BASE_SCOPE).href,
+  new URL('static/js/pinyin-overrides.js', BASE_SCOPE).href,
   new URL('static/js/chart.min.js', BASE_SCOPE).href,
   new URL('static/js/offline-store.js', BASE_SCOPE).href,
   new URL('static/js/modules/vocab-notebook.js', BASE_SCOPE).href,

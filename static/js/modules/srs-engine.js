@@ -655,14 +655,15 @@ let fcSrsScope = 'lesson';
                 e.stopImmediatePropagation();
                 return;
             }
-            if (e.target.closest('.fc-example-item, #fc-examples, #fc-contexts-section, .fc-interactive-text, button, a')) {
-                e.stopPropagation(); // allow button onclick to fire, only block flipFlashcard() on wrapper
-                return;
-            }
         }, true);
     }
 
-    function flipFlashcard() {
+    function flipFlashcard(event) {
+        if (event && event.target && event.target.closest('#fc-card-wrapper')) {
+            if (event.target.closest('button, a, input, select, textarea, .fc-example-item, #fc-examples, #fc-contexts-section, .fc-interactive-text, .char-hanzi')) {
+                return;
+            }
+        }
         const inner = document.getElementById('flashcard-inner');
         if (inner) {
             inner.classList.toggle('rotate-y-180');

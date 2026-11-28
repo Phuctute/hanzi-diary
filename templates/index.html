@@ -5,9 +5,9 @@
 <head>
 
 <script>
-// Cập nhật phiên bản ứng dụng lên v2.5.9 (SW activate tự dọn cache cũ, không xóa cache ngang khi đang mở trang)
+// Cập nhật phiên bản ứng dụng lên v2.6.0 (SW activate tự dọn cache cũ, không xóa cache ngang khi đang mở trang)
 (function() {
-    const CURRENT_APP_VER = '2.5.9';
+    const CURRENT_APP_VER = '2.6.0';
     const storedVer = localStorage.getItem('hanzi_app_cache_ver');
     if (storedVer !== CURRENT_APP_VER) {
         localStorage.setItem('hanzi_app_cache_ver', CURRENT_APP_VER);
@@ -923,14 +923,14 @@ window.addEventListener('error', function(e) {
 
     <link rel="canonical" href="https://p.vql.vn/" />
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.5.9">
-    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.5.9">
-    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.5.9">
-    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.5.9">
-    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.5.9">
-    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.5.9">
-    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.5.9">
-    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.5.9">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2.6.0">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/img/icon-512.png?v=2.6.0">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/img/icon-512.png?v=2.6.0">
+    <link rel="icon" type="image/png" href="static/img/favicon-blue.png?v=2.6.0">
+    <link rel="apple-touch-icon" href="static/img/apple-touch-icon.png?v=2.6.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/img/apple-touch-icon.png?v=2.6.0">
+    <link rel="apple-touch-icon" sizes="192x192" href="static/img/icon-maskable-192.png?v=2.6.0">
+    <link rel="apple-touch-icon" sizes="512x512" href="static/img/icon-maskable-512.png?v=2.6.0">
 
 
     <!-- Dark mode đã bỏ: dọn cờ cũ trong localStorage và gỡ class .dark nếu
@@ -1118,7 +1118,7 @@ window.addEventListener('error', function(e) {
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@400;500;600;700;900&display=swap"></noscript>
 
     <!-- Tailwind CSS – build tĩnh từ CLI (thay thế CDN runtime). Rebuild: npm run build:css -->
-    <link rel="stylesheet" href="static/css/tw.css?v=2.5.9">
+    <link rel="stylesheet" href="static/css/tw.css?v=2.6.0">
 
     <!-- FontAwesome 6.4.0 (Offline self-hosted) -->
     <link rel="stylesheet" href="static/vendor/fontawesome/css/all.min.css" onerror="this.onerror=null;this.href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css';">
@@ -1127,13 +1127,13 @@ window.addEventListener('error', function(e) {
 
     <script src="static/js/pinyin-pro.js" defer></script>
 
-    <script src="static/js/pinyin-overrides.js?v=2.5.9" defer></script>
+    <script src="static/js/pinyin-overrides.js?v=2.6.0" defer></script>
 
     <script src="static/js/chart.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';" defer></script>
 
-    <script src="static/js/hanzi-writer.min.js?v=2.5.9" defer></script>
+    <script src="static/js/hanzi-writer.min.js?v=2.6.0" defer></script>
 
-    <script src="static/js/offline-store.js?v=2.5.9" defer></script>
+    <script src="static/js/offline-store.js?v=2.6.0" defer></script>
 
     
 
@@ -3088,7 +3088,7 @@ window.addEventListener('error', function(e) {
         <div class="h-24 flex items-center justify-center px-4 relative mb-1 w-full mt-1 shrink-0">
             <div id="sidebar-logo-wrap" class="relative inline-flex flex-col items-center select-none cursor-pointer mt-2" title="Chạm để về Trang chủ · Giữ 0.7s để làm mới (F5)">
                 <div id="sidebar-logo-ripple"></div>
-                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.5.9" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.5.9';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
+                <img id="sidebar-logo-img" src="static/img/mainlogo.png?v=2.6.0" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=(window.location.hostname.includes('github.io')?'/hanzi-diary/':'/')+'static/img/mainlogo.png?v=2.6.0';}" alt="Hanzi Diary Logo - Nền tảng học tiếng Trung" style="width: 165px !important; max-width: 170px !important; height: auto !important;" class="w-[165px] h-auto object-contain drop-shadow-lg select-none">
                 <div id="sidebar-logo-progress"></div>
             </div>
 
@@ -3247,7 +3247,7 @@ window.addEventListener('error', function(e) {
 
             <!-- Phiên bản ứng dụng -->
             <div class="px-5 mt-auto mb-4 pt-3 border-t border-white/10 text-center select-none">
-                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.5.9</span>
+                <span id="app-version-badge" class="text-[11px] font-semibold text-white/50 tracking-wide">v2.6.0</span>
             </div>
 
             </nav>
@@ -4113,7 +4113,7 @@ window.addEventListener('error', function(e) {
 .vnh-word-hanzi { font-family: var(--font-chinese-tc), sans-serif; font-weight:500; font-size:1.1rem; color:#1e293b; }
 </style>
 
-    <script src="static/js/modules/vocab-notebook.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/vocab-notebook.js?v=2.6.0" defer></script>
 <div id="view-grammar-hub" class="hidden max-w-6xl mx-auto w-full pb-32">
 
     <div class="mb-6 flex items-start justify-between gap-3 flex-wrap">
@@ -4273,7 +4273,7 @@ window.addEventListener('error', function(e) {
 .gmh-fc-hint { margin-top:16px; font-size:11px; color:#94a3b8; font-weight:700; text-transform:uppercase; letter-spacing:.05em; }
 </style>
 
-    <script src="static/js/modules/grammar-hub.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/grammar-hub.js?v=2.6.0" defer></script>
 
             <div id="view-vocab" class="hidden max-w-5xl mx-auto w-full pb-32">
     
@@ -4686,7 +4686,7 @@ window.addEventListener('error', function(e) {
 <div id="view-flashcard" class="hidden flex flex-wrap items-start justify-center gap-8 pt-4 sm:pt-8 pb-32 max-w-[860px] mx-auto overflow-x-hidden">
     <div class="flex flex-col items-center max-w-[500px] min-w-[min(500px,100%)]">
 
-        <div id="fc-card-wrapper" class="relative w-full max-w-[500px] h-[380px] sm:h-[460px] perspective-1000 mb-4 sm:mb-6 mx-auto group z-10 select-none" style="touch-action: pan-y;" onclick="flipFlashcard()">
+        <div id="fc-card-wrapper" class="relative w-full max-w-[500px] h-[380px] sm:h-[460px] perspective-1000 mb-4 sm:mb-6 mx-auto group z-10 select-none" style="touch-action: pan-y;" onclick="flipFlashcard(event)">
             <span id="fc-counter" class="absolute top-4 left-1/2 -translate-x-1/2 z-20 text-[10px] font-bold text-slate-400 bg-white/80 px-2.5 py-1 rounded-full pointer-events-none backdrop-blur-sm">0 / 0</span>
             <div id="flashcard-inner" class="relative w-full h-full text-left flip-transition transform-style-3d shadow-td hover:shadow-td-hover rounded-[32px] cursor-pointer">
                 <div id="fc-face-front" class="absolute w-full h-full backface-hidden bg-white border border-slate-100 rounded-[32px] flex flex-col items-center justify-center">
@@ -4699,7 +4699,7 @@ window.addEventListener('error', function(e) {
 
                     <span id="fc-hanzi" class="z-10 font-tc text-black text-center px-4 break-words">你</span>
                     
-                    <button id="fc-audio-btn" data-text="" onclick="playTTS(this.getAttribute('data-text'), event)" class="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center md:hover:bg-slate-200 md:hover:text-slate-700 active:bg-primary active:text-white transition-all shadow-sm z-20 outline-none border-0 shrink-0">
+                    <button id="fc-audio-btn" data-text="" onclick="playTTS(this.getAttribute('data-text') || (document.getElementById('fc-hanzi') && document.getElementById('fc-hanzi').innerText), event)" class="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center md:hover:bg-slate-200 md:hover:text-slate-700 active:bg-primary active:text-white transition-all shadow-sm z-20 outline-none border-0 shrink-0">
                         <i class="fa-solid fa-volume-high text-lg sm:text-xl pointer-events-none"></i>
                     </button>
                     
@@ -4824,7 +4824,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/srs-engine.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/srs-engine.js?v=2.6.0" defer></script>
             <div id="view-listening" class="hidden max-w-xl mx-auto flex-col items-center pt-1 sm:pt-6 pb-6 sm:pb-32 px-2 sm:px-0">
     <div class="w-full max-w-xl mx-auto flex justify-between items-center px-1 sm:px-0 mb-2 sm:mb-4 flex-nowrap gap-1">
         <div class="bg-white rounded-[20px] px-2 py-1 sm:px-6 sm:py-2.5 shadow-sm font-bold text-[11px] sm:text-sm text-slate-500 border border-slate-100 flex items-center justify-center tracking-wide shrink-0 whitespace-nowrap">
@@ -4897,7 +4897,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/writing.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/writing.js?v=2.6.0" defer></script>
 
             <!-- ========================================== -->
             <!-- VIEW: LUYỆN VIẾT CHỮ HÁN (STROKE WRITING STUDIO) -->
@@ -5063,7 +5063,7 @@ window.addEventListener('error', function(e) {
 
             </div>
 
-    <script src="static/js/modules/stroke-writer.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/stroke-writer.js?v=2.6.0" defer></script>
 
             <div id="view-quiz" class="hidden max-w-3xl mx-auto pt-0 sm:pt-2 pb-32">
     <div class="w-full flex justify-between items-center px-1 sm:px-0 mb-3.5 sm:mb-4 flex-nowrap" id="quiz-header">
@@ -7512,7 +7512,7 @@ window.addEventListener('error', function(e) {
 @keyframes examBlankPulse{0%,100%{box-shadow:0 0 0 0 rgba(234,88,12,.35)}50%{box-shadow:0 0 0 6px rgba(234,88,12,0)}}
 .exam-active-blank{background:#fed7aa;color:#9a3412;border-radius:6px;padding:1px 4px;font-weight:900;animation:examBlankPulse 1.6s ease-in-out infinite}</style>
 
-    <script src="static/js/modules/tocfl-exam.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/tocfl-exam.js?v=2.6.0" defer></script>
             <div id="view-calculator" class="hidden max-w-7xl mx-auto pb-32">
     <div class="mb-6 sm:mb-8">
         <h2 class="text-xl sm:text-2xl md:text-[28px] font-black text-brandNavy tracking-tight">Công Cụ Tính Điểm TOCFL</h2>
@@ -7893,7 +7893,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/radicals.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/radicals.js?v=2.6.0" defer></script>
 
             <div id="view-dict-lookup" class="hidden max-w-7xl mx-auto w-full pb-32">
     <div class="mb-5">
@@ -8003,7 +8003,7 @@ window.addEventListener('error', function(e) {
 /* Mobile: cột trái/phải gộp thành nút mở drawer */
 </style>
 
-    <script src="static/js/modules/dict-lookup.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/dict-lookup.js?v=2.6.0" defer></script>
 
             <div id="view-luong-tu" class="hidden max-w-6xl mx-auto w-full pb-32">
 
@@ -8074,7 +8074,7 @@ window.addEventListener('error', function(e) {
 
 </div>
 
-    <script src="static/js/modules/measure-words.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/measure-words.js?v=2.6.0" defer></script>
 
             <div id="view-shadowing" class="hidden w-full">
     <style>
@@ -8428,7 +8428,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/shadowing.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/shadowing.js?v=2.6.0" defer></script>
 <div id="view-dictation" class="hidden w-full">
     <style>
         .dt-cue { flex: 0 0 auto; }
@@ -8633,7 +8633,7 @@ window.addEventListener('error', function(e) {
     </div>
 </div>
 
-    <script src="static/js/modules/dictation.js?v=2.5.9" defer></script>
+    <script src="static/js/modules/dictation.js?v=2.6.0" defer></script>
 
             <style>
   /* Hộp highlight cụm chữ được chọn */
@@ -13722,7 +13722,7 @@ window.addEventListener('error', function(e) {
 
             window.addEventListener('load', () => {
                 const isGh = window.location.hostname.includes('github.io');
-                const swUrl = isGh ? 'sw.js?v=2.5.9' : '/sw.js?v=2.5.9';
+                const swUrl = isGh ? 'sw.js?v=2.6.0' : '/sw.js?v=2.6.0';
                 const swScope = isGh ? './' : '/';
                 navigator.serviceWorker.register(swUrl, { scope: swScope })
                     .then((reg) => {

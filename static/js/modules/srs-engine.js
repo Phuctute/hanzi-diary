@@ -656,7 +656,7 @@ let fcSrsScope = 'lesson';
                 return;
             }
             if (e.target.closest('.fc-example-item, #fc-examples, #fc-contexts-section, .fc-interactive-text, button, a')) {
-                e.stopImmediatePropagation();
+                e.stopPropagation(); // allow button onclick to fire, only block flipFlashcard() on wrapper
                 return;
             }
         }, true);

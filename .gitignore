@@ -15,3 +15,5 @@ data/tts_cache/
 *.bak
 *.bak_*
 *.patch_backup
+
+book2.pdf
